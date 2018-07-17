@@ -1,0 +1,27 @@
+.d2ui-button {
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 0;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02875rem;
+    line-height: 0.9375rem;
+    padding: 10px 16px 11px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.15s ease-in-out;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &.flat,
+    &.raised {
+        border-width: 1px;
+    }
+}
