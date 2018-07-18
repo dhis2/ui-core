@@ -95,3 +95,28 @@ caption {
     font-weight: 400;
     letter-spacing: 0.03333em;
 }
+
+a {
+    text-decoration: none;
+
+    &:link,
+    &:visited {
+        text-decoration: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: underline;
+    }
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
+
+[data-d2ui-tooltip]:after {
+    color: #ffffff;
+    background-color: #494944;
+}

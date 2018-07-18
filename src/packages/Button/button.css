@@ -1,27 +1,72 @@
 .d2ui-button {
+    align-items: center;
     background-color: transparent;
     border-color: transparent;
-    border-width: 0;
+    border-width: 1px;
+    border-radius: 2px;
     cursor: pointer;
+    display: inline-flex;
     font-size: 0.8125rem;
     font-weight: 500;
+    justify-content: center;
     letter-spacing: 0.02875rem;
     line-height: 0.9375rem;
-    padding: 10px 16px 11px 16px;
+    /* Reduced padding by 1px to compensate for the added border width */
+    padding: 0.5625rem 0.9375rem 0.625rem 0.9375rem;
+    position: relative;
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.15s ease-in-out;
+    transition-property: background-color, box-shadow, border-color, color;
+    vertical-align: middle;
 
-    &:disabled {
+    .material-icons {
+        line-height: 0.9375rem;
+        margin-right: 0.75rem;
+    }
+
+    &:disabled,
+    &.disabled {
         cursor: not-allowed;
     }
 
     &:focus {
+        /* Prevent default browser behavior whcih adds an outline */
         outline: none;
     }
 
-    &.flat,
-    &.raised {
-        border-width: 1px;
+    &.outlined,
+    &.circle {
+        border-width: 2px;
+        /* Reduced padding by 2px to compensate for the added border width */
+        padding: 0.5rem 0.875rem 0.5625rem 0.875rem;
+    }
+
+    &.primary,
+    &.raised,
+    &.circle {
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12),
+            0 1px 3px 0 rgba(0, 0, 0, 0.2);
+
+        &:disabled,
+        &.disabled {
+            box-shadow: none;
+        }
+    }
+
+    &.circle {
+        border-radius: 50%;
+        padding: 0;
+
+        .material-icons {
+            margin-right: 0;
+            line-height: 2rem;
+            font-size: 2rem;
+        }
+    }
+
+    &.in-dropdown {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 }
