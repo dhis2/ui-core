@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import * as VARIANTS from './variants';
 import Icon from '../Icon';
-import '../../theme/index.css';
 import './button.css';
 
 const getIconElement = icon =>
@@ -11,8 +10,10 @@ const getIconElement = icon =>
 
 const isCircle = variant => variant === VARIANTS.CIRCLE;
 
-const Button = ({ variant, icon, label, inDropdown, ...rest }) => {
-    const btnClass = classNames('d2ui-button', variant, { 'in-dropdown': inDropdown });
+const Button = ({ variant, icon, label, ...rest }) => {
+    const btnClass = classNames('d2ui-button', variant, {
+        'icon-only': Boolean(icon && !label),
+    });
     const IconElement = getIconElement(icon);
 
     return (
@@ -25,21 +26,25 @@ const Button = ({ variant, icon, label, inDropdown, ...rest }) => {
 
 Button.propTypes = {
     variant: PropTypes.string.isRequired,
-    label: ({ label, variant }, propName, componentName) => {
-        if (!isCircle(variant) && (!label || typeof label !== 'string')) {
+    label: ({ label, icon }, propName, componentName) => {
+        if (!label && !icon) {
             return new Error(
-                `${componentName} component in ${variant} mode requires a ${propName}.`
+                `${componentName} component requires at least a label, or an icon ${propName}.`
+            );
+        }
+        if (label && typeof label !== 'string') {
+            return new Error(
+                `Property ${propName} for ${componentName} component should be a string.`
             );
         }
     },
-    inDropdown: PropTypes.bool,
     icon: ({ icon, variant }, propName, componentName) => {
-        if (icon && !(typeof icon === 'string' || React.isValidElement(icon))) {
+        if (icon && !isValidIcon(icon)) {
             return new Error(
                 `Property ${propName} for ${componentName} component can be a either a React element or a string.`
             );
         }
-        if (variant === VARIANTS.CIRCLE && !icon) {
+        if (isCircle(variant) && !icon) {
             return new Error(
                 `${componentName} component in ${VARIANTS.CIRCLE} mode requires an icon.`
             );
@@ -47,9 +52,10 @@ Button.propTypes = {
     },
 };
 
+const isValidIcon = icon => typeof icon === 'string' || React.isValidElement(icon);
+
 Button.defaultProps = {
     icon: null,
-    inDropdown: false,
 };
 
 export default Button;

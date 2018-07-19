@@ -251,4 +251,14 @@ body {
             background-color: #eceff1;
         }
     }
+    [data-d2ui-tooltip]:after {
+        color: #ffffff;
+        background-color: #494944;
+    }
+    .d2ui-paper {
+        background-color: #ffffff;
+    }
+    .d2ui-menu-item:hover {
+        background-color: #eceff1;
+    }
 }

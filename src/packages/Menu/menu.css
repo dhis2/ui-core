@@ -1,0 +1,22 @@
+.d2ui-menu {
+    padding: 0.5rem 0;
+}
+.d2ui-menu-item {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.25rem 1rem 0 1rem;
+    transition: background-color 150ms ease-in-out;
+    cursor: pointer;
+    min-width: 150px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2.25rem;
+    vertical-align: baseline;
+
+    .material-icons {
+        /* To make sure event.target of the click handler is always the button */
+        pointer-events: none;
+        line-height: 2rem;
+        margin-right: 0.75rem;
+    }
+}

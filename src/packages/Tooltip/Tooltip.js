@@ -26,9 +26,7 @@ const Tooltip = ({ text, position, multiline, children: child }) => {
         tooltipProps['data-d2ui-tooltip-multiline'] = true;
     }
 
-    return (
-        <React.Fragment>{React.cloneElement(child, { ...tooltipProps })}</React.Fragment>
-    );
+    return React.cloneElement(child, { ...tooltipProps });
 };
 
 Tooltip.propTypes = {

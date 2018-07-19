@@ -2,15 +2,15 @@
     position: relative;
 
     &:after {
-        border-radius: 0.375rem;
+        border-radius: 0.125rem;
         content: attr(data-d2ui-tooltip);
-        font-size: 0.875rem;
-        font-weight: 400;
-        letter-spacing: 0.01786em;
-        line-height: 1.25rem;
+        text-transform: initial;
+        font-size: 0.625rem;
+        line-height: 0.75rem;
+        font-weight: 700;
         opacity: 0;
         overflow: hidden;
-        padding: 0.25rem 0.75rem;
+        padding: 0.25rem 0.5rem;
         position: absolute;
         /* Delay hide on mouse-out as per material design specs:
            https://material.io/design/components/tooltips.html#behavior */

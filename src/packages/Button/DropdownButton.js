@@ -1,20 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 import { DropdownMenu } from '../Menu';
-import { DROPDOWN } from './variants';
+import { PRIMARY, RAISED } from './variants';
 
-const DropdownButton = ({ dropdownMenuProps, ...rest }) => {
-    return (
-        <div>
-            <Button type={DROPDOWN} {...rest} />
-            <DropdownMenu {...dropdownMenuProps} />
-        </div>
-    );
-};
+class DropdownButton extends Component {
+    constructor(props) {
+        super(props);
+        this.anchorRef = null;
+    }
+
+    getAnchorRef = () => this.anchorRef;
+    setAnchorRef = node => (this.anchorRef = node);
+
+    render() {
+        const { options, variant, dropdownMenuProps, ...rest } = this.props;
+        return (
+            <div ref={this.setAnchorRef} className="d2ui-dropdown-button">
+                <Button variant={variant} {...rest} />
+                <DropdownMenu
+                    {...dropdownMenuProps}
+                    options={options}
+                    variant={variant}
+                    getAnchorRef={this.getAnchorRef}
+                />
+            </div>
+        );
+    }
+}
 
 DropdownButton.propTypes = {
-    dropdownMenuProps: PropTypes.object.isRequired,
+    // prettier-ignore
+    options: PropTypes.arrayOf(PropTypes.oneOfType(
+        [PropTypes.object, PropTypes.element])
+    ).isRequired,
+    variant: PropTypes.oneOf([PRIMARY, RAISED]),
+    dropdownMenuProps: PropTypes.object,
+};
+
+DropdownButton.defaultProps = {
+    variant: PRIMARY,
 };
 
 export default DropdownButton;

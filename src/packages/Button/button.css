@@ -20,7 +20,17 @@
     transition-property: background-color, box-shadow, border-color, color;
     vertical-align: middle;
 
+    &.icon-only {
+        padding: 0.5625rem 0.5625rem 0.625rem 0.5625rem;
+
+        .material-icons {
+            margin-right: 0;
+        }
+    }
+
     .material-icons {
+        /* To make sure event.target of the click handler is always the button */
+        pointer-events: none;
         line-height: 0.9375rem;
         margin-right: 0.75rem;
     }
@@ -59,14 +69,22 @@
         padding: 0;
 
         .material-icons {
-            margin-right: 0;
             line-height: 2rem;
             font-size: 2rem;
         }
     }
+}
+.d2ui-dropdown-button {
+    display: inline-flex;
 
-    &.in-dropdown {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
+    .d2ui-button {
+        &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        &:nth-child(2) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
     }
 }

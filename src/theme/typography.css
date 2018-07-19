@@ -115,8 +115,3 @@ a {
         outline: none;
     }
 }
-
-[data-d2ui-tooltip]:after {
-    color: #ffffff;
-    background-color: #494944;
-}
