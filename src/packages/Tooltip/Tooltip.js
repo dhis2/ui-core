@@ -8,7 +8,7 @@ const BOTTOM = 'bottom';
 const LEFT = 'left';
 
 /**
- * The tooltip relies on having on child element only.
+ * The tooltip relies on having one child element only.
  * If this this condition is not met it will just render the child
  * elements as provided. It will also throw a prop types error
  */
