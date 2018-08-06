@@ -22,6 +22,8 @@
 
     &.icon-only {
         padding: 0.5625rem 0.5625rem 0.625rem 0.5625rem;
+        height: 2.25rem;
+        width: 2.25rem;
 
         .material-icons {
             margin-right: 0;
@@ -32,6 +34,7 @@
         /* To make sure event.target of the click handler is always the button */
         pointer-events: none;
         line-height: 0.9375rem;
+        height: 0.9375rem;
         margin-right: 0.75rem;
     }
 
@@ -67,11 +70,6 @@
     &.circle {
         border-radius: 50%;
         padding: 0;
-
-        .material-icons {
-            line-height: 2rem;
-            font-size: 2rem;
-        }
     }
 }
 .d2ui-dropdown-button {

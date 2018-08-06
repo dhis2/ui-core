@@ -235,6 +235,14 @@ body {
             }
         }
     }
+    .d2ui-dropdown-button {
+        .d2ui-button {
+            &:nth-child(2):focus {
+                border-color: #033976;
+                background-color: #033976;
+            }
+        }
+    }
     a {
         color: #004ba0;
 
