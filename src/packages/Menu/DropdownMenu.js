@@ -40,6 +40,8 @@ class DropdownMenu extends Component {
                     open={popupOpen}
                     closePopover={this.closePopover}
                     getAnchorRef={getAnchorRef}
+                    anchorAttachPoint={{ vertical: 'bottom', horizontal: 'right' }}
+                    popoverAttachPoint={{ vertical: 'top', horizontal: 'right' }}
                 >
                     <Menu
                         options={options}
