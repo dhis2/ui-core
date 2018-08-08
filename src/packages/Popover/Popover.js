@@ -26,7 +26,7 @@ class Popover extends Component {
     };
 
     positionPopup() {
-        const { getAnchorRef, horizontalAlignment, verticalAlignment } = this.props;
+        const { getAnchorRef, anchorAttachPoint, popoverAttachPoint } = this.props;
         const triggerEl = ReactDOM.findDOMNode(getAnchorRef());
 
         if (triggerEl && this.popupRef) {
@@ -35,8 +35,8 @@ class Popover extends Component {
                     ...computePosition(
                         this.popupRef,
                         triggerEl,
-                        horizontalAlignment,
-                        verticalAlignment
+                        anchorAttachPoint,
+                        popoverAttachPoint
                     ),
                     opacity: 1,
                 },
@@ -63,6 +63,17 @@ class Popover extends Component {
     }
 }
 
+const attachPointPropType = PropTypes.shape({
+    vertical: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.oneOf([TOP, MIDDLE, BOTTOM]),
+    ]).isRequired,
+    horizontal: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.oneOf([LEFT, CENTER, RIGHT]),
+    ]).isRequired,
+});
+
 Popover.propTypes = {
     open: PropTypes.bool.isRequired,
     getAnchorRef: PropTypes.func.isRequired,
@@ -72,13 +83,19 @@ Popover.propTypes = {
         PropTypes.element,
         PropTypes.arrayOf(PropTypes.element),
     ]),
-    verticalAlignment: PropTypes.oneOf([TOP, MIDDLE, BOTTOM]),
-    horizontalAlignment: PropTypes.oneOf([LEFT, CENTER, RIGHT]),
+    anchorAttachPoint: attachPointPropType,
+    popoverAttachPoint: attachPointPropType,
 };
 
 Popover.defaultProps = {
-    verticalAlignment: BOTTOM,
-    horizontalAlignment: RIGHT,
+    anchorAttachPoint: {
+        vertical: 'middle',
+        horizontal: 'center',
+    },
+    popoverAttachPoint: {
+        vertical: 'middle',
+        horizontal: 'center',
+    },
 };
 
 export default Popover;

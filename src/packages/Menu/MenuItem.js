@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, isValidElement, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
+import SubMenu from './SubMenu';
 
 class MenuItem extends Component {
     selectHandler = event => {
@@ -8,25 +9,36 @@ class MenuItem extends Component {
         const { value, selectHandler } = option;
         const handler = selectHandler || itemSelectHandler;
         handler(event, value, this.props.option);
-        closePopover();
+        closePopover && closePopover();
     };
 
-    renderOptionFromObject() {
-        const { label, icon } = this.props.option;
+    renderMenuItemContent() {
+        const { option, secundaryIcon } = this.props;
+
+        if (isValidElement(option)) {
+            return option;
+        }
+
+        const { label, icon } = option;
         return (
-            <React.Fragment>
+            <Fragment>
                 {icon && <Icon name={icon} />}
                 {label}
-            </React.Fragment>
+                {secundaryIcon && <Icon className="secundary" name={secundaryIcon} />}
+            </Fragment>
         );
     }
 
     render() {
-        const { option } = this.props;
+        const { option, itemSelectHandler } = this.props;
+
+        if (option.menuItems) {
+            return <SubMenu {...option} itemSelectHandler={itemSelectHandler} />;
+        }
 
         return (
             <li className="d2ui-menu-item" onClick={this.selectHandler}>
-                {React.isValidElement(option) ? option : this.renderOptionFromObject()}
+                {this.renderMenuItemContent()}
             </li>
         );
     }
@@ -39,11 +51,14 @@ MenuItem.propTypes = {
             label: PropTypes.string,
             icon: PropTypes.string,
             selectHandler: PropTypes.func,
+            menuItems: PropTypes.arrayOf(
+                PropTypes.oneOfType([PropTypes.element, PropTypes.object])
+            ),
         }),
         PropTypes.element,
     ]),
     itemSelectHandler: PropTypes.func,
-    closePopover: PropTypes.func.isRequired,
+    closePopover: PropTypes.func,
 };
 
 export default MenuItem;

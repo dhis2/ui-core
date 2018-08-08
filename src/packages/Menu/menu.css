@@ -18,5 +18,10 @@
         pointer-events: none;
         line-height: 2rem;
         margin-right: 0.75rem;
+
+        &.secundary {
+            margin-left: auto;
+            margin-right: 0;
+        }
     }
 }
