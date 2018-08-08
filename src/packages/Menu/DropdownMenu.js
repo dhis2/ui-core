@@ -1,55 +1,41 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Menu from './Menu';
 import { Button } from '../Button';
 import { PRIMARY, RAISED } from '../Button/variants';
-import Popover from '../Popover';
+import PopoverMenu from './PopoverMenu';
 
 class DropdownMenu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            popupOpen: false,
+            popoverOpen: false,
         };
     }
 
-    openPopup = () => {
-        this.setState({ popupOpen: true });
+    openPopover = () => {
+        this.setState({ popoverOpen: true });
     };
+
     closePopover = () => {
-        this.setState({ popupOpen: false });
+        this.setState({ popoverOpen: false });
     };
 
     render() {
-        const {
-            options,
-            variant,
-            itemSelectHandler,
-            getAnchorRef,
-            ...props
-        } = this.props;
-        const { popupOpen } = this.state;
+        const { variant, ...props } = this.props;
+        const { popoverOpen } = this.state;
+
         return (
             <React.Fragment>
                 <Button
                     variant={variant}
                     icon="keyboard_arrow_down"
-                    onClick={this.openPopup}
+                    onClick={this.openPopover}
                 />
-                <Popover
-                    open={popupOpen}
+                <PopoverMenu
+                    {...props}
+                    open={popoverOpen}
                     closePopover={this.closePopover}
-                    getAnchorRef={getAnchorRef}
-                    anchorAttachPoint={{ vertical: 'bottom', horizontal: 'right' }}
-                    popoverAttachPoint={{ vertical: 'top', horizontal: 'right' }}
-                >
-                    <Menu
-                        options={options}
-                        itemSelectHandler={itemSelectHandler}
-                        closePopover={this.closePopover}
-                        {...props}
-                    />
-                </Popover>
+                />
             </React.Fragment>
         );
     }
@@ -57,9 +43,6 @@ class DropdownMenu extends Component {
 
 DropdownMenu.propTypes = {
     variant: PropTypes.oneOf([PRIMARY, RAISED]).isRequired,
-    options: PropTypes.array.isRequired,
-    getAnchorRef: PropTypes.func.isRequired,
-    itemSelectHandler: PropTypes.func,
 };
 
 export default DropdownMenu;

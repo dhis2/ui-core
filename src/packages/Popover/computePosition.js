@@ -1,3 +1,5 @@
+import { isRtl } from '../../utils';
+
 export const TOP = 'top';
 export const MIDDLE = 'middle';
 export const BOTTOM = 'bottom';
@@ -6,6 +8,10 @@ export const CENTER = 'center';
 export const RIGHT = 'right';
 
 export default function(targetEl, anchorEl, anchorAttachPoint, popoverAttachPoint) {
+    if (isRtl()) {
+        flipHorizontal([anchorAttachPoint, popoverAttachPoint]);
+    }
+
     const anchorPosition = getAnchorPosition(anchorEl, anchorAttachPoint);
     const virtualPosition = getRelativePosition(
         targetEl,
@@ -15,6 +21,16 @@ export default function(targetEl, anchorEl, anchorAttachPoint, popoverAttachPoin
     const restrictedPosition = getWindowContainedPosition(virtualPosition);
 
     return restrictedPosition;
+}
+
+function flipHorizontal(attachPoints) {
+    attachPoints.forEach(point => {
+        if (point.horizontal === LEFT) {
+            point.horizontal = RIGHT;
+        } else if (point.horizontal === RIGHT) {
+            point.horizontal = LEFT;
+        }
+    });
 }
 
 function getAnchorPosition(el, anchorAttachPoint) {

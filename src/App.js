@@ -26,7 +26,16 @@ const dropdownOptions = [
         icon: 'alarm',
     },
     { value: 2, label: 'two', icon: 'alarm' },
-    { value: 3, label: 'Three', icon: 'face' },
+    {
+        value: 3,
+        label: 'Three',
+        icon: 'face',
+        menuItems: [
+            { value: 1, label: 'sub-one', icon: 'alarm' },
+            { value: 2, label: 'sub-two' },
+            { value: 1, label: 'sub-three', icon: 'alarm' },
+        ],
+    },
     { value: 4, label: 'Four', icon: 'alarm' },
     { value: 5, label: 'Five', icon: 'alarm' },
 ];
