@@ -7,11 +7,7 @@ import './tooltip.css';
  * If this this condition is not met it will just render the child
  * elements as provided. It will also throw a prop types error
  */
-const Tooltip = ({ text, position, multiline, children: child }) => {
-    if (React.Children.count(child) !== 1 || !text) {
-        return child;
-    }
-
+const Tooltip = ({ text, position, multiline, children }) => {
     const tooltipProps = {
         'data-d2ui-tooltip': text,
         'data-d2ui-tooltip-position': position,
@@ -21,13 +17,11 @@ const Tooltip = ({ text, position, multiline, children: child }) => {
         tooltipProps['data-d2ui-tooltip-multiline'] = true;
     }
 
-    // DOM nodes
-    if (typeof child.type === 'string') {
-        return React.cloneElement(child, { ...tooltipProps });
-    }
-
-    // React elements
-    return React.cloneElement(child, { tooltipProps });
+    return (
+        <a className="d2ui-tooltip" {...tooltipProps}>
+            {children}
+        </a>
+    )
 };
 
 Tooltip.propTypes = {
