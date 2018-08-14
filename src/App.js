@@ -175,14 +175,6 @@ class App extends Component {
                         <Icon name="face" />Static item 4<Icon name="face" />
                     </MenuItem>
                 </Menu>
-                
-                <Tooltip text="heyooo" position="top">
-                    <div>Foobar Tooltip</div>
-                </Tooltip>
-
-                <Tooltip text="bonk bonk" position="right">
-                    <p>Foo</p>
-                </Tooltip>
             </Paper>
         );
     }
