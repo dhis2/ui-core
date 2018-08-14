@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 import { DropdownMenu } from '../Menu';
-import classNames from 'classnames';
 
 class DropdownButton extends Component {
     constructor(props) {
@@ -14,7 +13,7 @@ class DropdownButton extends Component {
     setAnchorRef = node => (this.anchorRef = node);
 
     render() {
-        const { options, buttonProps, className, menuProps, children } = this.props;
+        const { options, buttonProps, menuProps, children } = this.props;
 
         const mergedMenuProps = {
             ...menuProps,
@@ -22,10 +21,7 @@ class DropdownButton extends Component {
         };
 
         return (
-            <div
-                ref={this.setAnchorRef}
-                className={classNames('d2ui-dropdown-button', className)}
-            >
+            <div ref={this.setAnchorRef} className="d2ui-dropdown-button">
                 <Button {...buttonProps}>{children}</Button>
                 <DropdownMenu
                     buttonVariant={buttonProps.variant}
@@ -39,7 +35,6 @@ class DropdownButton extends Component {
 
 DropdownButton.propTypes = {
     children: PropTypes.node.isRequired,
-    className: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.element]))
         .isRequired,
     buttonProps: PropTypes.object.isRequired,
