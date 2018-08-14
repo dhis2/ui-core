@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './paper.css';
 
-const Paper = ({ elevation, children, padded, ...props }) => (
+const Paper = ({ elevation, children, padded, className, style }) => (
     <div
-        className={classNames('d2ui-paper', `elevation-${elevation}dp`, {
+        className={classNames('d2ui-paper', className, `elevation-${elevation}dp`, {
             padded: padded,
         })}
-        {...props}
+        style={style}
     >
         {children}
     </div>
@@ -16,11 +16,10 @@ const Paper = ({ elevation, children, padded, ...props }) => (
 
 Paper.propTypes = {
     elevation: PropTypes.oneOf([0, 1, 2, 3, 4, 6, 12, 24]),
+    className: PropTypes.string,
     padded: PropTypes.bool,
-    children: PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.arrayOf(PropTypes.element),
-    ]),
+    children: PropTypes.node,
+    style: PropTypes.object,
 };
 
 Paper.defaultProps = {

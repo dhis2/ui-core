@@ -1,2 +1,1 @@
-const isRtl = () => document.documentElement.getAttribute('dir') === 'rtl';
-export default isRtl;
+export default () => document.documentElement.getAttribute('dir') === 'rtl';

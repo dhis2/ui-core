@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 import { DropdownMenu } from '../Menu';
-import { PRIMARY, RAISED } from './variants';
+import classNames from 'classnames';
 
 class DropdownButton extends Component {
     constructor(props) {
@@ -14,15 +14,23 @@ class DropdownButton extends Component {
     setAnchorRef = node => (this.anchorRef = node);
 
     render() {
-        const { options, variant, dropdownMenuProps, ...rest } = this.props;
+        const { options, buttonProps, className, menuProps, children } = this.props;
+
+        const mergedMenuProps = {
+            ...menuProps,
+            options,
+        };
+
         return (
-            <div ref={this.setAnchorRef} className="d2ui-dropdown-button">
-                <Button variant={variant} {...rest} />
+            <div
+                ref={this.setAnchorRef}
+                className={classNames('d2ui-dropdown-button', className)}
+            >
+                <Button {...buttonProps}>{children}</Button>
                 <DropdownMenu
-                    {...dropdownMenuProps}
-                    options={options}
-                    variant={variant}
+                    buttonVariant={buttonProps.variant}
                     getAnchorRef={this.getAnchorRef}
+                    menuProps={mergedMenuProps}
                 />
             </div>
         );
@@ -30,16 +38,12 @@ class DropdownButton extends Component {
 }
 
 DropdownButton.propTypes = {
-    // prettier-ignore
-    options: PropTypes.arrayOf(PropTypes.oneOfType(
-        [PropTypes.object, PropTypes.element])
-    ).isRequired,
-    variant: PropTypes.oneOf([PRIMARY, RAISED]),
-    dropdownMenuProps: PropTypes.object,
-};
-
-DropdownButton.defaultProps = {
-    variant: PRIMARY,
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.element]))
+        .isRequired,
+    buttonProps: PropTypes.object.isRequired,
+    menuProps: PropTypes.object,
 };
 
 export default DropdownButton;

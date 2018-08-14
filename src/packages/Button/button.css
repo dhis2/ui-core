@@ -20,24 +20,36 @@
     transition-property: background-color, box-shadow, border-color, color;
     vertical-align: middle;
 
-    &.icon-only {
-        padding: 0.5625rem 0.5625rem 0.625rem 0.5625rem;
-        height: 2.25rem;
-        width: 2.25rem;
+    /* To make sure event.target of the click handler is always the button, 
+       span and icon get pointer-events: none */
+    span {
+        pointer-events: none;
+    }
 
-        .material-icons {
+    /* ICON STYLE */
+    .material-icons {
+        pointer-events: none;
+        line-height: 0.9375rem;
+        height: 0.9375rem;
+        width: 1.5rem;
+
+        &:first-child {
+            margin-right: 0.75rem;
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+            margin-left: 0.75rem;
+        }
+
+        &:only-child {
+            margin-left: 0;
             margin-right: 0;
         }
     }
 
-    .material-icons {
-        /* To make sure event.target of the click handler is always the button */
-        pointer-events: none;
-        line-height: 0.9375rem;
-        height: 0.9375rem;
-        margin-right: 0.75rem;
-    }
-
+    /* STATES */
     &:disabled,
     &.disabled {
         cursor: not-allowed;
@@ -48,6 +60,7 @@
         outline: none;
     }
 
+    /* VARIANTS */
     &.outlined,
     &.circle {
         border-width: 2px;
@@ -68,8 +81,165 @@
     }
 
     &.circle {
+        padding: 0.5625rem 0.5625rem 0.625rem 0.5625rem;
+        height: 2.25rem;
+        width: 2.25rem;
         border-radius: 50%;
         padding: 0;
+    }
+
+    /* SIZES */
+    &.small {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.875rem 0.5625rem 0.875rem;
+
+        .material-icons {
+            line-height: 0.875rem;
+            height: 0.875rem;
+            width: 1.4375rem;
+
+            &:first-child {
+                margin-right: 0.6875rem;
+            }
+
+            &:last-child {
+                margin-left: 0.6875rem;
+            }
+        }
+
+        &.circle {
+            height: 1.875rem;
+            width: 1.875rem;
+
+            .material-icons {
+                margin: 0;
+                line-height: 0.625rem;
+            }
+        }
+    }
+    &.large {
+        font-size: 0.9375rem;
+        padding: 10px 16px 11px 16px;
+
+        .material-icons {
+            line-height: 1rem;
+            height: 1rem;
+            width: 1.5625rem;
+
+            &:first-child {
+                margin-right: 0.8125rem;
+            }
+
+            &:last-child {
+                margin-left: 0.8125rem;
+            }
+        }
+
+        &.circle {
+            height: 3.5rem;
+            width: 3.5rem;
+
+            .material-icons {
+                margin: 0;
+            }
+        }
+    }
+
+    /* COLORS */
+    &.flat {
+        color: #004ba0;
+
+        &:hover {
+            background-color: rgba(234, 244, 255, 0.4);
+        }
+        &:active {
+            background-color: #eaf4ff;
+        }
+        &:focus {
+            background-color: #ffffff;
+            border-color: #004ba0;
+        }
+        &:disabled {
+            background-color: transparent;
+            color: #9e9e9e;
+        }
+    }
+    &.raised {
+        color: #004ba0;
+        background-color: #ffffff;
+
+        &:hover {
+            background-color: rgba(234, 244, 255, 0.4);
+        }
+        &:active {
+            background-color: #eaf4ff;
+        }
+        &:focus {
+            background-color: rgba(234, 244, 255, 0.4);
+            border-color: rgba(0, 75, 160, 0.8);
+        }
+        &:disabled,
+        &.disabled {
+            background-color: rgba(153, 153, 153, 0.1);
+            color: rgba(0, 75, 160, 0.5);
+        }
+    }
+    &.primary {
+        color: #ffffff;
+        background-color: #004ba0;
+
+        &:hover {
+            background-color: #1976d2;
+        }
+        &:active {
+            background-color: #033976;
+        }
+        &:focus {
+            background-color: #004ba0;
+            border-color: #63a4ff;
+        }
+        &:disabled,
+        &.disabled {
+            background-color: #e3f2fd;
+            color: #9e9e9e;
+        }
+    }
+
+    &.outlined {
+        color: #004ba0;
+        background-color: #f8f8f8;
+        border-color: rgba(0, 75, 160, 0.8);
+
+        &:hover,
+        &:focus {
+            background-color: rgba(234, 244, 255, 0.4);
+        }
+        &:active {
+            background-color: #eaf4ff;
+        }
+        &:disabled {
+            background-color: rgba(153, 153, 153, 0.1);
+            color: rgba(0, 75, 160, 0.5);
+            border-color: rgba(0, 75, 160, 0.5);
+        }
+    }
+    &.circle {
+        color: #ffffff;
+        background-color: #61a799;
+
+        &:hover {
+            background-color: #31776b;
+        }
+        &:active {
+            background-color: #1c4b40;
+        }
+        &:focus {
+            background-color: #31776b;
+            border-color: #54c0a4;
+        }
+        &:disabled {
+            background-color: #badedb;
+        }
     }
 }
 .d2ui-dropdown-button {
@@ -83,6 +253,18 @@
         &:nth-child(2) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
+            padding-left: 0.5625rem;
+            padding-right: 0.5625rem;
+
+            /* Use hover color for dropdown section of the dropdownbutton */
+            &.raised:focus {
+                border-color: rgba(234, 244, 255, 0.4);
+                background-color: rgba(234, 244, 255, 0.4);
+            }
+            &.primary:focus {
+                border-color: #033976;
+                background-color: #033976;
+            }
         }
     }
 }

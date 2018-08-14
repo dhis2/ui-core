@@ -2,6 +2,7 @@
     margin: 0 auto 0;
     position: relative;
     border-radius: 2px;
+    background-color: #ffffff;
 
     &.padded {
         padding: 2rem 5rem 4rem;

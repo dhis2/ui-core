@@ -79,10 +79,7 @@ Popover.propTypes = {
     getAnchorRef: PropTypes.func.isRequired,
     closePopover: PropTypes.func.isRequired,
     style: PropTypes.object,
-    children: PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.arrayOf(PropTypes.element),
-    ]),
+    children: PropTypes.node,
     anchorAttachPoint: attachPointPropType,
     popoverAttachPoint: attachPointPropType,
 };

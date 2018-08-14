@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Button } from '../Button';
 import { PRIMARY, RAISED } from '../Button/variants';
 import PopoverMenu from './PopoverMenu';
+import Icon from '../Icon';
 
 class DropdownMenu extends Component {
     constructor(props) {
@@ -21,20 +22,21 @@ class DropdownMenu extends Component {
     };
 
     render() {
-        const { variant, ...props } = this.props;
+        const { buttonVariant, getAnchorRef, menuProps } = this.props;
         const { popoverOpen } = this.state;
 
         return (
             <React.Fragment>
-                <Button
-                    variant={variant}
-                    icon="keyboard_arrow_down"
-                    onClick={this.openPopover}
-                />
+                <Button variant={buttonVariant} onClick={this.openPopover}>
+                    <Icon name="keyboard_arrow_down" />
+                </Button>
                 <PopoverMenu
-                    {...props}
+                    menuProps={menuProps}
+                    getAnchorRef={getAnchorRef}
                     open={popoverOpen}
                     closePopover={this.closePopover}
+                    anchorAttachPoint={{ vertical: 'bottom', horizontal: 'right' }}
+                    popoverAttachPoint={{ vertical: 'top', horizontal: 'right' }}
                 />
             </React.Fragment>
         );
@@ -42,7 +44,9 @@ class DropdownMenu extends Component {
 }
 
 DropdownMenu.propTypes = {
-    variant: PropTypes.oneOf([PRIMARY, RAISED]).isRequired,
+    buttonVariant: PropTypes.oneOf([PRIMARY, RAISED]).isRequired,
+    getAnchorRef: PropTypes.func.isRequired,
+    menuProps: PropTypes.object.isRequired,
 };
 
 export default DropdownMenu;

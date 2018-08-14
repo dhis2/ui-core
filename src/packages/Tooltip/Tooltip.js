@@ -2,11 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './tooltip.css';
 
-const TOP = 'top';
-const RIGHT = 'right';
-const BOTTOM = 'bottom';
-const LEFT = 'left';
-
 /**
  * The tooltip relies on having one child element only.
  * If this this condition is not met it will just render the child
@@ -32,12 +27,12 @@ const Tooltip = ({ text, position, multiline, children: child }) => {
 Tooltip.propTypes = {
     text: PropTypes.string.isRequired,
     children: PropTypes.element.isRequired,
-    position: PropTypes.oneOf([TOP, RIGHT, BOTTOM, LEFT]),
+    position: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     multiline: PropTypes.bool,
 };
 
 Tooltip.defaultProps = {
-    position: BOTTOM,
+    position: 'bottom',
     multiline: false,
 };
 
