@@ -1,5 +1,5 @@
 a.d2ui-tooltip {
-    color: #000; /* where the heck does color come from */
+    color: inherit;
     text-decoration: none;
     &:hover, &:visited, &:active {
         text-decoration: none;
