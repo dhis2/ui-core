@@ -7,7 +7,6 @@ import './button.css';
 
 const Button = ({
     children,
-    className,
     disabled,
     onClick,
     onDoubleClick,
@@ -20,7 +19,7 @@ const Button = ({
 }) => {
     const button = (
         <button
-            className={classNames('d2ui-button', className, variant, size)}
+            className={classNames('d2ui-button', variant, size)}
             {...{ disabled, onClick, onDoubleClick, title, type, role, style }}
         >
             {wrapTextNodesInSpans(children)}
@@ -32,7 +31,6 @@ const Button = ({
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
-    className: PropTypes.string,
     disabled: PropTypes.bool,
     onClick: PropTypes.func,
     onDoubleClick: PropTypes.func,

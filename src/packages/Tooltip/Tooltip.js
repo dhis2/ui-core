@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import './tooltip.css';
 
 /**
- * The tooltip relies on having one child element only.
- * If this this condition is not met it will just render the child
- * elements as provided. It will also throw a prop types error
+ * `position="bottom"` (default) works fine with block level elements, but
+ * other positions work best with `inline` or `inline-block` elements.
  */
 const Tooltip = ({ text, position, multiline, children }) => {
     const tooltipProps = {
