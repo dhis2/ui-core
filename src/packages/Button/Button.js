@@ -12,22 +12,17 @@ const Button = ({
     onDoubleClick,
     role,
     size,
-    style,
     title,
     type,
     variant,
-}) => {
-    const button = (
-        <button
-            className={classNames('d2ui-button', variant, size)}
-            {...{ disabled, onClick, onDoubleClick, title, type, role, style }}
-        >
-            {wrapTextNodesInSpans(children)}
-        </button>
-    );
-
-    return button;
-};
+}) => (
+    <button
+        className={classNames('d2ui-button', variant, size)}
+        {...{ disabled, onClick, onDoubleClick, title, type, role }}
+    >
+        {wrapTextNodesInSpans(children)}
+    </button>
+);
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
@@ -36,7 +31,6 @@ Button.propTypes = {
     onDoubleClick: PropTypes.func,
     role: PropTypes.string,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
-    style: PropTypes.object,
     title: PropTypes.string,
     type: PropTypes.oneOf(['submit', 'reset', 'button']),
     variant: PropTypes.oneOf(Object.keys(VARIANTS).map(key => VARIANTS[key])),
