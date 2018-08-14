@@ -91,17 +91,23 @@ class App extends Component {
                 <RaisedButton size="large">
                     <Icon name="alarm" />Raised
                 </RaisedButton>
-                <PrimaryButton tooltip="There is an alarm and I want ot make this text even longer">
-                    <Icon name="alarm" />
-                    Primary
-                </PrimaryButton>
+                <Tooltip text="There is an alarm and I want ot make this text even longer">
+                    <PrimaryButton>
+                        <Icon name="alarm" />
+                        Primary
+                    </PrimaryButton>
+                </Tooltip>
                 <RaisedButton>
                     <Icon name="face" />
                 </RaisedButton>
                 <OutlinedButton>Outlined</OutlinedButton>
-                <CircleButton tooltip="Test printer here" onClick={clickTest}>
-                    <Icon name="printer" />
-                </CircleButton>
+
+                <Tooltip text="Test printer here">
+                    <CircleButton onClick={clickTest}>
+                        <Icon name="printer" />
+                    </CircleButton>
+                </Tooltip>
+
                 {/* IF YOU WANT MORE PROPS ON YOUR TOOLTIP JUST WRAP THE BUTTON */}
                 <Tooltip
                     text="I am wrapping the button explicitely"
@@ -169,6 +175,12 @@ class App extends Component {
                         <Icon name="face" />Static item 4<Icon name="face" />
                     </MenuItem>
                 </Menu>
+                
+                <Tooltip text="heyooo" position="right">
+                    <div>Foobar Tooltip</div>
+                </Tooltip>
+
+                <p>Foo</p>
             </Paper>
         );
     }
