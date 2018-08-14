@@ -176,11 +176,13 @@ class App extends Component {
                     </MenuItem>
                 </Menu>
                 
-                <Tooltip text="heyooo" position="right">
+                <Tooltip text="heyooo" position="top">
                     <div>Foobar Tooltip</div>
                 </Tooltip>
 
-                <p>Foo</p>
+                <Tooltip text="bonk bonk" position="right">
+                    <p>Foo</p>
+                </Tooltip>
             </Paper>
         );
     }
