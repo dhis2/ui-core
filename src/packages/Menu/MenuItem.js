@@ -1,63 +1,58 @@
-import React, { Component, isValidElement, Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../Icon';
+import { wrapTextNodesInSpans } from '../../utils';
 import SubMenu from './SubMenu';
+import Icon from '../Icon';
 
 class MenuItem extends Component {
     selectHandler = event => {
-        const { option, itemSelectHandler, closePopover } = this.props;
-        const { value, selectHandler } = option;
-        const handler = selectHandler || itemSelectHandler;
-        handler(event, value, this.props.option);
+        const { value, onClick, selectHandler, closePopover } = this.props;
+        const handler = onClick || selectHandler;
+        handler(event, value, this.props);
         closePopover && closePopover();
     };
 
-    renderMenuItemContent() {
-        const { option, secundaryIcon } = this.props;
-
-        if (isValidElement(option)) {
-            return option;
-        }
-
-        const { label, icon } = option;
-        return (
-            <Fragment>
-                {icon && <Icon name={icon} />}
-                {label}
-                {secundaryIcon && <Icon className="secundary" name={secundaryIcon} />}
-            </Fragment>
-        );
-    }
-
     render() {
-        const { option, itemSelectHandler } = this.props;
+        const { children, menuItems, label, icon } = this.props;
 
-        if (option.menuItems) {
-            return <SubMenu {...option} itemSelectHandler={itemSelectHandler} />;
+        if (menuItems) {
+            return (
+                <SubMenu
+                    children={children}
+                    label={label}
+                    icon={icon}
+                    menuItems={menuItems}
+                />
+            );
         }
 
         return (
             <li className="d2ui-menu-item" onClick={this.selectHandler}>
-                {this.renderMenuItemContent()}
+                {children ? (
+                    wrapTextNodesInSpans(children)
+                ) : (
+                    <Fragment>
+                        {icon && <Icon name={icon} />}
+                        <span>{label}</span>
+                    </Fragment>
+                )}
             </li>
         );
     }
 }
 
 MenuItem.propTypes = {
-    option: PropTypes.oneOfType([
-        PropTypes.shape({
-            value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-            label: PropTypes.string,
-            icon: PropTypes.string,
-            selectHandler: PropTypes.func,
-            menuItems: PropTypes.arrayOf(
-                PropTypes.oneOfType([PropTypes.element, PropTypes.object])
-            ),
-        }),
-        PropTypes.element,
-    ]),
-    itemSelectHandler: PropTypes.func,
+    children: PropTypes.node,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    label: PropTypes.string,
+    icon: PropTypes.string,
+    // onClick is bound to a menuItem itself
+    onClick: PropTypes.func,
+    // selecthandler is passed down from parent, a generic handler for each item
+    selectHandler: PropTypes.func,
+    menuItems: PropTypes.arrayOf(
+        PropTypes.oneOfType([PropTypes.element, PropTypes.object])
+    ),
     closePopover: PropTypes.func,
 };
 

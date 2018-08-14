@@ -4,38 +4,37 @@ import Menu from './Menu';
 import Popover from '../Popover';
 
 const PopoverMenu = ({
-    open,
-    getAnchorRef,
-    closePopover,
     anchorAttachPoint,
+    closePopover,
+    getAnchorRef,
+    menuProps,
+    open,
     popoverAttachPoint,
-    ...props
 }) => (
     <Popover
-        open={open}
+        anchorAttachPoint={anchorAttachPoint}
         closePopover={closePopover}
         getAnchorRef={getAnchorRef}
-        anchorAttachPoint={anchorAttachPoint}
+        open={open}
         popoverAttachPoint={popoverAttachPoint}
     >
-        <Menu closePopover={closePopover} {...props} />
+        <Menu closePopover={closePopover} {...menuProps} />
     </Popover>
 );
 
 PopoverMenu.propTypes = {
-    open: PropTypes.bool.isRequired,
-    options: PropTypes.array.isRequired,
-    getAnchorRef: PropTypes.func.isRequired,
-    itemSelectHandler: PropTypes.func,
-    closePopover: PropTypes.func.isRequired,
     anchorAttachPoint: PropTypes.object,
+    closePopover: PropTypes.func.isRequired,
+    getAnchorRef: PropTypes.func.isRequired,
+    menuProps: PropTypes.object,
+    open: PropTypes.bool.isRequired,
     popoverAttachPoint: PropTypes.object,
 };
 
 PopoverMenu.defaultProps = {
+    anchorAttachPoint: { vertical: 'middle', horizontal: 'center' },
     open: PropTypes.bool.isRequired,
-    anchorAttachPoint: { vertical: 'bottom', horizontal: 'right' },
-    popoverAttachPoint: { vertical: 'top', horizontal: 'right' },
+    popoverAttachPoint: { vertical: 'middle', horizontal: 'center' },
 };
 
 export default PopoverMenu;

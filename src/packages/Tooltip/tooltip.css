@@ -2,6 +2,8 @@
     position: relative;
 
     &:after {
+        color: #ffffff;
+        background-color: #494944;
         border-radius: 0.125rem;
         content: attr(data-d2ui-tooltip);
         text-transform: initial;
@@ -15,7 +17,7 @@
         /* Delay hide on mouse-out as per material design specs:
            https://material.io/design/components/tooltips.html#behavior */
         transition-delay: 1.35s;
-        transition: opacity 150ms ease-in-out;
+        transition: all 150ms ease-in-out;
         white-space: pre;
         z-index: -1;
     }
