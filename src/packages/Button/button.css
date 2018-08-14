@@ -1,5 +1,5 @@
 .d2ui-button {
-    align-items: center;
+    align-items: normal;
     background-color: transparent;
     border-color: transparent;
     border-width: 1px;
@@ -120,6 +120,7 @@
     &.large {
         font-size: 0.9375rem;
         padding: 10px 16px 11px 16px;
+        align-items: flex-end;
 
         .material-icons {
             line-height: 1rem;

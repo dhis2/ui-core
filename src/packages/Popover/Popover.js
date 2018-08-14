@@ -46,15 +46,19 @@ class Popover extends Component {
 
     render() {
         const { open, children, closePopover } = this.props;
+        const { popupComputedStyle } = this.state;
 
         if (!open) {
             return null;
         }
-        const style = { ...this.props.style, ...this.state.popupComputedStyle };
         return ReactDOM.createPortal(
             <React.Fragment>
                 <div className="d2ui-popover-overlay" onClick={closePopover} />
-                <div className="d2ui-popover" ref={this.onPopupRendered} style={style}>
+                <div
+                    className="d2ui-popover"
+                    ref={this.onPopupRendered}
+                    style={popupComputedStyle}
+                >
                     {children}
                 </div>
             </React.Fragment>,
@@ -78,7 +82,6 @@ Popover.propTypes = {
     open: PropTypes.bool.isRequired,
     getAnchorRef: PropTypes.func.isRequired,
     closePopover: PropTypes.func.isRequired,
-    style: PropTypes.object,
     children: PropTypes.node,
     anchorAttachPoint: attachPointPropType,
     popoverAttachPoint: attachPointPropType,

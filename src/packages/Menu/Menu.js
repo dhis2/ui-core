@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import MenuItem from './MenuItem';
 import Paper from '../Paper';
 import './menu.css';
 
-const Menu = ({ options, selectHandler, closePopover, className, style, children }) => (
+const Menu = ({ options, selectHandler, closePopover, children }) => (
     <Paper elevation={4}>
-        <ul className={classNames('d2ui-menu', className)} style={style}>
+        <ul className="d2ui-menu">
             {children
                 ? children
                 : options.map(({ onClick, ...rest }, index) => (
@@ -26,8 +25,6 @@ Menu.propTypes = {
     options: PropTypes.array,
     selectHandler: PropTypes.func,
     closePopover: PropTypes.func,
-    className: PropTypes.string,
-    style: PropTypes.object,
     children: PropTypes.arrayOf(PropTypes.element),
 };
 
