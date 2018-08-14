@@ -17,6 +17,7 @@ const Button = ({
     style,
     title,
     tooltip,
+    tooltipProps,
     type,
     variant,
 }) => {
@@ -24,6 +25,7 @@ const Button = ({
         <button
             className={classNames('d2ui-button', className, variant, size)}
             {...{ disabled, onClick, onDoubleClick, title, type, role, style }}
+            {...tooltipProps}
         >
             {wrapTextNodesInSpans(children)}
         </button>
@@ -47,6 +49,7 @@ Button.propTypes = {
     style: PropTypes.object,
     title: PropTypes.string,
     tooltip: PropTypes.string,
+    tooltipProps: PropTypes.object,
     type: PropTypes.oneOf(['submit', 'reset', 'button']),
     variant: PropTypes.oneOf(Object.keys(VARIANTS).map(key => VARIANTS[key])),
 };
