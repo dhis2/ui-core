@@ -24,30 +24,6 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
-const dhisConfigPath = process.env.DHIS2_HOME && `${process.env.DHIS2_HOME}/config`;
-
-let dhisConfig;
-try {
-    dhisConfig = require(dhisConfigPath);
-} catch (e) {
-    // Failed to load config file - use default config
-    console.warn(`\nWARNING! Failed to load DHIS config:`, e.message);
-    dhisConfig = {
-        baseUrl: 'http://localhost:8080',
-        authorization: 'Basic YWRtaW46ZGlzdHJpY3Q=', // admin:district
-    };
-}
-
-const globals = Object.assign(
-    {},
-    {
-        DHIS_CONFIG: JSON.stringify(dhisConfig),
-    },
-    env.stringified
-);
-const scriptPrefix = dhisConfig.baseUrl;
-const pathnamePrefix = parse(scriptPrefix).pathname;
-
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -247,8 +223,6 @@ module.exports = {
             inject: true,
             template: paths.appHtml,
             vendorScripts: [
-                `.${pathnamePrefix}/dhis-web-core-resource/material-design-icons/material-icons.css`,
-                `.${pathnamePrefix}/dhis-web-core-resource/fonts/roboto.css`,
             ]
                 .map(asset => `<link type="text/css" rel="stylesheet" href="${asset}">`)
                 .join('\n'),
