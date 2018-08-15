@@ -12,6 +12,7 @@ import Paper from './packages/Paper';
 import { Menu, MenuItem } from './packages/Menu';
 import './theme/index.css';
 import Tooltip from './packages/Tooltip';
+import Logo from './packages/Logo/Logo';
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -79,6 +80,7 @@ class App extends Component {
     render() {
         return (
             <Paper elevation={6} padded>
+                <Logo icon />
                 <FlatButton onClick={e => console.log('Clicked button nr 1', e.target)}>
                     Test
                 </FlatButton>
