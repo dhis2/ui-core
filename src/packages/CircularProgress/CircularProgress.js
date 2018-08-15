@@ -13,3 +13,5 @@ CircularProgress.propTypes = {
     color: PropTypes.string,
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
+
+export default CircularProgress;

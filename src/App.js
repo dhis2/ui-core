@@ -12,6 +12,8 @@ import Paper from './packages/Paper';
 import { Menu, MenuItem } from './packages/Menu';
 import './theme/index.css';
 import Tooltip from './packages/Tooltip';
+import CircularProgress from './packages/CircularProgress';
+import LinearProgress from './packages/LinearProgress';
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -79,6 +81,8 @@ class App extends Component {
     render() {
         return (
             <Paper elevation={6} padded>
+                <CircularProgress />
+                <LinearProgress progress={0.4} />
                 <FlatButton onClick={e => console.log('Clicked button nr 1', e.target)}>
                     Test
                 </FlatButton>
