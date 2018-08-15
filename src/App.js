@@ -81,8 +81,24 @@ class App extends Component {
     render() {
         return (
             <Paper elevation={6} padded>
+                <div
+                    className="accent-primary-lightest-background"
+                    style={{
+                        width: 400,
+                        height: 300,
+                        position: 'relative',
+                    }}
+                >
+                    <p>Put a loader over the top</p>
+                    <CircularProgress
+                        size={100}
+                        color="green"
+                        overlay
+                        overlayFill="rgba(240,240,240,0.6)"
+                    />
+                </div>
                 <CircularProgress />
-                <LinearProgress progress={0.4} />
+                <LinearProgress progress={0.4} minimal />
                 <FlatButton onClick={e => console.log('Clicked button nr 1', e.target)}>
                     Test
                 </FlatButton>
