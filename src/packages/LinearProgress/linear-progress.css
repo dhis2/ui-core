@@ -3,14 +3,17 @@
     position: relative;
     display: block;
     width: 100%;
-    margin: 0.5rem 0 1rem 0;
+    margin: 0;
     overflow: hidden;
+    background-color: #eaf4ff;
+    height: 4px;
 
-    &.minimal {
-        margin: 0;
+    &.padded {
+        margin: 0.5rem 0 1rem 0;
     }
 
     .determinate {
+        background-color: #1976d2;
         position: absolute;
         top: 0;
         left: 0;
@@ -19,6 +22,8 @@
     }
 
     .indeterminate {
+        background-color: #1976d2;
+
         &:before {
             content: "";
             position: absolute;
