@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component, Fragment, isValidElement } from 'react';
-import { isRtl } from '../../utils';
+import { isRtl } from '../utils';
 import PopoverMenu from './PopoverMenu';
 import MenuItem from './MenuItem';
 import Icon from '../Icon';

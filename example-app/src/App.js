@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import 'ui/theme/index.css';
+
 import {
     FlatButton,
     CircleButton,
@@ -6,15 +9,15 @@ import {
     PrimaryButton,
     OutlinedButton,
     DropdownButton,
-} from './packages/Button';
-import Icon from './packages/Icon';
-import Paper from './packages/Paper';
-import { Menu, MenuItem } from './packages/Menu';
-import './theme/index.css';
-import Tooltip from './packages/Tooltip';
-import CircularProgress from './packages/CircularProgress';
-import LinearProgress from './packages/LinearProgress';
-import Logo from './packages/Logo/Logo';
+} from 'ui/Button';
+
+import Icon from 'ui/Icon';
+import Paper from 'ui/Paper';
+import { Menu, MenuItem } from 'ui/Menu';
+
+
+import Tooltip from 'ui/Tooltip';
+import Logo from 'ui/Logo/Logo';
 
 const clickTest = event => {
     console.log('Button click', event.target);

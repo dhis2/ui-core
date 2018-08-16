@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { wrapTextNodesInSpans } from '../../utils';
+import { wrapTextNodesInSpans } from '../utils';
 import SubMenu from './SubMenu';
 import Icon from '../Icon';
 

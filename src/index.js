@@ -1,12 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import 'typeface-rubik/index.css';
-import 'material-design-icons/iconfont/material-icons.css';
-import './index.css';
-
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+export { default as Button } from './Button';
+export { default as Icon } from './Icon';
+export { default as Logo } from './Logo';
+export { default as Menu } from './Menu';
+export { default as Paper } from './Paper';
+export { default as Popover } from './Popover';
+export { default as Tooltip } from './Tooltip';

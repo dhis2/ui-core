@@ -1,4 +1,4 @@
-import { isRtl } from '../../utils';
+import { isRtl } from '../utils';
 
 export const TOP = 'top';
 export const MIDDLE = 'middle';
