@@ -1,4 +1,5 @@
-@import './reset.css';
-@import './typography.css';
-@import './theme-default.css';
-@import './theme-green.css';
+@import "./reset.css";
+@import "./typography.css";
+@import "./responsive-image.css";
+@import "./theme-default.css";
+@import "./theme-green.css";
