@@ -87,6 +87,17 @@ class App extends Component {
                 <CircularProgress size="large" />
                 <LinearProgress padded progress={90} />
                 <LinearProgress padded />
+                <div
+                    className="accent-primary-lightest-background"
+                    style={{
+                        width: 400,
+                        height: 300,
+                        position: 'relative',
+                    }}
+                >
+                    <p>Put a loader over the top</p>
+                    <CircularProgress center />
+                </div>
                 <Logo icon />
                 <FlatButton onClick={e => console.log('Clicked button nr 1', e.target)}>
                     Test
