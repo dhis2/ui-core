@@ -91,7 +91,7 @@ video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Rubik", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
@@ -127,7 +127,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: '';
+    content: "";
     content: none;
 }
 table {
