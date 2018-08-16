@@ -7,14 +7,13 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
 const devMode = process.env.NODE_ENV !== 'production'
-console.info("DevMode?", devMode)
 
 module.exports = {
     mode: 'production',
-    entry: './src/index.js',
+    entry: './dist/index.js',
     name: 'ui',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist', 'bundle'),
         filename: devMode ? '[name].js' : '[name].[chunkhash:8].js'
     },
     module: {
@@ -44,7 +43,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin([ 'dist' ], { verbose:true }),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
@@ -78,23 +76,3 @@ module.exports = {
         ]
     },
 }
-
-
-
-/*
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    { 
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1,
-                            modules: true,
-                            minimize: true
-                        }
-                    },
-                    'postcss-loader'
-                ]
-            },
-*/

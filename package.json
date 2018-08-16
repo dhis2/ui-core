@@ -13,6 +13,7 @@
   "private": true,
   "scripts": {
     "test": "NODE_ENV=test tape -r babel-register tests/*.js",
+    "stats": "webpack --profile --progress --json > bundle.stats.json && webpack-bundle-analyzer bundle.stats.json",
     "build:css": "postcss --verbose src/**/*.css --base src --dir dist",
     "build:es": "babel src --out-dir dist",
     "build:static": "node ./collect-files.js",
@@ -45,7 +46,7 @@
     "typeface-rubik": "^0.0.54",
     "uglifyjs-webpack-plugin": "^1.3.0",
     "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
+    "webpack-bundle-analyzer": "^2.13.1",
     "tape": "^4.9.1"
   },
   "peerDependencies": {
