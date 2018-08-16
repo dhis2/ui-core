@@ -1,0 +1,162 @@
+/* Adapted from https://materializecss.com/preloader.html */
+.d2ui-circular-progress {
+    display: inline-block;
+    position: relative;
+    width: 3.125rem;
+    height: 3.125rem;
+    animation: container-rotate 1568ms linear infinite;
+
+    &.large {
+        width: 5rem;
+        height: 5rem;
+
+        .spinner-layer .circle-clipper .circle {
+            border-width: 5px;
+        }
+    }
+
+    &.small {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        .spinner-layer .circle-clipper .circle {
+            border-width: 2px;
+        }
+    }
+
+    .spinner-layer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        opacity: 1;
+        animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+        border-color: #1976d2;
+
+        .gap-patch {
+            position: absolute;
+            top: 0;
+            left: 45%;
+            width: 10%;
+            height: 100%;
+            overflow: hidden;
+            border-color: inherit;
+
+            .circle {
+                width: 1000%;
+                left: -450%;
+            }
+        }
+
+        .circle-clipper {
+            display: inline-block;
+            position: relative;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            border-color: inherit;
+
+            .circle {
+                width: 200%;
+                height: 100%;
+                border-width: 3px;
+                border-style: solid;
+                border-color: inherit;
+                border-bottom-color: transparent !important;
+                border-radius: 50%;
+                animation: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            &.left {
+                .circle {
+                    left: 0;
+                    border-right-color: transparent !important;
+                    transform: rotate(129deg);
+                    animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+                }
+            }
+
+            &.right {
+                .circle {
+                    left: -100%;
+                    border-left-color: transparent !important;
+                    transform: rotate(-129deg);
+                    animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite
+                        both;
+                }
+            }
+        }
+    }
+}
+
+@keyframes container-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fill-unfill-rotate {
+    12.5% {
+        transform: rotate(135deg);
+    }
+
+    25% {
+        transform: rotate(270deg);
+    }
+
+    37.5% {
+        transform: rotate(405deg);
+    }
+
+    50% {
+        transform: rotate(540deg);
+    }
+
+    62.5% {
+        transform: rotate(675deg);
+    }
+
+    75% {
+        transform: rotate(810deg);
+    }
+
+    87.5% {
+        transform: rotate(945deg);
+    }
+
+    to {
+        transform: rotate(1080deg);
+    }
+}
+
+@keyframes left-spin {
+    from {
+        transform: rotate(130deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    to {
+        transform: rotate(130deg);
+    }
+}
+
+@keyframes right-spin {
+    from {
+        transform: rotate(-130deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    to {
+        transform: rotate(-130deg);
+    }
+}
