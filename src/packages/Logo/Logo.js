@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { bemClassNames } from '../../utils';
 import './logo.css';
 import dhis2_icon_rgb_negative from './svg/dhis2_icon_rgb_negative.svg';
 import dhis2_icon_rgb_positive from './svg/dhis2_icon_rgb_positive.svg';
 import dhis2_logo_rgb_negative from './svg/dhis2_logo_rgb_negative.svg';
 import dhis2_logo_rgb_positive from './svg/dhis2_logo_rgb_positive.svg';
+
+const bem = bemClassNames('d2ui-logo');
 
 const imageLookup = {
     logo: {
@@ -25,12 +27,7 @@ const Logo = ({ reverse, icon, width, altText }) => {
     const style = width ? { width } : null;
 
     return (
-        <img
-            alt={altText}
-            src={src}
-            className={classNames('d2ui-logo', version)}
-            style={{ style }}
-        />
+        <img alt={altText} src={src} className={bem(null, version)} style={{ style }} />
     );
 };
 

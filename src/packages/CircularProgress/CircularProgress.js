@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { bemClassNames } from '../../utils';
 import './circular-progress.css';
+
+const bem = bemClassNames('d2ui-circular-progress');
 
 const CircularProgress = ({ size, center }) => {
     const circularProgress = (
-        <div className={classNames('d2ui-circular-progress', size)}>
-            <div className="spinner-layer">
-                <div className="circle-clipper left">
-                    <div className="circle" />
+        <div className={bem(null, size)}>
+            <div className={bem('spinner-layer')}>
+                <div className={bem('circle-clipper', 'left')}>
+                    <div className={bem('circle')} />
                 </div>
-                <div className="gap-patch">
-                    <div className="circle" />
+                <div className={bem('gap-patch')}>
+                    <div className={bem('circle')} />
                 </div>
-                <div className="circle-clipper right">
-                    <div className="circle" />
+                <div className={bem('circle-clipper', 'right')}>
+                    <div className={bem('circle')} />
                 </div>
             </div>
         </div>
