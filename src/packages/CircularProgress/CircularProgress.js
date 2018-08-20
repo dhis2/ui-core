@@ -23,7 +23,7 @@ const CircularProgress = ({ size, center }) => {
     );
 
     if (center) {
-        return <div className="d2ui-loader-overlay">{circularProgress}</div>;
+        return <div className={bem('overlay')}>{circularProgress}</div>;
     }
 
     return circularProgress;
