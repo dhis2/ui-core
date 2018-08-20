@@ -16,21 +16,9 @@ import CircularProgress from './packages/CircularProgress';
 import LinearProgress from './packages/LinearProgress';
 import Logo from './packages/Logo/Logo';
 
-import { bemClassNames } from './utils';
-
 const clickTest = event => {
     console.log('Button click', event.target);
 };
-
-const bem = bemClassNames('d2ui-test');
-const color = 'red';
-console.log(bem()); // Return block name
-console.log(bem('inner-el')); // Return block__element
-console.log(bem(null, 'active')); // Return block--modifier
-console.log(bem('inner-el', 'some-state')); // Return block__element & block__element--modifier
-console.log(
-    bem('second-inner-el', color, { active: color === 'red', 'not-red': color !== 'red' })
-);
 
 const menuItemSelectTest = (event, value, option) => {
     console.log('Menu item click', event.target, value, option);
