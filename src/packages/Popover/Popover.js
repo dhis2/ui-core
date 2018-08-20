@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import { bemClassNames } from '../../utils';
 import computePosition, {
     TOP,
     CENTER,
@@ -10,6 +11,8 @@ import computePosition, {
     RIGHT,
 } from './computePosition';
 import './popover.css';
+
+const bem = bemClassNames('d2ui-popover');
 
 class Popover extends Component {
     constructor(props) {
@@ -53,9 +56,9 @@ class Popover extends Component {
         }
         return ReactDOM.createPortal(
             <React.Fragment>
-                <div className="d2ui-popover-overlay" onClick={closePopover} />
+                <div className={bem('overlay')} onClick={closePopover} />
                 <div
-                    className="d2ui-popover"
+                    className={bem()}
                     ref={this.onPopupRendered}
                     style={popupComputedStyle}
                 >

@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { bemClassNames } from '../../utils';
 import './linear-progress.css';
 
+const bem = bemClassNames('d2ui-linear-progress');
+
 const LinearProgress = ({ progress, padded }) => {
-    const innerClass = typeof progress === 'undefined' ? 'indeterminate' : 'determinate';
+    const progressClass =
+        typeof progress === 'undefined' ? 'indeterminate' : 'determinate';
     const progressStyle = progress ? { width: `${progress}%` } : null;
 
     return (
-        <div className={classNames('d2ui-linear-progress', { padded: padded })}>
-            <div className={innerClass} style={progressStyle} />
+        <div className={bem(null, { padded: padded })}>
+            <div className={bem('progress', progressClass)} style={progressStyle} />
         </div>
     );
 };

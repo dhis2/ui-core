@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { bemClassNames } from '../../utils';
 import './paper.css';
+
+const bem = bemClassNames('d2ui-paper');
 
 const Paper = ({ elevation, children, padded }) => (
     <div
-        className={classNames('d2ui-paper', `elevation-${elevation}dp`, {
+        className={bem('null', `elevation-${elevation}dp`, {
             padded: padded,
         })}
     >

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import * as VARIANTS from './variants';
-import { wrapTextNodesInSpans } from '../../utils';
+import { wrapTextNodesInSpans, bemClassNames } from '../../utils';
 import './button.css';
+
+const bem = bemClassNames('d2ui-button');
 
 const Button = ({
     children,
@@ -17,7 +18,7 @@ const Button = ({
     variant,
 }) => (
     <button
-        className={classNames('d2ui-button', variant, size)}
+        className={bem(null, variant, size)}
         {...{ disabled, onClick, onDoubleClick, title, type, role }}
     >
         {wrapTextNodesInSpans(children)}
