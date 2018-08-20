@@ -4,11 +4,11 @@
     border-radius: 2px;
     background-color: #ffffff;
 
-    &.padded {
+    &--padded {
         padding: 2rem 5rem 4rem;
     }
 
-    &.elevation {
+    &--elevation {
         &-0dp {
             box-shadow: none;
         }

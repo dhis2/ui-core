@@ -8,11 +8,11 @@
     background-color: #eaf4ff;
     height: 4px;
 
-    &.padded {
+    &--padded {
         margin: 0.5rem 0 1rem 0;
     }
 
-    .determinate {
+    &__progress--determinate {
         background-color: #1976d2;
         position: absolute;
         top: 0;
@@ -21,7 +21,7 @@
         transition: width 0.3s linear;
     }
 
-    .indeterminate {
+    &__progress--indeterminate {
         background-color: #1976d2;
 
         &:before {
