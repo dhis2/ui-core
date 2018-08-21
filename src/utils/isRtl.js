@@ -1,1 +1,3 @@
-export default () => document.documentElement.getAttribute('dir') === 'rtl';
+export default function() {
+    return document.documentElement.getAttribute('dir') === 'rtl';
+}
