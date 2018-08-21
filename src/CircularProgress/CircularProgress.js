@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { bemClassNames } from '../../utils';
+import { bemClassNames } from '../utils';
 import './circular-progress.css';
 
 const bem = bemClassNames('d2ui-circular-progress');

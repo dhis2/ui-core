@@ -14,7 +14,8 @@ import {
 import Icon from 'ui/Icon';
 import Paper from 'ui/Paper';
 import { Menu, MenuItem } from 'ui/Menu';
-
+import CircularProgress from 'ui/CircularProgress';
+import LinearProgress from 'ui/LinearProgress';
 
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
