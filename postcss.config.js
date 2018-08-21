@@ -8,7 +8,7 @@ module.exports = {
                 '>1%',
                 'last 4 versions',
                 'Firefox ESR',
-                'not ie < 9', // react doesn't support ie8 anyway
+                'not ie < 11',
             ],
             autoprefixer: {
                 flexbox: 'no-2009'
