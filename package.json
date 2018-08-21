@@ -17,7 +17,7 @@
     "start": "node scripts/watch.js",
     "build:css": "postcss --verbose src/**/*.css --base src --dir dist",
     "build:es": "babel src --out-dir dist --copy-files",
-    "build:files": "node scripts/copy-files.js",
+    "build:files": "node scripts/setup-dist-package.js && node scripts/copy-files.js",
     "build": "npm run build:es && npm run build:css && npm run build:files"
   },
   "devDependencies": {

@@ -8,7 +8,6 @@ async function main () {
     const dest = path.join(root, 'dist')
 
     const pkg = require(path.join(root, 'package.json'))
-    const cfg = require(path.join(root, 'copy-files.config.js'))
 
     try {
         await fs.ensureDir(dest)
@@ -17,18 +16,17 @@ async function main () {
         process.exit(1)
     }
 
+    console.info(`Create distributable 'package.json'`)
     try {
-        for (let asset of cfg.assets) {
-            const from = path.join(root, asset.from)
-            const to = path.join(root, asset.to)
-            const base = path.basename(from)
+        const newPkgPath = path.join(dest, 'package.json')
+        const distPkg = JSON.stringify({
+            ...pkg,
+            private: false
+        }, null, 2)
 
-            console.info(`Copy '${base}' to '${to}'...`)
-            await fs.ensureDir(to)
-            await fs.copy(from, to)
-        }
+        await writeFile(newPkgPath, distPkg)
     } catch (err) {
-        console.error('Failure when copying assets', err)
+        console.error(`'package.json' packaging error`, err)
     }
 }
 
