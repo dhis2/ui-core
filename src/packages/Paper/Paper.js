@@ -7,7 +7,7 @@ const bem = bemClassNames('d2ui-paper');
 
 const Paper = ({ elevation, children, padded }) => (
     <div
-        className={bem(null, `elevation-${elevation}dp`, {
+        className={bem.b(`elevation-${elevation}dp`, {
             padded: padded,
         })}
     >

@@ -7,23 +7,23 @@ const bem = bemClassNames('d2ui-circular-progress');
 
 const CircularProgress = ({ size, center }) => {
     const circularProgress = (
-        <div className={bem(null, size)}>
-            <div className={bem('spinner-layer')}>
-                <div className={bem('circle-clipper', 'left')}>
-                    <div className={bem('circle')} />
+        <div className={bem.b(size)}>
+            <div className={bem.e('spinner-layer')}>
+                <div className={bem.e('circle-clipper', 'left')}>
+                    <div className={bem.e('circle')} />
                 </div>
-                <div className={bem('gap-patch')}>
-                    <div className={bem('circle')} />
+                <div className={bem.e('gap-patch')}>
+                    <div className={bem.e('circle')} />
                 </div>
-                <div className={bem('circle-clipper', 'right')}>
-                    <div className={bem('circle')} />
+                <div className={bem.e('circle-clipper', 'right')}>
+                    <div className={bem.e('circle')} />
                 </div>
             </div>
         </div>
     );
 
     if (center) {
-        return <div className={bem('overlay')}>{circularProgress}</div>;
+        return <div className={bem.e('overlay')}>{circularProgress}</div>;
     }
 
     return circularProgress;
