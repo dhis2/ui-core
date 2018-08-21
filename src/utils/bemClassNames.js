@@ -1,8 +1,6 @@
 export default function(blockName) {
-    return function() {
+    return function(elementName, ...modifierArgs) {
         let blockElementPrefix = blockName;
-        const elementName = arguments[0];
-        const modifierArgs = Array.prototype.slice.call(arguments, 1);
 
         if (elementName) {
             blockElementPrefix += `__${elementName}`;
@@ -19,19 +17,21 @@ export default function(blockName) {
 function classNames(prefix, modifierArgs) {
     const classes = [prefix];
 
-    modifierArgs.forEach(arg => {
+    for (let arg of modifierArgs) {
         const argType = typeof arg;
 
         if (argType === 'number' || argType === 'string') {
             classes.push(`${prefix}--${arg}`);
         } else if (argType === 'object' && !Array.isArray(arg)) {
-            Object.keys(arg).forEach(argKey => {
+            for (let argKey of Object.keys(arg)) {
                 if (arg[argKey]) {
                     classes.push(`${prefix}--${argKey}`);
                 }
-            });
+            }
+        } else {
+            console.info(`Unknown argument: '${arg}', skipping...`)
         }
-    });
+    }
 
     return classes.join(' ');
 }
