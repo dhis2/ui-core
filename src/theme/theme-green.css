@@ -32,7 +32,7 @@
                 background-color: #eaf4ff;
             }
         }
-        .accent-secundary {
+        .accent-secondary {
             &-font {
                 color: #00796b;
             }
@@ -40,7 +40,7 @@
                 background-color: #00796b;
             }
         }
-        .accent-secundary-light {
+        .accent-secondary-light {
             &-font {
                 color: #48a999;
             }
@@ -48,7 +48,7 @@
                 background-color: #48a999;
             }
         }
-        .accent-secundary-dark {
+        .accent-secondary-dark {
             &-font {
                 color: #004c40;
             }
@@ -56,7 +56,7 @@
                 background-color: #004c40;
             }
         }
-        .accent-secundary-lightest {
+        .accent-secondary-lightest {
             &-font {
                 color: #b2dfdb;
             }
