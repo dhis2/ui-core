@@ -1,66 +1,68 @@
-body.green {
-    .accent-primary {
-        &-font {
-            color: #1976d2;
+.d2ui-app {
+    &--green {
+        .accent-primary {
+            &-font {
+                color: #1976d2;
+            }
+            &-background {
+                background-color: #1976d2;
+            }
         }
-        &-background {
-            background-color: #1976d2;
+        .accent-primary-light {
+            &-font {
+                color: #63a4ff;
+            }
+            &-background {
+                background-color: #63a4ff;
+            }
         }
-    }
-    .accent-primary-light {
-        &-font {
-            color: #63a4ff;
+        .accent-primary-dark {
+            &-font {
+                color: #004ba0;
+            }
+            &-background {
+                background-color: #004ba0;
+            }
         }
-        &-background {
-            background-color: #63a4ff;
+        .accent-primary-lightest {
+            &-font {
+                color: #eaf4ff;
+            }
+            &-background {
+                background-color: #eaf4ff;
+            }
         }
-    }
-    .accent-primary-dark {
-        &-font {
-            color: #004ba0;
+        .accent-secundary {
+            &-font {
+                color: #00796b;
+            }
+            &-background {
+                background-color: #00796b;
+            }
         }
-        &-background {
-            background-color: #004ba0;
+        .accent-secundary-light {
+            &-font {
+                color: #48a999;
+            }
+            &-background {
+                background-color: #48a999;
+            }
         }
-    }
-    .accent-primary-lightest {
-        &-font {
-            color: #eaf4ff;
+        .accent-secundary-dark {
+            &-font {
+                color: #004c40;
+            }
+            &-background {
+                background-color: #004c40;
+            }
         }
-        &-background {
-            background-color: #eaf4ff;
-        }
-    }
-    .accent-secundary {
-        &-font {
-            color: #00796b;
-        }
-        &-background {
-            background-color: #00796b;
-        }
-    }
-    .accent-secundary-light {
-        &-font {
-            color: #48a999;
-        }
-        &-background {
-            background-color: #48a999;
-        }
-    }
-    .accent-secundary-dark {
-        &-font {
-            color: #004c40;
-        }
-        &-background {
-            background-color: #004c40;
-        }
-    }
-    .accent-secundary-lightest {
-        &-font {
-            color: #b2dfdb;
-        }
-        &-background {
-            background-color: #b2dfdb;
+        .accent-secundary-lightest {
+            &-font {
+                color: #b2dfdb;
+            }
+            &-background {
+                background-color: #b2dfdb;
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import 'ui/theme/index.css';
+import UI from 'ui/UI'
 
 import {
     FlatButton,
@@ -85,121 +85,123 @@ const menuItems = [
 class App extends Component {
     render() {
         return (
-            <Paper elevation={6} padded>
-                <CircularProgress size="small" />
-                <CircularProgress />
-                <CircularProgress size="large" />
-                <LinearProgress padded progress={90} />
-                <LinearProgress padded />
-                <div
-                    className="accent-primary-lightest-background"
-                    style={{
-                        width: 400,
-                        height: 300,
-                        position: 'relative',
-                    }}
-                >
-                    <p>Put a loader over the top</p>
-                    <CircularProgress center />
-                </div>
-                <Logo icon />
-                <FlatButton onClick={e => console.log('Clicked button nr 1', e.target)}>
-                    Test
-                </FlatButton>
-                <RaisedButton size="small">
-                    <Icon name="alarm" />Raised
-                </RaisedButton>
-                <RaisedButton size="medium">
-                    <Icon name="alarm" />Raised
-                </RaisedButton>
-                <RaisedButton size="large">
-                    <Icon name="alarm" />Raised
-                </RaisedButton>
-                <Tooltip text="There is an alarm and I want ot make this text even longer">
-                    <PrimaryButton>
-                        <Icon name="alarm" />
-                        Primary
-                    </PrimaryButton>
-                </Tooltip>
-                <RaisedButton>
-                    <Icon name="face" />
-                </RaisedButton>
-                <OutlinedButton>Outlined</OutlinedButton>
-
-                <Tooltip text="Test printer here">
-                    <CircleButton onClick={clickTest}>
-                        <Icon name="printer" />
-                    </CircleButton>
-                </Tooltip>
-
-                {/* IF YOU WANT MORE PROPS ON YOUR TOOLTIP JUST WRAP THE BUTTON */}
-                <Tooltip
-                    text="I am wrapping the button explicitely"
-                    position="right"
-                    multiline
-                >
-                    <CircleButton>
-                        <Icon name="delete" />
-                    </CircleButton>
-                </Tooltip>
-
-                <CircleButton size="small">
-                    <Icon name="add" />
-                </CircleButton>
-                <CircleButton size="medium">
-                    <Icon name="face" />
-                </CircleButton>
-                <CircleButton aria-labelledby="test" size="large">
-                    <Icon name="add" />
-                </CircleButton>
-
-                <a href="www.google.com">Link to google</a>
-                <br />
-                <br />
-                <DropdownButton
-                    buttonProps={{
-                        variant: 'primary',
-                        onClick: () => console.log('clicked main btn'),
-                    }}
-                    menuProps={menuProps}
-                    options={dropdownOptions}
-                >
-                    <Icon name="add" />
-                    Dropdown button
-                </DropdownButton>
-                <br />
-                <br />
-                <DropdownButton
-                    buttonProps={{
-                        variant: 'raised',
-                        onClick: () => 'clicked main btn',
-                    }}
-                    menuProps={{ children: menuItems }}
-                    options={dropdownOptions}
-                >
-                    <Icon name="add" />
-                    Second Dropdown
-                </DropdownButton>
-                <br />
-                <br />
-                <Menu>
-                    <MenuItem menuItems={subMenuItems} value={1}>
-                        Static item 1
-                    </MenuItem>
-                    <MenuItem value={2}>
-                        <Icon name="face" />Static item 2
-                    </MenuItem>
-                    <MenuItem value={3}>
-                        Static item 3<Icon name="face" />
-                    </MenuItem>
-                    <MenuItem
-                        value={4}
-                        onClick={() => console.log('Select handler on item')}
+            <UI theme="green">
+                <Paper elevation={6} padded>
+                    <CircularProgress size="small" />
+                    <CircularProgress />
+                    <CircularProgress size="large" />
+                    <LinearProgress padded progress={90} />
+                    <LinearProgress padded />
+                    <div
+                        className="accent-primary-lightest-background"
+                        style={{
+                            width: 400,
+                            height: 300,
+                            position: 'relative',
+                        }}
                     >
-                        <Icon name="face" />Static item 4<Icon name="face" />
-                    </MenuItem>
-                </Menu>
-            </Paper>
+                        <p>Put a loader over the top</p>
+                        <CircularProgress center />
+                    </div>
+                    <Logo icon />
+                    <FlatButton onClick={e => console.log('Clicked button nr 1', e.target)}>
+                        Test
+                    </FlatButton>
+                    <RaisedButton size="small">
+                        <Icon name="alarm" />Raised
+                    </RaisedButton>
+                    <RaisedButton size="medium">
+                        <Icon name="alarm" />Raised
+                    </RaisedButton>
+                    <RaisedButton size="large">
+                        <Icon name="alarm" />Raised
+                    </RaisedButton>
+                    <Tooltip text="There is an alarm and I want ot make this text even longer">
+                        <PrimaryButton>
+                            <Icon name="alarm" />
+                            Primary
+                        </PrimaryButton>
+                    </Tooltip>
+                    <RaisedButton>
+                        <Icon name="face" />
+                    </RaisedButton>
+                    <OutlinedButton>Outlined</OutlinedButton>
+
+                    <Tooltip text="Test printer here">
+                        <CircleButton onClick={clickTest}>
+                            <Icon name="printer" />
+                        </CircleButton>
+                    </Tooltip>
+
+                    {/* IF YOU WANT MORE PROPS ON YOUR TOOLTIP JUST WRAP THE BUTTON */}
+                    <Tooltip
+                        text="I am wrapping the button explicitely"
+                        position="right"
+                        multiline
+                    >
+                        <CircleButton>
+                            <Icon name="delete" />
+                        </CircleButton>
+                    </Tooltip>
+
+                    <CircleButton size="small">
+                        <Icon name="add" />
+                    </CircleButton>
+                    <CircleButton size="medium">
+                        <Icon name="face" />
+                    </CircleButton>
+                    <CircleButton aria-labelledby="test" size="large">
+                        <Icon name="add" />
+                    </CircleButton>
+
+                    <a href="www.google.com">Link to google</a>
+                    <br />
+                    <br />
+                    <DropdownButton
+                        buttonProps={{
+                            variant: 'primary',
+                            onClick: () => console.log('clicked main btn'),
+                        }}
+                        menuProps={menuProps}
+                        options={dropdownOptions}
+                    >
+                        <Icon name="add" />
+                        Dropdown button
+                    </DropdownButton>
+                    <br />
+                    <br />
+                    <DropdownButton
+                        buttonProps={{
+                            variant: 'raised',
+                            onClick: () => 'clicked main btn',
+                        }}
+                        menuProps={{ children: menuItems }}
+                        options={dropdownOptions}
+                    >
+                        <Icon name="add" />
+                        Second Dropdown
+                    </DropdownButton>
+                    <br />
+                    <br />
+                    <Menu>
+                        <MenuItem menuItems={subMenuItems} value={1}>
+                            Static item 1
+                        </MenuItem>
+                        <MenuItem value={2}>
+                            <Icon name="face" />Static item 2
+                        </MenuItem>
+                        <MenuItem value={3}>
+                            Static item 3<Icon name="face" />
+                        </MenuItem>
+                        <MenuItem
+                            value={4}
+                            onClick={() => console.log('Select handler on item')}
+                        >
+                            <Icon name="face" />Static item 4<Icon name="face" />
+                        </MenuItem>
+                    </Menu>
+                </Paper>
+            </UI>
         );
     }
 }
