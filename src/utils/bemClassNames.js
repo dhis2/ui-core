@@ -1,16 +1,11 @@
 export default function(blockName) {
-    return function(elementName, ...modifierArgs) {
-        let blockElementPrefix = blockName;
-
-        if (elementName) {
-            blockElementPrefix += `__${elementName}`;
-        }
-
-        if (modifierArgs.length === 0) {
-            return blockElementPrefix;
-        }
-
-        return classNames(blockElementPrefix, modifierArgs);
+    return {
+        b: (...modifierArgs) =>
+            modifierArgs.length === 0 ? blockName : classNames(blockName, modifierArgs),
+        e: (elementName, ...modifierArgs) =>
+            modifierArgs.length === 0
+                ? `${blockName}__${elementName}`
+                : classNames(`${blockName}__${elementName}`, modifierArgs),
     };
 }
 
@@ -29,7 +24,7 @@ function classNames(prefix, modifierArgs) {
                 }
             }
         } else {
-            console.info(`Unknown argument: '${arg}', skipping...`)
+            console.info(`bemClassNames::Unknown argument: '${arg}', skipping...`);
         }
     }
 
