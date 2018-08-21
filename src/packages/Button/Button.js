@@ -18,7 +18,7 @@ const Button = ({
     variant,
 }) => (
     <button
-        className={bem(null, variant, size)}
+        className={bem.b(variant, size)}
         {...{ disabled, onClick, onDoubleClick, title, type, role }}
     >
         {wrapTextNodesInSpans(children)}

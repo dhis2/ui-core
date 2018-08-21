@@ -11,8 +11,8 @@ const LinearProgress = ({ progress, padded }) => {
     const progressStyle = progress ? { width: `${progress}%` } : null;
 
     return (
-        <div className={bem(null, { padded: padded })}>
-            <div className={bem('progress', progressClass)} style={progressStyle} />
+        <div className={bem.b({ padded: padded })}>
+            <div className={bem.e('progress', progressClass)} style={progressStyle} />
         </div>
     );
 };

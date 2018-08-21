@@ -56,9 +56,9 @@ class Popover extends Component {
         }
         return ReactDOM.createPortal(
             <React.Fragment>
-                <div className={bem('overlay')} onClick={closePopover} />
+                <div className={bem.e('overlay')} onClick={closePopover} />
                 <div
-                    className={bem()}
+                    className={bem.b()}
                     ref={this.onPopupRendered}
                     style={popupComputedStyle}
                 >
