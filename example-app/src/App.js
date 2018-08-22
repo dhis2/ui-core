@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import UI from 'ui/UI'
+import UI from 'ui/UI';
 
 import {
     FlatButton,
@@ -34,7 +34,7 @@ const dropdownOptions = [
         label: 'One ',
         icon: 'alarm',
     },
-    { value: 2, label: 'two', icon: 'alarm' },
+    { value: 2, label: 'two', icon: 'alarm', disabled: true },
     {
         value: 3,
         label: 'Three',
@@ -104,17 +104,22 @@ class App extends Component {
                         <CircularProgress center />
                     </div>
                     <Logo icon />
-                    <FlatButton onClick={e => console.log('Clicked button nr 1', e.target)}>
+                    <FlatButton
+                        onClick={e => console.log('Clicked button nr 1', e.target)}
+                    >
                         Test
                     </FlatButton>
                     <RaisedButton size="small">
-                        <Icon name="alarm" />Raised
+                        <Icon name="alarm" />
+                        Raised
                     </RaisedButton>
                     <RaisedButton size="medium">
-                        <Icon name="alarm" />Raised
+                        <Icon name="alarm" />
+                        Raised
                     </RaisedButton>
                     <RaisedButton size="large">
-                        <Icon name="alarm" />Raised
+                        <Icon name="alarm" />
+                        Raised
                     </RaisedButton>
                     <Tooltip text="There is an alarm and I want ot make this text even longer">
                         <PrimaryButton>
@@ -188,7 +193,8 @@ class App extends Component {
                             Static item 1
                         </MenuItem>
                         <MenuItem value={2}>
-                            <Icon name="face" />Static item 2
+                            <Icon name="face" />
+                            Static item 2
                         </MenuItem>
                         <MenuItem value={3}>
                             Static item 3<Icon name="face" />
@@ -197,7 +203,8 @@ class App extends Component {
                             value={4}
                             onClick={() => console.log('Select handler on item')}
                         >
-                            <Icon name="face" />Static item 4<Icon name="face" />
+                            <Icon name="face" />
+                            Static item 4<Icon name="face" />
                         </MenuItem>
                     </Menu>
                 </Paper>
