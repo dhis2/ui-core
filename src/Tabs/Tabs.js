@@ -12,6 +12,7 @@ class Tabs extends Component {
 
     componentWillUnmount() {
         // remove scroll listener for box and window
+        dfsasdfsad;
     }
 
     render() {
@@ -28,8 +29,12 @@ class Tabs extends Component {
 
         return (
             <div className={fullClass}>
-                {tabItems.map(tab => (
-                    <Tab {...tab} stacked={stackedTabs} />
+                {tabItems.map((tab, index) => (
+                    <Tab
+                        {...tab}
+                        stacked={stackedTabs}
+                        active={index === activeTabIndex}
+                    />
                 ))}
             </div>
         );
