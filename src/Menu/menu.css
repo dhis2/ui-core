@@ -28,4 +28,13 @@
             margin-right: 0;
         }
     }
+
+    &--disabled {
+        color: rgba(0, 0, 0, 0.3);
+        pointer-events: none;
+
+        &:hover {
+            background-color: inherit;
+        }
+    }
 }

@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { wrapTextNodesInSpans } from '../utils';
+import { wrapTextNodesInSpans, bemClassNames } from '../utils';
 import SubMenu from './SubMenu';
 import Icon from '../Icon';
+
+const bem = bemClassNames('d2ui-menu-item');
 
 class MenuItem extends Component {
     selectHandler = event => {
@@ -13,7 +15,7 @@ class MenuItem extends Component {
     };
 
     render() {
-        const { children, menuItems, label, icon } = this.props;
+        const { children, disabled, menuItems, label, icon } = this.props;
 
         if (menuItems) {
             return (
@@ -27,7 +29,7 @@ class MenuItem extends Component {
         }
 
         return (
-            <li className="d2ui-menu-item" onClick={this.selectHandler}>
+            <li className={bem.b({ disabled })} onClick={this.selectHandler}>
                 {children ? (
                     wrapTextNodesInSpans(children)
                 ) : (
@@ -43,6 +45,7 @@ class MenuItem extends Component {
 
 MenuItem.propTypes = {
     children: PropTypes.node,
+    disabled: PropTypes.bool,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     label: PropTypes.string,
     icon: PropTypes.string,
