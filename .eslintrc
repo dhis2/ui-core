@@ -1,0 +1,17 @@
+{
+    "extends": "react-app",
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "react/prop-types": [1],
+        "no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "args": "after-used",
+                "ignoreRestSiblings": true
+            }
+        ]
+    }
+}
