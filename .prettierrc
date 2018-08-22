@@ -1,12 +1,14 @@
 {
-    "editor.formatOnSave": true,
-    "files.associations": {
-        "*.css": "postcss"
-    },
-    "emmet.includeLanguages": {
-        "postcss": "css"
-    },
-    "emmet.syntaxProfiles": {
-        "postcss": "css"
-    }
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "es5",
+    "printWidth": 90,
+    "overrides": [
+        {
+            "files": "*.css",
+            "options": {
+                "singleQuote": false
+            }
+        }
+    ]
 }
