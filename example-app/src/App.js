@@ -14,6 +14,7 @@ import {
 import Icon from 'ui/Icon';
 import Paper from 'ui/Paper';
 import { Menu, MenuItem } from 'ui/Menu';
+import { Tabs } from 'ui/Tabs';
 import CircularProgress from 'ui/CircularProgress';
 import LinearProgress from 'ui/LinearProgress';
 
@@ -87,6 +88,21 @@ class App extends Component {
         return (
             <UI theme="green">
                 <Paper elevation={6} padded>
+                    <div
+                        style={{
+                            width: '1100px',
+                            height: '600px',
+                            overflowY: 'scroll',
+                            border: '4px solid grey',
+                        }}
+                    >
+                        <div
+                            className="accent-primary-lightest-background"
+                            style={{ width: '100%', height: '1800px' }}
+                        >
+                            <Tabs />
+                        </div>
+                    </div>
                     <CircularProgress size="small" />
                     <CircularProgress />
                     <CircularProgress size="large" />
