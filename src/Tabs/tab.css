@@ -1,0 +1,9 @@
+.d2-ui-tab {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &--active {
+        color: red;
+    }
+}

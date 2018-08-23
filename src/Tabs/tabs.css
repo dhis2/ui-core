@@ -6,5 +6,52 @@
     z-index: 1100;
     box-sizing: border-box;
     flex-shrink: 0;
-    flex-direction: column;
+    flex-direction: row;
+    background-color: #eceff1;
+
+    &__scroll-button {
+        flex: 0 0 3rem;
+        color: inherit;
+    }
+
+    &__scroll-box {
+        flex-grow: 1;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        display: -ms-flexbox;
+        display: flex;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__scroll-area {
+        position: relative;
+        display: flex;
+        flex: 1 0 auto;
+        transform: none;
+        will-change: transform;
+    }
+
+    &__tab-container {
+        position: relative;
+
+        &--contained {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        &--clustered-left {
+            justify-content: flex-start;
+        }
+
+        &--clustered-centered {
+            justify-content: center;
+        }
+
+        &--clustered-right {
+            justify-content: flex-end;
+        }
+    }
 }

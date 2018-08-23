@@ -83,24 +83,52 @@ const menuItems = [
     </MenuItem>,
 ];
 
+const tabsList = [
+    { label: 'Tab one', icon: 'face' },
+    { label: 'Tab two', icon: 'face' },
+    { label: 'Tab three - one with very long content. It might not fit', icon: 'face' },
+    { label: 'Tab four', icon: 'face' },
+    { label: 'Tab five', icon: 'face' },
+    { label: 'Tab six', icon: 'face' },
+    { label: 'Tab seven', icon: 'face' },
+];
+
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeTabIndex: 3,
+        };
+    }
+
+    tabChangeHandler = clickedTabIndex => {
+        console.log('click');
+        this.setState({
+            activeTabIndex: clickedTabIndex,
+        });
+    };
+
     render() {
+        const tabs = tabsList.map((tab, index) => ({
+            ...tab,
+            selectHandler: () => this.tabChangeHandler(index),
+        }));
         return (
             <UI theme="green">
                 <Paper elevation={6} padded>
                     <div
                         style={{
-                            width: '1100px',
-                            height: '600px',
+                            width: '100%',
+                            height: '1000px',
                             overflowY: 'scroll',
                             border: '4px solid grey',
                         }}
                     >
-                        <div
-                            className="accent-primary-lightest-background"
-                            style={{ width: '100%', height: '1800px' }}
-                        >
-                            <Tabs />
+                        <div style={{ width: '100%', height: '1800px' }}>
+                            <Tabs
+                                activeTabIndex={this.state.activeTabIndex}
+                                tabItems={tabs}
+                            />
                         </div>
                     </div>
                     <CircularProgress size="small" />
@@ -153,8 +181,6 @@ class App extends Component {
                             <Icon name="printer" />
                         </CircleButton>
                     </Tooltip>
-
-                    {/* IF YOU WANT MORE PROPS ON YOUR TOOLTIP JUST WRAP THE BUTTON */}
                     <Tooltip
                         text="I am wrapping the button explicitely"
                         position="right"

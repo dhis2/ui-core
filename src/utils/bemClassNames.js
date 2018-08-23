@@ -15,9 +15,9 @@ function classNames(prefix, modifierArgs) {
     for (let arg of modifierArgs) {
         const argType = typeof arg;
 
-        if (argType === 'number' || argType === 'string') {
+        if ((arg && argType === 'number') || argType === 'string') {
             classes.push(`${prefix}--${arg}`);
-        } else if (argType === 'object' && !Array.isArray(arg)) {
+        } else if (arg && argType === 'object' && !Array.isArray(arg)) {
             for (let argKey of Object.keys(arg)) {
                 if (arg[argKey]) {
                     classes.push(`${prefix}--${argKey}`);
