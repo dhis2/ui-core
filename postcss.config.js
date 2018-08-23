@@ -1,5 +1,4 @@
 module.exports = {
-    sourceMap: 'inline',
     plugins: {
         'postcss-import': {},
         'postcss-nested': {},
