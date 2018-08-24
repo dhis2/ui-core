@@ -19,7 +19,7 @@ async function main () {
     const CSS = '.css'
 
     const src = path.join(root, 'src')
-    const dest = path.join(root, 'dist')
+    const dest = path.join(root, 'build')
 
     try {
         await fs.ensureDir(dest)
