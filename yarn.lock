@@ -595,6 +595,10 @@
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
 
+"@dhis2/deploy-build@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/deploy-build/-/deploy-build-1.0.1.tgz#13537f248b114d00f07c0af413a48b645028e5f2"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

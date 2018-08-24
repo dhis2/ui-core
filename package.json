@@ -19,7 +19,7 @@
     "build:es": "babel src --out-dir build --copy-files",
     "build:files": "node scripts/setup-dist-package.js && node scripts/copy-files.js",
     "build": "NODE_ENV=production npm run build:es && npm run build:css && npm run build:files",
-    "deploy": "deploy-builds.sh"
+    "deploy": "deploy-builds varl"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-rc.1",
@@ -27,6 +27,7 @@
     "@babel/plugin-proposal-class-properties": "^7.0.0-rc.1",
     "@babel/preset-env": "^7.0.0-rc.1",
     "@babel/preset-react": "^7.0.0-rc.1",
+    "@dhis2/deploy-build": "^1.0.1",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^8.0.0-beta",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.14",

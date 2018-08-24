@@ -1,10 +1,13 @@
 language: node_js
 node_js:
 - 8.11.1
+cache:
+    yarn: true
+    directories:
+    - node_modules
 script:
-- npm install @dhis2/deploy-build
 - npm run build
-- sh node_modules/.bin/deploy-build -- varl
+- npm run deploy
 env:
   global:
     secure: f5aESXzKDyrqiPWwm+war22kKhuUapqww4c8BRtieTqjs4yT6uSkwCUu60pAOH1x9f5DddHm9wbntlVnUbuFSxYDQ3dn2DHduxY0rskFAIaGT2wO4mpHIqrNrSzh7FOrRV/vsSO5+aE74dCWcV7V/wO7O7wogp6XSVdQccAe91EXk/dCItr0tQHBdhfxgE5UNwkLj6xNEa1aaluexs2GOsEIBL4bNQgDGliz52dhtvvMR04qUOyVmK5TrZ+e8a1BKpGgQwgNDVzyCM4KnUc/SEkOvYZzy4E0p3e4fN5wl/ZT/RA5NWSiGHzzNLiR+/V1oia1eMPU+RcNZgg18iqf4B25lQfgS4ecm5AQVl509qN+aIuEwhjOCG52NegcwbKX6l1ucJeGMCb1rmXJep90wHonaH3Z9BTJVdjQTa5owvOZUvmTqu/Ta9HXZX5h+RN+Jqn+tx3BWAqca7HYxpLxcJKZvTjuFoZCjm+QXLfyUAAGVzjNOW6Ac7i8NLS7nIDiIvbIWutQxNdT4vHAUXK04VkgSNi8eAbr9hipzBgdTqcMm0z9UszV0MU1IA/wTsIHu9T/jPNwWmQrXp7wNFFOaHTlsbwyxHF4WvaoOxXG2JNqDVNXVRC23bRo032S8pIcFgBuOzTc4inbNLcoz2B2IMA08u0n7rQkT63V04WY/y0=
