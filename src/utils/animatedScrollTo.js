@@ -29,10 +29,10 @@ export default function animatedScrollTo({
 
     let startTimestamp, elapsedTime, scrollValue;
     function step(timestamp) {
-        if (!startTimestamp) 
+        if (!startTimestamp) {
             startTimestamp = timestamp;
         }
-        
+
         elapsedTime = timestamp - startTimestamp;
         scrollValue = easings.easeInOutQuad(elapsedTime, startValue, change, duration);
 
