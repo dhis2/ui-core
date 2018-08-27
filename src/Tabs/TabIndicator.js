@@ -11,6 +11,7 @@ class TabIndicator extends Component {
         this.state = {
             activeTabNodeAvailable: false,
         };
+        this.renderCount = 0;
     }
 
     componentDidMount() {
@@ -23,19 +24,33 @@ class TabIndicator extends Component {
         }, 1);
     }
 
+    getTransformStyle() {
+        const activeTabNode = this.props.getActiveTabRef();
+        const translateX = `translateX(${activeTabNode.offsetLeft}px)`;
+        const scaleX = `scaleX(${activeTabNode.offsetWidth})`;
+        return { transform: `${translateX} ${scaleX}` };
+    }
+
     render() {
         let style = null;
         let className;
-
+        /*
+         * - At the first render cycle the activeTabNode is unavailable,
+         *   so it is not known where to postion the indicator
+         * - At the second render cycle the indicator can receive its initial
+         *   position, but this should be applied without an animation in case 
+         *   the initially activate tab is > 0.
+         * - In subsequent render cycles the position of the indicator SHOULD
+         *   be animated because now we are responding to active tab changes
+        */
         if (this.state.activeTabNodeAvailable) {
-            const activeTabNode = this.props.getActiveTabRef();
-            const translateX = `translateX(${activeTabNode.offsetLeft}px)`;
-            const scaleX = `scaleX(${activeTabNode.offsetWidth})`;
-            style = { transform: `${translateX} ${scaleX}` };
-            className = bem.b();
+            style = this.getTransformStyle();
+            className = this.renderCount > 1 ? bem.b('animated') : bem.b();
         } else {
             className = bem.b('hidden');
         }
+
+        this.renderCount += 1;
 
         return <span className={className} style={style} />;
     }
