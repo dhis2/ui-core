@@ -1,5 +1,5 @@
 .material-icons {
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
@@ -10,7 +10,31 @@
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-    font-feature-settings: 'liga';
-    -webkit-font-feature-settings: 'liga';
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
     -webkit-font-smoothing: antialiased;
+}
+
+.d2ui-align-icon {
+    .material-icons {
+        pointer-events: none;
+        line-height: 0.9375rem;
+        height: 0.9375rem;
+        width: 1.5rem;
+
+        &:first-child {
+            margin-right: 0.75rem;
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+            margin-left: 0.75rem;
+        }
+
+        &:only-child {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
 }

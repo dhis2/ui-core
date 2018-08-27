@@ -26,29 +26,6 @@
         pointer-events: none;
     }
 
-    /* ICON STYLE */
-    .material-icons {
-        pointer-events: none;
-        line-height: 0.9375rem;
-        height: 0.9375rem;
-        width: 1.5rem;
-
-        &:first-child {
-            margin-right: 0.75rem;
-            margin-left: 0;
-        }
-
-        &:last-child {
-            margin-right: 0;
-            margin-left: 0.75rem;
-        }
-
-        &:only-child {
-            margin-left: 0;
-            margin-right: 0;
-        }
-    }
-
     /* STATES */
     &:disabled,
     &.disabled {
