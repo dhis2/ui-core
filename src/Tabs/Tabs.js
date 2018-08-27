@@ -5,33 +5,128 @@ import './tabs.css';
 import Tab from './Tab';
 import Icon from '../../dist/Icon';
 import TabIndicator from './TabIndicator';
+import { animatedScrollTo } from '../utils';
 
 const bem = bemClassNames('d2ui-tabs');
 
 class Tabs extends Component {
     constructor(props) {
         super(props);
-        this.tabRefs = [];
+        this.nodes = {
+            scrollBox: null,
+            scrollArea: null,
+            tabs: [],
+        };
+        this.state = {
+            scrolledToStart: false,
+            scrolledToEnd: false,
+        };
     }
 
+    // Lifecycle hooks
     componentDidMount() {
-        console.log(this.tabRefs);
-        // attach scroll listener for box and window
+        this.nodes.scrollBox.addEventListener('scroll', this.handleSideScroll);
+        this.scrollToActiveTab();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.activeTabIndex !== prevProps.activeTabIndex) {
+            this.scrollToActiveTab();
+        }
     }
 
     componentWillUnmount() {
-        // remove scroll listener for box and window
+        this.nodes.scrollBox.removeEventListener('scroll', this.handleSideScroll);
     }
 
+    // Refs
     addTabRef = node => {
-        this.tabRefs.push(node);
+        this.nodes.tabs.push(node);
     };
 
     getActiveTabRef = () => {
         const { activeTabIndex } = this.props;
-        return this.tabRefs[activeTabIndex];
+        return this.nodes.tabs[activeTabIndex];
     };
 
+    setScrollBoxRef = node => {
+        this.nodes.scrollBox = node;
+    };
+
+    setScrollAreaRef = node => {
+        this.nodes.scrollArea = node;
+    };
+
+    // Event handlers (bound to this scope)
+    handleSideScroll = () => {
+        this.setSideScrollState();
+    };
+
+    scrollLeft = () => {
+        const { scrollBox, tabs } = this.nodes;
+        const offsetLeft = scrollBox.scrollLeft - scrollBox.offsetWidth;
+        const targetTab = offsetLeft <= 0 ? tabs[0] : this.getTabAtOffsetLeft(offsetLeft);
+        this.scrollToTab(targetTab);
+    };
+
+    scrollRight = () => {
+        const { scrollBox, scrollArea, tabs } = this.nodes;
+        const offsetLeft = scrollBox.scrollLeft + scrollBox.offsetWidth * 2;
+        const atEnd = scrollArea.offsetWidth <= offsetLeft;
+        const targetTab = atEnd
+            ? tabs[tabs.length - 1]
+            : this.getTabAtOffsetLeft(offsetLeft);
+        this.scrollToTab(targetTab);
+    };
+
+    // Methods
+    getTabAtOffsetLeft(offsetLeft) {
+        return this.nodes.tabs.find(
+            tab =>
+                offsetLeft >= tab.offsetLeft &&
+                offsetLeft <= tab.offsetLeft + tab.offsetWidth
+        );
+    }
+
+    scrollToActiveTab() {
+        const activeTab = this.getActiveTabRef();
+        this.scrollToTab(activeTab);
+    }
+
+    scrollToTab(tab) {
+        const { scrollBox } = this.nodes;
+        const shouldScrollRight =
+            tab.offsetLeft - scrollBox.scrollLeft + tab.offsetWidth >
+            scrollBox.offsetWidth;
+        const shouldScrollLeft = tab.offsetLeft < scrollBox.scrollLeft;
+
+        if (shouldScrollRight || shouldScrollLeft) {
+            animatedScrollTo({
+                to: tab,
+                scrollBox: scrollBox,
+                direction: 'horizontal',
+            });
+        }
+    }
+
+    setSideScrollState() {
+        const { scrollBox, scrollArea } = this.nodes;
+        const scrolledToStart = scrollBox.scrollLeft === 0;
+        const scrolledToEnd =
+            scrollBox.scrollLeft + scrollBox.offsetWidth === scrollArea.offsetWidth;
+
+        if (
+            this.state.scrolledToStart !== scrolledToStart ||
+            this.state.scrolledToEnd !== scrolledToEnd
+        ) {
+            this.setState({
+                scrolledToStart,
+                scrolledToEnd,
+            });
+        }
+    }
+
+    // Rendering
     renderTabBar() {
         const {
             clustered,
@@ -69,22 +164,30 @@ class Tabs extends Component {
     }
 
     render() {
+        const { scrolledToStart, scrolledToEnd } = this.state;
         const { position, contained } = this.props;
         let tabBar = this.renderTabBar();
-        console.log('render tabs, activeTabIndex = ', this.props.activeTabIndex);
 
         if (!contained) {
             tabBar = (
                 <Fragment>
-                    <div className={bem.e('scroll-button', 'left')}>
+                    <button
+                        onClick={this.scrollLeft}
+                        className={bem.e('scroll-button', { hidden: scrolledToStart })}
+                    >
                         <Icon name="keyboard_arrow_left" />
+                    </button>
+                    <div className={bem.e('scroll-box')} ref={this.setScrollBoxRef}>
+                        <div className={bem.e('scroll-area')} ref={this.setScrollAreaRef}>
+                            {tabBar}
+                        </div>
                     </div>
-                    <div className={bem.e('scroll-box')}>
-                        <div className={bem.e('scroll-area')}>{tabBar}</div>
-                    </div>
-                    <div className={bem.e('scroll-button', 'right')}>
+                    <button
+                        onClick={this.scrollRight}
+                        className={bem.e('scroll-button', { hidden: scrolledToEnd })}
+                    >
                         <Icon name="keyboard_arrow_right" />
-                    </div>
+                    </button>
                 </Fragment>
             );
         }

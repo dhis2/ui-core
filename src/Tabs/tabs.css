@@ -12,6 +12,24 @@
     &__scroll-button {
         flex: 0 0 3rem;
         color: inherit;
+        border-radius: 8px;
+        background-color: transparent;
+        transition: all 150ms ease-in-out;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        opacity: 1;
+        transition: opacity 150ms ease-in-out;
+
+        &:active {
+            /* Cheap ripple alternative to flash clicked tab */
+            background-color: #e0e0e0;
+        }
+
+        &--hidden {
+            pointer-events: none;
+            opacity: 0;
+        }
     }
 
     &__scroll-box {

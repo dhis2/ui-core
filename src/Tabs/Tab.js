@@ -9,12 +9,12 @@ const bem = bemClassNames('d2-ui-tab');
 const Tab = ({ label, icon, selectHandler, active, disabled, stacked, addTabRef }) => {
     return (
         <button
-            className={bem.b({ active, disabled, stacked })}
+            className={`${bem.b({ active, disabled, stacked })} d2ui-align-icon`}
             onClick={selectHandler}
             ref={addTabRef}
         >
             {icon && <Icon name={icon} />}
-            <span>{label} - EXTRA TEXT</span>
+            <span>{label}</span>
         </button>
     );
 };
@@ -22,7 +22,7 @@ const Tab = ({ label, icon, selectHandler, active, disabled, stacked, addTabRef 
 Tab.propTypes = {
     label: PropTypes.string,
     icon: PropTypes.string,
-    selectHandler: PropTypes.func.isRequired,
+    selectHandler: PropTypes.func,
     addTabRef: PropTypes.func.isRequired,
     active: PropTypes.boolean,
     disabled: PropTypes.boolean,

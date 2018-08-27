@@ -24,7 +24,14 @@ export default function animatedScrollTo({
     const isWindowScroll = scrollBox instanceof Window;
     const scrollHandler = getScrollHandler(scrollBox, direction, isWindowScroll);
     const startValue = getStartValue(scrollBox, direction, isWindowScroll);
-    const endValue = getEndValue(to, direction, scrollBox, offset, isWindowScroll);
+    const endValue = getEndValue(
+        to,
+        direction,
+        scrollBox,
+        offset,
+        isWindowScroll,
+        startValue
+    );
     const change = endValue - startValue;
 
     let startTimestamp, elapsedTime, scrollValue;
@@ -79,12 +86,19 @@ function getStartValue(scrollBox, direction, isWindowScroll) {
     }
 }
 
-function getEndValue(to, direction, scrollBox, offset, isWindowScroll) {
+function getEndValue(to, direction, scrollBox, offset, isWindowScroll, startValue) {
     const doc = getDoc();
     const scrollingToElement = Boolean(to.nodeType);
     switch (true) {
         case scrollingToElement:
-            return getElemEndValue(to, direction, scrollBox, offset, isWindowScroll);
+            return getElemEndValue(
+                to,
+                direction,
+                scrollBox,
+                offset,
+                isWindowScroll,
+                startValue
+            );
         case to === START:
             return 0;
         case to === END && isWindowScroll && direction === HORIZONTAL:
@@ -95,19 +109,15 @@ function getEndValue(to, direction, scrollBox, offset, isWindowScroll) {
     }
 }
 
-function getElemEndValue(el, direction, scrollBox, offset, isWindowScroll) {
+function getElemEndValue(el, direction, scrollBox, offset, isWindowScroll, startValue) {
     const { top, left, width, height } = el.getBoundingClientRect();
     const doc = getDoc();
     const typeSelector = isWindowScroll ? 'window' : 'element';
-
     const movementSelector =
-        (direction === HORIZONTAL && left > 0) || (direction === VERTICAL && top > 0)
+        (direction === HORIZONTAL && left > startValue) ||
+        (direction === VERTICAL && top > startValue)
             ? 'forward'
             : 'back';
-
-    const { top: boxTop, left: boxLeft } = !isWindowScroll
-        ? scrollBox.getBoundingClientRect()
-        : {};
 
     const lookup = {
         window: {
@@ -122,17 +132,16 @@ function getElemEndValue(el, direction, scrollBox, offset, isWindowScroll) {
         },
         element: {
             horizontal: {
-                forward: left - boxLeft + width + offset - scrollBox.clientWidth,
-                back: left + scrollBox.scrollLeft - boxLeft - offset,
+                forward: el.offsetLeft + el.offsetWidth - scrollBox.clientWidth + offset,
+                back: el.offsetLeft - offset,
             },
             vertical: {
-                forward: top - boxTop + height + offset - scrollBox.clientHeight,
-                back: top + scrollBox.scrollTop - boxTop - offset,
+                forward: el.offsetTop + el.offsetHeight - scrollBox.clientHeight + offset,
+                back: el.offsetTop - offset,
             },
         },
     };
-
-    return lookup[typeSelector][direction][movementSelector];
+    return Math.round(lookup[typeSelector][direction][movementSelector]);
 }
 
 function getDoc() {
