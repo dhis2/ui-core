@@ -1,8 +1,5 @@
 import easings from './easings';
 
-// 60 FPS means a frame lasts 1/60*1000=16.67 ms
-// so this interval frequency should in theory ensure for a smooth animation
-const FREQUENCY = 16;
 const HORIZONTAL = 'horizontal';
 const VERTICAL = 'vertical';
 const END = 'end';
@@ -30,22 +27,27 @@ export default function animatedScrollTo({
     const endValue = getEndValue(to, direction, scrollBox, offset, isWindowScroll);
     const change = endValue - startValue;
 
-    let currentTime = 0;
-    let scrollValue;
-    const scrollInterval = setInterval(() => {
-        currentTime += FREQUENCY;
-        scrollValue = easings.easeInOutQuad(currentTime, startValue, change, duration);
+    let startTimestamp, elapsedTime, scrollValue;
+    function step(timestamp) {
+        if (!startTimestamp) 
+            startTimestamp = timestamp;
+        }
+        
+        elapsedTime = timestamp - startTimestamp;
+        scrollValue = easings.easeInOutQuad(elapsedTime, startValue, change, duration);
 
-        if (currentTime >= duration) {
+        if (elapsedTime >= duration) {
             if (scrollValue !== endValue) {
                 scrollHandler(endValue);
             }
-            clearInterval(scrollInterval);
             callback && callback();
         } else {
             scrollHandler(scrollValue);
+            window.requestAnimationFrame(step);
         }
-    }, FREQUENCY);
+    }
+
+    window.requestAnimationFrame(step);
 }
 
 function getScrollHandler(scrollBox, direction, isWindowScroll) {
