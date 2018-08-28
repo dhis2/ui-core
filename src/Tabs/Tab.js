@@ -4,7 +4,7 @@ import Icon from '../../dist/Icon';
 import bemClassNames from '../../dist/utils/bemClassNames';
 import './tab.css';
 
-const bem = bemClassNames('d2-ui-tab');
+const bem = bemClassNames('d2ui-tab');
 
 const Tab = ({ label, icon, selectHandler, active, disabled, stacked, addTabRef }) => {
     return (
@@ -14,7 +14,7 @@ const Tab = ({ label, icon, selectHandler, active, disabled, stacked, addTabRef 
             ref={addTabRef}
         >
             {icon && <Icon name={icon} />}
-            <span>{label}</span>
+            {label && <span>{label}</span>}
         </button>
     );
 };

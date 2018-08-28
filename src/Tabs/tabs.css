@@ -58,6 +58,11 @@
         &--contained {
             display: flex;
             flex-grow: 1;
+            overflow-x: hidden;
+
+            .d2ui-tab {
+                line-height: 0.8rem;
+            }
         }
 
         &--clustered-left {

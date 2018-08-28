@@ -27,6 +27,11 @@ class Tabs extends Component {
 
     // Lifecycle hooks
     componentDidMount() {
+        if (this.props.contained) {
+            this.showTabIndicator();
+            return;
+        }
+
         this.nodes.scrollBox.addEventListener('scroll', this.handleSideScroll);
 
         if (this.scrollRequiredToReachActiveTab()) {
@@ -46,6 +51,7 @@ class Tabs extends Component {
 
     componentDidUpdate(prevProps) {
         if (
+            !this.props.contained &&
             this.props.activeTabIndex !== prevProps.activeTabIndex &&
             this.scrollRequiredToReachActiveTab()
         ) {
@@ -54,7 +60,9 @@ class Tabs extends Component {
     }
 
     componentWillUnmount() {
-        this.nodes.scrollBox.removeEventListener('scroll', this.handleSideScroll);
+        if (!this.props.contained) {
+            this.nodes.scrollBox.removeEventListener('scroll', this.handleSideScroll);
+        }
     }
 
     // Refs
