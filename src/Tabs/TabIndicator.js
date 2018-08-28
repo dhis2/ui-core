@@ -8,56 +8,47 @@ const bem = bemClassNames('d2ui-tab-indicator');
 class TabIndicator extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            activeTabNodeAvailable: false,
-        };
-        this.renderCount = 0;
+        this.state = { animated: false };
     }
 
-    componentDidMount() {
-        // Wait until the next tick before getting the node, to make sure
-        // attributes such as offsetWidth have been updated to their final values
-        setTimeout(() => {
+    componentDidUpdate(prevProps) {
+        // The tabindicator should not move with a CSS transition when it is first positioned into place
+        // The tick after the visibility is true, the animation should start
+        if (!prevProps.visible && this.props.visible) {
             this.setState({
-                activeTabNodeAvailable: Boolean(this.props.getActiveTabRef()),
+                animated: true,
             });
-        }, 1);
+        }
     }
 
     getTransformStyle() {
         const activeTabNode = this.props.getActiveTabRef();
+
+        if (!activeTabNode) {
+            return null;
+        }
+
         const translateX = `translateX(${activeTabNode.offsetLeft}px)`;
         const scaleX = `scaleX(${activeTabNode.offsetWidth})`;
         return { transform: `${translateX} ${scaleX}` };
     }
 
     render() {
-        let style = null;
-        let className;
-        /*
-         * - At the first render cycle the activeTabNode is unavailable,
-         *   so it is not known where to postion the indicator
-         * - At the second render cycle the indicator can receive its initial
-         *   position, but this should be applied without an animation in case 
-         *   the initially activate tab is > 0.
-         * - In subsequent render cycles the position of the indicator SHOULD
-         *   be animated because now we are responding to active tab changes
-        */
-        if (this.state.activeTabNodeAvailable) {
-            style = this.getTransformStyle();
-            className = this.renderCount > 1 ? bem.b('animated') : bem.b();
-        } else {
-            className = bem.b('hidden');
-        }
-
-        this.renderCount += 1;
-
-        return <span className={className} style={style} />;
+        return (
+            <span
+                className={bem.b({
+                    visible: this.props.visible,
+                    animated: this.state.animated,
+                })}
+                style={this.getTransformStyle()}
+            />
+        );
     }
 }
 
 TabIndicator.propTypes = {
     getActiveTabRef: PropTypes.func.isRequired,
+    visible: PropTypes.bool.isRequired,
 };
 
 export default TabIndicator;

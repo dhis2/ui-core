@@ -13,10 +13,10 @@
     transform-origin: left bottom;
     transform: translateX(0) scaleX(100);
     transition: none;
-    opacity: 1;
+    visibility: hidden;
 
-    &--hidden {
-        opacity: 0;
+    &--visible {
+        visibility: visible;
     }
 
     &--animated {
