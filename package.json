@@ -28,7 +28,7 @@
     "@babel/preset-env": "^7.0.0-rc.1",
     "@babel/preset-react": "^7.0.0-rc.1",
     "@dhis2/deploy-build": "^1.0.4",
-    "babel-eslint": "^8.2.6",
+    "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.0-beta",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.14",
     "chokidar": "^2.0.4",
