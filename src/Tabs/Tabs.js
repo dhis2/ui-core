@@ -167,19 +167,15 @@ class Tabs extends Component {
 
         return (
             <div className={className}>
-                {tabItems.map((tab, index) => {
-                    const active = index === activeTabIndex;
-
-                    return (
-                        <Tab
-                            key={`tab-${index}`}
-                            stacked={stackedTabs}
-                            active={active}
-                            addTabRef={this.addTabRef}
-                            {...tab}
-                        />
-                    );
-                })}
+                {tabItems.map((tab, index) => (
+                    <Tab
+                        key={`tab-${index}`}
+                        stacked={stackedTabs}
+                        active={index === activeTabIndex}
+                        addTabRef={this.addTabRef}
+                        {...tab}
+                    />
+                ))}
                 <TabIndicator
                     getActiveTabRef={this.getActiveTabRef}
                     visible={showTabIndicator}
