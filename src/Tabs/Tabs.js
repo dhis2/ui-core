@@ -230,7 +230,7 @@ Tabs.propTypes = {
     tabItems: PropTypes.array,
     position: PropTypes.oneOf(['relative', 'fixed', 'sticky']),
     contained: PropTypes.bool,
-    clustered: PropTypes.oneOf(null, 'left', 'centered', 'right'),
+    clustered: PropTypes.oneOf([null, 'left', 'centered', 'right']),
     stackedTabs: PropTypes.bool,
 };
 

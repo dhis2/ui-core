@@ -24,9 +24,9 @@ Tab.propTypes = {
     icon: PropTypes.string,
     selectHandler: PropTypes.func,
     addTabRef: PropTypes.func.isRequired,
-    active: PropTypes.boolean,
-    disabled: PropTypes.boolean,
-    stacked: PropTypes.boolean,
+    active: PropTypes.bool,
+    disabled: PropTypes.bool,
+    stacked: PropTypes.bool,
 };
 
 Tab.defaultProps = {
