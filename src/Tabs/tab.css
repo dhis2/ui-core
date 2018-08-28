@@ -22,6 +22,22 @@
         color: #000000;
     }
 
+    &--disabled {
+        cursor: not-allowed;
+        color: rgba(0, 0, 0, 0.3);
+    }
+
+    &--stacked {
+        flex-direction: column;
+
+        .material-icons,
+        .material-icons:first-child,
+        .material-icons:last-child,
+        .material-icons:only-child {
+            margin: 0.6rem 0 0 0;
+        }
+    }
+
     &:active {
         /* Cheap ripple alternative to flash clicked tab */
         background-color: #e0e0e0;

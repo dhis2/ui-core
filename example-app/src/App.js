@@ -87,7 +87,7 @@ const tabsList = [
     { label: 'Tab number 1', icon: 'face' },
     { label: 'Tab number 2', icon: 'face' },
     { label: 'Tab number 3', icon: 'face' },
-    { label: 'Tab number 4', icon: 'face' },
+    { label: 'Tab number 4', icon: 'face', disabled: true },
     { label: 'Tab number 5', icon: 'face' },
     { label: 'Tab number 6', icon: 'face' },
     { label: 'Tab number 7', icon: 'face' },
@@ -154,7 +154,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeTabIndex: 3,
+            activeTabIndex: 2,
         };
     }
 
@@ -184,6 +184,7 @@ class App extends Component {
                             <Tabs
                                 activeTabIndex={this.state.activeTabIndex}
                                 tabItems={tabs}
+                                stackedTabs
                             />
                         </div>
                     </div>

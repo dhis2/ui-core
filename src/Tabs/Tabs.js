@@ -18,8 +18,9 @@ class Tabs extends Component {
             tabs: [],
         };
         this.state = {
-            scrolledToStart: false,
-            scrolledToEnd: false,
+            // By setting these to false, the scroll buttons are hidden when the component mounts
+            scrolledToStart: true,
+            scrolledToEnd: true,
             showTabIndicator: false,
         };
     }
