@@ -5,7 +5,7 @@ const { writeFile } = require('./lib/files.js')
 
 async function main () {
     const root = process.cwd()
-    const dest = path.join(root, 'dist')
+    const dest = path.join(root, 'build')
 
     const pkg = require(path.join(root, 'package.json'))
     const cfg = require(path.join(root, 'copy-files.config.js'))

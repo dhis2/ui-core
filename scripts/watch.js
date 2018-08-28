@@ -19,7 +19,7 @@ async function main () {
     const CSS = '.css'
 
     const src = path.join(root, 'src')
-    const dest = path.join(root, 'dist')
+    const dest = path.join(root, 'build')
 
     try {
         await fs.ensureDir(dest)
@@ -62,7 +62,9 @@ async function main () {
 
         switch (ext) {
             case JS:
-                babel.transformFile(filename, {}, async function (err, res) {
+                babel.transformFile(filename, {
+                    sourceMaps: 'inline'
+                }, async function (err, res) {
                     if (err) {
                         console.error(`Failed to write compiled ${filename}`, err)
                         return
@@ -77,7 +79,7 @@ async function main () {
                 try {
                     const { plugins } = await postcssrc({ parser: true })
                     const pss = await fs.readFile(filename, 'utf8')
-                    const { css } = await postcss(plugins).process(pss, { from: filename, to: distfile })
+                    const { css } = await postcss(plugins).process(pss, { from: filename, to: distfile, map: 'inline' })
 
                     console.info(`Writing transpiled ${ext} to '${distfile}'.`)
                     await writeFile(distfile, css)
