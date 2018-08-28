@@ -13,7 +13,7 @@ const UI = ({ theme, direction, children }) => (
 );
 
 UI.propTypes = {
-    direction: PropTypes.oneOf('ltr', 'rtl'),
+    direction: PropTypes.oneOf(['ltr', 'rtl']),
     theme: PropTypes.string,
     children: PropTypes.node,
 };
