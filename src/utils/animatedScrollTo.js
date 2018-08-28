@@ -114,8 +114,8 @@ function getElemEndValue(el, direction, scrollBox, offset, isWindowScroll, start
     const doc = getDoc();
     const typeSelector = isWindowScroll ? 'window' : 'element';
     const movementSelector =
-        (direction === HORIZONTAL && left > startValue) ||
-        (direction === VERTICAL && top > startValue)
+        (direction === HORIZONTAL && el.offsetLeft > startValue) ||
+        (direction === VERTICAL && el.offsetTop > startValue)
             ? 'forward'
             : 'back';
 
@@ -132,7 +132,7 @@ function getElemEndValue(el, direction, scrollBox, offset, isWindowScroll, start
         },
         element: {
             horizontal: {
-                forward: el.offsetLeft + el.offsetWidth - scrollBox.clientWidth + offset,
+                forward: el.offsetLeft + el.offsetWidth - scrollBox.offsetWidth + offset,
                 back: el.offsetLeft - offset,
             },
             vertical: {
