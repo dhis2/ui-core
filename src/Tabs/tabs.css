@@ -87,15 +87,15 @@
             }
         }
 
-        &--clustered-left {
+        &--cluster-left {
             justify-content: flex-start;
         }
 
-        &--clustered-centered {
+        &--cluster-centered {
             justify-content: center;
         }
 
-        &--clustered-right {
+        &--cluster-right {
             justify-content: flex-end;
         }
     }

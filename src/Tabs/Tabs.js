@@ -178,14 +178,14 @@ class Tabs extends Component {
 
     // Rendering
     renderTabBar() {
-        const { clustered, contained, children } = this.props;
+        const { cluster, contained, children } = this.props;
 
         const { showTabIndicator } = this.state;
 
         const className = bem.e(
             'tab-container',
             // A scrollable tabBar cannot be clustered
-            { [`clustered-${clustered}`]: clustered && contained },
+            { [`cluster-${cluster}`]: cluster && contained },
             { contained }
         );
 
@@ -238,7 +238,7 @@ Tabs.propTypes = {
     tabItems: PropTypes.array,
     position: PropTypes.oneOf(['relative', 'fixed', 'absolute', 'sticky']),
     contained: PropTypes.bool,
-    clustered: PropTypes.oneOf([null, 'left', 'centered', 'right']),
+    cluster: PropTypes.oneOf([null, 'left', 'centered', 'right']),
     stackedTabs: PropTypes.bool,
     children: (props, propName, componentName) => {
         const children = props[propName];
@@ -259,7 +259,7 @@ Tabs.defaultProps = {
     tabItems: [],
     contained: false,
     position: 'relative',
-    clustered: null,
+    cluster: null,
     stackedTabs: false,
 };
 
