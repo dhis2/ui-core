@@ -14,7 +14,7 @@ import {
 import Icon from 'ui/Icon';
 import Paper from 'ui/Paper';
 import { Menu, MenuItem } from 'ui/Menu';
-import { Tabs } from 'ui/Tabs';
+import { Tabs, Tab } from 'ui/Tabs';
 import CircularProgress from 'ui/CircularProgress';
 import LinearProgress from 'ui/LinearProgress';
 
@@ -155,12 +155,19 @@ class App extends Component {
         super(props);
         this.state = {
             activeTabIndex: 2,
+            activeSecondaryTabIndex: 0,
         };
     }
 
     tabChangeHandler = clickedTabIndex => {
         this.setState({
             activeTabIndex: clickedTabIndex,
+        });
+    };
+
+    activateSubTab = clickedTabIndex => {
+        this.setState({
+            activeSecondaryTabIndex: clickedTabIndex,
         });
     };
 
@@ -172,23 +179,15 @@ class App extends Component {
         return (
             <UI theme="green">
                 <Paper elevation={6} padded>
-                    <div
-                        style={{
-                            width: '100%',
-                            height: '1000px',
-                            overflowY: 'scroll',
-                            border: '4px solid grey',
-                        }}
-                    >
-                        <div style={{ width: '100%', height: '1800px' }}>
-                            <Tabs
-                                activeTabIndex={this.state.activeTabIndex}
-                                tabItems={tabs}
-                                stackedTabs
-                                position="fixed"
-                            />
-                        </div>
-                    </div>
+                    <Tabs
+                        activeTabIndex={this.state.activeTabIndex}
+                        tabItems={tabs}
+                        stackedTabs
+                        position="fixed"
+                    />
+                    <h4 style={{ marginTop: '60px' }}>
+                        I have some margin top so I show under the fixed tabs
+                    </h4>
                     <CircularProgress size="small" />
                     <CircularProgress />
                     <CircularProgress size="large" />
@@ -197,12 +196,58 @@ class App extends Component {
                     <div
                         className="accent-primary-lightest-background"
                         style={{
-                            width: 400,
-                            height: 300,
+                            width: '100%',
+                            height: 400,
                             position: 'relative',
                         }}
                     >
-                        <p>Put a loader over the top</p>
+                        <Tabs
+                            activeTabIndex={this.state.activeSecondaryTabIndex}
+                            contained
+                        >
+                            <Tab>
+                                <span
+                                    style={{ display: 'inline-flex' }}
+                                    onClick={() => this.activateSubTab(0)}
+                                >
+                                    <Icon name="face" />
+                                    {/* If you wrap this in a span and the parent is display: flex, 
+                                        you can get a sort of decent style, because of the Tab's 'd2ui-align-icon'
+                                        helper CSS class. However, in general it's probably best if the Tab 
+                                        receives a component with correct styling applied
+                                     */}
+                                    <span>Sub tab 1</span>
+                                </span>
+                            </Tab>
+                            <Tab>
+                                <span
+                                    style={{ display: 'inline-flex' }}
+                                    onClick={() => this.activateSubTab(1)}
+                                >
+                                    Sub tab 2
+                                </span>
+                            </Tab>
+                            <Tab>
+                                <span
+                                    style={{ display: 'inline-flex' }}
+                                    onClick={() => this.activateSubTab(2)}
+                                >
+                                    <h4>With a header???</h4>
+                                </span>
+                            </Tab>
+                            <Tab>
+                                <span
+                                    style={{ display: 'inline-flex' }}
+                                    onClick={() => this.activateSubTab(3)}
+                                >
+                                    <Icon name="face" />
+                                    Sub tab 1
+                                </span>
+                            </Tab>
+                        </Tabs>
+                        <p style={{ textAlign: 'center', marginTop: 20 }}>
+                            There is a loader above me
+                        </p>
                         <CircularProgress center />
                     </div>
                     <Logo icon />

@@ -1,11 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Children, cloneElement, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import bemClassNames from '../../dist/utils/bemClassNames';
 import './tabs.css';
 import Tab from './Tab';
-import Icon from '../../dist/Icon';
+import Icon from '../Icon';
 import TabIndicator from './TabIndicator';
-import { animatedScrollTo } from '../utils';
+import { animatedScrollTo, bemClassNames } from '../utils';
 
 const bem = bemClassNames('d2ui-tabs');
 
@@ -154,15 +153,32 @@ class Tabs extends Component {
         }
     }
 
+    getAdditionalTabProps(index) {
+        const { stackedTabs, activeTabIndex } = this.props;
+        return {
+            stacked: stackedTabs,
+            active: index === activeTabIndex,
+            addTabRef: this.addTabRef,
+        };
+    }
+
+    renderTabItems() {
+        const { tabItems } = this.props;
+        return tabItems.map((tab, index) => (
+            <Tab key={`tab-${index}`} {...this.getAdditionalTabProps(index)} {...tab} />
+        ));
+    }
+
+    renderChildren() {
+        const { children } = this.props;
+        return Children.map(children, (child, index) =>
+            cloneElement(child, this.getAdditionalTabProps(index))
+        );
+    }
+
     // Rendering
     renderTabBar() {
-        const {
-            clustered,
-            contained,
-            tabItems,
-            stackedTabs,
-            activeTabIndex,
-        } = this.props;
+        const { clustered, contained, children } = this.props;
 
         const { showTabIndicator } = this.state;
 
@@ -175,15 +191,7 @@ class Tabs extends Component {
 
         return (
             <div className={className}>
-                {tabItems.map((tab, index) => (
-                    <Tab
-                        key={`tab-${index}`}
-                        stacked={stackedTabs}
-                        active={index === activeTabIndex}
-                        addTabRef={this.addTabRef}
-                        {...tab}
-                    />
-                ))}
+                {children ? this.renderChildren() : this.renderTabItems()}
                 <TabIndicator
                     getActiveTabRef={this.getActiveTabRef}
                     visible={showTabIndicator}
