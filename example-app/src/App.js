@@ -19,6 +19,7 @@ import LinearProgress from 'ui/LinearProgress';
 
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
+import { Checkbox } from 'ui/Input';
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -87,6 +88,7 @@ class App extends Component {
         return (
             <UI theme="green">
                 <Paper elevation={6} padded>
+                    <Checkbox />
                     <CircularProgress size="small" />
                     <CircularProgress />
                     <CircularProgress size="large" />
