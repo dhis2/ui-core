@@ -219,9 +219,11 @@ class App extends Component {
                             <Tab onClick={() => this.activateSubTab(1)}>
                                 <span style={{ display: 'inline-flex' }}>Sub tab 2</span>
                             </Tab>
-                            <Tab onClick={() => this.activateSubTab(2)}>
+                            <Tab>
                                 <span style={{ display: 'inline-flex' }}>
-                                    <h4>With a header???</h4>
+                                    <h4 onClick={() => this.activateSubTab(2)}>
+                                        With a header???
+                                    </h4>
                                 </span>
                             </Tab>
                             <Tab onClick={() => this.activateSubTab(3)}>
