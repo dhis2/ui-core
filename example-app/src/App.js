@@ -185,6 +185,7 @@ class App extends Component {
                                 activeTabIndex={this.state.activeTabIndex}
                                 tabItems={tabs}
                                 stackedTabs
+                                position="fixed"
                             />
                         </div>
                     </div>

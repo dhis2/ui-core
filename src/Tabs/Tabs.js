@@ -228,7 +228,7 @@ class Tabs extends Component {
 Tabs.propTypes = {
     activeTabIndex: PropTypes.number.isRequired,
     tabItems: PropTypes.array,
-    position: PropTypes.oneOf(['relative', 'fixed', 'sticky']),
+    position: PropTypes.oneOf(['relative', 'fixed', 'absolute', 'sticky']),
     contained: PropTypes.bool,
     clustered: PropTypes.oneOf([null, 'left', 'centered', 'right']),
     stackedTabs: PropTypes.bool,
@@ -237,7 +237,7 @@ Tabs.propTypes = {
 Tabs.defaultProps = {
     tabItems: [],
     contained: false,
-    position: 'sticky',
+    position: 'relative',
     clustered: null,
     stackedTabs: false,
 };

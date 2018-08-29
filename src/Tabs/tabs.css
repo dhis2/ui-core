@@ -9,6 +9,27 @@
     flex-direction: row;
     background-color: #eceff1;
 
+    &--relative {
+        position: relative;
+    }
+
+    &--fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    &--absolute {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &--sticky {
+        position: sticky;
+        top: 0;
+    }
+
     &__scroll-button {
         flex: 0 0 3rem;
         color: inherit;
