@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
-import { bemClassNames } from '../utils';
+import { bemClassNames, noop } from '../utils';
 import './tab.css';
 
 const bem = bemClassNames('d2ui-tab');
@@ -9,7 +9,7 @@ const bem = bemClassNames('d2ui-tab');
 const Tab = ({
     icon,
     label,
-    selectHandler,
+    onClick,
     active,
     disabled,
     stacked,
@@ -18,7 +18,7 @@ const Tab = ({
 }) => (
     <button
         className={`${bem.b({ active, disabled, stacked })} d2ui-align-icon`}
-        onClick={selectHandler}
+        onClick={onClick}
         ref={addTabRef}
     >
         {children
@@ -30,7 +30,7 @@ const Tab = ({
 Tab.propTypes = {
     label: PropTypes.string,
     icon: PropTypes.string,
-    selectHandler: PropTypes.func,
+    onClick: PropTypes.func,
     addTabRef: PropTypes.func,
     active: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -42,6 +42,7 @@ Tab.defaultProps = {
     active: false,
     disabled: false,
     stacked: false,
+    onClick: noop,
 };
 
 export default Tab;

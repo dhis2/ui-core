@@ -174,7 +174,7 @@ class App extends Component {
     render() {
         const tabs = tabsList.map((tab, index) => ({
             ...tab,
-            selectHandler: () => this.tabChangeHandler(index),
+            onClick: () => this.tabChangeHandler(index),
         }));
         return (
             <UI theme="green">
@@ -205,11 +205,8 @@ class App extends Component {
                             activeTabIndex={this.state.activeSecondaryTabIndex}
                             contained
                         >
-                            <Tab>
-                                <span
-                                    style={{ display: 'inline-flex' }}
-                                    onClick={() => this.activateSubTab(0)}
-                                >
+                            <Tab onClick={() => this.activateSubTab(0)}>
+                                <span style={{ display: 'inline-flex' }}>
                                     <Icon name="face" />
                                     {/* If you wrap this in a span and the parent is display: flex, 
                                         you can get a sort of decent style, because of the Tab's 'd2ui-align-icon'
@@ -219,27 +216,16 @@ class App extends Component {
                                     <span>Sub tab 1</span>
                                 </span>
                             </Tab>
-                            <Tab>
-                                <span
-                                    style={{ display: 'inline-flex' }}
-                                    onClick={() => this.activateSubTab(1)}
-                                >
-                                    Sub tab 2
-                                </span>
+                            <Tab onClick={() => this.activateSubTab(1)}>
+                                <span style={{ display: 'inline-flex' }}>Sub tab 2</span>
                             </Tab>
-                            <Tab>
-                                <span
-                                    style={{ display: 'inline-flex' }}
-                                    onClick={() => this.activateSubTab(2)}
-                                >
+                            <Tab onClick={() => this.activateSubTab(2)}>
+                                <span style={{ display: 'inline-flex' }}>
                                     <h4>With a header???</h4>
                                 </span>
                             </Tab>
-                            <Tab>
-                                <span
-                                    style={{ display: 'inline-flex' }}
-                                    onClick={() => this.activateSubTab(3)}
-                                >
+                            <Tab onClick={() => this.activateSubTab(3)}>
+                                <span style={{ display: 'inline-flex' }}>
                                     <Icon name="face" />
                                     Sub tab 1
                                 </span>
