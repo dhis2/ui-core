@@ -57,6 +57,8 @@
     &__label-wrap {
         display: inline-flex;
         align-items: center;
+        padding-right: 0.5rem;
+        vertical-align: middle;
     }
 
     &__label-text {
@@ -131,16 +133,6 @@
         pointer-events: none;
         will-change: background-color, border-color;
     }
-    /* PostCSS RTL should leave this along, because these are manual */
-    /* rtl:begin:ignore */
-    .d2ui-checkbox[dir="rtl"] .d2ui-checkbox__background,
-    [dir="rtl"] .d2ui-checkbox .d2ui-checkbox__background {
-        /* @noflip */
-        left: initial;
-        /* @noflip */
-        right: 11px;
-    }
-    /* rtl:end:ignore */
 
     &__checkmark {
         position: absolute;
@@ -251,6 +243,17 @@
         opacity: 1;
     }
 }
+
+/* PostCSS RTL should leave this along, because these are manual */
+/* rtl:begin:ignore */
+.d2ui-checkbox[dir="rtl"] .d2ui-checkbox__background,
+[dir="rtl"] .d2ui-checkbox .d2ui-checkbox__background {
+    /* @noflip */
+    left: initial;
+    /* @noflip */
+    right: 11px;
+}
+/* rtl:end:ignore */
 
 @supports not (-ms-ime-align: auto) {
     .d2ui-checkbox__background::before {

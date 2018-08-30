@@ -20,6 +20,7 @@ import LinearProgress from 'ui/LinearProgress';
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
 import { Checkbox, RadioButton } from 'ui/Input';
+import Switch from 'ui/Input/Switch';
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -84,14 +85,30 @@ const menuItems = [
 ];
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            switchOn: false,
+        };
+    }
+
+    toggleSwitch = () => {
+        console.log('Going to toggle, value is now: ', this.state.switchOn);
+        this.setState({
+            switchOn: !this.state.switchOn,
+        });
+    };
+
     render() {
         return (
             <UI theme="green">
                 <Paper elevation={6} padded>
-                    <div style={{ padding: '1rem 2rem', position: 'relative' }}>
-                        <Checkbox>Test</Checkbox>
-                        <RadioButton>Test</RadioButton>
-                    </div>
+                    <Checkbox>Test</Checkbox>
+                    <RadioButton>Test</RadioButton>
+                    <Switch value={this.state.switchOn} onChange={this.toggleSwitch}>
+                        On / Off
+                    </Switch>
+                    <br />
                     <CircularProgress size="small" />
                     <CircularProgress />
                     <CircularProgress size="large" />
@@ -136,13 +153,11 @@ class App extends Component {
                         <Icon name="face" />
                     </RaisedButton>
                     <OutlinedButton>Outlined</OutlinedButton>
-
                     <Tooltip text="Test printer here">
                         <CircleButton onClick={clickTest}>
                             <Icon name="printer" />
                         </CircleButton>
                     </Tooltip>
-
                     {/* IF YOU WANT MORE PROPS ON YOUR TOOLTIP JUST WRAP THE BUTTON */}
                     <Tooltip
                         text="I am wrapping the button explicitely"
@@ -153,7 +168,6 @@ class App extends Component {
                             <Icon name="delete" />
                         </CircleButton>
                     </Tooltip>
-
                     <CircleButton size="small">
                         <Icon name="add" />
                     </CircleButton>
@@ -163,7 +177,6 @@ class App extends Component {
                     <CircleButton aria-labelledby="test" size="large">
                         <Icon name="add" />
                     </CircleButton>
-
                     <a href="www.google.com">Link to google</a>
                     <br />
                     <br />
