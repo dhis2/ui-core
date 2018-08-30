@@ -20,7 +20,7 @@
         height: 1.5rem;
     }
 
-    &__small &__circle-clipper &__circle {
+    &--small &__circle-clipper &__circle {
         border-width: 2px;
     }
 
