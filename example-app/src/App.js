@@ -19,7 +19,7 @@ import LinearProgress from 'ui/LinearProgress';
 
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
-import { Checkbox } from 'ui/Input';
+import { Checkbox, RadioButton } from 'ui/Input';
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -90,6 +90,7 @@ class App extends Component {
                 <Paper elevation={6} padded>
                     <div style={{ padding: '1rem 2rem', position: 'relative' }}>
                         <Checkbox>Test</Checkbox>
+                        <RadioButton>Test</RadioButton>
                     </div>
                     <CircularProgress size="small" />
                     <CircularProgress />
