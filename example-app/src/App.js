@@ -88,7 +88,9 @@ class App extends Component {
         return (
             <UI theme="green">
                 <Paper elevation={6} padded>
-                    <Checkbox />
+                    <div style={{ padding: '1rem 2rem', position: 'relative' }}>
+                        <Checkbox />
+                    </div>
                     <CircularProgress size="small" />
                     <CircularProgress />
                     <CircularProgress size="large" />
