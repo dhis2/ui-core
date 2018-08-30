@@ -93,7 +93,6 @@ class App extends Component {
     }
 
     toggleSwitch = () => {
-        console.log('Going to toggle, value is now: ', this.state.switchOn);
         this.setState({
             switchOn: !this.state.switchOn,
         });
