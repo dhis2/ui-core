@@ -5,24 +5,29 @@ import { bemClassNames } from '../utils';
 
 const bem = bemClassNames('d2ui-checkbox');
 
-const Checkbox = props => {
+const Checkbox = ({ children }) => {
     return (
-        <div class="mdc-checkbox">
-            <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-1" />
-            <div class="mdc-checkbox__background">
-                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                    <path
-                        class="mdc-checkbox__checkmark-path"
-                        fill="none"
-                        d="M1.73,12.91 8.1,19.28 22.79,4.59"
-                    />
-                </svg>
-                <div class="mdc-checkbox__mixedmark" />
+        <label className={bem.e('label-wrap')}>
+            <div className={bem.b()}>
+                <input type="checkbox" className={bem.e('native-control')} />
+                <div className={bem.e('background')}>
+                    <svg className={bem.e('checkmark')} viewBox="0 0 24 24">
+                        <path
+                            className={bem.e('checkmark-path')}
+                            fill="none"
+                            d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                        />
+                    </svg>
+                    <div className={bem.e('mixedmark')} />
+                </div>
             </div>
-        </div>
+            <span className={bem.e('label-text')}>{children}</span>
+        </label>
     );
 };
 
-Checkbox.propTypes = {};
+Checkbox.propTypes = {
+    children: PropTypes.node,
+};
 
 export default Checkbox;
