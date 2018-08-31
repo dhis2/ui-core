@@ -19,7 +19,8 @@
     "build:es": "babel src --out-dir build --copy-files",
     "build:files": "node scripts/setup-dist-package.js && node scripts/copy-files.js",
     "build": "NODE_ENV=production npm run build:es && npm run build:css && npm run build:files",
-    "deploy": "deploy-build"
+    "deploy": "deploy-build",
+    "release": "npm run build && npm publish build"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-rc.1",
