@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './switch.css';
+import './togglerwrap.css';
 import { bemClassNames } from '../utils';
 
 const bem = bemClassNames('d2ui-switch');
 
 const Switch = ({ children, value, disabled, onChange }) => {
     return (
-        <label className={bem.e('label-wrap')}>
+        <label className={`${bem.e('label-wrap')} d2ui-toggler-wrap`}>
             <div className={bem.b({ checked: value, disabled: disabled })}>
                 <div className={bem.e('track')} />
                 <div className={bem.e('thumb-underlay')}>

@@ -4,6 +4,7 @@
     outline: none;
     user-select: none;
     padding: 13px 4px;
+    margin-left: 0.8rem;
 
     &--checked {
         .d2ui-switch__thumb-underlay {
@@ -67,21 +68,13 @@
         }
     }
 
-    &__label-wrap {
-        display: inline-flex;
-        align-items: center;
-        vertical-align: middle;
-        padding-right: 0.5rem;
-        padding-left: 0.8rem;
+    &__label-wrap:hover {
+        .d2ui-switch:not(.d2ui-switch--checked) .d2ui-switch__thumb-underlay::before {
+            opacity: 0.08;
+        }
 
-        &:hover {
-            .d2ui-switch:not(.d2ui-switch--checked) .d2ui-switch__thumb-underlay::before {
-                opacity: 0.08;
-            }
-
-            .d2ui-switch--checked .d2ui-switch__thumb-underlay::before {
-                opacity: 0.04;
-            }
+        .d2ui-switch--checked .d2ui-switch__thumb-underlay::before {
+            opacity: 0.04;
         }
     }
 

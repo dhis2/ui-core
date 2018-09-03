@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './radiobutton.css';
+import './togglerwrap.css';
 import { bemClassNames } from '../utils';
 
 const bem = bemClassNames('d2ui-radio-button');
 
 const RadioButton = ({ children }) => {
     return (
-        <label className={bem.e('label-wrap')}>
+        <label className={`${bem.e('label-wrap')} d2ui-toggler-wrap`}>
             <div className={bem.b()}>
                 <input className={bem.e('native-control')} type="radio" name="radios" />
                 <div className={bem.e('background')}>

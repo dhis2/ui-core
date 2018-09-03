@@ -54,13 +54,6 @@
         opacity: 0.16;
     }
 
-    &__label-wrap {
-        display: inline-flex;
-        align-items: center;
-        padding-right: 0.5rem;
-        vertical-align: middle;
-    }
-
     &__label-text {
         padding-top: 2px;
         cursor: pointer;

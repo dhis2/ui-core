@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './checkbox.css';
+import './togglerwrap.css';
 import { bemClassNames } from '../utils';
 
 const bem = bemClassNames('d2ui-checkbox');
 
 const Checkbox = ({ children }) => {
     return (
-        <label className={bem.e('label-wrap')}>
+        <label className={`${bem.e('label-wrap')} d2ui-toggler-wrap`}>
             <div className={bem.b()}>
                 <input type="checkbox" className={bem.e('native-control')} />
                 <div className={bem.e('background')}>
