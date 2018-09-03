@@ -19,8 +19,7 @@ import LinearProgress from 'ui/LinearProgress';
 
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
-import { Checkbox, RadioButton } from 'ui/Input';
-import Switch from 'ui/Input/Switch';
+import { Checkbox, RadioButton, TextField, Switch } from 'ui/Input';
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -89,6 +88,7 @@ class App extends Component {
         super(props);
         this.state = {
             switchOn: false,
+            inputText: '',
         };
     }
 
@@ -98,10 +98,27 @@ class App extends Component {
         });
     };
 
+    updateInputText = event => {
+        this.setState({
+            inputText: event.target.value,
+        });
+    };
+
     render() {
         return (
             <UI theme="green">
                 <Paper elevation={6} padded>
+                    <TextField
+                        label="testlabel"
+                        value={this.state.inputText}
+                        onChange={this.updateInputText}
+                    />
+                    <TextField
+                        label="testlabel"
+                        type="outlined"
+                        value={this.state.inputText}
+                        onChange={this.updateInputText}
+                    />
                     <Checkbox>Test</Checkbox>
                     <RadioButton>Test</RadioButton>
                     <Switch value={this.state.switchOn} onChange={this.toggleSwitch}>

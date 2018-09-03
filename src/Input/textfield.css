@@ -1,0 +1,158 @@
+.d2ui-text-field {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    will-change: transform, opacity;
+    border-radius: 4px 4px 0 0;
+    display: inline-flex;
+    position: relative;
+    box-sizing: border-box;
+    height: 56px;
+    overflow: hidden;
+    will-change: opacity, transform, color;
+
+    &__input {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-size: 1rem;
+        line-height: 1.75rem;
+        font-weight: 400;
+        letter-spacing: 0.00937em;
+        text-decoration: inherit;
+        text-transform: inherit;
+        align-self: flex-end;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 20px 12px 6px;
+        border: none;
+        border-bottom: 1px solid;
+        border-radius: 0;
+        background: none;
+        -webkit-appearance: none;
+        caret-color: #00796b;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:invalid {
+            box-shadow: none;
+        }
+
+        &::placeholder {
+            transition: color 180ms cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+        }
+    }
+
+    &__floating-label {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        pointer-events: none;
+        font-size: 1rem;
+        line-height: 1.75rem;
+        font-weight: 400;
+        letter-spacing: 0.00937em;
+        text-decoration: inherit;
+        text-transform: inherit;
+        position: absolute;
+        bottom: 14px;
+        left: 12px;
+        transform-origin: left top;
+        transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+            color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        line-height: 1.15rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: text;
+        overflow: hidden;
+        color: rgba(0, 0, 0, 0.6);
+        will-change: transform color;
+    }
+
+    &__bottom-line {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        transform: scaleX(0);
+        transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 180ms cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        z-index: 2;
+        background-color: #00796b;
+    }
+
+    &__notched-outline {
+        position: absolute;
+        border-radius: 4px;
+        opacity: 0;
+        transform: opacity 180ms cubic-bezier(0.4, 0, 0.2, 1);
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border: 2px solid #00796b;
+    }
+
+    /* Show bottom line when input has focus */
+    &__input:focus ~ &__bottom-line {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+
+    /* Move label above if input has value and/or focus  */
+    &--with-value &__floating-label,
+    &__input:focus ~ &__floating-label,
+    &__input:-webkit-autofill ~ &__floating-label {
+        transform: translateY(-100%) scale(0.75);
+        cursor: auto;
+    }
+    /* Color the label when the input has focus */
+    &__input:focus ~ &__floating-label {
+        color: #00796b;
+    }
+
+    /* TYPES */
+    &--filled &__input {
+        background-color: #eceff1;
+        border-color: transparent;
+        transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            border-color: rgb(62, 62, 62);
+            /* Darken 5% */
+            background-color: #dee3e6;
+        }
+    }
+
+    &--outlined {
+        overflow: visible;
+    }
+
+    &--outlined &__floating-label {
+        z-index: 1;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        background-color: #ffffff;
+    }
+
+    &--outlined &__input {
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        transition: border-color 180ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            border-color: rgb(0, 0, 0);
+        }
+    }
+    &__input:focus ~ &__notched-outline {
+        opacity: 1;
+    }
+
+    &--outlined.d2ui-text-field--with-value &__floating-label,
+    &--outlined &__input:focus ~ &__floating-label,
+    &--outlined &__input:-webkit-autofill ~ &__floating-label {
+        transform: translateY(-160%) scale(0.75);
+    }
+}
