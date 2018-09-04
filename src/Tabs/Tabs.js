@@ -245,19 +245,7 @@ Tabs.propTypes = {
     contained: PropTypes.bool,
     cluster: PropTypes.oneOf([null, 'left', 'centered', 'right']),
     stackedTabs: PropTypes.bool,
-    children: (props, propName, componentName) => {
-        const children = props[propName];
-        if (
-            children &&
-            ((Array.isArray(children) &&
-                children.some(child => child.type.name !== 'Tab')) ||
-                (!Array.isArray(children) && children.type.name !== 'Tab'))
-        ) {
-            return new Error(
-                `Invalid prop ${propName} supplied to ${componentName} component. Only "Tab" components are allowed as direct ascendants of "Tabs"`
-            );
-        }
-    },
+    children: PropTypes.oneOfType([PropTypes.objectOf(Tab), PropTypes.arrayOf(Tab)]),
 };
 
 Tabs.defaultProps = {
