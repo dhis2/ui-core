@@ -180,9 +180,9 @@ class App extends Component {
             <UI theme="green">
                 <Paper elevation={6} padded>
                     <Tabs
-                        activeTabIndex={this.state.activeTabIndex}
-                        tabItems={tabs}
-                        stackedTabs
+                        selected={this.state.activeTabIndex}
+                        items={tabs}
+                        stacked
                         position="fixed"
                     />
                     <h4 style={{ marginTop: '60px' }}>
@@ -201,10 +201,7 @@ class App extends Component {
                             position: 'relative',
                         }}
                     >
-                        <Tabs
-                            activeTabIndex={this.state.activeSecondaryTabIndex}
-                            contained
-                        >
+                        <Tabs selected={this.state.activeSecondaryTabIndex} contained>
                             <Tab onClick={() => this.activateSubTab(0)}>
                                 <span style={{ display: 'inline-flex' }}>
                                     <Icon name="face" />

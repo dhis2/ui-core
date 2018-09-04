@@ -51,7 +51,7 @@ class Tabs extends Component {
     componentDidUpdate(prevProps) {
         if (
             !this.props.contained &&
-            this.props.activeTabIndex !== prevProps.activeTabIndex &&
+            this.props.selected !== prevProps.selected &&
             this.scrollRequiredToReachActiveTab()
         ) {
             this.scrollToTab(this.getActiveTabRef());
@@ -70,8 +70,8 @@ class Tabs extends Component {
     };
 
     getActiveTabRef = () => {
-        const { activeTabIndex } = this.props;
-        return this.nodes.tabs[activeTabIndex];
+        const { selected } = this.props;
+        return this.nodes.tabs[selected];
     };
 
     setScrollBoxRef = node => {
@@ -154,17 +154,17 @@ class Tabs extends Component {
     }
 
     getAdditionalTabProps(index) {
-        const { stackedTabs, activeTabIndex } = this.props;
+        const { stacked, selected } = this.props;
         return {
-            stacked: stackedTabs,
-            active: index === activeTabIndex,
+            stacked: stacked,
+            active: index === selected,
             addTabRef: this.addTabRef,
         };
     }
 
-    renderTabItems() {
-        const { tabItems } = this.props;
-        return tabItems.map((tab, index) => (
+    renderitems() {
+        const { items } = this.props;
+        return items.map((tab, index) => (
             <Tab key={`tab-${index}`} {...this.getAdditionalTabProps(index)} {...tab} />
         ));
     }
@@ -191,7 +191,7 @@ class Tabs extends Component {
 
         return (
             <div className={className}>
-                {children ? this.renderChildren() : this.renderTabItems()}
+                {children ? this.renderChildren() : this.renderitems()}
                 <TabIndicator
                     getActiveTabRef={this.getActiveTabRef}
                     visible={showTabIndicator}
@@ -239,21 +239,21 @@ class Tabs extends Component {
 }
 
 Tabs.propTypes = {
-    activeTabIndex: PropTypes.number.isRequired,
-    tabItems: PropTypes.array,
+    selected: PropTypes.number.isRequired,
+    items: PropTypes.array,
     position: PropTypes.oneOf(['relative', 'fixed', 'absolute', 'sticky']),
     contained: PropTypes.bool,
     cluster: PropTypes.oneOf([null, 'left', 'centered', 'right']),
-    stackedTabs: PropTypes.bool,
+    stacked: PropTypes.bool,
     children: PropTypes.oneOfType([PropTypes.objectOf(Tab), PropTypes.arrayOf(Tab)]),
 };
 
 Tabs.defaultProps = {
-    tabItems: [],
+    items: [],
     contained: false,
     position: 'relative',
     cluster: null,
-    stackedTabs: false,
+    stacked: false,
 };
 
 export default Tabs;
