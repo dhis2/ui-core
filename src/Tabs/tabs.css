@@ -3,7 +3,6 @@
         0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     width: 100%;
     display: flex;
-    z-index: 1100;
     box-sizing: border-box;
     flex-shrink: 0;
     flex-direction: row;
@@ -17,18 +16,20 @@
         position: fixed;
         top: 0;
         left: 0;
+        z-index: 9001;
     }
 
     &--absolute {
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 99999;
+        z-index: 9000;
     }
 
     &--sticky {
         position: sticky;
         top: 0;
+        z-index: 9000;
     }
 
     &__scroll-button {
