@@ -230,10 +230,16 @@ class App extends Component {
                                 </span>
                             </Tab>
                         </Tabs>
-                        <p style={{ textAlign: 'center', marginTop: 20 }}>
-                            There is a loader above me
-                        </p>
-                        <CircularProgress center />
+                        <div
+                            style={{
+                                height: 200,
+                                position: 'relative',
+                            }}
+                            className="accent-secondary-lightest-background"
+                        >
+                            <p>There is a loader above me</p>
+                            <CircularProgress center />
+                        </div>
                     </div>
                     <Logo icon />
                     <FlatButton
