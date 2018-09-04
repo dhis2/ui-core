@@ -4,7 +4,7 @@ import './tabs.css';
 import Tab from './Tab';
 import Icon from '../Icon';
 import TabIndicator from './TabIndicator';
-import { animatedScrollTo, bemClassNames } from '../utils';
+import { animatedScrollTo, bemClassNames, throttle } from '../utils';
 
 const bem = bemClassNames('d2ui-tabs');
 
@@ -22,6 +22,7 @@ class Tabs extends Component {
             scrolledToEnd: true,
             showTabIndicator: false,
         };
+        this.handleSideScroll = throttle(this.toggleScrollButtonVisibility.bind(this));
     }
 
     // Lifecycle hooks
@@ -31,20 +32,15 @@ class Tabs extends Component {
             return;
         }
 
-        this.nodes.scrollBox.addEventListener('scroll', this.handleSideScroll);
-
         if (this.scrollRequiredToReachActiveTab()) {
-            // If a scroll is required the scroll event is triggered and
-            // the scroll button visibility is updated as a result
-            const scrollParams = {
-                duration: 1, // no animation
-                callback: this.showTabIndicator,
+            const scrollProps = {
+                duration: 1,
+                callback: this.updateScrollableUiAfterMount,
             };
-            this.scrollToTab(this.getActiveTabRef(), scrollParams);
+
+            this.scrollToTab(this.getActiveTabRef(), scrollProps);
         } else {
-            // If no scroll is required the scrollButtons need to be updated manually
-            this.toggleScrollButtonVisibility();
-            this.showTabIndicator();
+            this.updateScrollableUiAfterMount();
         }
     }
 
@@ -83,10 +79,6 @@ class Tabs extends Component {
     };
 
     // Event handlers and callbacks (bound to this scope)
-    handleSideScroll = () => {
-        this.toggleScrollButtonVisibility();
-    };
-
     scrollLeft = () => {
         const { scrollBox, tabs } = this.nodes;
         const offsetLeft = scrollBox.scrollLeft - scrollBox.offsetWidth;
@@ -104,11 +96,25 @@ class Tabs extends Component {
         this.scrollToTab(targetTab);
     };
 
-    showTabIndicator = () => {
-        this.setState({ showTabIndicator: true });
+    attachSideScrollListener = () => {
+        this.nodes.scrollBox.addEventListener('scroll', this.handleSideScroll);
+    };
+
+    updateScrollableUiAfterMount = () => {
+        this.showTabIndicator();
+        this.toggleScrollButtonVisibility();
+        this.attachSideScrollListener();
     };
 
     // Methods
+    showTabIndicator() {
+        this.setState({ showTabIndicator: true });
+    }
+
+    removeSideScrollListener() {
+        this.nodes.scrollBox.removeEventListener('scroll', this.handleSideScroll);
+    }
+
     getTabAtOffsetLeft(offsetLeft) {
         return this.nodes.tabs.find(
             tab =>
@@ -127,12 +133,14 @@ class Tabs extends Component {
         return shouldScrollRight || shouldScrollLeft;
     }
 
-    scrollToTab(tab, scrollParams = {}) {
+    scrollToTab(tab, scrollProps = { callback: this.attachSideScrollListener }) {
+        this.removeSideScrollListener();
+
         animatedScrollTo({
             to: tab,
             scrollBox: this.nodes.scrollBox,
             direction: 'horizontal',
-            ...scrollParams,
+            ...scrollProps,
         });
     }
 

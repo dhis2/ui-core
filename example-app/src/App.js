@@ -154,8 +154,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeTabIndex: 2,
-            activeSecondaryTabIndex: 0,
+            activeTabIndex: 60,
+            activeSecondaryTabIndex: 2,
         };
     }
 

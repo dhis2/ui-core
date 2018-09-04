@@ -4,3 +4,4 @@ export { default as animatedScrollTo } from './animatedScrollTo';
 export { default as bemClassNames } from './bemClassNames';
 export { default as wrapTextNodesInSpans } from './wrapTextNodesInSpans';
 export { default as noop } from './noop';
+export { default as throttle } from './throttle';
