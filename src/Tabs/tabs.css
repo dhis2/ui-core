@@ -54,16 +54,18 @@
         }
     }
 
+    &__scroll-box-clipper {
+        overflow-y: hidden;
+    }
+
     &__scroll-box {
         flex-grow: 1;
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
         display: -ms-flexbox;
         display: flex;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        /* Hide the scrollbar by moving it below the clipper */
+        margin-bottom: -15px;
     }
 
     &__scroll-area {

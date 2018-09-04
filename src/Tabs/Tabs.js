@@ -214,9 +214,14 @@ class Tabs extends Component {
                     >
                         <Icon name="keyboard_arrow_left" />
                     </button>
-                    <div className={bem.e('scroll-box')} ref={this.setScrollBoxRef}>
-                        <div className={bem.e('scroll-area')} ref={this.setScrollAreaRef}>
-                            {tabBar}
+                    <div className={bem.e('scroll-box-clipper')}>
+                        <div className={bem.e('scroll-box')} ref={this.setScrollBoxRef}>
+                            <div
+                                className={bem.e('scroll-area')}
+                                ref={this.setScrollAreaRef}
+                            >
+                                {tabBar}
+                            </div>
                         </div>
                     </div>
                     <button
