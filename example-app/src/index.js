@@ -9,7 +9,6 @@ import setTextDirection from 'ui/utils/setTextDirection';
 
 const dummyUserSettings = {
     keyUiLocale: 'en_US',
-    keyCurrentStyle: 'light_blue/light_blue.css',
 };
 
 setTextDirection(dummyUserSettings);
