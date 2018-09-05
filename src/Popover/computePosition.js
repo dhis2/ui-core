@@ -7,6 +7,8 @@ export const LEFT = 'left';
 export const CENTER = 'center';
 export const RIGHT = 'right';
 
+const EDGE_MARGIN = 18;
+
 export default function(targetEl, anchorEl, anchorAttachPoint, popoverAttachPoint) {
     if (isRtl()) {
         flipHorizontal([anchorAttachPoint, popoverAttachPoint]);
@@ -35,8 +37,9 @@ function flipHorizontal(attachPoints) {
 
 function getAnchorPosition(el, anchorAttachPoint) {
     let x, y;
-    const { horizontal, vertical } = anchorAttachPoint;
     const rect = el.getBoundingClientRect();
+    const { horizontal, vertical } = anchorAttachPoint;
+    const { scrollTop, scrollLeft, clientTop, clientLeft } = getScrolllAndClientOffset();
 
     if (typeof horizontal === 'number') {
         x = rect.left + horizontal;
@@ -49,8 +52,6 @@ function getAnchorPosition(el, anchorAttachPoint) {
                 x = rect.left + rect.width / 2;
                 break;
             case RIGHT:
-                x = rect.right;
-                break;
             default:
                 x = rect.right;
         }
@@ -67,12 +68,13 @@ function getAnchorPosition(el, anchorAttachPoint) {
                 y = rect.top + rect.height / 2;
                 break;
             case BOTTOM:
-                y = rect.bottom;
-                break;
             default:
-                y = rect.bottom;
+                y = rect.top + rect.height;
         }
     }
+
+    x += scrollLeft - clientLeft;
+    y += scrollTop - clientTop;
 
     return { x, y };
 }
@@ -93,8 +95,6 @@ function getRelativePosition(el, anchor, popoverAttachPoint) {
                 left = anchor.x - rect.width / 2;
                 break;
             case RIGHT:
-                left = anchor.x - rect.width;
-                break;
             default:
                 left = anchor.x - rect.width;
         }
@@ -111,10 +111,8 @@ function getRelativePosition(el, anchor, popoverAttachPoint) {
                 top = anchor.y - rect.height / 2;
                 break;
             case BOTTOM:
-                top = anchor.y - rect.height;
-                break;
             default:
-                top = anchor.y;
+                top = anchor.y - rect.height;
         }
     }
 
@@ -122,27 +120,44 @@ function getRelativePosition(el, anchor, popoverAttachPoint) {
 }
 
 function getWindowContainedPosition({ top, left, width, height }) {
+    const { scrollTop, scrollLeft, clientTop, clientLeft } = getScrolllAndClientOffset();
+    const windowTopEdge = scrollTop - clientTop + EDGE_MARGIN;
+    const windowBottomEdge = window.innerHeight + scrollTop - clientTop - EDGE_MARGIN;
+    const windowLeftEdge = scrollLeft - clientLeft + EDGE_MARGIN;
+    const windowRightEdge = window.innerWidth + scrollLeft - clientLeft - EDGE_MARGIN;
+
     let containedTop = top;
     let containedLeft = left;
 
-    if (top + height > window.innerHeight) {
-        containedTop = window.innerHeight - height;
+    if (top + height > windowBottomEdge) {
+        containedTop = windowBottomEdge - height;
     }
 
-    if (left + width > window.innerWidth) {
-        containedLeft = window.innerWidth - width;
+    if (left + width > windowRightEdge) {
+        containedLeft = windowRightEdge - width;
     }
 
-    if (top < 0) {
-        containedTop = 0;
+    if (top < windowTopEdge) {
+        containedTop = windowTopEdge;
     }
 
-    if (left < 0) {
-        containedLeft = 0;
+    if (left < windowLeftEdge) {
+        containedLeft = windowLeftEdge;
     }
 
     return {
         top: containedTop,
         left: containedLeft,
+    };
+}
+
+function getScrolllAndClientOffset() {
+    const body = document.body;
+    const docEl = document.documentElement;
+    return {
+        scrollTop: window.pageYOffset || docEl.scrollTop || body.scrollTop,
+        scrollLeft: window.pageXOffset || docEl.scrollLeft || body.scrollLeft,
+        clientTop: docEl.clientTop || body.clientTop || 0,
+        clientLeft: docEl.clientLeft || body.clientLeft || 0,
     };
 }
