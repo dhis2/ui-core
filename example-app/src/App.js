@@ -123,14 +123,53 @@ class App extends Component {
                     <TextField
                         label="testlabel"
                         value={this.state.inputText}
+                        leadingIcon="face"
+                        trailingIcon="face"
                         onChange={this.updateInputText}
                     />
                     <TextField
                         label="testlabel"
-                        type="outlined"
+                        variant="outlined"
+                        leadingIcon="face"
                         value={this.state.inputText}
                         onChange={this.updateInputText}
                     />
+                    <TextField
+                        label="testlabel"
+                        variant="minimal"
+                        value={this.state.inputText}
+                        onChange={this.updateInputText}
+                        leadingIcon="face"
+                        trailingIcon="face"
+                    />
+                    <br />
+                    <br />
+                    <TextField
+                        dense
+                        label="testlabel"
+                        value={this.state.inputText}
+                        leadingIcon="face"
+                        trailingIcon="face"
+                        onChange={this.updateInputText}
+                    />
+                    <TextField
+                        dense
+                        label="testlabel"
+                        variant="outlined"
+                        leadingIcon="face"
+                        value={this.state.inputText}
+                        onChange={this.updateInputText}
+                    />
+                    <TextField
+                        dense
+                        label="testlabel"
+                        variant="minimal"
+                        value={this.state.inputText}
+                        onChange={this.updateInputText}
+                        leadingIcon="face"
+                        trailingIcon="face"
+                    />
+                    <br />
                     <Checkbox>Test</Checkbox>
                     <RadioButton>Test</RadioButton>
                     <Switch value={this.state.switchOn} onChange={this.toggleSwitch}>
