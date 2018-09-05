@@ -146,7 +146,7 @@ class App extends Component {
 
                     <Tooltip text="Test printer here">
                         <CircleButton onClick={clickTest}>
-                            <Icon name="printer" />
+                            <Icon name="print" />
                         </CircleButton>
                     </Tooltip>
 
