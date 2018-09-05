@@ -7,32 +7,40 @@ export const LEFT = 'left';
 export const CENTER = 'center';
 export const RIGHT = 'right';
 
+// Enough to make sure the popop doesn't hide under a scroll-bar
 const EDGE_MARGIN = 18;
 
 export default function(targetEl, anchorEl, anchorAttachPoint, popoverAttachPoint) {
+    let flippedAnchorAttachPoint, flippedPopoverAttachPoint;
     if (isRtl()) {
-        flipHorizontal([anchorAttachPoint, popoverAttachPoint]);
+        flippedAnchorAttachPoint = flipHorizontal(anchorAttachPoint);
+        flippedPopoverAttachPoint = flipHorizontal(popoverAttachPoint);
+    } else {
+        flippedAnchorAttachPoint = anchorAttachPoint;
+        flippedPopoverAttachPoint = popoverAttachPoint;
     }
 
-    const anchorPosition = getAnchorPosition(anchorEl, anchorAttachPoint);
+    const anchorPosition = getAnchorPosition(anchorEl, flippedAnchorAttachPoint);
     const virtualPosition = getRelativePosition(
         targetEl,
         anchorPosition,
-        popoverAttachPoint
+        flippedPopoverAttachPoint
     );
     const restrictedPosition = getWindowContainedPosition(virtualPosition);
 
     return restrictedPosition;
 }
 
-function flipHorizontal(attachPoints) {
-    attachPoints.forEach(point => {
-        if (point.horizontal === LEFT) {
-            point.horizontal = RIGHT;
-        } else if (point.horizontal === RIGHT) {
-            point.horizontal = LEFT;
-        }
-    });
+function flipHorizontal(attachPoint) {
+    let horizontal = attachPoint.horizontal;
+
+    if (attachPoint.horizontal === LEFT) {
+        horizontal = RIGHT;
+    } else if (attachPoint.horizontal === RIGHT) {
+        horizontal = LEFT;
+    }
+
+    return { ...attachPoint, horizontal };
 }
 
 function getAnchorPosition(el, anchorAttachPoint) {
