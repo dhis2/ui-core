@@ -9,6 +9,19 @@ const FILLED = 'filled';
 const OUTLINED = 'outlined';
 const MINIMAL = 'minimal';
 
+const computeTrailingIcon = (trailingIcon, error, warning, valid) => {
+    switch (true) {
+        case error:
+            return 'error';
+        case warning:
+            return 'warning';
+        case valid:
+            return 'check_circle';
+        default:
+            return trailingIcon;
+    }
+};
+
 const TextField = ({
     variant,
     type,
@@ -18,14 +31,23 @@ const TextField = ({
     onChange,
     leadingIcon,
     trailingIcon,
+    error,
+    valid,
+    warning,
+    disabled,
 }) => {
+    const computedTrailingIcon = computeTrailingIcon(trailingIcon, error, warning, valid);
+    const focusIndicator = variant === OUTLINED ? 'notched-outline' : 'bottom-line';
     const wrapperClassName = bem.b(variant, {
         'with-value': value !== '',
-        'with-trailing-icon': trailingIcon,
+        'with-trailing-icon': computedTrailingIcon,
         'with-leading-icon': leadingIcon,
         dense,
+        error,
+        valid,
+        warning,
+        disabled,
     });
-    const focusIndicator = variant === OUTLINED ? 'notched-outline' : 'bottom-line';
 
     return (
         <label className={wrapperClassName}>
@@ -34,13 +56,14 @@ const TextField = ({
                 value={value}
                 onChange={onChange}
                 type={type}
+                disabled={disabled}
             />
             <div className={bem.e(focusIndicator)} />
             {leadingIcon && (
                 <Icon name={leadingIcon} className={bem.e('icon', 'leading')} />
             )}
-            {trailingIcon && (
-                <Icon name={trailingIcon} className={bem.e('icon', 'trailing')} />
+            {computedTrailingIcon && (
+                <Icon name={computedTrailingIcon} className={bem.e('icon', 'trailing')} />
             )}
             <span className={bem.e('floating-label')}>{label}</span>
         </label>
@@ -71,6 +94,10 @@ TextField.propTypes = {
         'url',
         'week',
     ]),
+    error: PropTypes.bool,
+    valid: PropTypes.bool,
+    warning: PropTypes.bool,
+    disabled: PropTypes.bool,
 };
 
 TextField.defaultProps = {

@@ -150,6 +150,7 @@ class App extends Component {
                         value={this.state.inputText}
                         leadingIcon="face"
                         trailingIcon="face"
+                        disabled
                         onChange={this.updateInputText}
                     />
                     <TextField
@@ -157,6 +158,7 @@ class App extends Component {
                         label="testlabel"
                         variant="outlined"
                         leadingIcon="face"
+                        disabled
                         value={this.state.inputText}
                         onChange={this.updateInputText}
                     />
@@ -165,6 +167,7 @@ class App extends Component {
                         label="testlabel"
                         variant="minimal"
                         value={this.state.inputText}
+                        disabled
                         onChange={this.updateInputText}
                         leadingIcon="face"
                         trailingIcon="face"
