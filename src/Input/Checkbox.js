@@ -6,7 +6,7 @@ import { bemClassNames } from '../utils';
 
 const bem = bemClassNames('d2ui-checkbox');
 
-const Checkbox = ({ children }) => {
+const Checkbox = ({ label }) => {
     return (
         <label className={`${bem.e('label-wrap')} d2ui-toggler-wrap`}>
             <div className={bem.b()}>
@@ -22,13 +22,13 @@ const Checkbox = ({ children }) => {
                     <div className={bem.e('mixedmark')} />
                 </div>
             </div>
-            <span className={bem.e('label-text')}>{children}</span>
+            <span className={bem.e('label-text')}>{label}</span>
         </label>
     );
 };
 
 Checkbox.propTypes = {
-    children: PropTypes.node,
+    label: PropTypes.string,
 };
 
 export default Checkbox;

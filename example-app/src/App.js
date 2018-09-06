@@ -173,11 +173,14 @@ class App extends Component {
                         trailingIcon="face"
                     />
                     <br />
-                    <Checkbox>Test</Checkbox>
-                    <RadioButton>Test</RadioButton>
-                    <Switch value={this.state.switchOn} onChange={this.toggleSwitch}>
-                        On / Off
-                    </Switch>
+                    <Checkbox label="Test" />
+                    <RadioButton label="Test" />
+                    <Switch
+                        label="On / Off"
+                        value={this.state.switchOn}
+                        onChange={this.toggleSwitch}
+                    />
+
                     <br />
                     <CircularProgress size="small" />
                     <CircularProgress />

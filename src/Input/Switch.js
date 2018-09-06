@@ -6,7 +6,7 @@ import { bemClassNames } from '../utils';
 
 const bem = bemClassNames('d2ui-switch');
 
-const Switch = ({ children, value, disabled, onChange }) => {
+const Switch = ({ label, value, disabled, onChange }) => {
     return (
         <label className={`${bem.e('label-wrap')} d2ui-toggler-wrap`}>
             <div className={bem.b({ checked: value, disabled: disabled })}>
@@ -25,13 +25,13 @@ const Switch = ({ children, value, disabled, onChange }) => {
                     </div>
                 </div>
             </div>
-            <span className={bem.e('label-text')}>{children}</span>
+            <span className={bem.e('label-text')}>{label}</span>
         </label>
     );
 };
 
 Switch.propTypes = {
-    children: PropTypes.node,
+    label: PropTypes.string,
     value: PropTypes.bool,
     disabled: PropTypes.bool,
     onChange: PropTypes.func.isRequired,

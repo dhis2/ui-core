@@ -6,7 +6,7 @@ import { bemClassNames } from '../utils';
 
 const bem = bemClassNames('d2ui-radio-button');
 
-const RadioButton = ({ children }) => {
+const RadioButton = ({ label }) => {
     return (
         <label className={`${bem.e('label-wrap')} d2ui-toggler-wrap`}>
             <div className={bem.b()}>
@@ -16,13 +16,13 @@ const RadioButton = ({ children }) => {
                     <div className={bem.e('inner-circle')} />
                 </div>
             </div>
-            <span className={bem.e('label-text')}>{children}</span>
+            <span className={bem.e('label-text')}>{label}</span>
         </label>
     );
 };
 
 RadioButton.propTypes = {
-    children: PropTypes.node,
+    label: PropTypes.string,
 };
 
 export default RadioButton;
