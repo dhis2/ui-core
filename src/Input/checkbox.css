@@ -39,7 +39,6 @@
         transition: opacity 150ms linear;
     }
 
-    &__label-wrap:hover .d2ui-checkbox::before,
     &:hover::before {
         opacity: 0.04;
     }
@@ -58,7 +57,9 @@
         padding-top: 2px;
         cursor: pointer;
         user-select: none;
-        color: #494949;
+    }
+    &__label-text--disabled {
+        cursor: not-allowed;
     }
 
     &__checkmark {
@@ -101,7 +102,7 @@
     }
 
     &--disabled {
-        cursor: default;
+        cursor: not-allowed;
         pointer-events: none;
     }
 
@@ -207,7 +208,7 @@
         cursor: inherit;
     }
     &__native-control:disabled {
-        cursor: default;
+        cursor: not-allowed;
         pointer-events: none;
     }
 
@@ -236,6 +237,14 @@
         transform: scaleX(1) rotate(0deg);
         opacity: 1;
     }
+}
+
+.d2ui-toggle-field:hover .d2ui-checkbox::before {
+    opacity: 0.04;
+}
+
+.d2ui-toggle-field--disabled:hover .d2ui-checkbox::before {
+    opacity: 0;
 }
 
 /* PostCSS RTL should leave this along, because these are manual */

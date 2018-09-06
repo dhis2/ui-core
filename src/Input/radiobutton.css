@@ -39,7 +39,6 @@
     &::after {
         background-color: #00796b;
     }
-    &__label-wrap:hover .d2ui-radio-button::before,
     &:hover::before {
         opacity: 0.04;
     }
@@ -56,7 +55,6 @@
     }
 
     &--disabled {
-        cursor: default;
         pointer-events: none;
     }
 
@@ -64,7 +62,10 @@
         padding-top: 2px;
         cursor: pointer;
         user-select: none;
-        color: #494949;
+    }
+
+    &__label-text--disabled {
+        cursor: not-allowed;
     }
 
     &__background {
@@ -132,7 +133,12 @@
         &:enabled:not(:checked)
             + .d2ui-radio-button__background
             .d2ui-radio-button__outer-circle {
-            border-color: rgba(0, 0, 0, 0.54);
+            border-color: #494949;
+        }
+        &:disabled:not(:checked)
+            + .d2ui-radio-button__background
+            .d2ui-radio-button__outer-circle {
+            border-color: #c5c5c5;
         }
         &:enabled:checked
             + .d2ui-radio-button__background
@@ -177,6 +183,13 @@
     }
 }
 
+.d2ui-toggle-field:hover .d2ui-radio-button::before {
+    opacity: 0.04;
+}
+.d2ui-toggle-field--disabled:hover .d2ui-radio-button::before {
+    opacity: 0;
+}
+
 /* The rules below are not written in a nested way 
    so the disabled styles are applied when any parent has [aria-disabled="true"] */
 .d2ui-radio-button__native-control:disabled + .d2ui-radio-button__background,
@@ -192,7 +205,7 @@
     .d2ui-radio-button__native-control
     + .d2ui-radio-button__background
     .d2ui-radio-button__outer-circle {
-    border-color: rgba(0, 0, 0, 0.26);
+    border-color: #c5c5c5;
 }
 .d2ui-radio-button__native-control:disabled
     + .d2ui-radio-button__background
@@ -201,7 +214,7 @@
     .d2ui-radio-button__native-control
     + .d2ui-radio-button__background
     .d2ui-radio-button__inner-circle {
-    border-color: rgba(0, 0, 0, 0.26);
+    border-color: #c5c5c5;
 }
 
 @supports not (-ms-ime-align: auto) {

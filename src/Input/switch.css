@@ -68,22 +68,15 @@
         }
     }
 
-    &__label-wrap:hover {
-        .d2ui-switch:not(.d2ui-switch--checked) .d2ui-switch__thumb-underlay::before {
-            opacity: 0.08;
-        }
-
-        .d2ui-switch--checked .d2ui-switch__thumb-underlay::before {
-            opacity: 0.04;
-        }
-    }
-
     &__label-text {
         padding-top: 2px;
         padding-left: 4px;
         cursor: pointer;
         user-select: none;
-        color: #494949;
+    }
+
+    &__label-text--disabled {
+        cursor: not-allowed;
     }
 
     &__native-control {
@@ -178,6 +171,16 @@
         border-radius: 50%;
         pointer-events: none;
         z-index: 1;
+    }
+}
+
+.d2ui-toggle-field:hover {
+    .d2ui-switch:not(.d2ui-switch--checked) .d2ui-switch__thumb-underlay::before {
+        opacity: 0.08;
+    }
+
+    .d2ui-switch--checked .d2ui-switch__thumb-underlay::before {
+        opacity: 0.04;
     }
 }
 
