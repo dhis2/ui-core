@@ -149,8 +149,6 @@ class App extends Component {
                         helpText="Hallo Hendrik"
                         fullWidth
                     />
-                    <br />
-                    <br />
                     <TextField
                         dense
                         label="testlabel"
@@ -182,9 +180,6 @@ class App extends Component {
                         helpText="Hallo Hendrik"
                         fullWidth
                     />
-
-                    <br />
-                    <br />
                     <Checkbox label="Test" helpText="Hallo Hendrik" fullWidth />
                     <RadioButton label="Test" helpText="Hallo Hendrik" fullWidth />
                     <Switch
