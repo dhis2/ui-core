@@ -128,6 +128,7 @@ class App extends Component {
                         onChange={this.updateInputText}
                         helpText="Hallo Hendrik"
                         valid
+                        fullWidth
                     />
                     <TextField
                         label="testlabel"
@@ -137,6 +138,7 @@ class App extends Component {
                         onChange={this.updateInputText}
                         helpText="Hallo Hendrik"
                         warning
+                        fullWidth
                     />
                     <TextField
                         label="testlabel"
@@ -145,7 +147,7 @@ class App extends Component {
                         onChange={this.updateInputText}
                         trailingIcon="face"
                         helpText="Hallo Hendrik"
-                        disabled
+                        fullWidth
                     />
                     <br />
                     <br />
@@ -154,42 +156,43 @@ class App extends Component {
                         label="testlabel"
                         value={this.state.inputText}
                         trailingIcon="face"
-                        disabled
                         onChange={this.updateInputText}
                         helpText="Hallo Hendrik"
                         error
+                        fullWidth
                     />
                     <TextField
                         dense
                         label="testlabel"
                         variant="outlined"
                         leadingIcon="face"
-                        disabled
                         value={this.state.inputText}
                         onChange={this.updateInputText}
                         helpText="Hallo Hendrik"
+                        fullWidth
                     />
                     <TextField
                         dense
                         label="testlabel"
                         variant="minimal"
                         value={this.state.inputText}
-                        disabled
                         onChange={this.updateInputText}
                         leadingIcon="face"
                         trailingIcon="face"
                         helpText="Hallo Hendrik"
+                        fullWidth
                     />
 
                     <br />
                     <br />
-                    <Checkbox label="Test" helpText="Hallo Hendrik" />
-                    <RadioButton label="Test" helpText="Hallo Hendrik" />
+                    <Checkbox label="Test" helpText="Hallo Hendrik" fullWidth />
+                    <RadioButton label="Test" helpText="Hallo Hendrik" fullWidth />
                     <Switch
                         label="On / Off"
                         checked={this.state.switchOn}
                         onChange={this.toggleSwitch}
                         helpText="Hallo Hendrik"
+                        fullWidth
                     />
 
                     <br />

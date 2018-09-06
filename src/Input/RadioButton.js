@@ -19,9 +19,10 @@ const RadioButton = ({
     disabled,
     onChange,
     dense,
+    fullWidth,
     helpText,
 }) => (
-    <FormField {...{ valid, warning, disabled, error, dense, helpText }}>
+    <FormField {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
         <ToggleField disabled={disabled}>
             <div className={bem.b({ disabled })}>
                 <input

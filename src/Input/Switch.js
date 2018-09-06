@@ -16,10 +16,11 @@ const Switch = ({
     disabled,
     onChange,
     dense,
+    fullWidth,
     helpText,
 }) => {
     return (
-        <FormField {...{ valid, warning, disabled, error, dense, helpText }}>
+        <FormField {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
             <ToggleField disabled={disabled}>
                 <div className={bem.b({ checked, disabled })}>
                     <div className={bem.e('track')} />
