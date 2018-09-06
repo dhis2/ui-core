@@ -126,6 +126,8 @@ class App extends Component {
                         leadingIcon="face"
                         trailingIcon="face"
                         onChange={this.updateInputText}
+                        helpText="Hallo Hendrik"
+                        valid
                     />
                     <TextField
                         label="testlabel"
@@ -133,14 +135,17 @@ class App extends Component {
                         leadingIcon="face"
                         value={this.state.inputText}
                         onChange={this.updateInputText}
+                        helpText="Hallo Hendrik"
+                        warning
                     />
                     <TextField
                         label="testlabel"
                         variant="minimal"
                         value={this.state.inputText}
                         onChange={this.updateInputText}
-                        leadingIcon="face"
                         trailingIcon="face"
+                        helpText="Hallo Hendrik"
+                        disabled
                     />
                     <br />
                     <br />
@@ -148,10 +153,11 @@ class App extends Component {
                         dense
                         label="testlabel"
                         value={this.state.inputText}
-                        leadingIcon="face"
                         trailingIcon="face"
                         disabled
                         onChange={this.updateInputText}
+                        helpText="Hallo Hendrik"
+                        error
                     />
                     <TextField
                         dense
@@ -161,6 +167,7 @@ class App extends Component {
                         disabled
                         value={this.state.inputText}
                         onChange={this.updateInputText}
+                        helpText="Hallo Hendrik"
                     />
                     <TextField
                         dense
@@ -171,14 +178,18 @@ class App extends Component {
                         onChange={this.updateInputText}
                         leadingIcon="face"
                         trailingIcon="face"
+                        helpText="Hallo Hendrik"
                     />
+
                     <br />
-                    <Checkbox label="Test" />
-                    <RadioButton label="Test" />
+                    <br />
+                    <Checkbox label="Test" helpText="Hallo Hendrik" />
+                    <RadioButton label="Test" helpText="Hallo Hendrik" />
                     <Switch
                         label="On / Off"
-                        value={this.state.switchOn}
+                        checked={this.state.switchOn}
                         onChange={this.toggleSwitch}
+                        helpText="Hallo Hendrik"
                     />
 
                     <br />

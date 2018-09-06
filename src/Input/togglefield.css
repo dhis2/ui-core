@@ -1,7 +1,7 @@
 .d2ui-toggle-field {
     display: inline-flex;
     align-items: center;
-    padding: 0.5rem 1rem 0.375rem 0;
+    padding: 0.5rem 0 0.375rem 0;
     vertical-align: bottom;
     color: #494949;
     cursor: pointer;

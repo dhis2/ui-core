@@ -4,11 +4,24 @@ import './radiobutton.css';
 import './togglerwrap.css';
 import { bemClassNames } from '../utils';
 import ToggleField from '../../build/Input/ToggleField';
+import FormField from './FormField';
 
 const bem = bemClassNames('d2ui-radio-button');
 
-const RadioButton = ({ label, name, value, checked, disabled, onChange }) => {
-    return (
+const RadioButton = ({
+    label,
+    name,
+    value,
+    checked,
+    valid,
+    warning,
+    error,
+    disabled,
+    onChange,
+    dense,
+    helpText,
+}) => (
+    <FormField {...{ valid, warning, disabled, error, dense, helpText }}>
         <ToggleField disabled={disabled}>
             <div className={bem.b({ disabled })}>
                 <input
@@ -27,8 +40,8 @@ const RadioButton = ({ label, name, value, checked, disabled, onChange }) => {
             </div>
             <span className={bem.e('label-text', { disabled })}>{label}</span>
         </ToggleField>
-    );
-};
+    </FormField>
+);
 
 RadioButton.propTypes = {
     label: PropTypes.string,
@@ -36,6 +49,12 @@ RadioButton.propTypes = {
     value: PropTypes.bool,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
+    valid: PropTypes.bool,
+    warning: PropTypes.bool,
+    error: PropTypes.bool,
+    dense: PropTypes.bool,
+    helpText: PropTypes.string,
+    fullWidth: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
 };
 

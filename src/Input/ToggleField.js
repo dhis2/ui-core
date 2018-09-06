@@ -5,9 +5,9 @@ import { bemClassNames } from '../utils';
 
 const bem = bemClassNames('d2ui-toggle-field');
 
-const ToggleField = ({ children, disabled }) => {
-    return <label className={bem.b({ disabled })}>{children}</label>;
-};
+const ToggleField = ({ children, disabled }) => (
+    <label className={bem.b({ disabled })}>{children}</label>
+);
 
 ToggleField.propTypes = {
     children: PropTypes.node,

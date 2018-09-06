@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { bemClassNames } from '../utils';
 import './textfield.css';
 import Icon from '../Icon';
+import FormField from './FormField';
 
 const bem = bemClassNames('d2ui-text-field');
 const FILLED = 'filled';
@@ -35,6 +36,8 @@ const TextField = ({
     valid,
     warning,
     disabled,
+    fullWidth,
+    helpText,
 }) => {
     const computedTrailingIcon = computeTrailingIcon(trailingIcon, error, warning, valid);
     const focusIndicator = variant === OUTLINED ? 'notched-outline' : 'bottom-line';
@@ -50,23 +53,28 @@ const TextField = ({
     });
 
     return (
-        <label className={wrapperClassName}>
-            <input
-                className={bem.e('input')}
-                value={value}
-                onChange={onChange}
-                type={type}
-                disabled={disabled}
-            />
-            <div className={bem.e(focusIndicator)} />
-            {leadingIcon && (
-                <Icon name={leadingIcon} className={bem.e('icon', 'leading')} />
-            )}
-            {computedTrailingIcon && (
-                <Icon name={computedTrailingIcon} className={bem.e('icon', 'trailing')} />
-            )}
-            <span className={bem.e('floating-label')}>{label}</span>
-        </label>
+        <FormField {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
+            <label className={wrapperClassName}>
+                <input
+                    className={bem.e('input')}
+                    value={value}
+                    onChange={onChange}
+                    type={type}
+                    disabled={disabled}
+                />
+                <div className={bem.e(focusIndicator)} />
+                {leadingIcon && (
+                    <Icon name={leadingIcon} className={bem.e('icon', 'leading')} />
+                )}
+                {computedTrailingIcon && (
+                    <Icon
+                        name={computedTrailingIcon}
+                        className={bem.e('icon', 'trailing')}
+                    />
+                )}
+                <span className={bem.e('floating-label')}>{label}</span>
+            </label>
+        </FormField>
     );
 };
 
@@ -98,6 +106,8 @@ TextField.propTypes = {
     valid: PropTypes.bool,
     warning: PropTypes.bool,
     disabled: PropTypes.bool,
+    fullWidth: PropTypes.bool,
+    helpText: PropTypes.string,
 };
 
 TextField.defaultProps = {
