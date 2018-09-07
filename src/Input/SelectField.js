@@ -7,7 +7,7 @@ import './selectfield.css';
 
 const bem = bemClassNames('d2ui-select');
 
-class Select extends Component {
+class SelectField extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -111,7 +111,7 @@ class Select extends Component {
     }
 }
 
-Select.propTypes = {
+SelectField.propTypes = {
     options: PropTypes.arrayOf(PropTypes.object).isRequired,
     label: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
@@ -126,4 +126,4 @@ Select.propTypes = {
     native: PropTypes.bool,
 };
 
-export default Select;
+export default SelectField;
