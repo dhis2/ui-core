@@ -19,7 +19,7 @@ import LinearProgress from 'ui/LinearProgress';
 
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
-import { Checkbox, RadioButton, TextField, Switch } from 'ui/Input';
+import { Checkbox, RadioButton, TextField, Switch, SelectField } from 'ui/Input';
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -95,12 +95,19 @@ const menuItems = [
     </MenuItem>,
 ];
 
+const selectOptions = [
+    { value: 1, label: 'One' },
+    { value: 2, label: 'Two' },
+    { value: 3, label: 'Three' },
+];
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             switchOn: false,
             inputText: '',
+            selectValue: null,
         };
     }
 
@@ -116,19 +123,34 @@ class App extends Component {
         });
     };
 
+    updateSelect = selectValue => {
+        this.setState({ selectValue });
+    };
+
     render() {
         return (
             <UI theme="green">
                 <Paper elevation={6} padded>
+                    <SelectField
+                        options={selectOptions}
+                        label="Choose something"
+                        onChange={this.updateSelect}
+                        value={this.state.selectValue}
+                        variant="outlined"
+                        // leadingIcon={face}
+                        // helpText="Help with this text"
+                        // dense
+                        // valid
+                        // error
+                        // warning
+                    />
                     <TextField
                         label="testlabel"
                         value={this.state.inputText}
-                        leadingIcon="face"
                         trailingIcon="face"
                         onChange={this.updateInputText}
                         helpText="Hallo Hendrik"
                         valid
-                        fullWidth
                     />
                     <TextField
                         label="testlabel"
@@ -138,7 +160,6 @@ class App extends Component {
                         onChange={this.updateInputText}
                         helpText="Hallo Hendrik"
                         warning
-                        fullWidth
                     />
                     <TextField
                         label="testlabel"
@@ -147,7 +168,6 @@ class App extends Component {
                         onChange={this.updateInputText}
                         trailingIcon="face"
                         helpText="Hallo Hendrik"
-                        fullWidth
                     />
                     <TextField
                         dense
@@ -157,7 +177,6 @@ class App extends Component {
                         onChange={this.updateInputText}
                         helpText="Hallo Hendrik"
                         error
-                        fullWidth
                     />
                     <TextField
                         dense
@@ -167,7 +186,6 @@ class App extends Component {
                         value={this.state.inputText}
                         onChange={this.updateInputText}
                         helpText="Hallo Hendrik"
-                        fullWidth
                     />
                     <TextField
                         dense
@@ -178,16 +196,24 @@ class App extends Component {
                         leadingIcon="face"
                         trailingIcon="face"
                         helpText="Hallo Hendrik"
-                        fullWidth
                     />
-                    <Checkbox label="Test" helpText="Hallo Hendrik" fullWidth />
-                    <RadioButton label="Test" helpText="Hallo Hendrik" fullWidth />
+                    <Checkbox
+                        label="Test"
+                        helpText="Hallo Hendrik"
+                        checked={this.state.switchOn}
+                        onChange={this.toggleSwitch}
+                    />
+                    <RadioButton
+                        label="Test"
+                        helpText="Hallo Hendrik"
+                        checked={this.state.switchOn}
+                        onChange={this.toggleSwitch}
+                    />
                     <Switch
                         label="On / Off"
                         checked={this.state.switchOn}
                         onChange={this.toggleSwitch}
                         helpText="Hallo Hendrik"
-                        fullWidth
                     />
 
                     <br />

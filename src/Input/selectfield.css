@@ -1,0 +1,6 @@
+.d2ui-select {
+    &__input {
+        min-width: 230px;
+        text-align: left;
+    }
+}

@@ -5,7 +5,7 @@ import './textfield.css';
 import Icon from '../Icon';
 import FormField from './FormField';
 
-const bem = bemClassNames('d2ui-text-field');
+export const bem = bemClassNames('d2ui-text-field');
 const FILLED = 'filled';
 const OUTLINED = 'outlined';
 const MINIMAL = 'minimal';
@@ -38,6 +38,7 @@ const TextField = ({
     disabled,
     fullWidth,
     helpText,
+    inputComponent,
 }) => {
     const computedTrailingIcon = computeTrailingIcon(trailingIcon, error, warning, valid);
     const focusIndicator = variant === OUTLINED ? 'notched-outline' : 'bottom-line';
@@ -55,13 +56,15 @@ const TextField = ({
     return (
         <FormField {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
             <label className={wrapperClassName}>
-                <input
-                    className={bem.e('input')}
-                    value={value}
-                    onChange={onChange}
-                    type={type}
-                    disabled={disabled}
-                />
+                {inputComponent || (
+                    <input
+                        className={bem.e('input')}
+                        value={value}
+                        onChange={onChange}
+                        type={type}
+                        disabled={disabled}
+                    />
+                )}
                 <div className={bem.e(focusIndicator)} />
                 {leadingIcon && (
                     <Icon name={leadingIcon} className={bem.e('icon', 'leading')} />
@@ -108,6 +111,7 @@ TextField.propTypes = {
     disabled: PropTypes.bool,
     fullWidth: PropTypes.bool,
     helpText: PropTypes.string,
+    inputComponent: PropTypes.element,
 };
 
 TextField.defaultProps = {
