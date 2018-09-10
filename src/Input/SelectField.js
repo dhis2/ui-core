@@ -13,7 +13,8 @@ class SelectField extends Component {
         this.state = {
             dropdownOpen: false,
         };
-        this.anchorRef = null;
+        this.inputRef = null;
+        this.inputClassName = `${bem.e('input')} ${textFieldBem.e('input')}`;
     }
 
     openDropdown = () => {
@@ -22,14 +23,15 @@ class SelectField extends Component {
 
     closeDropdown = () => {
         this.setState({ dropdownOpen: false });
+        this.inputRef.focus();
     };
 
-    setAnchorRef = node => {
-        this.anchorRef = node;
+    setInputRef = node => {
+        this.inputRef = node;
     };
 
-    getAnchorRef = () => {
-        return this.anchorRef;
+    getInputRef = () => {
+        return this.inputRef;
     };
 
     selectHandler = (event, value) => {
@@ -37,23 +39,40 @@ class SelectField extends Component {
         this.props.onChange(value);
     };
 
+    nativeSelectHandler = event => {
+        this.props.onChange(event.target.value);
+    };
+
     renderCustomSelect(displayValue) {
-        const className = `${bem.e('input')} ${textFieldBem.e('input')}`;
         return (
             <input
-                className={className}
+                className={this.inputClassName}
                 value={displayValue}
                 onClick={this.openDropdown}
                 // input type "button" is focusable, which ensures the correct :focus styles are applied
                 // input type "button" does not show a caret when focussed
                 type="button"
-                ref={this.setAnchorRef}
+                ref={this.setInputRef}
             />
         );
     }
 
     renderNativeSelect() {
-        return <div>Not implemented yet</div>;
+        const options = [{ value: null, label: '' }, ...this.props.options];
+        return (
+            <select
+                ref={this.setInputRef}
+                className={this.inputClassName}
+                onChange={this.nativeSelectHandler}
+                value={this.props.value}
+            >
+                {options.map(({ value, label }) => (
+                    <option key={value} value={value}>
+                        {label}
+                    </option>
+                ))}
+            </select>
+        );
     }
 
     getLabelOfValue() {
@@ -90,7 +109,7 @@ class SelectField extends Component {
             warning,
         };
         return (
-            <div className={bem.b()}>
+            <div className={bem.b({ native })}>
                 <TextField
                     inputComponent={inputComponent}
                     onChange={noop}
@@ -98,14 +117,16 @@ class SelectField extends Component {
                     trailingIcon="keyboard_arrow_down"
                     {...textFieldProps}
                 />
-                <PopoverMenu
-                    menuProps={{ options, selectHandler: this.selectHandler }}
-                    getAnchorRef={this.getAnchorRef}
-                    open={this.state.dropdownOpen}
-                    closePopover={this.closeDropdown}
-                    anchorAttachPoint={{ vertical: 'bottom', horizontal: 'right' }}
-                    popoverAttachPoint={{ vertical: 'top', horizontal: 'right' }}
-                />
+                {!native && (
+                    <PopoverMenu
+                        menuProps={{ options, selectHandler: this.selectHandler }}
+                        getAnchorRef={this.getInputRef}
+                        open={this.state.dropdownOpen}
+                        closePopover={this.closeDropdown}
+                        anchorAttachPoint={{ vertical: 'top', horizontal: 'center' }}
+                        popoverAttachPoint={{ vertical: 'top', horizontal: 'center' }}
+                    />
+                )}
             </div>
         );
     }

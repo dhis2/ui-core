@@ -105,8 +105,7 @@
 
     /* Move label above if input has value and/or focus  */
     &--with-value &__floating-label,
-    &__input:focus ~ &__floating-label,
-    &__input:-webkit-autofill ~ &__floating-label {
+    &__input:focus ~ &__floating-label {
         transform: translateY(-80%) scale(0.75);
     }
 
@@ -165,8 +164,7 @@
     }
 
     &--outlined.d2ui-text-field--with-value &__floating-label,
-    &--outlined &__input:focus ~ &__floating-label,
-    &--outlined &__input:-webkit-autofill ~ &__floating-label {
+    &--outlined &__input:focus ~ &__floating-label {
         transform: translateY(-140%) scale(0.75);
     }
 
@@ -200,10 +198,7 @@
 
     &--outlined.d2ui-text-field--with-leading-icon.d2ui-text-field--with-value
         &__floating-label,
-    &--outlined.d2ui-text-field--with-leading-icon &__input:focus ~ &__floating-label,
-    &--outlined.d2ui-text-field--with-leading-icon
-        &__input:-webkit-autofill
-        ~ &__floating-label {
+    &--outlined.d2ui-text-field--with-leading-icon &__input:focus ~ &__floating-label {
         transform: translateY(-140%) translateX(-2.5rem) scale(0.75);
     }
 
@@ -245,14 +240,12 @@
     }
 
     &--dense.d2ui-text-field--with-value &__floating-label,
-    &--dense &__input:focus ~ &__floating-label,
-    &--dense &__input:-webkit-autofill ~ &__floating-label {
+    &--dense &__input:focus ~ &__floating-label {
         transform: translateY(-65%) scale(0.85);
     }
 
     &--dense.d2ui-text-field--outlined.d2ui-text-field--with-value &__floating-label,
-    &--dense.d2ui-text-field--outlined &__input:focus ~ &__floating-label,
-    &--dense.d2ui-text-field--outlined &__input:-webkit-autofill ~ &__floating-label {
+    &--dense.d2ui-text-field--outlined &__input:focus ~ &__floating-label {
         transform: translateY(-118%) scale(0.85);
     }
 
@@ -260,9 +253,6 @@
         &__floating-label,
     &--dense.d2ui-text-field--outlined.d2ui-text-field--with-leading-icon
         &__input:focus
-        ~ &__floating-label,
-    &--dense.d2ui-text-field--outlined.d2ui-text-field--with-leading-icon
-        &__input:-webkit-autofill
         ~ &__floating-label {
         transform: translateY(-118%) translateX(-1.5rem) scale(0.85);
     }
@@ -276,7 +266,6 @@
     }
     &--valid.d2ui-text-field--with-value &__floating-label,
     &--valid &__input:focus ~ &__floating-label,
-    &--valid &__input:-webkit-autofill ~ &__floating-label,
     &--valid &__icon--trailing {
         color: #1976d2;
     }
@@ -292,8 +281,7 @@
         color: #f19c02;
     }
     &--warning.d2ui-text-field--with-value &__floating-label,
-    &--warning &__input:focus ~ &__floating-label,
-    &--warning &__input:-webkit-autofill ~ &__floating-label {
+    &--warning &__input:focus ~ &__floating-label {
         color: #a46a01;
     }
 
@@ -328,7 +316,6 @@
     }
     &--error.d2ui-text-field--with-value &__floating-label,
     &--error &__input:focus ~ &__floating-label,
-    &--error &__input:-webkit-autofill ~ &__floating-label,
     &--error &__icon--trailing {
         color: #e53935;
     }

@@ -124,7 +124,8 @@ class App extends Component {
     };
 
     updateSelect = selectValue => {
-        this.setState({ selectValue });
+        console.log('hierzo');
+        this.setState({ selectValue: parseInt(selectValue, 10) });
     };
 
     render() {
@@ -137,12 +138,20 @@ class App extends Component {
                         onChange={this.updateSelect}
                         value={this.state.selectValue}
                         variant="outlined"
+                        native
                         // leadingIcon={face}
                         // helpText="Help with this text"
                         // dense
                         // valid
                         // error
                         // warning
+                    />
+                    <SelectField
+                        options={selectOptions}
+                        label="Choose something"
+                        onChange={this.updateSelect}
+                        value={this.state.selectValue}
+                        variant="outlined"
                     />
                     <TextField
                         label="testlabel"
@@ -279,7 +288,7 @@ class App extends Component {
                     <CircleButton size="small">
                         <Icon name="add" />
                     </CircleButton>
-                    <CircleButton size="medium">
+                    <CircleButton size="small">
                         <Icon name="face" />
                     </CircleButton>
                     <CircleButton aria-labelledby="test" size="large">
