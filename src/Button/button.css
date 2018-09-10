@@ -1,8 +1,7 @@
 .d2ui-button {
     align-items: center;
     background-color: transparent;
-    border-color: transparent;
-    border-width: 1px;
+    border: 1px solid transparent;
     border-radius: 2px;
     cursor: pointer;
     display: inline-flex;
@@ -17,13 +16,14 @@
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.15s ease-in-out;
-    transition-property: background-color, box-shadow, border-color, color;
+    transition-property: background-color, box-shadow, border, color;
     vertical-align: middle;
 
     /* To make sure event.target of the click handler is always the button, 
        span and icon get pointer-events: none */
     span {
         pointer-events: none;
+        transform: translateY(2px);
     }
 
     /* ICON STYLE */
@@ -118,6 +118,9 @@
             }
         }
     }
+    &--medium span {
+        transform: translateY(1px);
+    }
     &--large {
         font-size: 0.9375rem;
         padding: 10px 16px 11px 16px;
@@ -160,7 +163,7 @@
         }
         &:focus {
             background-color: #ffffff;
-            border-color: #004ba0;
+            border: 1px solid #004ba0;
         }
         &:disabled {
             background-color: transparent;
@@ -179,7 +182,7 @@
         }
         &:focus {
             background-color: rgba(234, 244, 255, 0.4);
-            border-color: rgba(0, 75, 160, 0.8);
+            border: 1px solid rgba(0, 75, 160, 0.8);
         }
         &:disabled,
         &.disabled {
@@ -199,7 +202,7 @@
         }
         &:focus {
             background-color: #004ba0;
-            border-color: #63a4ff;
+            border: 1px solid #63a4ff;
         }
         &:disabled,
         &.disabled {
@@ -211,7 +214,7 @@
     &--outlined {
         color: #004ba0;
         background-color: #f8f8f8;
-        border-color: rgba(0, 75, 160, 0.8);
+        border: 2px solid rgba(0, 75, 160, 0.8);
 
         &:hover,
         &:focus {
@@ -223,7 +226,7 @@
         &:disabled {
             background-color: rgba(153, 153, 153, 0.1);
             color: rgba(0, 75, 160, 0.5);
-            border-color: rgba(0, 75, 160, 0.5);
+            border: 2px solid rgba(0, 75, 160, 0.5);
         }
     }
     &--circle {
@@ -238,7 +241,7 @@
         }
         &:focus {
             background-color: #31776b;
-            border-color: #54c0a4;
+            border: 2px solid #54c0a4;
         }
         &:disabled {
             background-color: #badedb;
@@ -262,11 +265,11 @@
 
         /* Use hover color for dropdown section of the dropdownbutton */
         &--raised:nth-child(2):focus {
-            border-color: rgba(234, 244, 255, 0.4);
+            border: 1px solid rgba(234, 244, 255, 0.4);
             background-color: rgba(234, 244, 255, 0.4);
         }
         &--primary:nth-child(2):focus {
-            border-color: #033976;
+            border: 1px solid #033976;
             background-color: #033976;
         }
     }
