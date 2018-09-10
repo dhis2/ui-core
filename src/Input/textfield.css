@@ -1,6 +1,5 @@
 .d2ui-text-field {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    will-change: transform, opacity;
     border-radius: 0.25rem 0.25rem 0 0;
     display: inline-flex;
     position: relative;
@@ -318,5 +317,17 @@
     &--error &__input:focus ~ &__floating-label,
     &--error &__icon--trailing {
         color: #e53935;
+    }
+}
+/* IE11 hacks */
+@media all and (-ms-high-contrast: none) {
+    .d2ui-text-field {
+        border-radius: 0;
+
+        &__input,
+        &--outlined &__input,
+        &__notched-outline {
+            border-radius: 0;
+        }
     }
 }

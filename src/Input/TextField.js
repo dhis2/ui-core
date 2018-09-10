@@ -65,7 +65,7 @@ const TextField = ({
                         disabled={disabled}
                     />
                 )}
-                <div className={bem.e(focusIndicator)} />
+                <span className={bem.e(focusIndicator)} />
                 {leadingIcon && (
                     <Icon name={leadingIcon} className={bem.e('icon', 'leading')} />
                 )}

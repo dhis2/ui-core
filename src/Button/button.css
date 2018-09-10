@@ -276,10 +276,32 @@
 }
 /* IE11 hacks */
 @media all and (-ms-high-contrast: none) {
+    /* Graceful degradation: remove the rounded corners on all buttons apart from circle.
+       These are not rendered correctly in IE11, where they produce white pixels in the corners  */
+    .d2ui-button {
+        border-radius: 0;
+
+        &--circle {
+            border-radius: 50%;
+        }
+    }
+    /* Aligns the icons in small icon buttons, which were way off */
     .d2ui-button--circle.d2ui-button--small .material-icons {
         transform: translateX(-12px) translateY(2px);
     }
-    .d2ui-button d2ui-button--circle {
-        border-width: 0;
+    /* And large button which was 1px off */
+    .d2ui-button--circle.d2ui-button--large .material-icons {
+        transform: translateX(-1px);
+    }
+    /* Fixes the circle button white px on edge */
+    .d2ui-button--circle {
+        border-color: #61a799;
+    }
+
+    /* Prevent icon position shifting during a click */
+    .d2ui-button .material-icons {
+        position: relative;
+        top: 0;
+        left: 0;
     }
 }
