@@ -47,7 +47,7 @@ const RadioButton = ({
 RadioButton.propTypes = {
     label: PropTypes.string,
     name: PropTypes.string,
-    value: PropTypes.bool,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     valid: PropTypes.bool,

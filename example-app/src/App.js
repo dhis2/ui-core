@@ -19,7 +19,14 @@ import LinearProgress from 'ui/LinearProgress';
 
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
-import { Checkbox, RadioButton, TextField, Switch, SelectField } from 'ui/Input';
+import {
+    Checkbox,
+    RadioButton,
+    TextField,
+    Switch,
+    SelectField,
+    RadioButtonGroup,
+} from 'ui/Input';
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -131,6 +138,15 @@ class App extends Component {
         return (
             <UI theme="green">
                 <Paper elevation={6} padded>
+                    <RadioButtonGroup
+                        options={selectOptions}
+                        onChange={this.updateSelect}
+                        label="I'm a label"
+                        value={this.state.selectValue}
+                        helpText="Choose one please"
+                        error
+                        inline
+                    />
                     <SelectField
                         options={selectOptions}
                         label="Choose something"
