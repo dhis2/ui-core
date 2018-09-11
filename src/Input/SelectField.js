@@ -6,7 +6,7 @@ import { bemClassNames, noop } from '../utils';
 import './selectfield.css';
 
 const bem = bemClassNames('d2ui-select');
-// React uses a "value" property on the <select/> which can't be null so we use this magig string instead
+// React uses a "value" property on the <select/> which can't be null so we use this magic string instead
 const EMPTY_NATIVE_OPTION_VALUE = '#^NONE^#';
 const DEFAULT_EMPTY_OPTION_TEXT = '--------';
 
