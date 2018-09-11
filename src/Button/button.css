@@ -2,7 +2,7 @@
     align-items: center;
     background-color: transparent;
     border: 1px solid transparent;
-    border-radius: 2px;
+    border-radius: 0.125rem;
     cursor: pointer;
     display: inline-flex;
     font-size: 0.8125rem;
@@ -123,7 +123,7 @@
     }
     &--large {
         font-size: 0.9375rem;
-        padding: 10px 16px 11px 16px;
+        padding: 0.625rem 1rem 0.6875rem 1rem;
         align-items: center;
 
         .material-icons {

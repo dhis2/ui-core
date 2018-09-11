@@ -3,12 +3,12 @@
     vertical-align: top;
 
     &__input {
-        min-width: 230px;
+        min-width: 14.375rem;
         text-align: left;
     }
 
     .d2ui-text-field--with-leading-icon &__input {
-        min-width: 262px;
+        min-width: 16.375rem;
     }
 
     /* If a <label/> is wrapped around a <select/> it will normally cause an issue:
