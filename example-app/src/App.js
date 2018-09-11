@@ -159,7 +159,7 @@ class App extends Component {
                         // leadingIcon="face"
                         // helpText="Help with this text"
                         // dense
-                        // valid
+                        valid
                         // error
                         // warning
                     />
@@ -178,6 +178,7 @@ class App extends Component {
                         // error
                         // warning
                     />
+                    <br />
                     <TextField
                         label="testlabel"
                         value={this.state.inputText}

@@ -12,6 +12,8 @@ const MINIMAL = 'minimal';
 
 const computeTrailingIcon = (trailingIcon, error, warning, valid) => {
     switch (true) {
+        case Boolean(trailingIcon):
+            return trailingIcon;
         case error:
             return 'error';
         case warning:
@@ -19,7 +21,7 @@ const computeTrailingIcon = (trailingIcon, error, warning, valid) => {
         case valid:
             return 'check_circle';
         default:
-            return trailingIcon;
+            return null;
     }
 };
 
@@ -40,6 +42,7 @@ const TextField = ({
     helpText,
     inputComponent,
 }) => {
+    console.log(trailingIcon);
     const computedTrailingIcon = computeTrailingIcon(trailingIcon, error, warning, valid);
     const focusIndicator = variant === OUTLINED ? 'notched-outline' : 'bottom-line';
     const wrapperClassName = bem.b(variant, {
