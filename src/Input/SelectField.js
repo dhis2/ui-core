@@ -6,6 +6,9 @@ import { bemClassNames, noop } from '../utils';
 import './selectfield.css';
 
 const bem = bemClassNames('d2ui-select');
+// React uses a "value" property on the <select/> which can't be null so we use this magig string instead
+const EMPTY_NATIVE_OPTION_VALUE = '#^NONE^#';
+const DEFAULT_EMPTY_OPTION_TEXT = '--------';
 
 class SelectField extends Component {
     constructor(props) {
@@ -15,6 +18,7 @@ class SelectField extends Component {
         };
         this.inputRef = null;
         this.inputClassName = `${bem.e('input')} ${textFieldBem.e('input')}`;
+        this.selectedEmptyOption = false;
     }
 
     openDropdown = () => {
@@ -36,12 +40,35 @@ class SelectField extends Component {
 
     selectHandler = (event, value) => {
         this.closeDropdown();
-        this.props.onChange(value);
+        this.changeHandler(value);
     };
 
     nativeSelectHandler = event => {
-        this.props.onChange(event.target.value);
+        const elValue = event.target.value;
+        const value = elValue === EMPTY_NATIVE_OPTION_VALUE ? null : elValue;
+        this.changeHandler(value);
     };
+
+    changeHandler(value) {
+        const { includeEmpty, onChange } = this.props;
+        this.selectedEmptyOption = includeEmpty & (value === null) ? true : false;
+        onChange(value);
+    }
+
+    getOptions() {
+        const { includeEmpty, emptyOptionText, options, native } = this.props;
+
+        if (!includeEmpty) {
+            return options;
+        }
+
+        const label = emptyOptionText || DEFAULT_EMPTY_OPTION_TEXT;
+        const emptyOption = native
+            ? { value: EMPTY_NATIVE_OPTION_VALUE, label }
+            : { value: null, label };
+
+        return [emptyOption, ...options];
+    }
 
     renderCustomSelect(displayValue) {
         return (
@@ -58,13 +85,14 @@ class SelectField extends Component {
     }
 
     renderNativeSelect() {
-        const options = [{ value: null, label: '' }, ...this.props.options];
+        const options = this.getOptions();
+        const value = this.props.value || EMPTY_NATIVE_OPTION_VALUE;
         return (
             <select
                 ref={this.setInputRef}
                 className={this.inputClassName}
                 onChange={this.nativeSelectHandler}
-                value={this.props.value}
+                value={value}
             >
                 {options.map(({ value, label }) => (
                     <option key={value} value={value}>
@@ -76,14 +104,22 @@ class SelectField extends Component {
     }
 
     getLabelOfValue() {
-        const { options, value } = this.props;
+        const { options, value, emptyOptionText } = this.props;
         const selectedOption = options.find(option => option.value === value);
-        return selectedOption ? selectedOption.label : '';
+        // If some valid option is selected always display this
+        if (selectedOption && selectedOption.label) {
+            return selectedOption.label;
+        }
+        // If the user selected the "None" option, display it
+        if (this.selectedEmptyOption) {
+            return emptyOptionText || DEFAULT_EMPTY_OPTION_TEXT;
+        }
+        // Otherwise return an empty value so the floating label text shows
+        return '';
     }
 
     render() {
         const {
-            options,
             label,
             variant,
             leadingIcon,
@@ -119,7 +155,10 @@ class SelectField extends Component {
                 />
                 {!native && (
                     <PopoverMenu
-                        menuProps={{ options, selectHandler: this.selectHandler }}
+                        menuProps={{
+                            options: this.getOptions(),
+                            selectHandler: this.selectHandler,
+                        }}
                         getAnchorRef={this.getInputRef}
                         open={this.state.dropdownOpen}
                         closePopover={this.closeDropdown}
@@ -145,6 +184,8 @@ SelectField.propTypes = {
     error: PropTypes.bool,
     warning: PropTypes.bool,
     native: PropTypes.bool,
+    includeEmpty: PropTypes.bool,
+    emptyOptionText: PropTypes.string,
 };
 
 export default SelectField;

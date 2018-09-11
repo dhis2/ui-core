@@ -124,7 +124,6 @@ class App extends Component {
     };
 
     updateSelect = selectValue => {
-        console.log('hierzo');
         this.setState({ selectValue: parseInt(selectValue, 10) });
     };
 
@@ -139,7 +138,9 @@ class App extends Component {
                         value={this.state.selectValue}
                         variant="outlined"
                         native
-                        // leadingIcon={face}
+                        includeEmpty
+                        emptyOptionText="None"
+                        // leadingIcon="face"
                         // helpText="Help with this text"
                         // dense
                         // valid
@@ -152,10 +153,19 @@ class App extends Component {
                         onChange={this.updateSelect}
                         value={this.state.selectValue}
                         variant="outlined"
+                        includeEmpty
+                        emptyOptionText="None"
+                        leadingIcon="face"
+                        helpText="Help with this text"
+                        dense
+                        valid
+                        // error
+                        // warning
                     />
                     <TextField
                         label="testlabel"
                         value={this.state.inputText}
+                        leadingIcon="face"
                         trailingIcon="face"
                         onChange={this.updateInputText}
                         helpText="Hallo Hendrik"
@@ -164,7 +174,7 @@ class App extends Component {
                     <TextField
                         label="testlabel"
                         variant="outlined"
-                        leadingIcon="face"
+                        // leadingIcon="print"
                         value={this.state.inputText}
                         onChange={this.updateInputText}
                         helpText="Hallo Hendrik"

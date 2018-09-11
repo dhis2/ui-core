@@ -7,6 +7,10 @@
         text-align: left;
     }
 
+    .d2ui-text-field--with-leading-icon &__input {
+        min-width: 262px;
+    }
+
     /* If a <label/> is wrapped around a <select/> it will normally cause an issue:
      * the <label/> and the <select/> will both get the :focus state and the <label/> 
      * will close the dropdown options again immediately.
