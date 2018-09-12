@@ -164,6 +164,7 @@ class SelectField extends Component {
                         closePopover={this.closeDropdown}
                         anchorAttachPoint={{ vertical: 'top', horizontal: 'center' }}
                         popoverAttachPoint={{ vertical: 'top', horizontal: 'center' }}
+                        appearAnimation="slide-down"
                     />
                 )}
             </div>

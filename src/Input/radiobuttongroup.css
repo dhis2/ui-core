@@ -1,6 +1,6 @@
 .d2ui-radio-button-group {
     border: 1px solid transparent;
-    transition: border-color 180ms ease-in-out;
+    transition: border-color 180ms cubic-bezier(0.4, 0, 0.6, 1);
     border-radius: 0.3125rem;
     display: inline-flex;
     width: auto;
