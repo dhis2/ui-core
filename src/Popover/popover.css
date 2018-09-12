@@ -3,8 +3,23 @@
     min-width: 1rem;
     position: absolute;
     z-index: 101;
-    opacity: 0.4;
-    transition: opacity 150ms ease-in-out;
+    animation-duration: 180ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+
+    &--fade-in {
+        transform-origin: center center;
+        animation-name: d2ui-popover-fade-in;
+    }
+
+    &--slide-down {
+        transform-origin: center top;
+        animation-name: d2ui-popover-slide-down;
+    }
+
+    &--slide-x-y {
+        transform-origin: left top;
+        animation-name: d2ui-popover-slide-x-y;
+    }
 
     &__overlay {
         position: fixed;
@@ -16,5 +31,36 @@
         right: 0;
         bottom: 0;
         left: 0;
+    }
+}
+
+@keyframes d2ui-popover-fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes d2ui-popover-slide-down {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes d2ui-popover-slide-x-y {
+    0% {
+        opacity: 0;
+        transform: scaleX(0) scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(1) scaleY(1);
     }
 }

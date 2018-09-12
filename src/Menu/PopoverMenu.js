@@ -10,6 +10,7 @@ const PopoverMenu = ({
     menuProps,
     open,
     popoverAttachPoint,
+    appearAnimation,
 }) => (
     <Popover
         anchorAttachPoint={anchorAttachPoint}
@@ -17,6 +18,7 @@ const PopoverMenu = ({
         getAnchorRef={getAnchorRef}
         open={open}
         popoverAttachPoint={popoverAttachPoint}
+        appearAnimation={appearAnimation}
     >
         <Menu closePopover={closePopover} {...menuProps} />
     </Popover>
@@ -29,11 +31,12 @@ PopoverMenu.propTypes = {
     menuProps: PropTypes.object,
     open: PropTypes.bool.isRequired,
     popoverAttachPoint: PropTypes.object,
+    appearAnimation: PropTypes.string,
 };
 
 PopoverMenu.defaultProps = {
-    anchorAttachPoint: { vertical: 'middle', horizontal: 'center' },
     open: PropTypes.bool.isRequired,
+    anchorAttachPoint: { vertical: 'middle', horizontal: 'center' },
     popoverAttachPoint: { vertical: 'middle', horizontal: 'center' },
 };
 

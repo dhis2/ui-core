@@ -16,7 +16,7 @@
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
-    transition: all 0.15s ease-in-out;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
     transition-property: background-color, box-shadow, border-color, color;
     vertical-align: middle;
 

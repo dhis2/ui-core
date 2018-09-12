@@ -1,7 +1,9 @@
 a.d2ui-tooltip {
     color: inherit;
     text-decoration: none;
-    &:hover, &:visited, &:active {
+    &:hover,
+    &:visited,
+    &:active {
         text-decoration: none;
     }
 }
@@ -25,7 +27,7 @@ a.d2ui-tooltip {
         /* Delay hide on mouse-out as per material design specs:
            https://material.io/design/components/tooltips.html#behavior */
         transition-delay: 1.35s;
-        transition: all 150ms ease-in-out;
+        transition: all 150ms cubic-bezier(0.4, 0, 0.6, 1);
         white-space: pre;
         z-index: -1;
     }
