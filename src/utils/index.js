@@ -5,3 +5,4 @@ export { default as bemClassNames } from './bemClassNames';
 export { default as wrapTextNodesInSpans } from './wrapTextNodesInSpans';
 export { default as noop } from './noop';
 export { default as throttle } from './throttle';
+export { default as setTextDirection } from './setTextDirection';
