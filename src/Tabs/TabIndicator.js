@@ -30,7 +30,7 @@ class TabIndicator extends Component {
 
         const translateX = `translateX(${activeTabNode.offsetLeft}px)`;
         const scaleX = `scaleX(${activeTabNode.offsetWidth})`;
-        return { transform: `${translateX} ${scaleX}` };
+        return { transform: `${translateX} translateY(2px) ${scaleX}` };
     }
 
     render() {

@@ -92,6 +92,7 @@
 
     &__tab-container {
         position: relative;
+        overflow-y: hidden;
 
         &--contained {
             display: flex;
@@ -113,6 +114,15 @@
 
         &--cluster-right {
             justify-content: flex-end;
+        }
+    }
+}
+/* FIREFOX HACK */
+@-moz-document url-prefix() {
+    .d2ui-tabs {
+        &__scroll-area &__tab-container {
+            /* Forces all the tabs to be on one line */
+            width: -moz-max-content;
         }
     }
 }
