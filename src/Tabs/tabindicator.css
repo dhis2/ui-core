@@ -3,7 +3,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 2px;
+    height: 4px;
     /* 
     * By choosing 1px here, we can use scaleX to animate the width  
     * of the tabIndicator. I.e. 40px width = scaleX(40)
@@ -11,7 +11,7 @@
     width: 1px;
     background-color: #1976d2;
     transform-origin: left bottom;
-    transform: translateX(0) scaleX(100);
+    transform: translateX(0) translateY(2px) scaleX(100);
     transition: none;
     visibility: hidden;
 
