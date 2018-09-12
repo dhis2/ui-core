@@ -5,8 +5,9 @@ import Tab from './Tab';
 import Icon from '../Icon';
 import TabIndicator from './TabIndicator';
 import { animatedScrollTo, bemClassNames, throttle } from '../utils';
+import computeHorizontalScrollbarHeight from './computeHorizontalScrollbarHeight';
 
-const bem = bemClassNames('d2ui-tabs');
+export const bem = bemClassNames('d2ui-tabs');
 
 class Tabs extends Component {
     constructor(props) {
@@ -22,6 +23,7 @@ class Tabs extends Component {
             scrolledToEnd: true,
             showTabIndicator: false,
         };
+        this.horizontalScrollbarHeight = computeHorizontalScrollbarHeight();
         this.handleSideScroll = throttle(this.toggleScrollButtonVisibility.bind(this));
     }
 
@@ -211,6 +213,9 @@ class Tabs extends Component {
     render() {
         const { scrolledToStart, scrolledToEnd } = this.state;
         const { position, contained } = this.props;
+        const scrollBoxStyle = {
+            marginBottom: -this.horizontalScrollbarHeight,
+        };
         let tabBar = this.renderTabBar();
 
         if (!contained) {
@@ -223,7 +228,11 @@ class Tabs extends Component {
                         <Icon name="keyboard_arrow_left" />
                     </button>
                     <div className={bem.e('scroll-box-clipper')}>
-                        <div className={bem.e('scroll-box')} ref={this.setScrollBoxRef}>
+                        <div
+                            className={bem.e('scroll-box')}
+                            ref={this.setScrollBoxRef}
+                            style={scrollBoxStyle}
+                        >
                             <div
                                 className={bem.e('scroll-area')}
                                 ref={this.setScrollAreaRef}
