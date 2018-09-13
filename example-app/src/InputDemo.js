@@ -51,6 +51,8 @@ export default class InputDemo extends Component {
 
     render() {
         return (<Paper elevation={6} padded>
+            <h3>Input components</h3>
+            <hr/>
             <RadioButtonGroup
                 options={selectOptions}
                 onChange={this.updateSelect}
