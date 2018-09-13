@@ -59,14 +59,27 @@
         overflow-y: hidden;
     }
 
+    &__test-horizontal-scrollbar-height {
+        position: absolute;
+        top: -9999px;
+        width: 100px;
+        height: 100px;
+        overflow-x: scroll;
+    }
+
     &__scroll-box {
         flex-grow: 1;
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
         display: -ms-flexbox;
         display: flex;
-        /* Hide the scrollbar by moving it below the clipper */
-        margin-bottom: -15px;
+    }
+
+    &__test-horizontal-scrollbar-height,
+    &__scroll-box {
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     &__scroll-area {
@@ -79,6 +92,7 @@
 
     &__tab-container {
         position: relative;
+        overflow-y: hidden;
 
         &--contained {
             display: flex;
@@ -100,6 +114,15 @@
 
         &--cluster-right {
             justify-content: flex-end;
+        }
+    }
+}
+/* FIREFOX HACK */
+@-moz-document url-prefix() {
+    .d2ui-tabs {
+        &__scroll-area &__tab-container {
+            /* Forces all the tabs to be on one line */
+            width: -moz-max-content;
         }
     }
 }
