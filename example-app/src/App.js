@@ -20,6 +20,7 @@ import LinearProgress from 'ui/LinearProgress';
 
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
+import Dialog from 'ui/Dialog';
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -168,8 +169,15 @@ class App extends Component {
         this.state = {
             activeTabIndex: 60,
             activeSecondaryTabIndex: 2,
+            dialogOpen: false,
         };
     }
+
+    toggleDialogOpen = () => {
+        this.setState({
+            dialogOpen: !this.state.dialogOpen,
+        });
+    };
 
     tabChangeHandler = clickedTabIndex => {
         this.setState({
@@ -200,6 +208,10 @@ class App extends Component {
                     <h4 style={{ marginTop: '60px' }}>
                         I have some margin top so I show under the fixed tabs
                     </h4>
+                    <PrimaryButton onClick={this.toggleDialogOpen}>
+                        Open dialog
+                    </PrimaryButton>
+                    <Dialog />
                     <CircularProgress size="small" />
                     <CircularProgress />
                     <CircularProgress size="large" />
