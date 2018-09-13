@@ -24,7 +24,7 @@ import LinearProgress from 'ui/LinearProgress';
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
 
-import { isRtl } from 'ui/utils'
+import { isRtl, setTextDirection } from 'ui/utils'
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -117,10 +117,17 @@ class App extends Component {
     }
 
     toggleRtl = () => {
-        document.documentElement.setAttribute('dir', isRtl() ? 'ltr' : 'rtl')
-        this.setState({
-            rtl: isRtl()
-        })
+        if (isRtl()) {
+            setTextDirection({keyUiLocale: 'en_US'})
+            this.setState({
+                rtl: false
+            })
+        } else {
+            setTextDirection({keyUiLocale: 'ar'})
+            this.setState({
+                rtl: true
+            })
+        }
     };
 
     render() {
