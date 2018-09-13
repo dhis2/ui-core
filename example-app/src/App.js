@@ -211,7 +211,14 @@ class App extends Component {
                     <PrimaryButton onClick={this.toggleDialogOpen}>
                         Open dialog
                     </PrimaryButton>
-                    <Dialog />
+                    <Dialog
+                        content="Some text"
+                        title="A title"
+                        actions={
+                            <FlatButton onClick={this.toggleDialogOpen}>Close</FlatButton>
+                        }
+                        open={this.state.dialogOpen}
+                    />
                     <CircularProgress size="small" />
                     <CircularProgress />
                     <CircularProgress size="large" />
