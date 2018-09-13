@@ -2,7 +2,7 @@
     display: inline-flex;
     flex-direction: column;
     vertical-align: top;
-    margin-right: 1rem;
+    margin: 0.5rem 1rem 0.5rem 0;
 
     &--full-width {
         display: flex;

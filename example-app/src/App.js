@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import UI from 'ui/UI';
 
+import InputDemo from './InputDemo.js'
+
 import {
     FlatButton,
     CircleButton,
@@ -19,14 +21,6 @@ import LinearProgress from 'ui/LinearProgress';
 
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
-import {
-    Checkbox,
-    RadioButton,
-    TextField,
-    Switch,
-    SelectField,
-    RadioButtonGroup,
-} from 'ui/Input';
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -102,11 +96,6 @@ const menuItems = [
     </MenuItem>,
 ];
 
-const selectOptions = [
-    { value: 1, label: 'One' },
-    { value: 2, label: 'Two' },
-    { value: 3, label: 'Three' },
-];
 
 class App extends Component {
     constructor(props) {
@@ -114,144 +103,19 @@ class App extends Component {
         this.state = {
             switchOn: false,
             inputText: '',
+            inputText1: '',
+            inputText2: '',
+            inputText3: '',
+            inputText4: '',
             selectValue: null,
         };
     }
 
-    toggleSwitch = () => {
-        this.setState({
-            switchOn: !this.state.switchOn,
-        });
-    };
-
-    updateInputText = event => {
-        this.setState({
-            inputText: event.target.value,
-        });
-    };
-
-    updateSelect = selectValue => {
-        this.setState({ selectValue: parseInt(selectValue, 10) });
-    };
-
     render() {
         return (
             <UI theme="green">
-                <Paper elevation={6} padded>
-                    <RadioButtonGroup
-                        options={selectOptions}
-                        onChange={this.updateSelect}
-                        label="I'm a label"
-                        value={this.state.selectValue}
-                        helpText="Choose one please"
-                        error
-                        inline
-                    />
-                    <SelectField
-                        options={selectOptions}
-                        label="Choose something"
-                        onChange={this.updateSelect}
-                        value={this.state.selectValue}
-                        variant="outlined"
-                        native
-                        includeEmpty
-                        emptyOptionText="None"
-                        // leadingIcon="face"
-                        // helpText="Help with this text"
-                        // dense
-                        valid
-                        // error
-                        // warning
-                    />
-                    <SelectField
-                        options={selectOptions}
-                        label="Choose something"
-                        onChange={this.updateSelect}
-                        value={this.state.selectValue}
-                        variant="outlined"
-                        includeEmpty
-                        emptyOptionText="None"
-                        leadingIcon="face"
-                        helpText="Help with this text"
-                        dense
-                        valid
-                        // error
-                        // warning
-                    />
-                    <br />
-                    <TextField
-                        label="testlabel"
-                        value={this.state.inputText}
-                        leadingIcon="face"
-                        trailingIcon="face"
-                        onChange={this.updateInputText}
-                        helpText="Hallo Hendrik"
-                        valid
-                    />
-                    <TextField
-                        label="testlabel"
-                        variant="outlined"
-                        // leadingIcon="print"
-                        value={this.state.inputText}
-                        onChange={this.updateInputText}
-                        helpText="Hallo Hendrik"
-                        warning
-                    />
-                    <TextField
-                        label="testlabel"
-                        variant="minimal"
-                        value={this.state.inputText}
-                        onChange={this.updateInputText}
-                        trailingIcon="face"
-                        helpText="Hallo Hendrik"
-                    />
-                    <TextField
-                        dense
-                        label="testlabel"
-                        value={this.state.inputText}
-                        trailingIcon="face"
-                        onChange={this.updateInputText}
-                        helpText="Hallo Hendrik"
-                        error
-                    />
-                    <TextField
-                        dense
-                        label="testlabel"
-                        variant="outlined"
-                        leadingIcon="face"
-                        value={this.state.inputText}
-                        onChange={this.updateInputText}
-                        helpText="Hallo Hendrik"
-                    />
-                    <TextField
-                        dense
-                        label="testlabel"
-                        variant="minimal"
-                        value={this.state.inputText}
-                        onChange={this.updateInputText}
-                        leadingIcon="face"
-                        trailingIcon="face"
-                        helpText="Hallo Hendrik"
-                    />
-                    <Checkbox
-                        label="Test"
-                        helpText="Hallo Hendrik"
-                        checked={this.state.switchOn}
-                        onChange={this.toggleSwitch}
-                    />
-                    <RadioButton
-                        label="Test"
-                        helpText="Hallo Hendrik"
-                        checked={this.state.switchOn}
-                        onChange={this.toggleSwitch}
-                    />
-                    <Switch
-                        label="On / Off"
-                        checked={this.state.switchOn}
-                        onChange={this.toggleSwitch}
-                        helpText="Hallo Hendrik"
-                    />
-
+                <Paper>
+                    <InputDemo />
                     <br />
                     <CircularProgress size="small" />
                     <CircularProgress />
