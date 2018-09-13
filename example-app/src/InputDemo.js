@@ -143,6 +143,7 @@ export default class InputDemo extends Component {
                 value={this.state.field6}
                 onChange={this.updateInputText.bind(null, 'field6')}
                 leadingIcon="face"
+                fullWidth
                 trailingIcon="face"
                 helpText="Hallo Hendrik"
             />

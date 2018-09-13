@@ -13,6 +13,8 @@ import {
     DropdownButton,
 } from 'ui/Button';
 
+import Switch from 'ui/Input/Switch'
+
 import Icon from 'ui/Icon';
 import Paper from 'ui/Paper';
 import { Menu, MenuItem } from 'ui/Menu';
@@ -21,6 +23,8 @@ import LinearProgress from 'ui/LinearProgress';
 
 import Tooltip from 'ui/Tooltip';
 import Logo from 'ui/Logo/Logo';
+
+import { isRtl } from 'ui/utils'
 
 const clickTest = event => {
     console.log('Button click', event.target);
@@ -107,13 +111,29 @@ class App extends Component {
             inputText2: '',
             inputText3: '',
             inputText4: '',
+            rtl: isRtl(),
             selectValue: null,
         };
     }
 
+    toggleRtl = () => {
+        document.documentElement.setAttribute('dir', isRtl() ? 'ltr' : 'rtl')
+        this.setState({
+            rtl: isRtl()
+        })
+    };
+
     render() {
         return (
             <UI theme="green">
+                <Paper>
+                    <Switch
+                        label="RTL: Off/On"
+                        checked={this.state.rtl}
+                        onChange={this.toggleRtl}
+                        helpText="Toggle text direction"
+                    />
+                </Paper>
                 <Paper>
                     <InputDemo />
                     <br />
