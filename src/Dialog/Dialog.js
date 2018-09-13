@@ -19,7 +19,10 @@ class Dialog extends Component {
 
     componentDidMount() {}
 
-    componentDidUpdate(prevProps, prevState) {}
+    componentDidUpdate(prevProps, prevState) {
+        console.log('open was: ', prevProps.open, ' and now is: ', this.props.open);
+        console.log('hidden was: ', prevState.hidden, ' and now is: ', this.state.hidden);
+    }
 
     componentWillUnmount() {}
 
@@ -27,8 +30,11 @@ class Dialog extends Component {
     setBackdropRef = node => (this.dialogWindowRef = node);
 
     onBackdropClick = () => {
-        console.log('backdropclik');
-        this.setState({ hidden: true });
+        const { dismissible, closeHandler } = this.props;
+        if (dismissible) {
+            this.setState({ hidden: true });
+            closeHandler && closeHandler();
+        }
     };
 
     renderTitle() {
