@@ -85,6 +85,7 @@
     }
 
     &__notched-outline {
+        pointer-events: none;
         position: absolute;
         border-radius: 0.25rem;
         opacity: 0;
