@@ -5,6 +5,7 @@
     vertical-align: bottom;
     color: #494949;
     cursor: pointer;
+    display: inline-flex;
 
     &--disabled {
         cursor: not-allowed;
