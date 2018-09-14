@@ -6,35 +6,57 @@ import './dialog.css';
 import Paper from '../Paper';
 
 const bem = bemClassNames('d2ui-dialog');
+const BODY_SCROLL_DISABLED_CLASS = 'd2ui-scroll-disabled';
 
 class Dialog extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hidden: false,
+            isAnimatingOut: false,
         };
-        this.backdropRef = null;
-        this.dialogWindowRef = null;
     }
 
-    componentDidMount() {}
-
-    componentDidUpdate(prevProps, prevState) {
-        console.log('open was: ', prevProps.open, ' and now is: ', this.props.open);
-        console.log('hidden was: ', prevState.hidden, ' and now is: ', this.state.hidden);
+    componentDidMount() {
+        this.updateBodyScroll();
     }
 
-    componentWillUnmount() {}
+    shouldComponentUpdate(nextProps) {
+        if (!nextProps.open && this.props.open && !this.state.isAnimatingOut) {
+            this.animateOut();
+            return false;
+        }
 
-    setDialogWindowRef = node => (this.dialogWindowRef = node);
-    setBackdropRef = node => (this.dialogWindowRef = node);
+        return true;
+    }
+
+    componentDidUpdate() {
+        this.updateBodyScroll();
+    }
+
+    componentWillUnmount() {
+        this.updateBodyScroll(true);
+    }
 
     onBackdropClick = () => {
         const { dismissible, closeHandler } = this.props;
-        if (dismissible) {
-            this.setState({ hidden: true });
-            closeHandler && closeHandler();
+        dismissible && closeHandler && closeHandler();
+    };
+
+    updateBodyScroll(forceOff) {
+        if (forceOff || (!this.props.open && !this.state.isAnimatingOut)) {
+            document.body.classList.remove(BODY_SCROLL_DISABLED_CLASS);
+        } else {
+            document.body.classList.add(BODY_SCROLL_DISABLED_CLASS);
         }
+    }
+
+    animateOut() {
+        this.setState({ isAnimatingOut: true });
+    }
+
+    animationEndHandler = () => {
+        this.updateBodyScroll();
+        this.setState({ isAnimatingOut: false });
     };
 
     renderTitle() {
@@ -61,22 +83,25 @@ class Dialog extends Component {
 
     render() {
         const { size, content, open } = this.props;
-        const { hidden } = this.state;
+        const { isAnimatingOut } = this.state;
 
-        if (!open || hidden) {
+        if (!open && !isAnimatingOut) {
             return null;
         }
 
-        console.log('render');
+        const animateOutClass = { 'animate-out': isAnimatingOut };
+        const animateOutProps = isAnimatingOut
+            ? { onAnimationEnd: this.animationEndHandler }
+            : null;
 
         return ReactDOM.createPortal(
             <div className={bem.b()}>
                 <div
-                    className={bem.e('backdrop')}
-                    ref={this.setBackdropRef}
+                    className={bem.e('backdrop', animateOutClass)}
                     onClick={this.onBackdropClick}
+                    {...animateOutProps}
                 />
-                <div className={bem.e('window', size)} ref={this.setDialogWindowRef}>
+                <div className={bem.e('window', size, animateOutClass)}>
                     <Paper elevation={12}>
                         {this.renderTitle()}
                         <div className={bem.e('content')}>{content}</div>
@@ -96,7 +121,13 @@ Dialog.propTypes = {
     actions: PropTypes.node,
     size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
     dismissible: PropTypes.bool,
-    closeHandler: PropTypes.func, // Not providing this will make the dialog mandatory
+    closeHandler: (props, propName, componentName) => {
+        if (props.dismissible && typeof props[propName] !== 'function') {
+            return new Error(
+                `Invalid combination of props: A dismissible ${componentName} component needs a ${propName} in order for it to close itself.`
+            );
+        }
+    },
 };
 
 Dialog.defaultProps = {
