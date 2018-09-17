@@ -34,6 +34,11 @@ export default function animatedScrollTo({
     );
     const change = endValue - startValue;
 
+    // Just scroll into place if duration is 0
+    if (duration === 0) {
+        scrollHandler(endValue);
+    }
+
     let startTimestamp, elapsedTime, scrollValue;
     function step(timestamp) {
         if (!startTimestamp) {
