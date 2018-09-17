@@ -96,9 +96,8 @@
     }
 
     &__footer {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
+        display: block;
+        text-align: right;
         justify-content: flex-end;
         padding: 0.5rem;
     }
