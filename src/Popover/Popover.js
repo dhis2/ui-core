@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { bemClassNames } from '../utils';
+import { bemClassNames, withAnimatedClose } from '../utils';
 import computePosition, {
     TOP,
     CENTER,
@@ -23,10 +23,13 @@ class Popover extends Component {
         this.popupRef = null;
     }
 
-    onPopupRendered = ref => {
-        this.popupRef = ref;
-        this.positionPopup();
-    };
+    componentDidUpdate(prevProps) {
+        if (!prevProps.open && this.props.open) {
+            this.positionPopup();
+        }
+    }
+
+    setPopopRef = ref => (this.popupRef = ref);
 
     positionPopup() {
         const { getAnchorRef, anchorAttachPoint, popoverAttachPoint } = this.props;
@@ -48,19 +51,32 @@ class Popover extends Component {
     }
 
     render() {
-        const { open, children, closePopover, appearAnimation } = this.props;
+        const {
+            open,
+            children,
+            closePopover,
+            appearAnimation,
+            isAnimatingOut,
+            onAnimationEnd,
+        } = this.props;
         const { popupComputedStyle } = this.state;
 
-        if (!open) {
+        if (!open && !isAnimatingOut) {
             return null;
         }
+
+        const animateOutProps = isAnimatingOut
+            ? { onAnimationEnd: onAnimationEnd }
+            : null;
+
         return ReactDOM.createPortal(
             <React.Fragment>
                 <div className={bem.e('overlay')} onClick={closePopover} />
                 <div
-                    className={bem.b(appearAnimation)}
-                    ref={this.onPopupRendered}
+                    className={bem.b(appearAnimation, { 'animate-out': isAnimatingOut })}
+                    ref={this.setPopopRef}
                     style={popupComputedStyle}
+                    {...animateOutProps}
                 >
                     {children}
                 </div>
@@ -89,6 +105,8 @@ Popover.propTypes = {
     anchorAttachPoint: attachPointPropType,
     popoverAttachPoint: attachPointPropType,
     appearAnimation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
+    isAnimatingOut: PropTypes.bool.isRequired,
+    onAnimationEnd: PropTypes.func.isRequired,
 };
 
 Popover.defaultProps = {
@@ -103,4 +121,4 @@ Popover.defaultProps = {
     appearAnimation: 'fade-in',
 };
 
-export default Popover;
+export default withAnimatedClose(Popover);

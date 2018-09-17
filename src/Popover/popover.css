@@ -3,22 +3,34 @@
     min-width: 1rem;
     position: absolute;
     z-index: 101;
-    animation-duration: 180ms;
+    animation-duration: 250ms;
     animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
 
     &--fade-in {
         transform-origin: center center;
         animation-name: d2ui-popover-fade-in;
+
+        &.d2ui-popover--animate-out {
+            animation-name: d2ui-popover-fade-out;
+        }
     }
 
     &--slide-down {
         transform-origin: center top;
         animation-name: d2ui-popover-slide-down;
+
+        &.d2ui-popover--animate-out {
+            animation-name: d2ui-popover-slide-up;
+        }
     }
 
     &--slide-x-y {
         transform-origin: left top;
-        animation-name: d2ui-popover-slide-x-y;
+        animation-name: d2ui-popover-slide-in-x-y;
+
+        &.d2ui-popover--animate-out {
+            animation-name: d2ui-popover-slide-out-x-y;
+        }
     }
 
     &__overlay {
@@ -43,6 +55,15 @@
     }
 }
 
+@keyframes d2ui-popover-fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 @keyframes d2ui-popover-slide-down {
     0% {
         opacity: 0;
@@ -54,7 +75,18 @@
     }
 }
 
-@keyframes d2ui-popover-slide-x-y {
+@keyframes d2ui-popover-slide-up {
+    0% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+}
+
+@keyframes d2ui-popover-slide-in-x-y {
     0% {
         opacity: 0;
         transform: scaleX(0) scaleY(0);
@@ -62,5 +94,16 @@
     100% {
         opacity: 1;
         transform: scaleX(1) scaleY(1);
+    }
+}
+
+@keyframes d2ui-popover-slide-out-x-y {
+    0% {
+        opacity: 1;
+        transform: scaleX(1) scaleY(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scaleX(0) scaleY(0);
     }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { bemClassNames } from '../utils';
+import { bemClassNames, withAnimatedClose } from '../utils';
 import './dialog.css';
 import Paper from '../Paper';
 
@@ -9,24 +9,8 @@ const bem = bemClassNames('d2ui-dialog');
 const BODY_SCROLL_DISABLED_CLASS = 'd2ui-scroll-disabled';
 
 class Dialog extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isAnimatingOut: false,
-        };
-    }
-
     componentDidMount() {
         this.updateBodyScroll();
-    }
-
-    shouldComponentUpdate(nextProps) {
-        if (!nextProps.open && this.props.open && !this.state.isAnimatingOut) {
-            this.animateOut();
-            return false;
-        }
-
-        return true;
     }
 
     componentDidUpdate() {
@@ -43,21 +27,13 @@ class Dialog extends Component {
     };
 
     updateBodyScroll(forceOff) {
-        if (forceOff || (!this.props.open && !this.state.isAnimatingOut)) {
+        const { open, isAnimatingOut } = this.props;
+        if (forceOff || (!open && !isAnimatingOut)) {
             document.body.classList.remove(BODY_SCROLL_DISABLED_CLASS);
         } else {
             document.body.classList.add(BODY_SCROLL_DISABLED_CLASS);
         }
     }
-
-    animateOut() {
-        this.setState({ isAnimatingOut: true });
-    }
-
-    animationEndHandler = () => {
-        this.updateBodyScroll();
-        this.setState({ isAnimatingOut: false });
-    };
 
     renderTitle() {
         const { title } = this.props;
@@ -82,8 +58,7 @@ class Dialog extends Component {
     }
 
     render() {
-        const { size, content, open } = this.props;
-        const { isAnimatingOut } = this.state;
+        const { size, content, open, isAnimatingOut, onAnimationEnd } = this.props;
 
         if (!open && !isAnimatingOut) {
             return null;
@@ -91,7 +66,7 @@ class Dialog extends Component {
 
         const animateOutClass = { 'animate-out': isAnimatingOut };
         const animateOutProps = isAnimatingOut
-            ? { onAnimationEnd: this.animationEndHandler }
+            ? { onAnimationEnd: onAnimationEnd }
             : null;
 
         return ReactDOM.createPortal(
@@ -128,6 +103,8 @@ Dialog.propTypes = {
             );
         }
     },
+    isAnimatingOut: PropTypes.bool.isRequired,
+    onAnimationEnd: PropTypes.func.isRequired,
 };
 
 Dialog.defaultProps = {
@@ -135,4 +112,4 @@ Dialog.defaultProps = {
     dismissible: true,
 };
 
-export default Dialog;
+export default withAnimatedClose(Dialog, {});
