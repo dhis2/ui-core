@@ -4,7 +4,7 @@ import './checkbox.css';
 import './togglerwrap.css';
 import { bemClassNames } from '../utils';
 import ToggleField from '../../build/Input/ToggleField';
-import FormField from './FormField';
+import FieldWrap from './FieldWrap';
 
 const bem = bemClassNames('d2ui-checkbox');
 
@@ -20,7 +20,7 @@ const Checkbox = ({
     fullWidth,
     helpText,
 }) => (
-    <FormField {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
+    <FieldWrap {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
         <ToggleField disabled={disabled}>
             <div className={bem.b({ disabled })}>
                 <input
@@ -43,7 +43,7 @@ const Checkbox = ({
             </div>
             <span className={bem.e('label-text', { disabled })}>{label}</span>
         </ToggleField>
-    </FormField>
+    </FieldWrap>
 );
 
 Checkbox.propTypes = {

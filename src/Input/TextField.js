@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { bemClassNames } from '../utils';
 import './textfield.css';
 import Icon from '../Icon';
-import FormField from './FormField';
+import FieldWrap from './FieldWrap';
 
 export const bem = bemClassNames('d2ui-text-field');
 const FILLED = 'filled';
@@ -42,7 +42,6 @@ const TextField = ({
     helpText,
     inputComponent,
 }) => {
-    console.log(trailingIcon);
     const computedTrailingIcon = computeTrailingIcon(trailingIcon, error, warning, valid);
     const focusIndicator = variant === OUTLINED ? 'notched-outline' : 'bottom-line';
     const wrapperClassName = bem.b(variant, {
@@ -57,7 +56,7 @@ const TextField = ({
     });
 
     return (
-        <FormField {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
+        <FieldWrap {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
             <label className={wrapperClassName}>
                 {inputComponent || (
                     <input
@@ -80,7 +79,7 @@ const TextField = ({
                 )}
                 <span className={bem.e('floating-label')}>{label}</span>
             </label>
-        </FormField>
+        </FieldWrap>
     );
 };
 

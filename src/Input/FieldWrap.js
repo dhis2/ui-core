@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { bemClassNames } from '../utils';
-import './formfield.css';
+import './fieldwrap.css';
 
 const bem = bemClassNames('d2ui-form-field');
 
-const FormField = ({
+const FieldWrap = ({
     children,
     valid,
     warning,
@@ -30,7 +30,7 @@ const FormField = ({
     </div>
 );
 
-FormField.propTypes = {
+FieldWrap.propTypes = {
     children: PropTypes.node.isRequired,
     valid: PropTypes.bool,
     warning: PropTypes.bool,
@@ -41,4 +41,4 @@ FormField.propTypes = {
     helpText: PropTypes.string,
 };
 
-export default FormField;
+export default FieldWrap;

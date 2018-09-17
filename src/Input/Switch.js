@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ToggleField from './ToggleField';
 import './switch.css';
 import { bemClassNames } from '../utils';
-import FormField from './FormField';
+import FieldWrap from './FieldWrap';
 
 const bem = bemClassNames('d2ui-switch');
 
@@ -20,7 +20,7 @@ const Switch = ({
     helpText,
 }) => {
     return (
-        <FormField {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
+        <FieldWrap {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
             <ToggleField disabled={disabled}>
                 <div className={bem.b({ checked, disabled })}>
                     <div className={bem.e('track')} />
@@ -41,7 +41,7 @@ const Switch = ({
                 </div>
                 <span className={bem.e('label-text', { disabled })}>{label}</span>
             </ToggleField>
-        </FormField>
+        </FieldWrap>
     );
 };
 

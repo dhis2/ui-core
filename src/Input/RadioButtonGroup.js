@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bemClassNames } from '../utils';
 import RadioButton from './RadioButton';
-import FormField from './FormField';
+import FieldWrap from './FieldWrap';
 import './radiobuttongroup.css';
 
 const bem = bemClassNames('d2ui-radio-button-group');
@@ -25,7 +25,7 @@ const RadioButtonGroup = ({
     error,
     helpText,
 }) => (
-    <FormField {...{ valid, warning, disabled, error, dense, fullWidth: true, helpText }}>
+    <FieldWrap {...{ valid, warning, disabled, error, dense, fullWidth: true, helpText }}>
         <p className={bem.e('description', { error, valid, warning })}>{label}</p>
         <div className={bem.b({ error, warning, valid, stacked: !inline })}>
             {options.map(option => (
@@ -43,7 +43,7 @@ const RadioButtonGroup = ({
                 />
             ))}
         </div>
-    </FormField>
+    </FieldWrap>
 );
 
 RadioButtonGroup.propTypes = {
