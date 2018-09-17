@@ -44,7 +44,11 @@ class Dialog extends Component {
 
         const isText = ['string', 'number'].includes(typeof title);
 
-        return <div className={bem.e('title')}>{isText ? <h4>{title}</h4> : title}</div>;
+        return (
+            <header className={bem.e('title')}>
+                {isText ? <h6>{title}</h6> : title}
+            </header>
+        );
     }
 
     renderFooter() {
@@ -54,7 +58,9 @@ class Dialog extends Component {
             return null;
         }
 
-        return <div className={bem.e('footer')}>{React.Children.toArray(actions)}</div>;
+        return (
+            <footer className={bem.e('footer')}>{React.Children.toArray(actions)}</footer>
+        );
     }
 
     render() {
@@ -77,9 +83,9 @@ class Dialog extends Component {
                     {...animateOutProps}
                 />
                 <div className={bem.e('window', size, animateOutClass)}>
-                    <Paper elevation={12}>
+                    <Paper elevation={24}>
                         {this.renderTitle()}
-                        <div className={bem.e('content')}>{content}</div>
+                        <section className={bem.e('content')}>{content}</section>
                         {this.renderFooter()}
                     </Paper>
                 </div>

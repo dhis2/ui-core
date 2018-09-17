@@ -163,6 +163,75 @@ const tabsList = [
     { label: 'Tab number 64', icon: 'face' },
 ];
 
+const longContent = [
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+    <p>Long content</p>,
+];
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -212,7 +281,8 @@ class App extends Component {
                         Open dialog
                     </PrimaryButton>
                     <Dialog
-                        content="Some text"
+                        content={longContent}
+                        // content="Dit is de content"
                         title="A title"
                         actions={[
                             <FlatButton onClick={this.toggleDialogOpen}>
@@ -225,6 +295,7 @@ class App extends Component {
                         dismissible={true}
                         closeHandler={this.toggleDialogOpen}
                         open={this.state.dialogOpen}
+                        size="medium"
                     />
                     <CircularProgress size="small" />
                     <CircularProgress />

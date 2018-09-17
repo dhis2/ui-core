@@ -3,7 +3,7 @@
     min-width: 1rem;
     position: absolute;
     z-index: 101;
-    animation-duration: 250ms;
+    animation-duration: 120ms;
     animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
 
     &--fade-in {
