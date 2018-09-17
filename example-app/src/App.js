@@ -15,6 +15,8 @@ import Paper from 'ui/Paper';
 
 import { isRtl, setTextDirection } from 'ui/utils'
 
+import './styles.css';
+
 class App extends Component {
     constructor(props) {
         super(props);
