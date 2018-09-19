@@ -1,4 +1,5 @@
 /* Adapted from https://materializecss.com/preloader.html */
+/* rtl:begin:ignore */
 .d2ui-linear-progress {
     position: relative;
     display: block;
@@ -32,7 +33,8 @@
             left: 0;
             bottom: 0;
             will-change: left, right;
-            animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+            animation: d2ui-linear-progress-indeterminate 2.1s
+                cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
         }
 
         &:after {
@@ -43,14 +45,30 @@
             left: 0;
             bottom: 0;
             will-change: left, right;
-            animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1)
-                infinite;
+            animation: d2ui-linear-progress-indeterminate-short 2.1s
+                cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
             animation-delay: 1.15s;
         }
     }
 }
 
-@keyframes indeterminate {
+[dir="rtl"] .d2ui-linear-progress {
+    &__progress--determinate {
+        left: auto;
+        right: 0;
+    }
+
+    &__progress--indeterminate {
+        &:before {
+            animation-name: d2ui-linear-progress-indeterminate-rtl;
+        }
+        &:after {
+            animation-name: d2ui-linear-progress-indeterminate-short-rtl;
+        }
+    }
+}
+
+@keyframes d2ui-linear-progress-indeterminate {
     0% {
         left: -35%;
         right: 100%;
@@ -67,7 +85,7 @@
     }
 }
 
-@keyframes indeterminate-short {
+@keyframes d2ui-linear-progress-indeterminate-short {
     0% {
         left: -200%;
         right: 100%;
@@ -83,3 +101,38 @@
         right: -8%;
     }
 }
+
+@keyframes d2ui-linear-progress-indeterminate-rtl {
+    0% {
+        left: 100%;
+        right: -35%;
+    }
+
+    60% {
+        left: -90%;
+        right: 100%;
+    }
+
+    100% {
+        left: -90%;
+        right: 100%;
+    }
+}
+
+@keyframes d2ui-linear-progress-indeterminate-short-rtl {
+    0% {
+        left: 100%;
+        right: -200%;
+    }
+
+    60% {
+        left: -8%;
+        right: 107%;
+    }
+
+    100% {
+        left: -8%;
+        right: 107%;
+    }
+}
+/* rtl:end:ignore */

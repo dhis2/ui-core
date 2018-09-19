@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 
 import UI from 'ui/UI';
 
-import InputDemo from './InputDemo.js'
-import ProgressDemo from './ProgressDemo.js'
-import LogoDemo from './LogoDemo.js'
-import ButtonDemo from './ButtonDemo.js'
-import MenuDemo from './MenuDemo.js'
-import TypographyDemo from './TypographyDemo.js'
+import InputDemo from './InputDemo.js';
+import ProgressDemo from './ProgressDemo.js';
+import LogoDemo from './LogoDemo.js';
+import ButtonDemo from './ButtonDemo.js';
+import MenuDemo from './MenuDemo.js';
+import TypographyDemo from './TypographyDemo.js';
 
-import Switch from 'ui/Input/Switch'
+import Switch from 'ui/Input/Switch';
 
 import Paper from 'ui/Paper';
 
-import { isRtl, setTextDirection } from 'ui/utils'
+import { isRtl, setTextDirection } from 'ui/utils';
 
 import './styles.css';
 
@@ -34,15 +34,15 @@ class App extends Component {
 
     toggleRtl = () => {
         if (isRtl()) {
-            setTextDirection({keyUiLocale: 'en_US'})
+            setTextDirection({ keyUiLocale: 'en_US' });
             this.setState({
-                rtl: false
-            })
+                rtl: false,
+            });
         } else {
-            setTextDirection({keyUiLocale: 'ar'})
+            setTextDirection({ keyUiLocale: 'ar' });
             this.setState({
-                rtl: true
-            })
+                rtl: true,
+            });
         }
     };
 
@@ -63,7 +63,7 @@ class App extends Component {
                 <InputDemo />
                 <ProgressDemo />
                 <ButtonDemo />
-                <MenuDemo/>
+                <MenuDemo />
             </UI>
         );
     }

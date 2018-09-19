@@ -1,0 +1,128 @@
+.d2ui-tabs {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    flex-direction: row;
+    background-color: #eceff1;
+
+    &--relative {
+        position: relative;
+    }
+
+    &--fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9001;
+    }
+
+    &--absolute {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9000;
+    }
+
+    &--sticky {
+        position: sticky;
+        top: 0;
+        z-index: 9000;
+    }
+
+    &__scroll-button {
+        flex: 0 0 3rem;
+        color: inherit;
+        border-radius: 8px;
+        background-color: transparent;
+        transition: all 150ms ease-in-out;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        opacity: 1;
+        transition: opacity 150ms ease-in-out;
+
+        &:active {
+            /* Cheap ripple alternative to flash clicked tab */
+            background-color: #e0e0e0;
+        }
+
+        &--hidden {
+            pointer-events: none;
+            opacity: 0;
+        }
+    }
+
+    &__scroll-box-clipper {
+        overflow-y: hidden;
+    }
+
+    &__test-horizontal-scrollbar-height {
+        position: absolute;
+        top: -9999px;
+        width: 100px;
+        height: 100px;
+        overflow-x: scroll;
+    }
+
+    &__scroll-box {
+        flex-grow: 1;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    &__test-horizontal-scrollbar-height,
+    &__scroll-box {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__scroll-area {
+        position: relative;
+        display: flex;
+        flex: 1 0 auto;
+        transform: none;
+        will-change: transform;
+    }
+
+    &__tab-container {
+        position: relative;
+        overflow-y: hidden;
+
+        &--contained {
+            display: flex;
+            flex-grow: 1;
+            overflow-x: hidden;
+
+            .d2ui-tab {
+                line-height: 0.8rem;
+            }
+        }
+
+        &--cluster-left {
+            justify-content: flex-start;
+        }
+
+        &--cluster-centered {
+            justify-content: center;
+        }
+
+        &--cluster-right {
+            justify-content: flex-end;
+        }
+    }
+}
+/* FIREFOX HACK */
+@-moz-document url-prefix() {
+    .d2ui-tabs {
+        &__scroll-area &__tab-container {
+            /* Forces all the tabs to be on one line */
+            width: -moz-max-content;
+        }
+    }
+}

@@ -50,6 +50,7 @@ class SubMenu extends Component {
                     open={this.state.popoverOpen}
                     menuProps={menuProps}
                     popoverAttachPoint={popoverAttachPoint}
+                    appearAnimation="slide-x-y"
                 />
             </Fragment>
         );

@@ -48,7 +48,7 @@ class Popover extends Component {
     }
 
     render() {
-        const { open, children, closePopover } = this.props;
+        const { open, children, closePopover, appearAnimation } = this.props;
         const { popupComputedStyle } = this.state;
 
         if (!open) {
@@ -58,7 +58,7 @@ class Popover extends Component {
             <React.Fragment>
                 <div className={bem.e('overlay')} onClick={closePopover} />
                 <div
-                    className={bem.b()}
+                    className={bem.b(appearAnimation)}
                     ref={this.onPopupRendered}
                     style={popupComputedStyle}
                 >
@@ -88,6 +88,7 @@ Popover.propTypes = {
     children: PropTypes.node,
     anchorAttachPoint: attachPointPropType,
     popoverAttachPoint: attachPointPropType,
+    appearAnimation: PropTypes.oneOf(['fade-in', 'slide-down']),
 };
 
 Popover.defaultProps = {
@@ -99,6 +100,7 @@ Popover.defaultProps = {
         vertical: 'middle',
         horizontal: 'center',
     },
+    appearAnimation: 'fade-in',
 };
 
 export default Popover;

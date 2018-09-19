@@ -15,8 +15,8 @@
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
-    transition: all 0.15s ease-in-out;
-    transition-property: background-color, box-shadow, border, color;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+    transition-property: background-color, box-shadow, border-color, color;
     vertical-align: middle;
 
     /* To make sure event.target of the click handler is always the button, 
@@ -24,29 +24,6 @@
     span {
         pointer-events: none;
         transform: translateY(2px);
-    }
-
-    /* ICON STYLE */
-    .material-icons {
-        pointer-events: none;
-        line-height: 0.9375rem;
-        height: 0.9375rem;
-        width: 1.5rem;
-
-        &:first-child {
-            margin-right: 0.75rem;
-            margin-left: 0;
-        }
-
-        &:last-child {
-            margin-right: 0;
-            margin-left: 0.75rem;
-        }
-
-        &:only-child {
-            margin-left: 0;
-            margin-right: 0;
-        }
     }
 
     /* STATES */

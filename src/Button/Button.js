@@ -19,7 +19,7 @@ const Button = ({
     variant,
 }) => (
     <button
-        className={bem.b(variant, size)}
+        className={`${bem.b(variant, size)} d2ui-align-icon`}
         {...{ disabled, onClick, onDoubleClick, title, type, role }}
     >
         {wrapTextNodesInSpans(children)}

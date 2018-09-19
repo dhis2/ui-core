@@ -37,6 +37,7 @@ class DropdownMenu extends Component {
                     closePopover={this.closePopover}
                     anchorAttachPoint={{ vertical: 'bottom', horizontal: 'right' }}
                     popoverAttachPoint={{ vertical: 'top', horizontal: 'right' }}
+                    appearAnimation="slide-down"
                 />
             </React.Fragment>
         );
