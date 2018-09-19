@@ -1,3 +1,3 @@
-export default function (text, required) {
+export default function(text, required) {
     return required ? `${text} *` : text;
 }
