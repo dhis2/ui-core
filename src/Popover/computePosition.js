@@ -137,6 +137,7 @@ function getWindowContainedPosition({ top, left, width, height }) {
     let containedTop = top;
     let containedLeft = left;
 
+    console.log(top, height, windowBottomEdge);
     if (top + height > windowBottomEdge) {
         containedTop = windowBottomEdge - height;
     }

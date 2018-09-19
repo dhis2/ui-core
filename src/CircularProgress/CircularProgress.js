@@ -15,7 +15,7 @@ const CircularProgress = ({ size, center }) => {
                     cy="44"
                     r="20.2"
                     fill="none"
-                    stroke-width="3.6"
+                    strokeWidth="3.6"
                 />
             </svg>
         </div>

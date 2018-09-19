@@ -88,7 +88,7 @@ Popover.propTypes = {
     children: PropTypes.node,
     anchorAttachPoint: attachPointPropType,
     popoverAttachPoint: attachPointPropType,
-    appearAnimation: PropTypes.oneOf(['fade-in', 'slide-down']),
+    appearAnimation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
 };
 
 Popover.defaultProps = {
