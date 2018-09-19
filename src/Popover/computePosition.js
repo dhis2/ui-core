@@ -11,24 +11,17 @@ export const RIGHT = 'right';
 const EDGE_MARGIN = 18;
 
 export default function(targetEl, anchorEl, anchorAttachPoint, popoverAttachPoint) {
-    let flippedAnchorAttachPoint, flippedPopoverAttachPoint;
-    if (isRtl()) {
-        flippedAnchorAttachPoint = flipHorizontal(anchorAttachPoint);
-        flippedPopoverAttachPoint = flipHorizontal(popoverAttachPoint);
-    } else {
-        flippedAnchorAttachPoint = anchorAttachPoint;
-        flippedPopoverAttachPoint = popoverAttachPoint;
-    }
-
-    const anchorPosition = getAnchorPosition(anchorEl, flippedAnchorAttachPoint);
-    const virtualPosition = getRelativePosition(
+    const anchorPosition = getAnchorPosition(
+        anchorEl,
+        isRtl() ? flipHorizontal(anchorAttachPoint) : anchorAttachPoint
+    );
+    const relativePosition = getRelativePosition(
         targetEl,
         anchorPosition,
-        flippedPopoverAttachPoint
+        isRtl() ? flipHorizontal(popoverAttachPoint) : popoverAttachPoint
     );
-    const restrictedPosition = getWindowContainedPosition(virtualPosition);
 
-    return restrictedPosition;
+    return getWindowContainedPosition(relativePosition);
 }
 
 function flipHorizontal(attachPoint) {
