@@ -14,6 +14,6 @@ td {
 caption {
     min-width: 120px;
 }
-.d2ui-paper--padded {
+.d2ui-app .d2ui-paper--padded {
     margin: 2rem 1rem;
 }
