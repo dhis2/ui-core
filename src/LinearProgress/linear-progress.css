@@ -53,6 +53,11 @@
 }
 
 [dir="rtl"] .d2ui-linear-progress {
+    &__progress--determinate {
+        left: auto;
+        right: 0;
+    }
+
     &__progress--indeterminate {
         &:before {
             animation-name: d2ui-linear-progress-indeterminate-rtl;
