@@ -42,19 +42,12 @@
     }
 }
 
-[dir="rtl"] .d2ui-circular-progress {
-    animation-direction: reverse;
-
-    &__circle {
-        animation-direction: reverse;
-    }
-}
-
 @keyframes d2ui-circular-progress-rotate {
     100% {
         transform: rotate(360deg);
     }
 }
+
 @keyframes d2ui-circular-progress-dash {
     0% {
         stroke-dasharray: 1px, 200px;
