@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { bemClassNames } from '../utils';
+import { bemClassNames, appendAsteriskIfRequired } from '../utils';
 import RadioButton from './RadioButton';
 import FieldWrap from './FieldWrap';
 import './radiobuttongroup.css';
@@ -24,9 +24,12 @@ const RadioButtonGroup = ({
     warning,
     error,
     helpText,
+    required,
 }) => (
-    <FieldWrap {...{ valid, warning, disabled, error, dense, fullWidth: true, helpText }}>
-        <p className={bem.e('description', { error, valid, warning })}>{label}</p>
+    <FieldWrap {...{ valid, warning, disabled, error, dense, block: true, helpText }}>
+        <p className={bem.e('description', { error, valid, warning })}>
+            {appendAsteriskIfRequired(label, required)}
+        </p>
         <div className={bem.b({ error, warning, valid, stacked: !inline })}>
             {options.map(option => (
                 <RadioButton
@@ -35,7 +38,7 @@ const RadioButtonGroup = ({
                     name={name || randomName()}
                     value={option.value}
                     checked={option.value === value}
-                    fullWidth={!inline}
+                    block={!inline}
                     onChange={() => onChange(option.value)}
                     dense={dense}
                     disabled={disabled}
@@ -63,6 +66,7 @@ RadioButtonGroup.propTypes = {
     valid: PropTypes.bool,
     warning: PropTypes.bool,
     error: PropTypes.bool,
+    required: PropTypes.bool,
     helpText: PropTypes.string,
 };
 

@@ -1,29 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { bemClassNames } from '../utils';
-import './textfield.css';
-import Icon from '../Icon';
 import FieldWrap from './FieldWrap';
+import Field, { bem as fieldBem } from './Field';
 
-export const bem = bemClassNames('d2ui-text-field');
 const FILLED = 'filled';
 const OUTLINED = 'outlined';
 const MINIMAL = 'minimal';
-
-const computeTrailingIcon = (trailingIcon, error, warning, valid) => {
-    switch (true) {
-        case Boolean(trailingIcon):
-            return trailingIcon;
-        case error:
-            return 'error';
-        case warning:
-            return 'warning';
-        case valid:
-            return 'check_circle';
-        default:
-            return null;
-    }
-};
 
 const TextField = ({
     variant,
@@ -38,47 +20,52 @@ const TextField = ({
     valid,
     warning,
     disabled,
-    fullWidth,
+    block,
+    multiline,
+    required,
     helpText,
-    inputComponent,
 }) => {
-    const computedTrailingIcon = computeTrailingIcon(trailingIcon, error, warning, valid);
-    const focusIndicator = variant === OUTLINED ? 'notched-outline' : 'bottom-line';
-    const wrapperClassName = bem.b(variant, {
-        'with-value': value !== '',
-        'with-trailing-icon': computedTrailingIcon,
-        'with-leading-icon': leadingIcon,
-        dense,
-        error,
-        valid,
-        warning,
-        disabled,
-    });
+    const InputTag = multiline ? 'textarea' : 'input';
+    const inputComponent = (
+        <InputTag
+            className={fieldBem.e('input')}
+            value={value}
+            onChange={onChange}
+            type={type}
+            disabled={disabled}
+        />
+    );
 
     return (
-        <FieldWrap {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
-            <label className={wrapperClassName}>
-                {inputComponent || (
-                    <input
-                        className={bem.e('input')}
-                        value={value}
-                        onChange={onChange}
-                        type={type}
-                        disabled={disabled}
-                    />
-                )}
-                <span className={bem.e(focusIndicator)} />
-                {leadingIcon && (
-                    <Icon name={leadingIcon} className={bem.e('icon', 'leading')} />
-                )}
-                {computedTrailingIcon && (
-                    <Icon
-                        name={computedTrailingIcon}
-                        className={bem.e('icon', 'trailing')}
-                    />
-                )}
-                <span className={bem.e('floating-label')}>{label}</span>
-            </label>
+        <FieldWrap
+            {...{
+                valid,
+                warning,
+                disabled,
+                error,
+                dense,
+                block,
+                helpText,
+            }}
+        >
+            <Field
+                {...{
+                    variant,
+                    dense,
+                    label,
+                    value,
+                    leadingIcon,
+                    trailingIcon,
+                    error,
+                    valid,
+                    warning,
+                    disabled,
+                    inputComponent,
+                    block,
+                    multiline,
+                    required,
+                }}
+            />
         </FieldWrap>
     );
 };
@@ -111,9 +98,10 @@ TextField.propTypes = {
     valid: PropTypes.bool,
     warning: PropTypes.bool,
     disabled: PropTypes.bool,
-    fullWidth: PropTypes.bool,
+    block: PropTypes.bool,
+    multiline: PropTypes.bool,
+    required: PropTypes.bool,
     helpText: PropTypes.string,
-    inputComponent: PropTypes.element,
 };
 
 TextField.defaultProps = {

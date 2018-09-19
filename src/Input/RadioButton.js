@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './radiobutton.css';
 import './togglerwrap.css';
-import { bemClassNames } from '../utils';
+import { bemClassNames, appendAsteriskIfRequired } from '../utils';
 import ToggleField from '../../build/Input/ToggleField';
 import FieldWrap from './FieldWrap';
 
@@ -19,11 +19,12 @@ const RadioButton = ({
     disabled,
     onChange,
     dense,
-    fullWidth,
+    block,
     helpText,
+    required,
 }) => (
-    <FieldWrap {...{ valid, warning, disabled, error, dense, fullWidth, helpText }}>
-        <ToggleField disabled={disabled}>
+    <FieldWrap {...{ valid, warning, disabled, error, dense, block, helpText }}>
+        <ToggleField disabled={disabled} dense={dense}>
             <div className={bem.b({ disabled })}>
                 <input
                     className={bem.e('native-control')}
@@ -39,7 +40,9 @@ const RadioButton = ({
                     <div className={bem.e('inner-circle')} />
                 </div>
             </div>
-            <span className={bem.e('label-text', { disabled })}>{label}</span>
+            <span className={bem.e('label-text', { disabled })}>
+                {appendAsteriskIfRequired(label, required)}
+            </span>
         </ToggleField>
     </FieldWrap>
 );
@@ -55,7 +58,8 @@ RadioButton.propTypes = {
     error: PropTypes.bool,
     dense: PropTypes.bool,
     helpText: PropTypes.string,
-    fullWidth: PropTypes.bool,
+    block: PropTypes.bool,
+    required: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
 };
 

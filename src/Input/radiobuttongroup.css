@@ -11,8 +11,8 @@
         padding: 0.2rem 1rem 0.2rem 0.2rem;
         min-width: 9.375rem;
 
-        .d2ui-form-field--full-width {
-            margin: 0;
+        .d2ui-field-wrap--full-width {
+            margin: 0 !important;
 
             .d2ui-toggle-field {
                 padding: 0;

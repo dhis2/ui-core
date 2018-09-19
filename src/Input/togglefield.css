@@ -10,4 +10,8 @@
         cursor: not-allowed;
         color: #9e9e9e;
     }
+
+    &--dense {
+        padding: 0.1875rem 0 0.0625rem 0;
+    }
 }

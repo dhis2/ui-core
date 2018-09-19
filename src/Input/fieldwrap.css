@@ -1,4 +1,4 @@
-.d2ui-form-field {
+.d2ui-field-wrap {
     display: inline-flex;
     flex-direction: column;
     vertical-align: top;
@@ -7,6 +7,7 @@
     &--full-width {
         display: flex;
         width: 100%;
+        max-width: 100%;
         margin-bottom: 1rem;
     }
 
@@ -20,6 +21,14 @@
         line-height: 0.75rem;
         padding-top: 0.5rem;
         padding-left: 1rem;
+        padding-right: 0.5rem;
+        /* Couldn't find a better way to prevent the help text from horizontally
+           stretching the input */
+        max-width: 17rem;
+    }
+
+    &--full-width &__help-text {
+        max-width: 100%;
     }
 
     &--dense &__help-text {

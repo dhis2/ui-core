@@ -61,6 +61,7 @@ export default class InputDemo extends Component {
                 helpText="Choose one please"
                 error
                 inline
+                required
             />
             <SelectField
                 options={selectOptions}
@@ -69,12 +70,12 @@ export default class InputDemo extends Component {
                 value={this.state.selectValue}
                 variant="outlined"
                 native
-                includeEmpty
-                emptyOptionText="None"
+                emptyOption="None"
                 // leadingIcon="face"
                 // helpText="Help with this text"
                 // dense
                 valid
+                required
                 // error
                 // warning
             />
@@ -84,8 +85,7 @@ export default class InputDemo extends Component {
                 onChange={this.updateSelect}
                 value={this.state.selectValue}
                 variant="outlined"
-                includeEmpty
-                emptyOptionText="None"
+                emptyOption="None"
                 leadingIcon="face"
                 helpText="Help with this text"
                 dense
@@ -102,6 +102,7 @@ export default class InputDemo extends Component {
                 onChange={this.updateInputText.bind(null, 'field1')}
                 helpText="Hallo Hendrik"
                 valid
+                required
             />
             <TextField
                 label="testlabel"
@@ -145,7 +146,7 @@ export default class InputDemo extends Component {
                 value={this.state.field6}
                 onChange={this.updateInputText.bind(null, 'field6')}
                 leadingIcon="face"
-                fullWidth
+                block
                 trailingIcon="face"
                 helpText="Hallo Hendrik"
             />
@@ -154,18 +155,24 @@ export default class InputDemo extends Component {
                 helpText="Hallo Hendrik"
                 checked={this.state.switch1}
                 onChange={this.toggleSwitch.bind(null, 'switch1')}
+                dense
+                required
             />
             <RadioButton
                 label="Test"
                 helpText="Hallo Hendrik"
                 checked={this.state.switch2}
                 onChange={this.toggleSwitch.bind(null, 'switch2')}
+                dense
+                required
             />
             <Switch
                 label="On / Off"
                 checked={this.state.switch3}
                 onChange={this.toggleSwitch.bind(null, 'switch3')}
                 helpText="Hallo Hendrik"
+                dense
+                required
             />
         </Paper>)
     }
