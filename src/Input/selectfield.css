@@ -21,6 +21,9 @@
         label.d2ui-text-field {
             pointer-events: none;
         }
+        .material-icons {
+            pointer-events: none;
+        }
     }
 
     &--native &__input {
