@@ -36,6 +36,12 @@ export default class ChipDemo extends Component {
                     onRemoveClick={this.hideChip}
                 />
                 <Chip
+                    icon="print"
+                    label="Dragging"
+                    dragging
+                    onClick={this.toggleChipSelected}
+                />
+                <Chip
                     label="Toggle selected state"
                     icon="print"
                     selected={this.state.chipSelected}
