@@ -10,7 +10,7 @@
         cursor: not-allowed;
         color: #9e9e9e;
     }
-
+    /* This way vertiacla alignment with dense Fields won't break */
     &--dense {
         padding: 0.1875rem 0 0.0625rem 0;
     }
