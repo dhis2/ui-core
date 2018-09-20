@@ -24,7 +24,7 @@ const Chip = ({
         disabled,
         dragging,
     });
-    const clickProps = onClick ? { onClick } : null;
+    const clickProps = onClick && !disabled ? { onClick } : null;
 
     return (
         <div className={mainClassName} {...clickProps}>
@@ -32,7 +32,7 @@ const Chip = ({
             <span className={bem.e('label')}>{label}</span>
             {onRemoveClick && (
                 <button className={bem.e('remove-button')} onClick={onRemoveClick}>
-                    <Icon name="close" className={bem.e('remove-icon')} />
+                    <Icon name="cancel" className={bem.e('remove-icon')} />
                 </button>
             )}
         </div>

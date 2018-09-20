@@ -28,9 +28,16 @@ export default class ChipDemo extends Component {
                 <hr />
                 <Chip label="Static (no onClick)" />
                 <Chip label="Static with icon" icon="star" />
-                <Chip label="Disabled" disabled />
+                <Chip
+                    icon="print"
+                    label="Disabled"
+                    disabled
+                    onClick={this.toggleChipSelected}
+                    onRemoveClick={this.hideChip}
+                />
                 <Chip
                     label="Toggle selected state"
+                    icon="print"
                     selected={this.state.chipSelected}
                     onClick={this.toggleChipSelected}
                 />
