@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './radiobutton.css';
-import './togglerwrap.css';
 import { bemClassNames, appendAsteriskIfRequired } from '../utils';
 import ToggleField from '../../build/Input/ToggleField';
 import FieldWrap from './FieldWrap';
