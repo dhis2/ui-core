@@ -8,6 +8,7 @@ import LogoDemo from './LogoDemo.js';
 import ButtonDemo from './ButtonDemo.js';
 import MenuDemo from './MenuDemo.js';
 import TypographyDemo from './TypographyDemo.js';
+import ChipDemo from './ChipDemo';
 
 import Switch from 'ui/Input/Switch';
 
@@ -57,7 +58,7 @@ class App extends Component {
                         helpText="Toggle text direction"
                     />
                 </Paper>
-
+                <ChipDemo />
                 <LogoDemo />
                 <TypographyDemo />
                 <InputDemo />
