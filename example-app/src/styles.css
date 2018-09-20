@@ -1,0 +1,19 @@
+pre {
+    font-family: Consolas, monospace;
+    color: rgba(0, 0, 0, 0.7);
+}
+th {
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+th,
+td {
+    padding: 0.2rem 0.6rem;
+}
+caption {
+    min-width: 120px;
+}
+.d2ui-app .d2ui-paper--padded {
+    margin: 2rem 1rem;
+}

@@ -1,0 +1,47 @@
+.d2ui-select {
+    display: inline-flex;
+    vertical-align: top;
+
+    &__input {
+        min-width: 14.375rem;
+        text-align: left;
+    }
+
+    .d2ui-text-field--with-leading-icon &__input {
+        min-width: 16.375rem;
+    }
+
+    /* If a <label/> is wrapped around a <select/> it will normally cause an issue:
+     * the <label/> and the <select/> will both get the :focus state and the <label/> 
+     * will close the dropdown options again immediately.
+     * (Prehaps because the label is the parent element it will get higher priority?) 
+     * To combat this, we remove all pointer-events from the <label/> and then re-attach them to <select/>
+     */
+    &--native {
+        label.d2ui-text-field {
+            pointer-events: none;
+        }
+        .material-icons {
+            pointer-events: none;
+        }
+    }
+
+    &--native &__input {
+        pointer-events: all;
+
+        &::-ms-expand {
+            display: none;
+        }
+    }
+}
+
+/* BROWSER INCONSISTENCIES */
+/* FIREFOX */
+@-moz-document url-prefix() {
+    .d2ui-select__input {
+        /* hide the arrow in FF */
+        -moz-appearance: none;
+        /* Hide the outline in FF */
+        color: transparent;
+    }
+}

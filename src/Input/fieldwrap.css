@@ -1,0 +1,59 @@
+.d2ui-field-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: top;
+    margin: 0.5rem 1rem 0.5rem 0;
+
+    &--full-width {
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    &--dense.d2ui-form-field--full-width {
+        margin-bottom: 0.5rem;
+    }
+
+    &__help-text {
+        color: #494949;
+        font-size: 0.75rem;
+        line-height: 0.75rem;
+        padding-top: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 0.5rem;
+        /* Couldn't find a better way to prevent the help text from horizontally
+           stretching the input */
+        max-width: 17rem;
+    }
+
+    &--full-width &__help-text {
+        max-width: 100%;
+    }
+
+    &--dense &__help-text {
+        padding-top: 0.1875rem;
+        padding-left: 0.75rem;
+    }
+
+    .d2ui-toggle-field + &__help-text {
+        padding-left: 0.75rem;
+    }
+
+    /* STATES */
+    &--valid &__help-text {
+        color: #1976d2;
+    }
+
+    &--warning &__help-text {
+        color: #a46a01;
+    }
+
+    &--disabled &__help-text {
+        color: #9e9e9e;
+    }
+
+    &--error &__help-text {
+        color: #e53935;
+    }
+}

@@ -7,18 +7,17 @@ const bem = bemClassNames('d2ui-circular-progress');
 
 const CircularProgress = ({ size, center }) => {
     const circularProgress = (
-        <div className={bem.b(size)}>
-            <div className={bem.e('spinner-layer')}>
-                <div className={bem.e('circle-clipper', 'left')}>
-                    <div className={bem.e('circle')} />
-                </div>
-                <div className={bem.e('gap-patch')}>
-                    <div className={bem.e('circle')} />
-                </div>
-                <div className={bem.e('circle-clipper', 'right')}>
-                    <div className={bem.e('circle')} />
-                </div>
-            </div>
+        <div role="progressbar" className={bem.b(size)}>
+            <svg viewBox="22 22 44 44" className={bem.e('viewbox')}>
+                <circle
+                    className={bem.e('circle')}
+                    cx="44"
+                    cy="44"
+                    r="20.2"
+                    fill="none"
+                    strokeWidth="3.6"
+                />
+            </svg>
         </div>
     );
 
