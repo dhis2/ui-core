@@ -137,6 +137,33 @@ class DialogDemo extends Component {
                                 </PrimaryButton>
                             </td>
                         </tr>
+                        <tr>
+                            <td style={tdStyle}>
+                                Open the dialog with default settings and a lot of content
+                                to see how the dialog content scrolls.
+                            </td>
+                            <td style={tdStyle}>
+                                <PrimaryButton
+                                    onClick={() =>
+                                        this.openDialog({
+                                            content: (
+                                                <div>
+                                                    {dialogContent} {dialogContent}
+                                                    {dialogContent} {dialogContent}
+                                                    {dialogContent} {dialogContent}
+                                                    {dialogContent} {dialogContent}
+                                                    {dialogContent} {dialogContent}
+                                                    {dialogContent} {dialogContent}
+                                                    {dialogContent} {dialogContent}
+                                                </div>
+                                            ),
+                                        })
+                                    }
+                                >
+                                    Open dialog
+                                </PrimaryButton>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
