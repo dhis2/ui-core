@@ -48,7 +48,7 @@
         animation-delay: 60ms;
         animation-fill-mode: forwards;
         max-height: calc(100vh - 3rem);
-        max-width: calc(100vh - 3rem);
+        max-width: calc(100vw - 3rem);
 
         &--small {
             width: 400px;
@@ -63,7 +63,7 @@
         }
 
         &--fullscreen {
-            width: calc(100vh - 3rem);
+            width: calc(100vw - 3rem);
             height: calc(100vh - 3rem);
         }
 
