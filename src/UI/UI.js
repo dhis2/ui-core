@@ -1,20 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { bemClassNames } from '../utils';
+/** @format */
 
-import '../theme/index.css';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { bemClassNames } from '../utils'
 
-const bem = bemClassNames('d2ui-app');
+import '../theme/index.css'
 
-const UI = ({ theme, children }) => <div className={bem.b(theme)}>{children}</div>;
+const bem = bemClassNames('d2ui-app')
+
+const UI = ({ theme, children }) => (
+    <div className={bem.b(theme)}>{children}</div>
+)
 
 UI.propTypes = {
     theme: PropTypes.string,
     children: PropTypes.node,
-};
+}
 
 UI.defaultProps = {
     theme: 'default',
-};
+}
 
-export default UI;
+export default UI

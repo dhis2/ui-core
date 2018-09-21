@@ -1,2 +1,4 @@
-import HeaderBar from './HeaderBar';
-export default HeaderBar;
+/** @format */
+
+import HeaderBar from './HeaderBar'
+export default HeaderBar

@@ -1,9 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { bemClassNames } from '../utils';
-import './fieldwrap.css';
+/** @format */
 
-const bem = bemClassNames('d2ui-field-wrap');
+import React from 'react'
+import PropTypes from 'prop-types'
+import { bemClassNames } from '../utils'
+import './fieldwrap.css'
+
+const bem = bemClassNames('d2ui-field-wrap')
 
 const FieldWrap = ({
     children,
@@ -23,10 +25,10 @@ const FieldWrap = ({
         error,
         dense,
         'full-width': block,
-    });
+    })
 
     if (className) {
-        computedClassName += ` ${className}`;
+        computedClassName += ` ${className}`
     }
 
     return (
@@ -34,8 +36,8 @@ const FieldWrap = ({
             {children}
             {helpText && <div className={bem.e('help-text')}>{helpText}</div>}
         </div>
-    );
-};
+    )
+}
 
 FieldWrap.propTypes = {
     // Because the FieldWrap is the root component for a number of inputs
@@ -49,6 +51,6 @@ FieldWrap.propTypes = {
     dense: PropTypes.bool,
     block: PropTypes.bool,
     helpText: PropTypes.string,
-};
+}
 
-export default FieldWrap;
+export default FieldWrap

@@ -1,11 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './checkbox.css';
-import { bemClassNames, appendAsteriskIfRequired } from '../utils';
-import ToggleField from '../../build/Input/ToggleField';
-import FieldWrap from './FieldWrap';
+/** @format */
 
-const bem = bemClassNames('d2ui-checkbox');
+import React from 'react'
+import PropTypes from 'prop-types'
+import './checkbox.css'
+import { bemClassNames, appendAsteriskIfRequired } from '../utils'
+import ToggleField from '../../build/Input/ToggleField'
+import FieldWrap from './FieldWrap'
+
+const bem = bemClassNames('d2ui-checkbox')
 
 const Checkbox = ({
     label,
@@ -46,7 +48,7 @@ const Checkbox = ({
             </span>
         </ToggleField>
     </FieldWrap>
-);
+)
 
 Checkbox.propTypes = {
     label: PropTypes.string,
@@ -60,11 +62,11 @@ Checkbox.propTypes = {
     block: PropTypes.bool,
     required: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
-};
+}
 
 Checkbox.defaultProps = {
     value: false,
     disabled: false,
-};
+}
 
-export default Checkbox;
+export default Checkbox

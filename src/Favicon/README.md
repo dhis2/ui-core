@@ -1,3 +1,5 @@
+<!-- @format -->
+
 #D2UI CORE FAVICON
 ##How to install
 

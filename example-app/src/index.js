@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+/** @format */
 
-import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import setTextDirection from 'ui/utils/setTextDirection';
+import './index.css'
+
+import App from './App'
+import registerServiceWorker from './registerServiceWorker'
+import setTextDirection from 'ui/utils/setTextDirection'
 
 const dummyUserSettings = {
     keyUiLocale: 'en_US',
-};
+}
 
-setTextDirection(dummyUserSettings);
+setTextDirection(dummyUserSettings)
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render(<App />, document.getElementById('root'))
+registerServiceWorker()

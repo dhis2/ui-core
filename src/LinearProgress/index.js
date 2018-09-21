@@ -1,2 +1,4 @@
-import LinearProgress from './LinearProgress';
-export default LinearProgress;
+/** @format */
+
+import LinearProgress from './LinearProgress'
+export default LinearProgress

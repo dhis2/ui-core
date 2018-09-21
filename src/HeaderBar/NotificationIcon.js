@@ -1,5 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/** @format */
+
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
 
@@ -16,10 +18,10 @@ NotificationIcon.propTypes = {
     count: PropTypes.number,
     width: PropTypes.number,
     icon: PropTypes.string.required,
-};
+}
 
 NotificationIcon.defaultProps = {
     count: 0,
-};
+}
 
-export default NotificationIcon;
+export default NotificationIcon

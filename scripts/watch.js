@@ -1,3 +1,5 @@
+/** @format */
+
 const fs = require('fs-extra')
 const path = require('path')
 const { exec } = require('child_process')
@@ -12,7 +14,7 @@ const { writeFile } = require('./lib/files.js')
 
 const isProd = process.env.NODE_ENV === 'production'
 
-async function main () {
+async function main() {
     const root = process.cwd()
 
     const JS = '.js'
@@ -43,11 +45,11 @@ async function main () {
     const watcher = watch(src, {
         awaitWriteFinish: {
             stabilityThreshold: 200,
-            pollInterval: 100
-        }
+            pollInterval: 100,
+        },
     })
 
-    function fileChange (path, stats) {
+    function fileChange(path, stats) {
         console.log(`${path} changed size to ${stats.size}`)
         handler(path)
     }
@@ -56,30 +58,43 @@ async function main () {
         handler(path)
     }
 
-    async function handler (filename) {
+    async function handler(filename) {
         const ext = path.extname(filename)
         const distfile = dist(filename)
 
         switch (ext) {
             case JS:
-                babel.transformFile(filename, {
-                    sourceMaps: 'inline'
-                }, async function (err, res) {
-                    if (err) {
-                        console.error(`Failed to write compiled ${filename}`, err)
-                        return
-                    }
+                babel.transformFile(
+                    filename,
+                    {
+                        sourceMaps: 'inline',
+                    },
+                    async function(err, res) {
+                        if (err) {
+                            console.error(
+                                `Failed to write compiled ${filename}`,
+                                err
+                            )
+                            return
+                        }
 
-                    await writeFile(distfile, res.code)
-                    console.info(`Writing transpiled ${ext} to '${distfile}'.`)
-                })
+                        await writeFile(distfile, res.code)
+                        console.info(
+                            `Writing transpiled ${ext} to '${distfile}'.`
+                        )
+                    }
+                )
                 break
 
             case CSS:
                 try {
                     const { plugins } = await postcssrc({ parser: true })
                     const pss = await fs.readFile(filename, 'utf8')
-                    const { css } = await postcss(plugins).process(pss, { from: filename, to: distfile, map: 'inline' })
+                    const { css } = await postcss(plugins).process(pss, {
+                        from: filename,
+                        to: distfile,
+                        map: 'inline',
+                    })
 
                     console.info(`Writing transpiled ${ext} to '${distfile}'.`)
                     await writeFile(distfile, css)
@@ -96,12 +111,12 @@ async function main () {
                     console.error('... File copy failed.\n', err)
                 }
         }
-    }          
+    }
 
     watcher.on('change', fileChange)
     watcher.on('add', fileAdd)
 
-    exec('npm run build:files', { cwd: root }, function (error, stdout, stderr) {
+    exec('npm run build:files', { cwd: root }, function(error, stdout, stderr) {
         if (error) {
             console.error(`exec error: ${error}`)
             process.exit(1)

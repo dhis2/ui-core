@@ -1,9 +1,11 @@
-import easings from './easings';
+/** @format */
 
-const HORIZONTAL = 'horizontal';
-const VERTICAL = 'vertical';
-const END = 'end';
-const START = 'start';
+import easings from './easings'
+
+const HORIZONTAL = 'horizontal'
+const VERTICAL = 'vertical'
+const END = 'end'
+const START = 'start'
 
 /**
  * to: can be an element or one of "end" "start"
@@ -21,9 +23,9 @@ export default function animatedScrollTo({
     duration = 350,
     callback,
 }) {
-    const isWindowScroll = scrollBox instanceof Window;
-    const scrollHandler = getScrollHandler(scrollBox, direction, isWindowScroll);
-    const startValue = getStartValue(scrollBox, direction, isWindowScroll);
+    const isWindowScroll = scrollBox instanceof Window
+    const scrollHandler = getScrollHandler(scrollBox, direction, isWindowScroll)
+    const startValue = getStartValue(scrollBox, direction, isWindowScroll)
     const endValue = getEndValue(
         to,
         direction,
@@ -31,64 +33,78 @@ export default function animatedScrollTo({
         offset,
         isWindowScroll,
         startValue
-    );
-    const change = endValue - startValue;
+    )
+    const change = endValue - startValue
 
-    let startTimestamp, elapsedTime, scrollValue;
+    let startTimestamp, elapsedTime, scrollValue
     function step(timestamp) {
         if (!startTimestamp) {
-            startTimestamp = timestamp;
+            startTimestamp = timestamp
         }
 
-        elapsedTime = timestamp - startTimestamp;
-        scrollValue = easings.easeInOutQuad(elapsedTime, startValue, change, duration);
+        elapsedTime = timestamp - startTimestamp
+        scrollValue = easings.easeInOutQuad(
+            elapsedTime,
+            startValue,
+            change,
+            duration
+        )
 
         if (elapsedTime >= duration) {
             if (scrollValue !== endValue) {
-                scrollHandler(endValue);
+                scrollHandler(endValue)
             }
-            callback && callback();
+            callback && callback()
         } else {
-            scrollHandler(scrollValue);
-            window.requestAnimationFrame(step);
+            scrollHandler(scrollValue)
+            window.requestAnimationFrame(step)
         }
     }
 
-    window.requestAnimationFrame(step);
+    window.requestAnimationFrame(step)
 }
 
 function getScrollHandler(scrollBox, direction, isWindowScroll) {
     switch (true) {
         case !isWindowScroll && direction === HORIZONTAL:
-            return scrollValue => (scrollBox.scrollLeft = scrollValue);
+            return scrollValue => (scrollBox.scrollLeft = scrollValue)
         case !isWindowScroll && direction === VERTICAL:
-            return scrollValue => (scrollBox.scrollTop = scrollValue);
+            return scrollValue => (scrollBox.scrollTop = scrollValue)
         case isWindowScroll && direction === HORIZONTAL:
-            return scrollValue => window.scrollTo({ left: scrollValue });
+            return scrollValue => window.scrollTo({ left: scrollValue })
         case isWindowScroll && direction === VERTICAL:
         default:
-            return scrollValue => window.scrollTo({ top: scrollValue });
+            return scrollValue => window.scrollTo({ top: scrollValue })
     }
 }
 
 function getStartValue(scrollBox, direction, isWindowScroll) {
-    const doc = getDoc();
+    const doc = getDoc()
     switch (true) {
         case !isWindowScroll && direction === HORIZONTAL:
-            return scrollBox.scrollLeft;
+            return scrollBox.scrollLeft
         case !isWindowScroll && direction === VERTICAL:
-            return scrollBox.scrollTop;
+            return scrollBox.scrollTop
         case isWindowScroll && direction === HORIZONTAL:
-            return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+            return (
+                (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)
+            )
         case isWindowScroll && direction === VERTICAL:
         default:
-            return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+            return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)
     }
 }
 
-function getEndValue(to, direction, scrollBox, offset, isWindowScroll, startValue) {
-    const doc = getDoc();
-    const scrollingToElement = Boolean(to.nodeType);
+function getEndValue(
+    to,
+    direction,
+    scrollBox,
+    offset,
+    isWindowScroll,
+    startValue
+) {
+    const doc = getDoc()
+    const scrollingToElement = Boolean(to.nodeType)
     switch (true) {
         case scrollingToElement:
             return getElemEndValue(
@@ -98,52 +114,69 @@ function getEndValue(to, direction, scrollBox, offset, isWindowScroll, startValu
                 offset,
                 isWindowScroll,
                 startValue
-            );
+            )
         case to === START:
-            return 0;
+            return 0
         case to === END && isWindowScroll && direction === HORIZONTAL:
-            return doc.scrollWidth - window.innerWidth;
+            return doc.scrollWidth - window.innerWidth
         case to === END && isWindowScroll && direction === VERTICAL:
         default:
-            return doc.scrollHeight - window.innerHeight;
+            return doc.scrollHeight - window.innerHeight
     }
 }
 
-function getElemEndValue(el, direction, scrollBox, offset, isWindowScroll, startValue) {
-    const { top, left, width, height } = el.getBoundingClientRect();
-    const doc = getDoc();
-    const typeSelector = isWindowScroll ? 'window' : 'element';
+function getElemEndValue(
+    el,
+    direction,
+    scrollBox,
+    offset,
+    isWindowScroll,
+    startValue
+) {
+    const { top, left, width, height } = el.getBoundingClientRect()
+    const doc = getDoc()
+    const typeSelector = isWindowScroll ? 'window' : 'element'
     const movementSelector =
         (direction === HORIZONTAL && el.offsetLeft > startValue) ||
         (direction === VERTICAL && el.offsetTop > startValue)
             ? 'forward'
-            : 'back';
+            : 'back'
 
     const lookup = {
         window: {
             horizontal: {
-                forward: left + window.scrollX + width + offset - doc.clientWidth,
+                forward:
+                    left + window.scrollX + width + offset - doc.clientWidth,
                 back: left + window.scrollX - offset,
             },
             vertical: {
-                forward: top + window.scrollY + height + offset - doc.clientHeight,
+                forward:
+                    top + window.scrollY + height + offset - doc.clientHeight,
                 back: top + window.scrollY - offset,
             },
         },
         element: {
             horizontal: {
-                forward: el.offsetLeft + el.offsetWidth - scrollBox.offsetWidth + offset,
+                forward:
+                    el.offsetLeft +
+                    el.offsetWidth -
+                    scrollBox.offsetWidth +
+                    offset,
                 back: el.offsetLeft - offset,
             },
             vertical: {
-                forward: el.offsetTop + el.offsetHeight - scrollBox.clientHeight + offset,
+                forward:
+                    el.offsetTop +
+                    el.offsetHeight -
+                    scrollBox.clientHeight +
+                    offset,
                 back: el.offsetTop - offset,
             },
         },
-    };
-    return Math.round(lookup[typeSelector][direction][movementSelector]);
+    }
+    return Math.round(lookup[typeSelector][direction][movementSelector])
 }
 
 function getDoc() {
-    return document.documentElement || document.body;
+    return document.documentElement || document.body
 }

@@ -1,4 +1,9 @@
-/* rtl:begin:ignore */
+/**
+ * /* rtl:begin:ignore
+ *
+ * @format
+ */
+
 .d2ui-circular-progress {
     display: inline-block;
     color: #1976d2;

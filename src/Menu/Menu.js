@@ -1,9 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import MenuItem from './MenuItem';
-import Paper from '../Paper';
+/** @format */
 
-import './menu.css';
+import React from 'react'
+import PropTypes from 'prop-types'
+import MenuItem from './MenuItem'
+import Paper from '../Paper'
+
+import './menu.css'
 
 const Menu = ({ options, selectHandler, closePopover, children }) => (
     <Paper elevation={4}>
@@ -20,13 +22,13 @@ const Menu = ({ options, selectHandler, closePopover, children }) => (
                   ))}
         </ul>
     </Paper>
-);
+)
 
 Menu.propTypes = {
     options: PropTypes.array,
     selectHandler: PropTypes.func,
     closePopover: PropTypes.func,
     children: PropTypes.arrayOf(PropTypes.element),
-};
+}
 
-export default Menu;
+export default Menu

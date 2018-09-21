@@ -1,4 +1,9 @@
-/* Adapted from https://materializecss.com/preloader.html */
+/**
+ * /* Adapted from https://materializecss.com/preloader.html
+ *
+ * @format
+ */
+
 /* rtl:begin:ignore */
 .d2ui-linear-progress {
     position: relative;
@@ -26,7 +31,7 @@
         background-color: #1976d2;
 
         &:before {
-            content: "";
+            content: '';
             position: absolute;
             background-color: inherit;
             top: 0;
@@ -38,7 +43,7 @@
         }
 
         &:after {
-            content: "";
+            content: '';
             position: absolute;
             background-color: inherit;
             top: 0;
@@ -52,7 +57,7 @@
     }
 }
 
-[dir="rtl"] .d2ui-linear-progress {
+[dir='rtl'] .d2ui-linear-progress {
     &__progress--determinate {
         left: auto;
         right: 0;
