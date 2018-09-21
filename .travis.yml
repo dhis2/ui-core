@@ -8,10 +8,12 @@ script:
 deploy:
     - provider: script
       script: deploy-build
+      skip_cleanup: true
       on:
           all_branches: true
     - provider: script
       script: publish-build
+      skip_cleanup: true
       on:
           tags: true
 
