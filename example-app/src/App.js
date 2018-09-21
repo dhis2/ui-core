@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import UI from 'ui/UI';
 
+import HeaderBarDemo from './HeaderBarDemo.js';
 import InputDemo from './InputDemo.js';
 import ProgressDemo from './ProgressDemo.js';
 import LogoDemo from './LogoDemo.js';
@@ -49,6 +50,7 @@ class App extends Component {
     render() {
         return (
             <UI theme="green">
+                <HeaderBarDemo />
                 <Paper>
                     <Switch
                         label="RTL: Off/On"
