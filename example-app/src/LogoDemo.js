@@ -10,7 +10,8 @@ export default class ProgressDemo extends Component {
             <Paper elevation={6} padded>
                 <h3>Logotype components</h3>
                 <hr/>
-                <Logo icon />
+                <Logo icon width="48px" />
+                <Logo logo />
             </Paper>
         )
     }

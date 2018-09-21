@@ -5,3 +5,4 @@ export { default as Menu } from './Menu';
 export { default as Paper } from './Paper';
 export { default as Popover } from './Popover';
 export { default as Tooltip } from './Tooltip';
+export { default as HeaderBar } from './HeaderBar';
