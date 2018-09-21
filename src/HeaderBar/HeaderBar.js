@@ -13,7 +13,7 @@ import './styles.css'
 
 const bem = bemClassNames('d2ui-headerbar')
 
-function HeaderBar({ type, title, selection }) {
+function HeaderBar({ type, title, selection, name, email, src }) {
     return (
         <div className={bem.b(type)}>
             <div className="left">
@@ -27,7 +27,7 @@ function HeaderBar({ type, title, selection }) {
                 <NotificationIcon icon="message" count={8} />
                 <NotificationIcon icon="email" count={4} />
                 <Apps />
-                <Profile />
+                <Profile name={name} email={email} src={src} />
             </div>
         </div>
     )
@@ -37,12 +37,13 @@ HeaderBar.propTypes = {
     type: PropTypes.oneOf(['blue', 'white', 'transparent']),
     title: PropTypes.string,
     selection: PropTypes.string,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    src: PropTypes.string,
 }
 
 HeaderBar.defaultProps = {
-    type: 'blue',
-    title: 'Instance name',
-    selection: 'ANC: 1-4 visits by districts this year',
+    type: 'blue'
 }
 
 export default HeaderBar
