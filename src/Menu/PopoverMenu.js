@@ -1,7 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Menu from './Menu';
-import Popover from '../Popover';
+/** @format */
+
+import React from 'react'
+import PropTypes from 'prop-types'
+import Menu from './Menu'
+import Popover from '../Popover'
 
 const PopoverMenu = ({
     anchorAttachPoint,
@@ -22,7 +24,7 @@ const PopoverMenu = ({
     >
         <Menu closePopover={closePopover} {...menuProps} />
     </Popover>
-);
+)
 
 PopoverMenu.propTypes = {
     anchorAttachPoint: PropTypes.object,
@@ -32,12 +34,12 @@ PopoverMenu.propTypes = {
     open: PropTypes.bool.isRequired,
     popoverAttachPoint: PropTypes.object,
     appearAnimation: PropTypes.string,
-};
+}
 
 PopoverMenu.defaultProps = {
     open: PropTypes.bool.isRequired,
     anchorAttachPoint: { vertical: 'middle', horizontal: 'center' },
     popoverAttachPoint: { vertical: 'middle', horizontal: 'center' },
-};
+}
 
-export default PopoverMenu;
+export default PopoverMenu

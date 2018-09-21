@@ -1,2 +1,4 @@
-import Tooltip from './Tooltip';
-export default Tooltip;
+/** @format */
+
+import Tooltip from './Tooltip'
+export default Tooltip

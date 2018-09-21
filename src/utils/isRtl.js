@@ -1,3 +1,5 @@
+/** @format */
+
 export default function() {
-    return document.documentElement.getAttribute('dir') === 'rtl';
+    return document.documentElement.getAttribute('dir') === 'rtl'
 }

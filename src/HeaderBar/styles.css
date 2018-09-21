@@ -1,3 +1,5 @@
+/** @format */
+
 .d2ui-headerbar {
     display: flex;
     flex-direction: row;
@@ -132,7 +134,7 @@
                 width: 36px;
                 height: 36px;
                 color: #fff;
-                background-color: rgba(0, 0, 0, .3);
+                background-color: rgba(0, 0, 0, 0.3);
 
                 .initials {
                     line-height: 36px;

@@ -1,73 +1,76 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import Field, { bem as fieldBem } from './Field';
-import FieldWrap from './FieldWrap';
-import { PopoverMenu } from '../Menu';
-import { bemClassNames } from '../utils';
-import './selectfield.css';
+/** @format */
 
-const bem = bemClassNames('d2ui-select');
-const inputClassName = `${bem.e('input')} ${fieldBem.e('input')}`;
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import Field, { bem as fieldBem } from './Field'
+import FieldWrap from './FieldWrap'
+import { PopoverMenu } from '../Menu'
+import { bemClassNames } from '../utils'
+import './selectfield.css'
+
+const bem = bemClassNames('d2ui-select')
+const inputClassName = `${bem.e('input')} ${fieldBem.e('input')}`
 
 // React uses a "value" property on the <select/> which can't be null so we use this magic string instead
-const EMPTY_NATIVE_OPTION_VALUE = '#^NONE^#';
+const EMPTY_NATIVE_OPTION_VALUE = '#^NONE^#'
 
 class SelectField extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             dropdownOpen: false,
-        };
-        this.inputRef = null;
-        this.isEmptyOptionSelected = false;
+        }
+        this.inputRef = null
+        this.isEmptyOptionSelected = false
     }
 
     openDropdown = () => {
-        this.setState({ dropdownOpen: true });
-    };
+        this.setState({ dropdownOpen: true })
+    }
 
     closeDropdown = () => {
-        this.setState({ dropdownOpen: false });
-        this.inputRef.focus();
-    };
+        this.setState({ dropdownOpen: false })
+        this.inputRef.focus()
+    }
 
     setInputRef = node => {
-        this.inputRef = node;
-    };
+        this.inputRef = node
+    }
 
     getInputRef = () => {
-        return this.inputRef;
-    };
+        return this.inputRef
+    }
 
     selectHandler = (event, value) => {
-        this.closeDropdown();
-        this.changeHandler(value);
-    };
+        this.closeDropdown()
+        this.changeHandler(value)
+    }
 
     nativeSelectHandler = event => {
-        const elValue = event.target.value;
-        const value = elValue === EMPTY_NATIVE_OPTION_VALUE ? null : elValue;
-        this.changeHandler(value);
-    };
+        const elValue = event.target.value
+        const value = elValue === EMPTY_NATIVE_OPTION_VALUE ? null : elValue
+        this.changeHandler(value)
+    }
 
     changeHandler(value) {
-        const { emptyOption, onChange } = this.props;
-        this.isEmptyOptionSelected = emptyOption && value === null ? true : false;
-        onChange(value);
+        const { emptyOption, onChange } = this.props
+        this.isEmptyOptionSelected =
+            emptyOption && value === null ? true : false
+        onChange(value)
     }
 
     getOptions() {
-        const { emptyOption, options, native } = this.props;
+        const { emptyOption, options, native } = this.props
 
         if (!emptyOption) {
-            return options;
+            return options
         }
 
         const emptyOptionObject = native
             ? { value: EMPTY_NATIVE_OPTION_VALUE, label: emptyOption }
-            : { value: null, label: emptyOption };
+            : { value: null, label: emptyOption }
 
-        return [emptyOptionObject, ...options];
+        return [emptyOptionObject, ...options]
     }
 
     renderCustomSelect(displayValue) {
@@ -81,12 +84,12 @@ class SelectField extends Component {
                 type="button"
                 ref={this.setInputRef}
             />
-        );
+        )
     }
 
     renderNativeSelect() {
-        const options = this.getOptions();
-        const value = this.props.value || EMPTY_NATIVE_OPTION_VALUE;
+        const options = this.getOptions()
+        const value = this.props.value || EMPTY_NATIVE_OPTION_VALUE
         return (
             <select
                 ref={this.setInputRef}
@@ -100,22 +103,22 @@ class SelectField extends Component {
                     </option>
                 ))}
             </select>
-        );
+        )
     }
 
     getLabelOfValue() {
-        const { options, value, emptyOption } = this.props;
-        const selectedOption = options.find(option => option.value === value);
+        const { options, value, emptyOption } = this.props
+        const selectedOption = options.find(option => option.value === value)
         // If some valid option is selected always display this
         if (selectedOption && selectedOption.label) {
-            return selectedOption.label;
+            return selectedOption.label
         }
         // If the user selected the "None" option, display it
         if (this.isEmptyOptionSelected) {
-            return emptyOption;
+            return emptyOption
         }
         // Otherwise return an empty value so the floating label text shows
-        return '';
+        return ''
     }
 
     render() {
@@ -132,11 +135,11 @@ class SelectField extends Component {
             disabled,
             required,
             block,
-        } = this.props;
-        const displayValue = this.getLabelOfValue();
+        } = this.props
+        const displayValue = this.getLabelOfValue()
         const inputComponent = native
             ? this.renderNativeSelect()
-            : this.renderCustomSelect(displayValue);
+            : this.renderCustomSelect(displayValue)
 
         return (
             <Fragment>
@@ -179,13 +182,19 @@ class SelectField extends Component {
                         getAnchorRef={this.getInputRef}
                         open={this.state.dropdownOpen}
                         closePopover={this.closeDropdown}
-                        anchorAttachPoint={{ vertical: 'top', horizontal: 'center' }}
-                        popoverAttachPoint={{ vertical: 'top', horizontal: 'center' }}
+                        anchorAttachPoint={{
+                            vertical: 'top',
+                            horizontal: 'center',
+                        }}
+                        popoverAttachPoint={{
+                            vertical: 'top',
+                            horizontal: 'center',
+                        }}
                         appearAnimation="slide-down"
                     />
                 )}
             </Fragment>
-        );
+        )
     }
 }
 
@@ -206,6 +215,6 @@ SelectField.propTypes = {
     native: PropTypes.bool,
     required: PropTypes.bool,
     emptyOption: PropTypes.string,
-};
+}
 
-export default SelectField;
+export default SelectField

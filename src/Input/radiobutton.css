@@ -1,5 +1,10 @@
-/* Using an adapted version of 
- https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio */
+/**
+ * /* Using an adapted version of 
+ *  https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio
+ *
+ * @format
+ */
+
 .d2ui-radio-button {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     will-change: transform, opacity;
@@ -19,7 +24,7 @@
         border-radius: 50%;
         opacity: 0;
         pointer-events: none;
-        content: "";
+        content: '';
     }
     &::before {
         transition: opacity 15ms linear;
@@ -89,7 +94,7 @@
             border-radius: 50%;
             opacity: 0;
             pointer-events: none;
-            content: "";
+            content: '';
         }
     }
     &__outer-circle {
@@ -147,7 +152,9 @@
             /* @alternate */
             border-color: #00796b;
         }
-        &:enabled + .d2ui-radio-button__background .d2ui-radio-button__inner-circle {
+        &:enabled
+            + .d2ui-radio-button__background
+            .d2ui-radio-button__inner-circle {
             border-color: #00796b;
             /* @alternate */
             border-color: #00796b;
@@ -158,17 +165,27 @@
             transition: opacity 120ms 0ms cubic-bezier(0, 0, 0.2, 1),
                 transform 120ms 0ms cubic-bezier(0, 0, 0.2, 1);
         }
-        &:checked + .d2ui-radio-button__background .d2ui-radio-button__outer-circle,
-        &:disabled + .d2ui-radio-button__background .d2ui-radio-button__outer-circle {
+        &:checked
+            + .d2ui-radio-button__background
+            .d2ui-radio-button__outer-circle,
+        &:disabled
+            + .d2ui-radio-button__background
+            .d2ui-radio-button__outer-circle {
             transition: border-color 120ms 0ms cubic-bezier(0, 0, 0.2, 1);
         }
-        &:checked + .d2ui-radio-button__background .d2ui-radio-button__inner-circle,
-        &:disabled + .d2ui-radio-button__background .d2ui-radio-button__inner-circle {
+        &:checked
+            + .d2ui-radio-button__background
+            .d2ui-radio-button__inner-circle,
+        &:disabled
+            + .d2ui-radio-button__background
+            .d2ui-radio-button__inner-circle {
             transition: transform 120ms 0ms cubic-bezier(0, 0, 0.2, 1),
                 border-color 120ms 0ms cubic-bezier(0, 0, 0.2, 1);
         }
 
-        &:checked + .d2ui-radio-button__background .d2ui-radio-button__inner-circle {
+        &:checked
+            + .d2ui-radio-button__background
+            .d2ui-radio-button__inner-circle {
             transform: scale(0.5);
             transition: transform 120ms 0ms cubic-bezier(0, 0, 0.2, 1),
                 border-color 120ms 0ms cubic-bezier(0, 0, 0.2, 1);
@@ -193,7 +210,7 @@
 /* The rules below are not written in a nested way 
    so the disabled styles are applied when any parent has [aria-disabled="true"] */
 .d2ui-radio-button__native-control:disabled + .d2ui-radio-button__background,
-[aria-disabled="true"]
+[aria-disabled='true']
     .d2ui-radio-button__native-control
     + .d2ui-radio-button__background {
     cursor: default;
@@ -201,7 +218,7 @@
 .d2ui-radio-button__native-control:disabled
     + .d2ui-radio-button__background
     .d2ui-radio-button__outer-circle,
-[aria-disabled="true"]
+[aria-disabled='true']
     .d2ui-radio-button__native-control
     + .d2ui-radio-button__background
     .d2ui-radio-button__outer-circle {
@@ -210,7 +227,7 @@
 .d2ui-radio-button__native-control:disabled
     + .d2ui-radio-button__background
     .d2ui-radio-button__inner-circle,
-[aria-disabled="true"]
+[aria-disabled='true']
     .d2ui-radio-button__native-control
     + .d2ui-radio-button__background
     .d2ui-radio-button__inner-circle {

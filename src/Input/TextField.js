@@ -1,11 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import FieldWrap from './FieldWrap';
-import Field, { bem as fieldBem } from './Field';
+/** @format */
 
-const FILLED = 'filled';
-const OUTLINED = 'outlined';
-const MINIMAL = 'minimal';
+import React from 'react'
+import PropTypes from 'prop-types'
+import FieldWrap from './FieldWrap'
+import Field, { bem as fieldBem } from './Field'
+
+const FILLED = 'filled'
+const OUTLINED = 'outlined'
+const MINIMAL = 'minimal'
 
 const TextField = ({
     variant,
@@ -25,7 +27,7 @@ const TextField = ({
     required,
     helpText,
 }) => {
-    const InputTag = multiline ? 'textarea' : 'input';
+    const InputTag = multiline ? 'textarea' : 'input'
     const inputComponent = (
         <InputTag
             className={fieldBem.e('input')}
@@ -34,7 +36,7 @@ const TextField = ({
             type={type}
             disabled={disabled}
         />
-    );
+    )
 
     return (
         <FieldWrap
@@ -67,8 +69,8 @@ const TextField = ({
                 }}
             />
         </FieldWrap>
-    );
-};
+    )
+}
 
 TextField.propTypes = {
     label: PropTypes.string.isRequired,
@@ -102,13 +104,13 @@ TextField.propTypes = {
     multiline: PropTypes.bool,
     required: PropTypes.bool,
     helpText: PropTypes.string,
-};
+}
 
 TextField.defaultProps = {
     value: '',
     dense: false,
     variant: FILLED,
     type: 'text',
-};
+}
 
-export default TextField;
+export default TextField

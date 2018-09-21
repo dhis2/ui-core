@@ -1,9 +1,11 @@
+/** @format */
+
 const fs = require('fs-extra')
 const path = require('path')
 
 const { writeFile } = require('./lib/files.js')
 
-async function main () {
+async function main() {
     const root = process.cwd()
     const dest = path.join(root, 'build')
 

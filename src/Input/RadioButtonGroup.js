@@ -1,15 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { bemClassNames, appendAsteriskIfRequired } from '../utils';
-import RadioButton from './RadioButton';
-import FieldWrap from './FieldWrap';
-import './radiobuttongroup.css';
+/** @format */
 
-const bem = bemClassNames('d2ui-radio-button-group');
+import React from 'react'
+import PropTypes from 'prop-types'
+import { bemClassNames, appendAsteriskIfRequired } from '../utils'
+import RadioButton from './RadioButton'
+import FieldWrap from './FieldWrap'
+import './radiobuttongroup.css'
+
+const bem = bemClassNames('d2ui-radio-button-group')
 const randomName = () =>
     Math.random()
         .toString(36)
-        .substring(2, 15);
+        .substring(2, 15)
 
 const RadioButtonGroup = ({
     options,
@@ -26,7 +28,9 @@ const RadioButtonGroup = ({
     helpText,
     required,
 }) => (
-    <FieldWrap {...{ valid, warning, disabled, error, dense, block: true, helpText }}>
+    <FieldWrap
+        {...{ valid, warning, disabled, error, dense, block: true, helpText }}
+    >
         <p className={bem.e('description', { error, valid, warning })}>
             {appendAsteriskIfRequired(label, required)}
         </p>
@@ -47,13 +51,14 @@ const RadioButtonGroup = ({
             ))}
         </div>
     </FieldWrap>
-);
+)
 
 RadioButtonGroup.propTypes = {
     options: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string.isRequired,
-            value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+            value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+                .isRequired,
         })
     ).isRequired,
     onChange: PropTypes.func.isRequired,
@@ -68,6 +73,6 @@ RadioButtonGroup.propTypes = {
     error: PropTypes.bool,
     required: PropTypes.bool,
     helpText: PropTypes.string,
-};
+}
 
-export default RadioButtonGroup;
+export default RadioButtonGroup

@@ -1,3 +1,5 @@
+/** @format */
+
 .d2ui-field {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border-radius: 0.25rem 0.25rem 0 0;
@@ -198,8 +200,11 @@
         padding-right: 3rem;
     }
 
-    &--outlined.d2ui-field--with-leading-icon.d2ui-field--with-value &__floating-label,
-    &--outlined.d2ui-field--with-leading-icon &__input:focus ~ &__floating-label {
+    &--outlined.d2ui-field--with-leading-icon.d2ui-field--with-value
+        &__floating-label,
+    &--outlined.d2ui-field--with-leading-icon
+        &__input:focus
+        ~ &__floating-label {
         transform: translateY(-140%) translateX(-2.1rem) scale(0.75);
     }
 

@@ -1,39 +1,43 @@
-import PropTypes from 'prop-types';
-import React, { Component, Fragment, isValidElement } from 'react';
-import { isRtl } from '../utils';
-import PopoverMenu from './PopoverMenu';
-import MenuItem from './MenuItem';
-import Icon from '../Icon';
+/** @format */
 
-const anchorAttachPoint = { vertical: 'top', horizontal: 'right' };
-const popoverAttachPoint = { vertical: 'top', horizontal: 'left' };
+import PropTypes from 'prop-types'
+import React, { Component, Fragment, isValidElement } from 'react'
+import { isRtl } from '../utils'
+import PopoverMenu from './PopoverMenu'
+import MenuItem from './MenuItem'
+import Icon from '../Icon'
+
+const anchorAttachPoint = { vertical: 'top', horizontal: 'right' }
+const popoverAttachPoint = { vertical: 'top', horizontal: 'left' }
 
 class SubMenu extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             popoverOpen: false,
-        };
+        }
     }
 
     openPopover = () => {
-        this.setState({ popoverOpen: true });
-    };
+        this.setState({ popoverOpen: true })
+    }
 
     closePopover = () => {
-        this.setState({ popoverOpen: false });
-    };
+        this.setState({ popoverOpen: false })
+    }
 
-    getAnchorRef = () => this.anchorRef;
-    setAnchorRef = node => (this.anchorRef = node);
+    getAnchorRef = () => this.anchorRef
+    setAnchorRef = node => (this.anchorRef = node)
 
     render() {
-        const { children, label, icon, menuItems } = this.props;
-        const arrowIconName = isRtl() ? 'keyboard_arrow_left' : 'keyboard_arrow_right';
+        const { children, label, icon, menuItems } = this.props
+        const arrowIconName = isRtl()
+            ? 'keyboard_arrow_left'
+            : 'keyboard_arrow_right'
         // There MUST be a better way of doing this!
         const menuProps = isValidElement(menuItems[0])
             ? { children: menuItems }
-            : { options: menuItems };
+            : { options: menuItems }
 
         return (
             <Fragment>
@@ -53,7 +57,7 @@ class SubMenu extends Component {
                     appearAnimation="slide-x-y"
                 />
             </Fragment>
-        );
+        )
     }
 }
 
@@ -65,6 +69,6 @@ SubMenu.propTypes = {
         PropTypes.oneOfType([PropTypes.element, PropTypes.object])
     ).isRequired,
     selectHandler: PropTypes.func,
-};
+}
 
-export default SubMenu;
+export default SubMenu

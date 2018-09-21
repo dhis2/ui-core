@@ -1,21 +1,23 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { wrapTextNodesInSpans, bemClassNames } from '../utils';
-import SubMenu from './SubMenu';
-import Icon from '../Icon';
+/** @format */
 
-const bem = bemClassNames('d2ui-menu-item');
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { wrapTextNodesInSpans, bemClassNames } from '../utils'
+import SubMenu from './SubMenu'
+import Icon from '../Icon'
+
+const bem = bemClassNames('d2ui-menu-item')
 
 class MenuItem extends Component {
     selectHandler = event => {
-        const { value, onClick, selectHandler, closePopover } = this.props;
-        const handler = onClick || selectHandler;
-        handler(event, value, this.props);
-        closePopover && closePopover();
-    };
+        const { value, onClick, selectHandler, closePopover } = this.props
+        const handler = onClick || selectHandler
+        handler(event, value, this.props)
+        closePopover && closePopover()
+    }
 
     render() {
-        const { children, disabled, menuItems, label, icon } = this.props;
+        const { children, disabled, menuItems, label, icon } = this.props
 
         if (menuItems) {
             return (
@@ -25,7 +27,7 @@ class MenuItem extends Component {
                     icon={icon}
                     menuItems={menuItems}
                 />
-            );
+            )
         }
 
         return (
@@ -39,7 +41,7 @@ class MenuItem extends Component {
                     </Fragment>
                 )}
             </li>
-        );
+        )
     }
 }
 
@@ -57,6 +59,6 @@ MenuItem.propTypes = {
         PropTypes.oneOfType([PropTypes.element, PropTypes.object])
     ),
     closePopover: PropTypes.func,
-};
+}
 
-export default MenuItem;
+export default MenuItem

@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import bemClassNames from '../utils/bemClassNames';
-import './tabindicator.css';
+/** @format */
 
-const bem = bemClassNames('d2ui-tab-indicator');
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import bemClassNames from '../utils/bemClassNames'
+import './tabindicator.css'
+
+const bem = bemClassNames('d2ui-tab-indicator')
 
 class TabIndicator extends Component {
     constructor(props) {
-        super(props);
-        this.state = { animated: false };
+        super(props)
+        this.state = { animated: false }
     }
 
     componentDidUpdate(prevProps) {
@@ -17,20 +19,20 @@ class TabIndicator extends Component {
         if (!prevProps.visible && this.props.visible) {
             this.setState({
                 animated: true,
-            });
+            })
         }
     }
 
     getTransformStyle() {
-        const activeTabNode = this.props.getActiveTabRef();
+        const activeTabNode = this.props.getActiveTabRef()
 
         if (!activeTabNode) {
-            return null;
+            return null
         }
 
-        const translateX = `translateX(${activeTabNode.offsetLeft}px)`;
-        const scaleX = `scaleX(${activeTabNode.offsetWidth})`;
-        return { transform: `${translateX} translateY(2px) ${scaleX}` };
+        const translateX = `translateX(${activeTabNode.offsetLeft}px)`
+        const scaleX = `scaleX(${activeTabNode.offsetWidth})`
+        return { transform: `${translateX} translateY(2px) ${scaleX}` }
     }
 
     render() {
@@ -42,13 +44,13 @@ class TabIndicator extends Component {
                 })}
                 style={this.getTransformStyle()}
             />
-        );
+        )
     }
 }
 
 TabIndicator.propTypes = {
     getActiveTabRef: PropTypes.func.isRequired,
     visible: PropTypes.bool.isRequired,
-};
+}
 
-export default TabIndicator;
+export default TabIndicator

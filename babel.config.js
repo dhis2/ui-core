@@ -1,31 +1,36 @@
+/** @format */
+
 const presets = [
-    ["@babel/env", {
-        useBuiltIns: "usage"
-    }],
-    "@babel/react"
+    [
+        '@babel/env',
+        {
+            useBuiltIns: 'usage',
+        },
+    ],
+    '@babel/react',
 ]
 
-const plugins = [
-    ["@babel/plugin-proposal-class-properties"]
-]
+const plugins = [['@babel/plugin-proposal-class-properties']]
 
 module.exports = {
     env: {
-        'production': {
+        production: {
             presets,
             plugins: [
                 ...plugins,
-                ['transform-react-remove-prop-types',
+                [
+                    'transform-react-remove-prop-types',
                     {
                         removeImport: true,
                         additionalLibraries: ['prop-types-exact'],
-                        ignoreFilenames: ["node_modules"]
-                    }
-                ]
-            ]
+                        ignoreFilenames: ['node_modules'],
+                    },
+                ],
+            ],
         },
-        'development': {
-            presets, plugins
-        }
-    }
+        development: {
+            presets,
+            plugins,
+        },
+    },
 }

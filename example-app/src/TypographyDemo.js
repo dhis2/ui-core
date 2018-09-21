@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+/** @format */
 
-import Paper from 'ui/Paper';
+import React, { Component } from 'react'
+
+import Paper from 'ui/Paper'
 
 export default class TypographyDemo extends Component {
     render() {
@@ -24,7 +26,9 @@ export default class TypographyDemo extends Component {
                                 <pre>.primary-text</pre>
                             </td>
                             <td>
-                                <span className="primary-text">paragraph example</span>
+                                <span className="primary-text">
+                                    paragraph example
+                                </span>
                             </td>
                         </tr>
                         <tr>
@@ -32,7 +36,9 @@ export default class TypographyDemo extends Component {
                                 <pre>.secondary-text</pre>
                             </td>
                             <td>
-                                <span className="secondary-text">paragraph example</span>
+                                <span className="secondary-text">
+                                    paragraph example
+                                </span>
                             </td>
                         </tr>
                         <tr>
@@ -60,7 +66,9 @@ export default class TypographyDemo extends Component {
                                 <pre>.overline</pre>
                             </td>
                             <td>
-                                <span className="overline">paragraph example</span>
+                                <span className="overline">
+                                    paragraph example
+                                </span>
                             </td>
                         </tr>
                     </tbody>
@@ -162,6 +170,6 @@ export default class TypographyDemo extends Component {
                     </tbody>
                 </table>
             </Paper>
-        );
+        )
     }
 }
