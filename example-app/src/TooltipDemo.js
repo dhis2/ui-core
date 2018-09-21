@@ -3,6 +3,8 @@
 import React, { Component } from 'react'
 
 import Paper from 'ui/Paper'
+import Icon from 'ui/Icon'
+import { PrimaryButton, CircleButton } from 'ui/Button'
 
 import Tooltip from 'ui/Tooltip'
 
