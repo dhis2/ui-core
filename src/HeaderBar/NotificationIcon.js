@@ -16,8 +16,7 @@ function NotificationIcon({ icon, count }) {
 
 NotificationIcon.propTypes = {
     count: PropTypes.number,
-    width: PropTypes.number,
-    icon: PropTypes.string.required,
+    icon: PropTypes.string.isRequired,
 }
 
 NotificationIcon.defaultProps = {
