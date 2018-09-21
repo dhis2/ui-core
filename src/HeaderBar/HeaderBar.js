@@ -43,7 +43,7 @@ HeaderBar.propTypes = {
 }
 
 HeaderBar.defaultProps = {
-    type: 'blue'
+    type: 'blue',
 }
 
 export default HeaderBar

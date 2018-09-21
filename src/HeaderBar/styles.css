@@ -195,7 +195,9 @@
                         font-size: 14px;
                         color: #000;
 
-                        .name, .email, .edit_profile {
+                        .name,
+                        .email,
+                        .edit_profile {
                             font-family: Roboto, sans-serif;
                         }
 

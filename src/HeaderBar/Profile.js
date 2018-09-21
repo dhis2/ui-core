@@ -28,13 +28,16 @@ function ImageIcon({ src }) {
 function Header({ name, email, img, onClick }) {
     return (
         <div className="header">
-            {
-                img ? <ImageIcon src={img} /> : <TextIcon name={name} />
-            }
+            {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
             <div className="details">
                 <div className="name">{name}</div>
                 <div className="email">{email}</div>
-                <div className="edit_profile" onClick={() => onClick('edit_profile')}>Edit profile</div>
+                <div
+                    className="edit_profile"
+                    onClick={() => onClick('edit_profile')}
+                >
+                    Edit profile
+                </div>
             </div>
         </div>
     )
@@ -51,7 +54,7 @@ function Menu() {
     )
 }
 
-function Item({ name, label}) {
+function Item({ name, label }) {
     return (
         <div className="item" onClick={() => onClick(name)}>
             <Icon name={name} />
@@ -67,12 +70,15 @@ function onClick(actionType) {
 export default function Profile({ name, email, img }) {
     return (
         <div className="profile">
-            {
-                img ? <ImageIcon src={img} /> : <TextIcon name={name} />
-            }
+            {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
             <div className="contents">
                 <Paper>
-                    <Header name={name} img={img} email={email} onClick={onClick} />
+                    <Header
+                        name={name}
+                        img={img}
+                        email={email}
+                        onClick={onClick}
+                    />
                     <div className="divider" />
                     <Menu />
                 </Paper>
