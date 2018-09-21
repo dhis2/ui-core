@@ -1,11 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './radiobutton.css';
-import { bemClassNames, appendAsteriskIfRequired } from '../utils';
-import ToggleField from '../../build/Input/ToggleField';
-import FieldWrap from './FieldWrap';
+/** @format */
 
-const bem = bemClassNames('d2ui-radio-button');
+import React from 'react'
+import PropTypes from 'prop-types'
+import './radiobutton.css'
+import { bemClassNames, appendAsteriskIfRequired } from '../utils'
+import ToggleField from '../../build/Input/ToggleField'
+import FieldWrap from './FieldWrap'
+
+const bem = bemClassNames('d2ui-radio-button')
 
 const RadioButton = ({
     label,
@@ -44,7 +46,7 @@ const RadioButton = ({
             </span>
         </ToggleField>
     </FieldWrap>
-);
+)
 
 RadioButton.propTypes = {
     label: PropTypes.string,
@@ -60,10 +62,10 @@ RadioButton.propTypes = {
     block: PropTypes.bool,
     required: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
-};
+}
 
 RadioButton.defaultProps = {
     disabled: false,
-};
+}
 
-export default RadioButton;
+export default RadioButton

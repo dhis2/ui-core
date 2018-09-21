@@ -1,9 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { bemClassNames } from '../utils';
-import './circular-progress.css';
+/** @format */
 
-const bem = bemClassNames('d2ui-circular-progress');
+import React from 'react'
+import PropTypes from 'prop-types'
+import { bemClassNames } from '../utils'
+import './circular-progress.css'
+
+const bem = bemClassNames('d2ui-circular-progress')
 
 const CircularProgress = ({ size, center }) => {
     const circularProgress = (
@@ -19,22 +21,22 @@ const CircularProgress = ({ size, center }) => {
                 />
             </svg>
         </div>
-    );
+    )
 
     if (center) {
-        return <div className={bem.e('overlay')}>{circularProgress}</div>;
+        return <div className={bem.e('overlay')}>{circularProgress}</div>
     }
 
-    return circularProgress;
-};
+    return circularProgress
+}
 
 CircularProgress.propTypes = {
     size: PropTypes.oneOf(['large', 'medium', 'small']),
     center: PropTypes.bool,
-};
+}
 
 CircularProgress.defaultProps = {
     size: 'medium',
-};
+}
 
-export default CircularProgress;
+export default CircularProgress

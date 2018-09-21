@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import { bemClassNames } from '../utils';
+/** @format */
+
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
+import { bemClassNames } from '../utils'
 import computePosition, {
     TOP,
     CENTER,
@@ -9,28 +11,32 @@ import computePosition, {
     LEFT,
     MIDDLE,
     RIGHT,
-} from './computePosition';
-import './popover.css';
+} from './computePosition'
+import './popover.css'
 
-const bem = bemClassNames('d2ui-popover');
+const bem = bemClassNames('d2ui-popover')
 
 class Popover extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             popupComputedStyle: null,
-        };
-        this.popupRef = null;
+        }
+        this.popupRef = null
     }
 
     onPopupRendered = ref => {
-        this.popupRef = ref;
-        this.positionPopup();
-    };
+        this.popupRef = ref
+        this.positionPopup()
+    }
 
     positionPopup() {
-        const { getAnchorRef, anchorAttachPoint, popoverAttachPoint } = this.props;
-        const triggerEl = ReactDOM.findDOMNode(getAnchorRef());
+        const {
+            getAnchorRef,
+            anchorAttachPoint,
+            popoverAttachPoint,
+        } = this.props
+        const triggerEl = ReactDOM.findDOMNode(getAnchorRef())
 
         if (triggerEl && this.popupRef) {
             this.setState({
@@ -43,16 +49,16 @@ class Popover extends Component {
                     ),
                     opacity: 1,
                 },
-            });
+            })
         }
     }
 
     render() {
-        const { open, children, closePopover, appearAnimation } = this.props;
-        const { popupComputedStyle } = this.state;
+        const { open, children, closePopover, appearAnimation } = this.props
+        const { popupComputedStyle } = this.state
 
         if (!open) {
-            return null;
+            return null
         }
         return ReactDOM.createPortal(
             <React.Fragment>
@@ -66,7 +72,7 @@ class Popover extends Component {
                 </div>
             </React.Fragment>,
             document.body
-        );
+        )
     }
 }
 
@@ -79,7 +85,7 @@ const attachPointPropType = PropTypes.shape({
         PropTypes.number,
         PropTypes.oneOf([LEFT, CENTER, RIGHT]),
     ]).isRequired,
-});
+})
 
 Popover.propTypes = {
     open: PropTypes.bool.isRequired,
@@ -89,7 +95,7 @@ Popover.propTypes = {
     anchorAttachPoint: attachPointPropType,
     popoverAttachPoint: attachPointPropType,
     appearAnimation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
-};
+}
 
 Popover.defaultProps = {
     anchorAttachPoint: {
@@ -101,6 +107,6 @@ Popover.defaultProps = {
         horizontal: 'center',
     },
     appearAnimation: 'fade-in',
-};
+}
 
-export default Popover;
+export default Popover

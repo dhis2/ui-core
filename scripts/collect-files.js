@@ -1,9 +1,9 @@
+/** @format */
+
 const fs = require('fs-extra')
 const path = require('path')
 
-const whitelist = [
-    '.json', '.svg', '.css', '.js', '.png', '.ico'
-]
+const whitelist = ['.json', '.svg', '.css', '.js', '.png', '.ico']
 
 function collectFiles(target) {
     const files = fs.readdirSync(target)

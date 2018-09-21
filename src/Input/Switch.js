@@ -1,11 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ToggleField from './ToggleField';
-import './switch.css';
-import { bemClassNames, appendAsteriskIfRequired } from '../utils';
-import FieldWrap from './FieldWrap';
+/** @format */
 
-const bem = bemClassNames('d2ui-switch');
+import React from 'react'
+import PropTypes from 'prop-types'
+import ToggleField from './ToggleField'
+import './switch.css'
+import { bemClassNames, appendAsteriskIfRequired } from '../utils'
+import FieldWrap from './FieldWrap'
+
+const bem = bemClassNames('d2ui-switch')
 
 const Switch = ({
     label,
@@ -21,7 +23,9 @@ const Switch = ({
     required,
 }) => {
     return (
-        <FieldWrap {...{ valid, warning, disabled, error, dense, block, helpText }}>
+        <FieldWrap
+            {...{ valid, warning, disabled, error, dense, block, helpText }}
+        >
             <ToggleField disabled={disabled} dense={dense}>
                 <div className={bem.b({ checked, disabled })}>
                     <div className={bem.e('track')} />
@@ -45,8 +49,8 @@ const Switch = ({
                 </span>
             </ToggleField>
         </FieldWrap>
-    );
-};
+    )
+}
 
 Switch.propTypes = {
     label: PropTypes.string,
@@ -60,11 +64,11 @@ Switch.propTypes = {
     block: PropTypes.bool,
     required: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
-};
+}
 
 Switch.defaultProps = {
     checked: false,
     disabled: false,
-};
+}
 
-export default Switch;
+export default Switch

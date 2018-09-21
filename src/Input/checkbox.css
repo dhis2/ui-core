@@ -1,5 +1,10 @@
-/* Using an adapted version of 
- https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox */
+/**
+ * /* Using an adapted version of 
+ *  https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox
+ *
+ * @format
+ */
+
 .d2ui-checkbox {
     display: inline-block;
     position: relative;
@@ -21,7 +26,7 @@
         border-radius: 50%;
         opacity: 0;
         pointer-events: none;
-        content: "";
+        content: '';
         background-color: #00796b;
         top: calc(50% - 50%);
         /* @noflip */
@@ -164,7 +169,9 @@
         transition: border-color 90ms 0ms cubic-bezier(0, 0, 0.2, 1),
             background-color 90ms 0ms cubic-bezier(0, 0, 0.2, 1);
     }
-    &__native-control:checked ~ .d2ui-checkbox__background .d2ui-checkbox__checkmark-path,
+    &__native-control:checked
+        ~ .d2ui-checkbox__background
+        .d2ui-checkbox__checkmark-path,
     &__native-control:indeterminate
         ~ .d2ui-checkbox__background
         .d2ui-checkbox__checkmark-path {
@@ -185,7 +192,7 @@
         border-radius: 50%;
         opacity: 0;
         pointer-events: none;
-        content: "";
+        content: '';
         will-change: opacity, transform;
     }
 
@@ -212,13 +219,17 @@
         pointer-events: none;
     }
 
-    &__native-control:checked ~ .d2ui-checkbox__background .d2ui-checkbox__checkmark {
+    &__native-control:checked
+        ~ .d2ui-checkbox__background
+        .d2ui-checkbox__checkmark {
         transition: opacity 180ms 0ms cubic-bezier(0, 0, 0.2, 1),
             transform 180ms 0ms cubic-bezier(0, 0, 0.2, 1);
         opacity: 1;
     }
 
-    &__native-control:checked ~ .d2ui-checkbox__background .d2ui-checkbox__mixedmark {
+    &__native-control:checked
+        ~ .d2ui-checkbox__background
+        .d2ui-checkbox__mixedmark {
         transform: scaleX(1) rotate(-45deg);
     }
 
@@ -249,8 +260,8 @@
 
 /* PostCSS RTL should leave this along, because these are manual */
 /* rtl:begin:ignore */
-.d2ui-checkbox[dir="rtl"] .d2ui-checkbox__background,
-[dir="rtl"] .d2ui-checkbox .d2ui-checkbox__background {
+.d2ui-checkbox[dir='rtl'] .d2ui-checkbox__background,
+[dir='rtl'] .d2ui-checkbox .d2ui-checkbox__background {
     /* @noflip */
     left: initial;
     /* @noflip */

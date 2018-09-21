@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
+/** @format */
 
-import UI from 'ui/UI';
+import React, { Component } from 'react'
 
-import HeaderBarDemo from './HeaderBarDemo.js';
-import InputDemo from './InputDemo.js';
-import ProgressDemo from './ProgressDemo.js';
-import LogoDemo from './LogoDemo.js';
-import ButtonDemo from './ButtonDemo.js';
-import MenuDemo from './MenuDemo.js';
-import TypographyDemo from './TypographyDemo.js';
+import UI from 'ui/UI'
 
-import Switch from 'ui/Input/Switch';
+import HeaderBarDemo from './HeaderBarDemo.js'
+import InputDemo from './InputDemo.js'
+import ProgressDemo from './ProgressDemo.js'
+import LogoDemo from './LogoDemo.js'
+import ButtonDemo from './ButtonDemo.js'
+import MenuDemo from './MenuDemo.js'
+import TypographyDemo from './TypographyDemo.js'
 
-import Paper from 'ui/Paper';
+import Switch from 'ui/Input/Switch'
 
-import { isRtl, setTextDirection } from 'ui/utils';
+import Paper from 'ui/Paper'
 
-import './styles.css';
+import { isRtl, setTextDirection } from 'ui/utils'
+
+import './styles.css'
 
 class App extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             switchOn: false,
             inputText: '',
@@ -30,22 +32,22 @@ class App extends Component {
             inputText4: '',
             rtl: isRtl(),
             selectValue: null,
-        };
+        }
     }
 
     toggleRtl = () => {
         if (isRtl()) {
-            setTextDirection({ keyUiLocale: 'en_US' });
+            setTextDirection({ keyUiLocale: 'en_US' })
             this.setState({
                 rtl: false,
-            });
+            })
         } else {
-            setTextDirection({ keyUiLocale: 'ar' });
+            setTextDirection({ keyUiLocale: 'ar' })
             this.setState({
                 rtl: true,
-            });
+            })
         }
-    };
+    }
 
     render() {
         return (
@@ -67,8 +69,8 @@ class App extends Component {
                 <ButtonDemo />
                 <MenuDemo />
             </UI>
-        );
+        )
     }
 }
 
-export default App;
+export default App

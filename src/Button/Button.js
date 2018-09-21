@@ -1,11 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import * as VARIANTS from './variants';
-import { wrapTextNodesInSpans, bemClassNames } from '../utils';
+/** @format */
 
-import './button.css';
+import React from 'react'
+import PropTypes from 'prop-types'
+import * as VARIANTS from './variants'
+import { wrapTextNodesInSpans, bemClassNames } from '../utils'
 
-const bem = bemClassNames('d2ui-button');
+import './button.css'
+
+const bem = bemClassNames('d2ui-button')
 
 const Button = ({
     children,
@@ -24,7 +26,7 @@ const Button = ({
     >
         {wrapTextNodesInSpans(children)}
     </button>
-);
+)
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
@@ -36,12 +38,12 @@ Button.propTypes = {
     title: PropTypes.string,
     type: PropTypes.oneOf(['submit', 'reset', 'button']),
     variant: PropTypes.oneOf(Object.keys(VARIANTS).map(key => VARIANTS[key])),
-};
+}
 
 Button.defaultProps = {
     type: 'button',
     size: 'medium',
     variant: VARIANTS.RAISED,
-};
+}
 
-export default Button;
+export default Button

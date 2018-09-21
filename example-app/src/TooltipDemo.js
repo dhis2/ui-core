@@ -1,20 +1,21 @@
+/** @format */
+
 import React, { Component } from 'react'
 
-import Paper from 'ui/Paper';
+import Paper from 'ui/Paper'
 
-
-import Tooltip from 'ui/Tooltip';
+import Tooltip from 'ui/Tooltip'
 
 const clickTest = event => {
-    console.log('Button click', event.target);
-};
+    console.log('Button click', event.target)
+}
 
 export default class ProgressDemo extends Component {
     render() {
         return (
             <Paper elevation={6} padded>
                 <h3>Progress components</h3>
-                <hr/>
+                <hr />
                 <Tooltip text="There is an alarm and I want ot make this text even longer">
                     <PrimaryButton>
                         <Icon name="alarm" />

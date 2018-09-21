@@ -1,4 +1,5 @@
-/********************************************************************************
+/**
+ * *****************************************************************************
  * An implementation of the Type Scale grid found on the Material Design pages  *
  * https://material.io/design/typography/the-type-system.html#type-scale        *
  * Font sizes and letter spacing are all expressed in "rem". The "rem" values   *
@@ -7,7 +8,10 @@
  *  - Light:   300                                                              *
  *  - Regular: 400                                                              *
  *  - Medium:  500                                                              *
- *******************************************************************************/
+ * *****************************************************************************
+ *
+ * @format
+ */
 
 body,
 .primary-text {

@@ -1,10 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Icon from '../Icon';
-import { bemClassNames, noop } from '../utils';
-import './tab.css';
+/** @format */
 
-const bem = bemClassNames('d2ui-tab');
+import React from 'react'
+import PropTypes from 'prop-types'
+import Icon from '../Icon'
+import { bemClassNames, noop } from '../utils'
+import './tab.css'
+
+const bem = bemClassNames('d2ui-tab')
 
 const Tab = ({
     icon,
@@ -25,7 +27,7 @@ const Tab = ({
             ? children
             : (icon && <Icon name={icon} />, label && <span>{label}</span>)}
     </button>
-);
+)
 
 Tab.propTypes = {
     label: PropTypes.string,
@@ -36,13 +38,13 @@ Tab.propTypes = {
     disabled: PropTypes.bool,
     stacked: PropTypes.bool,
     children: PropTypes.node,
-};
+}
 
 Tab.defaultProps = {
     active: false,
     disabled: false,
     stacked: false,
     onClick: noop,
-};
+}
 
-export default Tab;
+export default Tab

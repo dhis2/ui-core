@@ -1,3 +1,5 @@
+/** @format */
+
 a.d2ui-tooltip {
     color: inherit;
     text-decoration: none;
@@ -43,25 +45,25 @@ a.d2ui-tooltip {
         white-space: initial;
     }
 
-    &[data-d2ui-tooltip-position="top"]:after {
+    &[data-d2ui-tooltip-position='top']:after {
         top: 0;
         left: 50%;
         transform: translateY(-100%) translateY(-0.5rem) translateX(-50%);
     }
 
-    &[data-d2ui-tooltip-position="right"]:after {
+    &[data-d2ui-tooltip-position='right']:after {
         top: 50%;
         right: 0;
         transform: translateX(100%) translateX(0.5rem) translateY(-50%);
     }
 
-    &[data-d2ui-tooltip-position="bottom"]:after {
+    &[data-d2ui-tooltip-position='bottom']:after {
         bottom: 0;
         left: 50%;
         transform: translateY(100%) translateY(0.5rem) translateX(-50%);
     }
 
-    &[data-d2ui-tooltip-position="left"]:after {
+    &[data-d2ui-tooltip-position='left']:after {
         top: 50%;
         left: 0;
         transform: translateX(-100%) translateX(-0.5rem) translateY(-50%);

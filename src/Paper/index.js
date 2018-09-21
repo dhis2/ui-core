@@ -1,2 +1,4 @@
-import Paper from './Paper';
-export default Paper;
+/** @format */
+
+import Paper from './Paper'
+export default Paper
