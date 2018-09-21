@@ -26,7 +26,7 @@ const Logo = ({ reverse, icon, width, altText }) => {
     const src = imageLookup[version][variant];
     const style = width ? { width } : null;
 
-    return <img alt={altText} src={src} className={bem.b(version)} style={{ style }} />;
+    return <img alt={altText} src={src} className={bem.b(version)} style={style} />;
 };
 
 Logo.propTypes = {
