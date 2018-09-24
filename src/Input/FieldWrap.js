@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { bemClassNames } from '../utils'
 import './fieldwrap.css'
 
-const bem = bemClassNames('d2ui-field-wrap')
+const bem = bemClassNames('field-wrap')
 
 const FieldWrap = ({
     children,

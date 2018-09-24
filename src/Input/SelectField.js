@@ -8,7 +8,7 @@ import { PopoverMenu } from '../Menu'
 import { bemClassNames } from '../utils'
 import './selectfield.css'
 
-const bem = bemClassNames('d2ui-select')
+const bem = bemClassNames('select')
 const inputClassName = `${bem.e('input')} ${fieldBem.e('input')}`
 
 // React uses a "value" property on the <select/> which can't be null so we use this magic string instead

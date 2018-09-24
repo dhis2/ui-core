@@ -7,7 +7,7 @@ import { wrapTextNodesInSpans, bemClassNames } from '../utils'
 
 import './button.css'
 
-const bem = bemClassNames('d2ui-button')
+const bem = bemClassNames('button')
 
 const Button = ({
     children,

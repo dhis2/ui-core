@@ -7,7 +7,7 @@ import { bemClassNames, appendAsteriskIfRequired } from '../utils'
 import ToggleField from '../../build/Input/ToggleField'
 import FieldWrap from './FieldWrap'
 
-const bem = bemClassNames('d2ui-checkbox')
+const bem = bemClassNames('checkbox')
 
 const Checkbox = ({
     label,

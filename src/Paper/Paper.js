@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { bemClassNames } from '../utils'
 import './paper.css'
 
-const bem = bemClassNames('d2ui-paper')
+const bem = bemClassNames('paper')
 
 const Paper = ({ elevation, children, padded }) => (
     <div

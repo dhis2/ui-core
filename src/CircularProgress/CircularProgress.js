@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { bemClassNames } from '../utils'
 import './circular-progress.css'
 
-const bem = bemClassNames('d2ui-circular-progress')
+const bem = bemClassNames('circular-progress')
 
 const CircularProgress = ({ size, center }) => {
     const circularProgress = (

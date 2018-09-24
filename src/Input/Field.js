@@ -6,7 +6,7 @@ import { bemClassNames, appendAsteriskIfRequired } from '../utils'
 import './field.css'
 import Icon from '../Icon'
 
-export const bem = bemClassNames('d2ui-field')
+export const bem = bemClassNames('field')
 const FILLED = 'filled'
 const OUTLINED = 'outlined'
 const MINIMAL = 'minimal'

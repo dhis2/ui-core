@@ -6,7 +6,7 @@ import Icon from '../Icon'
 import { bemClassNames, noop } from '../utils'
 import './tab.css'
 
-const bem = bemClassNames('d2ui-tab')
+const bem = bemClassNames('tab')
 
 const Tab = ({
     icon,
