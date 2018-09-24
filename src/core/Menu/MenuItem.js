@@ -61,4 +61,4 @@ MenuItem.propTypes = {
     closePopover: PropTypes.func,
 }
 
-export default MenuItem
+export { MenuItem }

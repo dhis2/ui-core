@@ -31,4 +31,4 @@ Menu.propTypes = {
     children: PropTypes.arrayOf(PropTypes.element),
 }
 
-export default Menu
+export { Menu }

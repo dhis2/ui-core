@@ -42,4 +42,4 @@ PopoverMenu.defaultProps = {
     popoverAttachPoint: { vertical: 'middle', horizontal: 'center' },
 }
 
-export default PopoverMenu
+export { PopoverMenu }
