@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 
-import UI from 'ui/UI'
+import UI from 'ui/core/UI'
 
 import HeaderBarDemo from './HeaderBarDemo.js'
 import InputDemo from './InputDemo.js'
@@ -12,9 +12,9 @@ import ButtonDemo from './ButtonDemo.js'
 import MenuDemo from './MenuDemo.js'
 import TypographyDemo from './TypographyDemo.js'
 
-import Switch from 'ui/Input/Switch'
+import Switch from 'ui/core/Input/Switch'
 
-import Paper from 'ui/Paper'
+import Paper from 'ui/core/Paper'
 
 import { isRtl, setTextDirection } from 'ui/utils'
 
@@ -63,9 +63,9 @@ class App extends Component {
                 </Paper>
 
                 <LogoDemo />
-                <TypographyDemo />
-                <InputDemo />
-                <ProgressDemo />
+                <TypographyDemo /> 
+                <ProgressDemo /> 
+                <InputDemo /> 
                 <ButtonDemo />
                 <MenuDemo />
             </UI>

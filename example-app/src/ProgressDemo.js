@@ -2,10 +2,10 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/Paper'
+import Paper from 'ui/core/Paper'
 
-import CircularProgress from 'ui/CircularProgress'
-import LinearProgress from 'ui/LinearProgress'
+import CircularProgress from 'ui/core/CircularProgress'
+import LinearProgress from 'ui/core/LinearProgress'
 
 export default class ProgressDemo extends Component {
     render() {

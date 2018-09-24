@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './togglefield.css'
-import { bemClassNames } from '../utils'
+import { bemClassNames } from '../../utils'
 
 const bem = bemClassNames('toggle-field')
 
@@ -17,4 +17,5 @@ ToggleField.propTypes = {
     dense: PropTypes.bool,
 }
 
+export { ToggleField }
 export default ToggleField

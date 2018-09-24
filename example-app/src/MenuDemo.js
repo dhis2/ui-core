@@ -2,10 +2,10 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/Paper'
-import Icon from 'ui/Icon'
+import Paper from 'ui/core/Paper'
+import Icon from 'ui/core/Icon'
 
-import { Menu, MenuItem } from 'ui/Menu'
+import { Menu, MenuItem } from 'ui/core/Menu'
 
 const subSubMenuItems = [
     <MenuItem key="jajaja" value={1}>

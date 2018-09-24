@@ -3,12 +3,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Logo from '../../core/Logo/index'
+import Logo from '../../core/Logo'
 import NotificationIcon from './NotificationIcon'
 import Apps from './Apps'
 import Profile from './Profile'
 
-import { bemClassNames } from '../../utils/index'
+import { bemClassNames } from '../../utils'
 import './styles.css'
 
 const bem = bemClassNames('headerbar')
@@ -46,4 +46,5 @@ HeaderBar.defaultProps = {
     type: 'blue'
 }
 
+export { HeaderBar }
 export default HeaderBar

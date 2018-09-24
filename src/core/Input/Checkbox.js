@@ -3,8 +3,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './checkbox.css'
-import { bemClassNames, appendAsteriskIfRequired } from '../utils'
-import ToggleField from '../../build/Input/ToggleField'
+import { bemClassNames, appendAsteriskIfRequired } from '../../utils'
+import ToggleField from './ToggleField'
 import FieldWrap from './FieldWrap'
 
 const bem = bemClassNames('checkbox')
@@ -69,4 +69,5 @@ Checkbox.defaultProps = {
     disabled: false,
 }
 
+export { Checkbox }
 export default Checkbox

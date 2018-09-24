@@ -2,11 +2,11 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/Paper'
-import Icon from 'ui/Icon'
-import { PrimaryButton, CircleButton } from 'ui/Button'
+import Paper from 'ui/core/Paper'
+import Icon from 'ui/core/Icon'
+import { PrimaryButton, CircleButton } from 'ui/core/Button'
 
-import Tooltip from 'ui/Tooltip'
+import Tooltip from 'ui/core/Tooltip'
 
 const clickTest = event => {
     console.log('Button click', event.target)

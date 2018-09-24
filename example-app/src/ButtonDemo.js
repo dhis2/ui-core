@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/Paper'
+import Paper from 'ui/core/Paper'
 
 import {
     FlatButton,
@@ -11,10 +11,10 @@ import {
     PrimaryButton,
     OutlinedButton,
     DropdownButton,
-} from 'ui/Button'
+} from 'ui/core/Button'
 
-import Icon from 'ui/Icon'
-import { MenuItem } from 'ui/Menu'
+import Icon from 'ui/core/Icon'
+import { MenuItem } from 'ui/core/Menu'
 
 const menuItemSelectTest = (event, value, option) => {
     console.log('Menu item click', event.target, value, option)

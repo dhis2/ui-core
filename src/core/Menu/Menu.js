@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import MenuItem from './MenuItem'
-import Paper from '../Paper/index'
+import Paper from '../Paper'
 
 import './menu.css'
 
@@ -32,3 +32,4 @@ Menu.propTypes = {
 }
 
 export { Menu }
+export default Menu

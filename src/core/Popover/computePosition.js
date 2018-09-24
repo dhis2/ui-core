@@ -1,6 +1,6 @@
 /** @format */
 
-import { isRtl } from '../../utils/index'
+import { isRtl } from '../../utils'
 
 export const TOP = 'top'
 export const MIDDLE = 'middle'

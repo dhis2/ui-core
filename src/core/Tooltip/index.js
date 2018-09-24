@@ -38,3 +38,4 @@ Tooltip.defaultProps = {
 }
 
 export { Tooltip }
+export default Tooltip

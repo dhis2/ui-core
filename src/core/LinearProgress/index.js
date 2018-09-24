@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../utils/index'
+import { bemClassNames } from '../../utils'
 import './styles.css'
 
 const bem = bemClassNames('linear-progress')

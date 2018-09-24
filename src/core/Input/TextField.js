@@ -113,4 +113,5 @@ TextField.defaultProps = {
     type: 'text',
 }
 
+export { TextField }
 export default TextField

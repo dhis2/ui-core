@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ToggleField from './ToggleField'
 import './switch.css'
-import { bemClassNames, appendAsteriskIfRequired } from '../utils'
+import { bemClassNames, appendAsteriskIfRequired } from '../../utils'
 import FieldWrap from './FieldWrap'
 
 const bem = bemClassNames('switch')
@@ -71,4 +71,5 @@ Switch.defaultProps = {
     disabled: false,
 }
 
+export { Switch }
 export default Switch

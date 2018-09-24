@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Menu from './Menu'
-import Popover from '../Popover/index'
+import Popover from '../Popover'
 
 const PopoverMenu = ({
     anchorAttachPoint,
@@ -43,3 +43,4 @@ PopoverMenu.defaultProps = {
 }
 
 export { PopoverMenu }
+export default PopoverMenu

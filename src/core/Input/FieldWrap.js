@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../utils/index'
+import { bemClassNames } from '../../utils'
 import './fieldwrap.css'
 
 const bem = bemClassNames('field-wrap')
@@ -53,4 +53,5 @@ FieldWrap.propTypes = {
     helpText: PropTypes.string,
 }
 
+export { FieldWrap }
 export default FieldWrap

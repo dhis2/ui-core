@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
-import { bemClassNames, noop } from '../../utils/index'
+import { bemClassNames, noop } from '../../utils'
 import './tab.css'
 
 const bem = bemClassNames('tab')

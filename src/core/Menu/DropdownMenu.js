@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Button } from '../Button/index'
+import { Button } from '../Button'
 import { PRIMARY, RAISED } from '../Button/variants'
 import PopoverMenu from './PopoverMenu'
 import Icon from '../Icon'
@@ -59,3 +59,4 @@ DropdownMenu.propTypes = {
 }
 
 export { DropdownMenu }
+export default DropdownMenu

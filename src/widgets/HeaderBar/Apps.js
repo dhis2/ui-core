@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react'
-import Icon from '../../core/Icon/index'
+import Icon from '../../core/Icon'
 
 export default function Apps() {
     return (
