@@ -6,7 +6,7 @@ import { bemClassNames } from '../utils'
 
 import '../theme/index.css'
 
-const bem = bemClassNames('d2ui-app')
+const bem = bemClassNames('app')
 
 const UI = ({ theme, children }) => (
     <div className={bem.b(theme)}>{children}</div>

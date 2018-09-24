@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { bemClassNames } from '../utils'
 import './linear-progress.css'
 
-const bem = bemClassNames('d2ui-linear-progress')
+const bem = bemClassNames('linear-progress')
 
 const LinearProgress = ({ progress, padded }) => {
     const progressClass =

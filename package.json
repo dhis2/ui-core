@@ -61,7 +61,6 @@
         "react-dev-utils": "^5.0.1",
         "style-loader": "^0.23.0",
         "tape": "^4.9.1",
-        "typeface-rubik": "^0.0.54",
         "uglifyjs-webpack-plugin": "^2.0.0",
         "webpack": "^4.16.5",
         "webpack-bundle-analyzer": "^3.0.0"
@@ -72,6 +71,7 @@
         "react-dom": "^16.4.2"
     },
     "dependencies": {
-        "prop-types": "^15.6.2"
+        "prop-types": "^15.6.2",
+        "typeface-roboto": "^0.0.54"
     }
 }

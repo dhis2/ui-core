@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import bemClassNames from '../utils/bemClassNames'
 import './tabindicator.css'
 
-const bem = bemClassNames('d2ui-tab-indicator')
+const bem = bemClassNames('tab-indicator')
 
 class TabIndicator extends Component {
     constructor(props) {

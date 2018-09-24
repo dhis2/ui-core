@@ -14,7 +14,7 @@ import computePosition, {
 } from './computePosition'
 import './popover.css'
 
-const bem = bemClassNames('d2ui-popover')
+const bem = bemClassNames('popover')
 
 class Popover extends Component {
     constructor(props) {

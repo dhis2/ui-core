@@ -7,7 +7,7 @@ import RadioButton from './RadioButton'
 import FieldWrap from './FieldWrap'
 import './radiobuttongroup.css'
 
-const bem = bemClassNames('d2ui-radio-button-group')
+const bem = bemClassNames('radio-button-group')
 const randomName = () =>
     Math.random()
         .toString(36)

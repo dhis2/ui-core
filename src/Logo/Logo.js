@@ -9,7 +9,7 @@ import dhis2_icon_rgb_positive from './svg/dhis2_icon_rgb_positive.svg'
 import dhis2_logo_rgb_negative from './svg/dhis2_logo_rgb_negative.svg'
 import dhis2_logo_rgb_positive from './svg/dhis2_logo_rgb_positive.svg'
 
-const bem = bemClassNames('d2ui-logo')
+const bem = bemClassNames('logo')
 
 const imageLookup = {
     logo: {

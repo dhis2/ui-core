@@ -9,7 +9,7 @@ import TabIndicator from './TabIndicator'
 import { animatedScrollTo, bemClassNames, throttle } from '../utils'
 import computeHorizontalScrollbarHeight from './computeHorizontalScrollbarHeight'
 
-export const bem = bemClassNames('d2ui-tabs')
+export const bem = bemClassNames('tabs')
 
 class Tabs extends Component {
     constructor(props) {

@@ -7,7 +7,7 @@ import './switch.css'
 import { bemClassNames, appendAsteriskIfRequired } from '../utils'
 import FieldWrap from './FieldWrap'
 
-const bem = bemClassNames('d2ui-switch')
+const bem = bemClassNames('switch')
 
 const Switch = ({
     label,

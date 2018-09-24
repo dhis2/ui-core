@@ -11,7 +11,7 @@ import Profile from './Profile'
 import { bemClassNames } from '../utils'
 import './styles.css'
 
-const bem = bemClassNames('d2ui-headerbar')
+const bem = bemClassNames('headerbar')
 
 function HeaderBar({ type, title, selection, name, email, src }) {
     return (

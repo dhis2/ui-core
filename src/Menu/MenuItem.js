@@ -6,7 +6,7 @@ import { wrapTextNodesInSpans, bemClassNames } from '../utils'
 import SubMenu from './SubMenu'
 import Icon from '../Icon'
 
-const bem = bemClassNames('d2ui-menu-item')
+const bem = bemClassNames('menu-item')
 
 class MenuItem extends Component {
     selectHandler = event => {
