@@ -71,4 +71,4 @@ SubMenu.propTypes = {
     selectHandler: PropTypes.func,
 }
 
-export default SubMenu
+export { SubMenu }

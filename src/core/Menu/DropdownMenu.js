@@ -58,4 +58,4 @@ DropdownMenu.propTypes = {
     menuProps: PropTypes.object.isRequired,
 }
 
-export default DropdownMenu
+export { DropdownMenu }

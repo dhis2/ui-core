@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import './icon.css'
+import './styles.css'
 
 const Icon = ({ name, className }) => (
     <i className={`material-icons ${className ? ' ' + className : ''}`}>
@@ -15,4 +15,4 @@ Icon.propTypes = {
     className: PropTypes.string,
 }
 
-export default Icon
+export { Icon }

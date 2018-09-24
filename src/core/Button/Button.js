@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import * as VARIANTS from './variants'
 import { wrapTextNodesInSpans, bemClassNames } from '../../utils/index'
 
-import './button.css'
+import './styles.css'
 
 const bem = bemClassNames('button')
 
