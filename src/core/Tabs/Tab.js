@@ -47,4 +47,5 @@ Tab.defaultProps = {
     onClick: noop,
 }
 
+export { Tab }
 export default Tab

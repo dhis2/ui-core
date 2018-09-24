@@ -16,3 +16,4 @@ Icon.propTypes = {
 }
 
 export { Icon }
+export default Icon

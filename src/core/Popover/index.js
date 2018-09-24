@@ -110,3 +110,4 @@ Popover.defaultProps = {
 }
 
 export { Popover }
+export default Popover

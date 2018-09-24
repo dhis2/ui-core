@@ -25,3 +25,5 @@ export const OutlinedButton = props => (
 export const CircleButton = props => (
     <Button variant={VARIANTS.CIRCLE} {...props} />
 )
+
+export default Button

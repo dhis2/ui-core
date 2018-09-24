@@ -23,7 +23,7 @@ const imageLookup = {
     },
 }
 
-const Logo = ({ reverse, icon, width, altText }) => {
+function Logo({ reverse, icon, width, altText }) {
     const version = icon ? 'icon' : 'logo'
     const variant = reverse ? 'negative' : 'positive'
     const src = imageLookup[version][variant]
@@ -48,3 +48,4 @@ Logo.defaultProps = {
 }
 
 export { Logo }
+export default Logo

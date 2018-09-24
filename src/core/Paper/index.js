@@ -29,3 +29,4 @@ Paper.defaultProps = {
 }
 
 export { Paper }
+export default Paper

@@ -299,4 +299,5 @@ Tabs.defaultProps = {
     stacked: false,
 }
 
+export { Tabs }
 export default Tabs
