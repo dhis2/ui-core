@@ -1,6 +1,11 @@
 /** @format */
 
-export default function(blockName) {
+const DEFAULT_PREFIX = 'd2ui-'
+export default function bemClassNames(blockName) {
+    if (!blockName.startsWith(DEFAULT_PREFIX)) {
+      blockName = `${DEFAULT_PREFIX}${blockName}`
+    }
+
     return {
         b: (...modifierArgs) =>
             modifierArgs.length === 0
