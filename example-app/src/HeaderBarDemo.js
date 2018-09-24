@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react'
-import HeaderBar from 'ui/HeaderBar'
+import HeaderBar from 'ui/widgets/HeaderBar'
 
 const props = {
     title: 'Demo - Sierra Leone',
