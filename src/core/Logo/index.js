@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../utils/index'
+import { bemClassNames } from '../../utils'
 
 import dhis2_icon_rgb_negative from './svg/dhis2_icon_rgb_negative.svg'
 import dhis2_icon_rgb_positive from './svg/dhis2_icon_rgb_positive.svg'

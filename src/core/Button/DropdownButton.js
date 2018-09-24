@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
-import { DropdownMenu } from '../Menu/index'
+import { DropdownMenu } from '../Menu'
 
 class DropdownButton extends Component {
     constructor(props) {
@@ -44,4 +44,5 @@ DropdownButton.propTypes = {
     menuProps: PropTypes.object,
 }
 
+export { DropdownButton }
 export default DropdownButton

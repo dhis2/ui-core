@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/Paper'
+import Paper from 'ui/core/Paper'
 
 export default class TypographyDemo extends Component {
     render() {

@@ -3,8 +3,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './radiobutton.css'
-import { bemClassNames, appendAsteriskIfRequired } from '../utils'
-import ToggleField from '../../build/Input/ToggleField'
+import { bemClassNames, appendAsteriskIfRequired } from '../../utils'
+import ToggleField from './ToggleField'
 import FieldWrap from './FieldWrap'
 
 const bem = bemClassNames('radio-button')
@@ -68,4 +68,5 @@ RadioButton.defaultProps = {
     disabled: false,
 }
 
+export { RadioButton }
 export default RadioButton

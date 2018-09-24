@@ -2,9 +2,9 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/Paper'
+import Paper from 'ui/core/Paper'
 
-import Logo from 'ui/Logo/Logo'
+import Logo from 'ui/core/Logo'
 
 export default class ProgressDemo extends Component {
     render() {

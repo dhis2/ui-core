@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as VARIANTS from './variants'
-import { wrapTextNodesInSpans, bemClassNames } from '../../utils/index'
+import { wrapTextNodesInSpans, bemClassNames } from '../../utils'
 
 import './styles.css'
 
@@ -46,4 +46,5 @@ Button.defaultProps = {
     variant: VARIANTS.RAISED,
 }
 
+export { Button }
 export default Button

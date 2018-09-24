@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames, appendAsteriskIfRequired } from '../../utils/index'
+import { bemClassNames, appendAsteriskIfRequired } from '../../utils'
 import './field.css'
 import Icon from '../Icon'
 
@@ -107,4 +107,5 @@ Field.defaultProps = {
     variant: FILLED,
 }
 
+export { Field }
 export default Field

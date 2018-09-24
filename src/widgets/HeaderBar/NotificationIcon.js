@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Icon from '../../core/Icon/index'
+import Icon from '../../core/Icon'
 
 function NotificationIcon({ icon, count }) {
     return (

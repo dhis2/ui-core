@@ -4,8 +4,8 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Field, { bem as fieldBem } from './Field'
 import FieldWrap from './FieldWrap'
-import { PopoverMenu } from '../Menu/index'
-import { bemClassNames } from '../../utils/index'
+import { PopoverMenu } from '../Menu'
+import { bemClassNames } from '../../utils'
 import './selectfield.css'
 
 const bem = bemClassNames('select')
@@ -217,4 +217,5 @@ SelectField.propTypes = {
     emptyOption: PropTypes.string,
 }
 
+export { SelectField }
 export default SelectField

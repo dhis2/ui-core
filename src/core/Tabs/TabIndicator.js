@@ -53,4 +53,5 @@ TabIndicator.propTypes = {
     visible: PropTypes.bool.isRequired,
 }
 
+export { TabIndicator }
 export default TabIndicator

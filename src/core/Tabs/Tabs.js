@@ -6,7 +6,7 @@ import './tabs.css'
 import Tab from './Tab'
 import Icon from '../Icon'
 import TabIndicator from './TabIndicator'
-import { animatedScrollTo, bemClassNames, throttle } from '../utils'
+import { animatedScrollTo, bemClassNames, throttle } from '../../utils'
 import computeHorizontalScrollbarHeight from './computeHorizontalScrollbarHeight'
 
 export const bem = bemClassNames('tabs')

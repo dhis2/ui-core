@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames, appendAsteriskIfRequired } from '../../utils/index'
+import { bemClassNames, appendAsteriskIfRequired } from '../../utils'
 import RadioButton from './RadioButton'
 import FieldWrap from './FieldWrap'
 import './radiobuttongroup.css'
@@ -75,4 +75,5 @@ RadioButtonGroup.propTypes = {
     helpText: PropTypes.string,
 }
 
+export { RadioButtonGroup }
 export default RadioButtonGroup

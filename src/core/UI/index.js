@@ -2,9 +2,13 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../utils/index'
+import { bemClassNames } from '../../utils'
 
-import '../theme/index.css'
+// import as part of the UI component to make sure that the font is
+// loaded for selective imports which might not import the root index
+import 'typeface-roboto'
+
+import './theme/index.css'
 
 const bem = bemClassNames('app')
 

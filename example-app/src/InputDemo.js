@@ -2,14 +2,14 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/Paper'
+import Paper from 'ui/core/Paper'
 
-import Checkbox from 'ui/Input/Checkbox'
-import RadioButton from 'ui/Input/RadioButton'
-import TextField from 'ui/Input/TextField'
-import Switch from 'ui/Input/Switch'
-import SelectField from 'ui/Input/SelectField'
-import RadioButtonGroup from 'ui/Input/RadioButtonGroup'
+import Checkbox from 'ui/core/Input/Checkbox'
+import RadioButton from 'ui/core/Input/RadioButton'
+import TextField from 'ui/core/Input/TextField'
+import Switch from 'ui/core/Input/Switch'
+import SelectField from 'ui/core/Input/SelectField'
+import RadioButtonGroup from 'ui/core/Input/RadioButtonGroup'
 
 const selectOptions = [
     { value: 1, label: 'One' },

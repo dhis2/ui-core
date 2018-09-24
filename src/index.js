@@ -1,7 +1,5 @@
 /** @format */
 
-import 'typeface-roboto'
-
 export * from './core/Button'
 export * from './core/Icon'
 export * from './core/Logo'

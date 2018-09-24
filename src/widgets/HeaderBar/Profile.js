@@ -1,8 +1,8 @@
 /** @format */
 
 import React from 'react'
-import Icon from '../../core/Icon/index'
-import Paper from '../../core/Paper/index'
+import Icon from '../../core/Icon'
+import Paper from '../../core/Paper'
 
 function TextIcon({ name }) {
     let title = name[0]

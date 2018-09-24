@@ -2,7 +2,7 @@
 
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { wrapTextNodesInSpans, bemClassNames } from '../../utils/index'
+import { wrapTextNodesInSpans, bemClassNames } from '../../utils'
 import SubMenu from './SubMenu'
 import Icon from '../Icon'
 
@@ -62,3 +62,4 @@ MenuItem.propTypes = {
 }
 
 export { MenuItem }
+export default MenuItem
