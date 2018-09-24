@@ -1,6 +1,6 @@
 /** @format */
 
-export default function(blockName) {
+export default function bemClassNames(blockName) {
     return {
         b: (...modifierArgs) =>
             modifierArgs.length === 0
