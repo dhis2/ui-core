@@ -5,8 +5,8 @@ import Icon from '../../core/Icon'
 
 export default function Apps() {
     return (
-        <div className="apps">
-            <Icon name="menu" />
+        <div className="apps-container">
+            <Icon name="apps" />
         </div>
     )
 }

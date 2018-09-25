@@ -72,7 +72,7 @@
             }
         }
 
-        & > .apps {
+        & > .apps-container {
             margin: 8px 0 0 32px;
             width: 16px;
             height: 16px;
@@ -88,7 +88,7 @@
             width: 36px;
             height: 36px;
 
-            & > .icon {
+            .icon {
                 cursor: pointer;
                 display: flex;
                 justify-content: center;
@@ -120,7 +120,7 @@
                 }
             }
 
-            & > .contents {
+            .contents {
                 display: none;
                 z-index: 10;
                 position: absolute;
@@ -129,7 +129,7 @@
                 top: 36px;
                 width: 310px;
 
-                & > .header {
+                .header {
                     display: flex;
                     flex-direction: row;
                     margin-left: 30px;
@@ -165,17 +165,18 @@
                     }
                 }
 
-                & > .divider {
+                .divider {
                     height: 1px;
                     margin: 16px 0 20px 0;
                     background-color: rgba(32, 32, 32, 0.15);
                 }
 
-                & > .menu {
+                .menu {
                     display: flex;
                     flex-direction: column;
 
                     & > .item {
+                        cursor: pointer;
                         display: flex;
                         flex-direction: row;
                         margin: 0 0 20px 30px;
@@ -216,7 +217,7 @@
                     color: #fff;
                 }
             }
-            & > .apps {
+            & > .apps-container {
                 i {
                     color: #fff;
                 }
