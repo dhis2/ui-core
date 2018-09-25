@@ -7,7 +7,7 @@ const props = {
     title: 'Demo - Sierra Leone',
     selection: 'ANC: 1-4 visits by districts this year',
     name: 'John Doe',
-    email: 'john_doe@dhis2.org'
+    email: 'john_doe@dhis2.org',
 }
 
 export default function HeaderBarDemo() {
