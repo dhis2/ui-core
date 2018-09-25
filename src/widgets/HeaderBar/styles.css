@@ -34,6 +34,11 @@
     & > .current-selection {
         font-weight: 400;
         font-size: 14px;
+        margin-right: 64px;
+
+        &:empty {
+            display: none;
+        }
     }
 
     & > .right {
@@ -56,7 +61,8 @@
                 position: absolute;
                 right: -10px;
                 top: -6px;
-                font-size: 10px;
+                font-size: 9px;
+                font-weight: 500;
                 width: 16px;
                 height: 16px;
                 line-height: 16px;
