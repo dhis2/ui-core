@@ -67,7 +67,6 @@
             width: 178px;
             overflow: hidden;
             white-space: nowrap;
-            font-family: Roboto, sans-serif;
             font-weight: 500;
             font-size: 14px;
             letter-spacing: 0.01em;
@@ -75,7 +74,6 @@
     }
 
     & > .current-selection {
-        font-family: Roboto, sans-serif;
         font-weight: 400;
         font-size: 14px;
     }
@@ -147,7 +145,6 @@
                 & > .initials {
                     font-size: 14px;
                     font-weight: 500;
-                    font-family: Roboto, sans-serif;
                     letter-spacing: 1px;
                     text-transform: uppercase;
                     text-align: center;
@@ -190,14 +187,9 @@
                         flex-direction: column;
                         margin-left: 20px;
 
-                        font-family: Roboto, sans-serif;
                         font-weight: 400;
                         font-size: 14px;
                         color: #000;
-
-                        & > .name, & > .email, & > .edit_profile {
-                            font-family: Roboto, sans-serif;
-                        }
 
                         & > .name {
                             font-size: 16px;
@@ -238,7 +230,6 @@
                         }
 
                         & > .label {
-                            font-family: Roboto, sans-serif;
                             font-weight: 400;
                             font-size: 14px;
                         }
