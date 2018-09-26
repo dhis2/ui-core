@@ -1,12 +1,22 @@
 /** @format */
 
+import React from 'react'
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
 import { Button } from '../Button'
 import PopoverMenu from './PopoverMenu'
 import Icon from '../Icon'
 
-class DropdownMenu extends Component {
+const anchorAttachPoint = {
+    vertical: 'bottom',
+    horizontal: 'right',
+}
+
+const popoverAttachPoint = {
+    vertical: 'top',
+    horizontal: 'right',
+}
+
+class DropdownMenu extends React.Component {
     state = {
         open: false,
     }
@@ -27,15 +37,9 @@ class DropdownMenu extends Component {
                     getAnchorRef={getAnchorRef}
                     open={this.state.open}
                     closePopover={this.closeMenu}
-                    anchorAttachPoint={{
-                        vertical: 'bottom',
-                        horizontal: 'right',
-                    }}
-                    popoverAttachPoint={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                    }}
                     appearAnimation="slide-down"
+                    anchorAttachPoint={anchorAttachPoint}
+                    popoverAttachPoint={popoverAttachPoint}
                 />
             </React.Fragment>
         )
