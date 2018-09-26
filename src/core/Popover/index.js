@@ -41,7 +41,7 @@ class Popover extends Component {
     }
 
     render() {
-        if (!this.state.open) {
+        if (!this.props.open) {
             return null
         }
 

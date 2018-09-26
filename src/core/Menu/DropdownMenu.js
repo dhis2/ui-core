@@ -25,16 +25,14 @@ class DropdownMenu extends React.Component {
     closeMenu = () => this.setState({ open: false })
 
     render() {
-        const { buttonKind, getAnchorRef, menuProps } = this.props
-
         return (
             <React.Fragment>
-                <Button kind={buttonKind} onClick={this.openMenu}>
+                <Button kind={this.props.buttonKind} onClick={this.openMenu}>
                     <Icon name="keyboard_arrow_down" />
                 </Button>
                 <PopoverMenu
-                    menuProps={menuProps}
-                    getAnchorRef={getAnchorRef}
+                    menuProps={this.props.menuProps}
+                    getAnchorRef={this.props.getAnchorRef}
                     open={this.state.open}
                     closePopover={this.closeMenu}
                     appearAnimation="slide-down"

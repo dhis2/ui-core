@@ -63,38 +63,32 @@ function getRelativePosition(el, anchor, { horizontal, vertical }) {
     }
 }
 
-function getHorizontalPosition(horizontal, el, rect, toLeft) {
+function getHorizontalPosition(horizontal, el, rect, toLeft = false) {
     const multiplier = toLeft ? -1 : 1
+
     if (typeof horizontal === 'number') {
         return rect.left + horizontal
-    } else {
-        switch (horizontal) {
-            case 'left':
-                return rect.left
-            case 'center':
-                return rect.left + multiplier * (el.offsetWidth / 2)
-            case 'right':
-            default:
-                return rect.left + multiplier * el.offsetWidth
-        }
+    } else if (horizontal === 'left') {
+        return rect.left
+    } else if (horizontal === 'center') {
+        return rect.left + multiplier * (el.offsetWidth / 2)
     }
+
+    return rect.left + multiplier * el.offsetWidth
 }
 
-function getVerticalPosition(vertical, el, rect, toLeft) {
+function getVerticalPosition(vertical, el, rect, toLeft = false) {
     const multiplier = toLeft ? -1 : 1
+
     if (typeof vertical === 'number') {
         return rect.top + vertical
-    } else {
-        switch (vertical) {
-            case 'top':
-                return rect.top
-            case 'middle':
-                return rect.top + multiplier * (el.offsetHeight / 2)
-            case 'bottom':
-            default:
-                return rect.top + multiplier * el.offsetHeight
-        }
+    } else if (vertical === 'top') {
+        return rect.top
+    } else if (vertical === 'middle') {
+        return rect.top + multiplier * (el.offsetHeight / 2)
     }
+
+    return rect.top + multiplier * el.offsetHeight
 }
 
 function getWindowContainedPosition({ top, left, width, height }) {

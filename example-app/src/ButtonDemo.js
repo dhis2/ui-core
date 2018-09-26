@@ -138,7 +138,7 @@ export default class ProgressDemo extends Component {
                 <br />
                 <DropdownButton
                     buttonProps={{
-                        variant: 'raised',
+                        kind: 'raised',
                         onClick: () => 'clicked main btn',
                     }}
                     menuProps={{ children: menuItems }}

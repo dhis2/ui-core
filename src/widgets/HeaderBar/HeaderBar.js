@@ -21,7 +21,7 @@ function HeaderBar({ type, title, selection, name, email, src }) {
                     <Logo
                         color={type === 'blue' ? 'white' : 'blue'}
                         type="icon"
-                        width={27.5}
+                        width="27.5px"
                     />
                 </div>
                 <div className="title">{title}</div>
