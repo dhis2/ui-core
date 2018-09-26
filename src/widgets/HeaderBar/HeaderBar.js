@@ -18,7 +18,11 @@ function HeaderBar({ type, title, selection, name, email, src }) {
         <div className={bem.b(type)}>
             <div className="left">
                 <div className="logo">
-                    <Logo reverse={type === 'blue'} icon width={27.5} />
+                    <Logo
+                        color={type === 'blue' ? 'white' : 'blue'}
+                        type="icon"
+                        width={27.5}
+                    />
                 </div>
                 <div className="title">{title}</div>
             </div>
