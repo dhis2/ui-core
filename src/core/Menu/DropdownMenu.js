@@ -3,7 +3,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Button } from '../Button'
-import { PRIMARY, RAISED } from '../Button/variants'
 import PopoverMenu from './PopoverMenu'
 import Icon from '../Icon'
 
@@ -24,12 +23,12 @@ class DropdownMenu extends Component {
     }
 
     render() {
-        const { buttonVariant, getAnchorRef, menuProps } = this.props
+        const { buttonKind, getAnchorRef, menuProps } = this.props
         const { popoverOpen } = this.state
 
         return (
             <React.Fragment>
-                <Button variant={buttonVariant} onClick={this.openPopover}>
+                <Button kind={buttonKind} onClick={this.openPopover}>
                     <Icon name="keyboard_arrow_down" />
                 </Button>
                 <PopoverMenu
@@ -53,7 +52,7 @@ class DropdownMenu extends Component {
 }
 
 DropdownMenu.propTypes = {
-    buttonVariant: PropTypes.oneOf([PRIMARY, RAISED]).isRequired,
+    buttonKind: PropTypes.oneOf(['primary', 'raised']).isRequired,
     getAnchorRef: PropTypes.func.isRequired,
     menuProps: PropTypes.object.isRequired,
 }

@@ -31,7 +31,7 @@ Paper.propTypes = {
 
 Paper.defaultProps = {
     elevation: 1,
-    padding: '2rem 5rem 4rem',
+    padding: '0',
     width: 'auto',
     height: 'auto',
 }
