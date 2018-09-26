@@ -30,7 +30,7 @@
         stroke: currentColor;
         animation: d2ui-circular-progress-dash 1.4s ease-in-out infinite;
         stroke-dasharray: 80px, 200px;
-        stroke-dashoffset: 0px;
+        stroke-dashoffset: 0;
     }
 
     &__overlay {

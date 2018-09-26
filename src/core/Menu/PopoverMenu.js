@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import Menu from './Menu'
 import Popover from '../Popover'
 
-const PopoverMenu = ({
+function PopoverMenu({
     anchorAttachPoint,
     closePopover,
     getAnchorRef,
@@ -13,18 +13,20 @@ const PopoverMenu = ({
     open,
     popoverAttachPoint,
     appearAnimation,
-}) => (
-    <Popover
-        anchorAttachPoint={anchorAttachPoint}
-        closePopover={closePopover}
-        getAnchorRef={getAnchorRef}
-        open={open}
-        popoverAttachPoint={popoverAttachPoint}
-        appearAnimation={appearAnimation}
-    >
-        <Menu closePopover={closePopover} {...menuProps} />
-    </Popover>
-)
+}) {
+    return (
+        <Popover
+            anchorAttachPoint={anchorAttachPoint}
+            closePopover={closePopover}
+            getAnchorRef={getAnchorRef}
+            open={open}
+            popoverAttachPoint={popoverAttachPoint}
+            appearAnimation={appearAnimation}
+        >
+            <Menu closePopover={closePopover} {...menuProps} />
+        </Popover>
+    )
+}
 
 PopoverMenu.propTypes = {
     anchorAttachPoint: PropTypes.object,

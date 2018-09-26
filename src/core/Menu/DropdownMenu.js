@@ -7,35 +7,26 @@ import PopoverMenu from './PopoverMenu'
 import Icon from '../Icon'
 
 class DropdownMenu extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            popoverOpen: false,
-        }
+    state = {
+        open: false,
     }
 
-    openPopover = () => {
-        this.setState({ popoverOpen: true })
-    }
-
-    closePopover = () => {
-        this.setState({ popoverOpen: false })
-    }
+    openMenu = () => this.setState({ open: true })
+    closeMenu = () => this.setState({ open: false })
 
     render() {
         const { buttonKind, getAnchorRef, menuProps } = this.props
-        const { popoverOpen } = this.state
 
         return (
             <React.Fragment>
-                <Button kind={buttonKind} onClick={this.openPopover}>
+                <Button kind={buttonKind} onClick={this.openMenu}>
                     <Icon name="keyboard_arrow_down" />
                 </Button>
                 <PopoverMenu
                     menuProps={menuProps}
                     getAnchorRef={getAnchorRef}
-                    open={popoverOpen}
-                    closePopover={this.closePopover}
+                    open={this.state.open}
+                    closePopover={this.closeMenu}
                     anchorAttachPoint={{
                         vertical: 'bottom',
                         horizontal: 'right',
