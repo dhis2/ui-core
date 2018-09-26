@@ -11,7 +11,7 @@ const Icon = ({ name, className, onClick }) => (
 )
 
 Icon.defaultProps = {
-    className: ''
+    className: '',
 }
 
 Icon.propTypes = {
