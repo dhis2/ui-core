@@ -43,7 +43,10 @@ class Popover extends Component {
 
         return ReactDOM.createPortal(
             <React.Fragment>
-                <div className={bem.e('overlay')} onClick={this.props.closePopover} />
+                <div
+                    className={bem.e('overlay')}
+                    onClick={this.props.closePopover}
+                />
                 <div
                     ref={this.onRender}
                     className={bem.b(this.props.animation)}
