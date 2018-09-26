@@ -13,10 +13,7 @@ function LinearProgress({ amount, padded }) {
 
     return (
         <div className={bem.b({ padded })}>
-            <div
-                style={style}
-                className={bem.e('progress', type)}
-            />
+            <div style={style} className={bem.e('progress', type)} />
         </div>
     )
 }

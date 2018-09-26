@@ -39,7 +39,7 @@ CircularProgress.propTypes = {
 
 CircularProgress.defaultProps = {
     size: 'medium',
-    dashed: true
+    dashed: true,
 }
 
 export { CircularProgress }
