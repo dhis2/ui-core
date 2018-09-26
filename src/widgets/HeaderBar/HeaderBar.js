@@ -13,7 +13,7 @@ import './styles.css'
 
 const bem = bemClassNames('headerbar')
 
-function HeaderBar({ type, title, selection, name, email, src }) {
+function HeaderBar({ type, title, selection, profile }) {
     return (
         <div className={bem.b(type)}>
             <div className="left">
@@ -27,7 +27,7 @@ function HeaderBar({ type, title, selection, name, email, src }) {
                 <NotificationIcon icon="message" count={8} />
                 <NotificationIcon icon="email" count={4} />
                 <Apps />
-                <Profile name={name} email={email} src={src} />
+                <Profile profile={profile} />
             </div>
         </div>
     )

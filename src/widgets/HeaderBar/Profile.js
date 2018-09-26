@@ -1,6 +1,7 @@
 /** @format */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import Icon from '../../core/Icon'
 import Paper from '../../core/Paper'
 
@@ -17,12 +18,20 @@ function TextIcon({ name }) {
     )
 }
 
+TextIcon.propTypes = {
+    name: PropTypes.string,
+}
+
 function ImageIcon({ src }) {
     return (
         <div className="icon">
             <img src={src} />
         </div>
     )
+}
+
+ImageIcon.propTypes = {
+    src: PropTypes.string,
 }
 
 function Header({ name, email, img, onClick }) {
@@ -41,6 +50,13 @@ function Header({ name, email, img, onClick }) {
             </div>
         </div>
     )
+}
+
+Header.propTypes = {
+    name: PropTypes.string,
+    email: PropTypes.string,
+    img: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 function Menu() {
@@ -63,11 +79,16 @@ function Item({ name, label }) {
     )
 }
 
+Item.propTypes = {
+    name: PropTypes.string,
+    label: PropTypes.string,
+}
+
 function onClick(actionType) {
     console.log('onClick', actionType)
 }
 
-export default function Profile({ name, email, img }) {
+export default function Profile({ profile: { name, email, img } }) {
     return (
         <div className="profile">
             {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
@@ -75,8 +96,8 @@ export default function Profile({ name, email, img }) {
                 <Paper>
                     <Header
                         name={name}
-                        img={img}
                         email={email}
+                        img={img}
                         onClick={onClick}
                     />
                     <div className="divider" />
@@ -85,4 +106,8 @@ export default function Profile({ name, email, img }) {
             </div>
         </div>
     )
+}
+
+Profile.propTypes = {
+    profile: PropTypes.object,
 }
