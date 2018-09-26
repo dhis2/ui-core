@@ -11,7 +11,7 @@
 export default function(userSettings) {
     // Will produce "en" from "en_EN" as well as "en"
     const uiLanguage = userSettings.keyUiLocale.split('_')[0]
-    const dir = RTL_LANGUAGES.has(uiLanguage) ? 'rtl' : 'ltr'
+    const dir = RTL_LANGUAGES.includes(uiLanguage) ? 'rtl' : 'ltr'
 
     document.documentElement.setAttribute('dir', dir)
 
@@ -19,7 +19,7 @@ export default function(userSettings) {
 }
 
 // https://meta.wikimedia.org/wiki/Template:List_of_language_names_ordered_by_code
-const RTL_LANGUAGES = new Set([
+export const RTL_LANGUAGES = [
     'ar',
     'arc',
     'dv',
@@ -32,4 +32,8 @@ const RTL_LANGUAGES = new Set([
     'ps',
     'ur',
     'yi',
-])
+]
+
+export function isRTL() {
+    return document.documentElement.getAttribute('dir') === 'rtl'
+}

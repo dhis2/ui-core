@@ -1,6 +1,6 @@
 /** @format */
 
-import { isRtl } from '../../utils'
+import { isRTL } from '../../utils'
 
 // Enough to make sure the popop doesn't hide under a scroll-bar
 const EDGE_MARGIN = 18
@@ -13,12 +13,12 @@ export default function computePosition(
 ) {
     const position = getAnchorPosition(
         anchorEl,
-        isRtl() ? flipHorizontal(anchorPosition) : anchorPosition
+        isRTL() ? flipHorizontal(anchorPosition) : anchorPosition
     )
     const relativePosition = getRelativePosition(
         targetEl,
         position,
-        isRtl() ? flipHorizontal(popoverPosition) : popoverPosition
+        isRTL() ? flipHorizontal(popoverPosition) : popoverPosition
     )
 
     return getWindowContainedPosition(relativePosition)
