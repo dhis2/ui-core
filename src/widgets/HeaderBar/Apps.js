@@ -4,19 +4,43 @@ import React from 'react'
 import Paper from '../../core/Paper'
 import Icon from '../../core/Icon'
 
+function isPointInRect({ x, y }, { left, right, top, bottom }) {
+  return x >= left && x <= right && y >= top && y <= bottom
+}
+
 export default class Apps extends React.Component {
     state = {
-        showPopup: false,
+        show: false,
     }
 
-    togglePopup = () => this.setState({ showPopup: !this.state.showPopup })
+    componentDidMount() {
+        document.addEventListener('click', this.onDocClick)
+    }
+
+    componentWillMount() {
+        document.removeEventListener('click', this.onDocClick)
+    }
+
+    onDocClick = (evt) => {
+        if (this.elContainer && this.elApps) {
+            const target = { x: evt.clientX, y: evt.clientY }
+            const apps = this.elApps.getBoundingClientRect()
+            const container = this.elContainer.getBoundingClientRect()
+
+            if (!isPointInRect(target, apps) && !isPointInRect(target, container)) {
+                this.setState({ show: false })
+            }
+        }
+    }
+
+    onToggle = () => this.setState({ show: !this.state.show })
 
     render() {
         return (
-            <div className="apps-container">
-                <Icon name="apps" onClick={this.togglePopup} />
-                {this.state.showPopup && (
-                    <div className="contents">
+            <div className="apps-container" ref={c => this.elContainer = c}>
+                <Icon name="apps" onClick={this.onToggle} />
+                {this.state.show && (
+                    <div className="contents" ref={c => this.elApps = c}>
                         <Paper>apps list</Paper>
                     </div>
                 )}
