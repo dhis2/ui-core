@@ -5,7 +5,7 @@ import Paper from '../../core/Paper'
 import Icon from '../../core/Icon'
 
 function isPointInRect({ x, y }, { left, right, top, bottom }) {
-  return x >= left && x <= right && y >= top && y <= bottom
+    return x >= left && x <= right && y >= top && y <= bottom
 }
 
 export default class Apps extends React.Component {
@@ -21,13 +21,16 @@ export default class Apps extends React.Component {
         document.removeEventListener('click', this.onDocClick)
     }
 
-    onDocClick = (evt) => {
+    onDocClick = evt => {
         if (this.elContainer && this.elApps) {
             const target = { x: evt.clientX, y: evt.clientY }
             const apps = this.elApps.getBoundingClientRect()
             const container = this.elContainer.getBoundingClientRect()
 
-            if (!isPointInRect(target, apps) && !isPointInRect(target, container)) {
+            if (
+                !isPointInRect(target, apps) &&
+                !isPointInRect(target, container)
+            ) {
                 this.setState({ show: false })
             }
         }
@@ -37,10 +40,10 @@ export default class Apps extends React.Component {
 
     render() {
         return (
-            <div className="apps-container" ref={c => this.elContainer = c}>
+            <div className="apps-container" ref={c => (this.elContainer = c)}>
                 <Icon name="apps" onClick={this.onToggle} />
                 {this.state.show && (
-                    <div className="contents" ref={c => this.elApps = c}>
+                    <div className="contents" ref={c => (this.elApps = c)}>
                         <Paper>apps list</Paper>
                     </div>
                 )}
