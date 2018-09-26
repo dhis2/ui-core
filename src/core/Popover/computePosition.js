@@ -2,17 +2,10 @@
 
 import { isRtl } from '../../utils'
 
-export const TOP = 'top'
-export const MIDDLE = 'middle'
-export const BOTTOM = 'bottom'
-export const LEFT = 'left'
-export const CENTER = 'center'
-export const RIGHT = 'right'
-
 // Enough to make sure the popop doesn't hide under a scroll-bar
 const EDGE_MARGIN = 18
 
-export default function(
+export default function computePosition(
     targetEl,
     anchorEl,
     anchorAttachPoint,
@@ -34,10 +27,10 @@ export default function(
 function flipHorizontal(attachPoint) {
     let horizontal = attachPoint.horizontal
 
-    if (attachPoint.horizontal === LEFT) {
-        horizontal = RIGHT
-    } else if (attachPoint.horizontal === RIGHT) {
-        horizontal = LEFT
+    if (attachPoint.horizontal === 'left') {
+        horizontal = 'right'
+    } else if (attachPoint.horizontal === 'right') {
+        horizontal = 'left'
     }
 
     return { ...attachPoint, horizontal }
@@ -50,7 +43,7 @@ function getAnchorPosition(el, { horizontal, vertical }) {
         scrollLeft,
         clientTop,
         clientLeft,
-    } = getScrolllAndClientOffset()
+    } = getScrollAndClientOffset()
 
     return {
         left:
@@ -76,11 +69,11 @@ function getHorizontalPosition(horizontal, el, rect, toLeft) {
         return rect.left + horizontal
     } else {
         switch (horizontal) {
-            case LEFT:
+            case 'left':
                 return rect.left
-            case CENTER:
+            case 'center':
                 return rect.left + multiplier * (el.offsetWidth / 2)
-            case RIGHT:
+            case 'right':
             default:
                 return rect.left + multiplier * el.offsetWidth
         }
@@ -93,11 +86,11 @@ function getVerticalPosition(vertical, el, rect, toLeft) {
         return rect.top + vertical
     } else {
         switch (vertical) {
-            case TOP:
+            case 'top':
                 return rect.top
-            case MIDDLE:
+            case 'middle':
                 return rect.top + multiplier * (el.offsetHeight / 2)
-            case BOTTOM:
+            case 'bottom':
             default:
                 return rect.top + multiplier * el.offsetHeight
         }
@@ -110,7 +103,7 @@ function getWindowContainedPosition({ top, left, width, height }) {
         scrollLeft,
         clientTop,
         clientLeft,
-    } = getScrolllAndClientOffset()
+    } = getScrollAndClientOffset()
     const windowTopEdge = scrollTop - clientTop + EDGE_MARGIN
     const windowBottomEdge =
         window.innerHeight + scrollTop - clientTop - EDGE_MARGIN
@@ -140,10 +133,11 @@ function getWindowContainedPosition({ top, left, width, height }) {
     return {
         top: containedTop,
         left: containedLeft,
+        opacity: 1,
     }
 }
 
-function getScrolllAndClientOffset() {
+function getScrollAndClientOffset() {
     const body = document.body
     const docEl = document.documentElement
     return {

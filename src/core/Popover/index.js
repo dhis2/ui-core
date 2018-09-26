@@ -4,71 +4,58 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { bemClassNames } from '../../utils'
-import computePosition, {
-    TOP,
-    CENTER,
-    BOTTOM,
-    LEFT,
-    MIDDLE,
-    RIGHT,
-} from './computePosition'
+import computePosition from './computePosition'
 import './styles.css'
 
 const bem = bemClassNames('popover')
 
 class Popover extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            popupComputedStyle: null,
-        }
-        this.popupRef = null
+    state = {
+        style: null,
     }
 
-    onPopupRendered = ref => {
-        this.popupRef = ref
-        this.positionPopup()
+    elContainer = null
+    onRender = ref => {
+        this.elContainer = ref
+        this.adjustPosition()
     }
 
-    positionPopup() {
+    adjustPosition() {
         const {
             getAnchorRef,
             anchorAttachPoint,
             popoverAttachPoint,
         } = this.props
-        const triggerEl = ReactDOM.findDOMNode(getAnchorRef())
+        const anchorEl = ReactDOM.findDOMNode(getAnchorRef())
 
-        if (triggerEl && this.popupRef) {
+        if (anchorEl && this.elContainer) {
             this.setState({
-                popupComputedStyle: {
-                    ...computePosition(
-                        this.popupRef,
-                        triggerEl,
-                        anchorAttachPoint,
-                        popoverAttachPoint
-                    ),
-                    opacity: 1,
-                },
+                style: computePosition(
+                    this.elContainer,
+                    anchorEl,
+                    anchorAttachPoint,
+                    popoverAttachPoint
+                ),
             })
         }
     }
 
     render() {
-        const { open, children, closePopover, appearAnimation } = this.props
-        const { popupComputedStyle } = this.state
-
-        if (!open) {
+        if (!this.state.open) {
             return null
         }
+
+        const { closePopover, appearAnimation } = this.props
+
         return ReactDOM.createPortal(
             <React.Fragment>
                 <div className={bem.e('overlay')} onClick={closePopover} />
                 <div
+                    ref={this.onRender}
                     className={bem.b(appearAnimation)}
-                    ref={this.onPopupRendered}
-                    style={popupComputedStyle}
+                    style={this.state.style}
                 >
-                    {children}
+                    {this.props.children}
                 </div>
             </React.Fragment>,
             document.body
@@ -76,14 +63,14 @@ class Popover extends Component {
     }
 }
 
-const attachPointPropType = PropTypes.shape({
+const attachPoint = PropTypes.shape({
     vertical: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.oneOf([TOP, MIDDLE, BOTTOM]),
+        PropTypes.oneOf(['top', 'middle', 'bottom']),
     ]).isRequired,
     horizontal: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.oneOf([LEFT, CENTER, RIGHT]),
+        PropTypes.oneOf(['left', 'center', 'right']),
     ]).isRequired,
 })
 
@@ -92,8 +79,8 @@ Popover.propTypes = {
     getAnchorRef: PropTypes.func.isRequired,
     closePopover: PropTypes.func.isRequired,
     children: PropTypes.node,
-    anchorAttachPoint: attachPointPropType,
-    popoverAttachPoint: attachPointPropType,
+    anchorAttachPoint: attachPoint,
+    popoverAttachPoint: attachPoint,
     appearAnimation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
 }
 
