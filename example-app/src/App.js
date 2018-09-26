@@ -63,9 +63,9 @@ class App extends Component {
                 </Paper>
 
                 <LogoDemo />
-                <TypographyDemo /> 
-                <ProgressDemo /> 
-                <InputDemo /> 
+                <TypographyDemo />
+                <ProgressDemo />
+                <InputDemo />
                 <ButtonDemo />
                 <MenuDemo />
             </UI>
