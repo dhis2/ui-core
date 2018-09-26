@@ -6,22 +6,22 @@ import Menu from './Menu'
 import Popover from '../Popover'
 
 function PopoverMenu({
-    anchorAttachPoint,
+    anchorPosition,
     closePopover,
     getAnchorRef,
     menuProps,
     open,
-    popoverAttachPoint,
+    popoverPosition,
     appearAnimation,
 }) {
     return (
         <Popover
-            anchorAttachPoint={anchorAttachPoint}
+            anchorPosition={anchorPosition}
             closePopover={closePopover}
             getAnchorRef={getAnchorRef}
             open={open}
-            popoverAttachPoint={popoverAttachPoint}
-            appearAnimation={appearAnimation}
+            popoverPosition={popoverPosition}
+            animation={appearAnimation}
         >
             <Menu closePopover={closePopover} {...menuProps} />
         </Popover>
@@ -29,19 +29,19 @@ function PopoverMenu({
 }
 
 PopoverMenu.propTypes = {
-    anchorAttachPoint: PropTypes.object,
+    anchorPosition: PropTypes.object,
     closePopover: PropTypes.func.isRequired,
     getAnchorRef: PropTypes.func.isRequired,
     menuProps: PropTypes.object,
     open: PropTypes.bool.isRequired,
-    popoverAttachPoint: PropTypes.object,
-    appearAnimation: PropTypes.string,
+    popoverPosition: PropTypes.object,
+    animation: PropTypes.string,
 }
 
 PopoverMenu.defaultProps = {
     open: PropTypes.bool.isRequired,
-    anchorAttachPoint: { vertical: 'middle', horizontal: 'center' },
-    popoverAttachPoint: { vertical: 'middle', horizontal: 'center' },
+    anchorPosition: { vertical: 'middle', horizontal: 'center' },
+    popoverPosition: { vertical: 'middle', horizontal: 'center' },
 }
 
 export { PopoverMenu }

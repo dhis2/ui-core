@@ -21,20 +21,16 @@ class Popover extends Component {
     }
 
     adjustPosition() {
-        const {
-            getAnchorRef,
-            anchorAttachPoint,
-            popoverAttachPoint,
-        } = this.props
-        const anchorEl = ReactDOM.findDOMNode(getAnchorRef())
+        const { anchorPosition, popoverPosition } = this.props
+        const anchorEl = ReactDOM.findDOMNode(this.props.getAnchorRef())
 
         if (anchorEl && this.elContainer) {
             this.setState({
                 style: computePosition(
                     this.elContainer,
                     anchorEl,
-                    anchorAttachPoint,
-                    popoverAttachPoint
+                    anchorPosition,
+                    popoverPosition
                 ),
             })
         }
@@ -63,14 +59,14 @@ class Popover extends Component {
     }
 }
 
-const attachPoint = PropTypes.shape({
-    vertical: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.oneOf(['top', 'middle', 'bottom']),
-    ]).isRequired,
+const position = PropTypes.shape({
     horizontal: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.oneOf(['left', 'center', 'right']),
+    ]).isRequired,
+    vertical: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.oneOf(['top', 'middle', 'bottom']),
     ]).isRequired,
 })
 
@@ -79,21 +75,21 @@ Popover.propTypes = {
     getAnchorRef: PropTypes.func.isRequired,
     closePopover: PropTypes.func.isRequired,
     children: PropTypes.node,
-    anchorAttachPoint: attachPoint,
-    popoverAttachPoint: attachPoint,
-    appearAnimation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
+    anchorPosition: position,
+    popoverPosition: position,
+    animation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
 }
 
 Popover.defaultProps = {
-    anchorAttachPoint: {
+    anchorPosition: {
         vertical: 'middle',
         horizontal: 'center',
     },
-    popoverAttachPoint: {
+    popoverPosition: {
         vertical: 'middle',
         horizontal: 'center',
     },
-    appearAnimation: 'fade-in',
+    animation: 'fade-in',
 }
 
 export { Popover }

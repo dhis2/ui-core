@@ -8,32 +8,32 @@ const EDGE_MARGIN = 18
 export default function computePosition(
     targetEl,
     anchorEl,
-    anchorAttachPoint,
-    popoverAttachPoint
+    anchorPosition,
+    popoverPosition
 ) {
-    const anchorPosition = getAnchorPosition(
+    const position = getAnchorPosition(
         anchorEl,
-        isRtl() ? flipHorizontal(anchorAttachPoint) : anchorAttachPoint
+        isRtl() ? flipHorizontal(anchorPosition) : anchorPosition
     )
     const relativePosition = getRelativePosition(
         targetEl,
-        anchorPosition,
-        isRtl() ? flipHorizontal(popoverAttachPoint) : popoverAttachPoint
+        position,
+        isRtl() ? flipHorizontal(popoverPosition) : popoverPosition
     )
 
     return getWindowContainedPosition(relativePosition)
 }
 
-function flipHorizontal(attachPoint) {
-    let horizontal = attachPoint.horizontal
+function flipHorizontal(position) {
+    let horizontal = position.horizontal
 
-    if (attachPoint.horizontal === 'left') {
+    if (position.horizontal === 'left') {
         horizontal = 'right'
-    } else if (attachPoint.horizontal === 'right') {
+    } else if (position.horizontal === 'right') {
         horizontal = 'left'
     }
 
-    return { ...attachPoint, horizontal }
+    return { ...position, horizontal }
 }
 
 function getAnchorPosition(el, { horizontal, vertical }) {

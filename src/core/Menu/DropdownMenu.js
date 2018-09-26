@@ -6,12 +6,12 @@ import { Button } from '../Button'
 import PopoverMenu from './PopoverMenu'
 import Icon from '../Icon'
 
-const anchorAttachPoint = {
+const anchorPosition = {
     vertical: 'bottom',
     horizontal: 'right',
 }
 
-const popoverAttachPoint = {
+const popoverPosition = {
     vertical: 'top',
     horizontal: 'right',
 }
@@ -35,9 +35,9 @@ class DropdownMenu extends React.Component {
                     getAnchorRef={this.props.getAnchorRef}
                     open={this.state.open}
                     closePopover={this.closeMenu}
-                    appearAnimation="slide-down"
-                    anchorAttachPoint={anchorAttachPoint}
-                    popoverAttachPoint={popoverAttachPoint}
+                    animation="slide-down"
+                    anchorPosition={anchorPosition}
+                    popoverPosition={popoverPosition}
                 />
             </React.Fragment>
         )
