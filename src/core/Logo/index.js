@@ -31,7 +31,7 @@ Logo.propTypes = {
     color: PropTypes.oneOf(['blue', 'white']),
     reverse: PropTypes.bool,
     width: PropTypes.string,
-    altText: PropTypes.string,
+    alt: PropTypes.string,
 }
 
 Logo.defaultProps = {
