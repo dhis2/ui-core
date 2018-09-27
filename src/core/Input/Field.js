@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames, appendAsteriskIfRequired } from '../../utils'
+import { bemClassNames, getRequiredText } from '../../utils'
 import './field.css'
 import Icon from '../Icon'
 
@@ -77,7 +77,7 @@ const Field = ({
                 />
             )}
             <span className={bem.e('floating-label')}>
-                {appendAsteriskIfRequired(label, required)}
+                {getRequiredText(label, required)}
             </span>
         </label>
     )

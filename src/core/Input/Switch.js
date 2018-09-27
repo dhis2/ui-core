@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ToggleField from './ToggleField'
 import './switch.css'
-import { bemClassNames, appendAsteriskIfRequired } from '../../utils'
+import { bemClassNames, getRequiredText } from '../../utils'
 import FieldWrap from './FieldWrap'
 
 const bem = bemClassNames('switch')
@@ -45,7 +45,7 @@ const Switch = ({
                     </div>
                 </div>
                 <span className={bem.e('label-text', { disabled })}>
-                    {appendAsteriskIfRequired(label, required)}
+                    {getRequiredText(label, required)}
                 </span>
             </ToggleField>
         </FieldWrap>

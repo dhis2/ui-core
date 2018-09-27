@@ -125,7 +125,7 @@ export default class ProgressDemo extends Component {
                 </CircleButton>
                 <DropdownButton
                     buttonProps={{
-                        variant: 'primary',
+                        kind: 'primary',
                         onClick: () => console.log('clicked main btn'),
                     }}
                     menuProps={menuProps}
@@ -138,7 +138,7 @@ export default class ProgressDemo extends Component {
                 <br />
                 <DropdownButton
                     buttonProps={{
-                        variant: 'raised',
+                        kind: 'raised',
                         onClick: () => 'clicked main btn',
                     }}
                     menuProps={{ children: menuItems }}

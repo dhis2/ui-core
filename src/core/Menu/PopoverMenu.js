@@ -5,41 +5,43 @@ import PropTypes from 'prop-types'
 import Menu from './Menu'
 import Popover from '../Popover'
 
-const PopoverMenu = ({
-    anchorAttachPoint,
+function PopoverMenu({
+    anchorPosition,
     closePopover,
     getAnchorRef,
     menuProps,
     open,
-    popoverAttachPoint,
-    appearAnimation,
-}) => (
-    <Popover
-        anchorAttachPoint={anchorAttachPoint}
-        closePopover={closePopover}
-        getAnchorRef={getAnchorRef}
-        open={open}
-        popoverAttachPoint={popoverAttachPoint}
-        appearAnimation={appearAnimation}
-    >
-        <Menu closePopover={closePopover} {...menuProps} />
-    </Popover>
-)
+    popoverPosition,
+    animation,
+}) {
+    return (
+        <Popover
+            anchorPosition={anchorPosition}
+            closePopover={closePopover}
+            getAnchorRef={getAnchorRef}
+            open={open}
+            popoverPosition={popoverPosition}
+            animation={animation}
+        >
+            <Menu closePopover={closePopover} {...menuProps} />
+        </Popover>
+    )
+}
 
 PopoverMenu.propTypes = {
-    anchorAttachPoint: PropTypes.object,
+    anchorPosition: PropTypes.object,
     closePopover: PropTypes.func.isRequired,
     getAnchorRef: PropTypes.func.isRequired,
     menuProps: PropTypes.object,
     open: PropTypes.bool.isRequired,
-    popoverAttachPoint: PropTypes.object,
-    appearAnimation: PropTypes.string,
+    popoverPosition: PropTypes.object,
+    animation: PropTypes.string,
 }
 
 PopoverMenu.defaultProps = {
     open: PropTypes.bool.isRequired,
-    anchorAttachPoint: { vertical: 'middle', horizontal: 'center' },
-    popoverAttachPoint: { vertical: 'middle', horizontal: 'center' },
+    anchorPosition: { vertical: 'middle', horizontal: 'center' },
+    popoverPosition: { vertical: 'middle', horizontal: 'center' },
 }
 
 export { PopoverMenu }

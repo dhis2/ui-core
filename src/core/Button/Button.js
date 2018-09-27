@@ -2,7 +2,6 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import * as VARIANTS from './variants'
 import { wrapTextNodesInSpans, bemClassNames } from '../../utils'
 
 import './styles.css'
@@ -18,10 +17,10 @@ const Button = ({
     size,
     title,
     type,
-    variant,
+    kind,
 }) => (
     <button
-        className={`${bem.b(variant, size)} d2ui-align-icon`}
+        className={`${bem.b(kind, size)} d2ui-align-icon`}
         {...{ disabled, onClick, onDoubleClick, title, type, role }}
     >
         {wrapTextNodesInSpans(children)}
@@ -37,13 +36,13 @@ Button.propTypes = {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     title: PropTypes.string,
     type: PropTypes.oneOf(['submit', 'reset', 'button']),
-    variant: PropTypes.oneOf(Object.keys(VARIANTS).map(key => VARIANTS[key])),
+    kind: PropTypes.oneOf(['flat', 'raised', 'primary', 'outlined', 'circle']),
 }
 
 Button.defaultProps = {
     type: 'button',
     size: 'medium',
-    variant: VARIANTS.RAISED,
+    kind: 'raised',
 }
 
 export { Button }

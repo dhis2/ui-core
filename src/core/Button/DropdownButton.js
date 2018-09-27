@@ -6,13 +6,8 @@ import Button from './Button'
 import { DropdownMenu } from '../Menu'
 
 class DropdownButton extends Component {
-    constructor(props) {
-        super(props)
-        this.anchorRef = null
-    }
-
+    anchorRef = null
     getAnchorRef = () => this.anchorRef
-    setAnchorRef = node => (this.anchorRef = node)
 
     render() {
         const { options, buttonProps, menuProps, children } = this.props
@@ -23,10 +18,13 @@ class DropdownButton extends Component {
         }
 
         return (
-            <div ref={this.setAnchorRef} className="d2ui-dropdown-button">
+            <div
+                ref={c => (this.anchorRef = c)}
+                className="d2ui-dropdown-button"
+            >
                 <Button {...buttonProps}>{children}</Button>
                 <DropdownMenu
-                    buttonVariant={buttonProps.variant}
+                    buttonKind={buttonProps.kind}
                     getAnchorRef={this.getAnchorRef}
                     menuProps={mergedMenuProps}
                 />

@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
-import { bemClassNames, noop } from '../../utils'
+import { bemClassNames } from '../../utils'
 import './tab.css'
 
 const bem = bemClassNames('tab')
@@ -32,7 +32,7 @@ const Tab = ({
 Tab.propTypes = {
     label: PropTypes.string,
     icon: PropTypes.string,
-    onClick: PropTypes.func,
+    onClick: PropTypes.func.isRequired,
     addTabRef: PropTypes.func,
     active: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -44,7 +44,6 @@ Tab.defaultProps = {
     active: false,
     disabled: false,
     stacked: false,
-    onClick: noop,
 }
 
 export { Tab }

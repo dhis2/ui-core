@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames, appendAsteriskIfRequired } from '../../utils'
+import { bemClassNames, getRequiredText } from '../../utils'
 import RadioButton from './RadioButton'
 import FieldWrap from './FieldWrap'
 import './radiobuttongroup.css'
@@ -32,7 +32,7 @@ const RadioButtonGroup = ({
         {...{ valid, warning, disabled, error, dense, block: true, helpText }}
     >
         <p className={bem.e('description', { error, valid, warning })}>
-            {appendAsteriskIfRequired(label, required)}
+            {getRequiredText(label, required)}
         </p>
         <div className={bem.b({ error, warning, valid, stacked: !inline })}>
             {options.map(option => (

@@ -1,76 +1,80 @@
 /** @format */
 
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component, Fragment } from 'react'
+import { findDOMNode, createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../utils'
-import computePosition, {
-    TOP,
-    CENTER,
-    BOTTOM,
-    LEFT,
-    MIDDLE,
-    RIGHT,
-} from './computePosition'
+import { bemClassNames, withAnimatedClose } from '../../utils'
+import computePosition from './computePosition'
 import './styles.css'
 
-const bem = bemClassNames('popover')
+const bem = bemClassNames('d2ui-popover')
 
 class Popover extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            popupComputedStyle: null,
+    state = { positionStyle: null }
+    elContainer = null
+    setElContainer = ref => (this.elContainer = ref)
+
+    componentDidUpdate(prevProps) {
+        if (!prevProps.open && this.props.open) {
+            this.adjustPosition()
         }
-        this.popupRef = null
     }
 
-    onPopupRendered = ref => {
-        this.popupRef = ref
-        this.positionPopup()
-    }
+    adjustPosition() {
+        const { getAnchorRef, anchorPosition, popoverPosition } = this.props
+        const anchorRef = getAnchorRef()
+        // anchorRef can be on an element or a component instance. For components we need to call findDOMNode.
+        const triggerEl = anchorRef.nodeType
+            ? anchorRef
+            : findDOMNode(anchorRef)
 
-    positionPopup() {
-        const {
-            getAnchorRef,
-            anchorAttachPoint,
-            popoverAttachPoint,
-        } = this.props
-        const triggerEl = ReactDOM.findDOMNode(getAnchorRef())
-
-        if (triggerEl && this.popupRef) {
+        if (triggerEl && this.elContainer) {
             this.setState({
-                popupComputedStyle: {
+                positionStyle: {
                     ...computePosition(
-                        this.popupRef,
+                        this.elContainer,
                         triggerEl,
-                        anchorAttachPoint,
-                        popoverAttachPoint
+                        anchorPosition,
+                        popoverPosition
                     ),
-                    opacity: 1,
                 },
             })
         }
     }
 
     render() {
-        const { open, children, closePopover, appearAnimation } = this.props
-        const { popupComputedStyle } = this.state
+        const {
+            open,
+            children,
+            closePopover,
+            animation,
+            isAnimatingOut,
+            onAnimationEnd,
+        } = this.props
+        const { positionStyle } = this.state
 
-        if (!open) {
+        if (!open && !isAnimatingOut) {
             return null
         }
-        return ReactDOM.createPortal(
-            <React.Fragment>
+
+        const animateOutProps = isAnimatingOut
+            ? { onAnimationEnd: onAnimationEnd }
+            : null
+
+        return createPortal(
+            <Fragment>
                 <div className={bem.e('overlay')} onClick={closePopover} />
                 <div
-                    className={bem.b(appearAnimation)}
-                    ref={this.onPopupRendered}
-                    style={popupComputedStyle}
+                    className={bem.b(animation, {
+                        'animate-out': isAnimatingOut,
+                    })}
+                    ref={this.setElContainer}
+                    style={positionStyle}
+                    {...animateOutProps}
                 >
                     {children}
                 </div>
-            </React.Fragment>,
+            </Fragment>,
             document.body
         )
     }
@@ -79,11 +83,11 @@ class Popover extends Component {
 const attachPointPropType = PropTypes.shape({
     vertical: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.oneOf([TOP, MIDDLE, BOTTOM]),
+        PropTypes.oneOf(['top', 'middle', 'bottom']),
     ]).isRequired,
     horizontal: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.oneOf([LEFT, CENTER, RIGHT]),
+        PropTypes.oneOf(['left', 'center', 'right']),
     ]).isRequired,
 })
 
@@ -92,22 +96,26 @@ Popover.propTypes = {
     getAnchorRef: PropTypes.func.isRequired,
     closePopover: PropTypes.func.isRequired,
     children: PropTypes.node,
-    anchorAttachPoint: attachPointPropType,
-    popoverAttachPoint: attachPointPropType,
-    appearAnimation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
+    anchorPosition: attachPointPropType,
+    popoverPosition: attachPointPropType,
+    animation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
+    isAnimatingOut: PropTypes.bool.isRequired,
+    onAnimationEnd: PropTypes.func.isRequired,
 }
 
 Popover.defaultProps = {
-    anchorAttachPoint: {
+    anchorPosition: {
         vertical: 'middle',
         horizontal: 'center',
     },
-    popoverAttachPoint: {
+    popoverPosition: {
         vertical: 'middle',
         horizontal: 'center',
     },
-    appearAnimation: 'fade-in',
+    animation: 'fade-in',
 }
 
-export { Popover }
-export default Popover
+const EnhancedPopover = withAnimatedClose(Popover)
+
+export { EnhancedPopover as Popover }
+export default withAnimatedClose(EnhancedPopover)

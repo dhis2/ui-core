@@ -21,7 +21,7 @@
     transition-property: background-color, box-shadow, border-color, color;
     vertical-align: middle;
 
-    /* To make sure event.target of the click handler is always the button, 
+    /* To make sure event.target of the click handler is always the button,
        span and icon get pointer-events: none */
     span {
         pointer-events: none;
@@ -39,7 +39,7 @@
         outline: none;
     }
 
-    /* VARIANTS */
+    /* KIND */
     &--outlined,
     &--circle {
         border-width: 2px;

@@ -2,21 +2,22 @@
 
 import React, { Component } from 'react'
 
+import InputDemo from './InputDemo'
+import ProgressDemo from './ProgressDemo'
+import LogoDemo from './LogoDemo'
+import ButtonDemo from './ButtonDemo'
+import MenuDemo from './MenuDemo'
+import TypographyDemo from './TypographyDemo'
+import DialogDemo from './DialogDemo'
 import UI from 'ui/core/UI'
 
 import HeaderBarDemo from './HeaderBarDemo.js'
-import InputDemo from './InputDemo.js'
-import ProgressDemo from './ProgressDemo.js'
-import LogoDemo from './LogoDemo.js'
-import ButtonDemo from './ButtonDemo.js'
-import MenuDemo from './MenuDemo.js'
-import TypographyDemo from './TypographyDemo.js'
 
 import Switch from 'ui/core/Input/Switch'
 
 import Paper from 'ui/core/Paper'
 
-import { isRtl, setTextDirection } from 'ui/utils'
+import { isRTL, setTextDirection } from 'ui/utils'
 
 import './styles.css'
 
@@ -30,13 +31,13 @@ class App extends Component {
             inputText2: '',
             inputText3: '',
             inputText4: '',
-            rtl: isRtl(),
+            rtl: isRTL(),
             selectValue: null,
         }
     }
 
-    toggleRtl = () => {
-        if (isRtl()) {
+    toggleRTL = () => {
+        if (isRTL()) {
             setTextDirection({ keyUiLocale: 'en_US' })
             this.setState({
                 rtl: false,
@@ -57,11 +58,11 @@ class App extends Component {
                     <Switch
                         label="RTL: Off/On"
                         checked={this.state.rtl}
-                        onChange={this.toggleRtl}
+                        onChange={this.toggleRTL}
                         helpText="Toggle text direction"
                     />
                 </Paper>
-
+                <DialogDemo />
                 <LogoDemo />
                 <TypographyDemo />
                 <ProgressDemo />
