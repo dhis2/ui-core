@@ -37,7 +37,7 @@ const Field = ({
     valid,
     warning,
     disabled,
-    inputComponent,
+    children,
     multiline,
     block,
     required,
@@ -65,7 +65,7 @@ const Field = ({
 
     return (
         <label className={wrapperClassName}>
-            {inputComponent}
+            {children}
             <span className={bem.e(focusIndicator)} />
             {leadingIcon && (
                 <Icon name={leadingIcon} className={bem.e('icon', 'leading')} />
@@ -85,7 +85,7 @@ const Field = ({
 
 Field.propTypes = {
     label: PropTypes.string.isRequired,
-    inputComponent: PropTypes.element.isRequired,
+    children: PropTypes.element.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     dense: PropTypes.bool,
     variant: PropTypes.oneOf([FILLED, OUTLINED, MINIMAL]),

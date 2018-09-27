@@ -158,11 +158,12 @@ class SelectField extends Component {
                             valid,
                             warning,
                             disabled,
-                            inputComponent,
                             block,
                             required,
                         }}
-                    />
+                    >
+                        {inputComponent}
+                    </Field>
                 </FieldWrap>
                 {!native && (
                     <PopoverMenu
