@@ -16,7 +16,7 @@ import Switch from 'ui/core/Input/Switch'
 
 import Paper from 'ui/core/Paper'
 
-import { isRtl, setTextDirection } from 'ui/utils'
+import { isRTL, setTextDirection } from 'ui/utils'
 
 import './styles.css'
 
@@ -30,13 +30,13 @@ class App extends Component {
             inputText2: '',
             inputText3: '',
             inputText4: '',
-            rtl: isRtl(),
+            rtl: isRTL(),
             selectValue: null,
         }
     }
 
-    toggleRtl = () => {
-        if (isRtl()) {
+    toggleRTL = () => {
+        if (isRTL()) {
             setTextDirection({ keyUiLocale: 'en_US' })
             this.setState({
                 rtl: false,
@@ -57,7 +57,7 @@ class App extends Component {
                     <Switch
                         label="RTL: Off/On"
                         checked={this.state.rtl}
-                        onChange={this.toggleRtl}
+                        onChange={this.toggleRTL}
                         helpText="Toggle text direction"
                     />
                 </Paper>

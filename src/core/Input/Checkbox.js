@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './checkbox.css'
-import { bemClassNames, appendAsteriskIfRequired } from '../../utils'
+import { bemClassNames, getRequiredText } from '../../utils'
 import ToggleField from './ToggleField'
 import FieldWrap from './FieldWrap'
 
@@ -44,7 +44,7 @@ const Checkbox = ({
                 </div>
             </div>
             <span className={bem.e('label-text', { disabled })}>
-                {appendAsteriskIfRequired(label, required)}
+                {getRequiredText(label, required)}
             </span>
         </ToggleField>
     </FieldWrap>

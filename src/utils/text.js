@@ -1,5 +1,5 @@
 /** @format */
 
-export default function(text, required) {
+export function getRequiredText(text, required) {
     return required ? `${text} *` : text
 }

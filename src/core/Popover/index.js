@@ -4,71 +4,55 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { bemClassNames } from '../../utils'
-import computePosition, {
-    TOP,
-    CENTER,
-    BOTTOM,
-    LEFT,
-    MIDDLE,
-    RIGHT,
-} from './computePosition'
+import computePosition from './computePosition'
 import './styles.css'
 
 const bem = bemClassNames('popover')
 
 class Popover extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            popupComputedStyle: null,
-        }
-        this.popupRef = null
+    state = {
+        style: null,
     }
 
-    onPopupRendered = ref => {
-        this.popupRef = ref
-        this.positionPopup()
+    elContainer = null
+    onRender = ref => {
+        this.elContainer = ref
+        this.adjustPosition()
     }
 
-    positionPopup() {
-        const {
-            getAnchorRef,
-            anchorAttachPoint,
-            popoverAttachPoint,
-        } = this.props
-        const triggerEl = ReactDOM.findDOMNode(getAnchorRef())
+    adjustPosition() {
+        const { anchorPosition, popoverPosition } = this.props
+        const anchorEl = ReactDOM.findDOMNode(this.props.getAnchorRef())
 
-        if (triggerEl && this.popupRef) {
+        if (anchorEl && this.elContainer) {
             this.setState({
-                popupComputedStyle: {
-                    ...computePosition(
-                        this.popupRef,
-                        triggerEl,
-                        anchorAttachPoint,
-                        popoverAttachPoint
-                    ),
-                    opacity: 1,
-                },
+                style: computePosition(
+                    this.elContainer,
+                    anchorEl,
+                    anchorPosition,
+                    popoverPosition
+                ),
             })
         }
     }
 
     render() {
-        const { open, children, closePopover, appearAnimation } = this.props
-        const { popupComputedStyle } = this.state
-
-        if (!open) {
+        if (!this.props.open) {
             return null
         }
+
         return ReactDOM.createPortal(
             <React.Fragment>
-                <div className={bem.e('overlay')} onClick={closePopover} />
                 <div
-                    className={bem.b(appearAnimation)}
-                    ref={this.onPopupRendered}
-                    style={popupComputedStyle}
+                    className={bem.e('overlay')}
+                    onClick={this.props.closePopover}
+                />
+                <div
+                    ref={this.onRender}
+                    className={bem.b(this.props.animation)}
+                    style={this.state.style}
                 >
-                    {children}
+                    {this.props.children}
                 </div>
             </React.Fragment>,
             document.body
@@ -76,14 +60,14 @@ class Popover extends Component {
     }
 }
 
-const attachPointPropType = PropTypes.shape({
-    vertical: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.oneOf([TOP, MIDDLE, BOTTOM]),
-    ]).isRequired,
+const position = PropTypes.shape({
     horizontal: PropTypes.oneOfType([
         PropTypes.number,
-        PropTypes.oneOf([LEFT, CENTER, RIGHT]),
+        PropTypes.oneOf(['left', 'center', 'right']),
+    ]).isRequired,
+    vertical: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.oneOf(['top', 'middle', 'bottom']),
     ]).isRequired,
 })
 
@@ -92,21 +76,21 @@ Popover.propTypes = {
     getAnchorRef: PropTypes.func.isRequired,
     closePopover: PropTypes.func.isRequired,
     children: PropTypes.node,
-    anchorAttachPoint: attachPointPropType,
-    popoverAttachPoint: attachPointPropType,
-    appearAnimation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
+    anchorPosition: position,
+    popoverPosition: position,
+    animation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
 }
 
 Popover.defaultProps = {
-    anchorAttachPoint: {
+    anchorPosition: {
         vertical: 'middle',
         horizontal: 'center',
     },
-    popoverAttachPoint: {
+    popoverPosition: {
         vertical: 'middle',
         horizontal: 'center',
     },
-    appearAnimation: 'fade-in',
+    animation: 'fade-in',
 }
 
 export { Popover }

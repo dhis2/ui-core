@@ -1,46 +1,39 @@
 /** @format */
 
-import { isRtl } from '../../utils'
-
-export const TOP = 'top'
-export const MIDDLE = 'middle'
-export const BOTTOM = 'bottom'
-export const LEFT = 'left'
-export const CENTER = 'center'
-export const RIGHT = 'right'
+import { isRTL } from '../../utils'
 
 // Enough to make sure the popop doesn't hide under a scroll-bar
 const EDGE_MARGIN = 18
 
-export default function(
+export default function computePosition(
     targetEl,
     anchorEl,
-    anchorAttachPoint,
-    popoverAttachPoint
+    anchorPosition,
+    popoverPosition
 ) {
-    const anchorPosition = getAnchorPosition(
+    const position = getAnchorPosition(
         anchorEl,
-        isRtl() ? flipHorizontal(anchorAttachPoint) : anchorAttachPoint
+        isRTL() ? flipHorizontal(anchorPosition) : anchorPosition
     )
     const relativePosition = getRelativePosition(
         targetEl,
-        anchorPosition,
-        isRtl() ? flipHorizontal(popoverAttachPoint) : popoverAttachPoint
+        position,
+        isRTL() ? flipHorizontal(popoverPosition) : popoverPosition
     )
 
     return getWindowContainedPosition(relativePosition)
 }
 
-function flipHorizontal(attachPoint) {
-    let horizontal = attachPoint.horizontal
+function flipHorizontal(position) {
+    let horizontal = position.horizontal
 
-    if (attachPoint.horizontal === LEFT) {
-        horizontal = RIGHT
-    } else if (attachPoint.horizontal === RIGHT) {
-        horizontal = LEFT
+    if (position.horizontal === 'left') {
+        horizontal = 'right'
+    } else if (position.horizontal === 'right') {
+        horizontal = 'left'
     }
 
-    return { ...attachPoint, horizontal }
+    return { ...position, horizontal }
 }
 
 function getAnchorPosition(el, { horizontal, vertical }) {
@@ -50,7 +43,7 @@ function getAnchorPosition(el, { horizontal, vertical }) {
         scrollLeft,
         clientTop,
         clientLeft,
-    } = getScrolllAndClientOffset()
+    } = getScrollAndClientOffset()
 
     return {
         left:
@@ -70,38 +63,32 @@ function getRelativePosition(el, anchor, { horizontal, vertical }) {
     }
 }
 
-function getHorizontalPosition(horizontal, el, rect, toLeft) {
+function getHorizontalPosition(horizontal, el, rect, toLeft = false) {
     const multiplier = toLeft ? -1 : 1
+
     if (typeof horizontal === 'number') {
         return rect.left + horizontal
-    } else {
-        switch (horizontal) {
-            case LEFT:
-                return rect.left
-            case CENTER:
-                return rect.left + multiplier * (el.offsetWidth / 2)
-            case RIGHT:
-            default:
-                return rect.left + multiplier * el.offsetWidth
-        }
+    } else if (horizontal === 'left') {
+        return rect.left
+    } else if (horizontal === 'center') {
+        return rect.left + multiplier * (el.offsetWidth / 2)
     }
+
+    return rect.left + multiplier * el.offsetWidth
 }
 
-function getVerticalPosition(vertical, el, rect, toLeft) {
+function getVerticalPosition(vertical, el, rect, toLeft = false) {
     const multiplier = toLeft ? -1 : 1
+
     if (typeof vertical === 'number') {
         return rect.top + vertical
-    } else {
-        switch (vertical) {
-            case TOP:
-                return rect.top
-            case MIDDLE:
-                return rect.top + multiplier * (el.offsetHeight / 2)
-            case BOTTOM:
-            default:
-                return rect.top + multiplier * el.offsetHeight
-        }
+    } else if (vertical === 'top') {
+        return rect.top
+    } else if (vertical === 'middle') {
+        return rect.top + multiplier * (el.offsetHeight / 2)
     }
+
+    return rect.top + multiplier * el.offsetHeight
 }
 
 function getWindowContainedPosition({ top, left, width, height }) {
@@ -110,7 +97,7 @@ function getWindowContainedPosition({ top, left, width, height }) {
         scrollLeft,
         clientTop,
         clientLeft,
-    } = getScrolllAndClientOffset()
+    } = getScrollAndClientOffset()
     const windowTopEdge = scrollTop - clientTop + EDGE_MARGIN
     const windowBottomEdge =
         window.innerHeight + scrollTop - clientTop - EDGE_MARGIN
@@ -140,10 +127,11 @@ function getWindowContainedPosition({ top, left, width, height }) {
     return {
         top: containedTop,
         left: containedLeft,
+        opacity: 1,
     }
 }
 
-function getScrolllAndClientOffset() {
+function getScrollAndClientOffset() {
     const body = document.body
     const docEl = document.documentElement
     return {

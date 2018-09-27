@@ -31,7 +31,7 @@ export default class ProgressDemo extends Component {
                 </Tooltip>
                 {/* IF YOU WANT MORE PROPS ON YOUR TOOLTIP JUST WRAP THE BUTTON */}
                 <Tooltip
-                    text="I am wrapping the button explicitely"
+                    text="I am wrapping the button explicitly"
                     position="right"
                     multiline
                 >

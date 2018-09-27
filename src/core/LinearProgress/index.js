@@ -7,23 +7,19 @@ import './styles.css'
 
 const bem = bemClassNames('linear-progress')
 
-function LinearProgress({ progress, padded }) {
-    const progressClass =
-        typeof progress === 'undefined' ? 'indeterminate' : 'determinate'
-    const progressStyle = progress ? { width: `${progress}%` } : null
+function LinearProgress({ amount, padded }) {
+    const type = typeof amount === 'undefined' ? 'indeterminate' : 'determinate'
+    const style = amount ? { width: `${amount}%` } : null
 
     return (
-        <div className={bem.b({ padded: padded })}>
-            <div
-                className={bem.e('progress', progressClass)}
-                style={progressStyle}
-            />
+        <div className={bem.b({ padded })}>
+            <div style={style} className={bem.e('progress', type)} />
         </div>
     )
 }
 
 LinearProgress.propTypes = {
-    progress: PropTypes.number,
+    amount: PropTypes.number,
     padded: PropTypes.bool,
 }
 

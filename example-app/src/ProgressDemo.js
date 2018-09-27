@@ -16,7 +16,7 @@ export default class ProgressDemo extends Component {
                 <CircularProgress size="small" />
                 <CircularProgress />
                 <CircularProgress size="large" />
-                <LinearProgress padded progress={90} />
+                <LinearProgress padded amount={90} />
                 <LinearProgress padded />
                 <div
                     className="accent-primary-lightest-background"

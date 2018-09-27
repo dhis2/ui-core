@@ -9,6 +9,9 @@
     color: #1976d2;
     line-height: 1;
     margin: 1rem;
+    stroke: currentColor;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 80px, 200px;
     animation: d2ui-circular-progress-rotate 1.4s linear infinite;
 
     &--small {
@@ -26,11 +29,8 @@
         height: 5rem;
     }
 
-    &__circle {
-        stroke: currentColor;
+    &__dashed {
         animation: d2ui-circular-progress-dash 1.4s ease-in-out infinite;
-        stroke-dasharray: 80px, 200px;
-        stroke-dashoffset: 0px;
     }
 
     &__overlay {
@@ -56,7 +56,7 @@
 @keyframes d2ui-circular-progress-dash {
     0% {
         stroke-dasharray: 1px, 200px;
-        stroke-dashoffset: 0px;
+        stroke-dashoffset: 0;
     }
     50% {
         stroke-dasharray: 100px, 200px;

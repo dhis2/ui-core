@@ -1,6 +1,6 @@
 /** @format */
 
-import easings from './easings'
+import { easeInOutQuad } from './css'
 
 const HORIZONTAL = 'horizontal'
 const VERTICAL = 'vertical'
@@ -15,7 +15,7 @@ const START = 'start'
  * duration: is a number which describes the animation's duration in ms
  * callback: is an optional function to execute when the scroll animation is done
  */
-export default function animatedScrollTo({
+export function animations({
     to,
     scrollBox = window,
     direction = 'vertical',
@@ -43,12 +43,7 @@ export default function animatedScrollTo({
         }
 
         elapsedTime = timestamp - startTimestamp
-        scrollValue = easings.easeInOutQuad(
-            elapsedTime,
-            startValue,
-            change,
-            duration
-        )
+        scrollValue = easeInOutQuad(elapsedTime, startValue, change, duration)
 
         if (elapsedTime >= duration) {
             if (scrollValue !== endValue) {

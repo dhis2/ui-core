@@ -1,51 +1,43 @@
 /** @format */
 
+import React from 'react'
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
 import { Button } from '../Button'
-import { PRIMARY, RAISED } from '../Button/variants'
 import PopoverMenu from './PopoverMenu'
 import Icon from '../Icon'
 
-class DropdownMenu extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            popoverOpen: false,
-        }
+const anchorPosition = {
+    vertical: 'bottom',
+    horizontal: 'right',
+}
+
+const popoverPosition = {
+    vertical: 'top',
+    horizontal: 'right',
+}
+
+class DropdownMenu extends React.Component {
+    state = {
+        open: false,
     }
 
-    openPopover = () => {
-        this.setState({ popoverOpen: true })
-    }
-
-    closePopover = () => {
-        this.setState({ popoverOpen: false })
-    }
+    openMenu = () => this.setState({ open: true })
+    closeMenu = () => this.setState({ open: false })
 
     render() {
-        const { buttonVariant, getAnchorRef, menuProps } = this.props
-        const { popoverOpen } = this.state
-
         return (
             <React.Fragment>
-                <Button variant={buttonVariant} onClick={this.openPopover}>
+                <Button kind={this.props.buttonKind} onClick={this.openMenu}>
                     <Icon name="keyboard_arrow_down" />
                 </Button>
                 <PopoverMenu
-                    menuProps={menuProps}
-                    getAnchorRef={getAnchorRef}
-                    open={popoverOpen}
-                    closePopover={this.closePopover}
-                    anchorAttachPoint={{
-                        vertical: 'bottom',
-                        horizontal: 'right',
-                    }}
-                    popoverAttachPoint={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                    }}
-                    appearAnimation="slide-down"
+                    menuProps={this.props.menuProps}
+                    getAnchorRef={this.props.getAnchorRef}
+                    open={this.state.open}
+                    closePopover={this.closeMenu}
+                    animation="slide-down"
+                    anchorPosition={anchorPosition}
+                    popoverPosition={popoverPosition}
                 />
             </React.Fragment>
         )
@@ -53,7 +45,7 @@ class DropdownMenu extends Component {
 }
 
 DropdownMenu.propTypes = {
-    buttonVariant: PropTypes.oneOf([PRIMARY, RAISED]).isRequired,
+    buttonKind: PropTypes.oneOf(['primary', 'raised']).isRequired,
     getAnchorRef: PropTypes.func.isRequired,
     menuProps: PropTypes.object.isRequired,
 }

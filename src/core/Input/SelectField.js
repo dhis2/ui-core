@@ -15,26 +15,18 @@ const inputClassName = `${bem.e('input')} ${fieldBem.e('input')}`
 const EMPTY_NATIVE_OPTION_VALUE = '#^NONE^#'
 
 class SelectField extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            dropdownOpen: false,
-        }
-        this.inputRef = null
-        this.isEmptyOptionSelected = false
+    state = {
+        open: false,
     }
 
-    openDropdown = () => {
-        this.setState({ dropdownOpen: true })
-    }
+    inputRef = null
+    isEmptyOptionSelected = false
 
-    closeDropdown = () => {
-        this.setState({ dropdownOpen: false })
+    onOpen = () => this.setState({ open: true })
+
+    onClose = () => {
+        this.setState({ open: false })
         this.inputRef.focus()
-    }
-
-    setInputRef = node => {
-        this.inputRef = node
     }
 
     getInputRef = () => {
@@ -42,7 +34,7 @@ class SelectField extends Component {
     }
 
     selectHandler = (event, value) => {
-        this.closeDropdown()
+        this.onClose()
         this.changeHandler(value)
     }
 
@@ -53,10 +45,9 @@ class SelectField extends Component {
     }
 
     changeHandler(value) {
-        const { emptyOption, onChange } = this.props
         this.isEmptyOptionSelected =
-            emptyOption && value === null ? true : false
-        onChange(value)
+            this.props.emptyOption && value === null ? true : false
+        this.props.onChange(value)
     }
 
     getOptions() {
@@ -78,11 +69,11 @@ class SelectField extends Component {
             <input
                 className={inputClassName}
                 value={displayValue}
-                onClick={this.openDropdown}
+                onClick={this.onOpen}
                 // input type "button" is focusable, which ensures the correct :focus styles are applied
                 // input type "button" does not show a caret when focussed
                 type="button"
-                ref={this.setInputRef}
+                ref={c => (this.inputRef = c)}
             />
         )
     }
@@ -92,7 +83,7 @@ class SelectField extends Component {
         const value = this.props.value || EMPTY_NATIVE_OPTION_VALUE
         return (
             <select
-                ref={this.setInputRef}
+                ref={c => (this.inputRef = c)}
                 className={inputClassName}
                 onChange={this.nativeSelectHandler}
                 value={value}
@@ -107,17 +98,17 @@ class SelectField extends Component {
     }
 
     getLabelOfValue() {
-        const { options, value, emptyOption } = this.props
-        const selectedOption = options.find(option => option.value === value)
-        // If some valid option is selected always display this
-        if (selectedOption && selectedOption.label) {
-            return selectedOption.label
+        const option = this.props.options.find(
+            o => o.value === this.props.value
+        )
+        if (option && option.label) {
+            return option.label
         }
-        // If the user selected the "None" option, display it
+
         if (this.isEmptyOptionSelected) {
-            return emptyOption
+            return this.props.emptyOption
         }
-        // Otherwise return an empty value so the floating label text shows
+
         return ''
     }
 
@@ -180,17 +171,17 @@ class SelectField extends Component {
                             selectHandler: this.selectHandler,
                         }}
                         getAnchorRef={this.getInputRef}
-                        open={this.state.dropdownOpen}
-                        closePopover={this.closeDropdown}
-                        anchorAttachPoint={{
+                        open={this.state.open}
+                        closePopover={this.onClose}
+                        anchorPosition={{
                             vertical: 'top',
                             horizontal: 'center',
                         }}
-                        popoverAttachPoint={{
+                        popoverPosition={{
                             vertical: 'top',
                             horizontal: 'center',
                         }}
-                        appearAnimation="slide-down"
+                        animation="slide-down"
                     />
                 )}
             </Fragment>

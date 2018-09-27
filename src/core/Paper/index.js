@@ -7,25 +7,33 @@ import './styles.css'
 
 const bem = bemClassNames('paper')
 
-const Paper = ({ elevation, children, padded }) => (
-    <div
-        className={bem.b(`elevation-${elevation}dp`, {
-            padded: padded,
-        })}
-    >
-        {children}
-    </div>
-)
+function Paper({ elevation, children, width, height, padding }) {
+    const style = {
+        width,
+        height,
+        padding,
+    }
+
+    return (
+        <div className={bem.b(`elevation-${elevation}`)} style={style}>
+            {children}
+        </div>
+    )
+}
 
 Paper.propTypes = {
     elevation: PropTypes.oneOf([0, 1, 2, 3, 4, 6, 12, 24]),
-    padded: PropTypes.bool,
+    padding: PropTypes.string,
+    width: PropTypes.string,
+    height: PropTypes.string,
     children: PropTypes.node,
 }
 
 Paper.defaultProps = {
     elevation: 1,
-    padded: false,
+    padding: '0',
+    width: 'auto',
+    height: 'auto',
 }
 
 export { Paper }
