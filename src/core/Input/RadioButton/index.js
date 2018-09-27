@@ -2,10 +2,12 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import './radiobutton.css'
-import { bemClassNames, getRequiredText } from '../../utils'
-import ToggleField from './ToggleField'
-import FieldWrap from './FieldWrap'
+
+import { bemClassNames, getRequiredText } from '../../../utils'
+import ToggleField from '../ToggleField'
+import Field from '../shared/Field'
+
+import './styles.css'
 
 const bem = bemClassNames('radio-button')
 
@@ -24,7 +26,7 @@ const RadioButton = ({
     helpText,
     required,
 }) => (
-    <FieldWrap {...{ valid, warning, disabled, error, dense, block, helpText }}>
+    <Field {...{ valid, warning, disabled, error, dense, block, helpText }}>
         <ToggleField disabled={disabled} dense={dense}>
             <div className={bem.b({ disabled })}>
                 <input
@@ -45,7 +47,7 @@ const RadioButton = ({
                 {getRequiredText(label, required)}
             </span>
         </ToggleField>
-    </FieldWrap>
+    </Field>
 )
 
 RadioButton.propTypes = {

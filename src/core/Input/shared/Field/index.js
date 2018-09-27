@@ -2,12 +2,13 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../utils'
-import './fieldwrap.css'
+import { bemClassNames } from '../../../../utils'
+
+import './styles.css'
 
 const bem = bemClassNames('field-wrap')
 
-const FieldWrap = ({
+function Field ({
     children,
     valid,
     warning,
@@ -17,7 +18,7 @@ const FieldWrap = ({
     block,
     helpText,
     className,
-}) => {
+}) {
     let computedClassName = bem.b({
         valid,
         warning,
@@ -39,8 +40,8 @@ const FieldWrap = ({
     )
 }
 
-FieldWrap.propTypes = {
-    // Because the FieldWrap is the root component for a number of inputs
+Field.propTypes = {
+    // Because the Field is the root component for a number of inputs
     // it is convenient to be able to add a custom className
     className: PropTypes.string,
     children: PropTypes.node.isRequired,
@@ -53,5 +54,5 @@ FieldWrap.propTypes = {
     helpText: PropTypes.string,
 }
 
-export { FieldWrap }
-export default FieldWrap
+export { Field }
+export default Field

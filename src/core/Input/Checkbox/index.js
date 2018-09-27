@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import './styles.css'
 import { bemClassNames, getRequiredText } from '../../../utils'
 import ToggleField from '../ToggleField'
-import FieldWrap from '../FieldWrap'
+import Field from '../shared/Field'
 
 const bem = bemClassNames('checkbox')
 
@@ -22,7 +22,7 @@ const Checkbox = ({
     helpText,
     required,
 }) => (
-    <FieldWrap {...{ valid, warning, disabled, error, dense, block, helpText }}>
+    <Field {...{ valid, warning, disabled, error, dense, block, helpText }}>
         <ToggleField disabled={disabled} dense={dense}>
             <div className={bem.b({ disabled })}>
                 <input
@@ -47,7 +47,7 @@ const Checkbox = ({
                 {getRequiredText(label, required)}
             </span>
         </ToggleField>
-    </FieldWrap>
+    </Field>
 )
 
 Checkbox.propTypes = {

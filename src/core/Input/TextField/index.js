@@ -2,8 +2,8 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import FieldWrap from './FieldWrap'
-import Field, { bem as fieldBem } from './Field'
+import Field from '../shared/Field'
+import IconField, { bem as iconFieldBem } from '../shared/IconField'
 
 function TextField ({
     variant,
@@ -26,7 +26,7 @@ function TextField ({
     const InputTag = multiline ? 'textarea' : 'input'
     const inputComponent = (
         <InputTag
-            className={fieldBem.e('input')}
+            className={iconFieldBem.e('input')}
             value={value}
             onChange={onChange}
             type={type}
@@ -35,7 +35,7 @@ function TextField ({
     )
 
     return (
-        <FieldWrap
+        <Field
             {...{
                 valid,
                 warning,
@@ -46,7 +46,7 @@ function TextField ({
                 helpText,
             }}
         >
-            <Field
+            <IconField
                 {...{
                     variant,
                     dense,
@@ -64,8 +64,8 @@ function TextField ({
                 }}
             >
                 {inputComponent}
-            </Field>
-        </FieldWrap>
+            </IconField>
+        </Field>
     )
 }
 

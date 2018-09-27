@@ -2,10 +2,10 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import ToggleField from './ToggleField'
-import './switch.css'
-import { bemClassNames, getRequiredText } from '../../utils'
-import FieldWrap from './FieldWrap'
+import ToggleField from '../ToggleField'
+import './styles.css'
+import { bemClassNames, getRequiredText } from '../../../utils'
+import Field from '../shared/Field'
 
 const bem = bemClassNames('switch')
 
@@ -23,7 +23,7 @@ const Switch = ({
     required,
 }) => {
     return (
-        <FieldWrap
+        <Field
             {...{ valid, warning, disabled, error, dense, block, helpText }}
         >
             <ToggleField disabled={disabled} dense={dense}>
@@ -48,7 +48,7 @@ const Switch = ({
                     {getRequiredText(label, required)}
                 </span>
             </ToggleField>
-        </FieldWrap>
+        </Field>
     )
 }
 
