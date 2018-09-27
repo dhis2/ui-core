@@ -23,7 +23,7 @@ Paper.propTypes = {
 
 Paper.defaultProps = {
     elevation: 1,
-	className: 'padded',
+	className: 'd2ui-paper-defaults',
 }
 
 export { Paper }
