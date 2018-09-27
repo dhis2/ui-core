@@ -1,0 +1,18 @@
+/**
+ * /*
+ * Don't convert colours and reset CSS rules to [dir] rules as it breaks
+ * the CSS rule scopes, requiring `dir` to be added to the <html> and
+ * <body> tags. We don't want to reach out from our scope to do that.
+ *
+ * @format
+ */
+
+/* rtl:begin:ignore */
+@import 'reset.css';
+@import 'typography.css';
+@import 'responsive-image.css';
+
+/* import our themes, can be set using the <UI> component */
+@import 'theme-default.css';
+@import 'theme-green.css';
+/* rtl:end:ignore */

@@ -1,6 +1,8 @@
+/** @format */
+
 import React, { Component } from 'react'
 
-import Paper from 'ui/Paper';
+import Paper from 'ui/core/Paper'
 
 import {
     FlatButton,
@@ -9,18 +11,18 @@ import {
     PrimaryButton,
     OutlinedButton,
     DropdownButton,
-} from 'ui/Button'
+} from 'ui/core/Button'
 
-import Icon from 'ui/Icon';
-import { MenuItem } from 'ui/Menu';
+import Icon from 'ui/core/Icon'
+import { MenuItem } from 'ui/core/Menu'
 
 const menuItemSelectTest = (event, value, option) => {
-    console.log('Menu item click', event.target, value, option);
-};
+    console.log('Menu item click', event.target, value, option)
+}
 
 const menuProps = {
     selectHandler: menuItemSelectTest,
-};
+}
 
 const dropdownOptions = [
     {
@@ -46,7 +48,7 @@ const dropdownOptions = [
     },
     { value: 4, label: 'Four', icon: 'alarm' },
     { value: 5, label: 'Five', icon: 'alarm' },
-];
+]
 
 const subSubMenuItems = [
     <MenuItem key="jajaja" value={1}>
@@ -58,7 +60,7 @@ const subSubMenuItems = [
     <MenuItem key="misschien" value={3}>
         Sub item 3
     </MenuItem>,
-];
+]
 
 const subMenuItems = [
     <MenuItem key="jajaja" value={1}>
@@ -70,7 +72,7 @@ const subMenuItems = [
     <MenuItem key="misschien" value={3}>
         Sub item 3
     </MenuItem>,
-];
+]
 
 const menuItems = [
     <MenuItem key="jajaja" value={1} menuItems={subMenuItems}>
@@ -82,14 +84,14 @@ const menuItems = [
     <MenuItem key="misschien" value={3}>
         Main item 3
     </MenuItem>,
-];
+]
 
 export default class ProgressDemo extends Component {
     render() {
         return (
             <Paper elevation={6} padded>
                 <h3>Button components</h3>
-                <hr/>
+                <hr />
                 <PrimaryButton>Primary</PrimaryButton>
                 <FlatButton
                     onClick={e => console.log('Clicked button nr 1', e.target)}
@@ -123,7 +125,7 @@ export default class ProgressDemo extends Component {
                 </CircleButton>
                 <DropdownButton
                     buttonProps={{
-                        variant: 'primary',
+                        kind: 'primary',
                         onClick: () => console.log('clicked main btn'),
                     }}
                     menuProps={menuProps}
@@ -136,7 +138,7 @@ export default class ProgressDemo extends Component {
                 <br />
                 <DropdownButton
                     buttonProps={{
-                        variant: 'raised',
+                        kind: 'raised',
                         onClick: () => 'clicked main btn',
                     }}
                     menuProps={{ children: menuItems }}

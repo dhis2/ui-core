@@ -5,8 +5,18 @@ before_script:
 - npm install --global @dhis2/deploy-build
 script:
 - npm run build
-- deploy-build
-- publish-build
+deploy:
+    - provider: script
+      script: deploy-build
+      skip_cleanup: true
+      on:
+          all_branches: true
+    - provider: script
+      script: publish-build
+      skip_cleanup: true
+      on:
+          tags: true
+
 env:
   global:
   - secure: WE1+KaIft4r6m2DhX8mzwfFADmTKpYvuwc3I3r6AEti+BMIf7J0TVZ5Biyf+D5Bqnsq/Vh2fb+YAldR4YzPTOe9De/kGXagbW+bLsFthxS3gSVZiZOttmfm/5cwsGfFgtbx7REB9G+tCUvIdbFxQcpx/jmsCFRFd5QwcsfH4oy2eKpxSbQ39WfeLmF/jYzICl43xdlulfsOBU9cq0jqzZqbCNVR50EWQoHLMaec6Z25tSAxJGjJwnEjhI/OWyjepzNJaaNS/m0a9OlI6KCsPgt2Fx8zoeQRKGYZbs81IwoCajbAF4f+Hhvb1c2g/9yw2TNXJAswL4H0UJV4Gzj38hX99kwKwJvmM73QxXUlR+vfK5cFZtZ+PBkIOgXRtmYQRz1KbRHPJNEUaefa7J/xkaJacrzq7ZRHh/tBnApUvpIfOD+qjhbk9NFZYyXwfhfN4/th9H4lIKINUElgMMb5v9FNJtSsI0X3piIXFZXRTXuVGilM/w7ie6tacoCDu8q76EpDMSjW8NJpOh89E2IdVvFQxbZxtwUHgeXcBjMpw6Ewi6qDbDMPE+cajf0aKqnUmRqsCTO3U7u0BgyYn+5MuKj67kiWmjrUGFf8lXYbWru4X1MYcOpqbC6YI/8BBpnDwih7Ag8lEwvdqP8xCe9VuUDU7YsX+fTpDjb5QAtuk8YQ=

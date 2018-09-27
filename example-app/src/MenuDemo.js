@@ -1,9 +1,11 @@
+/** @format */
+
 import React, { Component } from 'react'
 
-import Paper from 'ui/Paper';
-import Icon from 'ui/Icon';
+import Paper from 'ui/core/Paper'
+import Icon from 'ui/core/Icon'
 
-import { Menu, MenuItem } from 'ui/Menu';
+import { Menu, MenuItem } from 'ui/core/Menu'
 
 const subSubMenuItems = [
     <MenuItem key="jajaja" value={1}>
@@ -15,7 +17,7 @@ const subSubMenuItems = [
     <MenuItem key="misschien" value={3}>
         Sub item 3
     </MenuItem>,
-];
+]
 
 const subMenuItems = [
     <MenuItem key="jajaja" value={1}>
@@ -27,14 +29,14 @@ const subMenuItems = [
     <MenuItem key="misschien" value={3}>
         Sub item 3
     </MenuItem>,
-];
+]
 
 export default class MenuDemo extends Component {
     render() {
         return (
             <Paper elevation={6} padded>
                 <h3>Menu components</h3>
-                <hr/>
+                <hr />
                 <Menu>
                     <MenuItem menuItems={subMenuItems} value={1}>
                         <Icon name="face" />

@@ -1,20 +1,22 @@
+/** @format */
 module.exports = {
     plugins: {
         'postcss-import': {},
         'postcss-nested': {},
         'postcss-preset-env': {
             browsers: [
-                '>1%',
-                'last 4 versions',
+                '> 0.5%',
+                'last 2 versions',
                 'Firefox ESR',
-                'not ie < 11',
+                'ie 11',
+                'not dead',
             ],
             autoprefixer: {
-                flexbox: 'no-2009'
+                flexbox: 'no-2009',
             },
         },
         'postcss-flexbugs-fixes': {},
         'postcss-rtl': {},
-        'cssnano': {}
-    }
+        cssnano: {},
+    },
 }

@@ -12,7 +12,7 @@ import React, { Component } from 'react';
  * 5. The animated element to wait for has an "onAnimationEnd" property with the
  *    callback from the HOC
  */
-export default function(WrappedComponent) {
+export function withAnimatedClose(WrappedComponent) {
     return class AnimatedClose extends Component {
         constructor(props) {
             super(props);

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+/** @format */
 
-import UI from 'ui/UI';
+import React, { Component } from 'react'
 
 import InputDemo from './InputDemo';
 import ProgressDemo from './ProgressDemo';
@@ -9,18 +9,21 @@ import ButtonDemo from './ButtonDemo';
 import MenuDemo from './MenuDemo';
 import TypographyDemo from './TypographyDemo';
 import DialogDemo from './DialogDemo';
+import UI from 'ui/core/UI'
 
-import Switch from 'ui/Input/Switch';
+import HeaderBarDemo from './HeaderBarDemo.js'
 
-import Paper from 'ui/Paper';
+import Switch from 'ui/core/Input/Switch'
 
-import { isRtl, setTextDirection } from 'ui/utils';
+import Paper from 'ui/core/Paper'
 
-import './styles.css';
+import { isRTL, setTextDirection } from 'ui/utils'
+
+import './styles.css'
 
 class App extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             switchOn: false,
             inputText: '',
@@ -28,46 +31,47 @@ class App extends Component {
             inputText2: '',
             inputText3: '',
             inputText4: '',
-            rtl: isRtl(),
+            rtl: isRTL(),
             selectValue: null,
-        };
+        }
     }
 
-    toggleRtl = () => {
-        if (isRtl()) {
-            setTextDirection({ keyUiLocale: 'en_US' });
+    toggleRTL = () => {
+        if (isRTL()) {
+            setTextDirection({ keyUiLocale: 'en_US' })
             this.setState({
                 rtl: false,
-            });
+            })
         } else {
-            setTextDirection({ keyUiLocale: 'ar' });
+            setTextDirection({ keyUiLocale: 'ar' })
             this.setState({
                 rtl: true,
-            });
+            })
         }
-    };
+    }
 
     render() {
         return (
             <UI theme="green">
+                <HeaderBarDemo />
                 <Paper>
                     <Switch
                         label="RTL: Off/On"
                         checked={this.state.rtl}
-                        onChange={this.toggleRtl}
+                        onChange={this.toggleRTL}
                         helpText="Toggle text direction"
                     />
                 </Paper>
                 <DialogDemo />
                 <LogoDemo />
                 <TypographyDemo />
-                <InputDemo />
                 <ProgressDemo />
+                <InputDemo />
                 <ButtonDemo />
                 <MenuDemo />
             </UI>
-        );
+        )
     }
 }
 
-export default App;
+export default App
