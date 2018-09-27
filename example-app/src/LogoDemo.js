@@ -9,7 +9,7 @@ import Logo from 'ui/core/Logo'
 export default class ProgressDemo extends Component {
     render() {
         return (
-            <Paper elevation={6} padded>
+            <Paper>
                 <h3>Logotype components</h3>
                 <hr />
                 <Logo type="icon" width="48px" />

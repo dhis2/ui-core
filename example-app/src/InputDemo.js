@@ -53,7 +53,7 @@ export default class InputDemo extends Component {
 
     render() {
         return (
-            <Paper elevation={6} padded>
+            <Paper>
                 <h3>Input components</h3>
                 <hr />
                 <RadioButtonGroup
