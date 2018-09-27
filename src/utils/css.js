@@ -6,15 +6,21 @@ export function bemClassNames(blockName) {
         blockName = `${DEFAULT_PREFIX}${blockName}`
     }
 
+    let elementLookup = {}
+
     return {
         b: (...modifierArgs) =>
             modifierArgs.length === 0
                 ? blockName
                 : classNames(blockName, modifierArgs),
-        e: (elementName, ...modifierArgs) =>
-            modifierArgs.length === 0
-                ? `${blockName}__${elementName}`
-                : classNames(`${blockName}__${elementName}`, modifierArgs),
+        e: (elementName, ...modifierArgs) => {
+            if (!elementLookup[elementName]) {
+                elementLookup[elementName] = `${blockName}__${elementName}`
+            }
+            return modifierArgs.length === 0
+                ? elementLookup[elementName]
+                : classNames(elementLookup[elementName], modifierArgs)
+        },
     }
 }
 
