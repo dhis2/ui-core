@@ -8,8 +8,9 @@ import './styles.css'
 const bem = bemClassNames('paper')
 
 function Paper({ elevation, children, className }) {
+    const elevationClass = bem.b(`elevation-${elevation}`)
     return (
-        <div className={bem.b(`elevation-${elevation}`, className)}>
+        <div className={`${elevationClass} ${className}`}>
             {children}
         </div>
     )
@@ -17,13 +18,13 @@ function Paper({ elevation, children, className }) {
 
 Paper.propTypes = {
     elevation: PropTypes.oneOf([0, 1, 2, 3, 4, 6, 12, 24]),
-    className: PropTypes.string,
+	className: PropTypes.string,
     children: PropTypes.node,
 }
 
 Paper.defaultProps = {
     elevation: 1,
-    className: 'defaults',
+	className: 'd2ui-paper-defaults',
 }
 
 export { Paper }

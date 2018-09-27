@@ -1,7 +1,7 @@
 /** @format */
 
 .d2ui-paper {
-    &--defaults {
+    &-defaults {
         padding: 2rem 2rem;
         margin: 0 auto 0;
         position: relative;
