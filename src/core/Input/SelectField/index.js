@@ -3,8 +3,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import IconField, { bem as iconFieldBem } from '../shared/IconField'
-import Field from '../shared/Field'
+import LabelField, { bem as labelFieldBem } from '../shared/LabelField'
 
 import { PopoverMenu } from '../../Menu'
 import { bemClassNames } from '../../../utils'
@@ -12,7 +11,7 @@ import { bemClassNames } from '../../../utils'
 import './styles.css'
 
 const bem = bemClassNames('select')
-const inputClassName = `${bem.e('input')} ${iconFieldBem.e('input')}`
+const inputClassName = `${bem.e('input')} ${labelFieldBem.e('input')}`
 
 // React uses a "value" property on the <select/> which can't be null so we use this magic string instead
 const EMPTY_NATIVE_OPTION_VALUE = '#^NONE^#'
@@ -84,10 +83,11 @@ class SelectField extends Component {
     renderNativeSelect() {
         const options = this.getOptions()
         const value = this.props.value || EMPTY_NATIVE_OPTION_VALUE
+        const nativeClass = inputClassName + ' ' + bem.b({ native: true })
         return (
             <select
                 ref={c => (this.inputRef = c)}
-                className={inputClassName}
+                className={nativeClass}
                 onChange={this.nativeSelectHandler}
                 value={value}
             >
@@ -137,37 +137,25 @@ class SelectField extends Component {
 
         return (
             <Fragment>
-                <Field
+                <LabelField
                     {...{
+                        variant,
+                        dense,
+                        label,
+                        value: displayValue,
+                        leadingIcon,
+                        trailingIcon: 'keyboard_arrow_down',
+                        error,
                         valid,
                         warning,
                         disabled,
-                        error,
-                        dense,
                         block,
+                        required,
                         helpText,
-                        className: bem.b({ native }),
                     }}
                 >
-                    <IconField
-                        {...{
-                            variant,
-                            dense,
-                            label,
-                            value: displayValue,
-                            leadingIcon,
-                            trailingIcon: 'keyboard_arrow_down',
-                            error,
-                            valid,
-                            warning,
-                            disabled,
-                            block,
-                            required,
-                        }}
-                    >
-                        {inputComponent}
-                    </IconField>
-                </Field>
+                    {inputComponent}
+                </LabelField>
                 {!native && (
                     <PopoverMenu
                         menuProps={{
