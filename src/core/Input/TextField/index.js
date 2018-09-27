@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import Field from '../shared/Field'
 import IconField, { bem as iconFieldBem } from '../shared/IconField'
 
-function TextField ({
+function TextField({
     variant,
     type,
     dense,
