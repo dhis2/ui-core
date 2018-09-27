@@ -5,10 +5,14 @@ import PropTypes from 'prop-types'
 
 import Icon from '../../core/Icon'
 
+import { bem } from './HeaderBar'
+
 function NotificationIcon({ icon, count }) {
     return (
-        <div className={`notification ${icon}`}>
-            {count > 0 && <div className="count">{count}</div>}
+        <div className={bem.e('notification', icon)}>
+            {count > 0 && (
+                <div className={bem.e('notification-count')}>{count}</div>
+            )}
             <Icon name={icon} />
         </div>
     )

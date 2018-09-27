@@ -4,6 +4,8 @@ import React from 'react'
 import Icon from '../../core/Icon'
 import Paper from '../../core/Paper'
 
+import { bem } from './HeaderBar'
+
 function TextIcon({ name }) {
     let title = name[0]
     if (name.indexOf(' ') > 0) {
@@ -11,15 +13,15 @@ function TextIcon({ name }) {
     }
 
     return (
-        <div className="icon">
-            <div className="initials">{title}</div>
+        <div className={bem.e('icon')}>
+            <div className={bem.e('initials')}>{title}</div>
         </div>
     )
 }
 
 function ImageIcon({ src }) {
     return (
-        <div className="icon">
+        <div className={bem.e('icon')}>
             <img src={src} />
         </div>
     )
@@ -27,13 +29,13 @@ function ImageIcon({ src }) {
 
 function Header({ name, email, img, onClick }) {
     return (
-        <div className="header">
+        <div className={bem.e('header')}>
             {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
-            <div className="details">
-                <div className="name">{name}</div>
-                <div className="email">{email}</div>
+            <div className={bem.e('details')}>
+                <div className={bem.e('name')}>{name}</div>
+                <div className={bem.e('email')}>{email}</div>
                 <div
-                    className="edit_profile"
+                    className={bem.e('edit_profile')}
                     onClick={() => onClick('edit_profile')}
                 >
                     Edit profile
@@ -45,7 +47,7 @@ function Header({ name, email, img, onClick }) {
 
 function Menu() {
     return (
-        <div className="menu">
+        <div className={bem.e('menu')}>
             <Item name="settings" label="Settings" />
             <Item name="account_box" label="Account" />
             <Item name="help" label="Help" />
@@ -56,9 +58,9 @@ function Menu() {
 
 function Item({ name, label }) {
     return (
-        <div className="item" onClick={() => onClick(name)}>
+        <div className={bem.e('item')} onClick={() => onClick(name)}>
             <Icon name={name} />
-            <div className="label">{label}</div>
+            <div className={bem.e('label')}>{label}</div>
         </div>
     )
 }
@@ -69,9 +71,9 @@ function onClick(actionType) {
 
 export default function Profile({ name, email, img }) {
     return (
-        <div className="profile">
+        <div className={bem.e('profile')}>
             {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
-            <div className="contents">
+            <div className={bem.e('contents')}>
                 <Paper>
                     <Header
                         name={name}
@@ -79,7 +81,7 @@ export default function Profile({ name, email, img }) {
                         email={email}
                         onClick={onClick}
                     />
-                    <div className="divider" />
+                    <div className={bem.e('divider')} />
                     <Menu />
                 </Paper>
             </div>
