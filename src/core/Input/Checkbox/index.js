@@ -2,10 +2,10 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import './checkbox.css'
-import { bemClassNames, getRequiredText } from '../../utils'
-import ToggleField from './ToggleField'
-import FieldWrap from './FieldWrap'
+import './styles.css'
+import { bemClassNames, getRequiredText } from '../../../utils'
+import ToggleField from '../ToggleField'
+import FieldWrap from '../FieldWrap'
 
 const bem = bemClassNames('checkbox')
 
