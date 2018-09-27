@@ -9,7 +9,7 @@ const bem = bemClassNames('paper')
 
 function Paper({ elevation, children, className }) {
     return (
-        <div className={bem.b(`elevation-${elevation} ${className}`)}>
+        <div className={bem.b(`elevation-${elevation}`, className)}>
             {children}
         </div>
     )
@@ -23,7 +23,7 @@ Paper.propTypes = {
 
 Paper.defaultProps = {
     elevation: 1,
-    className: 'd2ui-paper-defaults',
+    className: 'defaults',
 }
 
 export { Paper }
