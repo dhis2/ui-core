@@ -6,6 +6,10 @@
     border-radius: 2px;
     background-color: #ffffff;
 
+    &.padded {
+        padding: 2rem 2rem;
+    }
+
     &--elevation- {
         &0 {
             box-shadow: none;
