@@ -23,6 +23,11 @@
         "deploy": "deploy-build",
         "release": "npm run build && npm publish build"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn format"
+        }
+    },
     "devDependencies": {
         "@babel/cli": "^7.0.0",
         "@babel/core": "^7.0.0",
@@ -43,6 +48,7 @@
         "eslint-plugin-jsx-a11y": "^6.1.1",
         "eslint-plugin-react": "^7.1.0",
         "file-loader": "^2.0.0",
+        "husky": "^1.0.1",
         "material-design-icons": "^3.0.1",
         "mini-css-extract-plugin": "^0.4.3",
         "nodemon": "^1.18.4",
