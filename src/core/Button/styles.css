@@ -171,8 +171,7 @@
     }
     &--primary {
         color: #ffffff;
-        /* background-color: #004ba0; */
-        background-color: red;
+        background-color: #004ba0;
 
         &:hover {
             background-color: #1976d2;

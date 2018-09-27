@@ -38,10 +38,10 @@ export function animations({
 
     // Just scroll into place if duration is 0
     if (duration === 0) {
-        scrollHandler(endValue);
+        scrollHandler(endValue)
     }
 
-    let startTimestamp, elapsedTime, scrollValue;
+    let startTimestamp, elapsedTime, scrollValue
     function step(timestamp) {
         if (!startTimestamp) {
             startTimestamp = timestamp

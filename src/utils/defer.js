@@ -1,3 +1,5 @@
+/** @format */
+
 export default function(fn) {
-    setTimeout(fn, 1);
+    setTimeout(fn, 1)
 }

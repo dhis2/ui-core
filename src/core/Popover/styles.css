@@ -5,10 +5,9 @@
     min-width: 1rem;
     position: absolute;
     z-index: 101;
-    background-color: red;
     opacity: 1;
     transform: scaleY(1);
-    animation-duration: 3000ms !important;
+    animation-duration: 150ms;
     animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
     animation-fill-mode: forwards;
 

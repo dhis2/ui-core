@@ -44,7 +44,7 @@ class Tabs extends Component {
                 callback: this.updateScrollableUiAfterMount,
             }
 
-            defer(() => this.scrollToTab(this.getActiveTabRef(), scrollProps));
+            defer(() => this.scrollToTab(this.getActiveTabRef(), scrollProps))
         } else {
             this.updateScrollableUiAfterMount()
         }

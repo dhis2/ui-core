@@ -24,5 +24,5 @@ export function throttle(fn, threshold = 150, scope) {
 }
 
 export function defer(fn) {
-    setTimeout(fn, 1);
+    setTimeout(fn, 1)
 }

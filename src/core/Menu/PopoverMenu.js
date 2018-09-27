@@ -12,7 +12,7 @@ function PopoverMenu({
     menuProps,
     open,
     popoverPosition,
-    appearAnimation,
+    animation,
 }) {
     return (
         <Popover
@@ -21,7 +21,7 @@ function PopoverMenu({
             getAnchorRef={getAnchorRef}
             open={open}
             popoverPosition={popoverPosition}
-            animation={appearAnimation}
+            animation={animation}
         >
             <Menu closePopover={closePopover} {...menuProps} />
         </Popover>

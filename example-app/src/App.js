@@ -2,13 +2,13 @@
 
 import React, { Component } from 'react'
 
-import InputDemo from './InputDemo';
-import ProgressDemo from './ProgressDemo';
-import LogoDemo from './LogoDemo';
-import ButtonDemo from './ButtonDemo';
-import MenuDemo from './MenuDemo';
-import TypographyDemo from './TypographyDemo';
-import DialogDemo from './DialogDemo';
+import InputDemo from './InputDemo'
+import ProgressDemo from './ProgressDemo'
+import LogoDemo from './LogoDemo'
+import ButtonDemo from './ButtonDemo'
+import MenuDemo from './MenuDemo'
+import TypographyDemo from './TypographyDemo'
+import DialogDemo from './DialogDemo'
 import UI from 'ui/core/UI'
 
 import HeaderBarDemo from './HeaderBarDemo.js'
