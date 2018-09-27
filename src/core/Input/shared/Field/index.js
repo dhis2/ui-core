@@ -6,7 +6,7 @@ import { bemClassNames } from '../../../../utils'
 
 import './styles.css'
 
-const bem = bemClassNames('field-wrap')
+const bem = bemClassNames('field')
 
 function Field({
     children,
