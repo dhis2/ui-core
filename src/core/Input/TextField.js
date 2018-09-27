@@ -5,11 +5,7 @@ import PropTypes from 'prop-types'
 import FieldWrap from './FieldWrap'
 import Field, { bem as fieldBem } from './Field'
 
-const FILLED = 'filled'
-const OUTLINED = 'outlined'
-const MINIMAL = 'minimal'
-
-const TextField = ({
+function TextField ({
     variant,
     type,
     dense,
@@ -26,7 +22,7 @@ const TextField = ({
     multiline,
     required,
     helpText,
-}) => {
+}) {
     const InputTag = multiline ? 'textarea' : 'input'
     const inputComponent = (
         <InputTag
@@ -62,12 +58,13 @@ const TextField = ({
                     valid,
                     warning,
                     disabled,
-                    inputComponent,
                     block,
                     multiline,
                     required,
                 }}
-            />
+            >
+                {inputComponent}
+            </Field>
         </FieldWrap>
     )
 }
@@ -77,7 +74,7 @@ TextField.propTypes = {
     onChange: PropTypes.func.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     dense: PropTypes.bool,
-    variant: PropTypes.oneOf([FILLED, OUTLINED, MINIMAL]),
+    variant: PropTypes.oneOf(['filled', 'outlined', 'minimal']),
     leadingIcon: PropTypes.string,
     trailingIcon: PropTypes.string,
     type: PropTypes.oneOf([
@@ -109,7 +106,7 @@ TextField.propTypes = {
 TextField.defaultProps = {
     value: '',
     dense: false,
-    variant: FILLED,
+    variant: 'filled',
     type: 'text',
 }
 
