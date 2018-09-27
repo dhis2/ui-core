@@ -25,15 +25,6 @@ function TextField({
     helpText,
 }) {
     const InputTag = multiline ? 'textarea' : 'input'
-    const inputComponent = (
-        <InputTag
-            className={labelFieldBem.e('input')}
-            value={value}
-            onChange={onChange}
-            type={type}
-            disabled={disabled}
-        />
-    )
 
     return (
         <LabelField
@@ -54,7 +45,13 @@ function TextField({
                 helpText,
             }}
         >
-            {inputComponent}
+            <InputTag
+                className={labelFieldBem.e('input')}
+                value={value}
+                onChange={onChange}
+                type={type}
+                disabled={disabled}
+            />
         </LabelField>
     )
 }
