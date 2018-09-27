@@ -17,13 +17,13 @@ function Paper({ elevation, children, className }) {
 
 Paper.propTypes = {
     elevation: PropTypes.oneOf([0, 1, 2, 3, 4, 6, 12, 24]),
-	className: PropTypes.string,
+    className: PropTypes.string,
     children: PropTypes.node,
 }
 
 Paper.defaultProps = {
     elevation: 1,
-	className: 'd2ui-paper-defaults',
+    className: 'd2ui-paper-defaults',
 }
 
 export { Paper }

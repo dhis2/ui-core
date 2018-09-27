@@ -23,9 +23,7 @@ const Switch = ({
     required,
 }) => {
     return (
-        <Field
-            {...{ valid, warning, disabled, error, dense, block, helpText }}
-        >
+        <Field {...{ valid, warning, disabled, error, dense, block, helpText }}>
             <ToggleField disabled={disabled} dense={dense}>
                 <div className={bem.b({ checked, disabled })}>
                     <div className={bem.e('track')} />

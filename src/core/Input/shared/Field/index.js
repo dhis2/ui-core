@@ -8,7 +8,7 @@ import './styles.css'
 
 const bem = bemClassNames('field-wrap')
 
-function Field ({
+function Field({
     children,
     valid,
     warning,
