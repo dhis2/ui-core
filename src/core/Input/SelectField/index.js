@@ -2,14 +2,17 @@
 
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Field, { bem as fieldBem } from './Field'
-import FieldWrap from './FieldWrap'
-import { PopoverMenu } from '../Menu'
-import { bemClassNames } from '../../utils'
-import './selectfield.css'
+
+import IconField, { bem as iconFieldBem } from '../shared/IconField'
+import Field from '../shared/Field'
+
+import { PopoverMenu } from '../../Menu'
+import { bemClassNames } from '../../../utils'
+
+import './styles.css'
 
 const bem = bemClassNames('select')
-const inputClassName = `${bem.e('input')} ${fieldBem.e('input')}`
+const inputClassName = `${bem.e('input')} ${iconFieldBem.e('input')}`
 
 // React uses a "value" property on the <select/> which can't be null so we use this magic string instead
 const EMPTY_NATIVE_OPTION_VALUE = '#^NONE^#'
@@ -134,7 +137,7 @@ class SelectField extends Component {
 
         return (
             <Fragment>
-                <FieldWrap
+                <Field
                     {...{
                         valid,
                         warning,
@@ -146,7 +149,7 @@ class SelectField extends Component {
                         className: bem.b({ native }),
                     }}
                 >
-                    <Field
+                    <IconField
                         {...{
                             variant,
                             dense,
@@ -163,8 +166,8 @@ class SelectField extends Component {
                         }}
                     >
                         {inputComponent}
-                    </Field>
-                </FieldWrap>
+                    </IconField>
+                </Field>
                 {!native && (
                     <PopoverMenu
                         menuProps={{

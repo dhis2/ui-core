@@ -2,9 +2,11 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames, getRequiredText } from '../../utils'
-import './field.css'
-import Icon from '../Icon'
+
+import { bemClassNames, getRequiredText } from '../../../../utils'
+import Icon from '../../../Icon'
+
+import './styles.css'
 
 export const bem = bemClassNames('field')
 const FILLED = 'filled'
