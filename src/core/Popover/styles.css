@@ -5,7 +5,7 @@
     min-width: 1rem;
     position: absolute;
     z-index: 101;
-    opacity: 0;
+    opacity: 1;
     transform: scaleY(1);
     animation-duration: 3000ms;
     animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
@@ -13,8 +13,6 @@
 
     &--fade-in {
         transform-origin: center center;
-        animation-duration: 3000ms;
-        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
         animation-name: d2ui-popover-fade-in;
 
         &.d2ui-popover--animate-out {

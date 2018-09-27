@@ -59,7 +59,7 @@ class Popover extends Component {
         } = this.props;
         const { popupComputedStyle } = this.state;
 
-        console.log(this.props);
+        console.log('HALLO', this.props);
 
         if (!open && !isAnimatingOut) {
             return null;
@@ -121,6 +121,9 @@ Popover.defaultProps = {
     animation: 'fade-in',
 };
 
-const EnhancedPopover = withAnimatedClose(Popover)
-export { EnhancedPopover as Popover }
-export default withAnimatedClose(EnhancedPopover)
+// const EnhancedPopover = withAnimatedClose(Popover)
+// export { EnhancedPopover as Popover }
+// export default withAnimatedClose(EnhancedPopover)
+
+export { Popover }
+export default withAnimatedClose(Popover)
