@@ -17,7 +17,7 @@ import Switch from 'ui/core/Input/Switch'
 
 import Paper from 'ui/core/Paper'
 
-import setTextDirection, { isRTL } from 'ui/utils/rtl'
+import { setTextDirection, isRTL } from 'ui/utils/rtl'
 
 import './styles.css'
 
