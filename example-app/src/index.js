@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 import App from './App'
-import setTextDirection from 'ui/utils/setTextDirection'
+import { setTextDirection } from 'ui/utils'
 
 const exampleSettings = {
     keyUiLocale: 'en_US',

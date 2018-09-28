@@ -8,7 +8,7 @@
  * @param {Object} userSettings - The userSettings available in on the d2 object (d2.currentUser.userSettings.settings) or returned from the from the `getUserSettings` function exposed by d2
  */
 
-export default function(userSettings) {
+export function setTextDirection(userSettings) {
     // Will produce "en" from "en_EN" as well as "en"
     const uiLanguage = userSettings.keyUiLocale.split('_')[0]
     const dir = RTL_LANGUAGES.includes(uiLanguage) ? 'rtl' : 'ltr'

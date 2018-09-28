@@ -127,7 +127,6 @@ function getWindowContainedPosition({ top, left, width, height }) {
     return {
         top: containedTop,
         left: containedLeft,
-        opacity: 1,
     }
 }
 

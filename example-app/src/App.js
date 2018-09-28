@@ -2,15 +2,16 @@
 
 import React, { Component } from 'react'
 
+import InputDemo from './InputDemo'
+import ProgressDemo from './ProgressDemo'
+import LogoDemo from './LogoDemo'
+import ButtonDemo from './ButtonDemo'
+import MenuDemo from './MenuDemo'
+import TypographyDemo from './TypographyDemo'
+import DialogDemo from './DialogDemo'
 import UI from 'ui/core/UI'
 
 import HeaderBarDemo from './HeaderBarDemo.js'
-import InputDemo from './InputDemo.js'
-import ProgressDemo from './ProgressDemo.js'
-import LogoDemo from './LogoDemo.js'
-import ButtonDemo from './ButtonDemo.js'
-import MenuDemo from './MenuDemo.js'
-import TypographyDemo from './TypographyDemo.js'
 
 import Switch from 'ui/core/Input/Switch'
 
@@ -61,7 +62,7 @@ class App extends Component {
                         helpText="Toggle text direction"
                     />
                 </Paper>
-
+                <DialogDemo />
                 <LogoDemo />
                 <TypographyDemo />
                 <ProgressDemo />
