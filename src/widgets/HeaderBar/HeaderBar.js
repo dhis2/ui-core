@@ -13,7 +13,7 @@ import './styles.css'
 
 const bem = bemClassNames('headerbar')
 
-function HeaderBar({ type, title, selection, profile }) {
+function HeaderBar({ type, title, selection, apps, profile }) {
     return (
         <header className={bem.b(type)}>
             <div className="left">
@@ -30,7 +30,7 @@ function HeaderBar({ type, title, selection, profile }) {
             <div className="right">
                 <NotificationIcon icon="message" count={8} />
                 <NotificationIcon icon="email" count={4} />
-                <Apps />
+                <Apps apps={apps} />
                 <Profile profile={profile} />
             </div>
         </header>
@@ -41,9 +41,18 @@ HeaderBar.propTypes = {
     type: PropTypes.oneOf(['blue', 'white', 'transparent']),
     title: PropTypes.string,
     selection: PropTypes.string,
-    name: PropTypes.string,
-    email: PropTypes.string,
-    src: PropTypes.string,
+    apps: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            email: PropTypes.string,
+            src: PropTypes.string,
+        })
+    ),
+    profile: PropTypes.shape({
+        name: PropTypes.string,
+        email: PropTypes.string,
+        src: PropTypes.string,
+    }),
 }
 
 HeaderBar.defaultProps = {

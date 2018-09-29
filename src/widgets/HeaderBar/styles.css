@@ -99,7 +99,7 @@
                     width: 416px;
                     height: 301px;
 
-                    .search {
+                    & > .search {
                         display: flex;
                         flex-direction: row;
                         flex-wrap: nowrap;
@@ -122,7 +122,7 @@
 
                                 & > .d2ui-field__floating-label {
                                     overflow: visible;
-                                    bottom: 15px;
+                                    bottom: 13px;
                                 }
                             }
                         }
@@ -131,6 +131,54 @@
                             margin: 16px 14px 0 14px;
                             color: #949394;
                             font-size: 22px;
+                        }
+                    }
+
+                    & > .apps {
+                        overflow: scroll;
+                        overflow-x: hidden;
+                        margin: 0 8px 0 8px;
+                        width: 400px;
+                        height: 235px;
+
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+
+                        & > .app {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 12px;
+                            text-decoration: none;
+
+                            &:hover {
+                                background-color: #eaf4ff;
+
+                                & > .name {
+                                    font-weight: 500;
+                                }
+                            }
+
+                            & > img {
+                                width: 40px;
+                                height: 40px;
+                            }
+
+                            & > .name {
+                                margin-top: 14px;
+                                height: 14px;
+                                color: rgba(0, 0, 0, 0.87);
+                                font-size: 12px;
+                                line-height: 14px;
+                                text-align: center;
+                                letter-spacing: 0.01em;
+                            }
                         }
                     }
                 }

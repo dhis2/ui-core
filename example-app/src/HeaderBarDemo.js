@@ -10,6 +10,58 @@ const props = {
         name: 'John Doe',
         email: 'john_doe@dhis2.org',
     },
+    apps: [
+        {
+            name: 'Dashboard',
+            path: '',
+            img: '',
+        },
+        {
+            name: 'Data Visualizer',
+            path: '',
+            img: '',
+        },
+        {
+            name: 'Capture',
+            path: '',
+            img: '',
+        },
+        {
+            name: 'Maintenance',
+            path: '',
+            img: '',
+        },
+        {
+            name: 'Maps',
+            path: '',
+            img: '',
+        },
+        {
+            name: 'Event Reports',
+            path: '',
+            img: '',
+        },
+        {
+            name: 'Interpretations',
+            path: '',
+            img: '',
+        },
+        {
+            name: 'Messaging',
+            path: '',
+            img: '',
+        },
+        {
+            name: 'Import/Export',
+            path: '',
+            img: '',
+        },
+        {
+            name: 'User Settings',
+            path: '',
+            img: '',
+        },
+    ],
 }
 
 export default function HeaderBarDemo() {
