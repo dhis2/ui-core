@@ -61,12 +61,12 @@ Header.propTypes = {
 
 function Menu() {
     return (
-        <div className="menu">
+        <nav>
             <Item name="settings" label="Settings" />
             <Item name="account_box" label="Account" />
             <Item name="help" label="Help" />
             <Item name="exit_to_app" label="Logout" />
-        </div>
+        </nav>
     )
 }
 

@@ -15,7 +15,7 @@ const bem = bemClassNames('headerbar')
 
 function HeaderBar({ type, title, selection, profile }) {
     return (
-        <div className={bem.b(type)}>
+        <header className={bem.b(type)}>
             <div className="left">
                 <div className="logo">
                     <Logo
@@ -33,7 +33,7 @@ function HeaderBar({ type, title, selection, profile }) {
                 <Apps />
                 <Profile profile={profile} />
             </div>
-        </div>
+        </header>
     )
 }
 

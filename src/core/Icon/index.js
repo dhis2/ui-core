@@ -6,14 +6,16 @@ import './styles.css'
 
 function Icon({ name, className, onClick }) {
     return (
-        <i className={`material-icons ${className}`} onClick={onClick}>
+        <i className={`material-icons ${name} ${className}`} onClick={onClick}>
             {name}
         </i>
     )
 }
 
 Icon.defaultProps = {
+    name: '',
     className: '',
+    onClick: () => null,
 }
 
 Icon.propTypes = {
