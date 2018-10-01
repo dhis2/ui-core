@@ -1,4 +1,9 @@
 /** @format */
+
+const path = require('path')
+const fs = require('fs')
+
+/** @format */
 module.exports = {
     plugins: {
         'postcss-import': {},
@@ -16,7 +21,17 @@ module.exports = {
             },
         },
         'postcss-flexbugs-fixes': {},
-        // 'postcss-rtl': {},
-        // cssnano: {},
+        'postcss-rtl': {},
+        'postcss-modules': {
+            getJSON: function(cssFileName, json, outputFileName) {
+                const cssName = path.basename(cssFileName, '.css')
+                const cssDir = path.dirname(cssFileName).split('src/')[1]
+                const jsonFileName = path.resolve(
+                    './build/' + cssDir + '/' + cssName + '.json'
+                )
+                fs.writeFileSync(jsonFileName, JSON.stringify(json))
+            },
+        },
+        cssnano: {},
     },
 }
