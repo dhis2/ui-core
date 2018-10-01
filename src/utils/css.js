@@ -47,3 +47,9 @@ function classNames(prefix, modifierArgs) {
 
     return classes.join(' ')
 }
+
+export function componentStyles(styles) {
+    return function classNames(classy) {
+        return styles[classy]
+    }
+}

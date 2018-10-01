@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../utils'
+import { componentStyles } from '../../utils'
 
 import './styles.css'
 import iconBlue from './svg/icon-blue.svg'
@@ -10,7 +10,9 @@ import iconWhite from './svg/icon-white.svg'
 import logoBlue from './svg/logo-blue.svg'
 import logoWhite from './svg/logo-white.svg'
 
-const bem = bemClassNames('logo')
+import './styles.css'
+import styles from './styles.json'
+const myst = componentStyles(styles)
 
 const images = {
     'icon-blue': iconBlue,
@@ -23,7 +25,14 @@ function Logo({ type, color, width, alt }) {
     const src = images[`${type}-${color}`]
     const style = width ? { width } : null
 
-    return <img alt={alt} src={src} className={bem.b(type)} style={style} />
+    return (
+        <img
+            alt={alt}
+            src={src}
+            className={`${myst('d2ui-logo')} ${myst(type)}`}
+            style={style}
+        />
+    )
 }
 
 Logo.propTypes = {
