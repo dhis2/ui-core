@@ -1,4 +1,5 @@
 /** @format */
 
-import HeaderBar from './HeaderBar'
-export default HeaderBar
+import { HeaderBarContainer } from './HeaderBar.Container'
+export { HeaderBarContainer }
+export default HeaderBarContainer

@@ -13,7 +13,15 @@ import './styles.css'
 
 const bem = bemClassNames('headerbar')
 
-function HeaderBar({ type, title, selection, apps, profile }) {
+function HeaderBar({
+    type,
+    title,
+    selection,
+    apps,
+    profile,
+    messages,
+    interpretations,
+}) {
     return (
         <header className={bem.b(type)}>
             <div className="left">
@@ -28,8 +36,11 @@ function HeaderBar({ type, title, selection, apps, profile }) {
             </div>
             {selection && <div className="current-selection">{selection}</div>}
             <div className="right">
-                <NotificationIcon icon="message" count={8} />
-                <NotificationIcon icon="email" count={4} />
+                <NotificationIcon
+                    icon="message"
+                    count={interpretations.count}
+                />
+                <NotificationIcon icon="email" count={messages.count} />
                 <Apps apps={apps} />
                 <Profile profile={profile} />
             </div>
@@ -41,6 +52,12 @@ HeaderBar.propTypes = {
     type: PropTypes.oneOf(['blue', 'white', 'transparent']),
     title: PropTypes.string,
     selection: PropTypes.string,
+    messages: PropTypes.shape({
+        count: PropTypes.number,
+    }),
+    interpretations: PropTypes.shape({
+        count: PropTypes.number,
+    }),
     apps: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string,

@@ -64,18 +64,28 @@ const props = {
     ],
 }
 
+function getProps() {
+    return {
+        ...props,
+        messages: {
+            count: Math.floor(Math.random() * 40),
+        },
+        interpretations: {
+            count: Math.floor(Math.random() * 20),
+        },
+    }
+}
+
 export default function HeaderBarDemo() {
+    const types = ['blue', 'white', 'transparent']
+
     return (
         <div>
-            <div style={{ marginBottom: 20 }}>
-                <HeaderBar type="blue" {...props} />
-            </div>
-            <div style={{ marginBottom: 20 }}>
-                <HeaderBar type="white" {...props} />
-            </div>
-            <div style={{ marginBottom: 20 }}>
-                <HeaderBar type="transparent" {...props} />
-            </div>
+            {types.map(type => (
+                <div key={`headerbar-${type}`} style={{ marginBottom: 20 }}>
+                    <HeaderBar type={type} {...getProps()} />
+                </div>
+            ))}
         </div>
     )
 }
