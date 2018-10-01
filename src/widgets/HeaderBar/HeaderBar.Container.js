@@ -56,18 +56,25 @@ class HeaderBarContainer extends React.Component {
             )
             const i18n = await post(
                 'i18n',
-                JSON.stringify(apps.map(a => a.displayName || a.name))
+                JSON.stringify(apps.map(a => a.name))
             ).then(r => r.json())
-            // const params =
-            //     ':all,organisationUnits[id],userGroups[id],userCredentials[:all,!user,userRoles[id]'
-            // const res = await get(`me?fields=${encodeURI(params)}`).then(r =>
-            //     r.json()
-            // )
+            const {
+                unreadInterpretations,
+                unreadMessageConversations,
+            } = await get('me/dashboard').then(r => r.json())
+            // const res = await get('me').then(r => r.json())
+            // console.log('res', res)
 
             this.setState({
                 title: systemName,
+                messages: {
+                    count: unreadMessageConversations,
+                },
+                interpretations: {
+                    count: unreadInterpretations,
+                },
                 apps: apps.map(a => ({
-                    name: i18n[a.displayName || a.name],
+                    name: i18n[a.name] || a.name,
                     path: appPath(a.defaultAction),
                     img: appIconPath(a.icon),
                 })),
