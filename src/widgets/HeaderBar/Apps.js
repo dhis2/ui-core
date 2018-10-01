@@ -46,9 +46,9 @@ function List({ apps, filter }) {
                             ? name.toLowerCase().includes(filter.toLowerCase())
                             : true
                 )
-                .map(({ name, path, img }) => (
+                .map(({ name, path, img }, idx) => (
                     <Item
-                        key={`app-${name}`}
+                        key={`app-${name}-${idx}`}
                         name={name}
                         path={path}
                         img={img}

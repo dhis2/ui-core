@@ -61,8 +61,8 @@ HeaderBar.propTypes = {
     apps: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string,
-            email: PropTypes.string,
-            src: PropTypes.string,
+            path: PropTypes.string,
+            img: PropTypes.string,
         })
     ),
     profile: PropTypes.shape({

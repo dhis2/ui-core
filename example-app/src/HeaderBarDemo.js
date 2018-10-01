@@ -1,7 +1,8 @@
 /** @format */
 
 import React from 'react'
-import HeaderBar from 'ui/widgets/HeaderBar'
+import HeaderBar from 'ui/widgets/HeaderBar/HeaderBar.Component'
+import HeaderBarContainer from 'ui/widgets/HeaderBar/HeaderBar.Container'
 
 const props = {
     title: 'Demo - Sierra Leone',
@@ -81,6 +82,7 @@ export default function HeaderBarDemo() {
 
     return (
         <div>
+            <HeaderBarContainer />
             {types.map(type => (
                 <div key={`headerbar-${type}`} style={{ marginBottom: 20 }}>
                     <HeaderBar type={type} {...getProps()} />
