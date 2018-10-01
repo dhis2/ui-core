@@ -10,7 +10,7 @@ const myst = componentStyles(styles)
 
 function Paper({ elevation, children, className }) {
     const ele = `elevation-${elevation}`
-    const classes = `${myst('d2ui-paper')} ${myst(ele)} ${myst('defaults')}`
+    const classes = `${myst(ele)} ${myst('defaults')}`
 
     return <div className={classes}>{children}</div>
 }

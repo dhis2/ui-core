@@ -25,14 +25,7 @@ function Logo({ type, color, width, alt }) {
     const src = images[`${type}-${color}`]
     const style = width ? { width } : null
 
-    return (
-        <img
-            alt={alt}
-            src={src}
-            className={`${myst('d2ui-logo')} ${myst(type)}`}
-            style={style}
-        />
-    )
+    return <img alt={alt} src={src} className={`${myst(type)}`} style={style} />
 }
 
 Logo.propTypes = {
