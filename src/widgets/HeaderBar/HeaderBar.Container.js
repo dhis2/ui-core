@@ -45,7 +45,10 @@ class HeaderBarContainer extends React.Component {
 
     async fetch() {
         try {
+            // DHIS2 host name
             const { systemName } = await get('system/info').then(r => r.json())
+
+            // Apps
             const { modules } = await getAction(
                 `dhis-web-commons/menu/getModules.action?_=${Date.now()}`
             )
@@ -54,16 +57,21 @@ class HeaderBarContainer extends React.Component {
             const apps = modules.filter(
                 m => typeof m.displayName !== 'undefined'
             )
+
+            // Translations for module names
             const i18n = await post(
                 'i18n',
                 JSON.stringify(apps.map(a => a.name))
             ).then(r => r.json())
+
+            // Interpretations and Unread messages count
             const {
                 unreadInterpretations,
                 unreadMessageConversations,
             } = await get('me/dashboard').then(r => r.json())
-            // const res = await get('me').then(r => r.json())
-            // console.log('res', res)
+
+            // Profile info
+            const me = await get('me.json').then(r => r.json())
 
             this.setState({
                 title: systemName,
@@ -78,9 +86,13 @@ class HeaderBarContainer extends React.Component {
                     path: appPath(a.defaultAction),
                     img: appIconPath(a.icon),
                 })),
+                profile: {
+                    name: me.name,
+                    email: me.email,
+                },
             })
         } catch (e) {
-            console.error('HeaderBar(fetch)', e)
+            // console.error('HeaderBar(fetch)', e)
         }
     }
 

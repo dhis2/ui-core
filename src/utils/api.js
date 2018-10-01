@@ -29,9 +29,7 @@ function _config() {
     return {
         method: 'GET',
         credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-        },
+        headers: {},
     }
 }
 
