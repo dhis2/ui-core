@@ -15,6 +15,7 @@ const bem = bemClassNames('headerbar')
 
 function HeaderBar({
     type,
+    baseURL,
     title,
     selection,
     apps,
@@ -42,13 +43,14 @@ function HeaderBar({
                 />
                 <NotificationIcon icon="email" count={messages.count} />
                 <Apps apps={apps} />
-                <Profile profile={profile} />
+                <Profile profile={profile} baseURL={baseURL} />
             </div>
         </header>
     )
 }
 
 HeaderBar.propTypes = {
+    baseURL: PropTypes.string,
     type: PropTypes.oneOf(['blue', 'white', 'transparent']),
     title: PropTypes.string,
     selection: PropTypes.string,

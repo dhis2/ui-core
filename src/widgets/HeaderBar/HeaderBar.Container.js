@@ -92,7 +92,7 @@ class HeaderBarContainer extends React.Component {
                 },
             })
         } catch (e) {
-            // console.error('HeaderBar(fetch)', e)
+            console.error('HeaderBar(fetch)', e)
         }
     }
 
@@ -108,6 +108,7 @@ class HeaderBarContainer extends React.Component {
         } = this.state
         return (
             <HeaderBar
+                baseURL={serverURL}
                 type={type}
                 title={title}
                 selection={selection}

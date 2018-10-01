@@ -29,7 +29,6 @@ function _config() {
     return {
         method: 'GET',
         credentials: 'include',
-        headers: {},
     }
 }
 
