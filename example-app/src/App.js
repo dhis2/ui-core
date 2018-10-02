@@ -49,6 +49,7 @@ class App extends Component {
     render() {
         return (
             <UI theme="green">
+                <HeaderBarDemo />
                 <Paper>
                     <Switch
                         label="RTL: Off/On"
@@ -57,12 +58,11 @@ class App extends Component {
                         helpText="Toggle text direction"
                     />
                 </Paper>
-                {/*<HeaderBarDemo />*/}
                 <DialogDemo />
                 <TypographyDemo />
                 <ProgressDemo />
                 <InputDemo />
-                {/*<MenuDemo />*/}
+                <MenuDemo />
                 <LogoDemo />
                 <ButtonDemo />
             </UI>

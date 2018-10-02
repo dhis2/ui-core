@@ -7,11 +7,7 @@ import Logo from '../../core/Logo'
 import NotificationIcon from './NotificationIcon'
 import Apps from './Apps'
 import Profile from './Profile'
-
-import { bemClassNames } from '../../utils'
-import './styles.css'
-
-const bem = bemClassNames('headerbar')
+import s from './styles'
 
 function HeaderBar({
     type,
@@ -24,19 +20,21 @@ function HeaderBar({
     interpretations,
 }) {
     return (
-        <header className={bem.b(type)}>
-            <div className="left">
-                <div className="logo">
+        <header className={s('container', type)}>
+            <div className={s('first')}>
+                <div className={s('logo')}>
                     <Logo
                         color={type === 'blue' ? 'white' : 'blue'}
                         type="icon"
                         width="27.5px"
                     />
                 </div>
-                <div className="title">{title}</div>
+                <div className={s('title')}>{title}</div>
             </div>
-            {selection && <div className="current-selection">{selection}</div>}
-            <div className="right">
+            {selection && (
+                <div className={s('current-selection')}>{selection}</div>
+            )}
+            <div className={s('last')}>
                 <NotificationIcon
                     icon="message"
                     count={interpretations.count}

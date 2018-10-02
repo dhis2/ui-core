@@ -2,11 +2,14 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import './styles.css'
+import s from './styles'
 
 function Icon({ name, className, onClick }) {
     return (
-        <i className={`material-icons ${name} ${className}`} onClick={onClick}>
+        <i
+            className={s('container', className, { [name]: true })}
+            onClick={onClick}
+        >
             {name}
         </i>
     )

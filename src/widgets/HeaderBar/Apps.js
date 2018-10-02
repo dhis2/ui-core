@@ -2,16 +2,18 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import Paper from '../../core/Paper'
 import Icon from '../../core/Icon'
 import TextField from '../../core/Input/TextField'
+import s from './styles'
+
+console.log("s('search')", s('search'))
 
 function Search({ value, onChange }) {
     return (
-        <div className="search">
+        <div className={s('search')}>
             <TextField label="Search apps" value={value} onChange={onChange} />
-            <Icon name="settings" />
+            <Icon name="settings" className={s('settings')} />
         </div>
     )
 }
@@ -23,9 +25,9 @@ Search.propTypes = {
 
 function Item({ name, path, img }) {
     return (
-        <a href={path} className="app">
+        <a href={path} className={s('app')}>
             <img src={img} />
-            <div className="name">{name}</div>
+            <div className={s('name')}>{name}</div>
         </a>
     )
 }
@@ -38,7 +40,7 @@ Item.propTypes = {
 
 function List({ apps, filter }) {
     return (
-        <div className="apps">
+        <div className={s('modules')}>
             {apps
                 .filter(
                     ({ name }) =>
@@ -97,10 +99,10 @@ export default class Apps extends React.Component {
 
     render() {
         return (
-            <div className="apps-container" ref={c => (this.elContainer = c)}>
+            <div className={s('apps')} ref={c => (this.elContainer = c)}>
                 <Icon name="apps" onClick={this.onToggle} />
                 {this.state.show && (
-                    <div className="contents" ref={c => (this.elApps = c)}>
+                    <div className={s('contents')} ref={c => (this.elApps = c)}>
                         <Paper width="416px" height="301px">
                             <Search
                                 value={this.state.filter}
