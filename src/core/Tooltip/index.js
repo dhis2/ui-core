@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import './styles.css'
+import s from './styles.css'
 
 /**
  * `position="bottom"` (default) works fine with block level elements, but
@@ -10,16 +10,16 @@ import './styles.css'
  */
 function Tooltip({ text, position, multiline, children }) {
     const tooltipProps = {
-        'data-d2ui-tooltip': text,
-        'data-d2ui-tooltip-position': position,
+        data: text,
+        'data-position': position,
     }
 
     if (multiline) {
-        tooltipProps['data-d2ui-tooltip-multiline'] = true
+        tooltipProps['data-multiline'] = true
     }
 
     return (
-        <a className="d2ui-tooltip" {...tooltipProps}>
+        <a className={s('container')} {...tooltipProps}>
             {children}
         </a>
     )
