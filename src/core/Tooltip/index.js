@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import s from './styles.css'
+import s from './styles'
 
 /**
  * `position="bottom"` (default) works fine with block level elements, but

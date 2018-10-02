@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { getRequiredText } from '../../../utils'
 import RadioButton from '../RadioButton'
 import Field from '../shared/Field'
-import s from './styles.css'
+import s from './styles'
 
 const randomName = () =>
     Math.random()
