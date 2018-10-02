@@ -8,6 +8,7 @@ import { bemClassNames } from '../../utils'
 // loaded for selective imports which might not import the root index
 import 'typeface-roboto'
 import 'material-design-icons/iconfont/material-icons.css'
+
 import './theme/index.css'
 
 const bem = bemClassNames('app')

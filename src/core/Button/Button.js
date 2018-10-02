@@ -2,11 +2,8 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { wrapTextNodesInSpans, bemClassNames } from '../../utils'
-
-import './styles.css'
-
-const bem = bemClassNames('button')
+import { wrapTextNodesInSpans } from '../../utils'
+import s from './styles'
 
 const Button = ({
     children,
@@ -20,7 +17,7 @@ const Button = ({
     kind,
 }) => (
     <button
-        className={`${bem.b(kind, size)} d2ui-align-icon`}
+        className={s('button', 'align-icon', kind, size)}
         {...{ disabled, onClick, onDoubleClick, title, type, role }}
     >
         {wrapTextNodesInSpans(children)}

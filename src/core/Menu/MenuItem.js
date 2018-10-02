@@ -2,14 +2,14 @@
 
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { wrapTextNodesInSpans, bemClassNames } from '../../utils'
+import { wrapTextNodesInSpans } from '../../utils'
 import SubMenu from './SubMenu'
 import Icon from '../Icon'
 
-const bem = bemClassNames('menu-item')
+import s from './styles'
 
 class MenuItem extends Component {
-    selectHandler = event => {
+    onClick = event => {
         const { value, onClick, selectHandler, closePopover } = this.props
         const handler = onClick || selectHandler
         handler(event, value, this.props)
@@ -31,7 +31,7 @@ class MenuItem extends Component {
         }
 
         return (
-            <li className={bem.b({ disabled })} onClick={this.selectHandler}>
+            <li className={s('item', { disabled })} onClick={this.onClick}>
                 {children ? (
                     wrapTextNodesInSpans(children)
                 ) : (

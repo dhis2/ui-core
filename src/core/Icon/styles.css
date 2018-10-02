@@ -17,26 +17,23 @@
     -webkit-font-smoothing: antialiased;
 }
 
-.d2ui-align-icon {
-    .material-icons {
-        pointer-events: none;
-        line-height: 0.9375rem;
-        height: 0.9375rem;
-        width: 1.5rem;
+.align-icon .material-icons {
+    pointer-events: none;
+    line-height: 0.9375rem;
+    height: 0.9375rem;
+    width: 1.5rem;
+}
+.align-icon .material-icons:first-child {
+    margin-right: 0.75rem;
+    margin-left: 0;
+}
 
-        &:first-child {
-            margin-right: 0.75rem;
-            margin-left: 0;
-        }
+.align-icon .material-icons:last-child {
+    margin-right: 0;
+    margin-left: 0.75rem;
+}
 
-        &:last-child {
-            margin-right: 0;
-            margin-left: 0.75rem;
-        }
-
-        &:only-child {
-            margin-left: 0;
-            margin-right: 0;
-        }
-    }
+.align-icon .material-icons:only-child {
+    margin-left: 0;
+    margin-right: 0;
 }

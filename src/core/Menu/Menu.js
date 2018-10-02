@@ -5,24 +5,32 @@ import PropTypes from 'prop-types'
 import MenuItem from './MenuItem'
 import Paper from '../Paper'
 
-import './menu.css'
+import s from './styles'
 
-const Menu = ({ options, selectHandler, closePopover, children }) => (
-    <Paper elevation={4}>
-        <ul className="d2ui-menu">
-            {children
-                ? children
-                : options.map(({ onClick, ...rest }, index) => (
-                      <MenuItem
-                          key={`key-${index}`}
-                          onClick={onClick || selectHandler}
-                          closePopover={closePopover}
-                          {...rest}
-                      />
-                  ))}
-        </ul>
-    </Paper>
-)
+function Menu({ options, selectHandler, closePopover, children }) {
+    if (children) {
+        return (
+            <Paper elevation={4}>
+                <ul className={s('container')}>{children}</ul>
+            </Paper>
+        )
+    }
+
+    return (
+        <Paper elevation={4}>
+            <ul className={s('container')}>
+                {options.map(({ onClick, ...rest }, idx) => (
+                    <MenuItem
+                        key={`mi-${idx}`}
+                        onClick={onClick || selectHandler}
+                        closePopover={closePopover}
+                        {...rest}
+                    />
+                ))}
+            </ul>
+        </Paper>
+    )
+}
 
 Menu.propTypes = {
     options: PropTypes.array,

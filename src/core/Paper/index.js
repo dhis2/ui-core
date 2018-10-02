@@ -2,14 +2,14 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../utils'
-import './styles.css'
+import s from './styles'
 
-const bem = bemClassNames('paper')
-
-function Paper({ elevation, children, className }) {
-    const bemClass = bem.b(`elevation-${elevation}`)
-    return <div className={`${bemClass} ${className}`}>{children}</div>
+function Paper({ elevation, children }) {
+    return (
+        <div className={s('container', `elevation-${elevation}`)}>
+            {children}
+        </div>
+    )
 }
 
 Paper.propTypes = {
@@ -20,7 +20,6 @@ Paper.propTypes = {
 
 Paper.defaultProps = {
     elevation: 1,
-    className: 'd2ui-paper-defaults',
 }
 
 export { Paper }

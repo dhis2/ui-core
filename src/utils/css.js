@@ -1,5 +1,7 @@
 /** @format */
 
+import classes from 'classnames/bind'
+
 const DEFAULT_PREFIX = 'd2ui-'
 export function bemClassNames(blockName) {
     if (!blockName.startsWith(DEFAULT_PREFIX)) {
@@ -12,19 +14,19 @@ export function bemClassNames(blockName) {
         b: (...modifierArgs) =>
             modifierArgs.length === 0
                 ? blockName
-                : classNames(blockName, modifierArgs),
+                : bemClass(blockName, modifierArgs),
         e: (elementName, ...modifierArgs) => {
             if (!elementLookup[elementName]) {
                 elementLookup[elementName] = `${blockName}__${elementName}`
             }
             return modifierArgs.length === 0
                 ? elementLookup[elementName]
-                : classNames(elementLookup[elementName], modifierArgs)
+                : bemClass(elementLookup[elementName], modifierArgs)
         },
     }
 }
 
-function classNames(prefix, modifierArgs) {
+function bemClass(prefix, modifierArgs) {
     const classes = [prefix]
 
     for (let arg of modifierArgs) {
@@ -46,4 +48,8 @@ function classNames(prefix, modifierArgs) {
     }
 
     return classes.join(' ')
+}
+
+export default function classNames(styles) {
+    return classes.bind(styles)
 }

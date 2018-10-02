@@ -3,13 +3,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { bemClassNames, getRequiredText } from '../../../utils'
+import { getRequiredText } from '../../../utils'
 import ToggleField from '../ToggleField'
 import Field from '../shared/Field'
-
-import './styles.css'
-
-const bem = bemClassNames('radio-button')
+import s from './styles'
 
 const RadioButton = ({
     label,
@@ -26,11 +23,14 @@ const RadioButton = ({
     helpText,
     required,
 }) => (
-    <Field {...{ valid, warning, disabled, error, dense, block, helpText }}>
+    <Field
+        className={s('container')}
+        {...{ valid, warning, disabled, error, dense, block, helpText }}
+    >
         <ToggleField disabled={disabled} dense={dense}>
-            <div className={bem.b({ disabled })}>
+            <div className={s({ disabled })}>
                 <input
-                    className={bem.e('native-control')}
+                    className={s('native-control')}
                     type="radio"
                     name={name}
                     value={value}
@@ -38,12 +38,12 @@ const RadioButton = ({
                     onChange={onChange}
                     disabled={disabled}
                 />
-                <div className={bem.e('background')}>
-                    <div className={bem.e('outer-circle')} />
-                    <div className={bem.e('inner-circle')} />
+                <div className={s('background')}>
+                    <div className={s('outer-circle')} />
+                    <div className={s('inner-circle')} />
                 </div>
             </div>
-            <span className={bem.e('label-text', { disabled })}>
+            <span className={s('label-text', { disabled })}>
                 {getRequiredText(label, required)}
             </span>
         </ToggleField>

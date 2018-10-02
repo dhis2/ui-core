@@ -3,11 +3,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ToggleField from '../ToggleField'
-import './styles.css'
-import { bemClassNames, getRequiredText } from '../../../utils'
+import { getRequiredText } from '../../../utils'
 import Field from '../shared/Field'
-
-const bem = bemClassNames('switch')
+import s from './styles'
 
 const Switch = ({
     label,
@@ -23,17 +21,20 @@ const Switch = ({
     required,
 }) => {
     return (
-        <Field {...{ valid, warning, disabled, error, dense, block, helpText }}>
+        <Field
+            className={s('container')}
+            {...{ valid, warning, disabled, error, dense, block, helpText }}
+        >
             <ToggleField disabled={disabled} dense={dense}>
-                <div className={bem.b({ checked, disabled })}>
-                    <div className={bem.e('track')} />
-                    <div className={bem.e('thumb-underlay')}>
-                        <div className={bem.e('thumb')}>
+                <div className={s({ checked, disabled })}>
+                    <div className={s('track')} />
+                    <div className={s('thumb-underlay')}>
+                        <div className={s('thumb')}>
                             <input
                                 onChange={onChange}
                                 type="checkbox"
                                 id="basic-switch"
-                                className={bem.e('native-control')}
+                                className={s('native-control')}
                                 aria-checked={checked}
                                 checked={checked}
                                 role="switch"
@@ -42,7 +43,7 @@ const Switch = ({
                         </div>
                     </div>
                 </div>
-                <span className={bem.e('label-text', { disabled })}>
+                <span className={s('label-text', { disabled })}>
                     {getRequiredText(label, required)}
                 </span>
             </ToggleField>

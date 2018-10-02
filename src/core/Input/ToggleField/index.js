@@ -2,15 +2,14 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import { bemClassNames } from '../../../utils'
-
-import './styles.css'
-
-const bem = bemClassNames('toggle-field')
+import s from './styles'
 
 function ToggleField({ children, disabled, dense }) {
-    return <label className={bem.b({ disabled, dense })}>{children}</label>
+    return (
+        <label className={s('container', { disabled, dense })}>
+            {children}
+        </label>
+    )
 }
 
 ToggleField.propTypes = {

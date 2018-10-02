@@ -27,7 +27,7 @@ export const RTL_LANGS = [
  * set dir attribute {ltr, rtl} on document based on locale
  * @param locale format "en" or "en_EN"
  */
-export function setDir(locale) {
+export function setDocDir(locale) {
     const uiLanguage = locale.includes('_') ? locale.split('_')[0] : locale
     const dir = RTL_LANGS.includes(uiLanguage) ? 'rtl' : 'ltr'
 
