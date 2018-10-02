@@ -1,6 +1,6 @@
 /** @format */
 
-import { easeInOutQuad } from '../css'
+import { easeInOutQuad } from './easing'
 import { getDoc } from '../html'
 
 const HORIZONTAL = 'horizontal'
