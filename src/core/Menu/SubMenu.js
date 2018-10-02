@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types'
 import React, { Component, Fragment, isValidElement } from 'react'
-import { isRTL } from '../../utils'
+import { isDocRTL } from '../../utils'
 import PopoverMenu from './PopoverMenu'
 import MenuItem from './MenuItem'
 import Icon from '../Icon'
@@ -31,7 +31,7 @@ class SubMenu extends Component {
 
     render() {
         const { children, label, icon, menuItems } = this.props
-        const arrowIconName = isRTL()
+        const arrowIconName = isDocRTL()
             ? 'keyboard_arrow_left'
             : 'keyboard_arrow_right'
         // There MUST be a better way of doing this!
