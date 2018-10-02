@@ -3,15 +3,13 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import LabelField, { bem as labelFieldBem } from '../shared/LabelField'
+import LabelField from '../shared/LabelField'
+import labelStyles from '../shared/LabelField/styles'
 
 import { PopoverMenu } from '../../Menu'
-import { bemClassNames } from '../../../utils'
 
-import './styles.css'
-
-const bem = bemClassNames('select')
-const inputClassName = `${bem.e('input')} ${labelFieldBem.e('input')}`
+import s from './styles'
+const inputClassName = `${s('input')} ${labelStyles('input')}`
 
 // React uses a "value" property on the <select/> which can't be null so we use this magic string instead
 const EMPTY_NATIVE_OPTION_VALUE = '#^NONE^#'
@@ -83,11 +81,10 @@ class SelectField extends Component {
     renderNativeSelect() {
         const options = this.getOptions()
         const value = this.props.value || EMPTY_NATIVE_OPTION_VALUE
-        const nativeClass = inputClassName + ' ' + bem.b({ native: true })
         return (
             <select
                 ref={c => (this.inputRef = c)}
-                className={nativeClass}
+                className={s('native', inputClassName)}
                 onChange={this.nativeSelectHandler}
                 value={value}
             >
@@ -138,6 +135,7 @@ class SelectField extends Component {
         return (
             <Fragment>
                 <LabelField
+                    className={s('container')}
                     {...{
                         variant,
                         dense,
