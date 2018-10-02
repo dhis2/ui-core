@@ -1,15 +1,20 @@
 /** @format */
 
-import React, { Children } from 'react'
+import React from 'react'
 
-// CSS selectors like :first-child, :only-child, :last-child do not take text nodes
-// into account, so wrapping text nodes in spans simplifies the CSS file a lot.
-export function wrapTextNodesInSpans(children) {
-    return Children.map(children, (child, index) => {
-        if (['string', 'number'].includes(typeof child)) {
-            return <span key={`key-${index}`}>{child}</span>
+/**
+ * CSS selectors like :first-child, :only-child, :last-child do not take text nodes
+ * into account, so wrapping text nodes in spans simplifies the CSS file a lot.
+ *
+ * @param nodes list of text nodes
+ */
+export function wrapTextNodesInSpans(nodes) {
+    return React.Children.map(nodes, (node, idx) => {
+        if (['string', 'number'].includes(typeof node)) {
+            return <span key={`key-${idx}`}>{node}</span>
         }
-        return child
+
+        return node
     })
 }
 
