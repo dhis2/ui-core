@@ -1,7 +1,7 @@
 /** @format */
 
 const path = require('path')
-const fs = require('fs')
+const fs = require('fs-extra')
 
 /** @format */
 module.exports = {
@@ -26,9 +26,11 @@ module.exports = {
             getJSON: function(cssFileName, json, outputFileName) {
                 const cssName = path.basename(cssFileName, '.css')
                 const cssDir = path.dirname(cssFileName).split('src/')[1]
+                const jsonFileDir = path.join('./build', cssDir)
                 const jsonFileName = path.resolve(
-                    './build/' + cssDir + '/' + cssName + '.json'
+                    jsonFileDir + '/' + cssName + '.json'
                 )
+                fs.ensureDirSync(jsonFileDir)
                 fs.writeFileSync(jsonFileName, JSON.stringify(json))
             },
         },

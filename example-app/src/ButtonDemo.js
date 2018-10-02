@@ -95,6 +95,7 @@ export default class ProgressDemo extends Component {
                 <PrimaryButton>Primary</PrimaryButton>
                 <FlatButton
                     onClick={e => console.log('Clicked button nr 1', e.target)}
+                    disabled
                 >
                     Test
                 </FlatButton>
