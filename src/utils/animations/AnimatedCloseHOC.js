@@ -1,12 +1,14 @@
 /** @format */
 
 import React from 'react'
+
 /**
  * This HOC adds a "isAnimatingOut" (bool) and "onAnimationEnd" (fn) property
  * to a wrapped component. The "isAnimatingOut" can be used to add a CSS class
  * based keyframe animation to hide a component before it is removed from the DOM.
  * This HOC makes quite a few assumptions about the wrapped component, so won't be
  * suitable for any given situation:
+ *
  * 1. It has an "open" property which is used to toggle visiblity.
  * 2. It renders content if `open || isAnimatingOut` is true
  * 3. It adds some CSS class to an element if isAnimatingOut is true.
