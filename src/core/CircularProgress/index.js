@@ -9,7 +9,7 @@ function CircularProgress({ size, center, dashed }) {
         <div role="progressbar" className={s('container', size)}>
             <svg viewBox="22 22 44 44" className={s('viewbox')}>
                 <circle
-                    className={dashed ? s('dashed') : ''}
+                    className={s({ dashed })}
                     cx="44"
                     cy="44"
                     r="20.2"

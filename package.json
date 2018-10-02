@@ -25,7 +25,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "yarn format && git add ."
+            "pre-commit": "yarn format"
         }
     },
     "devDependencies": {
