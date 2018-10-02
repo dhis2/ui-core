@@ -3,13 +3,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { bemClassNames, getRequiredText } from '../../../../utils'
+import { getRequiredText } from '../../../../utils'
 import Icon from '../../../Icon'
 import Field from '../Field'
-
-import './styles.css'
-
-export const bem = bemClassNames('label-field')
+import s from './styles'
 
 const computeTrailingIcon = (trailingIcon, error, warning, valid) => {
     switch (true) {
@@ -51,9 +48,9 @@ const LabelField = ({
     )
 
     const focusIndicator =
-        variant === 'outlined' ? 'notched-outline' : 'bottom-line'
+        variant === 'outlined' ? s('notched-outline') : s('bottom-line')
 
-    const wrapperClassName = bem.b(variant, {
+    const wrapperClassName = s('container', variant, {
         'with-value': value !== '',
         'with-trailing-icon': computedTrailingIcon,
         'with-leading-icon': leadingIcon,
@@ -80,20 +77,17 @@ const LabelField = ({
         >
             <label className={wrapperClassName}>
                 {children}
-                <span className={bem.e(focusIndicator)} />
+                <span className={s(focusIndicator)} />
                 {leadingIcon && (
-                    <Icon
-                        name={leadingIcon}
-                        className={bem.e('icon', 'leading')}
-                    />
+                    <Icon name={leadingIcon} className={s('icon', 'leading')} />
                 )}
                 {computedTrailingIcon && (
                     <Icon
                         name={computedTrailingIcon}
-                        className={bem.e('icon', 'trailing')}
+                        className={s('icon', 'trailing')}
                     />
                 )}
-                <span className={bem.e('floating')}>
+                <span className={s('floating')}>
                     {getRequiredText(label, required)}
                 </span>
             </label>

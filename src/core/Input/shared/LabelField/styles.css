@@ -1,6 +1,6 @@
 /** @format */
 
-.d2ui-label-field {
+.container {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border-radius: 0.25rem 0.25rem 0 0;
     display: inline-flex;
@@ -12,7 +12,7 @@
     will-change: opacity, transform, color;
     cursor: text;
 
-    &__input {
+    input {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         font-size: 1rem;
@@ -32,22 +32,22 @@
         background: none;
         -webkit-appearance: none;
         caret-color: #00796b;
-
-        &:focus {
-            outline: none;
-        }
-
-        &:invalid {
-            box-shadow: none;
-        }
-
-        &::placeholder {
-            transition: color 180ms cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 1;
-        }
     }
 
-    &__floating {
+    input:focus {
+        outline: none;
+    }
+
+    input:invalid {
+        box-shadow: none;
+    }
+
+    input::placeholder {
+        transition: color 180ms cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 1;
+    }
+
+    .floating {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         pointer-events: none;
@@ -72,7 +72,7 @@
         will-change: transform color;
     }
 
-    &__bottom-line {
+    .bottom-line {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -86,7 +86,7 @@
         background-color: #00796b;
     }
 
-    &__notched-outline {
+    .notched-outline {
         pointer-events: none;
         position: absolute;
         border-radius: 0.25rem;
@@ -100,50 +100,49 @@
     }
 
     /* Show bottom line when input has focus */
-    &__input:focus ~ &__bottom-line {
+    input:focus ~ .bottom-line {
         transform: scaleX(1);
         opacity: 1;
     }
 
     /* Move label above if input has value and/or focus  */
-    &--with-value &__floating,
-    &__input:focus ~ &__floating {
+    .with-value .floating,
+    input:focus ~ .floating {
         transform: translateY(-80%) scale(0.75);
     }
 
     /* Color the label when the input has focus */
-    &__input:focus ~ &__floating {
+    input:focus ~ .floating {
         color: #00796b;
     }
 
     /* TYPES */
-    &--minimal &__input {
+    .minimal input {
         transition: border-color 180ms cubic-bezier(0.4, 0, 0.2, 1);
         border-color: rgba(0, 0, 0, 0.42);
     }
 
-    &--minimal:hover &__input {
+    .minimal:hover input {
         border-color: rgba(0, 0, 0, 0.87);
     }
 
-    &--filled &__input {
+    .filled input {
         background-color: #eceff1;
         border-color: transparent;
         transition: border-color 180ms cubic-bezier(0.4, 0, 0.2, 1),
             background-color 180ms cubic-bezier(0.4, 0, 0.2, 1);
-
-        &:hover {
-            border-color: #494949;
-            /* Darken 5% */
-            background-color: #dee3e6;
-        }
+    }
+    .filled input:hover {
+        border-color: #494949;
+        /* Darken 5% */
+        background-color: #dee3e6;
     }
 
-    &--outlined {
+    .outlined {
         overflow: visible;
     }
 
-    &--outlined &__floating {
+    .outlined .floating {
         z-index: 1;
         bottom: 1.1rem;
         padding-left: 0.25rem;
@@ -151,7 +150,7 @@
         background-color: #ffffff;
     }
 
-    &--outlined &__input {
+    .outlined input {
         border-radius: 0.3125rem;
         border: 1px solid #c4c4c4;
         transition: border-color 180ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -163,185 +162,177 @@
         }
     }
 
-    &__input:focus ~ &__notched-outline {
+    input:focus ~ .notched-outline {
         opacity: 1;
     }
 
-    &--outlined.d2ui-label-field--with-value &__floating,
-    &--outlined &__input:focus ~ &__floating {
+    .outlined.with-value .floating,
+    .outlined input:focus ~ .floating {
         transform: translateY(-140%) scale(0.75);
     }
 
     /* ICONS */
-    &__icon {
+    .icon {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         color: #494949;
-
-        &--leading {
-            left: 1rem;
-        }
-
-        &--trailing {
-            right: 1rem;
-        }
     }
 
-    &--with-leading-icon &__input {
+    .icon .leading {
+        left: 1rem;
+    }
+
+    .icon .trailing {
+        right: 1rem;
+    }
+
+    .with-leading-icon input {
         padding-left: 3rem;
     }
 
-    &--with-leading-icon &__floating {
+    .with-leading-icon .floating {
         left: 3rem;
     }
 
-    &--with-trailing-icon &__input {
+    .with-trailing-icon input {
         padding-right: 3rem;
     }
 
-    &--outlined.d2ui-label-field--with-leading-icon.d2ui-label-field--with-value
-        &__floating,
-    &--outlined.d2ui-label-field--with-leading-icon
-        &__input:focus
-        ~ &__floating {
+    .outlined.with-leading-icon.with-value &__floating,
+    .outlined.with-leading-icon input:focus ~ .floating {
         transform: translateY(-140%) translateX(-2.1rem) scale(0.75);
     }
 
     /* DENSE LAYOUT */
-    &--dense {
+    .dense {
         height: 2.75rem;
     }
 
-    &--dense &__floating {
+    .dense .floating {
         font-size: 0.813rem;
         bottom: 0.75rem;
         left: 0.75rem;
     }
 
-    &--dense &__input {
+    .dense input {
         padding: 1rem 0.75rem 0.25rem;
     }
 
-    &--dense.d2ui-label-field--outlined &__input {
+    .dense.outlined input {
         padding-top: 0.625rem;
         padding-bottom: 0.625rem;
     }
 
-    &--dense &__icon {
+    .dense .icon {
         transform: scale(0.8) translateY(-60%);
-
-        &--leading {
-            left: 0.5rem;
-        }
-
-        &--trailing {
-            right: 0.5rem;
-        }
+    }
+    .dense .icon .leading {
+        left: 0.5rem;
     }
 
-    &--dense.d2ui-label-field--with-leading-icon &__input {
+    .dense .icon .trailing {
+        right: 0.5rem;
+    }
+
+    .dense.with-leading-icon input {
         padding-left: 2.25rem;
     }
 
-    &--dense.d2ui-label-field--with-leading-icon &__floating {
+    .dense.with-leading-icon .floating {
         left: 2.25rem;
     }
 
-    &--dense.d2ui-label-field--with-trailing-icon &__input {
+    .dense.with-trailing-icon input {
         padding-right: 2.25rem;
     }
 
-    &--dense.d2ui-label-field--with-value &__floating,
-    &--dense &__input:focus ~ &__floating {
+    .dense.with-value .floating,
+    .dense input:focus ~ .floating {
         transform: translateY(-65%) scale(0.85);
     }
 
-    &--dense.d2ui-label-field--outlined.d2ui-label-field--with-value
-        &__floating,
-    &--dense.d2ui-label-field--outlined &__input:focus ~ &__floating {
+    .dense.outlined.with-value .floating,
+    .dense.outlined input:focus ~ .floating {
         transform: translateY(-118%) scale(0.85);
     }
 
-    &--dense.d2ui-label-field--outlined.d2ui-label-field--with-leading-icon.d2ui-label-field--with-value
-        &__floating,
-    &--dense.d2ui-label-field--outlined.d2ui-label-field--with-leading-icon
-        &__input:focus
-        ~ &__floating {
+    .dense.outlined.with-leading-icon.with-value .floating,
+    .dense.outlined.with-leading-icon input:focus ~ .floating {
         transform: translateY(-118%) translateX(-1.7rem) scale(0.85);
     }
 
     /* STATES: VALID */
-    &--valid &__bottom-line {
+    .valid .bottom-line {
         background-color: #1976d2;
     }
-    &--valid &__notched-outline {
+    .valid .notched-outline {
         border-color: #1976d2;
     }
-    &--valid.d2ui-label-field--with-value &__floating,
-    &--valid &__input:focus ~ &__floating,
-    &--valid &__icon--trailing {
+    .valid.with-value .floating,
+    .valid input:focus ~ .floating,
+    .valid .icon--trailing {
         color: #1976d2;
     }
 
     /* STATES: WARNING */
-    &--warning &__bottom-line {
+    .warning .bottom-line {
         background-color: #f19c02;
     }
-    &--warning &__notched-outline {
+    .warning .notched-outline {
         border-color: #f19c02;
     }
-    &--warning &__icon--trailing {
+    .warning .icon--trailing {
         color: #f19c02;
     }
-    &--warning.d2ui-label-field--with-value &__floating,
-    &--warning &__input:focus ~ &__floating {
+    .warning.with-value .floating,
+    .warning input:focus ~ .floating {
         color: #a46a01;
     }
 
     /* STATES: DISABLED */
-    &--disabled {
+    .disabled {
         cursor: not-allowed;
     }
-    &--disabled &__input,
-    &--disabled &__floating,
-    &--disabled &__icon {
+    .disabled input,
+    .disabled .floating,
+    .disabled .icon {
         color: #9e9e9e;
         pointer-events: none;
     }
-    &--disabled.d2ui-label-field--outlined &__input,
-    &--disabled.d2ui-label-field--outlined &__input:hover,
-    &--disabled.d2ui-label-field--minimal &__input,
-    &--disabled.d2ui-label-field--minimal &__input:hover {
+    .disabled.outlined input,
+    .disabled.outlined input:hover,
+    .disabled.minimal input,
+    .disabled.minimal input:hover {
         border-color: rgba(196, 196, 196, 0.2);
     }
-    &--disabled.d2ui-label-field--filled &__input:hover {
+    .disabled.filled input:hover {
         border-color: transparent;
         /* Darken 5% */
         background-color: #eceff1;
     }
 
     /* STATES: ERROR */
-    &--error &__bottom-line {
+    .error .bottom-line {
         background-color: #e53935;
     }
-    &--error &__notched-outline {
+    .error .notched-outline {
         border-color: #e53935;
     }
-    &--error.d2ui-label-field--with-value &__floating,
-    &--error &__input:focus ~ &__floating,
-    &--error &__icon--trailing {
+    .error.with-value .floating,
+    .error input:focus ~ .floating,
+    .error .icon--trailing {
         color: #e53935;
     }
 
     /* MULTILINE */
-    &--multiline {
+    .multiline {
         height: auto;
         min-height: 7rem;
         overflow-y: visible;
     }
 
-    &--multiline &__input {
+    .multiline input {
         min-height: 7rem;
         max-height: 21rem;
         min-width: 12.9375rem;
@@ -349,33 +340,32 @@
         overflow: auto;
     }
 
-    &--multiline.d2ui-label-field--filled,
-    &--multiline.d2ui-label-field--filled.d2ui-label-field--disabled:hover {
+    .multiline.filled,
+    .multiline.filled.disabled:hover {
         background-color: #eceff1;
     }
 
-    &--multiline.d2ui-label-field--filled {
+    .multiline.filled {
         transition: background-color 180ms cubic-bezier(0.4, 0, 0.2, 1);
-
-        &:hover {
-            background-color: #dee3e6;
-        }
+    }
+    .multiline.filled:hover {
+        background-color: #dee3e6;
     }
 
-    &--multiline.d2ui-label-field--minimal &__input,
-    &--multiline.d2ui-label-field--filled &__input {
+    .multiline.minimal input,
+    .multiline.filled input {
         min-height: 5.8125rem;
         max-height: 19.8125rem;
         margin-top: 1.125rem;
         padding-top: 0;
     }
 
-    &--multiline.d2ui-label-field--outlined {
+    .multiline.outlined {
         border: 0.0625rem solid #c4c4c4;
         border-radius: 0.25rem;
     }
 
-    &--multiline.d2ui-label-field--outlined &__input {
+    .multiline.outlined input {
         min-height: 6.375rem;
         max-height: 20.375rem;
         min-width: 12.3125rem;
@@ -385,32 +375,30 @@
         border-color: transparent;
     }
 
-    &--multiline.d2ui-label-field--full-width &__input,
-    &--multiline.d2ui-label-field--outlined.d2ui-label-field--full-width
-        &__input {
+    .multiline.full-width input,
+    .multiline.outlined.full-width input {
         min-width: 100%;
         max-width: 100%;
     }
 
-    &--multiline &__floating {
+    .multiline .floating {
         bottom: auto;
         top: 1.1rem;
     }
 
-    &--multiline.d2ui-label-field--outlined.d2ui-label-field--with-value
-        &__floating,
-    &--multiline.d2ui-label-field--outlined &__input:focus ~ &__floating {
+    .multiline.outlined.with-value .floating,
+    .multiline.outlined input:focus ~ .floating {
         transform: translateY(-130%) scale(0.75);
     }
 
-    &--multiline &__notched-outline {
+    .multiline .notched-outline {
         height: calc(100% + 2px);
         width: calc(100% + 2px);
         top: -1px;
         left: -1px;
     }
 
-    &--multiline .material-icons {
+    .multiline .material-icons {
         transform: none;
         top: 1rem;
     }
@@ -418,13 +406,12 @@
 
 /* IE11 hacks */
 @media all and (-ms-high-contrast: none) {
-    .d2ui-label-field {
+    .container {
         border-radius: 0;
-
-        &__input,
-        &--outlined &__input,
-        &__notched-outline {
-            border-radius: 0;
-        }
+    }
+    .container input,
+    .container .outlined input,
+    .container .notched-outline {
+        border-radius: 0;
     }
 }

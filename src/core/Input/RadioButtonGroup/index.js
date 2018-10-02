@@ -3,13 +3,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { bemClassNames, getRequiredText } from '../../../utils'
+import { getRequiredText } from '../../../utils'
 import RadioButton from '../RadioButton'
 import Field from '../shared/Field'
+import s from './styles.css'
 
-import './styles.css'
-
-const bem = bemClassNames('radio-button-group')
 const randomName = () =>
     Math.random()
         .toString(36)
@@ -31,12 +29,13 @@ const RadioButtonGroup = ({
     required,
 }) => (
     <Field
+        className={s('container')}
         {...{ valid, warning, disabled, error, dense, block: true, helpText }}
     >
-        <p className={bem.e('description', { error, valid, warning })}>
+        <p className={s('description', { error, valid, warning })}>
             {getRequiredText(label, required)}
         </p>
-        <div className={bem.b({ error, warning, valid, stacked: !inline })}>
+        <div className={s({ error, warning, valid, stacked: !inline })}>
             {options.map(option => (
                 <RadioButton
                     key={option.value}

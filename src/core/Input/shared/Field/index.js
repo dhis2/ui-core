@@ -2,11 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../../../utils'
-
-import './styles.css'
-
-const bem = bemClassNames('field')
+import s from './styles'
 
 function Field({
     children,
@@ -19,23 +15,19 @@ function Field({
     helpText,
     className,
 }) {
-    let computedClassName = bem.b({
-        valid,
-        warning,
-        disabled,
-        error,
-        dense,
-        'full-width': block,
-    })
-
-    if (className) {
-        computedClassName += ` ${className}`
-    }
-
     return (
-        <div className={computedClassName}>
+        <div
+            className={s('container', className, {
+                valid,
+                warning,
+                disabled,
+                error,
+                dense,
+                'full-width': block,
+            })}
+        >
             {children}
-            {helpText && <div className={bem.e('help-text')}>{helpText}</div>}
+            {helpText && <div className={s('help-text')}>{helpText}</div>}
         </div>
     )
 }
