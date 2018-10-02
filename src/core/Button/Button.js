@@ -17,7 +17,7 @@ const Button = ({
     kind,
 }) => (
     <button
-        className={s('button', 'd2ui-align-icon', kind, size)}
+        className={s('button', 'align-icon', kind, size)}
         {...{ disabled, onClick, onDoubleClick, title, type, role }}
     >
         {wrapTextNodesInSpans(children)}
