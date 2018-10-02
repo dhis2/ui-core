@@ -2,14 +2,11 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import FieldWrap from './FieldWrap'
-import Field, { bem as fieldBem } from './Field'
+import LabelField, { bem as labelFieldBem } from '../shared/LabelField'
 
-const FILLED = 'filled'
-const OUTLINED = 'outlined'
-const MINIMAL = 'minimal'
+import { bemClassNames } from '../../../utils'
 
-const TextField = ({
+function TextField({
     variant,
     type,
     dense,
@@ -26,49 +23,36 @@ const TextField = ({
     multiline,
     required,
     helpText,
-}) => {
+}) {
     const InputTag = multiline ? 'textarea' : 'input'
-    const inputComponent = (
-        <InputTag
-            className={fieldBem.e('input')}
-            value={value}
-            onChange={onChange}
-            type={type}
-            disabled={disabled}
-        />
-    )
 
     return (
-        <FieldWrap
+        <LabelField
             {...{
+                variant,
+                dense,
+                label,
+                value,
+                leadingIcon,
+                trailingIcon,
+                error,
                 valid,
                 warning,
                 disabled,
-                error,
-                dense,
                 block,
+                multiline,
+                required,
                 helpText,
             }}
         >
-            <Field
-                {...{
-                    variant,
-                    dense,
-                    label,
-                    value,
-                    leadingIcon,
-                    trailingIcon,
-                    error,
-                    valid,
-                    warning,
-                    disabled,
-                    inputComponent,
-                    block,
-                    multiline,
-                    required,
-                }}
+            <InputTag
+                className={labelFieldBem.e('input')}
+                value={value}
+                onChange={onChange}
+                type={type}
+                disabled={disabled}
             />
-        </FieldWrap>
+        </LabelField>
     )
 }
 
@@ -77,7 +61,7 @@ TextField.propTypes = {
     onChange: PropTypes.func.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     dense: PropTypes.bool,
-    variant: PropTypes.oneOf([FILLED, OUTLINED, MINIMAL]),
+    variant: PropTypes.oneOf(['filled', 'outlined', 'minimal']),
     leadingIcon: PropTypes.string,
     trailingIcon: PropTypes.string,
     type: PropTypes.oneOf([
@@ -109,7 +93,7 @@ TextField.propTypes = {
 TextField.defaultProps = {
     value: '',
     dense: false,
-    variant: FILLED,
+    variant: 'filled',
     type: 'text',
 }
 

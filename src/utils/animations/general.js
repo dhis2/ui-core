@@ -1,6 +1,7 @@
 /** @format */
 
-import { easeInOutQuad } from './css'
+import { easeInOutQuad } from './easing'
+import { getDoc } from '../html'
 
 const HORIZONTAL = 'horizontal'
 const VERTICAL = 'vertical'
@@ -175,8 +176,4 @@ function getElemEndValue(
         },
     }
     return Math.round(lookup[typeSelector][direction][movementSelector])
-}
-
-function getDoc() {
-    return document.documentElement || document.body
 }

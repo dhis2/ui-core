@@ -15,7 +15,7 @@ const clickTest = event => {
 export default class ProgressDemo extends Component {
     render() {
         return (
-            <Paper elevation={6} padded>
+            <Paper>
                 <h3>Progress components</h3>
                 <hr />
                 <Tooltip text="There is an alarm and I want ot make this text even longer">

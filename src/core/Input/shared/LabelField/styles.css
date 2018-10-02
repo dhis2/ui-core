@@ -1,6 +1,6 @@
 /** @format */
 
-.d2ui-field {
+.d2ui-label-field {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border-radius: 0.25rem 0.25rem 0 0;
     display: inline-flex;
@@ -47,7 +47,7 @@
         }
     }
 
-    &__floating-label {
+    &__floating {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
         pointer-events: none;
@@ -106,13 +106,13 @@
     }
 
     /* Move label above if input has value and/or focus  */
-    &--with-value &__floating-label,
-    &__input:focus ~ &__floating-label {
+    &--with-value &__floating,
+    &__input:focus ~ &__floating {
         transform: translateY(-80%) scale(0.75);
     }
 
     /* Color the label when the input has focus */
-    &__input:focus ~ &__floating-label {
+    &__input:focus ~ &__floating {
         color: #00796b;
     }
 
@@ -143,7 +143,7 @@
         overflow: visible;
     }
 
-    &--outlined &__floating-label {
+    &--outlined &__floating {
         z-index: 1;
         bottom: 1.1rem;
         padding-left: 0.25rem;
@@ -167,8 +167,8 @@
         opacity: 1;
     }
 
-    &--outlined.d2ui-field--with-value &__floating-label,
-    &--outlined &__input:focus ~ &__floating-label {
+    &--outlined.d2ui-label-field--with-value &__floating,
+    &--outlined &__input:focus ~ &__floating {
         transform: translateY(-140%) scale(0.75);
     }
 
@@ -192,7 +192,7 @@
         padding-left: 3rem;
     }
 
-    &--with-leading-icon &__floating-label {
+    &--with-leading-icon &__floating {
         left: 3rem;
     }
 
@@ -200,11 +200,11 @@
         padding-right: 3rem;
     }
 
-    &--outlined.d2ui-field--with-leading-icon.d2ui-field--with-value
-        &__floating-label,
-    &--outlined.d2ui-field--with-leading-icon
+    &--outlined.d2ui-label-field--with-leading-icon.d2ui-label-field--with-value
+        &__floating,
+    &--outlined.d2ui-label-field--with-leading-icon
         &__input:focus
-        ~ &__floating-label {
+        ~ &__floating {
         transform: translateY(-140%) translateX(-2.1rem) scale(0.75);
     }
 
@@ -213,7 +213,7 @@
         height: 2.75rem;
     }
 
-    &--dense &__floating-label {
+    &--dense &__floating {
         font-size: 0.813rem;
         bottom: 0.75rem;
         left: 0.75rem;
@@ -223,7 +223,7 @@
         padding: 1rem 0.75rem 0.25rem;
     }
 
-    &--dense.d2ui-field--outlined &__input {
+    &--dense.d2ui-label-field--outlined &__input {
         padding-top: 0.625rem;
         padding-bottom: 0.625rem;
     }
@@ -240,33 +240,34 @@
         }
     }
 
-    &--dense.d2ui-field--with-leading-icon &__input {
+    &--dense.d2ui-label-field--with-leading-icon &__input {
         padding-left: 2.25rem;
     }
 
-    &--dense.d2ui-field--with-leading-icon &__floating-label {
+    &--dense.d2ui-label-field--with-leading-icon &__floating {
         left: 2.25rem;
     }
 
-    &--dense.d2ui-field--with-trailing-icon &__input {
+    &--dense.d2ui-label-field--with-trailing-icon &__input {
         padding-right: 2.25rem;
     }
 
-    &--dense.d2ui-field--with-value &__floating-label,
-    &--dense &__input:focus ~ &__floating-label {
+    &--dense.d2ui-label-field--with-value &__floating,
+    &--dense &__input:focus ~ &__floating {
         transform: translateY(-65%) scale(0.85);
     }
 
-    &--dense.d2ui-field--outlined.d2ui-field--with-value &__floating-label,
-    &--dense.d2ui-field--outlined &__input:focus ~ &__floating-label {
+    &--dense.d2ui-label-field--outlined.d2ui-label-field--with-value
+        &__floating,
+    &--dense.d2ui-label-field--outlined &__input:focus ~ &__floating {
         transform: translateY(-118%) scale(0.85);
     }
 
-    &--dense.d2ui-field--outlined.d2ui-field--with-leading-icon.d2ui-field--with-value
-        &__floating-label,
-    &--dense.d2ui-field--outlined.d2ui-field--with-leading-icon
+    &--dense.d2ui-label-field--outlined.d2ui-label-field--with-leading-icon.d2ui-label-field--with-value
+        &__floating,
+    &--dense.d2ui-label-field--outlined.d2ui-label-field--with-leading-icon
         &__input:focus
-        ~ &__floating-label {
+        ~ &__floating {
         transform: translateY(-118%) translateX(-1.7rem) scale(0.85);
     }
 
@@ -277,8 +278,8 @@
     &--valid &__notched-outline {
         border-color: #1976d2;
     }
-    &--valid.d2ui-field--with-value &__floating-label,
-    &--valid &__input:focus ~ &__floating-label,
+    &--valid.d2ui-label-field--with-value &__floating,
+    &--valid &__input:focus ~ &__floating,
     &--valid &__icon--trailing {
         color: #1976d2;
     }
@@ -293,8 +294,8 @@
     &--warning &__icon--trailing {
         color: #f19c02;
     }
-    &--warning.d2ui-field--with-value &__floating-label,
-    &--warning &__input:focus ~ &__floating-label {
+    &--warning.d2ui-label-field--with-value &__floating,
+    &--warning &__input:focus ~ &__floating {
         color: #a46a01;
     }
 
@@ -303,18 +304,18 @@
         cursor: not-allowed;
     }
     &--disabled &__input,
-    &--disabled &__floating-label,
+    &--disabled &__floating,
     &--disabled &__icon {
         color: #9e9e9e;
         pointer-events: none;
     }
-    &--disabled.d2ui-field--outlined &__input,
-    &--disabled.d2ui-field--outlined &__input:hover,
-    &--disabled.d2ui-field--minimal &__input,
-    &--disabled.d2ui-field--minimal &__input:hover {
+    &--disabled.d2ui-label-field--outlined &__input,
+    &--disabled.d2ui-label-field--outlined &__input:hover,
+    &--disabled.d2ui-label-field--minimal &__input,
+    &--disabled.d2ui-label-field--minimal &__input:hover {
         border-color: rgba(196, 196, 196, 0.2);
     }
-    &--disabled.d2ui-field--filled &__input:hover {
+    &--disabled.d2ui-label-field--filled &__input:hover {
         border-color: transparent;
         /* Darken 5% */
         background-color: #eceff1;
@@ -327,8 +328,8 @@
     &--error &__notched-outline {
         border-color: #e53935;
     }
-    &--error.d2ui-field--with-value &__floating-label,
-    &--error &__input:focus ~ &__floating-label,
+    &--error.d2ui-label-field--with-value &__floating,
+    &--error &__input:focus ~ &__floating,
     &--error &__icon--trailing {
         color: #e53935;
     }
@@ -348,12 +349,12 @@
         overflow: auto;
     }
 
-    &--multiline.d2ui-field--filled,
-    &--multiline.d2ui-field--filled.d2ui-field--disabled:hover {
+    &--multiline.d2ui-label-field--filled,
+    &--multiline.d2ui-label-field--filled.d2ui-label-field--disabled:hover {
         background-color: #eceff1;
     }
 
-    &--multiline.d2ui-field--filled {
+    &--multiline.d2ui-label-field--filled {
         transition: background-color 180ms cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover {
@@ -361,20 +362,20 @@
         }
     }
 
-    &--multiline.d2ui-field--minimal &__input,
-    &--multiline.d2ui-field--filled &__input {
+    &--multiline.d2ui-label-field--minimal &__input,
+    &--multiline.d2ui-label-field--filled &__input {
         min-height: 5.8125rem;
         max-height: 19.8125rem;
         margin-top: 1.125rem;
         padding-top: 0;
     }
 
-    &--multiline.d2ui-field--outlined {
+    &--multiline.d2ui-label-field--outlined {
         border: 0.0625rem solid #c4c4c4;
         border-radius: 0.25rem;
     }
 
-    &--multiline.d2ui-field--outlined &__input {
+    &--multiline.d2ui-label-field--outlined &__input {
         min-height: 6.375rem;
         max-height: 20.375rem;
         min-width: 12.3125rem;
@@ -384,19 +385,21 @@
         border-color: transparent;
     }
 
-    &--multiline.d2ui-field--full-width &__input,
-    &--multiline.d2ui-field--outlined.d2ui-field--full-width &__input {
+    &--multiline.d2ui-label-field--full-width &__input,
+    &--multiline.d2ui-label-field--outlined.d2ui-label-field--full-width
+        &__input {
         min-width: 100%;
         max-width: 100%;
     }
 
-    &--multiline &__floating-label {
+    &--multiline &__floating {
         bottom: auto;
         top: 1.1rem;
     }
 
-    &--multiline.d2ui-field--outlined.d2ui-field--with-value &__floating-label,
-    &--multiline.d2ui-field--outlined &__input:focus ~ &__floating-label {
+    &--multiline.d2ui-label-field--outlined.d2ui-label-field--with-value
+        &__floating,
+    &--multiline.d2ui-label-field--outlined &__input:focus ~ &__floating {
         transform: translateY(-130%) scale(0.75);
     }
 
@@ -412,9 +415,10 @@
         top: 1rem;
     }
 }
+
 /* IE11 hacks */
 @media all and (-ms-high-contrast: none) {
-    .d2ui-field {
+    .d2ui-label-field {
         border-radius: 0;
 
         &__input,

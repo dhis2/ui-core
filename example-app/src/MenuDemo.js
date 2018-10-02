@@ -34,7 +34,7 @@ const subMenuItems = [
 export default class MenuDemo extends Component {
     render() {
         return (
-            <Paper elevation={6} padded>
+            <Paper>
                 <h3>Menu components</h3>
                 <hr />
                 <Menu>

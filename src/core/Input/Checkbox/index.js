@@ -2,17 +2,15 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import './radiobutton.css'
-import { bemClassNames, getRequiredText } from '../../utils'
-import ToggleField from './ToggleField'
-import FieldWrap from './FieldWrap'
+import './styles.css'
+import { bemClassNames, getRequiredText } from '../../../utils'
+import ToggleField from '../ToggleField'
+import Field from '../shared/Field'
 
-const bem = bemClassNames('radio-button')
+const bem = bemClassNames('checkbox')
 
-const RadioButton = ({
+const Checkbox = ({
     label,
-    name,
-    value,
     checked,
     valid,
     warning,
@@ -24,34 +22,36 @@ const RadioButton = ({
     helpText,
     required,
 }) => (
-    <FieldWrap {...{ valid, warning, disabled, error, dense, block, helpText }}>
+    <Field {...{ valid, warning, disabled, error, dense, block, helpText }}>
         <ToggleField disabled={disabled} dense={dense}>
             <div className={bem.b({ disabled })}>
                 <input
+                    type="checkbox"
                     className={bem.e('native-control')}
-                    type="radio"
-                    name={name}
-                    value={value}
                     checked={checked}
-                    onChange={onChange}
                     disabled={disabled}
+                    onChange={onChange}
                 />
                 <div className={bem.e('background')}>
-                    <div className={bem.e('outer-circle')} />
-                    <div className={bem.e('inner-circle')} />
+                    <svg className={bem.e('checkmark')} viewBox="0 0 24 24">
+                        <path
+                            className={bem.e('checkmark-path')}
+                            fill="none"
+                            d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                        />
+                    </svg>
+                    <div className={bem.e('mixedmark')} />
                 </div>
             </div>
             <span className={bem.e('label-text', { disabled })}>
                 {getRequiredText(label, required)}
             </span>
         </ToggleField>
-    </FieldWrap>
+    </Field>
 )
 
-RadioButton.propTypes = {
+Checkbox.propTypes = {
     label: PropTypes.string,
-    name: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     valid: PropTypes.bool,
@@ -64,9 +64,10 @@ RadioButton.propTypes = {
     onChange: PropTypes.func.isRequired,
 }
 
-RadioButton.defaultProps = {
+Checkbox.defaultProps = {
+    value: false,
     disabled: false,
 }
 
-export { RadioButton }
-export default RadioButton
+export { Checkbox }
+export default Checkbox

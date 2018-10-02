@@ -2,10 +2,12 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames, getRequiredText } from '../../utils'
-import RadioButton from './RadioButton'
-import FieldWrap from './FieldWrap'
-import './radiobuttongroup.css'
+
+import { bemClassNames, getRequiredText } from '../../../utils'
+import RadioButton from '../RadioButton'
+import Field from '../shared/Field'
+
+import './styles.css'
 
 const bem = bemClassNames('radio-button-group')
 const randomName = () =>
@@ -28,7 +30,7 @@ const RadioButtonGroup = ({
     helpText,
     required,
 }) => (
-    <FieldWrap
+    <Field
         {...{ valid, warning, disabled, error, dense, block: true, helpText }}
     >
         <p className={bem.e('description', { error, valid, warning })}>
@@ -50,7 +52,7 @@ const RadioButtonGroup = ({
                 />
             ))}
         </div>
-    </FieldWrap>
+    </Field>
 )
 
 RadioButtonGroup.propTypes = {

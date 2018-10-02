@@ -89,7 +89,7 @@ const menuItems = [
 export default class ProgressDemo extends Component {
     render() {
         return (
-            <Paper elevation={6} padded>
+            <Paper>
                 <h3>Button components</h3>
                 <hr />
                 <PrimaryButton>Primary</PrimaryButton>

@@ -7,7 +7,7 @@ import Paper from 'ui/core/Paper'
 export default class TypographyDemo extends Component {
     render() {
         return (
-            <Paper elevation={6} padded>
+            <Paper>
                 <h3>typography</h3>
                 <hr />
                 <h4>Classes</h4>

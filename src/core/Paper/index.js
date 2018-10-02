@@ -7,33 +7,20 @@ import './styles.css'
 
 const bem = bemClassNames('paper')
 
-function Paper({ elevation, children, width, height, padding }) {
-    const style = {
-        width,
-        height,
-        padding,
-    }
-
-    return (
-        <div className={bem.b(`elevation-${elevation}`)} style={style}>
-            {children}
-        </div>
-    )
+function Paper({ elevation, children, className }) {
+    const bemClass = bem.b(`elevation-${elevation}`)
+    return <div className={`${bemClass} ${className}`}>{children}</div>
 }
 
 Paper.propTypes = {
     elevation: PropTypes.oneOf([0, 1, 2, 3, 4, 6, 12, 24]),
-    padding: PropTypes.string,
-    width: PropTypes.string,
-    height: PropTypes.string,
+    className: PropTypes.string,
     children: PropTypes.node,
 }
 
 Paper.defaultProps = {
     elevation: 1,
-    padding: '0',
-    width: 'auto',
-    height: 'auto',
+    className: 'd2ui-paper-defaults',
 }
 
 export { Paper }

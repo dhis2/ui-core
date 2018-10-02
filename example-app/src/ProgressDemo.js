@@ -10,7 +10,7 @@ import LinearProgress from 'ui/core/LinearProgress'
 export default class ProgressDemo extends Component {
     render() {
         return (
-            <Paper elevation={6} padded>
+            <Paper>
                 <h3>Progress components</h3>
                 <hr />
                 <CircularProgress size="small" />

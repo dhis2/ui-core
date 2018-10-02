@@ -2,8 +2,10 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../utils'
-import './togglefield.css'
+
+import { bemClassNames } from '../../../utils'
+
+import './styles.css'
 
 const bem = bemClassNames('toggle-field')
 

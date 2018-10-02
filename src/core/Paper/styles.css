@@ -1,10 +1,13 @@
 /** @format */
 
 .d2ui-paper {
-    margin: 0 auto 0;
-    position: relative;
-    border-radius: 2px;
-    background-color: #ffffff;
+    &-defaults {
+        padding: 2rem 2rem;
+        margin: 0 auto 0;
+        position: relative;
+        border-radius: 2px;
+        background-color: #ffffff;
+    }
 
     &--elevation- {
         &0 {

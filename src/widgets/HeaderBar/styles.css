@@ -100,6 +100,7 @@
                 top: 20px;
 
                 & > .d2ui-paper {
+                    padding: 0;
                     width: 416px;
                     height: 301px;
 
@@ -235,6 +236,10 @@
                 border-top: 4px solid transparent;
                 top: 36px;
                 width: 310px;
+
+                & > .d2ui-paper {
+                    padding: 0;
+                }
 
                 .header {
                     display: flex;
