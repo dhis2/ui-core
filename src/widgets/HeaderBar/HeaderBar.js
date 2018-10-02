@@ -11,23 +11,25 @@ import Profile from './Profile'
 import { bemClassNames } from '../../utils'
 import './styles.css'
 
-const bem = bemClassNames('headerbar')
+export const bem = bemClassNames('headerbar')
 
 function HeaderBar({ type, title, selection, name, email, src }) {
     return (
         <div className={bem.b(type)}>
-            <div className="left">
-                <div className="logo">
+            <div className={bem.e('left')}>
+                <div className={bem.e('logo')}>
                     <Logo
                         color={type === 'blue' ? 'white' : 'blue'}
                         type="icon"
                         width="27.5px"
                     />
                 </div>
-                <div className="title">{title}</div>
+                <div className={bem.e('title')}>{title}</div>
             </div>
-            {selection && <div className="current-selection">{selection}</div>}
-            <div className="right">
+            {selection && (
+                <div className={bem.e('current-selection')}>{selection}</div>
+            )}
+            <div className={bem.e('right')}>
                 <NotificationIcon icon="message" count={8} />
                 <NotificationIcon icon="email" count={4} />
                 <Apps />
