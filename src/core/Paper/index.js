@@ -2,15 +2,18 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { componentStyles } from '../../utils'
 
+import classNames from 'classnames/bind'
 import './styles.css'
 import styles from './styles.json'
-const myst = componentStyles(styles)
+
+const cx = classNames.bind(styles)
 
 function Paper({ elevation, children, className }) {
-    const ele = `elevation-${elevation}`
-    const classes = `${myst(ele)} ${myst('defaults')}`
+    const classes = cx({
+        [`elevation-${elevation}`]: true,
+        defaults: true,
+    })
 
     return <div className={classes}>{children}</div>
 }

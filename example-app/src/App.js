@@ -49,11 +49,18 @@ class App extends Component {
             })
         }
     }
+    /*
+                <HeaderBarDemo />
+                <DialogDemo />
+                <TypographyDemo />
+                <ProgressDemo />
+                <InputDemo />
+                <MenuDemo />
+                 */
 
     render() {
         return (
             <UI theme="green">
-                <HeaderBarDemo />
                 <Paper>
                     <Switch
                         label="RTL: Off/On"
@@ -62,13 +69,9 @@ class App extends Component {
                         helpText="Toggle text direction"
                     />
                 </Paper>
-                <DialogDemo />
+
                 <LogoDemo />
-                <TypographyDemo />
-                <ProgressDemo />
-                <InputDemo />
                 <ButtonDemo />
-                <MenuDemo />
             </UI>
         )
     }
