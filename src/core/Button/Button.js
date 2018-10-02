@@ -22,12 +22,7 @@ const Button = ({
     kind,
 }) => (
     <button
-        className={cx({
-            button: true,
-            [`${kind}`]: true,
-            [`${size}`]: true,
-            'd2ui-align-icon': true,
-        })}
+        className={cx('button', 'd2ui-align-icon', kind, size)}
         {...{ disabled, onClick, onDoubleClick, title, type, role }}
     >
         {wrapTextNodesInSpans(children)}
