@@ -12,3 +12,7 @@ export function wrapTextNodesInSpans(children) {
         return child
     })
 }
+
+export function getDoc() {
+    return document.documentElement || document.body
+}

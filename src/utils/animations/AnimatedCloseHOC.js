@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { Component } from 'react'
+import React from 'react'
 /**
  * This HOC adds a "isAnimatingOut" (bool) and "onAnimationEnd" (fn) property
  * to a wrapped component. The "isAnimatingOut" can be used to add a CSS class
@@ -15,11 +15,8 @@ import React, { Component } from 'react'
  *    callback from the HOC
  */
 export function withAnimatedClose(WrappedComponent) {
-    return class AnimatedClose extends Component {
-        constructor(props) {
-            super(props)
-            this.state = { isAnimatingOut: false }
-        }
+    return class AnimatedClose extends React.Component {
+        state = { isAnimatingOut: false }
 
         shouldComponentUpdate(nextProps) {
             if (
@@ -34,13 +31,9 @@ export function withAnimatedClose(WrappedComponent) {
             return true
         }
 
-        onAnimationStart() {
-            this.setState({ isAnimatingOut: true })
-        }
+        onAnimationStart = () => this.setState({ isAnimatingOut: true })
 
-        onAnimationEnd = () => {
-            this.setState({ isAnimatingOut: false })
-        }
+        onAnimationEnd = () => this.setState({ isAnimatingOut: false })
 
         render() {
             return (
