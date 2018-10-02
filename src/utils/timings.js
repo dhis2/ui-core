@@ -1,6 +1,12 @@
 /** @format */
 
-export function throttle(fn, threshold = 150, scope) {
+/**
+ *
+ * @param fn
+ * @param threshold
+ * @param scope     the (this) context in which the function runs
+ */
+export function throttle(fn, threshold = 150, scope = undefined) {
     let last
     let deferTimer
 
@@ -23,6 +29,11 @@ export function throttle(fn, threshold = 150, scope) {
     }
 }
 
+/**
+ * defers running the function passed as argument by 1 millisecond
+ *
+ * @param fn
+ */
 export function defer(fn) {
     setTimeout(fn, 1)
 }
