@@ -3,11 +3,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import classNames from 'classnames/bind'
+import classNames from '../../utils/css'
 import './styles.css'
 import styles from './styles.json'
 
-const cx = classNames.bind(styles)
+const cx = classNames(styles)
 
 function Paper({ elevation, children, className }) {
     const classes = cx({
