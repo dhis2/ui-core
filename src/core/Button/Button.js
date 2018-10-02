@@ -3,12 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { wrapTextNodesInSpans } from '../../utils'
-
-import classNames from '../../utils/css'
-import './styles.css'
-import styles from './styles.json'
-
-const cx = classNames(styles)
+import s from './styles'
 
 const Button = ({
     children,
@@ -22,7 +17,7 @@ const Button = ({
     kind,
 }) => (
     <button
-        className={cx('button', 'd2ui-align-icon', kind, size)}
+        className={s('button', 'd2ui-align-icon', kind, size)}
         {...{ disabled, onClick, onDoubleClick, title, type, role }}
     >
         {wrapTextNodesInSpans(children)}

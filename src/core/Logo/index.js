@@ -2,13 +2,12 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import s from './styles'
 
 import iconBlue from './svg/icon-blue.svg'
 import iconWhite from './svg/icon-white.svg'
 import logoBlue from './svg/logo-blue.svg'
 import logoWhite from './svg/logo-white.svg'
-
-import s from './styles'
 
 const images = {
     'icon-blue': iconBlue,
