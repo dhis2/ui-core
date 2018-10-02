@@ -82,7 +82,7 @@ export default function HeaderBarDemo() {
 
     return (
         <div>
-            <HeaderBarContainer />
+            {/*<HeaderBarContainer />*/}
             {types.map(type => (
                 <div key={`headerbar-${type}`} style={{ marginBottom: 20 }}>
                     <HeaderBar type={type} {...getProps()} />
