@@ -1,25 +1,9 @@
-/**
- * This function will set the dir attribute on the HTML tag based.
- * Since it takes a userSettings object as an option and returns them too, it fits nicely into a chained promise sequence used to bootstrap a DHIS2 React app:
- *
- * @format
- * @example ... .then(getUserSettings) .then(setTextDirection) .then(configI18n) ...
- * @example
- * @param {Object} userSettings - The userSettings available in on the d2 object (d2.currentUser.userSettings.settings) or returned from the from the `getUserSettings` function exposed by d2
- */
+/** @format */
 
-export function setTextDirection(userSettings) {
-    // Will produce "en" from "en_EN" as well as "en"
-    const uiLanguage = userSettings.keyUiLocale.split('_')[0]
-    const dir = RTL_LANGUAGES.includes(uiLanguage) ? 'rtl' : 'ltr'
-
-    document.documentElement.setAttribute('dir', dir)
-
-    return userSettings
-}
+import { getDoc } from './html'
 
 // https://meta.wikimedia.org/wiki/Template:List_of_language_names_ordered_by_code
-export const RTL_LANGUAGES = [
+export const RTL_LANGS = [
     'ar',
     'arc',
     'dv',
@@ -34,6 +18,17 @@ export const RTL_LANGUAGES = [
     'yi',
 ]
 
-export function isRTL() {
-    return document.documentElement.getAttribute('dir') === 'rtl'
+/**
+ *
+ * @param locale format "en" or "en_EN"
+ */
+export function setDir(locale) {
+    const uiLanguage = locale.includes('_') ? locale.split('_')[0] : locale
+    const dir = RTL_LANGS.includes(uiLanguage) ? 'rtl' : 'ltr'
+
+    getDoc().setAttribute('dir', dir)
+}
+
+export function isDocRTL() {
+    return getDoc().getAttribute('dir') === 'rtl'
 }
