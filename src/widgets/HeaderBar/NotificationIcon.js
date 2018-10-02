@@ -2,13 +2,13 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import Icon from '../../core/Icon'
+import s from './styles'
 
 function NotificationIcon({ icon, count }) {
     return (
-        <div className={`notification ${icon}`}>
-            {count > 0 && <div className="count">{count}</div>}
+        <div className={s('notification', { icon })}>
+            {count > 0 && <div className={s('count')}>{count}</div>}
             <Icon name={icon} />
         </div>
     )
