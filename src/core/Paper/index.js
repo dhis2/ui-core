@@ -2,20 +2,14 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import s from './styles'
 
-import classNames from '../../utils/css'
-import './styles.css'
-import styles from './styles.json'
-
-const cx = classNames(styles)
-
-function Paper({ elevation, children, className }) {
-    const classes = cx({
-        [`elevation-${elevation}`]: true,
-        defaults: true,
-    })
-
-    return <div className={classes}>{children}</div>
+function Paper({ elevation, children }) {
+    return (
+        <div className={s('container', `elevation-${elevation}`)}>
+            {children}
+        </div>
+    )
 }
 
 Paper.propTypes = {

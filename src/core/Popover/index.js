@@ -3,11 +3,9 @@
 import React, { Component, Fragment } from 'react'
 import { findDOMNode, createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
-import { bemClassNames, withAnimatedClose } from '../../utils'
+import { withAnimatedClose } from '../../utils'
 import computePosition from './computePosition'
-import './styles.css'
-
-const bem = bemClassNames('d2ui-popover')
+import s from './styles'
 
 class Popover extends Component {
     state = { positionStyle: null }
@@ -63,9 +61,9 @@ class Popover extends Component {
 
         return createPortal(
             <Fragment>
-                <div className={bem.e('overlay')} onClick={closePopover} />
+                <div className={s('overlay')} onClick={closePopover} />
                 <div
-                    className={bem.b(animation, {
+                    className={s('container', animation, {
                         'animate-out': isAnimatingOut,
                     })}
                     ref={this.setElContainer}

@@ -3,12 +3,11 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import { bemClassNames, withAnimatedClose } from '../../utils'
-import './dialog.css'
+import { withAnimatedClose } from '../../utils'
+import s from './styles'
 import Paper from '../Paper'
 
-const bem = bemClassNames('d2ui-dialog')
-const BODY_SCROLL_DISABLED_CLASS = 'd2ui-scroll-disabled'
+const disableScrollingClass = s('disable-scroll')
 
 class Dialog extends Component {
     componentDidMount() {
@@ -31,9 +30,9 @@ class Dialog extends Component {
     updateBodyScroll(forceOff) {
         const { open, isAnimatingOut } = this.props
         if (forceOff || (!open && !isAnimatingOut)) {
-            document.body.classList.remove(BODY_SCROLL_DISABLED_CLASS)
+            document.body.classList.remove(disableScrollingClass)
         } else {
-            document.body.classList.add(BODY_SCROLL_DISABLED_CLASS)
+            document.body.classList.add(disableScrollingClass)
         }
     }
 
@@ -47,7 +46,7 @@ class Dialog extends Component {
         const isText = ['string', 'number'].includes(typeof title)
 
         return (
-            <header className={bem.e('title')}>
+            <header className={s('title')}>
                 {isText ? <h6>{title}</h6> : title}
             </header>
         )
@@ -61,7 +60,7 @@ class Dialog extends Component {
         }
 
         return (
-            <footer className={bem.e('footer')}>
+            <footer className={s('footer')}>
                 {React.Children.toArray(actions)}
             </footer>
         )
@@ -80,24 +79,22 @@ class Dialog extends Component {
             return null
         }
 
-        const animateOutClass = { 'animate-out': isAnimatingOut }
+        const animateOutClass = { [s('animate-out')]: isAnimatingOut }
         const animateOutProps = isAnimatingOut
             ? { onAnimationEnd: onAnimationEnd }
             : null
 
         return ReactDOM.createPortal(
-            <div className={bem.b()}>
+            <div className={s('container')}>
                 <div
-                    className={bem.e('backdrop', animateOutClass)}
+                    className={s('backdrop', animateOutClass)}
                     onClick={this.onBackdropClick}
                     {...animateOutProps}
                 />
-                <div className={bem.e('window', size, animateOutClass)}>
+                <div className={s('window', size, animateOutClass)}>
                     <Paper elevation={24}>
                         {this.renderTitle()}
-                        <section className={bem.e('content')}>
-                            {content}
-                        </section>
+                        <section className={s('content')}>{content}</section>
                         {this.renderFooter()}
                     </Paper>
                 </div>

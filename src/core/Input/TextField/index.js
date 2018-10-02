@@ -2,9 +2,8 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import LabelField, { bem as labelFieldBem } from '../shared/LabelField'
-
-import { bemClassNames } from '../../../utils'
+import LabelField from '../shared/LabelField'
+import labelStyles from '../shared/LabelField/styles'
 
 function TextField({
     variant,
@@ -46,7 +45,7 @@ function TextField({
             }}
         >
             <InputTag
-                className={labelFieldBem.e('input')}
+                className={labelStyles('input')}
                 value={value}
                 onChange={onChange}
                 type={type}

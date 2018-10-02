@@ -2,17 +2,14 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { bemClassNames } from '../../utils'
-import './styles.css'
-
-const bem = bemClassNames('circular-progress')
+import s from './styles'
 
 function CircularProgress({ size, center, dashed }) {
     const progressBar = (
-        <div role="progressbar" className={bem.b(size)}>
-            <svg viewBox="22 22 44 44" className={bem.e('viewbox')}>
+        <div role="progressbar" className={s('container', size)}>
+            <svg viewBox="22 22 44 44" className={s('viewbox')}>
                 <circle
-                    className={dashed ? bem.e('dashed') : ''}
+                    className={s({ dashed })}
                     cx="44"
                     cy="44"
                     r="20.2"
@@ -25,7 +22,7 @@ function CircularProgress({ size, center, dashed }) {
     )
 
     if (center) {
-        return <div className={bem.e('overlay')}>{progressBar}</div>
+        return <div className={s('overlay')}>{progressBar}</div>
     }
 
     return progressBar
