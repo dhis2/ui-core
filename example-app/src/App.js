@@ -58,7 +58,7 @@ class App extends Component {
                     />
                 </Paper>
                 {/*<HeaderBarDemo />*/}
-                {/*<DialogDemo />*/}
+                <DialogDemo />
                 {/*<TypographyDemo />*/}
                 <ProgressDemo />
                 {/*<InputDemo />*/}
