@@ -2,7 +2,12 @@
 
 import { getDoc } from './html'
 
-// https://meta.wikimedia.org/wiki/Template:List_of_language_names_ordered_by_code
+/**
+ * prefixes for Right to Left (RTL) languages
+ *
+ * @type {string[]}
+ * @link https://meta.wikimedia.org/wiki/Template:List_of_language_names_ordered_by_code
+ */
 export const RTL_LANGS = [
     'ar',
     'arc',
@@ -19,7 +24,7 @@ export const RTL_LANGS = [
 ]
 
 /**
- *
+ * set dir attribute {ltr, rtl} on document based on locale
  * @param locale format "en" or "en_EN"
  */
 export function setDir(locale) {
@@ -29,6 +34,10 @@ export function setDir(locale) {
     getDoc().setAttribute('dir', dir)
 }
 
+/**
+ * returns true, if document is rendered in RTL mode
+ * @returns {boolean}
+ */
 export function isDocRTL() {
     return getDoc().getAttribute('dir') === 'rtl'
 }
