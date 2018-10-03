@@ -2,10 +2,7 @@
 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import bemClassNames from '../../utils/bemClassNames'
-import './tabindicator.css'
-
-const bem = bemClassNames('tab-indicator')
+import s from './styles'
 
 class TabIndicator extends Component {
     constructor(props) {
@@ -38,7 +35,7 @@ class TabIndicator extends Component {
     render() {
         return (
             <span
-                className={bem.b({
+                className={s('tab-indicator', {
                     visible: this.props.visible,
                     animated: this.state.animated,
                 })}

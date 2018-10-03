@@ -1,16 +1,16 @@
 /** @format */
 
-import { bem } from './Tabs'
+import s from './styles'
 
 let horizontalScrollbarHeight
 
-export default function() {
+export function computeHorizontalScrollbarHeight() {
     if (horizontalScrollbarHeight) {
         return horizontalScrollbarHeight
     }
 
     const el = document.createElement('div')
-    el.classList.add(bem.e('test-horizontal-scrollbar-height'))
+    el.classList.add(s('test-horizontal-scrollbar-height'))
     document.body.appendChild(el)
     // cache the result
     horizontalScrollbarHeight = el.offsetHeight - el.clientHeight
