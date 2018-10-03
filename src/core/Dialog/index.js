@@ -92,11 +92,11 @@ class Dialog extends Component {
                     {...animateOutProps}
                 />
                 <div className={s('window', size, animateOutClass)}>
-                    <Paper elevation={24}>
+                    <div className={s('scroll-box')}>
                         {this.renderTitle()}
                         <section className={s('content')}>{content}</section>
                         {this.renderFooter()}
-                    </Paper>
+                    </div>
                 </div>
             </div>,
             document.body
