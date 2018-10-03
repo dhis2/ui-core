@@ -86,42 +86,59 @@ const menuItems = [
     </MenuItem>,
 ]
 
+function onButtonClick(msg) {
+    console.log(msg, 'button clicked')
+}
+
 export default class ProgressDemo extends Component {
     render() {
         return (
             <Paper>
-                <h3>Button components</h3>
-                <hr />
-                <PrimaryButton>Primary</PrimaryButton>
-                <FlatButton
-                    onClick={e => console.log('Clicked button nr 1', e.target)}
-                    disabled
-                >
+                <h6>Button components</h6>
+                <br />
+                <PrimaryButton onClick={() => onButtonClick('primary')}>
+                    Primary
+                </PrimaryButton>
+                <FlatButton disabled onClick={() => onButtonClick('flat')}>
                     Test
                 </FlatButton>
-                <RaisedButton size="small">
+                <RaisedButton
+                    size="small"
+                    onClick={() => onButtonClick('raised(small)')}
+                >
+                    <Icon name="alarm" /> Raised
+                </RaisedButton>
+                <RaisedButton
+                    size="medium"
+                    onClick={() => onButtonClick('raised(medium)')}
+                >
                     <Icon name="alarm" />
                     Raised
                 </RaisedButton>
-                <RaisedButton size="medium">
+                <RaisedButton
+                    size="large"
+                    onClick={() => onButtonClick('raised(large)')}
+                >
                     <Icon name="alarm" />
                     Raised
                 </RaisedButton>
-                <RaisedButton size="large">
-                    <Icon name="alarm" />
-                    Raised
-                </RaisedButton>
-                <RaisedButton>
+                <RaisedButton onClick={() => onButtonClick('raised')}>
                     <Icon name="face" />
                 </RaisedButton>
-                <OutlinedButton>Outlined</OutlinedButton>
-                <CircleButton size="small">
+                <OutlinedButton onClick={() => onButtonClick('outlined')}>
+                    Outlined
+                </OutlinedButton>
+                <CircleButton size="small" onClick={() => onButtonClick()}>
                     <Icon name="add" />
                 </CircleButton>
-                <CircleButton size="small">
+                <CircleButton size="small" onClick={() => onButtonClick()}>
                     <Icon name="face" />
                 </CircleButton>
-                <CircleButton aria-labelledby="test" size="large">
+                <CircleButton
+                    aria-labelledby="test"
+                    size="large"
+                    onClick={() => onButtonClick()}
+                >
                     <Icon name="add" />
                 </CircleButton>
                 <DropdownButton
