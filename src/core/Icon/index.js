@@ -7,8 +7,8 @@ import s from './styles'
 function Icon({ name, className, onClick }) {
     return (
         <i
-            className={s('container', className, { [name]: true })}
             onClick={onClick}
+            className={s('container', { [className]: !!className })}
         >
             {name}
         </i>
@@ -18,7 +18,7 @@ function Icon({ name, className, onClick }) {
 Icon.defaultProps = {
     name: '',
     className: '',
-    onClick: () => null,
+    onClick: undefined,
 }
 
 Icon.propTypes = {
