@@ -4,7 +4,7 @@ import s from './styles'
 
 let horizontalScrollbarHeight
 
-export default function() {
+export function computeHorizontalScrollbarHeight() {
     if (horizontalScrollbarHeight) {
         return horizontalScrollbarHeight
     }

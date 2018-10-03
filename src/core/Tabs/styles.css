@@ -15,13 +15,6 @@
     position: relative;
 }
 
-.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9001;
-}
-
 .absolute {
     position: absolute;
     top: 0;
@@ -38,7 +31,6 @@
 .scroll-button {
     flex: 0 0 3rem;
     color: inherit;
-    border-radius: 8px;
     background-color: transparent;
     transition: all 150ms ease-in-out;
     border: none;
@@ -50,7 +42,7 @@
     /* Cheap ripple alternative to flash clicked tab */
     background-color: #e0e0e0;
 }
-.scroll-button .hidden {
+.scroll-button.hidden {
     pointer-events: none;
     opacity: 0;
 }
@@ -106,7 +98,7 @@
     justify-content: flex-start;
 }
 
-.cluster-centered {
+.cluster-center {
     justify-content: center;
 }
 
@@ -142,23 +134,23 @@
     align-items: center;
     max-width: 20rem;
 }
-.tab .active {
+.tab.active {
     color: #000000;
 }
 
-.tab .disabled {
+.tab.disabled {
     color: rgba(0, 0, 0, 0.3);
     pointer-events: none;
 }
 
-.tab .stacked {
+.tab.stacked {
     flex-direction: column;
 }
 
-.tab .stacked .material-icons,
-.tab .stacked .material-icons:first-child,
-.tab .stacked .material-icons:last-child,
-.tab .stacked .material-icons:only-child {
+.tab.stacked .material-icons,
+.tab.stacked .material-icons:first-child,
+.tab.stacked .material-icons:last-child,
+.tab.stacked .material-icons:only-child {
     margin: 0.6rem 0 0 0;
 }
 
@@ -185,10 +177,10 @@
     visibility: hidden;
 }
 
-.tab-indicator .visible {
+.tab-indicator.visible {
     visibility: visible;
 }
 
-.tab-indicator .animated {
+.tab-indicator.animated {
     transition: transform 300ms ease-in-out;
 }

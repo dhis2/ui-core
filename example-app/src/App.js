@@ -20,6 +20,7 @@ import Paper from 'ui/core/Paper'
 import { setDocDir, isDocRTL } from 'ui/utils/rtl'
 
 import './styles.css'
+import TabsDemo from './TabsDemo'
 
 class App extends Component {
     constructor(props) {
@@ -58,6 +59,7 @@ class App extends Component {
                         helpText="Toggle text direction"
                     />
                 </Paper>
+                <TabsDemo />
                 <DialogDemo />
                 <TypographyDemo />
                 <ProgressDemo />

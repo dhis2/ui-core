@@ -16,7 +16,7 @@ const START = 'start'
  * duration: is a number which describes the animation's duration in ms
  * callback: is an optional function to execute when the scroll animation is done
  */
-export function animations({
+export function animatedScrollTo({
     to,
     scrollBox = window,
     direction = 'vertical',

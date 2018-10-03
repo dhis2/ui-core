@@ -7,7 +7,7 @@ import Tab from './Tab'
 import Icon from '../Icon'
 import TabIndicator from './TabIndicator'
 import { animatedScrollTo, throttle, defer } from '../../utils'
-import computeHorizontalScrollbarHeight from './computeHorizontalScrollbarHeight'
+import { computeHorizontalScrollbarHeight } from './computeHorizontalScrollbarHeight'
 import s from './styles'
 
 class Tabs extends Component {
@@ -279,9 +279,9 @@ class Tabs extends Component {
 Tabs.propTypes = {
     selected: PropTypes.number.isRequired,
     items: PropTypes.array,
-    position: PropTypes.oneOf(['relative', 'fixed', 'absolute', 'sticky']),
+    position: PropTypes.oneOf(['relative', 'absolute', 'sticky']),
     contained: PropTypes.bool,
-    cluster: PropTypes.oneOf([null, 'left', 'centered', 'right']),
+    cluster: PropTypes.oneOf([null, 'left', 'center', 'right']),
     stacked: PropTypes.bool,
     children: PropTypes.oneOfType([
         PropTypes.objectOf(Tab),
