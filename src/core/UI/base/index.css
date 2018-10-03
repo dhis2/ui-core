@@ -7,5 +7,7 @@
 */
 
 /* rtl:begin:ignore */
-@import 'blue.css';
+@import 'reset.css';
+@import 'typography.css';
+@import 'responsive-image.css';
 /* rtl:end:ignore */

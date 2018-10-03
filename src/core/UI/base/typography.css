@@ -102,20 +102,20 @@ caption {
 
 a {
     text-decoration: none;
+}
 
-    &:link,
-    &:visited {
-        text-decoration: none;
-    }
+a:link,
+a:visited {
+    text-decoration: none;
+}
 
-    &:hover,
-    &:focus,
-    &:active {
-        text-decoration: underline;
-    }
+a:hover,
+a:focus,
+a:active {
+    text-decoration: underline;
+}
 
-    &:focus,
-    &:active {
-        outline: none;
-    }
+a:focus,
+a:active {
+    outline: none;
 }
