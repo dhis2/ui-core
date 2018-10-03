@@ -45,17 +45,14 @@
     outline: none;
     cursor: pointer;
     opacity: 1;
-    transition: opacity 150ms ease-in-out;
-
-    &:active {
-        /* Cheap ripple alternative to flash clicked tab */
-        background-color: #e0e0e0;
-    }
-
-    &--hidden {
-        pointer-events: none;
-        opacity: 0;
-    }
+}
+.scroll-button:active {
+    /* Cheap ripple alternative to flash clicked tab */
+    background-color: #e0e0e0;
+}
+.scroll-button .hidden {
+    pointer-events: none;
+    opacity: 0;
 }
 
 .scroll-box-clipper {
@@ -79,10 +76,8 @@
 }
 
 .test-horizontal-scrollbar-height,
-.scroll-box {
-    &::-webkit-scrollbar {
-        display: none;
-    }
+.scroll-box::-webkit-scrollbar {
+    display: none;
 }
 
 .scroll-area {
@@ -121,11 +116,9 @@
 
 /* FIREFOX HACK */
 @-moz-document url-prefix() {
-    .d2ui-tabs {
-        &__scroll-area &__tab-container {
-            /* Forces all the tabs to be on one line */
-            width: -moz-max-content;
-        }
+    .container .scroll-area .tab-container {
+        /* Forces all the tabs to be on one line */
+        width: -moz-max-content;
     }
 }
 
