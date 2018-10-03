@@ -92,11 +92,11 @@ class Dialog extends Component {
                     {...animateOutProps}
                 />
                 <div className={s('window', size, animateOutClass)}>
-                    <Paper elevation={24}>
+                    <div className={s('scroll-box')}>
                         {this.renderTitle()}
                         <section className={s('content')}>{content}</section>
                         {this.renderFooter()}
-                    </Paper>
+                    </div>
                 </div>
             </div>,
             document.body
@@ -111,10 +111,10 @@ Dialog.propTypes = {
     actions: PropTypes.node,
     size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
     dismissible: PropTypes.bool,
-    closeHandler: (props, propName, componentName) => {
+    onClose: (props, propName, componentName) => {
         if (props.dismissible && typeof props[propName] !== 'function') {
             return new Error(
-                `Invalid combination of props: A dismissible ${componentName} component needs a ${propName} in order for it to close itself.`
+                `Invalid combination of props: A dismissible ${componentName} component needs property ${propName} in order for it to close itself.`
             )
         }
     },
