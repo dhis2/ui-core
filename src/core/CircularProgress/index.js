@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import s from './styles'
 
-function Icon({ dashed }) {
+function Circle({ dashed }) {
     return (
         <svg viewBox="22 22 44 44" className={s('viewbox')}>
             <circle
@@ -21,17 +21,17 @@ function Icon({ dashed }) {
 }
 
 function CircularProgress({ size, center, dashed }) {
-    const view = (
+    const loader = (
         <div role="progressbar" className={s('container', size)}>
-            <Icon dashed={dashed} />
+            <Circle dashed={dashed} />
         </div>
     )
 
     if (center) {
-        return <div className={s('overlay')}>{view}</div>
+        return <div className={s('overlay')}>{loader}</div>
     }
 
-    return view
+    return loader
 }
 
 CircularProgress.propTypes = {
