@@ -9,9 +9,6 @@
     color: #1976d2;
     line-height: 1;
     margin: 1rem;
-    stroke: currentColor;
-    stroke-dashoffset: 0;
-    stroke-dasharray: 80px, 200px;
     animation: anim-rotate 1.4s linear infinite;
 }
 
@@ -28,7 +25,10 @@
     height: 5rem;
 }
 
-.dashed {
+.circle {
+    stroke: currentColor;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 80px, 200px;
     animation: anim-dash 1.4s ease-in-out infinite;
 }
 
