@@ -6,7 +6,7 @@ import s from './styles'
 
 function Circle() {
     return (
-        <svg viewBox="22 22 44 44" className={s('viewbox')}>
+        <svg viewBox="22 22 44 44">
             <circle
                 className={s('circle')}
                 cx="44"
@@ -14,7 +14,6 @@ function Circle() {
                 r="20.2"
                 fill="none"
                 strokeWidth="3.6"
-                strokeDashoffset="0"
             />
         </svg>
     )

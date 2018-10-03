@@ -1,9 +1,8 @@
 /**
- * /* rtl:begin:ignore
- *
  * @format
  */
 
+/* rtl:begin:ignore */
 .container {
     display: inline-block;
     color: #1976d2;
@@ -16,10 +15,12 @@
     width: 1.5rem;
     height: 1.5rem;
 }
+
 .medium {
     width: 3.125rem;
     height: 3.125rem;
 }
+
 .large {
     width: 5rem;
     height: 5rem;
@@ -27,9 +28,9 @@
 
 .circle {
     stroke: currentColor;
-    stroke-dashoffset: 0;
-    stroke-dasharray: 80px, 200px;
     animation: anim-dash 1.4s ease-in-out infinite;
+    stroke-dasharray: 80px, 200px;
+    stroke-dashoffset: 0;
 }
 
 .overlay {
