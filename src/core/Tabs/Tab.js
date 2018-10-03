@@ -3,12 +3,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
-import { bemClassNames } from '../../utils'
-import './tab.css'
+import s from './styles'
 
-const bem = bemClassNames('tab')
-
-const Tab = ({
+function Tab({
     icon,
     label,
     onClick,
@@ -17,17 +14,19 @@ const Tab = ({
     stacked,
     addTabRef,
     children,
-}) => (
-    <button
-        className={`${bem.b({ active, disabled, stacked })} d2ui-align-icon`}
-        onClick={onClick}
-        ref={addTabRef}
-    >
-        {children
-            ? children
-            : (icon && <Icon name={icon} />, label && <span>{label}</span>)}
-    </button>
-)
+}) {
+    return (
+        <button
+            className={s('tab', 'align-icon', { active, disabled, stacked })}
+            onClick={onClick}
+            ref={addTabRef}
+        >
+            {children
+                ? children
+                : (icon && <Icon name={icon} />, label && <span>{label}</span>)}
+        </button>
+    )
+}
 
 Tab.propTypes = {
     label: PropTypes.string,

@@ -6,10 +6,9 @@ import './tabs.css'
 import Tab from './Tab'
 import Icon from '../Icon'
 import TabIndicator from './TabIndicator'
-import { animatedScrollTo, bemClassNames, throttle, defer } from '../../utils'
+import { animatedScrollTo, throttle, defer } from '../../utils'
 import computeHorizontalScrollbarHeight from './computeHorizontalScrollbarHeight'
-
-export const bem = bemClassNames('tabs')
+import s from './styles'
 
 class Tabs extends Component {
     constructor(props) {
@@ -19,19 +18,20 @@ class Tabs extends Component {
             scrollArea: null,
             tabs: [],
         }
+
         this.state = {
             // By setting these to false, the scroll buttons are hidden when the component mounts
             scrolledToStart: true,
             scrolledToEnd: true,
             showTabIndicator: false,
         }
+
         this.horizontalScrollbarHeight = computeHorizontalScrollbarHeight()
         this.handleSideScroll = throttle(
             this.toggleScrollButtonVisibility.bind(this)
         )
     }
 
-    // Lifecycle hooks
     componentDidMount() {
         if (this.props.contained) {
             this.showTabIndicator()
@@ -211,15 +211,13 @@ class Tabs extends Component {
 
         const { showTabIndicator } = this.state
 
-        const className = bem.e(
-            'tab-container',
-            // A scrollable tabBar cannot be clustered
-            { [`cluster-${cluster}`]: cluster && contained },
-            { contained }
-        )
-
         return (
-            <div className={className}>
+            <div
+                className={s(
+                    'tab-container',
+                    { contained, [`cluster-${cluster}`]: cluster && contained } // A scrollable tabBar cannot be clustered
+                )}
+            >
                 {children ? this.renderChildren() : this.renderitems()}
                 <TabIndicator
                     getActiveTabRef={this.getActiveTabRef}
@@ -242,20 +240,20 @@ class Tabs extends Component {
                 <Fragment>
                     <button
                         onClick={this.scrollLeft}
-                        className={bem.e('scroll-button', {
+                        className={s('scroll-button', {
                             hidden: scrolledToStart,
                         })}
                     >
                         <Icon name="keyboard_arrow_left" />
                     </button>
-                    <div className={bem.e('scroll-box-clipper')}>
+                    <div className={s('scroll-box-clipper')}>
                         <div
-                            className={bem.e('scroll-box')}
+                            className={s('scroll-box')}
                             ref={this.setScrollBoxRef}
                             style={scrollBoxStyle}
                         >
                             <div
-                                className={bem.e('scroll-area')}
+                                className={s('scroll-area')}
                                 ref={this.setScrollAreaRef}
                             >
                                 {tabBar}
@@ -264,7 +262,7 @@ class Tabs extends Component {
                     </div>
                     <button
                         onClick={this.scrollRight}
-                        className={bem.e('scroll-button', {
+                        className={s('scroll-button', {
                             hidden: scrolledToEnd,
                         })}
                     >
@@ -274,7 +272,7 @@ class Tabs extends Component {
             )
         }
 
-        return <div className={bem.b(position)}>{tabBar}</div>
+        return <div className={s('container', position)}>{tabBar}</div>
     }
 }
 
