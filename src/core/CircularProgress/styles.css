@@ -1,17 +1,13 @@
 /**
- * /* rtl:begin:ignore
- *
  * @format
  */
 
+/* rtl:begin:ignore */
 .container {
     display: inline-block;
     color: #1976d2;
     line-height: 1;
     margin: 1rem;
-    stroke: currentColor;
-    stroke-dashoffset: 0;
-    stroke-dasharray: 80px, 200px;
     animation: anim-rotate 1.4s linear infinite;
 }
 
@@ -19,17 +15,22 @@
     width: 1.5rem;
     height: 1.5rem;
 }
+
 .medium {
     width: 3.125rem;
     height: 3.125rem;
 }
+
 .large {
     width: 5rem;
     height: 5rem;
 }
 
-.dashed {
+.circle {
+    stroke: currentColor;
     animation: anim-dash 1.4s ease-in-out infinite;
+    stroke-dasharray: 80px, 200px;
+    stroke-dashoffset: 0;
 }
 
 .overlay {
