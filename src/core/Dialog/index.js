@@ -23,8 +23,8 @@ class Dialog extends Component {
     }
 
     onBackdropClick = () => {
-        const { dismissible, closeHandler } = this.props
-        dismissible && closeHandler && closeHandler()
+        const { dismissible, onClose } = this.props
+        dismissible && onClose && onClose()
     }
 
     updateBodyScroll(forceOff) {
@@ -92,11 +92,9 @@ class Dialog extends Component {
                     {...animateOutProps}
                 />
                 <div className={s('window', size, animateOutClass)}>
-                    <div className={s('scroll-box')}>
-                        {this.renderTitle()}
-                        <section className={s('content')}>{content}</section>
-                        {this.renderFooter()}
-                    </div>
+                    {this.renderTitle()}
+                    <section className={s('content')}>{content}</section>
+                    {this.renderFooter()}
                 </div>
             </div>,
             document.body
