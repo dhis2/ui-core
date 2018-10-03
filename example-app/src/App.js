@@ -48,7 +48,7 @@ class App extends Component {
 
     render() {
         return (
-            <UI theme="green">
+            <UI theme="blue">
                 <HeaderBarDemo />
                 <Paper>
                     <Switch
