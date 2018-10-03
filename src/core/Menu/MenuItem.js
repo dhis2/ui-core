@@ -2,7 +2,6 @@
 
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { wrapTextNodesInSpans } from '../../utils'
 import SubMenu from './SubMenu'
 import Icon from '../Icon'
 
@@ -17,12 +16,12 @@ class MenuItem extends Component {
     }
 
     render() {
-        const { children, disabled, menuItems, label, icon } = this.props
+        const { disabled, menuItems, label, icon } = this.props
 
         if (menuItems) {
             return (
                 <SubMenu
-                    children={children}
+                    children={this.props.children}
                     label={label}
                     icon={icon}
                     menuItems={menuItems}
@@ -32,9 +31,7 @@ class MenuItem extends Component {
 
         return (
             <li className={s('item', { disabled })} onClick={this.onClick}>
-                {children ? (
-                    wrapTextNodesInSpans(children)
-                ) : (
+                {this.props.children || (
                     <Fragment>
                         {icon && <Icon name={icon} />}
                         <span>{label}</span>

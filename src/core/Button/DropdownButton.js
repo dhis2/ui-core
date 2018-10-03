@@ -4,13 +4,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
 import { DropdownMenu } from '../Menu'
+import s from './styles'
 
 class DropdownButton extends Component {
     anchorRef = null
     getAnchorRef = () => this.anchorRef
 
     render() {
-        const { options, buttonProps, menuProps, children } = this.props
+        const { options, buttonProps, menuProps } = this.props
 
         const mergedMenuProps = {
             ...menuProps,
@@ -18,11 +19,8 @@ class DropdownButton extends Component {
         }
 
         return (
-            <div
-                ref={c => (this.anchorRef = c)}
-                className="d2ui-dropdown-button"
-            >
-                <Button {...buttonProps}>{children}</Button>
+            <div ref={c => (this.anchorRef = c)} className={s('dropdown')}>
+                <Button {...buttonProps}>{this.props.children}</Button>
                 <DropdownMenu
                     buttonKind={buttonProps.kind}
                     getAnchorRef={this.getAnchorRef}
