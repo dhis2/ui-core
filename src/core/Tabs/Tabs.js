@@ -2,7 +2,6 @@
 
 import React, { Component, Children, cloneElement, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import './tabs.css'
 import Tab from './Tab'
 import Icon from '../Icon'
 import TabIndicator from './TabIndicator'
