@@ -2,7 +2,6 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { wrapTextNodesInSpans } from '../../utils'
 import s from './styles'
 
 function Button({
@@ -26,7 +25,7 @@ function Button({
             onDoubleClick={onDoubleClick}
             className={s('button', 'align-icon', kind, size)}
         >
-            {wrapTextNodesInSpans(children)}
+            {children}
         </button>
     )
 }
