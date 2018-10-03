@@ -7,6 +7,7 @@
 */
 
 /* rtl:begin:ignore */
-@import 'default.css';
-@import 'green.css';
+@import 'reset.css';
+@import 'typography.css';
+@import 'responsive-image.css';
 /* rtl:end:ignore */

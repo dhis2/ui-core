@@ -9,6 +9,7 @@ import { bemClassNames } from '../../utils'
 import 'typeface-roboto'
 import 'material-design-icons/iconfont/material-icons.css'
 
+import './base/index.css'
 import './theme/index.css'
 
 const bem = bemClassNames('app')
