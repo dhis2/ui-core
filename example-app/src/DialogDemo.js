@@ -42,7 +42,7 @@ class DialogDemo extends Component {
                     Close dialog
                 </PrimaryButton>
             ),
-            closeHandler: this.closeDialog,
+            onClose: this.closeDialog,
         }
         this.state = {
             dialogProps: {
