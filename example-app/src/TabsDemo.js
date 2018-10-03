@@ -137,7 +137,7 @@ export default class TabsDemo extends React.Component {
                     <Tabs
                         selected={this.state.activeSecondaryTabIndex}
                         contained
-                        cluster="centered"
+                        cluster="center"
                     >
                         <Tab onClick={() => this.activateSubTab(0)}>
                             <span style={{ display: 'inline-flex' }}>
