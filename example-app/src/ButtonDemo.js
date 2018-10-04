@@ -142,13 +142,11 @@ function Dropdowns() {
 
 export default function ProgressDemo() {
     return (
-        <Paper>
-            <div style={{ margin: 20 }}>
-                <h6>Button components</h6>
-                <br />
-                <Buttons />
-                <Dropdowns />
-            </div>
-        </Paper>
+        <div style={{ margin: 20 }}>
+            <h6>Button components</h6>
+            <br />
+            <Buttons />
+            <Dropdowns />
+        </div>
     )
 }

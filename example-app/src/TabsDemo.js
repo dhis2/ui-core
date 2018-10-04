@@ -1,8 +1,6 @@
 /** @format */
 
 import React from 'react'
-
-import Paper from 'ui/core/Paper'
 import { Tabs, Tab } from 'ui/core/Tabs'
 import Icon from 'ui/core/Icon'
 
@@ -78,11 +76,10 @@ const styles = {
         position: 'relative',
         width: '100%',
         // height: '150px',
-        border: '8px solid #2c6693',
         marginBottom: '1rem',
     },
     tabHeader: {
-        margin: '1rem 1rem 0',
+        margin: '4rem',
         textAlign: 'center',
     },
     inlineCode: {
@@ -115,29 +112,25 @@ export default class TabsDemo extends React.Component {
 
     render() {
         return (
-            <Paper>
-                <h3>Tabs and Tab component</h3>
-                <hr />
-                <h6>A scrollable tab with an items property</h6>
+            <div>
+                <h6>Tabs</h6>
+                <br />
                 <div style={styles.tabContainer}>
                     <Tabs
-                        selected={this.state.activeTabIndex}
-                        items={this.tabs}
                         stacked
+                        items={this.tabs}
+                        selected={this.state.activeTabIndex}
                     />
-                    <h4 style={styles.tabHeader}>
+                    <p style={styles.tabHeader}>
                         Content for tab nr {this.state.activeTabIndex + 1}
-                    </h4>
+                    </p>
                 </div>
-                <h6>
-                    A contained tab, clustered int the center with custom Tab
-                    content
-                </h6>
+
                 <div style={styles.tabContainer}>
                     <Tabs
-                        selected={this.state.activeSecondaryTabIndex}
                         contained
                         cluster="center"
+                        selected={this.state.activeSecondaryTabIndex}
                     >
                         <Tab onClick={() => this.activateSubTab(0)}>
                             <span style={{ display: 'inline-flex' }}>
@@ -150,11 +143,6 @@ export default class TabsDemo extends React.Component {
                                 Sub tab 2
                             </span>
                         </Tab>
-                        <Tab onClick={() => this.activateSubTab(2)}>
-                            <span style={{ display: 'inline-flex' }}>
-                                <h4>With a header???</h4>
-                            </span>
-                        </Tab>
                         <Tab onClick={() => this.activateSubTab(3)}>
                             <span style={{ display: 'inline-flex' }}>
                                 <Icon name="face" />
@@ -162,12 +150,12 @@ export default class TabsDemo extends React.Component {
                             </span>
                         </Tab>
                     </Tabs>
-                    <h4 style={styles.tabHeader}>
+                    <p style={styles.tabHeader}>
                         Content for tab nr{' '}
                         {this.state.activeSecondaryTabIndex + 1}
-                    </h4>
+                    </p>
                 </div>
-            </Paper>
+            </div>
         )
     }
 }

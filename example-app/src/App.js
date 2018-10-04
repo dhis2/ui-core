@@ -10,31 +10,31 @@ import MenuDemo from './MenuDemo'
 import TypographyDemo from './TypographyDemo'
 import DialogDemo from './DialogDemo'
 import UI from 'ui/core/UI'
-
 import HeaderBarDemo from './HeaderBarDemo.js'
-
 import Switch from 'ui/core/Input/Switch'
-
-import Paper from 'ui/core/Paper'
-
 import { setDocDir, isDocRTL } from 'ui/utils/rtl'
 
 import './styles.css'
 import TabsDemo from './TabsDemo'
 
+function SwitchDemo({ rtl, onChange }) {
+    return (
+        <Switch
+            label="RTL: Off/On"
+            checked={rtl}
+            onChange={onChange}
+            helpText="Toggle text direction"
+        />
+    )
+}
+
+function Block({ children }) {
+    return <div style={{ margin: 20 }}>{children}</div>
+}
+
 class App extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            switchOn: false,
-            inputText: '',
-            inputText1: '',
-            inputText2: '',
-            inputText3: '',
-            inputText4: '',
-            rtl: isDocRTL(),
-            selectValue: null,
-        }
+    state = {
+        rtl: isDocRTL(),
     }
 
     toggleRTL = () => {
@@ -51,18 +51,24 @@ class App extends Component {
         return (
             <UI theme="blue">
                 <HeaderBarDemo />
-                <Paper>
-                    <Switch
-                        label="RTL: Off/On"
-                        checked={this.state.rtl}
+                <Block>
+                    <SwitchDemo
+                        rtl={this.state.rtl}
                         onChange={this.toggleRTL}
-                        helpText="Toggle text direction"
                     />
-                </Paper>
-                <ButtonDemo />
-                <TabsDemo />
-                <DialogDemo />
-                <TypographyDemo />
+                </Block>
+                <Block>
+                    <ButtonDemo />
+                </Block>
+                <Block>
+                    <TabsDemo />
+                </Block>
+                <Block>
+                    <DialogDemo />
+                </Block>
+                <Block>
+                    <TypographyDemo />
+                </Block>
                 <ProgressDemo />
                 <InputDemo />
                 <MenuDemo />
