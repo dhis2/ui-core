@@ -92,7 +92,7 @@ const attachPointPropType = PropTypes.shape({
 Popover.propTypes = {
     open: PropTypes.bool.isRequired,
     getAnchorRef: PropTypes.func.isRequired,
-    closePopover: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
     children: PropTypes.node,
     anchorPosition: attachPointPropType,
     popoverPosition: attachPointPropType,

@@ -59,6 +59,7 @@ class App extends Component {
                         helpText="Toggle text direction"
                     />
                 </Paper>
+                <ButtonDemo />
                 <TabsDemo />
                 <DialogDemo />
                 <TypographyDemo />
@@ -66,7 +67,6 @@ class App extends Component {
                 <InputDemo />
                 <MenuDemo />
                 <LogoDemo />
-                <ButtonDemo />
             </UI>
         )
     }

@@ -6,36 +6,43 @@ import Menu from './Menu'
 import Popover from '../Popover'
 
 function PopoverMenu({
-    anchorPosition,
-    closePopover,
-    getAnchorRef,
-    menuProps,
     open,
-    popoverPosition,
+    list,
     animation,
+    popoverPosition,
+    anchorPosition,
+    onSelect,
+    onClose,
+    getAnchorRef,
 }) {
     return (
         <Popover
-            anchorPosition={anchorPosition}
-            closePopover={closePopover}
-            getAnchorRef={getAnchorRef}
             open={open}
-            popoverPosition={popoverPosition}
+            onClose={onClose}
             animation={animation}
+            getAnchorRef={getAnchorRef}
+            anchorPosition={anchorPosition}
+            popoverPosition={popoverPosition}
         >
-            <Menu closePopover={closePopover} {...menuProps} />
+            <Menu list={list} onSelect={onSelect} onClose={onClose} />
         </Popover>
     )
 }
 
+PopoverMenu.defaultProps = {
+    list: [],
+    animation: 'slide-down',
+}
+
 PopoverMenu.propTypes = {
-    anchorPosition: PropTypes.object,
-    closePopover: PropTypes.func.isRequired,
-    getAnchorRef: PropTypes.func.isRequired,
-    menuProps: PropTypes.object,
     open: PropTypes.bool.isRequired,
-    popoverPosition: PropTypes.object,
+    list: PropTypes.array.isRequired,
     animation: PropTypes.string,
+    anchorPosition: PropTypes.object,
+    popoverPosition: PropTypes.object,
+    onClose: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    getAnchorRef: PropTypes.func.isRequired,
 }
 
 PopoverMenu.defaultProps = {

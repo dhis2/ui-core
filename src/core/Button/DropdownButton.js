@@ -11,33 +11,33 @@ class DropdownButton extends Component {
     getAnchorRef = () => this.anchorRef
 
     render() {
-        const { options, buttonProps, menuProps } = this.props
-
-        const mergedMenuProps = {
-            ...menuProps,
-            options,
-        }
-
         return (
             <div ref={c => (this.anchorRef = c)} className={s('dropdown')}>
-                <Button {...buttonProps}>{this.props.children}</Button>
+                <Button kind={this.props.kind} onClick={this.props.onClick}>
+                    {this.props.label}
+                </Button>
                 <DropdownMenu
-                    buttonKind={buttonProps.kind}
+                    kind={this.props.kind}
+                    list={this.props.list}
+                    onSelect={this.props.onSelect}
                     getAnchorRef={this.getAnchorRef}
-                    menuProps={mergedMenuProps}
                 />
             </div>
         )
     }
 }
 
+DropdownButton.defaultProps = {
+    kind: 'primary',
+}
+
 DropdownButton.propTypes = {
-    children: PropTypes.node.isRequired,
-    options: PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.object, PropTypes.element])
-    ).isRequired,
-    buttonProps: PropTypes.object.isRequired,
-    menuProps: PropTypes.object,
+    kind: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    icon: PropTypes.element.isRequired,
+    list: PropTypes.array.isRequired,
+    onClick: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
 }
 
 export { DropdownButton }
