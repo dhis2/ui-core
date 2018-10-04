@@ -1,14 +1,14 @@
 /** @format */
 
 import React, { Fragment } from 'react'
-import { findDOMNode, createPortal } from 'react-dom'
+import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { withAnimatedClose } from '../../utils'
 import computePosition from './computePosition'
 import s from './styles'
 
 class Popover extends React.Component {
-    state = { positionStyle: null }
+    state = { style: null }
 
     elContainer = null
     setElContainer = ref => (this.elContainer = ref)
@@ -20,18 +20,12 @@ class Popover extends React.Component {
     }
 
     adjustPosition() {
-        const anchorRef = this.props.getAnchorRef()
-
-        // anchorRef can be on an element or a component instance. For components we need to call findDOMNode.
-        const triggerEl = anchorRef.nodeType
-            ? anchorRef
-            : findDOMNode(anchorRef)
-
-        if (triggerEl && this.elContainer) {
+        const anchorEl = this.props.getAnchorRef()
+        if (anchorEl && this.elContainer) {
             this.setState({
-                positionStyle: computePosition(
+                style: computePosition(
                     this.elContainer,
-                    triggerEl,
+                    anchorEl,
                     this.props.anchorPosition,
                     this.props.popoverPosition
                 ),
@@ -55,7 +49,7 @@ class Popover extends React.Component {
                 <div className={s('overlay')} onClick={this.props.onClose} />
                 <div
                     ref={this.setElContainer}
-                    style={this.state.positionStyle}
+                    style={this.state.style}
                     className={this.className()}
                     onAnimationEnd={
                         this.props.isAnimatingOut
@@ -83,7 +77,7 @@ Popover.defaultProps = {
     },
 }
 
-const attachPointPropType = PropTypes.shape({
+const positionType = PropTypes.shape({
     vertical: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.oneOf(['top', 'middle', 'bottom']),
@@ -99,8 +93,8 @@ Popover.propTypes = {
     getAnchorRef: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
     children: PropTypes.node,
-    anchorPosition: attachPointPropType,
-    popoverPosition: attachPointPropType,
+    anchorPosition: positionType,
+    popoverPosition: positionType,
     animation: PropTypes.oneOf(['fade-in', 'slide-down', 'slide-x-y']),
     isAnimatingOut: PropTypes.bool.isRequired,
     onAnimationEnd: PropTypes.func.isRequired,
