@@ -7,8 +7,6 @@ import Icon from '../../core/Icon'
 import TextField from '../../core/Input/TextField'
 import s from './styles'
 
-console.log("s('search')", s('search'))
-
 function Search({ value, onChange }) {
     return (
         <div className={s('search')}>

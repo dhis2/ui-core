@@ -1,34 +1,16 @@
 /** @format */
 
-import React, { Component } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { withAnimatedClose } from '../../utils'
 import s from './styles'
-import Paper from '../Paper'
 
-const disableScrollingClass = s('disable-scroll')
-
-class Dialog extends Component {
-    componentDidMount() {
-        this.updateBodyScroll()
-    }
-
-    componentDidUpdate() {
-        this.updateBodyScroll()
-    }
-
-    componentWillUnmount() {
-        this.updateBodyScroll(true)
-    }
-
-    onBackdropClick = () => {
-        const { dismissible, onClose } = this.props
-        dismissible && onClose && onClose()
-    }
-
-    updateBodyScroll(forceOff) {
+class Dialog extends React.Component {
+    updateScroll(forceOff) {
         const { open, isAnimatingOut } = this.props
+        const disableScrollingClass = s('disable-scroll')
+
         if (forceOff || (!open && !isAnimatingOut)) {
             document.body.classList.remove(disableScrollingClass)
         } else {
@@ -36,15 +18,33 @@ class Dialog extends Component {
         }
     }
 
-    renderTitle() {
-        const { title } = this.props
+    componentDidMount() {
+        this.updateScroll()
+    }
 
-        if (!title) {
+    componentDidUpdate() {
+        this.updateScroll()
+    }
+
+    componentWillUnmount() {
+        this.updateScroll(true)
+    }
+
+    onBackdropClick = () => {
+        if (!this.props.dismissible) {
+            return
+        }
+
+        this.props.onClose && this.props.onClose()
+    }
+
+    title() {
+        if (!this.props.title) {
             return null
         }
 
+        const { title } = this.props
         const isText = ['string', 'number'].includes(typeof title)
-
         return (
             <header className={s('title')}>
                 {isText ? <h6>{title}</h6> : title}
@@ -52,37 +52,22 @@ class Dialog extends Component {
         )
     }
 
-    renderFooter() {
-        const { actions } = this.props
-
-        if (React.Children.count(actions) === 0) {
+    footer() {
+        if (this.props.actions.length === 0) {
             return null
         }
 
-        return (
-            <footer className={s('footer')}>
-                {React.Children.toArray(actions)}
-            </footer>
-        )
+        return <footer className={s('footer')}>{this.props.actions}</footer>
     }
 
     render() {
-        const {
-            size,
-            content,
-            open,
-            isAnimatingOut,
-            onAnimationEnd,
-        } = this.props
-
-        if (!open && !isAnimatingOut) {
+        if (!this.props.open && !this.props.isAnimatingOut) {
             return null
         }
 
+        const { isAnimatingOut, onAnimationEnd } = this.props
         const animateOutClass = { [s('animate-out')]: isAnimatingOut }
-        const animateOutProps = isAnimatingOut
-            ? { onAnimationEnd: onAnimationEnd }
-            : null
+        const animateOutProps = isAnimatingOut ? { onAnimationEnd } : null
 
         return ReactDOM.createPortal(
             <div className={s('container')}>
@@ -91,10 +76,12 @@ class Dialog extends Component {
                     onClick={this.onBackdropClick}
                     {...animateOutProps}
                 />
-                <div className={s('window', size, animateOutClass)}>
-                    {this.renderTitle()}
-                    <section className={s('content')}>{content}</section>
-                    {this.renderFooter()}
+                <div className={s('window', this.props.size, animateOutClass)}>
+                    {this.title()}
+                    <section className={s('content')}>
+                        {this.props.children}
+                    </section>
+                    {this.footer()}
                 </div>
             </div>,
             document.body
@@ -102,13 +89,17 @@ class Dialog extends Component {
     }
 }
 
+Dialog.defaultProps = {
+    size: 'medium',
+    dismissible: true,
+}
+
 Dialog.propTypes = {
     open: PropTypes.bool,
     title: PropTypes.node,
-    content: PropTypes.node,
-    actions: PropTypes.node,
-    size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
+    actions: PropTypes.array,
     dismissible: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium', 'large', 'fullscreen']),
     onClose: (props, propName, componentName) => {
         if (props.dismissible && typeof props[propName] !== 'function') {
             return new Error(
@@ -118,11 +109,6 @@ Dialog.propTypes = {
     },
     isAnimatingOut: PropTypes.bool.isRequired,
     onAnimationEnd: PropTypes.func.isRequired,
-}
-
-Dialog.defaultProps = {
-    size: 'medium',
-    dismissible: true,
 }
 
 const EnhancedDialog = withAnimatedClose(Dialog)
