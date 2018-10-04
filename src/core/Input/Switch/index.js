@@ -2,12 +2,11 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import ToggleField from '../ToggleField'
 import { getRequiredText } from '../../../utils'
 import Field from '../shared/Field'
 import s from './styles'
 
-const Switch = ({
+function Switch({
     label,
     checked,
     valid,
@@ -19,36 +18,33 @@ const Switch = ({
     block,
     helpText,
     required,
-}) => {
+}) {
+    console.log('checked', checked)
+    console.log('onChange', onChange)
+
     return (
         <Field
             className={s('container')}
             {...{ valid, warning, disabled, error, dense, block, helpText }}
         >
-            <ToggleField disabled={disabled} dense={dense}>
-                <div className={s({ checked, disabled })}>
-                    <div className={s('track')} />
-                    <div className={s('thumb-underlay')}>
-                        <div className={s('thumb')}>
-                            <input
-                                onChange={onChange}
-                                type="checkbox"
-                                id="basic-switch"
-                                className={s('native-control')}
-                                aria-checked={checked}
-                                checked={checked}
-                                role="switch"
-                                disabled={disabled}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <span className={s('label-text', { disabled })}>
+            <label onClick={onChange}>
+                <input
+                    checked={checked}
+                    disabled={disabled}
+                    type="checkbox"
+                    className={s('input')}
+                />
+                <label className={s('label')}>
                     {getRequiredText(label, required)}
-                </span>
-            </ToggleField>
+                </label>
+            </label>
         </Field>
     )
+}
+
+Switch.defaultProps = {
+    checked: false,
+    disabled: false,
 }
 
 Switch.propTypes = {
@@ -63,11 +59,6 @@ Switch.propTypes = {
     block: PropTypes.bool,
     required: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
-}
-
-Switch.defaultProps = {
-    checked: false,
-    disabled: false,
 }
 
 export { Switch }
