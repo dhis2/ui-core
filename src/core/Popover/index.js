@@ -1,14 +1,15 @@
 /** @format */
 
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { findDOMNode, createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { withAnimatedClose } from '../../utils'
 import computePosition from './computePosition'
 import s from './styles'
 
-class Popover extends Component {
+class Popover extends React.Component {
     state = { positionStyle: null }
+
     elContainer = null
     setElContainer = ref => (this.elContainer = ref)
 
@@ -19,8 +20,8 @@ class Popover extends Component {
     }
 
     adjustPosition() {
-        const { getAnchorRef, anchorPosition, popoverPosition } = this.props
-        const anchorRef = getAnchorRef()
+        const anchorRef = this.props.getAnchorRef()
+
         // anchorRef can be on an element or a component instance. For components we need to call findDOMNode.
         const triggerEl = anchorRef.nodeType
             ? anchorRef
@@ -28,54 +29,58 @@ class Popover extends Component {
 
         if (triggerEl && this.elContainer) {
             this.setState({
-                positionStyle: {
-                    ...computePosition(
-                        this.elContainer,
-                        triggerEl,
-                        anchorPosition,
-                        popoverPosition
-                    ),
-                },
+                positionStyle: computePosition(
+                    this.elContainer,
+                    triggerEl,
+                    this.props.anchorPosition,
+                    this.props.popoverPosition
+                ),
             })
         }
     }
 
-    render() {
-        const {
-            open,
-            children,
-            closePopover,
-            animation,
-            isAnimatingOut,
-            onAnimationEnd,
-        } = this.props
-        const { positionStyle } = this.state
+    className() {
+        return s('container', this.props.animation, {
+            'animate-out': this.props.isAnimatingOut,
+        })
+    }
 
-        if (!open && !isAnimatingOut) {
+    render() {
+        if (!this.props.open && !this.props.isAnimatingOut) {
             return null
         }
 
-        const animateOutProps = isAnimatingOut
-            ? { onAnimationEnd: onAnimationEnd }
-            : null
-
         return createPortal(
             <Fragment>
-                <div className={s('overlay')} onClick={closePopover} />
+                <div className={s('overlay')} onClick={this.props.onClose} />
                 <div
-                    className={s('container', animation, {
-                        'animate-out': isAnimatingOut,
-                    })}
                     ref={this.setElContainer}
-                    style={positionStyle}
-                    {...animateOutProps}
+                    style={this.state.positionStyle}
+                    className={this.className()}
+                    onAnimationEnd={
+                        this.props.isAnimatingOut
+                            ? this.props.onAnimationEnd
+                            : undefined
+                    }
                 >
-                    {children}
+                    {this.props.children}
                 </div>
             </Fragment>,
             document.body
         )
     }
+}
+
+Popover.defaultProps = {
+    animation: 'fade-in',
+    anchorPosition: {
+        vertical: 'middle',
+        horizontal: 'center',
+    },
+    popoverPosition: {
+        vertical: 'middle',
+        horizontal: 'center',
+    },
 }
 
 const attachPointPropType = PropTypes.shape({
@@ -101,19 +106,7 @@ Popover.propTypes = {
     onAnimationEnd: PropTypes.func.isRequired,
 }
 
-Popover.defaultProps = {
-    anchorPosition: {
-        vertical: 'middle',
-        horizontal: 'center',
-    },
-    popoverPosition: {
-        vertical: 'middle',
-        horizontal: 'center',
-    },
-    animation: 'fade-in',
-}
+Popover = withAnimatedClose(Popover)
 
-const EnhancedPopover = withAnimatedClose(Popover)
-
-export { EnhancedPopover as Popover }
-export default withAnimatedClose(EnhancedPopover)
+export { Popover }
+export default Popover
