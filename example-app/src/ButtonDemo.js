@@ -2,8 +2,6 @@
 
 import React from 'react'
 
-import Paper from 'ui/core/Paper'
-
 import {
     FlatButton,
     CircleButton,
@@ -142,13 +140,11 @@ function Dropdowns() {
 
 export default function ProgressDemo() {
     return (
-        <Paper>
-            <div style={{ margin: 20 }}>
-                <h6>Button components</h6>
-                <br />
-                <Buttons />
-                <Dropdowns />
-            </div>
-        </Paper>
+        <div>
+            <h6>Button components</h6>
+            <br />
+            <Buttons />
+            <Dropdowns />
+        </div>
     )
 }

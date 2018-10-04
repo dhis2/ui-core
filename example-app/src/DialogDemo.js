@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import { PrimaryButton } from 'ui/core/Button'
-import Paper from 'ui/core/Paper'
 import Dialog from 'ui/core/Dialog'
 
 const tdStyle = {
@@ -72,9 +71,9 @@ class DialogDemo extends Component {
 
     render() {
         return (
-            <Paper elevation={6} padded>
-                <h3>Dialog components</h3>
-                <hr />
+            <div>
+                <h6>Dialog components</h6>
+                <br />
                 <table style={{ maxWidth: 1200 }}>
                     <tbody>
                         <tr>
@@ -167,7 +166,7 @@ class DialogDemo extends Component {
                 </table>
 
                 <Dialog {...this.state.dialogProps}>{dialogContent}</Dialog>
-            </Paper>
+            </div>
         )
     }
 }

@@ -2,14 +2,12 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/core/Paper'
-
 export default class TypographyDemo extends Component {
     render() {
         return (
-            <Paper>
-                <h3>typography</h3>
-                <hr />
+            <div>
+                <h6>typography</h6>
+                <br />
                 <h4>Classes</h4>
                 <table>
                     <tbody>
@@ -169,7 +167,7 @@ export default class TypographyDemo extends Component {
                         </tr>
                     </tbody>
                 </table>
-            </Paper>
+            </div>
         )
     }
 }

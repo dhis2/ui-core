@@ -2,8 +2,6 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/core/Paper'
-
 import Checkbox from 'ui/core/Input/Checkbox'
 import RadioButton from 'ui/core/Input/RadioButton'
 import TextField from 'ui/core/Input/TextField'
@@ -53,9 +51,9 @@ export default class InputDemo extends Component {
 
     render() {
         return (
-            <Paper>
-                <h3>Input components</h3>
-                <hr />
+            <div style={{ marginTop: 40 }}>
+                <h6>Input components</h6>
+                <br />
                 <RadioButtonGroup
                     options={selectOptions}
                     onChange={this.updateSelect}
@@ -184,7 +182,7 @@ export default class InputDemo extends Component {
                     dense
                     required
                 />
-            </Paper>
+            </div>
         )
     }
 }
