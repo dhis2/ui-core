@@ -5,6 +5,12 @@
  */
 export function t(...classes) {
     const obj = {}
-    classes.forEach(n => (obj[n] = true))
+
+    classes.forEach(n => {
+        if (typeof n === 'string' || typeof n === 'number' || !!n) {
+            obj[n] = true
+        }
+    })
+
     return obj
 }
