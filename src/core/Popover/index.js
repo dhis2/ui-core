@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Fragment } from 'react'
-import { createPortal } from 'react-dom'
+import { createPortal, findDOMNode } from 'react-dom'
 import PropTypes from 'prop-types'
 import { withAnimatedClose } from '../../utils'
 import computePosition from './computePosition'
@@ -20,7 +20,11 @@ class Popover extends React.Component {
     }
 
     adjustPosition() {
-        const anchorEl = this.props.getAnchorRef()
+        let anchorEl = this.props.getAnchorRef()
+        if (!(anchorEl instanceof HTMLElement)) {
+            anchorEl = findDOMNode(anchorEl)
+        }
+
         if (anchorEl && this.elContainer) {
             this.setState({
                 style: computePosition(

@@ -18,14 +18,7 @@ class MenuItem extends Component {
         const { disabled, menuItems, label, icon } = this.props
 
         if (menuItems) {
-            return (
-                <SubMenu
-                    children={this.props.children}
-                    label={label}
-                    icon={icon}
-                    menuItems={menuItems}
-                />
-            )
+            return <SubMenu label={label} icon={icon} list={menuItems} />
         }
 
         return (
