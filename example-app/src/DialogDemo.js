@@ -36,13 +36,12 @@ class DialogDemo extends Component {
         super(props)
         this.baseDialogProps = {
             title: 'A Dialog Title',
-            content: dialogContent,
-            actions: (
-                <PrimaryButton onClick={this.closeDialog}>
+            actions: [
+                <PrimaryButton key="close-dialog" onClick={this.onClose}>
                     Close dialog
-                </PrimaryButton>
-            ),
-            onClose: this.closeDialog,
+                </PrimaryButton>,
+            ],
+            onClose: this.onClose,
         }
         this.state = {
             dialogProps: {
@@ -52,7 +51,7 @@ class DialogDemo extends Component {
         }
     }
 
-    closeDialog = () => {
+    onClose = () => {
         this.setState({
             dialogProps: {
                 ...this.baseDialogProps,
@@ -83,7 +82,7 @@ class DialogDemo extends Component {
                                 Open the dialog with default settings:
                                 dismissible is true & size is "medium". Note
                                 that because dismissible is true, we also need
-                                to provide a closeHandler.
+                                to provide a onClose.
                             </td>
                             <td style={tdStyle}>
                                 <PrimaryButton
@@ -135,14 +134,14 @@ class DialogDemo extends Component {
                                 on the backdrop won't hide the dialog and the
                                 user is forced to interact with the dialog
                                 before proceeding. Note that when dismissible is
-                                false, no closeHandler is required.
+                                false, no onClose is required.
                             </td>
                             <td style={tdStyle}>
                                 <PrimaryButton
                                     onClick={() =>
                                         this.openDialog({
                                             dismissible: false,
-                                            closeHandler: null,
+                                            onClose: null,
                                         })
                                     }
                                 >
@@ -158,28 +157,7 @@ class DialogDemo extends Component {
                             </td>
                             <td style={tdStyle}>
                                 <PrimaryButton
-                                    onClick={() =>
-                                        this.openDialog({
-                                            content: (
-                                                <div>
-                                                    {dialogContent}{' '}
-                                                    {dialogContent}
-                                                    {dialogContent}{' '}
-                                                    {dialogContent}
-                                                    {dialogContent}{' '}
-                                                    {dialogContent}
-                                                    {dialogContent}{' '}
-                                                    {dialogContent}
-                                                    {dialogContent}{' '}
-                                                    {dialogContent}
-                                                    {dialogContent}{' '}
-                                                    {dialogContent}
-                                                    {dialogContent}{' '}
-                                                    {dialogContent}
-                                                </div>
-                                            ),
-                                        })
-                                    }
+                                    onClick={() => this.openDialog()}
                                 >
                                     Open dialog
                                 </PrimaryButton>
@@ -188,7 +166,7 @@ class DialogDemo extends Component {
                     </tbody>
                 </table>
 
-                <Dialog {...this.state.dialogProps} />
+                <Dialog {...this.state.dialogProps}>{dialogContent}</Dialog>
             </Paper>
         )
     }
