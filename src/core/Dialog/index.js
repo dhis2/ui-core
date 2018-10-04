@@ -114,4 +114,4 @@ Dialog.propTypes = {
 const EnhancedDialog = withAnimatedClose(Dialog)
 
 export { EnhancedDialog as Dialog }
-export default withAnimatedClose(EnhancedDialog)
+export default EnhancedDialog
