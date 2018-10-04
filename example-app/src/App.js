@@ -2,21 +2,17 @@
 
 import React, { Component } from 'react'
 
-import InputDemo from './InputDemo'
-import ProgressDemo from './ProgressDemo'
-import LogoDemo from './LogoDemo'
-import ButtonDemo from './ButtonDemo'
-import MenuDemo from './MenuDemo'
-import TypographyDemo from './TypographyDemo'
-import DialogDemo from './DialogDemo'
 import UI from 'ui/core/UI'
-
+import LogoDemo from './LogoDemo'
+import MenuDemo from './MenuDemo'
+import InputDemo from './InputDemo'
+import ButtonDemo from './ButtonDemo'
+import DialogDemo from './DialogDemo'
+import ProgressDemo from './ProgressDemo'
+import TypographyDemo from './TypographyDemo'
 import HeaderBarDemo from './HeaderBarDemo.js'
 
 import Switch from 'ui/core/Input/Switch'
-
-import Paper from 'ui/core/Paper'
-
 import { setDocDir, isDocRTL } from 'ui/utils/rtl'
 
 import './styles.css'
@@ -51,14 +47,21 @@ class App extends Component {
         return (
             <UI theme="blue">
                 <HeaderBarDemo />
-                <Paper>
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        margin: '20px 0 0 0',
+                    }}
+                >
                     <Switch
                         label="RTL: Off/On"
                         checked={this.state.rtl}
                         onChange={this.toggleRTL}
                         helpText="Toggle text direction"
                     />
-                </Paper>
+                </div>
                 <ButtonDemo />
                 <TabsDemo />
                 <DialogDemo />
