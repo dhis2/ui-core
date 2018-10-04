@@ -51,11 +51,7 @@ class DropdownButton extends Component {
                 </Button>
 
                 <Button kind={this.props.kind} onClick={this.onToggle}>
-                    <Icon
-                        name={
-                            open ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
-                        }
-                    />
+                    <Icon name={open ? 'arrow_drop_up' : 'arrow_drop_down'} />
                 </Button>
 
                 {open && (

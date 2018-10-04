@@ -15,6 +15,22 @@ const selectOptions = [
     { value: 3, label: 'Three' },
 ]
 
+const list = [
+    {
+        value: 1,
+        label: 'One ',
+        icon: 'alarm',
+    },
+    { value: 2, label: 'two', icon: 'alarm', disabled: true },
+    {
+        value: 3,
+        label: 'Three',
+        icon: 'face',
+    },
+    { value: 4, label: 'Four', icon: 'alarm' },
+    { value: 5, label: 'Five', icon: 'alarm' },
+]
+
 export default class InputDemo extends Component {
     constructor(props) {
         super(props)
@@ -45,9 +61,7 @@ export default class InputDemo extends Component {
         })
     }
 
-    updateSelect = selectValue => {
-        this.setState({ selectValue: parseInt(selectValue, 10) })
-    }
+    updateSelect = (evt, value, option) => this.setState({ selectValue: value })
 
     render() {
         return (
@@ -64,23 +78,19 @@ export default class InputDemo extends Component {
                     inline
                     required
                 />
-                <SelectField
-                    options={selectOptions}
-                    label="Choose something"
-                    onChange={this.updateSelect}
-                    value={this.state.selectValue}
-                    variant="outlined"
-                    native
-                    emptyOption="None"
-                    // leadingIcon="face"
-                    // helpText="Help with this text"
-                    // dense
-                    valid
-                    required
-                    // error
-                    // warning
-                />
-                <SelectField
+                <div style={{ width: 200 }}>
+                    <SelectField
+                        required
+                        list={list}
+                        label="Choose below"
+                        help="Help with this text"
+                        icon="face"
+                        status={!this.state.selectValue ? 'valid' : 'error'}
+                        value={this.state.selectValue}
+                        onChange={this.updateSelect}
+                    />
+                </div>
+                {/*<SelectField
                     options={selectOptions}
                     label="Choose something"
                     onChange={this.updateSelect}
@@ -93,7 +103,7 @@ export default class InputDemo extends Component {
                     valid
                     // error
                     // warning
-                />
+                />*/}
                 <br />
                 <TextField
                     label="testlabel"

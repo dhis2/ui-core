@@ -1,198 +1,120 @@
 /** @format */
 
-import React, { Component, Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-
-import LabelField from '../shared/LabelField'
-import labelStyles from '../shared/LabelField/styles'
-
-import { PopoverMenu } from '../../Menu'
-
+import Icon from '../../Icon'
+import Menu from '../../Menu/Menu'
 import s from './styles'
-const inputClassName = `${s('input')} ${labelStyles('input')}`
+import { isPointInRect } from '../../../utils'
 
-// React uses a "value" property on the <select/> which can't be null so we use this magic string instead
-const EMPTY_NATIVE_OPTION_VALUE = '#^NONE^#'
-
-class SelectField extends Component {
+class SelectField extends React.Component {
     state = {
         open: false,
     }
 
-    inputRef = null
-    isEmptyOptionSelected = false
+    componentDidMount() {
+        document.addEventListener('click', this.onDocClick)
+    }
 
-    onOpen = () => this.setState({ open: true })
+    componentWillMount() {
+        document.removeEventListener('click', this.onDocClick)
+    }
 
-    onClose = () => {
+    onDocClick = evt => {
+        if (this.elContainer && this.elMenu) {
+            const target = { x: evt.clientX, y: evt.clientY }
+            const menu = this.elMenu.getBoundingClientRect()
+            const container = this.elContainer.getBoundingClientRect()
+
+            if (
+                !isPointInRect(target, menu) &&
+                !isPointInRect(target, container)
+            ) {
+                this.setState({ open: false })
+            }
+        }
+    }
+
+    onToggle = () => this.setState({ open: !this.state.open })
+
+    onClose = () => this.setState({ open: false })
+
+    onSelect = (evt, value, option) => {
         this.setState({ open: false })
-        this.inputRef.focus()
+        this.props.onChange(evt, value, option)
     }
 
-    getInputRef = () => {
-        return this.inputRef
-    }
-
-    selectHandler = (event, value) => {
-        this.onClose()
-        this.changeHandler(value)
-    }
-
-    nativeSelectHandler = event => {
-        const elValue = event.target.value
-        const value = elValue === EMPTY_NATIVE_OPTION_VALUE ? null : elValue
-        this.changeHandler(value)
-    }
-
-    changeHandler(value) {
-        this.isEmptyOptionSelected =
-            this.props.emptyOption && value === null ? true : false
-        this.props.onChange(value)
-    }
-
-    getOptions() {
-        const { emptyOption, options, native } = this.props
-
-        if (!emptyOption) {
-            return options
+    getLabel() {
+        if (!this.props.value) {
+            return this.props.label
         }
 
-        const emptyOptionObject = native
-            ? { value: EMPTY_NATIVE_OPTION_VALUE, label: emptyOption }
-            : { value: null, label: emptyOption }
-
-        return [emptyOptionObject, ...options]
-    }
-
-    renderCustomSelect(displayValue) {
-        return (
-            <input
-                className={inputClassName}
-                value={displayValue}
-                onClick={this.onOpen}
-                // input type "button" is focusable, which ensures the correct :focus styles are applied
-                // input type "button" does not show a caret when focussed
-                type="button"
-                ref={c => (this.inputRef = c)}
-            />
-        )
-    }
-
-    renderNativeSelect() {
-        const options = this.getOptions()
-        const value = this.props.value || EMPTY_NATIVE_OPTION_VALUE
-        return (
-            <select
-                ref={c => (this.inputRef = c)}
-                className={s('native', inputClassName)}
-                onChange={this.nativeSelectHandler}
-                value={value}
-            >
-                {options.map(({ value, label }) => (
-                    <option key={value} value={value}>
-                        {label}
-                    </option>
-                ))}
-            </select>
-        )
-    }
-
-    getLabelOfValue() {
-        const option = this.props.options.find(
-            o => o.value === this.props.value
-        )
-        if (option && option.label) {
-            return option.label
-        }
-
-        if (this.isEmptyOptionSelected) {
-            return this.props.emptyOption
-        }
-
-        return ''
+        return this.props.list.filter(
+            ({ value }) => this.props.value === value
+        )[0]['label']
     }
 
     render() {
-        const {
-            label,
-            variant,
-            leadingIcon,
-            helpText,
-            dense,
-            valid,
-            error,
-            warning,
-            native,
-            disabled,
-            required,
-            block,
-        } = this.props
-        const displayValue = this.getLabelOfValue()
-        const inputComponent = native
-            ? this.renderNativeSelect()
-            : this.renderCustomSelect(displayValue)
+        const { open } = this.state
+
+        let width = 'inherit'
+        if (open && this.elSelect) {
+            width = `${this.elSelect.getBoundingClientRect().width}px`
+        }
 
         return (
-            <Fragment>
-                <LabelField
-                    className={s('container')}
-                    {...{
-                        variant,
-                        dense,
-                        label,
-                        value: displayValue,
-                        leadingIcon,
-                        trailingIcon: 'keyboard_arrow_down',
-                        error,
-                        valid,
-                        warning,
-                        disabled,
-                        block,
-                        required,
-                        helpText,
-                    }}
+            <div ref={c => (this.elContainer = c)} className={s('container')}>
+                <div
+                    ref={c => (this.elSelect = c)}
+                    className={s('select')}
+                    onClick={this.onToggle}
                 >
-                    {inputComponent}
-                </LabelField>
-                {!native && (
-                    <PopoverMenu
-                        list={this.getOptions()}
-                        onSelect={this.selectHandler}
-                        open={this.state.open}
-                        onClose={this.onClose}
-                        anchorPosition={{
-                            vertical: 'top',
-                            horizontal: 'center',
-                        }}
-                        popoverPosition={{
-                            vertical: 'top',
-                            horizontal: 'center',
-                        }}
-                        getAnchorRef={this.getInputRef}
+                    <div className={s('icon')}>
+                        {this.props.icon && <Icon name={this.props.icon} />}
+                    </div>
+                    <div className={s('label')}>{this.getLabel()}</div>
+                    <Icon
+                        name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
+                        className={s('dropdown-icon')}
                     />
+                </div>
+                {open && (
+                    <div className={s('menu')} ref={c => (this.elMenu = c)}>
+                        <Menu
+                            width={width}
+                            list={this.props.list}
+                            onClose={this.onClose}
+                            onSelect={this.onSelect}
+                        />
+                    </div>
                 )}
-            </Fragment>
+            </div>
         )
     }
 }
 
+SelectField.defaultProps = {
+    disabled: false,
+    placeholder: '',
+}
+
 SelectField.propTypes = {
-    options: PropTypes.arrayOf(PropTypes.object).isRequired,
+    list: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+                .isRequired,
+        })
+    ),
     label: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    variant: PropTypes.string,
-    leadingIcon: PropTypes.string,
-    helpText: PropTypes.string,
-    dense: PropTypes.bool,
+    onChange: PropTypes.func.isRequired,
+    icon: PropTypes.string,
+    help: PropTypes.string,
     disabled: PropTypes.bool,
     block: PropTypes.bool,
-    valid: PropTypes.bool,
-    error: PropTypes.bool,
-    warning: PropTypes.bool,
-    native: PropTypes.bool,
     required: PropTypes.bool,
-    emptyOption: PropTypes.string,
+    status: PropTypes.oneOf(['valid', 'error', 'warning']),
 }
 
 export { SelectField }
