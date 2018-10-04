@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import { PrimaryButton } from 'ui/core/Button'
-import Paper from 'ui/core/Paper'
 import Dialog from 'ui/core/Dialog'
 
 const tdStyle = {

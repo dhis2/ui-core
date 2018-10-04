@@ -2,14 +2,14 @@
 
 import React, { Component } from 'react'
 
-import InputDemo from './InputDemo'
-import ProgressDemo from './ProgressDemo'
-import LogoDemo from './LogoDemo'
-import ButtonDemo from './ButtonDemo'
-import MenuDemo from './MenuDemo'
-import TypographyDemo from './TypographyDemo'
-import DialogDemo from './DialogDemo'
 import UI from 'ui/core/UI'
+import LogoDemo from './LogoDemo'
+import MenuDemo from './MenuDemo'
+import InputDemo from './InputDemo'
+import ButtonDemo from './ButtonDemo'
+import DialogDemo from './DialogDemo'
+import ProgressDemo from './ProgressDemo'
+import TypographyDemo from './TypographyDemo'
 import HeaderBarDemo from './HeaderBarDemo.js'
 import Switch from 'ui/core/Input/Switch'
 import { setDocDir, isDocRTL } from 'ui/utils/rtl'
@@ -52,10 +52,18 @@ class App extends Component {
             <UI theme="blue">
                 <HeaderBarDemo />
                 <Block>
-                    <SwitchDemo
-                        rtl={this.state.rtl}
-                        onChange={this.toggleRTL}
-                    />
+                    <div
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <SwitchDemo
+                            rtl={this.state.rtl}
+                            onChange={this.toggleRTL}
+                        />
+                    </div>
                 </Block>
                 <Block>
                     <ButtonDemo />
@@ -75,7 +83,9 @@ class App extends Component {
                 <Block>
                     <LogoDemo />
                 </Block>
-                <MenuDemo />
+                <Block>
+                    <MenuDemo />
+                </Block>
                 <Block>
                     <TypographyDemo />
                 </Block>

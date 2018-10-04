@@ -2,9 +2,7 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/core/Paper'
 import Icon from 'ui/core/Icon'
-
 import { Menu, MenuItem } from 'ui/core/Menu'
 
 const subSubMenuItems = [
@@ -34,8 +32,8 @@ const subMenuItems = [
 export default class MenuDemo extends Component {
     render() {
         return (
-            <Paper>
-                <h3>Menu components</h3>
+            <div>
+                <h6>Menu components</h6>
                 <hr />
                 <Menu>
                     <MenuItem menuItems={subMenuItems} value={1}>
@@ -57,7 +55,7 @@ export default class MenuDemo extends Component {
                         Static item 4<Icon name="face" />
                     </MenuItem>
                 </Menu>
-            </Paper>
+            </div>
         )
     }
 }

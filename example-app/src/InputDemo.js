@@ -2,8 +2,6 @@
 
 import React, { Component } from 'react'
 
-import Paper from 'ui/core/Paper'
-
 import Checkbox from 'ui/core/Input/Checkbox'
 import RadioButton from 'ui/core/Input/RadioButton'
 import TextField from 'ui/core/Input/TextField'
@@ -157,7 +155,9 @@ export default class InputDemo extends Component {
                     label="Test"
                     helpText="Hallo Hendrik"
                     checked={this.state.switch1}
-                    onChange={this.toggleSwitch.bind(null, 'switch1')}
+                    onChange={() =>
+                        this.setState({ switch1: !this.state.switch1 })
+                    }
                     dense
                     required
                 />
@@ -165,14 +165,19 @@ export default class InputDemo extends Component {
                     label="Test"
                     helpText="Hallo Hendrik"
                     checked={this.state.switch2}
-                    onChange={this.toggleSwitch.bind(null, 'switch2')}
+                    onChange={() =>
+                        this.setState({ switch2: !this.state.switch2 })
+                    }
                     dense
                     required
                 />
                 <Switch
                     label="On / Off"
                     checked={this.state.switch3}
-                    onChange={this.toggleSwitch.bind(null, 'switch3')}
+                    onChange={() => {
+                        console.log('On/Off switch3')
+                        this.setState({ switch3: !this.state.switch3 })
+                    }}
                     helpText="Hallo Hendrik"
                     dense
                     required
