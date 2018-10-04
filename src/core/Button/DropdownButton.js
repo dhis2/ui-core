@@ -27,11 +27,11 @@ class DropdownButton extends Component {
     onDocClick = evt => {
         if (this.elContainer && this.elMenu) {
             const target = { x: evt.clientX, y: evt.clientY }
-            const apps = this.elMenu.getBoundingClientRect()
+            const menu = this.elMenu.getBoundingClientRect()
             const container = this.elContainer.getBoundingClientRect()
 
             if (
-                !isPointInRect(target, apps) &&
+                !isPointInRect(target, menu) &&
                 !isPointInRect(target, container)
             ) {
                 this.setState({ open: false })
