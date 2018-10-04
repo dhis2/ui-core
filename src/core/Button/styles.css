@@ -1,32 +1,33 @@
 /** @format */
 
 .button {
-    align-items: center;
+    cursor: pointer;
+    position: relative;
     background-color: transparent;
     border: 1px solid transparent;
-    border-radius: 0.125rem;
-    cursor: pointer;
-    display: inline-flex;
-    font-size: 0.8125rem;
+    border-radius: 2px;
+    font-size: 13px;
     font-weight: 500;
-    justify-content: center;
     letter-spacing: 0.02875rem;
-    line-height: 0.9375rem;
     /* Reduced padding by 1px to compensate for the added border width */
-    padding: 0.5625rem 0.9375rem 0.625rem 0.9375rem;
-    position: relative;
+    padding: 0 16px;
+    height: 36px;
+    line-height: 36px;
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
     transition-property: background-color, box-shadow, border-color, color;
-    vertical-align: middle;
+    display: inline;
+    align-items: center;
 }
 
 /* To make sure event.target of the click handler is always the button,
-   span and icon get pointer-events: none */
-span {
+   icon get's pointer-events: none */
+.button i {
     pointer-events: none;
-    transform: translateY(2px);
+    margin-right: 5px;
+    margin-bottom: 2px;
+    vertical-align: middle;
 }
 
 /* STATES */
@@ -44,8 +45,6 @@ span {
 .outlined,
 .circle {
     border-width: 2px;
-    /* Reduced padding by 2px to compensate for the added border width */
-    padding: 0.5rem 0.875rem 0.5625rem 0.875rem;
 }
 
 .primary,
@@ -65,40 +64,46 @@ span {
 }
 
 .circle {
-    padding: 0.5625rem 0.5625rem 0.625rem 0.5625rem;
-    height: 2.25rem;
-    width: 2.25rem;
-    border-radius: 50%;
     padding: 0;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+}
+.circle i {
+    margin: 0;
+    vertical-align: middle;
 }
 
 /* SIZES */
 .small {
-    font-size: 0.75rem;
-    padding: 0.5rem 0.875rem 0.5625rem 0.875rem;
+    font-size: 13px;
 }
 
 .small.material-icons {
-    line-height: 0.875rem;
-    height: 0.875rem;
-    width: 1.4375rem;
+    line-height: 14px;
+    height: 14px;
+    width: 23px;
 }
 .small.material-icons:first-child {
-    margin-right: 0.6875rem;
+    margin-right: 11px;
 }
 
 .small.material-icons:last-child {
-    margin-left: 0.6875rem;
+    margin-left: 11px;
 }
 
 .button.circle {
-    height: 1.875rem;
-    width: 1.875rem;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+}
+.button.circle i {
+    margin-top: -6px;
 }
 
 .button.circle.material-icons {
     margin: 0;
-    line-height: 0.625rem;
+    line-height: 10px;
 }
 
 .medium span {
@@ -106,14 +111,14 @@ span {
 }
 
 .large {
-    font-size: 0.9375rem;
-    padding: 0.625rem 1rem 0.6875rem 1rem;
-    align-items: center;
+    font-size: 15px;
 }
 
 .large.button.circle {
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 56px;
+    width: 56px;
+    line-height: 56px;
+    padding: 0;
 }
 
 .large.button.circle .material-icons {
@@ -121,17 +126,17 @@ span {
 }
 
 .large .material-icons {
-    line-height: 1rem;
-    height: 1rem;
-    width: 1.5625rem;
+    line-height: 16px;
+    height: 16px;
+    width: 25px;
 }
 
 .large .material-icons:first-child {
-    margin-right: 0.8125rem;
+    margin-right: 13px;
 }
 
 .large .material-icons:last-child {
-    margin-left: 0.8125rem;
+    margin-left: 13px;
 }
 
 /* COLORS */
@@ -203,6 +208,7 @@ span {
 }
 
 .outlined {
+    line-height: 34px;
     color: #004ba0;
     background-color: #f8f8f8;
     border: 2px solid rgba(0, 75, 160, 0.8);
@@ -254,10 +260,16 @@ span {
     border-bottom-right-radius: 0;
 }
 .dropdown .button:nth-child(2) {
-    border-top-left-radius: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
     border-bottom-left-radius: 0;
-    padding-left: 0.5625rem;
-    padding-right: 0.5625rem;
+    border-top-left-radius: 0;
+}
+.dropdown .button:nth-child(2) i {
+    margin-right: 0;
+    margin-bottom: 0;
 }
 
 /* Use hover color for dropdown section of the dropdownbutton */
