@@ -10,7 +10,7 @@ import s from './styles'
 class MenuItem extends Component {
     onClick = event => {
         const handler = this.props.onClick || this.props.onSelect
-        handler(event, this.props.value, this.props)
+        handler && handler(event, this.props.value, this.props)
         this.props.onClose && this.props.onClose()
     }
 
@@ -18,14 +18,7 @@ class MenuItem extends Component {
         const { disabled, menuItems, label, icon } = this.props
 
         if (menuItems) {
-            return (
-                <SubMenu
-                    children={this.props.children}
-                    label={label}
-                    icon={icon}
-                    menuItems={menuItems}
-                />
-            )
+            return <SubMenu label={label} icon={icon} list={menuItems} />
         }
 
         return (

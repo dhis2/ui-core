@@ -111,7 +111,7 @@ Dialog.propTypes = {
     onAnimationEnd: PropTypes.func.isRequired,
 }
 
-const EnhancedDialog = withAnimatedClose(Dialog)
+Dialog = withAnimatedClose(Dialog)
 
-export { EnhancedDialog as Dialog }
-export default EnhancedDialog
+export { Dialog }
+export default Dialog

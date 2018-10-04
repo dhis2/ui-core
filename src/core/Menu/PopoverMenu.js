@@ -41,7 +41,7 @@ PopoverMenu.propTypes = {
     anchorPosition: PropTypes.object,
     popoverPosition: PropTypes.object,
     onClose: PropTypes.func.isRequired,
-    onSelect: PropTypes.func.isRequired,
+    onSelect: PropTypes.func,
     getAnchorRef: PropTypes.func.isRequired,
 }
 
