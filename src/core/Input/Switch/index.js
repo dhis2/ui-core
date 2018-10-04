@@ -19,9 +19,6 @@ function Switch({
     helpText,
     required,
 }) {
-    console.log('checked', checked)
-    console.log('onChange', onChange)
-
     return (
         <Field
             className={s('container')}
