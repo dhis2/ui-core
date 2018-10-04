@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Paper from '../../core/Paper'
 import Icon from '../../core/Icon'
 import TextField from '../../core/Input/TextField'
+import { isPointInRect } from '../../utils'
 import s from './styles'
 
 function Search({ value, onChange }) {
@@ -56,10 +57,6 @@ function List({ apps, filter }) {
                 ))}
         </div>
     )
-}
-
-function isPointInRect({ x, y }, { left, right, top, bottom }) {
-    return x >= left && x <= right && y >= top && y <= bottom
 }
 
 export default class Apps extends React.Component {

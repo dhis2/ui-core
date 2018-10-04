@@ -252,6 +252,7 @@
 }
 
 .dropdown {
+    position: relative;
     display: inline-flex;
 }
 
@@ -280,6 +281,13 @@
 .dropdown .button.primary:nth-child(2):focus {
     border: 1px solid #033976;
     background-color: #033976;
+}
+
+.menu {
+    position: absolute;
+    z-index: 1000;
+    right: 0;
+    top: 36px;
 }
 
 /* IE11 hacks */
