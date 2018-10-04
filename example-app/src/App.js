@@ -67,12 +67,18 @@ class App extends Component {
                     <DialogDemo />
                 </Block>
                 <Block>
+                    <ProgressDemo />
+                </Block>
+                <Block>
+                    <InputDemo />
+                </Block>
+                <Block>
+                    <LogoDemo />
+                </Block>
+                <MenuDemo />
+                <Block>
                     <TypographyDemo />
                 </Block>
-                <ProgressDemo />
-                <InputDemo />
-                <MenuDemo />
-                <LogoDemo />
             </UI>
         )
     }
