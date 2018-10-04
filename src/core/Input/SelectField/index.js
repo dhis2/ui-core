@@ -156,13 +156,10 @@ class SelectField extends Component {
                 </LabelField>
                 {!native && (
                     <PopoverMenu
-                        menuProps={{
-                            options: this.getOptions(),
-                            selectHandler: this.selectHandler,
-                        }}
-                        getAnchorRef={this.getInputRef}
+                        list={this.getOptions()}
+                        onSelect={this.selectHandler}
                         open={this.state.open}
-                        closePopover={this.onClose}
+                        onClose={this.onClose}
                         anchorPosition={{
                             vertical: 'top',
                             horizontal: 'center',
@@ -171,7 +168,7 @@ class SelectField extends Component {
                             vertical: 'top',
                             horizontal: 'center',
                         }}
-                        animation="slide-down"
+                        getAnchorRef={this.getInputRef}
                     />
                 )}
             </Fragment>

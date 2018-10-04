@@ -11,20 +11,12 @@ const anchorPosition = { vertical: 'top', horizontal: 'right' }
 const popoverPosition = { vertical: 'top', horizontal: 'left' }
 
 class SubMenu extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            popoverOpen: false,
-        }
+    state = {
+        open: false,
     }
 
-    openPopover = () => {
-        this.setState({ popoverOpen: true })
-    }
-
-    closePopover = () => {
-        this.setState({ popoverOpen: false })
-    }
+    onOpen = () => this.setState({ open: true })
+    onClose = () => this.setState({ open: false })
 
     getAnchorRef = () => this.anchorRef
     setAnchorRef = node => (this.anchorRef = node)
@@ -41,16 +33,18 @@ class SubMenu extends Component {
 
         return (
             <Fragment>
-                <MenuItem ref={this.setAnchorRef} onClick={this.openPopover}>
+                <MenuItem ref={this.setAnchorRef} onClick={this.onOpen}>
                     {children
                         ? children
                         : [icon && <Icon key="icon" name={icon} />, label]}
                     <Icon name={arrowIconName} />
                 </MenuItem>
                 <PopoverMenu
-                    closePopover={this.closePopover}
+                    list={menuItems}
+                    onSelect={() => null}
+                    onClose={this.onClose}
                     getAnchorRef={this.getAnchorRef}
-                    open={this.state.popoverOpen}
+                    open={this.state.open}
                     menuProps={menuProps}
                     anchorPosition={anchorPosition}
                     popoverPosition={popoverPosition}

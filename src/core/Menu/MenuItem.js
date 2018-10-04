@@ -9,10 +9,9 @@ import s from './styles'
 
 class MenuItem extends Component {
     onClick = event => {
-        const { value, onClick, selectHandler, closePopover } = this.props
-        const handler = onClick || selectHandler
-        handler(event, value, this.props)
-        closePopover && closePopover()
+        const handler = this.props.onClick || this.props.onSelect
+        handler(event, this.props.value, this.props)
+        this.props.onClose && this.props.onClose()
     }
 
     render() {
@@ -51,7 +50,8 @@ MenuItem.propTypes = {
     // onClick is bound to a menuItem itself
     onClick: PropTypes.func,
     // selecthandler is passed down from parent, a generic handler for each item
-    selectHandler: PropTypes.func,
+    onSelect: PropTypes.func,
+    onClose: PropTypes.func,
     menuItems: PropTypes.arrayOf(
         PropTypes.oneOfType([PropTypes.element, PropTypes.object])
     ),

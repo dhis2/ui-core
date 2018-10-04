@@ -7,7 +7,7 @@ import Paper from '../Paper'
 
 import s from './styles'
 
-function Menu({ options, selectHandler, closePopover, children }) {
+function Menu({ list, onSelect, onClose, children }) {
     if (children) {
         return (
             <Paper elevation={4}>
@@ -19,11 +19,12 @@ function Menu({ options, selectHandler, closePopover, children }) {
     return (
         <Paper elevation={4}>
             <ul className={s('container')}>
-                {options.map(({ onClick, ...rest }, idx) => (
+                {list.map(({ onClick, ...rest }, idx) => (
                     <MenuItem
                         key={`mi-${idx}`}
-                        onClick={onClick || selectHandler}
-                        closePopover={closePopover}
+                        onClick={onClick || onSelect}
+                        onSelect={onSelect}
+                        onClose={onClose}
                         {...rest}
                     />
                 ))}
@@ -32,10 +33,14 @@ function Menu({ options, selectHandler, closePopover, children }) {
     )
 }
 
+Menu.defaultProps = {
+    options: [],
+}
+
 Menu.propTypes = {
-    options: PropTypes.array,
-    selectHandler: PropTypes.func,
-    closePopover: PropTypes.func,
+    list: PropTypes.array,
+    onSelect: PropTypes.func,
+    onClose: PropTypes.func,
     children: PropTypes.arrayOf(PropTypes.element),
 }
 

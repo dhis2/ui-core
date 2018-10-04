@@ -2,7 +2,7 @@
 
 import React from 'react'
 import HeaderBar from 'ui/widgets/HeaderBar/HeaderBar.Component'
-import HeaderBarContainer from 'ui/widgets/HeaderBar/HeaderBar.Container'
+// import HeaderBarContainer from 'ui/widgets/HeaderBar/HeaderBar.Container'
 
 const props = {
     title: 'Demo - Sierra Leone',

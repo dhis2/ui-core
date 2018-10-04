@@ -14,17 +14,12 @@ import {
 } from 'ui/core/Button'
 
 import Icon from 'ui/core/Icon'
-import { MenuItem } from 'ui/core/Menu'
 
-const menuItemSelectTest = (event, value, option) => {
+function onMenuItemSelect(event, value, option) {
     console.log('Menu item click', event.target, value, option)
 }
 
-const menuProps = {
-    selectHandler: menuItemSelectTest,
-}
-
-const dropdownOptions = [
+const items = [
     {
         value: 1,
         label: 'One ',
@@ -50,42 +45,6 @@ const dropdownOptions = [
     { value: 5, label: 'Five', icon: 'alarm' },
 ]
 
-const subSubMenuItems = [
-    <MenuItem key="jajaja" value={1}>
-        Sub item 1
-    </MenuItem>,
-    <MenuItem key="neee" value={2}>
-        Sub item 2
-    </MenuItem>,
-    <MenuItem key="misschien" value={3}>
-        Sub item 3
-    </MenuItem>,
-]
-
-const subMenuItems = [
-    <MenuItem key="jajaja" value={1}>
-        Sub item 1
-    </MenuItem>,
-    <MenuItem key="neee" value={2} menuItems={subSubMenuItems}>
-        Sub item 2
-    </MenuItem>,
-    <MenuItem key="misschien" value={3}>
-        Sub item 3
-    </MenuItem>,
-]
-
-const menuItems = [
-    <MenuItem key="jajaja" value={1} menuItems={subMenuItems}>
-        Main item 1
-    </MenuItem>,
-    <MenuItem key="neee" value={2}>
-        Main item 2
-    </MenuItem>,
-    <MenuItem key="misschien" value={3}>
-        Main item 3
-    </MenuItem>,
-]
-
 function onButtonClick(msg) {
     console.log(msg, 'button clicked')
 }
@@ -94,7 +53,7 @@ const HSpace = () => <span style={{ width: 20, display: 'inline-block' }} />
 
 function Buttons() {
     return (
-        <div style={{ marginBottom: 20 }}>
+        <div style={{ margin: '0 20px 0 0' }}>
             <PrimaryButton onClick={() => onButtonClick('primary')}>
                 Primary
             </PrimaryButton>
@@ -160,30 +119,23 @@ function onDropdownClick(msg) {
 
 function Dropdowns() {
     return (
-        <div style={{ marginBottom: 20 }}>
+        <div style={{ margin: '20px 20px 20px 0', paddingBottom: 20 }}>
             <DropdownButton
-                buttonProps={{
-                    kind: 'primary',
-                    onClick: () => onDropdownClick('first'),
-                }}
-                menuProps={menuProps}
-                options={dropdownOptions}
-            >
-                <Icon name="add" />
-                Dropdown button
-            </DropdownButton>
+                list={items}
+                icon={<Icon name="add" />}
+                label="Dropdown Button"
+                onSelect={onMenuItemSelect}
+                onClick={() => onDropdownClick('primary dropdown')}
+            />
             <HSpace />
             <DropdownButton
-                buttonProps={{
-                    kind: 'raised',
-                    onClick: () => onDropdownClick('second'),
-                }}
-                menuProps={{ children: menuItems }}
-                options={dropdownOptions}
-            >
-                <Icon name="add" />
-                Second Dropdown
-            </DropdownButton>
+                kind="raised"
+                list={items}
+                icon={<Icon name="add" />}
+                label="Second Dropdown"
+                onSelect={onMenuItemSelect}
+                onClick={() => onDropdownClick('raised dropdown')}
+            />
         </div>
     )
 }
@@ -191,10 +143,12 @@ function Dropdowns() {
 export default function ProgressDemo() {
     return (
         <Paper>
-            <h6>Button components</h6>
-            <br />
-            <Buttons />
-            <Dropdowns />
+            <div style={{ margin: 20 }}>
+                <h6>Button components</h6>
+                <br />
+                <Buttons />
+                <Dropdowns />
+            </div>
         </Paper>
     )
 }

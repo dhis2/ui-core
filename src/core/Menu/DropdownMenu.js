@@ -21,23 +21,23 @@ class DropdownMenu extends React.Component {
         open: false,
     }
 
-    openMenu = () => this.setState({ open: true })
-    closeMenu = () => this.setState({ open: false })
+    onOpen = () => this.setState({ open: true })
+    onClose = () => this.setState({ open: false })
 
     render() {
         return (
             <React.Fragment>
-                <Button kind={this.props.buttonKind} onClick={this.openMenu}>
+                <Button kind={this.props.kind} onClick={this.onOpen}>
                     <Icon name="keyboard_arrow_down" />
                 </Button>
                 <PopoverMenu
-                    menuProps={this.props.menuProps}
-                    getAnchorRef={this.props.getAnchorRef}
-                    open={this.state.open}
-                    closePopover={this.closeMenu}
-                    animation="slide-down"
-                    anchorPosition={anchorPosition}
                     popoverPosition={popoverPosition}
+                    anchorPosition={anchorPosition}
+                    open={this.state.open}
+                    list={this.props.list}
+                    onClose={this.onClose}
+                    onSelect={this.props.onSelect}
+                    getAnchorRef={this.props.getAnchorRef}
                 />
             </React.Fragment>
         )
@@ -45,9 +45,10 @@ class DropdownMenu extends React.Component {
 }
 
 DropdownMenu.propTypes = {
-    buttonKind: PropTypes.oneOf(['primary', 'raised']).isRequired,
+    kind: PropTypes.oneOf(['primary', 'raised']).isRequired,
+    list: PropTypes.array.isRequired,
+    onSelect: PropTypes.func.isRequired,
     getAnchorRef: PropTypes.func.isRequired,
-    menuProps: PropTypes.object.isRequired,
 }
 
 export { DropdownMenu }
