@@ -3,25 +3,70 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
-import { DropdownMenu } from '../Menu'
 import s from './styles'
+import Icon from '../Icon'
+import Menu from '../Menu/Menu'
+import { isPointInRect } from '../../utils'
 
+/**
+ * list of menu items opens up on clicking KeyDown icon on the right side
+ */
 class DropdownButton extends Component {
-    anchorRef = null
-    getAnchorRef = () => this.anchorRef
+    state = {
+        open: false,
+    }
+
+    componentDidMount() {
+        document.addEventListener('click', this.onDocClick)
+    }
+
+    componentWillMount() {
+        document.removeEventListener('click', this.onDocClick)
+    }
+
+    onDocClick = evt => {
+        if (this.elContainer && this.elMenu) {
+            const target = { x: evt.clientX, y: evt.clientY }
+            const menu = this.elMenu.getBoundingClientRect()
+            const container = this.elContainer.getBoundingClientRect()
+
+            if (
+                !isPointInRect(target, menu) &&
+                !isPointInRect(target, container)
+            ) {
+                this.setState({ open: false })
+            }
+        }
+    }
+
+    onToggle = () => this.setState({ open: !this.state.open })
+    onClose = () => this.setState({ open: false })
 
     render() {
+        const { open } = this.state
         return (
-            <div ref={c => (this.anchorRef = c)} className={s('dropdown')}>
+            <div className={s('dropdown')} ref={c => (this.elContainer = c)}>
                 <Button kind={this.props.kind} onClick={this.props.onClick}>
                     {this.props.label}
                 </Button>
-                <DropdownMenu
-                    kind={this.props.kind}
-                    list={this.props.list}
-                    onSelect={this.props.onSelect}
-                    getAnchorRef={this.getAnchorRef}
-                />
+
+                <Button kind={this.props.kind} onClick={this.onToggle}>
+                    <Icon
+                        name={
+                            open ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
+                        }
+                    />
+                </Button>
+
+                {open && (
+                    <div className={s('menu')} ref={c => (this.elMenu = c)}>
+                        <Menu
+                            list={this.props.list}
+                            onClose={this.onClose}
+                            onSelect={this.props.onSelect}
+                        />
+                    </div>
+                )}
             </div>
         )
     }
