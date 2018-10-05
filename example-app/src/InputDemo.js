@@ -44,6 +44,10 @@ export default class InputDemo extends Component {
         })
     }
 
+    updateSelect = selectValue => {
+        this.setState({ selectValue: parseInt(selectValue, 10) })
+    }
+
     render() {
         return (
             <div style={{ marginTop: 40 }}>

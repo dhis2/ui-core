@@ -5,7 +5,7 @@ import s from './styles'
 function Label({ text, size, height, status, border, hasIcon }) {
     const style = {
         height,
-        'line-height': height,
+        lineHeight: height,
     }
 
     return (
