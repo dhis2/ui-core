@@ -5,11 +5,13 @@
 }
 
 .icon {
-    margin-right: 5px;
+    margin: 0 7px;
+    height: 24px;
 }
 
 .dropdown-icon {
-    margin-left: auto;
+    margin: 0 7px 0 auto;
+    height: 24px;
 }
 
 .select {
@@ -17,8 +19,13 @@
     user-select: none;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     height: 44px;
+}
+.value {
+    height: 24px;
 }
 
 .menu {

@@ -6,29 +6,12 @@ import Checkbox from 'ui/core/Input/Checkbox'
 import RadioButton from 'ui/core/Input/RadioButton'
 import TextField from 'ui/core/Input/TextField'
 import Switch from 'ui/core/Input/Switch'
-import SelectField from 'ui/core/Input/SelectField'
 import RadioButtonGroup from 'ui/core/Input/RadioButtonGroup'
 
 const selectOptions = [
     { value: 1, label: 'One' },
     { value: 2, label: 'Two' },
     { value: 3, label: 'Three' },
-]
-
-const list = [
-    {
-        value: 1,
-        label: 'One ',
-        icon: 'alarm',
-    },
-    { value: 2, label: 'two', icon: 'alarm', disabled: true },
-    {
-        value: 3,
-        label: 'Three',
-        icon: 'face',
-    },
-    { value: 4, label: 'Four', icon: 'alarm' },
-    { value: 5, label: 'Five', icon: 'alarm' },
 ]
 
 export default class InputDemo extends Component {
@@ -61,8 +44,6 @@ export default class InputDemo extends Component {
         })
     }
 
-    updateSelect = (evt, value, option) => this.setState({ selectValue: value })
-
     render() {
         return (
             <div style={{ marginTop: 40 }}>
@@ -78,32 +59,6 @@ export default class InputDemo extends Component {
                     inline
                     required
                 />
-                <div style={{ width: 200 }}>
-                    <SelectField
-                        required
-                        list={list}
-                        label="Choose below"
-                        help="Help with this text"
-                        icon="face"
-                        status={!this.state.selectValue ? 'valid' : 'error'}
-                        value={this.state.selectValue}
-                        onChange={this.updateSelect}
-                    />
-                </div>
-                {/*<SelectField
-                    options={selectOptions}
-                    label="Choose something"
-                    onChange={this.updateSelect}
-                    value={this.state.selectValue}
-                    variant="outlined"
-                    emptyOption="None"
-                    leadingIcon="face"
-                    helpText="Help with this text"
-                    dense
-                    valid
-                    // error
-                    // warning
-                />*/}
                 <br />
                 <TextField
                     label="testlabel"

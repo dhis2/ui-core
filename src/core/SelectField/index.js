@@ -2,10 +2,11 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icon from '../../Icon'
-import Menu from '../../Menu/Menu'
+import Icon from '../Icon'
+import Menu from '../Menu/Menu'
+import { Label } from '../helpers'
+import { isPointInRect } from '../../utils'
 import s from './styles'
-import { isPointInRect } from '../../../utils'
 
 class SelectField extends React.Component {
     state = {
@@ -44,9 +45,9 @@ class SelectField extends React.Component {
         this.props.onChange(evt, value, option)
     }
 
-    getLabel() {
+    getValue() {
         if (!this.props.value) {
-            return this.props.label
+            return false
         }
 
         return this.props.list.filter(
@@ -62,6 +63,8 @@ class SelectField extends React.Component {
             width = `${this.elSelect.getBoundingClientRect().width}px`
         }
 
+        const value = this.getValue()
+
         return (
             <div ref={c => (this.elContainer = c)} className={s('container')}>
                 <div
@@ -72,7 +75,15 @@ class SelectField extends React.Component {
                     <div className={s('icon')}>
                         {this.props.icon && <Icon name={this.props.icon} />}
                     </div>
-                    <div className={s('label')}>{this.getLabel()}</div>
+                    <div className={s('value')}>{this.getValue()}</div>
+                    <Label
+                        height="44px"
+                        hasIcon={!!this.props.icon}
+                        text={this.props.label}
+                        status={this.props.status}
+                        border={this.props.border}
+                        size={value ? 'minimized' : 'default'}
+                    />
                     <Icon
                         name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
                         className={s('dropdown-icon')}
@@ -95,7 +106,7 @@ class SelectField extends React.Component {
 
 SelectField.defaultProps = {
     disabled: false,
-    placeholder: '',
+    label: '',
 }
 
 SelectField.propTypes = {
@@ -114,7 +125,8 @@ SelectField.propTypes = {
     disabled: PropTypes.bool,
     block: PropTypes.bool,
     required: PropTypes.bool,
-    status: PropTypes.oneOf(['valid', 'error', 'warning']),
+    border: PropTypes.oneOf(['none', 'solid', 'dashed']),
+    status: PropTypes.oneOf(['default', 'valid', 'error', 'warning']),
 }
 
 export { SelectField }

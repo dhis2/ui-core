@@ -6,6 +6,7 @@ import UI from 'ui/core/UI'
 import LogoDemo from './LogoDemo'
 import MenuDemo from './MenuDemo'
 import InputDemo from './InputDemo'
+import SelectDemo from './SelectDemo'
 import ButtonDemo from './ButtonDemo'
 import DialogDemo from './DialogDemo'
 import ProgressDemo from './ProgressDemo'
@@ -76,6 +77,9 @@ class App extends Component {
                 </Block>
                 <Block>
                     <ProgressDemo />
+                </Block>
+                <Block>
+                    <SelectDemo />
                 </Block>
                 <Block>
                     <InputDemo />
