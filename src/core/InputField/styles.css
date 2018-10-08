@@ -86,7 +86,7 @@
     margin: 22px 5px 0 14px;
 }
 .container.kind-filled.size-dense .icon + .input {
-    margin: 18px 14px 0 0;
+    margin: 16px 14px 0 0;
 }
 
 /* icon in outlined, default size */
@@ -99,7 +99,7 @@
     font-size: 18px;
 }
 .container.kind-outlined.size-dense .icon {
-    margin: 6px 7px 0 14px;
+    margin: 6px 5px 0 14px;
 }
 .container.kind-outlined.size-dense .icon + .input {
     margin-left: 0;
