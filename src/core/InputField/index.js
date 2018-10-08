@@ -3,12 +3,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
-import { Label } from '../helpers'
+import { Label, Help } from '../helpers'
 import s from './styles'
 
-// TODO Helper Text component
 // TODO disabled state
-// TODO kind: Normal, Dense
 
 class InputField extends React.Component {
     state = {
@@ -31,39 +29,49 @@ class InputField extends React.Component {
         return (
             <div
                 ref={c => (this.elContainer = c)}
-                className={s('container')}
+                className={s('container', {
+                    disabled: this.props.disabled,
+                    [`size-${this.props.size}`]: true,
+                    [`kind-${this.props.kind}`]: true,
+                })}
                 onClick={this.onClick}
             >
-                {this.props.icon && (
-                    <div className={s('icon')}>
-                        <Icon name={this.props.icon} />
-                    </div>
+                <div className={s('field')}>
+                    {this.props.icon && (
+                        <div className={s('icon')}>
+                            <Icon name={this.props.icon} />
+                        </div>
+                    )}
+                    <input
+                        ref={c => (this.ref = c)}
+                        className={s('input')}
+                        type={this.props.type}
+                        value={this.props.value}
+                        onChange={this.onChange}
+                        onFocus={this.onFocus}
+                        onBlur={this.onBlur}
+                        placeholder={this.props.placeholder}
+                    />
+                    <Label
+                        size={this.props.size}
+                        kind={this.props.kind}
+                        text={this.props.label}
+                        status={this.props.status}
+                        focused={this.state.focused}
+                        disabled={this.props.disabled}
+                        hasIcon={!!this.props.icon}
+                        state={
+                            this.props.placeholder ||
+                            this.props.value ||
+                            this.state.focused
+                                ? 'minimized'
+                                : 'default'
+                        }
+                    />
+                </div>
+                {this.props.help && (
+                    <Help text={this.props.help} status={this.props.status} />
                 )}
-                <input
-                    ref={c => (this.ref = c)}
-                    className={s('input')}
-                    type={this.props.type}
-                    value={this.props.value}
-                    onChange={this.onChange}
-                    onFocus={this.onFocus}
-                    onBlur={this.onBlur}
-                    placeholder={this.props.placeholder}
-                />
-                <Label
-                    height="44px"
-                    hasIcon={!!this.props.icon}
-                    text={this.props.label}
-                    status={this.props.status}
-                    border={this.props.border}
-                    focused={this.state.focused}
-                    size={
-                        this.props.placeholder ||
-                        this.props.value ||
-                        this.state.focused
-                            ? 'minimized'
-                            : 'default'
-                    }
-                />
             </div>
         )
     }
@@ -72,6 +80,8 @@ class InputField extends React.Component {
 InputField.defaultProps = {
     disabled: false,
     label: '',
+    size: 'default',
+    kind: 'filled',
 }
 
 InputField.propTypes = {
@@ -84,8 +94,9 @@ InputField.propTypes = {
     help: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
+    size: PropTypes.oneOf(['default', 'dense']),
+    kind: PropTypes.oneOf(['filled', 'outlined']),
     type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
-    border: PropTypes.oneOf(['none', 'solid', 'dashed']),
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
 }
 
