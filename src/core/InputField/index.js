@@ -30,7 +30,7 @@ class InputField extends React.Component {
             <div
                 ref={c => (this.elContainer = c)}
                 className={s('container', {
-                    'disabled': this.props.disabled,
+                    disabled: this.props.disabled,
                     [`size-${this.props.size}`]: true,
                     [`kind-${this.props.kind}`]: true,
                     'is-empty': !(

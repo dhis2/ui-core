@@ -24,30 +24,6 @@ const fields = [
         size: 'dense',
     },
 
-    // no placeholder
-    {
-        placeholder: undefined,
-        icon: 'face',
-        kind: 'filled',
-    },
-    {
-        placeholder: undefined,
-        icon: 'face',
-        kind: 'filled',
-        size: 'dense',
-    },
-    {
-        placeholder: undefined,
-        icon: 'face',
-        kind: 'outlined',
-    },
-    {
-        placeholder: undefined,
-        icon: 'face',
-        kind: 'outlined',
-        size: 'dense',
-    },
-
     // placeholder
     {
         kind: 'filled',
