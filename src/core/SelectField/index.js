@@ -8,6 +8,10 @@ import { Label } from '../helpers'
 import { isPointInRect } from '../../utils'
 import s from './styles'
 
+// TODO Helper Text component
+// TODO disabled state
+// TODO Normal, Dense
+
 class SelectField extends React.Component {
     state = {
         open: false,
@@ -73,9 +77,11 @@ class SelectField extends React.Component {
                     className={s('select')}
                     onClick={this.onToggle}
                 >
-                    <div className={s('icon')}>
-                        {this.props.icon && <Icon name={this.props.icon} />}
-                    </div>
+                    {this.props.icon && (
+                        <div className={s('icon')}>
+                            <Icon name={this.props.icon} />
+                        </div>
+                    )}
                     <div className={s('value')}>{this.getLabel()}</div>
                     <Label
                         height="44px"
@@ -124,10 +130,9 @@ SelectField.propTypes = {
     icon: PropTypes.string,
     help: PropTypes.string,
     disabled: PropTypes.bool,
-    block: PropTypes.bool,
     required: PropTypes.bool,
     border: PropTypes.oneOf(['none', 'solid', 'dashed']),
-    status: PropTypes.oneOf(['default', 'valid', 'error', 'warning']),
+    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
 }
 
 export { SelectField }
