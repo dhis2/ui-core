@@ -1,0 +1,36 @@
+/** @format */
+
+.container {
+    position: relative;
+}
+
+.icon {
+    margin: 0 7px;
+    height: 24px;
+}
+
+.dropdown-icon {
+    margin: 0 7px 0 auto;
+    height: 24px;
+}
+
+.select {
+    pointer-events: all;
+    user-select: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 44px;
+}
+.value {
+    height: 24px;
+}
+
+.menu {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: 44px;
+}

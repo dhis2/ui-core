@@ -6,7 +6,6 @@ import Checkbox from 'ui/core/Input/Checkbox'
 import RadioButton from 'ui/core/Input/RadioButton'
 import TextField from 'ui/core/Input/TextField'
 import Switch from 'ui/core/Input/Switch'
-import SelectField from 'ui/core/Input/SelectField'
 import RadioButtonGroup from 'ui/core/Input/RadioButtonGroup'
 
 const selectOptions = [
@@ -63,36 +62,6 @@ export default class InputDemo extends Component {
                     error
                     inline
                     required
-                />
-                <SelectField
-                    options={selectOptions}
-                    label="Choose something"
-                    onChange={this.updateSelect}
-                    value={this.state.selectValue}
-                    variant="outlined"
-                    native
-                    emptyOption="None"
-                    // leadingIcon="face"
-                    // helpText="Help with this text"
-                    // dense
-                    valid
-                    required
-                    // error
-                    // warning
-                />
-                <SelectField
-                    options={selectOptions}
-                    label="Choose something"
-                    onChange={this.updateSelect}
-                    value={this.state.selectValue}
-                    variant="outlined"
-                    emptyOption="None"
-                    leadingIcon="face"
-                    helpText="Help with this text"
-                    dense
-                    valid
-                    // error
-                    // warning
                 />
                 <br />
                 <TextField
