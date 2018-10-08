@@ -47,15 +47,23 @@
     background-color: transparent;
 }
 
-.container.status-default {
+.container.status-default,
+.container.status-default .content {
+    color: #c4c4c4;
     border-color: #c4c4c4;
 }
-.container.status-valid {
+.container.status-valid,
+.container.status-valid .content {
+    color: #1976d2;
     border-color: #1976d2;
 }
-.container.status-error {
+.container.status-error,
+.container.status-error .content {
+    color: #e53935;
     border-color: #e53935;
 }
-.container.status-warning {
+.container.status-warning,
+.container.status-warning .content {
+    color: #f19c02;
     border-color: #f19c02;
 }
