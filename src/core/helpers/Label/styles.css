@@ -10,6 +10,7 @@
 
 .border-none {
     border: 1px hidden transparent;
+    background-color: rgba(0, 0, 10, 0.05);
 }
 .border-solid {
     border: 1px solid #c4c4c4;
@@ -20,6 +21,7 @@
 
 .content {
     position: absolute;
+    left: 14px;
     transition: all 0.1s;
     background-color: transparent;
 }
@@ -28,7 +30,7 @@
     left: 40px;
 }
 .has-icon.size-minimized .content {
-    left: 15px;
+    left: 14px;
 }
 
 .size-default {
@@ -40,6 +42,9 @@
     height: 12px;
     line-height: 12px;
     top: -6px;
+}
+.border-none .content {
+    background-color: transparent;
 }
 
 .container.status-default {

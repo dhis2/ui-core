@@ -2,19 +2,6 @@
 
 .container {
     position: relative;
-}
-
-.icon {
-    margin: 0 7px 0 14px;
-    height: 24px;
-}
-
-.dropdown-icon {
-    margin: 0 7px 0 auto;
-    height: 24px;
-}
-
-.select {
     pointer-events: all;
     user-select: none;
     display: flex;
@@ -23,13 +10,29 @@
     justify-content: center;
     cursor: pointer;
     height: 44px;
+    width: 100%;
 }
+
+.icon {
+    margin: 0 7px 0 14px;
+    height: 24px;
+}
+
+.input {
+    border: 0;
+    width: 100%;
+    margin: 0 14px;
+    background-color: transparent;
+}
+.input:focus {
+    outline: none;
+}
+.icon + .input {
+    margin: 0 14px 0 0;
+}
+
 .value {
     height: 24px;
-    margin-left: 14px;
-}
-.icon + .value {
-    margin-left: 0;
 }
 
 .menu {

@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import s from './styles'
 
+// TODO show field status icon, error, valid, warning
+
 function Label({ text, size, height, status, border, hasIcon }) {
     const style = {
         height,

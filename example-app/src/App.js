@@ -5,8 +5,9 @@ import React, { Component } from 'react'
 import UI from 'ui/core/UI'
 import LogoDemo from './LogoDemo'
 import MenuDemo from './MenuDemo'
-import InputDemo from './InputDemo'
-import SelectDemo from './SelectDemo'
+// import InputDemo from './InputDemo'
+import InputFieldDemo from './InputFieldDemo'
+import SelectFieldDemo from './SelectFieldDemo'
 import ButtonDemo from './ButtonDemo'
 import DialogDemo from './DialogDemo'
 import ProgressDemo from './ProgressDemo'
@@ -79,11 +80,14 @@ class App extends Component {
                     <ProgressDemo />
                 </Block>
                 <Block>
-                    <SelectDemo />
+                    <InputFieldDemo />
                 </Block>
                 <Block>
-                    <InputDemo />
+                    <SelectFieldDemo />
                 </Block>
+                {/*<Block>
+                    <InputDemo />
+                </Block>*/}
                 <Block>
                     <LogoDemo />
                 </Block>
