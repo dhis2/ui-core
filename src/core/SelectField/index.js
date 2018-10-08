@@ -84,6 +84,7 @@ class SelectField extends React.Component {
                     )}
                     <div className={s('value')}>{this.getLabel()}</div>
                     <Label
+                        type="select"
                         height="44px"
                         hasIcon={!!this.props.icon}
                         text={this.props.label}

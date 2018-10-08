@@ -8,7 +8,7 @@ import s from './styles'
 
 // TODO Helper Text component
 // TODO disabled state
-// TODO Normal, Dense
+// TODO kind: Normal, Dense
 
 class InputField extends React.Component {
     state = {
