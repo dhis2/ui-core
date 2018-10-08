@@ -9,27 +9,33 @@ const statusToIcon = {
     error: 'error',
 }
 
-function Label({ type, focused, text, size, height, status, border, hasIcon }) {
-    const style = {
-        height,
-        lineHeight: height,
-    }
-
+function Label({
+    text,
+    type,
+    focused,
+    size,
+    kind,
+    state,
+    status,
+    disabled,
+    hasIcon,
+}) {
     return (
         <div
-            style={style}
             className={s('container', {
                 'has-icon': hasIcon,
                 [`focused`]: focused,
+                disabled: disabled,
+                [`state-${state}`]: true,
                 [`size-${size}`]: true,
                 [`type-${type}`]: true,
                 [`status-${status}`]: true,
-                [`border-${border}`]: true,
+                [`kind-${kind}`]: true,
             })}
         >
             <div
                 className={s('content', {
-                    [`size-${size}`]: true,
+                    [`state-${state}`]: true,
                 })}
             >
                 {text}
@@ -47,16 +53,17 @@ Label.defaultProps = {
     size: 'default',
     status: 'default',
     border: 'none',
-    height: '100%',
+    disabled: false,
 }
 
 Label.propTypes = {
     text: PropTypes.string,
-    height: PropTypes.string,
     focused: PropTypes.bool,
     hasIcon: PropTypes.bool,
-    size: PropTypes.oneOf(['default', 'minimized']),
-    border: PropTypes.oneOf(['none', 'solid', 'dashed']),
+    disabled: PropTypes.bool,
+    size: PropTypes.oneOf(['default', 'dense']),
+    kind: PropTypes.oneOf(['filled', 'outlined']),
+    state: PropTypes.oneOf(['default', 'minimized']),
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
     type: PropTypes.oneOf([
         'text',

@@ -71,7 +71,12 @@ class SelectField extends React.Component {
         const value = this.getLabel()
 
         return (
-            <div ref={c => (this.elContainer = c)} className={s('container')}>
+            <div
+                ref={c => (this.elContainer = c)}
+                className={s('container', {
+                    [`size-${this.props.size}`]: true,
+                })}
+            >
                 <div
                     ref={c => (this.elSelect = c)}
                     className={s('select')}
@@ -85,12 +90,12 @@ class SelectField extends React.Component {
                     <div className={s('value')}>{this.getLabel()}</div>
                     <Label
                         type="select"
-                        height="44px"
-                        hasIcon={!!this.props.icon}
+                        size={this.props.size}
+                        kind={this.props.kind}
                         text={this.props.label}
                         status={this.props.status}
-                        border={this.props.border}
-                        size={value ? 'minimized' : 'default'}
+                        hasIcon={!!this.props.icon}
+                        state={value ? 'minimized' : 'default'}
                     />
                     <Icon
                         name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
@@ -115,9 +120,12 @@ class SelectField extends React.Component {
 SelectField.defaultProps = {
     disabled: false,
     label: '',
+    size: 'default',
 }
 
 SelectField.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     list: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string.isRequired,
@@ -125,15 +133,14 @@ SelectField.propTypes = {
                 .isRequired,
         })
     ),
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onChange: PropTypes.func.isRequired,
     icon: PropTypes.string,
     help: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
-    border: PropTypes.oneOf(['none', 'solid', 'dashed']),
+    size: PropTypes.oneOf(['default', 'dense']),
+    kind: PropTypes.oneOf(['filled', 'outlined']),
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    onChange: PropTypes.func.isRequired,
 }
 
 export { SelectField }
