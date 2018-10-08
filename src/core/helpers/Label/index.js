@@ -3,15 +3,13 @@ import PropTypes from 'prop-types'
 import Icon from '../../Icon'
 import s from './styles'
 
-// TODO show field status icon, error, valid, warning
-
 const statusToIcon = {
     valid: 'check_circle',
     warning: 'warning',
     error: 'error',
 }
 
-function Label({ type, text, size, height, status, border, hasIcon }) {
+function Label({ type, focused, text, size, height, status, border, hasIcon }) {
     const style = {
         height,
         lineHeight: height,
@@ -22,6 +20,7 @@ function Label({ type, text, size, height, status, border, hasIcon }) {
             style={style}
             className={s('container', {
                 'has-icon': hasIcon,
+                [`focused`]: focused,
                 [`size-${size}`]: true,
                 [`type-${type}`]: true,
                 [`status-${status}`]: true,
@@ -54,6 +53,7 @@ Label.defaultProps = {
 Label.propTypes = {
     text: PropTypes.string,
     height: PropTypes.string,
+    focused: PropTypes.bool,
     hasIcon: PropTypes.bool,
     size: PropTypes.oneOf(['default', 'minimized']),
     border: PropTypes.oneOf(['none', 'solid', 'dashed']),

@@ -66,17 +66,24 @@
     border-color: #c4c4c4;
 }
 .container.status-valid,
+.container.status-valid.focused,
 .container.status-valid .content {
     color: #1976d2;
     border-color: #1976d2;
 }
 .container.status-error,
+.container.status-error.focused,
 .container.status-error .content {
     color: #e53935;
     border-color: #e53935;
 }
 .container.status-warning,
+.container.status-warning.focused,
 .container.status-warning .content {
     color: #f19c02;
     border-color: #f19c02;
+}
+
+.container.focused {
+    border-bottom: 1.5px solid #00796b;
 }

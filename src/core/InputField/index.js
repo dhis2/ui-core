@@ -55,6 +55,7 @@ class InputField extends React.Component {
                     text={this.props.label}
                     status={this.props.status}
                     border={this.props.border}
+                    focused={this.state.focused}
                     size={
                         this.props.placeholder ||
                         this.props.value ||
