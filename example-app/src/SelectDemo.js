@@ -21,18 +21,18 @@ const props = {
 
 export default class SelectDemo extends Component {
     state = {
-        s1: 0,
-        s2: 1,
-        s3: 2,
-        s4: 0,
-        s5: 1,
-        s6: 2,
-        s7: 0,
-        s8: 1,
-        s9: 2,
-        s10: 0,
-        s11: 1,
-        s12: 2,
+        s1: 1,
+        s2: 2,
+        s3: 3,
+        s4: 1,
+        s5: 2,
+        s6: 3,
+        s7: 1,
+        s8: 2,
+        s9: 3,
+        s10: 1,
+        s11: 2,
+        s12: 3,
     }
 
     render() {

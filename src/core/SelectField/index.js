@@ -45,14 +45,15 @@ class SelectField extends React.Component {
         this.props.onChange(evt, value, option)
     }
 
-    getValue() {
+    getLabel() {
         if (!this.props.value) {
             return false
         }
 
-        return this.props.list.filter(
+        const selected = this.props.list.filter(
             ({ value }) => this.props.value === value
-        )[0]['label']
+        )
+        return selected.length > 0 ? selected[0]['label'] : null
     }
 
     render() {
@@ -63,7 +64,7 @@ class SelectField extends React.Component {
             width = `${this.elSelect.getBoundingClientRect().width}px`
         }
 
-        const value = this.getValue()
+        const value = this.getLabel()
 
         return (
             <div ref={c => (this.elContainer = c)} className={s('container')}>
@@ -75,7 +76,7 @@ class SelectField extends React.Component {
                     <div className={s('icon')}>
                         {this.props.icon && <Icon name={this.props.icon} />}
                     </div>
-                    <div className={s('value')}>{this.getValue()}</div>
+                    <div className={s('value')}>{this.getLabel()}</div>
                     <Label
                         height="44px"
                         hasIcon={!!this.props.icon}
