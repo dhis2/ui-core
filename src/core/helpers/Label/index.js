@@ -1,10 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Icon from '../../Icon'
 import s from './styles'
 
 // TODO show field status icon, error, valid, warning
 
-function Label({ text, size, height, status, border, hasIcon }) {
+const statusToIcon = {
+    valid: 'check_circle',
+    warning: 'warning',
+    error: 'error',
+}
+
+function Label({ type, text, size, height, status, border, hasIcon }) {
     const style = {
         height,
         lineHeight: height,
@@ -16,6 +23,7 @@ function Label({ text, size, height, status, border, hasIcon }) {
             className={s('container', {
                 'has-icon': hasIcon,
                 [`size-${size}`]: true,
+                [`type-${type}`]: true,
                 [`status-${status}`]: true,
                 [`border-${border}`]: true,
             })}
@@ -27,11 +35,15 @@ function Label({ text, size, height, status, border, hasIcon }) {
             >
                 {text}
             </div>
+            {status !== 'default' && (
+                <Icon name={statusToIcon[status]} className={s('icon')} />
+            )}
         </div>
     )
 }
 
 Label.defaultProps = {
+    type: 'text',
     hasIcon: false,
     size: 'default',
     status: 'default',
@@ -46,6 +58,14 @@ Label.propTypes = {
     size: PropTypes.oneOf(['default', 'minimized']),
     border: PropTypes.oneOf(['none', 'solid', 'dashed']),
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    type: PropTypes.oneOf([
+        'text',
+        'email',
+        'number',
+        'password',
+        'url',
+        'select',
+    ]),
 }
 
 export { Label }

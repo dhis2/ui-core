@@ -27,6 +27,7 @@
 .value {
     height: 24px;
     margin-left: 14px;
+    color: #000;
 }
 .icon + .value {
     margin-left: 0;

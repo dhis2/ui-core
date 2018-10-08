@@ -48,8 +48,9 @@ export default class InputFieldDemo extends Component {
                     <div style={{ marginRight: '20px', width: 220 }}>
                         <InputField
                             {...props}
-                            border="none"
                             name="i1"
+                            border="none"
+                            placeholder=""
                             value={this.state.i1}
                             onChange={(name, v) => this.onChange('i1', v)}
                         />
@@ -58,8 +59,9 @@ export default class InputFieldDemo extends Component {
                     <div style={{ marginRight: '20px', width: 220 }}>
                         <InputField
                             {...props}
-                            border="solid"
                             name="i2"
+                            border="solid"
+                            placeholder=""
                             value={this.state.i2}
                             onChange={(name, v) => this.onChange('i2', v)}
                         />
@@ -68,8 +70,9 @@ export default class InputFieldDemo extends Component {
                     <div style={{ marginRight: '20px', width: 220 }}>
                         <InputField
                             {...props}
-                            border="dashed"
                             name="i3"
+                            border="dashed"
+                            placeholder=""
                             value={this.state.i3}
                             onChange={(name, v) => this.onChange('i3', v)}
                         />

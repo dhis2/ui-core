@@ -22,11 +22,16 @@
     border: 0;
     width: 100%;
     margin: 0 14px;
+    color: #000;
     background-color: transparent;
 }
 .input:focus {
     outline: none;
 }
+.input::placeholder {
+    color: #494949;
+}
+
 .icon + .input {
     margin: 0 14px 0 0;
 }

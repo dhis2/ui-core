@@ -1,5 +1,4 @@
 .container {
-    z-index: -1;
     position: absolute;
     left: 0;
     top: 0;
@@ -9,21 +8,23 @@
 }
 
 .border-none {
-    border: 1px hidden transparent;
+    border: 1.5px hidden transparent;
     background-color: rgba(0, 0, 10, 0.05);
 }
 .border-solid {
-    border: 1px solid #c4c4c4;
+    border: 1.5px solid #c4c4c4;
 }
 .border-dashed {
-    border: 1px dashed #c4c4c4;
+    border: 1.5px dashed #c4c4c4;
 }
 
 .content {
+    pointer-events: none;
     position: absolute;
     left: 14px;
     transition: all 0.1s;
     background-color: transparent;
+    color: #494949;
 }
 
 .has-icon .content {
@@ -37,19 +38,31 @@
     font-size: 16px;
 }
 .size-minimized .content {
-    background-color: #fff;
-    font-size: 12px;
+    padding: 0 3px;
+    top: -6px;
     height: 12px;
     line-height: 12px;
-    top: -6px;
+    background-color: #fff;
+    font-size: 12px;
 }
 .border-none .content {
     background-color: transparent;
 }
 
+.icon {
+    pointer-events: none;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    margin-top: -12px;
+}
+.type-select .icon {
+    right: 28px;
+}
+
 .container.status-default,
 .container.status-default .content {
-    color: #c4c4c4;
+    color: #494949;
     border-color: #c4c4c4;
 }
 .container.status-valid,
