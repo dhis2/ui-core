@@ -74,6 +74,9 @@
 .container.kind-filled.size-default .icon {
     margin: 12px 7px 0 14px;
 }
+.container.is-empty.kind-filled.size-default .icon {
+    margin-top: 0;
+}
 .container.kind-filled.size-default .icon + .input {
     margin: 18px 14px 0 0;
 }
@@ -81,6 +84,11 @@
 /* icon in filled bg, dense size */
 .container.kind-filled.size-dense .icon i {
     font-size: 18px;
+}
+.container.is-empty.kind-filled.size-dense .icon {
+    margin-top: 4px;
+}
+.container.kind-filled.size-dense .icon + .input::placeholder {
 }
 .container.kind-filled.size-dense .icon {
     margin: 22px 5px 0 14px;
