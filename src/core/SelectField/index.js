@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import Menu from '../Menu/Menu'
-import { Label } from '../helpers'
+import { Label, Help } from '../helpers'
 import { isPointInRect } from '../../utils'
 import s from './styles'
 
@@ -38,9 +38,9 @@ class SelectField extends React.Component {
 
     onClose = () => this.setState({ open: false })
 
-    onSelect = (evt, value, option) => {
+    onSelect = (evt, value) => {
         this.setState({ open: false })
-        this.props.onChange(evt, value, option)
+        this.props.onChange(this.props.name, value)
     }
 
     getLabel() {
@@ -62,32 +62,45 @@ class SelectField extends React.Component {
             width = `${this.elSelect.getBoundingClientRect().width}px`
         }
 
-        const value = this.getLabel()
+        const selected = this.getLabel()
 
         return (
-            <div ref={c => (this.elContainer = c)} className={s('container')}>
+            <div
+                ref={c => (this.elContainer = c)}
+                className={s('container', {
+                    selected: !!this.props.value,
+                    [`kind-${this.props.kind}`]: true,
+                    [`size-${this.props.size}`]: true,
+                })}
+            >
                 <div
                     ref={c => (this.elSelect = c)}
                     className={s('select')}
                     onClick={this.onToggle}
                 >
-                    <div className={s('icon')}>
-                        {this.props.icon && <Icon name={this.props.icon} />}
-                    </div>
-                    <div className={s('value')}>{this.getLabel()}</div>
+                    {this.props.icon && (
+                        <div className={s('icon')}>
+                            <Icon name={this.props.icon} />
+                        </div>
+                    )}
+                    <div className={s('value')}>{selected}</div>
                     <Label
-                        height="44px"
-                        hasIcon={!!this.props.icon}
+                        type="select"
+                        size={this.props.size}
+                        kind={this.props.kind}
                         text={this.props.label}
                         status={this.props.status}
-                        border={this.props.border}
-                        size={value ? 'minimized' : 'default'}
+                        hasIcon={!!this.props.icon}
+                        state={selected ? 'minimized' : 'default'}
                     />
                     <Icon
                         name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
                         className={s('dropdown-icon')}
                     />
                 </div>
+                {this.props.help && (
+                    <Help text={this.props.help} status={this.props.status} />
+                )}
                 {open && (
                     <div className={s('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
@@ -106,9 +119,13 @@ class SelectField extends React.Component {
 SelectField.defaultProps = {
     disabled: false,
     label: '',
+    size: 'default',
 }
 
 SelectField.propTypes = {
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     list: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string.isRequired,
@@ -116,16 +133,14 @@ SelectField.propTypes = {
                 .isRequired,
         })
     ),
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onChange: PropTypes.func.isRequired,
     icon: PropTypes.string,
     help: PropTypes.string,
     disabled: PropTypes.bool,
-    block: PropTypes.bool,
     required: PropTypes.bool,
-    border: PropTypes.oneOf(['none', 'solid', 'dashed']),
-    status: PropTypes.oneOf(['default', 'valid', 'error', 'warning']),
+    size: PropTypes.oneOf(['default', 'dense']),
+    kind: PropTypes.oneOf(['filled', 'outlined']),
+    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    onChange: PropTypes.func.isRequired,
 }
 
 export { SelectField }

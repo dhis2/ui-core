@@ -1,0 +1,25 @@
+.container {
+    cursor: help;
+    padding-left: 14px;
+    width: 200px;
+    height: 12px;
+    line-height: 12px;
+    color: #494949;
+    font-size: 12px;
+}
+.container.status-default {
+    color: #494949;
+    border-color: #c4c4c4;
+}
+.container.status-valid {
+    color: #1976d2;
+    border-color: #1976d2;
+}
+.container.status-error {
+    color: #e53935;
+    border-color: #e53935;
+}
+.container.status-warning {
+    color: #f19c02;
+    border-color: #f19c02;
+}
