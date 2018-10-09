@@ -4,13 +4,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import Menu from '../Menu/Menu'
-import { Label } from '../helpers'
+import { Label, Help } from '../helpers'
 import { isPointInRect } from '../../utils'
 import s from './styles'
-
-// TODO Helper Text component
-// TODO disabled state
-// TODO Normal, Dense
 
 class SelectField extends React.Component {
     state = {
@@ -44,9 +40,9 @@ class SelectField extends React.Component {
 
     onClose = () => this.setState({ open: false })
 
-    onSelect = (evt, value, option) => {
+    onSelect = (evt, value) => {
         this.setState({ open: false })
-        this.props.onChange(evt, value, option)
+        this.props.onChange(this.props.name, value)
     }
 
     getLabel() {
@@ -68,12 +64,14 @@ class SelectField extends React.Component {
             width = `${this.elSelect.getBoundingClientRect().width}px`
         }
 
-        const value = this.getLabel()
+        const selected = this.getLabel()
 
         return (
             <div
                 ref={c => (this.elContainer = c)}
                 className={s('container', {
+                    selected: !!this.props.value,
+                    [`kind-${this.props.kind}`]: true,
                     [`size-${this.props.size}`]: true,
                 })}
             >
@@ -87,7 +85,7 @@ class SelectField extends React.Component {
                             <Icon name={this.props.icon} />
                         </div>
                     )}
-                    <div className={s('value')}>{this.getLabel()}</div>
+                    <div className={s('value')}>{selected}</div>
                     <Label
                         type="select"
                         size={this.props.size}
@@ -95,13 +93,16 @@ class SelectField extends React.Component {
                         text={this.props.label}
                         status={this.props.status}
                         hasIcon={!!this.props.icon}
-                        state={value ? 'minimized' : 'default'}
+                        state={selected ? 'minimized' : 'default'}
                     />
                     <Icon
                         name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
                         className={s('dropdown-icon')}
                     />
                 </div>
+                {this.props.help && (
+                    <Help text={this.props.help} status={this.props.status} />
+                )}
                 {open && (
                     <div className={s('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
@@ -124,6 +125,7 @@ SelectField.defaultProps = {
 }
 
 SelectField.propTypes = {
+    name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     list: PropTypes.arrayOf(

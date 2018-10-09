@@ -11,66 +11,183 @@ const list = [
     { value: 5, label: 'Five', icon: 'alarm' },
 ]
 
-const props = {
-    list,
-    icon: 'face',
-    label: 'Choose below',
-    help: 'Help with this text',
-    required: true,
+const fields = [
+    {
+        kind: 'filled',
+    },
+    {
+        kind: 'filled',
+        size: 'dense',
+    },
+    {
+        kind: 'outlined',
+    },
+    {
+        kind: 'outlined',
+        size: 'dense',
+    },
+
+    // placeholder
+    {
+        kind: 'filled',
+    },
+    {
+        kind: 'filled',
+        size: 'dense',
+    },
+    {
+        kind: 'outlined',
+    },
+    {
+        kind: 'outlined',
+        size: 'dense',
+    },
+
+    // placeholder
+    {
+        kind: 'filled',
+        icon: 'face',
+    },
+    {
+        kind: 'filled',
+        icon: 'face',
+        size: 'dense',
+    },
+    {
+        kind: 'outlined',
+        icon: 'face',
+    },
+    {
+        kind: 'outlined',
+        icon: 'face',
+        size: 'dense',
+    },
+
+    // error + placeholder
+    {
+        status: 'error',
+        kind: 'filled',
+    },
+    {
+        status: 'error',
+        kind: 'filled',
+        size: 'dense',
+    },
+    {
+        status: 'error',
+        kind: 'outlined',
+    },
+    {
+        status: 'error',
+        kind: 'outlined',
+        size: 'dense',
+    },
+
+    // valid + placeholder
+    {
+        status: 'valid',
+        kind: 'filled',
+    },
+    {
+        status: 'valid',
+        kind: 'filled',
+        size: 'dense',
+    },
+    {
+        status: 'valid',
+        kind: 'outlined',
+    },
+    {
+        status: 'valid',
+        kind: 'outlined',
+        size: 'dense',
+    },
+
+    // warning + placeholder
+    {
+        status: 'warning',
+        kind: 'filled',
+    },
+    {
+        status: 'warning',
+        kind: 'filled',
+        size: 'dense',
+    },
+    {
+        status: 'warning',
+        kind: 'outlined',
+    },
+    {
+        status: 'warning',
+        kind: 'outlined',
+        size: 'dense',
+    },
+
+    //  disabled + no help + placeholder
+    {
+        disabled: true,
+        help: '',
+        kind: 'filled',
+    },
+    {
+        disabled: true,
+        help: '',
+        kind: 'filled',
+        size: 'dense',
+    },
+    {
+        disabled: true,
+        help: '',
+        kind: 'outlined',
+    },
+    {
+        disabled: true,
+        help: '',
+        kind: 'outlined',
+        size: 'dense',
+    },
+]
+
+const style = {
+    width: '250px',
+    margin: '20px 0 30px 0',
+}
+function Block({ children }) {
+    return <div style={style}>{children}</div>
 }
 
 export default class SelectDemo extends Component {
-    state = {
-        s1: 1,
-        s2: 2,
-        s3: 3,
-        s4: 1,
-        s5: 2,
-        s6: 3,
-        s7: 1,
-        s8: 2,
-        s9: 3,
-        s10: 1,
-        s11: 2,
-        s12: 3,
-        s13: 1,
-        s14: 2,
-        s15: 3,
-    }
+    state = {}
+    onChange = (target, value) => this.setState({ [target]: value })
 
     render() {
         return (
-            <div style={{ marginTop: 40 }}>
+            <div style={{ width: '1200px' }}>
                 <h6>Select Field</h6>
-                <br />
 
                 <div
                     style={{
                         display: 'flex',
                         flexDirection: 'row',
                         flexWrap: 'wrap',
-                        margin: '0 20px 20px 0',
-                        width: 800,
+                        justifyContent: 'space-between',
                     }}
                 >
-                    <div style={{ marginRight: '20px', width: 220 }}>
-                        <SelectField
-                            {...props}
-                            icon={undefined}
-                            value={this.state.s1}
-                            onChange={(evt, s1) => this.setState({ s1 })}
-                        />
-                    </div>
-
-                    <div style={{ marginRight: '20px', width: 220 }}>
-                        <SelectField
-                            {...props}
-                            icon={undefined}
-                            kind="outlined"
-                            value={this.state.s2}
-                            onChange={(evt, s2) => this.setState({ s2 })}
-                        />
-                    </div>
+                    {fields.map((props, i) => (
+                        <Block key={`if-${i}`}>
+                            <SelectField
+                                name={`f${i}`}
+                                list={list}
+                                value={this.state[`f${i}`] || ''}
+                                label={`Label ${i}`}
+                                help={`Help text ${i}`}
+                                onChange={(name, v) =>
+                                    this.onChange(`f${i}`, v)
+                                }
+                                {...props}
+                            />
+                        </Block>
+                    ))}
                 </div>
             </div>
         )
