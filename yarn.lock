@@ -768,9 +768,9 @@
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
 "@dhis2/code-style@^1.1.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/code-style/-/code-style-1.2.0.tgz#f2ee96c03d341c01ed1d219bb2ac6543ff9abba8"
-  integrity sha512-58gbD+OjoPWanibbd3Nk6r2Jwc92TsfwpnPMl9CQC5SZJe2s1J+s5xDxbvo+bnT+alWkKKtPi3WV2yg5eDIttQ==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/code-style/-/code-style-1.2.1.tgz#3d9c7c9e2ca3c62d5aa964d2ea098f3e6d9b6c44"
+  integrity sha512-36Zs8GgarIVDRNiAhyQcMLloZlig4HmiPfRGsvw9jzkcFtUXvqNVVOhmkTavdq3wwWeJaNag3xHYPSd+udqCzQ==
   dependencies:
     babel-eslint "^7.2.3"
     eslint "^4.19.1"
