@@ -1,5 +1,3 @@
-/** @format */
-
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 import { isDocRTL } from '../../utils'

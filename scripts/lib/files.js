@@ -1,5 +1,3 @@
-/** @format */
-
 const fs = require('fs-extra')
 
 async function writeFile(target, content) {

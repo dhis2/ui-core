@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Fragment } from 'react'
 import { createPortal, findDOMNode } from 'react-dom'
 import PropTypes from 'prop-types'

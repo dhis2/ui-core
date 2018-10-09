@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import Paper from '../../core/Paper'

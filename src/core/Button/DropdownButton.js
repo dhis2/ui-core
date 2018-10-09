@@ -1,10 +1,7 @@
-/** @format */
-
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
 import s from './styles'
-import Icon from '../Icon'
 import Menu from '../Menu/Menu'
 import { isPointInRect } from '../../utils'
 
@@ -46,13 +43,22 @@ class DropdownButton extends Component {
         const { open } = this.state
         return (
             <div className={s('dropdown')} ref={c => (this.elContainer = c)}>
-                <Button kind={this.props.kind} onClick={this.props.onClick}>
-                    {this.props.label}
-                </Button>
+                <Button
+                    icon={this.props.icon}
+                    kind={this.props.kind}
+                    label={this.props.label}
+                    active={this.props.active}
+                    disabled={this.props.disabled}
+                    onClick={this.props.onClick}
+                />
 
-                <Button kind={this.props.kind} onClick={this.onToggle}>
-                    <Icon name={open ? 'arrow_drop_up' : 'arrow_drop_down'} />
-                </Button>
+                <Button
+                    kind={this.props.kind}
+                    active={this.props.active}
+                    disabled={this.props.disabled}
+                    onClick={this.onToggle}
+                    icon={open ? 'arrow_drop_up' : 'arrow_drop_down'}
+                />
 
                 {open && (
                     <div className={s('menu')} ref={c => (this.elMenu = c)}>
@@ -69,14 +75,20 @@ class DropdownButton extends Component {
 }
 
 DropdownButton.defaultProps = {
+    icon: '',
+    label: '',
     kind: 'primary',
+    active: false,
+    disabled: false,
 }
 
 DropdownButton.propTypes = {
-    kind: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    icon: PropTypes.element.isRequired,
+    icon: PropTypes.string,
+    label: PropTypes.string,
     list: PropTypes.array.isRequired,
+    active: PropTypes.bool,
+    disabled: PropTypes.bool,
+    kind: PropTypes.oneOf(['flat', 'raised', 'primary', 'outlined', 'circle']),
     onClick: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
 }

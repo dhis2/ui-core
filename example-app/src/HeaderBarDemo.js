@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react'
 import HeaderBar from 'ui/widgets/HeaderBar/HeaderBar.Component'
 // import HeaderBarContainer from 'ui/widgets/HeaderBar/HeaderBar.Container'

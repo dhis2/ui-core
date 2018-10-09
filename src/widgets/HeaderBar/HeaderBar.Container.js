@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react'
 import HeaderBar from './HeaderBar.Component'
 import { get, post, getAction, serverURL } from '../../utils'
