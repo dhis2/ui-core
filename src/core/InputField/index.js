@@ -6,8 +6,6 @@ import Icon from '../Icon'
 import { Label, Help } from '../helpers'
 import s from './styles'
 
-// TODO disabled state
-
 class InputField extends React.Component {
     state = {
         focused: false,
