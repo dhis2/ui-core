@@ -34,9 +34,11 @@ class DialogDemo extends Component {
         this.baseDialogProps = {
             title: 'A Dialog Title',
             actions: [
-                <PrimaryButton key="close-dialog" onClick={this.onClose}>
-                    Close dialog
-                </PrimaryButton>,
+                <PrimaryButton
+                    key="close-dialog"
+                    onClick={this.onClose}
+                    label="Close dialog"
+                />,
             ],
             onClose: this.onClose,
         }
@@ -83,46 +85,42 @@ class DialogDemo extends Component {
                             </td>
                             <td style={tdStyle}>
                                 <PrimaryButton
+                                    label="Open dialog"
                                     onClick={() => this.openDialog()}
-                                >
-                                    Open dialog
-                                </PrimaryButton>
+                                />
                             </td>
                         </tr>
                         <tr>
                             <td style={tdStyle}>Open small sized dialog.</td>
                             <td style={tdStyle}>
                                 <PrimaryButton
+                                    label="Open dialog"
                                     onClick={() =>
                                         this.openDialog({ size: 'small' })
                                     }
-                                >
-                                    Open dialog
-                                </PrimaryButton>
+                                />
                             </td>
                         </tr>
                         <tr>
                             <td style={tdStyle}>Open large size dialog</td>
                             <td style={tdStyle}>
                                 <PrimaryButton
+                                    label="Open dialog"
                                     onClick={() =>
                                         this.openDialog({ size: 'large' })
                                     }
-                                >
-                                    Open dialog
-                                </PrimaryButton>
+                                />
                             </td>
                         </tr>
                         <tr>
                             <td style={tdStyle}>Open fullscreen size dialog</td>
                             <td style={tdStyle}>
                                 <PrimaryButton
+                                    label="Open dialog"
                                     onClick={() =>
                                         this.openDialog({ size: 'fullscreen' })
                                     }
-                                >
-                                    Open dialog
-                                </PrimaryButton>
+                                />
                             </td>
                         </tr>
                         <tr>
@@ -135,15 +133,14 @@ class DialogDemo extends Component {
                             </td>
                             <td style={tdStyle}>
                                 <PrimaryButton
+                                    label="Open dialog"
                                     onClick={() =>
                                         this.openDialog({
                                             dismissible: false,
                                             onClose: null,
                                         })
                                     }
-                                >
-                                    Open dialog
-                                </PrimaryButton>
+                                />
                             </td>
                         </tr>
                         <tr>
@@ -154,10 +151,9 @@ class DialogDemo extends Component {
                             </td>
                             <td style={tdStyle}>
                                 <PrimaryButton
+                                    label="Open dialog"
                                     onClick={() => this.openDialog()}
-                                >
-                                    Open dialog
-                                </PrimaryButton>
+                                />
                             </td>
                         </tr>
                     </tbody>
