@@ -1,4 +1,3 @@
-/** @format */
 /* global DHIS_CONFIG, manifest */
 
 let version = '30'

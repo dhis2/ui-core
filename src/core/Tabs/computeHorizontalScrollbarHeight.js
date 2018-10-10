@@ -1,5 +1,3 @@
-/** @format */
-
 import s from './styles'
 
 let horizontalScrollbarHeight

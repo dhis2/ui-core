@@ -1,5 +1,3 @@
-/** @format */
-
 export * from './html'
 export * from './css'
 export * from './rtl'
