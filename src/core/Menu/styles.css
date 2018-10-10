@@ -2,8 +2,7 @@
     user-select: none;
     display: flex;
     flex-direction: column;
-}
-.menu.dense {
+    padding: 8px 0;
 }
 
 .item {
@@ -15,6 +14,10 @@
     align-items: center;
     width: 100%;
     height: 48px;
+}
+.item:hover,
+.item.active {
+    background-color: #f2f2f2;
 }
 .menu.dense .item {
     height: 32px;
@@ -30,7 +33,7 @@
 
 .icon {
     margin-right: 18px;
-    color: #0d0d0e;
+    color: #757575;
     font-size: 24px;
 }
 .menu.dense .icon {
