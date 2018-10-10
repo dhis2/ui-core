@@ -2,13 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
 import s from './styles'
-import Icon from '../Icon'
-import Menu from '../Menu/index'
+import Menu from '../Menu'
 import { isPointInRect } from '../../utils'
 
-/**
- * list of menu items opens up on clicking KeyDown icon on the right side
- */
 class DropdownButton extends Component {
     state = {
         open: false,
@@ -38,26 +34,37 @@ class DropdownButton extends Component {
     }
 
     onToggle = () => this.setState({ open: !this.state.open })
-    onClose = () => this.setState({ open: false })
 
     render() {
         const { open } = this.state
+        let width = this.props.width
+        if (!width) {
+            width = this.elContainer
+                ? this.elContainer.getBoundingClientRect()['width']
+                : 'inherit'
+        }
+
         return (
             <div className={s('dropdown')} ref={c => (this.elContainer = c)}>
-                <Button kind={this.props.kind} onClick={this.props.onClick}>
-                    {this.props.label}
-                </Button>
+                <Button
+                    kind={this.props.kind}
+                    label={this.props.label}
+                    onClick={this.props.onClick}
+                />
 
-                <Button kind={this.props.kind} onClick={this.onToggle}>
-                    <Icon name={open ? 'arrow_drop_up' : 'arrow_drop_down'} />
-                </Button>
+                <Button
+                    kind={this.props.kind}
+                    onClick={this.onToggle}
+                    icon={open ? 'arrow_drop_up' : 'arrow_drop_down'}
+                />
 
                 {open && (
                     <div className={s('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
+                            width={width}
+                            size={this.props.size}
                             list={this.props.list}
-                            onClose={this.onClose}
-                            onSelect={this.props.onSelect}
+                            onClick={this.props.onClick}
                         />
                     </div>
                 )}
@@ -67,11 +74,14 @@ class DropdownButton extends Component {
 }
 
 DropdownButton.defaultProps = {
+    size: 'default',
     kind: 'primary',
 }
 
 DropdownButton.propTypes = {
+    width: PropTypes.string,
     kind: PropTypes.string,
+    size: PropTypes.oneOf(['default', 'dense']),
     label: PropTypes.string.isRequired,
     icon: PropTypes.element.isRequired,
     list: PropTypes.array.isRequired,

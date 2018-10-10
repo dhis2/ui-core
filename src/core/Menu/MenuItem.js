@@ -4,10 +4,10 @@ import Icon from '../Icon'
 import Menu from './index'
 import s from './styles'
 
-function SubMenu({ kind, width, list, onClick }) {
+function SubMenu({ size, width, list, onClick }) {
     return (
         <div className={s('sub-menu')}>
-            <Menu kind={kind} width={width} list={list} onClick={onClick} />
+            <Menu size={size} width={width} list={list} onClick={onClick} />
         </div>
     )
 }
@@ -18,7 +18,7 @@ export default function MenuItem({
     icon,
     list,
     disabled,
-    kind,
+    size,
     width,
     onClick,
 }) {
@@ -37,7 +37,7 @@ export default function MenuItem({
             {hasMenu && <Icon name="chevron_right" className={s('chevron')} />}
             {hasMenu && (
                 <SubMenu
-                    kind={kind}
+                    size={size}
                     width={width}
                     list={list}
                     onClick={onClick}
@@ -59,7 +59,7 @@ MenuItem.propTypes = {
     icon: PropTypes.string,
     list: PropTypes.array,
     disabled: PropTypes.bool,
-    kind: PropTypes.string.isRequired,
+    size: PropTypes.string.isRequired,
     width: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
 }

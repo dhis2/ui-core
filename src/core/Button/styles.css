@@ -1,22 +1,21 @@
 .button {
-    cursor: pointer;
+    user-select: none;
     position: relative;
-    background-color: transparent;
     border: 1px solid transparent;
     border-radius: 2px;
-    font-size: 13px;
+    display: inline;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: Roboto, sans-serif;
     font-weight: 500;
-    letter-spacing: 0.02875rem;
-    /* Reduced padding by 1px to compensate for the added border width */
+    font-size: 13px;
+    letter-spacing: 0.46px;
     padding: 0 16px;
     height: 36px;
     line-height: 36px;
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
-    transition-property: background-color, box-shadow, border-color, color;
-    display: inline;
-    align-items: center;
 }
 
 /* To make sure event.target of the click handler is always the button,
@@ -29,8 +28,7 @@
 }
 
 /* STATES */
-.button:disabled,
-.button.disabled {
+.button:disabled {
     cursor: not-allowed;
 }
 
@@ -54,18 +52,15 @@
 
 .primary:disabled,
 .raised:disabled,
-.circle:disabled,
-.primary.disabled,
-.raised.disabled,
-.circle.disabled {
+.circle:disabled {
     box-shadow: none;
 }
 
 .circle {
+    border-radius: 50%;
     padding: 0;
     height: 36px;
     width: 36px;
-    border-radius: 50%;
 }
 .circle i {
     margin: 0;
@@ -113,10 +108,10 @@
 }
 
 .large.button.circle {
+    padding: 0;
     height: 56px;
     width: 56px;
     line-height: 56px;
-    padding: 0;
 }
 
 .large.button.circle .material-icons {
@@ -145,7 +140,7 @@
 .flat:hover {
     background-color: rgba(234, 244, 255, 0.4);
 }
-.flat:active {
+.flat.active {
     background-color: #eaf4ff;
 }
 .flat:focus {
@@ -153,8 +148,8 @@
     border: 1px solid #004ba0;
 }
 .flat:disabled {
-    background-color: transparent;
     color: #9e9e9e;
+    background-color: transparent;
 }
 
 .raised {
@@ -166,19 +161,18 @@
     background-color: rgba(234, 244, 255, 0.4);
 }
 
-.raised:active {
+.raised.active {
     background-color: #eaf4ff;
 }
 
 .raised:focus {
-    background-color: rgba(234, 244, 255, 0.4);
     border: 1px solid rgba(0, 75, 160, 0.8);
+    background-color: rgba(234, 244, 255, 0.4);
 }
 
-.raised:disabled,
-.raised.disabled {
-    background-color: rgba(153, 153, 153, 0.1);
+.raised:disabled {
     color: rgba(0, 75, 160, 0.5);
+    background-color: rgba(153, 153, 153, 0.1);
 }
 
 .primary {
@@ -190,26 +184,25 @@
     background-color: #1976d2;
 }
 
-.primary:active {
+.primary.active {
     background-color: #033976;
 }
 
 .primary:focus {
-    background-color: #004ba0;
     border: 1px solid #63a4ff;
+    background-color: #004ba0;
 }
 
-.primary:disabled,
-.primary.disabled {
-    background-color: #e3f2fd;
+.primary:disabled {
     color: #9e9e9e;
+    background-color: #e3f2fd;
 }
 
 .outlined {
-    line-height: 34px;
+    border: 2px solid rgba(0, 75, 160, 0.8);
     color: #004ba0;
     background-color: #f8f8f8;
-    border: 2px solid rgba(0, 75, 160, 0.8);
+    line-height: 34px;
 }
 
 .outlined:hover,
@@ -217,14 +210,14 @@
     background-color: rgba(234, 244, 255, 0.4);
 }
 
-.outlined:active {
+.outlined.active {
     background-color: #eaf4ff;
 }
 
 .outlined:disabled {
-    background-color: rgba(153, 153, 153, 0.1);
-    color: rgba(0, 75, 160, 0.5);
     border: 2px solid rgba(0, 75, 160, 0.5);
+    color: rgba(0, 75, 160, 0.5);
+    background-color: rgba(153, 153, 153, 0.1);
 }
 
 .circle {
@@ -236,13 +229,13 @@
     background-color: #31776b;
 }
 
-.circle:active {
+.circle.active {
     background-color: #1c4b40;
 }
 
 .circle:focus {
-    background-color: #31776b;
     border: 2px solid #54c0a4;
+    background-color: #31776b;
 }
 
 .circle:disabled {
@@ -252,6 +245,7 @@
 .dropdown {
     position: relative;
     display: inline-flex;
+    white-space: nowrap;
 }
 
 .dropdown .button:first-child {
@@ -259,12 +253,12 @@
     border-bottom-right-radius: 0;
 }
 .dropdown .button:nth-child(2) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 32px;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
 }
 .dropdown .button:nth-child(2) i {
     margin-right: 0;

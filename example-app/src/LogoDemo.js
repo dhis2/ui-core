@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from 'react'
 
 import { Logo, LogoWhite, LogoIcon, LogoIconWhite } from 'ui/core/Logo'

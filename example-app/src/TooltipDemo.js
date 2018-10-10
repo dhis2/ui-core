@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from 'react'
 
 import Paper from 'ui/core/Paper'

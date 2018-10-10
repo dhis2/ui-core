@@ -1,5 +1,3 @@
-<!-- @format -->
-
 # ui
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/dhis2/ui.svg)](https://greenkeeper.io/)

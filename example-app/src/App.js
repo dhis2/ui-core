@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from 'react'
 
 import UI from 'ui/core/UI'
@@ -71,6 +69,12 @@ class App extends Component {
                     <ButtonDemo />
                 </Block>
                 <Block>
+                    <InputFieldDemo />
+                </Block>
+                <Block>
+                    <SelectFieldDemo />
+                </Block>
+                <Block>
                     <TabsDemo />
                 </Block>
                 <Block>
@@ -78,12 +82,6 @@ class App extends Component {
                 </Block>
                 <Block>
                     <ProgressDemo />
-                </Block>
-                <Block>
-                    <InputFieldDemo />
-                </Block>
-                <Block>
-                    <SelectFieldDemo />
                 </Block>
                 {/*<Block>
                     <InputDemo />

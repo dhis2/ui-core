@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react'
 import { Tabs, Tab } from 'ui/core/Tabs'
 import Icon from 'ui/core/Icon'

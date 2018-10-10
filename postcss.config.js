@@ -1,9 +1,6 @@
-/** @format */
-
 const path = require('path')
 const fs = require('fs-extra')
 
-/** @format */
 module.exports = {
     plugins: {
         'postcss-import': {},

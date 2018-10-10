@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from 'react'
 import { PrimaryButton } from 'ui/core/Button'
 import Dialog from 'ui/core/Dialog'
