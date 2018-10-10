@@ -1,55 +1,40 @@
-/** @format */
-
-import React, { Component, Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import SubMenu from './SubMenu'
 import Icon from '../Icon'
-
+import Menu from './index'
 import s from './styles'
 
-class MenuItem extends Component {
-    onClick = event => {
-        const handler = this.props.onClick || this.props.onSelect
-        handler && handler(event, this.props.value, this.props)
-        this.props.onClose && this.props.onClose()
-    }
+export default function MenuItem({
+    label,
+    value,
+    icon,
+    list,
+    disabled,
+    onClick,
+}) {
+    return (
+        <li
+            className={s('li', { [disabled]: disabled })}
+            onClick={() => onClick(value)}
+        >
+            {icon && <Icon name={icon} className={s('icon')} />}
+            <div className={s('label')}>{label}</div>
+            {list.length > 0 && <Menu list={list} />}
+        </li>
+    )
+}
 
-    render() {
-        const { disabled, menuItems, label, icon } = this.props
-
-        if (menuItems) {
-            return <SubMenu label={label} icon={icon} list={menuItems} />
-        }
-
-        return (
-            <li className={s('item', { disabled })} onClick={this.onClick}>
-                {this.props.children || (
-                    <Fragment>
-                        {icon && <Icon name={icon} />}
-                        <span>{label}</span>
-                    </Fragment>
-                )}
-            </li>
-        )
-    }
+MenuItem.defaultProps = {
+    icon: '',
+    list: [],
+    disabled: false,
 }
 
 MenuItem.propTypes = {
-    children: PropTypes.node,
-    disabled: PropTypes.bool,
-    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
     icon: PropTypes.string,
-    // onClick is bound to a menuItem itself
-    onClick: PropTypes.func,
-    // selecthandler is passed down from parent, a generic handler for each item
-    onSelect: PropTypes.func,
-    onClose: PropTypes.func,
-    menuItems: PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.element, PropTypes.object])
-    ),
-    closePopover: PropTypes.func,
+    list: PropTypes.array,
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func.isRequired,
 }
-
-export { MenuItem }
-export default MenuItem
