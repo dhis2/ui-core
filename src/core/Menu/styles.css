@@ -46,6 +46,9 @@
 .item.disabled {
     cursor: not-allowed;
     pointer-events: none;
+}
+.item.disabled .icon,
+.item.disabled .label {
     color: rgba(0, 0, 0, 0.3);
 }
 

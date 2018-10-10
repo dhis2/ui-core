@@ -81,12 +81,11 @@ DropdownButton.defaultProps = {
 DropdownButton.propTypes = {
     width: PropTypes.string,
     kind: PropTypes.string,
+    icon: PropTypes.string,
     size: PropTypes.oneOf(['default', 'dense']),
     label: PropTypes.string.isRequired,
-    icon: PropTypes.element.isRequired,
     list: PropTypes.array.isRequired,
     onClick: PropTypes.func.isRequired,
-    onSelect: PropTypes.func.isRequired,
 }
 
 export { DropdownButton }
