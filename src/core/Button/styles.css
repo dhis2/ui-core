@@ -3,7 +3,9 @@
     position: relative;
     border: 1px solid transparent;
     border-radius: 2px;
-    display: inline;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     background-color: transparent;
     font-family: Roboto, sans-serif;
@@ -22,9 +24,14 @@
    icon get's pointer-events: none */
 .button i {
     pointer-events: none;
-    margin-right: 5px;
-    margin-bottom: 2px;
+    margin-right: 8px;
+    margin-left: -4px;
     vertical-align: middle;
+}
+
+.button i:only-child {
+    margin-right: 0;
+    margin-left: 0;
 }
 
 /* STATES */
@@ -59,48 +66,7 @@
 .circle {
     border-radius: 50%;
     padding: 0;
-    height: 36px;
     width: 36px;
-}
-.circle i {
-    margin: 0;
-    vertical-align: middle;
-}
-
-/* SIZES */
-.small {
-    font-size: 13px;
-}
-
-.small.material-icons {
-    line-height: 14px;
-    height: 14px;
-    width: 23px;
-}
-.small.material-icons:first-child {
-    margin-right: 11px;
-}
-
-.small.material-icons:last-child {
-    margin-left: 11px;
-}
-
-.button.circle {
-    height: 32px;
-    width: 32px;
-    line-height: 32px;
-}
-.button.circle i {
-    margin-top: -6px;
-}
-
-.button.circle.material-icons {
-    margin: 0;
-    line-height: 10px;
-}
-
-.medium span {
-    transform: translateY(1px);
 }
 
 .large {
@@ -112,24 +78,6 @@
     height: 56px;
     width: 56px;
     line-height: 56px;
-}
-
-.large.button.circle .material-icons {
-    margin: 0;
-}
-
-.large .material-icons {
-    line-height: 16px;
-    height: 16px;
-    width: 25px;
-}
-
-.large .material-icons:first-child {
-    margin-right: 13px;
-}
-
-.large .material-icons:last-child {
-    margin-left: 13px;
 }
 
 /* COLORS */
@@ -284,27 +232,20 @@
 
 /* IE11 hacks */
 @media all and (-ms-high-contrast: none) {
-    /* Graceful degradation: remove the rounded corners on all buttons apart from circle.
-       These are not rendered correctly in IE11, where they produce white pixels in the corners  */
+    /* 
+       Graceful degradation: remove the rounded corners on all buttons apart from circle.
+       These are not rendered correctly in IE11, where they produce white pixels in the corners 
+    */
     .button {
         border-radius: 0;
     }
     .button.circle {
         border-radius: 50%;
     }
-    /* Aligns the icons in small icon buttons, which were way off */
-    .button.circle.small .material-icons {
-        transform: translateX(-12px) translateY(2px);
-    }
-    /* And large button which was 1px off */
-    .button.circle.large .material-icons {
-        transform: translateX(-1px);
-    }
     /* Fixes the circle button white px on edge */
     .button.circle {
         border-color: #61a799;
     }
-
     /* Prevent icon position shifting during a click */
     .button .material-icons {
         position: relative;
