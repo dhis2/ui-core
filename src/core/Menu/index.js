@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Paper from '../Paper'
+import Card from '../Card'
 import MenuItem from './MenuItem'
 
 import s from './styles'
 
-export function Menu({ kind, width, height, list, onClick }) {
+export function Menu({ kind, width, list, onClick }) {
     return (
-        <Paper width={width}>
+        <Card width={width}>
             <ul className={s('menu', kind)}>
                 {list.map(({ label, value, icon, list, type, disabled }, i) => {
                     if (type === 'divider') {
@@ -24,14 +24,13 @@ export function Menu({ kind, width, height, list, onClick }) {
                             type={type}
                             kind={kind}
                             width={width}
-                            height={height}
                             disabled={disabled}
                             onClick={onClick}
                         />
                     )
                 })}
             </ul>
-        </Paper>
+        </Card>
     )
 }
 
