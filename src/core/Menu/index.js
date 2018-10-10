@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Card from '../Card'
 import MenuItem from './MenuItem'
+import Divider from '../helpers/Divider'
 
 import s from './styles'
 
@@ -11,7 +12,7 @@ export function Menu({ size, width, list, onClick }) {
             <ul className={s('menu', size)}>
                 {list.map(({ label, value, icon, list, type, disabled }, i) => {
                     if (type === 'divider') {
-                        return <div key={`mid-${i}`} className={s('divider')} />
+                        return <Divider key={`mid-${i}`} />
                     }
 
                     return (
