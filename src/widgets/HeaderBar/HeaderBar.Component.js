@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Logo from '../../core/Logo'
+import { LogoIcon, LogoIconWhite } from '../../core/Logo'
 import NotificationIcon from './NotificationIcon'
 import Apps from './Apps'
 import Profile from './Profile'
@@ -23,11 +23,7 @@ function HeaderBar({
         <header className={s('container', type)}>
             <div className={s('first')}>
                 <div className={s('logo')}>
-                    <Logo
-                        color={type === 'blue' ? 'white' : 'blue'}
-                        type="icon"
-                        width="27.5px"
-                    />
+                    {type === 'blue' ? <LogoIconWhite /> : <LogoIcon />}
                 </div>
                 <div className={s('title')}>{title}</div>
             </div>
