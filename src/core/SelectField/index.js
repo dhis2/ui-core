@@ -6,6 +6,22 @@ import { Label, Help } from '../helpers'
 import { isPointInRect } from '../../utils'
 import s from './styles'
 
+function markActive(list, value) {
+    if (!value) {
+        return list
+    }
+
+    return list.slice(0).map(item => {
+        item.active = item.value && item.value === value
+
+        if (Array.isArray(item.list)) {
+            item.list = markActive(item.list, value)
+        }
+
+        return item
+    })
+}
+
 class SelectField extends React.Component {
     state = {
         open: false,
@@ -36,9 +52,7 @@ class SelectField extends React.Component {
 
     onToggle = () => this.setState({ open: !this.state.open })
 
-    onClose = () => this.setState({ open: false })
-
-    onSelect = (evt, value) => {
+    onClick = value => {
         this.setState({ open: false })
         this.props.onChange(this.props.name, value)
     }
@@ -63,6 +77,7 @@ class SelectField extends React.Component {
         }
 
         const selected = this.getLabel()
+        const list = markActive(this.props.list, this.props.value)
 
         return (
             <div
@@ -104,9 +119,9 @@ class SelectField extends React.Component {
                 {open && (
                     <div className={s('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
+                            list={list}
                             width={width}
                             size={this.props.size}
-                            list={this.props.list}
                             onClick={this.onClick}
                         />
                     </div>

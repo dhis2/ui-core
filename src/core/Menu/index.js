@@ -10,26 +10,32 @@ export function Menu({ size, width, list, onClick }) {
     return (
         <Card width={width}>
             <ul className={s('menu', size)}>
-                {list.map(({ label, value, icon, list, type, disabled }, i) => {
-                    if (type === 'divider') {
-                        return <Divider key={`mid-${i}`} />
-                    }
+                {list.map(
+                    (
+                        { label, value, icon, list, active, type, disabled },
+                        i
+                    ) => {
+                        if (type === 'divider') {
+                            return <Divider key={`mid-${i}`} />
+                        }
 
-                    return (
-                        <MenuItem
-                            key={`mi-${value}`}
-                            label={label}
-                            value={value}
-                            icon={icon}
-                            list={list}
-                            type={type}
-                            size={size}
-                            width={width}
-                            disabled={disabled}
-                            onClick={onClick}
-                        />
-                    )
-                })}
+                        return (
+                            <MenuItem
+                                key={`mi-${value}`}
+                                label={label}
+                                value={value}
+                                icon={icon}
+                                list={list}
+                                type={type}
+                                size={size}
+                                width={width}
+                                disabled={disabled}
+                                active={active}
+                                onClick={onClick}
+                            />
+                        )
+                    }
+                )}
             </ul>
         </Card>
     )
@@ -42,7 +48,17 @@ Menu.defaultProps = {
 
 Menu.propTypes = {
     width: PropTypes.string,
-    list: PropTypes.array.isRequired,
+    list: PropTypes.arrayOf(
+        PropTypes.shape({
+            type: PropTypes.oneOf(['divider']),
+            label: PropTypes.string,
+            value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+            list: PropTypes.array,
+            icon: PropTypes.string,
+            active: PropTypes.bool,
+            disabled: PropTypes.bool,
+        })
+    ),
     onClick: PropTypes.func.isRequired,
     size: PropTypes.oneOf(['default', 'dense']),
 }

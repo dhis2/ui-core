@@ -1,47 +1,30 @@
 import React, { Component } from 'react'
 import Menu from 'ui/core/Menu'
 
-const list = [
-    {
-        label: 'Menu item 1',
-        value: '1',
-    },
-    {
-        label: 'Menu item 2',
-        value: '2',
+const list = []
+for (let i = 1; i <= 5; i += 1) {
+    list.push({
+        label: `Menu item ${i}`,
+        value: i,
         icon: 'favorite',
-    },
-    {
-        label: 'Menu item 3',
-        value: '3',
+    })
+}
+
+list[2]['list'] = []
+for (let i = 6; i <= 9; i += 1) {
+    list[2]['list'].push({
+        label: `Menu item ${i}`,
+        value: i,
         icon: 'favorite',
-        list: [
-            {
-                label: 'Menu item 4',
-                value: '4',
-            },
-            {
-                label: 'Menu item 5',
-                value: '5',
-                icon: 'favorite',
-            },
-            {
-                type: 'divider',
-            },
-            {
-                label: 'Menu item 6',
-                value: '6',
-            },
-        ],
-    },
-    {
-        type: 'divider',
-    },
-    {
-        label: 'Menu item 4',
-        value: '4',
-    },
-]
+    })
+}
+
+list[1]['active'] = true
+list[3]['disabled'] = true
+
+list.splice(3, 0, {
+    type: 'divider',
+})
 
 function onClick(msg) {
     console.log('clicked', msg)
