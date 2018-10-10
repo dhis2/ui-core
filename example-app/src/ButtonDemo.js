@@ -203,6 +203,7 @@ const buttons = {
         },
         {
             list,
+            icon: 'face',
             disabled: true,
             label: 'dropdown button',
             onClick: v => console.log('Clicked on DropdownButton', v),
