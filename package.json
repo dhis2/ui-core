@@ -12,10 +12,11 @@
     "license": "MIT",
     "private": true,
     "scripts": {
+        "clean": "rm -rf ./build/*",
         "format": "code-style",
         "test": "NODE_ENV=test tape -r babel-register tests/*.js",
         "stats": "webpack --profile --progress --json > bundle.stats.json && webpack-bundle-analyzer bundle.stats.json",
-        "start": "node scripts/watch.js",
+        "start": "yarn clean && node scripts/watch.js",
         "build:css": "postcss --verbose src/**/*.css --base src --dir build",
         "build:es": "babel src --out-dir build --copy-files",
         "build:files": "node scripts/setup-dist-package.js",

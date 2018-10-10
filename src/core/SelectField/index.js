@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
-import Menu from '../Menu/Menu'
+import Menu from '../Menu/index'
 import { Label, Help } from '../helpers'
 import { isPointInRect } from '../../utils'
 import s from './styles'
@@ -108,8 +108,7 @@ class SelectField extends React.Component {
                         <Menu
                             width={width}
                             list={this.props.list}
-                            onClose={this.onClose}
-                            onSelect={this.onSelect}
+                            onClick={this.onClick}
                         />
                     </div>
                 )}

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 import s from './styles'
 import Icon from '../Icon'
-import Menu from '../Menu/Menu'
+import Menu from '../Menu/index'
 import { isPointInRect } from '../../utils'
 
 /**

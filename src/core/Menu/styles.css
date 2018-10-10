@@ -1,38 +1,69 @@
-/** @format */
-
-.container {
-    padding: 8px 0;
-}
-.item {
+.menu {
+    user-select: none;
     display: flex;
-    justify-content: flex-start;
-    padding: 4px 16px 0 16px;
-    transition: background-color 150ms cubic-bezier(0.4, 0, 0.6, 1);
+    flex-direction: column;
+}
+.menu.dense {
+}
+
+.item {
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 36px;
-    vertical-align: baseline;
+    padding: 0 0 0 24px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 48px;
 }
-.item:hover {
-    background-color: #eceff1;
+.menu.dense .item {
+    height: 32px;
 }
 
-.item .material-icons {
-    /* To make sure event.target of the click handler is always the list item */
+.label {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 15px;
+}
+.menu.dense .label {
+    font-size: 13px;
+}
+
+.icon {
+    margin-right: 18px;
+    color: #0d0d0e;
+    font-size: 24px;
+}
+.menu.dense .icon {
+    font-size: 20px;
+}
+
+.divider {
+    margin: 8px 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e0e0e0;
+}
+.menu.dense .divider {
+    margin: 4px 0;
+}
+
+.item.disabled {
+    cursor: not-allowed;
     pointer-events: none;
-    line-height: 32px;
-    margin-right: 12px;
-}
-
-.item .material-icons:last-child {
-    margin-left: auto;
-    margin-right: 0;
-}
-.disabled {
     color: rgba(0, 0, 0, 0.3);
-    pointer-events: none;
 }
-.disabled:hover {
-    background-color: inherit;
+
+/* SUB-MENU */
+.menu .chevron {
+    margin: 0 14px 0 auto;
+    font-size: 18px;
+}
+.sub-menu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+.item:hover .sub-menu {
+    display: block;
 }
