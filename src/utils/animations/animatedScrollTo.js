@@ -1,5 +1,3 @@
-/** @format */
-
 import { easeInOutQuad } from './easing'
 import { getDoc } from '../html'
 

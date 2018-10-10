@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from 'react'
 
 import CircularProgress from 'ui/core/CircularProgress'

@@ -1,7 +1,6 @@
-/** @format */
-
 import React from 'react'
 import PropTypes from 'prop-types'
+import Icon from '../Icon'
 import s from './styles'
 
 function Button({
@@ -9,48 +8,48 @@ function Button({
     type,
     size,
     kind,
-    title,
+    icon,
+    label,
+    active,
     disabled,
     onClick,
-    onDoubleClick,
-    children,
 }) {
     return (
         <button
-            role={role}
             type={type}
-            title={title}
+            role={role}
             disabled={disabled}
             onClick={onClick}
-            onDoubleClick={onDoubleClick}
-            className={s('button', 'align-icon', kind, size)}
+            className={s('button', kind, size, { active })}
         >
-            {children}
+            {icon && <Icon name={icon} />}
+            {label}
         </button>
     )
 }
 
-Button.propTypes = {
-    role: PropTypes.string,
-    type: PropTypes.oneOf(['submit', 'reset', 'button']),
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-    kind: PropTypes.oneOf(['flat', 'raised', 'primary', 'outlined', 'circle']),
-    title: PropTypes.string,
-    disabled: PropTypes.bool,
-    onClick: PropTypes.func,
-    onDoubleClick: PropTypes.func,
-    children: PropTypes.node.isRequired,
-}
-
 Button.defaultProps = {
+    icon: '',
+    label: '',
     role: 'button',
     type: 'button',
     size: 'medium',
     kind: 'raised',
-    title: '',
+    active: false,
     disabled: false,
     onClick: undefined,
-    onDoubleClick: undefined,
+}
+
+Button.propTypes = {
+    role: PropTypes.string,
+    label: PropTypes.string,
+    icon: PropTypes.string,
+    active: PropTypes.bool,
+    disabled: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    type: PropTypes.oneOf(['submit', 'reset', 'button']),
+    kind: PropTypes.oneOf(['flat', 'raised', 'primary', 'outlined', 'circle']),
+    onClick: PropTypes.func,
 }
 
 export { Button }

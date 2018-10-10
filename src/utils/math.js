@@ -2,7 +2,6 @@
  * Check if object { x, y } passed in first param exists within
  * second param { left, right, top, bottom }
  *
- * @format
  * @returns {boolean}
  */
 

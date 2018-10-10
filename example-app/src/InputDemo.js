@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from 'react'
 
 import Checkbox from 'ui/core/Input/Checkbox'

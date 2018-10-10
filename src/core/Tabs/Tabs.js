@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component, Children, cloneElement, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Tab from './Tab'

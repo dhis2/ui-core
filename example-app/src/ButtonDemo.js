@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react'
 
 import {
@@ -11,140 +9,245 @@ import {
     DropdownButton,
 } from 'ui/core/Button'
 
-import Icon from 'ui/core/Icon'
-
-function onMenuItemSelect(event, value, option) {
-    console.log('Menu item click', event.target, value, option)
-}
-
-const items = [
+const list = [
     {
-        value: 1,
-        label: 'One ',
-        icon: 'alarm',
+        label: 'Menu item 1',
+        value: '1',
     },
-    { value: 2, label: 'two', icon: 'alarm', disabled: true },
     {
-        value: 3,
-        label: 'Three',
-        icon: 'face',
-        menuItems: [
-            { value: 1, label: 'sub-one', icon: 'alarm' },
-            { value: 2, label: 'sub-two' },
-            {
-                value: 3,
-                label: 'sub-three',
-                icon: 'alarm',
-                onClick: () => console.log('You rang?'),
-            },
-        ],
+        label: 'Menu item 2',
+        value: '2',
+        icon: 'favorite',
     },
-    { value: 4, label: 'Four', icon: 'alarm' },
-    { value: 5, label: 'Five', icon: 'alarm' },
+    {
+        type: 'divider',
+    },
+    {
+        label: 'Menu item 4',
+        value: '4',
+    },
 ]
 
+const sCol = {
+    margin: '20px 0',
+    width: '250px',
+}
+function Col({ children }) {
+    return <div style={sCol}>{children}</div>
+}
+
+const sTitle = {
+    marginBottom: 10,
+    fontSize: 16,
+    fontWeight: 500,
+    textAlign: 'center',
+}
+function Title({ children }) {
+    return <div style={sTitle}>{children}</div>
+}
+
+const cols = [
+    { id: 'flat', title: 'Flat' },
+    { id: 'raised_default', title: 'Raised - Default' },
+    { id: 'raised_primary', title: 'Raised - Primary' },
+    { id: 'outlined', title: 'Outlined' },
+    { id: 'circle', title: 'Circle' },
+    { id: 'links', title: 'Links' },
+    { id: 'button_with_options', title: 'Button with options' },
+    { id: 'button_with_icon', title: 'Button with icon' },
+]
+
+const sContent = {
+    padding: 16,
+    width: '100%',
+    height: 170,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    borderRadius: '8px',
+    backgroundColor: '#f8f8f8',
+}
+
 function onButtonClick(msg) {
-    console.log(msg, 'button clicked')
+    console.log('onClick', msg)
 }
 
-const HSpace = () => <span style={{ width: 20, display: 'inline-block' }} />
+const sButtonContainer = {}
+function ButtonContainer({ children }) {
+    return <div style={sButtonContainer}>{children}</div>
+}
 
-function Buttons() {
+function Content({ type, list }) {
+    let Component = false
+    let onClick = null
+
+    if (type === 'flat') {
+        Component = FlatButton
+        onClick = () => onButtonClick('FlatButton')
+    } else if (type === 'raised_default') {
+        Component = RaisedButton
+        onClick = () => onButtonClick('RaisedButton')
+    } else if (type === 'raised_primary') {
+        Component = PrimaryButton
+        onClick = () => onButtonClick('PrimaryButton')
+    } else if (type === 'outlined') {
+        Component = OutlinedButton
+        onClick = () => onButtonClick('OutlinedButton')
+    } else if (type === 'circle') {
+        Component = CircleButton
+        onClick = () => onButtonClick('CircleButton')
+    } else if (type === 'links') {
+        Component = null
+        onClick = () => onButtonClick('null')
+    } else if (type === 'button_with_options') {
+        Component = DropdownButton
+        onClick = () => onButtonClick('DropdownButton')
+    } else if (type === 'button_with_icon') {
+        Component = RaisedButton
+        onClick = () => onButtonClick('RaisedButton')
+    }
+
+    if (!Component) {
+        return <div style={sContent}>not implemented</div>
+    }
+
     return (
-        <div style={{ margin: '0 20px 0 0' }}>
-            <PrimaryButton onClick={() => onButtonClick('primary')}>
-                Primary
-            </PrimaryButton>
-            <HSpace />
-            <FlatButton disabled onClick={() => onButtonClick('flat')}>
-                Test
-            </FlatButton>
-            <HSpace />
-            <RaisedButton
-                size="small"
-                onClick={() => onButtonClick('raised(small)')}
-            >
-                <Icon name="alarm" /> Raised
-            </RaisedButton>
-            <HSpace />
-            <RaisedButton
-                size="medium"
-                onClick={() => onButtonClick('raised(medium)')}
-            >
-                <Icon name="alarm" />
-                Raised
-            </RaisedButton>
-            <HSpace />
-            <RaisedButton
-                size="large"
-                onClick={() => onButtonClick('raised(large)')}
-            >
-                <Icon name="alarm" />
-                Raised
-            </RaisedButton>
-            <HSpace />
-            <RaisedButton onClick={() => onButtonClick('raised')}>
-                <Icon name="face" />
-            </RaisedButton>
-            <HSpace />
-            <OutlinedButton onClick={() => onButtonClick('outlined')}>
-                Outlined
-            </OutlinedButton>
-            <HSpace />
-            <CircleButton size="small" onClick={() => onButtonClick()}>
-                <Icon name="add" />
-            </CircleButton>
-            <HSpace />
-            <CircleButton size="small" onClick={() => onButtonClick()}>
-                <Icon name="face" />
-            </CircleButton>
-            <HSpace />
-            <CircleButton
-                aria-labelledby="test"
-                size="large"
-                onClick={() => onButtonClick()}
-            >
-                <Icon name="add" />
-            </CircleButton>
-            <HSpace />
+        <div style={sContent}>
+            {list.map((props, idx) => (
+                <ButtonContainer key={`btn-${type}-${idx}`}>
+                    <Component {...props} onClick={onClick} />
+                </ButtonContainer>
+            ))}
         </div>
     )
 }
 
-function onDropdownClick(msg) {
-    console.log('onDropdownClick', msg)
+const buttons = {
+    flat: [
+        {
+            label: 'flat button',
+        },
+        {
+            active: true,
+            label: 'active',
+        },
+        {
+            disabled: true,
+            label: 'disabled',
+        },
+    ],
+    raised_default: [
+        {
+            label: 'raised button',
+        },
+        {
+            active: true,
+            label: 'active',
+        },
+        {
+            disabled: true,
+            label: 'disabled',
+        },
+    ],
+    raised_primary: [
+        {
+            label: 'raised primary',
+        },
+        {
+            active: true,
+            label: 'active',
+        },
+        {
+            disabled: true,
+            label: 'disabled',
+        },
+    ],
+    outlined: [
+        {
+            label: 'outlined button',
+        },
+        {
+            active: true,
+            label: 'active',
+        },
+        {
+            disabled: true,
+            label: 'disabled',
+        },
+    ],
+    circle: [
+        {
+            icon: 'add',
+        },
+        {
+            icon: 'add',
+            active: true,
+        },
+        {
+            icon: 'add',
+            disabled: true,
+        },
+    ],
+    links: [],
+    button_with_options: [
+        {
+            list,
+            label: 'dropdown button',
+            onClick: v => console.log('Clicked on DropdownButton', v),
+        },
+        {
+            list,
+            active: true,
+            label: 'dropdown button',
+            onClick: v => console.log('Clicked on DropdownButton', v),
+        },
+        {
+            list,
+            disabled: true,
+            label: 'dropdown button',
+            onClick: v => console.log('Clicked on DropdownButton', v),
+        },
+    ],
+    button_with_icon: [
+        {
+            label: 'icon button',
+            icon: 'face',
+        },
+        {
+            label: 'icon button',
+            icon: 'face',
+            active: true,
+        },
+        {
+            label: 'icon button',
+            icon: 'face',
+            disabled: true,
+        },
+    ],
 }
 
-function Dropdowns() {
+export default function ButtonDemo() {
     return (
-        <div style={{ margin: '20px 20px 20px 0', paddingBottom: 20 }}>
-            <DropdownButton
-                list={items}
-                icon={<Icon name="add" />}
-                label="Dropdown Button"
-                onSelect={onMenuItemSelect}
-                onClick={() => onDropdownClick('primary dropdown')}
-            />
-            <HSpace />
-            <DropdownButton
-                kind="raised"
-                list={items}
-                icon={<Icon name="add" />}
-                label="Second Dropdown"
-                onSelect={onMenuItemSelect}
-                onClick={() => onDropdownClick('raised dropdown')}
-            />
-        </div>
-    )
-}
+        <div style={{ width: '1200px' }}>
+            <h6>Buttons</h6>
 
-export default function ProgressDemo() {
-    return (
-        <div>
-            <h6>Button components</h6>
-            <br />
-            <Buttons />
-            <Dropdowns />
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-between',
+                }}
+            >
+                {cols.map(({ id, title }) => {
+                    return (
+                        <Col key={`btn-col-${title}`}>
+                            <Title>{title}</Title>
+                            <Content type={id} list={buttons[id]} />
+                        </Col>
+                    )
+                })}
+            </div>
         </div>
     )
 }

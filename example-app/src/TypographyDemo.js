@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from 'react'
 
 export default class TypographyDemo extends Component {

@@ -1,7 +1,3 @@
-/** @format */
-
-import React from 'react'
-
 /**
  * get <html> or the <body> element in document
  * @returns {HTMLElement}

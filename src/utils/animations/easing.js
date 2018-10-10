@@ -1,5 +1,3 @@
-/** @format */
-
 /**
  * ease-in-out animation adapted from
  * @link https://github.com/danro/jquery-easing/blob/master/jquery.easing.js

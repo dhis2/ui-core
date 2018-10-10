@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
@@ -107,6 +105,7 @@ class SelectField extends React.Component {
                     <div className={s('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
                             width={width}
+                            size={this.props.size}
                             list={this.props.list}
                             onClick={this.onClick}
                         />

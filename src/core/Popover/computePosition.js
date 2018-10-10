@@ -1,5 +1,3 @@
-/** @format */
-
 import { isDocRTL } from '../../utils'
 
 // Enough to make sure the popop doesn't hide under a scroll-bar
