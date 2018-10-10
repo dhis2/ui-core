@@ -67,7 +67,7 @@ export default class MenuDemo extends Component {
                 <div style={{ marginTop: 20 }}>
                     <Menu
                         width="250px"
-                        kind="dense"
+                        size="dense"
                         list={list}
                         onClick={onClick}
                     />
