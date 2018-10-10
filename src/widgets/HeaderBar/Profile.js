@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../../core/Icon'
-import Paper from '../../core/Paper'
+import Card from '../../core/Card'
 import s from './styles'
 
 function TextIcon({ name }) {
@@ -137,7 +137,7 @@ export default function Profile({ baseURL, profile: { name, email, img } }) {
         <div className={s('profile')}>
             {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
             <div className={s('contents')}>
-                <Paper>
+                <Card>
                     <Header
                         name={name}
                         email={email}
@@ -147,7 +147,7 @@ export default function Profile({ baseURL, profile: { name, email, img } }) {
                     />
                     <div className={s('divider')} />
                     <Menu baseURL={baseURL} />
-                </Paper>
+                </Card>
             </div>
         </div>
     )

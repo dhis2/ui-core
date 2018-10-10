@@ -9,20 +9,23 @@ import {
     DropdownButton,
 } from 'ui/core/Button'
 
-const dropdownItems = [
+const list = [
     {
-        value: 1,
-        label: 'One',
-        icon: 'alarm',
+        label: 'Menu item 1',
+        value: '1',
     },
-    { value: 2, label: 'Two', icon: 'alarm', disabled: true },
     {
-        value: 3,
-        label: 'Three',
-        icon: 'face',
+        label: 'Menu item 2',
+        value: '2',
+        icon: 'favorite',
     },
-    { value: 4, label: 'Four', icon: 'alarm' },
-    { value: 5, label: 'Five', icon: 'alarm' },
+    {
+        type: 'divider',
+    },
+    {
+        label: 'Menu item 4',
+        value: '4',
+    },
 ]
 
 const sCol = {
@@ -188,24 +191,21 @@ const buttons = {
     links: [],
     button_with_options: [
         {
+            list,
             label: 'dropdown button',
-            list: dropdownItems,
-            onClick: () => null,
-            onSelect: () => null,
+            onClick: v => console.log('Clicked on DropdownButton', v),
         },
         {
+            list,
             active: true,
             label: 'dropdown button',
-            list: dropdownItems,
-            onClick: () => null,
-            onSelect: () => null,
+            onClick: v => console.log('Clicked on DropdownButton', v),
         },
         {
+            list,
             disabled: true,
             label: 'dropdown button',
-            list: dropdownItems,
-            onClick: () => null,
-            onSelect: () => null,
+            onClick: v => console.log('Clicked on DropdownButton', v),
         },
     ],
     button_with_icon: [

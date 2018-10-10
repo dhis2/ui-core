@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Paper from '../../core/Paper'
+import Card from '../../core/Card'
 import Icon from '../../core/Icon'
 import TextField from '../../core/Input/TextField'
 import { isPointInRect } from '../../utils'
@@ -96,7 +96,7 @@ export default class Apps extends React.Component {
                 <Icon name="apps" onClick={this.onToggle} />
                 {this.state.show && (
                     <div className={s('contents')} ref={c => (this.elApps = c)}>
-                        <Paper width="416px" height="301px">
+                        <Card width="416px" height="301px">
                             <Search
                                 value={this.state.filter}
                                 onChange={this.onChange}
@@ -105,7 +105,7 @@ export default class Apps extends React.Component {
                                 apps={this.props.apps}
                                 filter={this.state.filter}
                             />
-                        </Paper>
+                        </Card>
                     </div>
                 )}
             </div>

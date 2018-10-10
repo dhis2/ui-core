@@ -1,53 +1,65 @@
-import React, { Component, Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import SubMenu from './SubMenu'
 import Icon from '../Icon'
-
+import Menu from './index'
 import s from './styles'
 
-class MenuItem extends Component {
-    onClick = event => {
-        const handler = this.props.onClick || this.props.onSelect
-        handler && handler(event, this.props.value, this.props)
-        this.props.onClose && this.props.onClose()
-    }
+function SubMenu({ size, width, list, onClick }) {
+    return (
+        <div className={s('sub-menu')}>
+            <Menu size={size} width={width} list={list} onClick={onClick} />
+        </div>
+    )
+}
 
-    render() {
-        const { disabled, menuItems, label, icon } = this.props
+export default function MenuItem({
+    label,
+    value,
+    icon,
+    list,
+    disabled,
+    size,
+    width,
+    onClick,
+}) {
+    const hasMenu = list.length > 0
+    return (
+        <li
+            className={s('item', { [disabled]: disabled })}
+            onClick={evt => {
+                evt.preventDefault()
+                evt.stopPropagation()
+                onClick(value)
+            }}
+        >
+            {icon && <Icon name={icon} className={s('icon')} />}
+            <div className={s('label')}>{label}</div>
+            {hasMenu && <Icon name="chevron_right" className={s('chevron')} />}
+            {hasMenu && (
+                <SubMenu
+                    size={size}
+                    width={width}
+                    list={list}
+                    onClick={onClick}
+                />
+            )}
+        </li>
+    )
+}
 
-        if (menuItems) {
-            return <SubMenu label={label} icon={icon} list={menuItems} />
-        }
-
-        return (
-            <li className={s('item', { disabled })} onClick={this.onClick}>
-                {this.props.children || (
-                    <Fragment>
-                        {icon && <Icon name={icon} />}
-                        <span>{label}</span>
-                    </Fragment>
-                )}
-            </li>
-        )
-    }
+MenuItem.defaultProps = {
+    icon: '',
+    list: [],
+    disabled: false,
 }
 
 MenuItem.propTypes = {
-    children: PropTypes.node,
-    disabled: PropTypes.bool,
-    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
     icon: PropTypes.string,
-    // onClick is bound to a menuItem itself
-    onClick: PropTypes.func,
-    // selecthandler is passed down from parent, a generic handler for each item
-    onSelect: PropTypes.func,
-    onClose: PropTypes.func,
-    menuItems: PropTypes.arrayOf(
-        PropTypes.oneOfType([PropTypes.element, PropTypes.object])
-    ),
-    closePopover: PropTypes.func,
+    list: PropTypes.array,
+    disabled: PropTypes.bool,
+    size: PropTypes.string.isRequired,
+    width: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
-
-export { MenuItem }
-export default MenuItem
