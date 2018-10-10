@@ -7,8 +7,8 @@ import s from './styles'
 
 export function Menu({ kind, width, height, list, onClick }) {
     return (
-        <Paper width={width} height={height}>
-            <ul className={s('ul', kind)}>
+        <Paper width={width}>
+            <ul className={s('menu', kind)}>
                 {list.map(({ label, value, icon, list, type, disabled }, i) => {
                     if (type === 'divider') {
                         return <div key={`mid-${i}`} className={s('divider')} />
@@ -22,6 +22,9 @@ export function Menu({ kind, width, height, list, onClick }) {
                             icon={icon}
                             list={list}
                             type={type}
+                            kind={kind}
+                            width={width}
+                            height={height}
                             disabled={disabled}
                             onClick={onClick}
                         />
@@ -33,14 +36,12 @@ export function Menu({ kind, width, height, list, onClick }) {
 }
 
 Menu.defaultProps = {
-    width: 'inherit',
-    height: 'inherit',
+    width: '100%',
     kind: 'default',
 }
 
 Menu.propTypes = {
     width: PropTypes.string,
-    height: PropTypes.string,
     list: PropTypes.array.isRequired,
     onClick: PropTypes.func.isRequired,
     kind: PropTypes.oneOf(['default', 'dense']),
