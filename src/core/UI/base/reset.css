@@ -1,8 +1,7 @@
-/**
- * http://meyerweb.com/eric/tools/css/reset/
- * v2.0 | 20110126
- * License: none (public domain)
- */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
 html,
 body,
@@ -85,19 +84,12 @@ time,
 mark,
 audio,
 video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
+    margin: 0 /* rtl:ignore */;
+    padding: 0 /* rtl:ignore */;
+    border: 0 /* rtl:ignore */;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    font-family: 'Roboto', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-    text-decoration: inherit;
-    text-transform: inherit;
 }
 /* HTML5 display-role reset for older browsers */
 article,

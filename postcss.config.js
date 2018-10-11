@@ -4,7 +4,6 @@ const fs = require('fs-extra')
 module.exports = {
     plugins: {
         'postcss-import': {},
-        'postcss-nested': {},
         'postcss-preset-env': {
             browsers: [
                 '> 0.5%',
