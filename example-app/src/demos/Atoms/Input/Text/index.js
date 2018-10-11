@@ -1,7 +1,7 @@
 import React from 'react'
 import InputField from 'ui/core/InputField'
 
-import { Text, Row, Col, Divider } from '../../../helpers'
+import { Text, Row, Col, Divider } from '../../../../helpers'
 
 const fields = [
     {

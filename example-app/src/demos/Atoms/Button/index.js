@@ -8,7 +8,7 @@ import {
     DropdownButton,
 } from 'ui/core/Button'
 
-import { Text, Row, Col, Divider } from '../../helpers'
+import { Text, Row, Col, Divider } from '../../../helpers'
 
 const rows = [
     { id: 'flat', title: 'Flat' },

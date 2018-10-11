@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from 'ui/core/Card'
-import { Col, Divider } from '../../helpers'
+import { Col, Divider } from '../../../helpers'
 
 export class CardDemo extends React.Component {
     static id = 'card'

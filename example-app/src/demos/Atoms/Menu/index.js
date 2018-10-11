@@ -1,6 +1,6 @@
 import React from 'react'
 import Menu from 'ui/core/Menu'
-import { Text, Col, Divider, Spacer } from '../../helpers'
+import { Text, Col, Divider, Spacer } from '../../../helpers'
 
 const list = []
 for (let i = 1; i <= 5; i += 1) {
