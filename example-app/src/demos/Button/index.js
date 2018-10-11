@@ -8,7 +8,7 @@ import {
     DropdownButton,
 } from 'ui/core/Button'
 
-import { Text, Row, Col } from '../../helpers'
+import { Text, Row, Col, Divider } from '../../helpers'
 
 const rows = [
     { id: 'flat', title: 'Flat' },
@@ -188,22 +188,27 @@ const buttons = {
     ],
 }
 
-export class Button extends React.Component {
+export class ButtonDemo extends React.Component {
     static id = 'button'
 
     render() {
-        return rows.map(({ id, title }) => {
-            return (
-                <Col
-                    key={`btn-${title}`}
-                    style={{ width: '100%', marginBottom: 40 }}
-                >
-                    <Text>{title}</Text>
-                    <Row>
-                        <Content type={id} list={buttons[id]} />
-                    </Row>
-                </Col>
-            )
-        })
+        return (
+            <div>
+                {rows.map(({ id, title }) => {
+                    return (
+                        <Col
+                            key={`btn-${title}`}
+                            style={{ width: '100%', marginBottom: 40 }}
+                        >
+                            <Text>{title}</Text>
+                            <Row>
+                                <Content type={id} list={buttons[id]} />
+                            </Row>
+                        </Col>
+                    )
+                })}
+                <Divider />
+            </div>
+        )
     }
 }
