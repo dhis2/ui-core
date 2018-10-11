@@ -15,3 +15,4 @@ export const Col = ({ style, children }) => (
     </div>
 )
 export const Divider = () => <CoreDivider margin="43px 0 60px 0" />
+export const Spacer = ({ height }) => <div style={{ height, width: '100%' }} />
