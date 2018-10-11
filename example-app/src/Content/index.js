@@ -3,7 +3,7 @@ import UI from 'ui/core/UI'
 
 import { list } from '../Sidebar'
 import { Title, Heading } from '../helpers'
-import Component from '../Component'
+import Component from '../View'
 
 function Article({ list }) {
     return list.map(({ id, title, list }) => {
@@ -32,7 +32,12 @@ export default function Content() {
         <div className="content">
             <UI theme="blue">
                 {list.map(({ id, title, list }) => (
-                    <Section key={`section-${id}`} title={title} list={list} />
+                    <Section
+                        key={`section-${id}`}
+                        id={id}
+                        title={title}
+                        list={list}
+                    />
                 ))}
             </UI>
         </div>
