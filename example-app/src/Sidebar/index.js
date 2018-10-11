@@ -64,7 +64,7 @@ export const list = [
     {
         id: 'organisms',
         title: 'Organisms',
-        list: [{ id: 'header-bar', title: 'Header bar' }],
+        list: [{ id: 'headerbar', title: 'Header bar' }],
     },
 ]
 

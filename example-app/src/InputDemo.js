@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import Checkbox from 'ui/core/Input/Checkbox'
 import RadioButton from 'ui/core/Input/RadioButton'
@@ -12,7 +12,7 @@ const selectOptions = [
     { value: 3, label: 'Three' },
 ]
 
-export default class InputDemo extends Component {
+export default class InputDemo extends React.Component {
     constructor(props) {
         super(props)
 

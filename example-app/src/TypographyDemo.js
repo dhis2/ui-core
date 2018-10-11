@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class TypographyDemo extends Component {
+export default class TypographyDemo extends React.Component {
     render() {
         return (
             <div>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { PrimaryButton } from 'ui/core/Button'
 import Dialog from 'ui/core/Dialog'
 
@@ -28,7 +28,7 @@ const dialogContent = (
     </div>
 )
 
-class DialogDemo extends Component {
+class DialogDemo extends React.Component {
     constructor(props) {
         super(props)
         this.baseDialogProps = {
