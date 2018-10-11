@@ -5,6 +5,6 @@ export class Installation extends React.Component {
     static id = 'installation'
 
     render() {
-        return <Text>some information about installation</Text>
+        return <Text>installation information</Text>
     }
 }

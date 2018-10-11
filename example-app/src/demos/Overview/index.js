@@ -5,6 +5,6 @@ export class Overview extends React.Component {
     static id = 'overview'
 
     render() {
-        return <Text>some information about overview</Text>
+        return <Text>general overview</Text>
     }
 }
