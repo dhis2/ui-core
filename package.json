@@ -24,7 +24,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run build:docs && npm run format"
+            "pre-commit": "npm run build && npm run build:docs && npm run format"
         }
     },
     "devDependencies": {

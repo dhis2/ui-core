@@ -21,6 +21,7 @@ function build_docs(exapp, docs) {
 
         try {
             await fs.copy(path.join(exapp, 'build'), docs)
+            console.log(`build copied to ${docs}`)
         } catch (err) {
             console.error('failed to copy docs', err)
             process.exit(1)
