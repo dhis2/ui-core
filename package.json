@@ -24,8 +24,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run format",
-            "pre-push": "npm run build:docs && git add docs/ && git commit -m 'docs: update docs'"
+            "pre-commit": "npm run format && npm run build:docs"
         }
     },
     "devDependencies": {
