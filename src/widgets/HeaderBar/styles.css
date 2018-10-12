@@ -310,6 +310,9 @@ nav > .item > .label {
 .blue > .last > .apps > i:first-child {
     color: #fff;
 }
+.container.blue .profile > .icon > .initials {
+    color: #fff;
+}
 
 .white {
     background-color: #fff;
