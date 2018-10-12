@@ -15,7 +15,7 @@
         "clean": "rm -rf ./build/*",
         "format": "code-style",
         "test": "NODE_ENV=test tape -r babel-register tests/*.js",
-        "start": "yarn clean && node scripts/watch.js",
+        "start": "npm run clean && node scripts/watch.js",
         "build:css": "postcss --verbose src/**/*.css --base src --dir build",
         "build:es": "babel src --out-dir build --copy-files",
         "build:files": "node scripts/setup-dist-package.js",
