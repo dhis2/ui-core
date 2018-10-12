@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row, Text } from '../../../helpers'
+import { Col, Divider, Row, Text } from '../../../helpers'
 
 const list = [
     {
@@ -195,7 +195,7 @@ export class ColorDemo extends React.Component {
                     .color and .color-bg represents classes for color in css.
                     <br />
                     Primary color has class .primary for foreground and
-                    primary-bg for background
+                    .primary-bg for background
                 </Text>
                 {list.map(({ type, list }) => (
                     <Col key={`clr-${type}`}>
@@ -203,6 +203,7 @@ export class ColorDemo extends React.Component {
                         {this.colors(list)}
                     </Col>
                 ))}
+                <Divider />
             </Col>
         )
     }
