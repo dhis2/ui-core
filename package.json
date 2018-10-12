@@ -20,7 +20,7 @@
         "build:es": "babel src --out-dir build --copy-files",
         "build:files": "node scripts/setup-dist-package.js",
         "build:docs": "node scripts/build-docs.js",
-        "build": "NODE_ENV=production npm run format && npm run build:es && npm run build:css && npm run build:files && npm run build:docs"
+        "build": "NODE_ENV=production npm run build:docs && npm run format && npm run build:es && npm run build:css && npm run build:files"
     },
     "husky": {
         "hooks": {
