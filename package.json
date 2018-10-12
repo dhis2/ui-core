@@ -19,12 +19,12 @@
         "build:css": "postcss --verbose src/**/*.css --base src --dir build",
         "build:es": "babel src --out-dir build --copy-files",
         "build:files": "node scripts/setup-dist-package.js",
-        "build:docs": "node scripts/build-docs.js",
+        "build:docs": "node scripts/docs.js",
         "build": "NODE_ENV=production npm run build:es && npm run build:css && npm run build:files"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run build && npm run build:docs && npm run format"
+            "pre-commit": "npm run format"
         }
     },
     "devDependencies": {
