@@ -98,3 +98,10 @@ a {
     display: flex;
     flex-direction: column;
 }
+
+.row,
+.col,
+.row div,
+.col div {
+    font-family: Roboto, sans-serif;
+}
