@@ -144,10 +144,10 @@ const sCol = {
 
 function hex2rgb(hex) {
     hex = hex.length === 3 ? `${hex}${hex}` : hex
-    return `${parseInt(hex.substr(0, 2), 16)} / ${parseInt(
-        hex.substr(2, 2),
-        16
-    )} / ${parseInt(hex.substr(4, 2), 16)}`
+    const r = parseInt(hex.substr(0, 2), 16)
+    const g = parseInt(hex.substr(2, 2), 16)
+    const b = parseInt(hex.substr(4, 2), 16)
+    return `${r} / ${g} / ${b}`
 }
 
 function Color({ id, name, color, index }) {
