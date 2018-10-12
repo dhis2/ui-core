@@ -2,11 +2,6 @@
 
 body,
 div {
-    /*
-        we don't want dev's to copy text/code from example app
-        except for places we designate place to copy code from
-    */
-    user-select: none;
     box-sizing: border-box;
     font-size: 14px;
     line-height: 17px;
@@ -27,6 +22,7 @@ a {
 }
 
 .sidebar {
+    user-select: none;
     padding-left: 20px;
     min-width: 202px;
     background-color: #fff;
@@ -68,8 +64,9 @@ a {
 
 .content {
     padding: 0 60px 60px 60px;
-    width: 100%;
     border-left: 1px solid #e0e0e0;
+    width: 100%;
+    background-color: #fcfbfc;
 }
 .content section {
 }
@@ -90,6 +87,7 @@ a {
 }
 .text {
     margin: 12px 0;
+    line-height: 24px;
 }
 
 .row {
