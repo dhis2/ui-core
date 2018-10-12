@@ -5,6 +5,7 @@ before_script:
 - npm install --global @dhis2/deploy-build
 script:
 - npm run build
+- npm run build:docs
 deploy:
     - provider: script
       script: deploy-build
