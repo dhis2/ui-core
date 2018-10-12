@@ -1,6 +1,6 @@
 import React from 'react'
-import { PrimaryButton } from 'ui/core/Button'
-import Dialog from 'ui/core/Dialog'
+import { PrimaryButton } from 'core/Button'
+import Dialog from 'core/Dialog'
 
 const tdStyle = {
     padding: '0 16px 16px 0',

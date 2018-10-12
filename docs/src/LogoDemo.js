@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Logo, LogoWhite, LogoIcon, LogoIconWhite } from 'ui/core/Logo'
+import { Logo, LogoWhite, LogoIcon, LogoIconWhite } from 'core/Logo'
 
 export default class LogoDemo extends React.Component {
     render() {

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import CircularProgress from 'ui/core/CircularProgress'
-import LinearProgress from 'ui/core/LinearProgress'
+import CircularProgress from 'core/CircularProgress'
+import LinearProgress from 'core/LinearProgress'
 
 export default class ProgressDemo extends React.Component {
     render() {

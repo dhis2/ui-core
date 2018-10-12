@@ -1,5 +1,5 @@
 import React from 'react'
-import Menu from 'ui/core/Menu'
+import Menu from 'core/Menu'
 import { Text, Col, Divider, Spacer } from '../../../helpers'
 
 const list = []

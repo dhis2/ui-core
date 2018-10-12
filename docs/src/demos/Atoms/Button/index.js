@@ -6,7 +6,7 @@ import {
     PrimaryButton,
     OutlinedButton,
     DropdownButton,
-} from 'ui/core/Button'
+} from 'core/Button'
 
 import { Text, Row, Col, Divider } from '../../../helpers'
 
