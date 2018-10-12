@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react'
-import SelectField from 'ui/core/SelectField'
+import SelectField from 'core/SelectField'
 
 const list = [
     { value: 1, label: 'One ', icon: 'alarm' },

@@ -1,5 +1,5 @@
 import React from 'react'
-import UI from 'ui/core/UI'
+import UI from 'core/UI'
 
 import { list } from '../Sidebar'
 import { Title, Heading } from '../helpers'

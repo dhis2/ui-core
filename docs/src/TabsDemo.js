@@ -1,6 +1,6 @@
 import React from 'react'
-import { Tabs, Tab } from 'ui/core/Tabs'
-import Icon from 'ui/core/Icon'
+import { Tabs, Tab } from 'core/Tabs'
+import Icon from 'core/Icon'
 
 const tabsList = [
     { label: 'Tab number 1', icon: 'face' },

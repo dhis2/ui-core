@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Checkbox from 'ui/core/Input/Checkbox'
-import RadioButton from 'ui/core/Input/RadioButton'
-import TextField from 'ui/core/Input/TextField'
-import Switch from 'ui/core/Input/Switch'
-import RadioButtonGroup from 'ui/core/Input/RadioButtonGroup'
+import Checkbox from 'core/Input/Checkbox'
+import RadioButton from 'core/Input/RadioButton'
+import TextField from 'core/Input/TextField'
+import Switch from 'core/Input/Switch'
+import RadioButtonGroup from 'core/Input/RadioButtonGroup'
 
 const selectOptions = [
     { value: 1, label: 'One' },
