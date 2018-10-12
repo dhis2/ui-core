@@ -14,14 +14,15 @@ Make a PR from the component branch. Add a team member who can review the code a
 
 ## Kitchen Sink
 
-- _example-app/src/SideBar/index.js_ `export const list` determines all site content. `id: 'identifier'` in list is referenced in  content view on the right side
+- [SideBar](
+https://github.com/dhis2/ui/blob/master/example-app/src/SideBar/index.js) `export const list` determines all site content. [id: 'identifier'](https://github.com/dhis2/ui/blob/master/example-app/src/Sidebar/index.js#L18) in list is referenced in  content view on the right side.
 
-- _example-app/src/View/index.js_ loads all demos
-https://github.com/dhis2/ui/blob/master/example-app/src/View/index.js
+- [View](
+https://github.com/dhis2/ui/blob/master/example-app/src/View/index.js) loads all demos
 
-- _example-app/src/demos/index.js_ loads all demos. Code structure for demos are organized same as shown in left Menu under _example-app/src/demos_
+- [demos](https://github.com/dhis2/ui/blob/master/example-app/src/demos/index.js) accumulates all demos. Code structure for demos are organized same as Menu structure in Sidebar e.g. [structure](https://github.com/dhis2/ui/tree/master/example-app/src/demos)
 
-- We export a demo by name. e.g. HeaderBarDemo. Attach a static variable e.g. `static id = 'headerbar'` and it will connect _HeaderBarDemo_ to link in the _Sidebar_
+- We export a demo by name. [HeaderBarDemo](https://github.com/dhis2/ui/blob/master/example-app/src/demos/Organisms/HeaderBar/index.js). Attach a static class variable `static id = 'headerbar'` which will connect _HeaderBarDemo_ to link in the _Sidebar_.
 
 ## Documentation
 
