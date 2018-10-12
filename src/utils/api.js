@@ -1,24 +1,28 @@
 /* global DHIS_CONFIG, manifest */
 
-let version = '30'
-// let url = 'http://localhost:8080'
-let url = 'https://play.dhis2.org/2.30'
-
-if (typeof manifest !== 'undefined') {
-    version = manifest.dhis2.apiVersion
-}
+let version
+let url
+let endpoint
 
 const isProd = process.env.NODE_ENV === 'production'
 if (isProd) {
-    url = manifest.activities.dhis.href
-} else if (!isProd && typeof DHIS_CONFIG === 'object') {
-    url = DHIS_CONFIG.baseUrl
-} else if (isProd) {
-    url = '..'
+    if (manifest) {
+        url = manifest.activities.dhis.href
+        version = manifest.dhis2.apiVersion
+        endpoint = `${serverURL}/api/${version}`
+    } else if (typeof DHIS_CONFIG === 'object') {
+        url = DHIS_CONFIG.baseUrl
+    } else {
+        url = '..'
+    }
+
+    if (!endpoint) {
+        endpoint = `${url}/api`
+    }
 }
 
 export const serverURL = url
-export const apiEndpoint = `${serverURL}/api/${version}`
+export const apiEndpoint = endpoint
 
 export function getPath(path = '') {
     return !path ? apiEndpoint : `${apiEndpoint}/${path}`
