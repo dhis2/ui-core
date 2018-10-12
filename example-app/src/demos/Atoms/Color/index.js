@@ -162,7 +162,7 @@ function Color({ id, name, color, index }) {
             <Circle id={id} />
             <Col style={sCol}>
                 <Text style={sText}>{id}</Text>
-                <Text style={sText}>#{color}</Text>
+                <Text style={sText}>#{color.toUpperCase()}</Text>
                 <Text style={sText}>RGB {hex2rgb(color)}</Text>
             </Col>
         </Row>
