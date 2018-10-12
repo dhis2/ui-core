@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import CircularProgress from 'ui/core/CircularProgress'
 import LinearProgress from 'ui/core/LinearProgress'
 
-export default class ProgressDemo extends Component {
+export default class ProgressDemo extends React.Component {
     render() {
         return (
             <div>

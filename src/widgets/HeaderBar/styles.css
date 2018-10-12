@@ -215,10 +215,8 @@
     max-height: 100%;
 }
 
-.profile:hover {
-    .contents {
-        display: block;
-    }
+.profile:hover .contents {
+    display: block;
 }
 
 .profile .contents {
@@ -310,6 +308,9 @@ nav > .item > .label {
 
 .blue > .last > .notification > i,
 .blue > .last > .apps > i:first-child {
+    color: #fff;
+}
+.container.blue .profile > .icon > .initials {
     color: #fff;
 }
 

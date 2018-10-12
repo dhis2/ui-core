@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import Paper from 'ui/core/Paper'
 import Icon from 'ui/core/Icon'
@@ -10,7 +10,7 @@ const clickTest = event => {
     console.log('Button click', event.target)
 }
 
-export default class ProgressDemo extends Component {
+export default class ProgressDemo extends React.Component {
     render() {
         return (
             <Paper>

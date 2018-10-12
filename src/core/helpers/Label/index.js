@@ -23,9 +23,9 @@ function Label({
     return (
         <div
             className={s('container', {
+                disabled,
                 'has-icon': hasIcon,
                 [`focused`]: focused,
-                disabled: disabled,
                 [`state-${state}`]: true,
                 [`size-${size}`]: true,
                 [`type-${type}`]: true,

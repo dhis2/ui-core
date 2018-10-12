@@ -1,6 +1,6 @@
 import React from 'react'
 import HeaderBar from 'ui/widgets/HeaderBar/HeaderBar.Component'
-// import HeaderBarContainer from 'ui/widgets/HeaderBar/HeaderBar.Container'
+import { Col } from '../../../helpers'
 
 const props = {
     title: 'Demo - Sierra Leone',
@@ -75,17 +75,20 @@ function getProps() {
     }
 }
 
-export default function HeaderBarDemo() {
-    const types = ['blue', 'white', 'transparent']
+const types = ['blue', 'white', 'transparent']
 
-    return (
-        <div>
-            {/*<HeaderBarContainer />*/}
-            {types.map(type => (
-                <div key={`headerbar-${type}`} style={{ marginBottom: 20 }}>
-                    <HeaderBar type={type} {...getProps()} />
-                </div>
-            ))}
-        </div>
-    )
+export class HeaderBarDemo extends React.Component {
+    static id = 'headerbar'
+
+    render() {
+        return (
+            <Col style={{ marginBottom: 250 }}>
+                {types.map(type => (
+                    <div key={`headerbar-${type}`} style={{ marginBottom: 20 }}>
+                        <HeaderBar type={type} {...getProps()} />
+                    </div>
+                ))}
+            </Col>
+        )
+    }
 }

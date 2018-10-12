@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import { Logo, LogoWhite, LogoIcon, LogoIconWhite } from 'ui/core/Logo'
 
-export default class LogoDemo extends Component {
+export default class LogoDemo extends React.Component {
     render() {
         return (
             <div style={{ marginTop: 20 }}>

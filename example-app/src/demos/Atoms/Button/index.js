@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
     FlatButton,
     CircleButton,
@@ -8,6 +7,63 @@ import {
     OutlinedButton,
     DropdownButton,
 } from 'ui/core/Button'
+
+import { Text, Row, Col, Divider } from '../../../helpers'
+
+const rows = [
+    { id: 'flat', title: 'Flat' },
+    { id: 'raised_default', title: 'Raised Default' },
+    { id: 'raised_primary', title: 'Raised Primary' },
+    { id: 'outlined', title: 'Outlined' },
+    { id: 'circle', title: 'Circle' },
+    { id: 'dropdown', title: 'Dropdown' },
+    { id: 'icon', title: 'Icon' },
+]
+
+function onButtonClick(msg) {
+    console.log('onClick', msg)
+}
+
+const sButtonContainer = {
+    marginRight: 8,
+}
+function ButtonContainer({ children }) {
+    return <div style={sButtonContainer}>{children}</div>
+}
+
+function Content({ type, list }) {
+    let Component = false
+    let onClick = null
+
+    if (type === 'flat') {
+        Component = FlatButton
+        onClick = () => onButtonClick('Flat Button')
+    } else if (type === 'raised_default') {
+        Component = RaisedButton
+        onClick = () => onButtonClick('Raised Button')
+    } else if (type === 'raised_primary') {
+        Component = PrimaryButton
+        onClick = () => onButtonClick('Primary Button')
+    } else if (type === 'outlined') {
+        Component = OutlinedButton
+        onClick = () => onButtonClick('Outlined Button')
+    } else if (type === 'circle') {
+        Component = CircleButton
+        onClick = () => onButtonClick('Circle Button')
+    } else if (type === 'dropdown') {
+        Component = DropdownButton
+        onClick = () => onButtonClick('Dropdown Button')
+    } else if (type === 'icon') {
+        Component = RaisedButton
+        onClick = () => onButtonClick('Icon Button')
+    }
+
+    return list.map((props, idx) => (
+        <ButtonContainer key={`btn-${type}-${idx}`}>
+            <Component {...props} onClick={onClick} />
+        </ButtonContainer>
+    ))
+}
 
 const list = [
     {
@@ -28,104 +84,10 @@ const list = [
     },
 ]
 
-const sCol = {
-    margin: '20px 0',
-    width: '250px',
-}
-function Col({ children }) {
-    return <div style={sCol}>{children}</div>
-}
-
-const sTitle = {
-    marginBottom: 10,
-    fontSize: 16,
-    fontWeight: 500,
-    textAlign: 'center',
-}
-function Title({ children }) {
-    return <div style={sTitle}>{children}</div>
-}
-
-const cols = [
-    { id: 'flat', title: 'Flat' },
-    { id: 'raised_default', title: 'Raised - Default' },
-    { id: 'raised_primary', title: 'Raised - Primary' },
-    { id: 'outlined', title: 'Outlined' },
-    { id: 'circle', title: 'Circle' },
-    { id: 'links', title: 'Links' },
-    { id: 'button_with_options', title: 'Button with options' },
-    { id: 'button_with_icon', title: 'Button with icon' },
-]
-
-const sContent = {
-    padding: 16,
-    width: '100%',
-    height: 170,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    borderRadius: '8px',
-    backgroundColor: '#f8f8f8',
-}
-
-function onButtonClick(msg) {
-    console.log('onClick', msg)
-}
-
-const sButtonContainer = {}
-function ButtonContainer({ children }) {
-    return <div style={sButtonContainer}>{children}</div>
-}
-
-function Content({ type, list }) {
-    let Component = false
-    let onClick = null
-
-    if (type === 'flat') {
-        Component = FlatButton
-        onClick = () => onButtonClick('FlatButton')
-    } else if (type === 'raised_default') {
-        Component = RaisedButton
-        onClick = () => onButtonClick('RaisedButton')
-    } else if (type === 'raised_primary') {
-        Component = PrimaryButton
-        onClick = () => onButtonClick('PrimaryButton')
-    } else if (type === 'outlined') {
-        Component = OutlinedButton
-        onClick = () => onButtonClick('OutlinedButton')
-    } else if (type === 'circle') {
-        Component = CircleButton
-        onClick = () => onButtonClick('CircleButton')
-    } else if (type === 'links') {
-        Component = null
-        onClick = () => onButtonClick('null')
-    } else if (type === 'button_with_options') {
-        Component = DropdownButton
-        onClick = () => onButtonClick('DropdownButton')
-    } else if (type === 'button_with_icon') {
-        Component = RaisedButton
-        onClick = () => onButtonClick('RaisedButton')
-    }
-
-    if (!Component) {
-        return <div style={sContent}>not implemented</div>
-    }
-
-    return (
-        <div style={sContent}>
-            {list.map((props, idx) => (
-                <ButtonContainer key={`btn-${type}-${idx}`}>
-                    <Component {...props} onClick={onClick} />
-                </ButtonContainer>
-            ))}
-        </div>
-    )
-}
-
 const buttons = {
     flat: [
         {
-            label: 'flat button',
+            label: 'default',
         },
         {
             active: true,
@@ -138,7 +100,7 @@ const buttons = {
     ],
     raised_default: [
         {
-            label: 'raised button',
+            label: 'default',
         },
         {
             active: true,
@@ -151,7 +113,7 @@ const buttons = {
     ],
     raised_primary: [
         {
-            label: 'raised primary',
+            label: 'default',
         },
         {
             active: true,
@@ -164,7 +126,7 @@ const buttons = {
     ],
     outlined: [
         {
-            label: 'outlined button',
+            label: 'default',
         },
         {
             active: true,
@@ -189,7 +151,7 @@ const buttons = {
         },
     ],
     links: [],
-    button_with_options: [
+    dropdown: [
         {
             list,
             label: 'dropdown button',
@@ -208,7 +170,7 @@ const buttons = {
             onClick: v => console.log('Clicked on DropdownButton', v),
         },
     ],
-    button_with_icon: [
+    icon: [
         {
             label: 'icon button',
             icon: 'face',
@@ -226,28 +188,27 @@ const buttons = {
     ],
 }
 
-export default function ButtonDemo() {
-    return (
-        <div style={{ width: '1200px' }}>
-            <h6>Buttons</h6>
+export class ButtonDemo extends React.Component {
+    static id = 'button'
 
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
-                    justifyContent: 'space-between',
-                }}
-            >
-                {cols.map(({ id, title }) => {
+    render() {
+        return (
+            <div>
+                {rows.map(({ id, title }) => {
                     return (
-                        <Col key={`btn-col-${title}`}>
-                            <Title>{title}</Title>
-                            <Content type={id} list={buttons[id]} />
+                        <Col
+                            key={`btn-${title}`}
+                            style={{ width: '100%', marginBottom: 40 }}
+                        >
+                            <Text>{title}</Text>
+                            <Row>
+                                <Content type={id} list={buttons[id]} />
+                            </Row>
                         </Col>
                     )
                 })}
+                <Divider />
             </div>
-        </div>
-    )
+        )
+    }
 }

@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { Component } from 'react'
+import React from 'react'
 import SelectField from 'ui/core/SelectField'
 
 const list = [
@@ -156,7 +156,7 @@ function Block({ children }) {
     return <div style={style}>{children}</div>
 }
 
-export default class SelectDemo extends Component {
+export default class SelectDemo extends React.Component {
     state = {}
     onChange = (target, value) => this.setState({ [target]: value })
 

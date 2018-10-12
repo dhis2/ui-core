@@ -89,4 +89,4 @@ Logo.propTypes = {
 
 export const LogoWhite = () => <Logo fill1="#ffffff" fill2="#ffffff" />
 
-export default LogoIcon
+export default Logo

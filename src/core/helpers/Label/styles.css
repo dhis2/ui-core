@@ -53,9 +53,13 @@
     pointer-events: none;
     position: absolute;
     left: 14px;
+    top: 20px;
     transition: all 0.1s;
     background-color: transparent;
     color: #494949;
+}
+.state-default.size-dense .content {
+    top: 14px;
 }
 .kind-outlined.state-minimized .content {
     padding: 0 4px;
