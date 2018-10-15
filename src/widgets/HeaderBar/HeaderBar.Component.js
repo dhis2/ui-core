@@ -11,7 +11,7 @@ function HeaderBar({
     type,
     baseURL,
     title,
-    selection,
+    status,
     apps,
     profile,
     messages,
@@ -25,9 +25,7 @@ function HeaderBar({
                 </div>
                 <div className={s('title')}>{title}</div>
             </div>
-            {selection && (
-                <div className={s('current-selection')}>{selection}</div>
-            )}
+            {status && <div className={s('status')}>{status}</div>}
             <div className={s('last')}>
                 <NotificationIcon
                     icon="message"
@@ -41,11 +39,16 @@ function HeaderBar({
     )
 }
 
+HeaderBar.defaultProps = {
+    type: 'blue',
+    status: '',
+}
+
 HeaderBar.propTypes = {
     baseURL: PropTypes.string,
     type: PropTypes.oneOf(['blue', 'white', 'transparent']),
     title: PropTypes.string,
-    selection: PropTypes.string,
+    status: PropTypes.string,
     messages: PropTypes.shape({
         count: PropTypes.number,
     }),
@@ -64,10 +67,6 @@ HeaderBar.propTypes = {
         email: PropTypes.string,
         src: PropTypes.string,
     }),
-}
-
-HeaderBar.defaultProps = {
-    type: 'blue',
 }
 
 export { HeaderBar }

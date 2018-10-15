@@ -22,7 +22,6 @@ class HeaderBarContainer extends React.Component {
     state = {
         type: 'blue',
         title: '',
-        selection: '',
         messages: {
             count: 0,
         },
@@ -98,7 +97,6 @@ class HeaderBarContainer extends React.Component {
         const {
             type,
             title,
-            selection,
             messages,
             interpretations,
             apps,
@@ -109,7 +107,7 @@ class HeaderBarContainer extends React.Component {
                 baseURL={serverURL}
                 type={type}
                 title={title}
-                selection={selection}
+                status={this.props.status}
                 messages={messages}
                 interpretations={interpretations}
                 apps={apps}

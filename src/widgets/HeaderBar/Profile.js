@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icon from '../../core/Icon'
-import Card from '../../core/Card'
+import { Card, MenuItem, Divider } from '../../core'
 import s from './styles'
 
 function TextIcon({ name }) {
@@ -58,99 +57,82 @@ Header.propTypes = {
     baseURL: PropTypes.string,
 }
 
-function Menu({ baseURL }) {
-    const list = [
-        {
-            name: 'settings',
-            label: 'Settings',
-            onClick: () => onClick(baseURL, 'settings'),
-        },
-        {
-            name: 'account_box',
-            label: 'Account',
-            onClick: () => onClick(baseURL, 'account'),
-        },
-        {
-            name: 'help',
-            label: 'Help',
-            onClick: () => onClick(baseURL, 'help'),
-        },
-        {
-            name: 'exit_to_app',
-            label: 'Logout',
-            onClick: () => onClick(baseURL, 'logout'),
-        },
-    ]
+const list = [
+    {
+        icon: 'settings',
+        label: 'Settings',
+        value: 'settings',
+    },
+    {
+        icon: 'account_box',
+        label: 'Account',
+        value: 'account',
+    },
+    {
+        icon: 'help',
+        label: 'Help',
+        value: 'help',
+    },
+    {
+        icon: 'exit_to_app',
+        label: 'Logout',
+        value: 'logout',
+    },
+]
 
-    return (
-        <nav>
-            {list.map(({ name, label, onClick }) => (
-                <Item
-                    key={`profile-mi-${name}`}
-                    name={name}
-                    label={label}
-                    onClick={onClick}
-                />
-            ))}
-        </nav>
-    )
-}
+export default class Profile extends React.Component {
+    onClick = value => {
+        const { baseURL } = this.props
+        const paths = {
+            edit_profile: `${baseURL}/dhis-web-user-profile/#/profile`,
+            settings: `${baseURL}/dhis-web-user-profile/#/settings`,
+            account: `${baseURL}/dhis-web-user-profile/#/account`,
+            help:
+                'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html',
+            logout: `${baseURL}/dhis-web-commons-security/logout.action`,
+        }
 
-Menu.propTypes = {
-    baseURL: PropTypes.string,
-}
-
-function Item({ name, label, onClick }) {
-    return (
-        <div className={s('item')} onClick={onClick}>
-            <Icon name={name} />
-            <div className={s('label')}>{label}</div>
-        </div>
-    )
-}
-
-Item.propTypes = {
-    name: PropTypes.string,
-    label: PropTypes.string,
-    onClick: PropTypes.func.isRequired,
-}
-
-function onClick(baseURL, actionType) {
-    const paths = {
-        edit_profile: `${baseURL}/dhis-web-user-profile/#/profile`,
-        settings: `${baseURL}/dhis-web-user-profile/#/settings`,
-        account: `${baseURL}/dhis-web-user-profile/#/account`,
-        help:
-            'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html',
-        logout: `${baseURL}/dhis-web-commons-security/logout.action`,
+        if (typeof paths[value] !== 'undefined') {
+            window.location = paths[value]
+        } else {
+            console.warn('onClick: not implemented', value)
+        }
     }
 
-    if (typeof paths[actionType] !== 'undefined') {
-        window.location = paths[actionType]
-    } else {
-        console.warn('onClick: not implemented', actionType)
-    }
-}
+    onHeaderClick = () => this.onClick('edit_profile')
 
-export default function Profile({ baseURL, profile: { name, email, img } }) {
-    return (
-        <div className={s('profile')}>
-            {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
-            <div className={s('contents')}>
-                <Card>
-                    <Header
-                        name={name}
-                        email={email}
-                        img={img}
-                        baseURL={baseURL}
-                        onClick={() => onClick(baseURL)}
-                    />
-                    <div className={s('divider')} />
-                    <Menu baseURL={baseURL} />
-                </Card>
+    render() {
+        const {
+            baseURL,
+            profile: { name, email, img },
+        } = this.props
+        return (
+            <div className={s('profile')}>
+                {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
+                <div className={s('contents')}>
+                    <Card height="298px">
+                        <Header
+                            name={name}
+                            email={email}
+                            img={img}
+                            baseURL={baseURL}
+                            onClick={this.onHeaderClick}
+                        />
+                        <Divider margin="13px 0 7px 0" />
+                        {list.map(({ label, value, icon }) => (
+                            <MenuItem
+                                key={`h-mi-${value}`}
+                                label={label}
+                                value={value}
+                                icon={icon}
+                                onClick={this.onClick}
+                            />
+                        ))}
+                    </Card>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 Profile.propTypes = {

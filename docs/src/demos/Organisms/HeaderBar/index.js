@@ -4,7 +4,7 @@ import { Col } from '../../../helpers'
 
 const props = {
     title: 'Demo - Sierra Leone',
-    selection: 'ANC: 1-4 visits by districts this year',
+    status: 'ANC: 1-4 visits by districts this year',
     profile: {
         name: 'John Doe',
         email: 'john_doe@dhis2.org',
