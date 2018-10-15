@@ -1,6 +1,8 @@
 import React from 'react'
 import Checkbox from 'core/Checkbox'
 
+import { Divider } from '../../../../helpers'
+
 export class CheckboxDemo extends React.Component {
     static id = 'input-checkbox'
 
@@ -33,6 +35,7 @@ export class CheckboxDemo extends React.Component {
                     label="Disabled Checkbox"
                     onChange={(name, v) => this.onChange(name, v)}
                 />
+                <Divider />
             </div>
         )
     }
