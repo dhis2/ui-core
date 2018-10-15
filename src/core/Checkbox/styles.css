@@ -1,0 +1,25 @@
+.container {
+    pointer-events: all;
+    user-select: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.container input[type='checkbox'] {
+    display: none;
+}
+
+.icon {
+    pointer-events: none;
+    user-select: none;
+}
+
+.label {
+    margin: 0 0 0 8px;
+}
+
+.required:after {
+    content: '*';
+}
