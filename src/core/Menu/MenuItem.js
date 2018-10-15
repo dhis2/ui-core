@@ -51,6 +51,8 @@ export default function MenuItem({
 MenuItem.defaultProps = {
     icon: '',
     list: [],
+    width: '100%',
+    size: 'default',
     active: false,
     disabled: false,
 }
@@ -62,7 +64,7 @@ MenuItem.propTypes = {
     list: PropTypes.array,
     active: PropTypes.bool,
     disabled: PropTypes.bool,
-    size: PropTypes.string.isRequired,
-    width: PropTypes.string.isRequired,
+    size: PropTypes.string,
+    width: PropTypes.string,
     onClick: PropTypes.func.isRequired,
 }
