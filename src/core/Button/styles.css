@@ -72,7 +72,7 @@
 .flat:hover {
     background-color: rgba(234, 244, 255, 0.4);
 }
-.flat.active {
+.flat:active {
     background-color: #eaf4ff;
 }
 .flat:focus {
@@ -93,7 +93,7 @@
     background-color: rgba(234, 244, 255, 0.4);
 }
 
-.raised.active {
+.raised:active {
     background-color: #eaf4ff;
 }
 
@@ -116,7 +116,7 @@
     background-color: #1976d2;
 }
 
-.primary.active {
+.primary:active {
     background-color: #033976;
 }
 
@@ -142,7 +142,7 @@
     background-color: rgba(234, 244, 255, 0.4);
 }
 
-.outlined.active {
+.outlined:active {
     background-color: #eaf4ff;
 }
 
@@ -161,7 +161,7 @@
     background-color: #31776b;
 }
 
-.circle.active {
+.circle:active {
     background-color: #1c4b40;
 }
 
