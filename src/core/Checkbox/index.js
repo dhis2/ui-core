@@ -11,7 +11,7 @@ class Checkbox extends React.Component {
         indeterminate: !!this.props.indeterminate,
     }
 
-    onClick = () => {
+    onChange = () => {
         const checked = !this.state.checked
         this.props.onChange(this.props.name, checked)
         this.setState({ checked, indeterminate: false })
@@ -54,7 +54,7 @@ class Checkbox extends React.Component {
                 <input
                     type="checkbox"
                     id={this.props.name}
-                    onClick={this.onClick}
+                    onChange={this.onChange}
                     checked={this.state.checked}
                     disabled={this.props.disabled}
                 />
