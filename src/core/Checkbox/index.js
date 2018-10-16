@@ -7,13 +7,6 @@ import { Label, Help } from '../helpers'
 
 import s from './styles'
 
-const icons = {
-    indeterminate: <Icon name="indeterminate_check_box" className="grey" />,
-    unchecked: <Icon name="check_box_outline_blank" className="grey" />,
-    checked: <Icon name="check_box" className="secondary-light" />,
-    disabled: <Icon name="check_box_outline_blank" className="grey-light" />,
-}
-
 class Checkbox extends React.Component {
     state = {
         checked: !!this.props.checked,
@@ -29,13 +22,33 @@ class Checkbox extends React.Component {
     render() {
         let icon
         if (this.state.indeterminate) {
-            icon = icons.indeterminate
+            icon = (
+                <Icon
+                    name="indeterminate_check_box"
+                    className={`grey ${this.props.status}`}
+                />
+            )
         } else if (this.props.disabled) {
-            icon = icons.disabled
+            icon = (
+                <Icon
+                    name="check_box_outline_blank"
+                    className={`grey-light ${this.props.status}`}
+                />
+            )
         } else if (this.state.checked) {
-            icon = icons.checked
+            icon = (
+                <Icon
+                    name="check_box"
+                    className={`secondary-light ${this.props.status}`}
+                />
+            )
         } else {
-            icon = icons.unchecked
+            icon = (
+                <Icon
+                    name="check_box_outline_blank"
+                    className={`grey ${this.props.status}`}
+                />
+            )
         }
 
         return (
@@ -51,6 +64,7 @@ class Checkbox extends React.Component {
                 <span
                     className={s('label', {
                         required: this.props.required,
+                        [this.props.status]: true,
                     })}
                 >
                     {this.props.label}
