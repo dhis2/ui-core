@@ -14,17 +14,7 @@ module.exports = {
     env: {
         production: {
             presets,
-            plugins: [
-                ...plugins,
-                [
-                    'transform-react-remove-prop-types',
-                    {
-                        removeImport: true,
-                        additionalLibraries: ['prop-types-exact'],
-                        ignoreFilenames: ['node_modules'],
-                    },
-                ],
-            ],
+            plugins,
         },
         development: {
             presets,

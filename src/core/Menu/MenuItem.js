@@ -17,6 +17,7 @@ export default function MenuItem({
     value,
     icon,
     list,
+    active,
     disabled,
     size,
     width,
@@ -25,7 +26,7 @@ export default function MenuItem({
     const hasMenu = list.length > 0
     return (
         <li
-            className={s('item', { [disabled]: disabled })}
+            className={s('item', { disabled, active })}
             onClick={evt => {
                 evt.preventDefault()
                 evt.stopPropagation()
@@ -50,16 +51,20 @@ export default function MenuItem({
 MenuItem.defaultProps = {
     icon: '',
     list: [],
+    width: '100%',
+    size: 'default',
+    active: false,
     disabled: false,
 }
 
 MenuItem.propTypes = {
     label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     icon: PropTypes.string,
     list: PropTypes.array,
+    active: PropTypes.bool,
     disabled: PropTypes.bool,
-    size: PropTypes.string.isRequired,
-    width: PropTypes.string.isRequired,
+    size: PropTypes.string,
+    width: PropTypes.string,
     onClick: PropTypes.func.isRequired,
 }

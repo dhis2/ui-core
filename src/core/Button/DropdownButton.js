@@ -50,11 +50,15 @@ class DropdownButton extends Component {
                     icon={this.props.icon}
                     kind={this.props.kind}
                     label={this.props.label}
+                    active={this.props.active}
+                    disabled={this.props.disabled}
                     onClick={this.props.onClick}
                 />
 
                 <Button
                     kind={this.props.kind}
+                    active={this.props.active}
+                    disabled={this.props.disabled}
                     onClick={this.onToggle}
                     icon={open ? 'arrow_drop_up' : 'arrow_drop_down'}
                 />
@@ -77,17 +81,20 @@ class DropdownButton extends Component {
 DropdownButton.defaultProps = {
     size: 'default',
     kind: 'primary',
+    active: false,
+    disabled: false,
 }
 
 DropdownButton.propTypes = {
     width: PropTypes.string,
     kind: PropTypes.string,
+    icon: PropTypes.string,
+    active: PropTypes.bool,
+    disabled: PropTypes.bool,
     size: PropTypes.oneOf(['default', 'dense']),
     label: PropTypes.string.isRequired,
-    icon: PropTypes.element.isRequired,
     list: PropTypes.array.isRequired,
     onClick: PropTypes.func.isRequired,
-    onSelect: PropTypes.func.isRequired,
 }
 
 export { DropdownButton }
