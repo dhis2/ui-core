@@ -18,24 +18,36 @@ class Checkbox extends React.Component {
     }
 
     render() {
-        let icoColor = this.props.disabled ? 'grey-light' : 'grey'
-        let icoName
-
+        let icon
         if (this.state.indeterminate) {
-            icoName = 'indeterminate_check_box'
+            icon = (
+                <Icon
+                    name="indeterminate_check_box"
+                    className={`grey ${this.props.status}`}
+                />
+            )
+        } else if (this.props.disabled) {
+            icon = (
+                <Icon
+                    name="check_box_outline_blank"
+                    className={`grey-light ${this.props.status}`}
+                />
+            )
         } else if (this.state.checked) {
-            icoName = 'check_box'
-            icoColor = this.props.disabled ? icoColor : 'secondary-light'
+            icon = (
+                <Icon
+                    name="check_box"
+                    className={`secondary-light ${this.props.status}`}
+                />
+            )
         } else {
-            icoName = 'check_box_outline_blank'
+            icon = (
+                <Icon
+                    name="check_box_outline_blank"
+                    className={`grey ${this.props.status}`}
+                />
+            )
         }
-
-        const icon = (
-            <Icon
-                name={icoName}
-                className={`${icoColor} ${this.props.status}`}
-            />
-        )
 
         return (
             <label htmlFor={this.props.name} className={s('container')}>
