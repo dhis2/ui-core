@@ -3,17 +3,17 @@ import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import s from './styles'
 
-function Button({ role, type, kind, icon, label, active, disabled, onClick }) {
+function Button({ role, type, kind, icon, label, disabled, onClick }) {
     return (
         <button
-            type={type}
-            role={role}
             disabled={disabled}
             onClick={onClick}
-            className={s('button', kind, { active })}
+            className={s('button', kind, {
+                'icon-only': icon && !label,
+            })}
         >
             {icon && <Icon name={icon} />}
-            {label && <span>{label}</span>}
+            {label}
         </button>
     )
 }
@@ -21,10 +21,7 @@ function Button({ role, type, kind, icon, label, active, disabled, onClick }) {
 Button.defaultProps = {
     icon: '',
     label: '',
-    role: 'button',
-    type: 'button',
     kind: 'raised',
-    active: false,
     disabled: false,
     onClick: undefined,
 }
@@ -33,7 +30,6 @@ Button.propTypes = {
     role: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.string,
-    active: PropTypes.bool,
     disabled: PropTypes.bool,
     type: PropTypes.oneOf(['submit', 'reset', 'button']),
     kind: PropTypes.oneOf(['flat', 'raised', 'primary', 'outlined', 'circle']),

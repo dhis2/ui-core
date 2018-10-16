@@ -20,21 +20,18 @@
     transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-/* To make sure event.target of the click handler is always the button,
-   icon get's pointer-events: none */
+/* Remove pointer events so event.target of the click handler is always the button */
 .button i {
     pointer-events: none;
     margin-right: 8px;
-    margin-left: -4px;
     vertical-align: middle;
 }
 
-.button i:only-child {
+.icon-only i {
     margin-right: 0;
     margin-left: 0;
 }
 
-/* STATES */
 .button:disabled {
     cursor: not-allowed;
 }
@@ -44,7 +41,6 @@
     outline: none;
 }
 
-/* KIND */
 .outlined,
 .circle {
     border-width: 2px;
@@ -69,18 +65,6 @@
     width: 36px;
 }
 
-.large {
-    font-size: 15px;
-}
-
-.large.button.circle {
-    padding: 0;
-    height: 56px;
-    width: 56px;
-    line-height: 56px;
-}
-
-/* COLORS */
 .flat {
     color: #004ba0;
 }
