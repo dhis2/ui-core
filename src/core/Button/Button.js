@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import s from './styles'
 
-function Button({ role, type, kind, icon, label, disabled, onClick }) {
+function Button({ type, kind, icon, label, disabled, onClick }) {
     return (
         <button
             disabled={disabled}
