@@ -7,7 +7,7 @@ import s from './styles'
 
 class Radio extends React.Component {
     onChange = evt => {
-        return this.props.onChange(this.props.name, evt.target.checked)
+        return this.props.onChange(this.props.name, this.props.value)
     }
 
     render() {
@@ -28,14 +28,13 @@ class Radio extends React.Component {
         )
 
         return (
-            <label htmlFor={this.props.name} className={s('container')}>
+            <label className={s('container')}>
                 <input
                     type="radio"
-                    name={this.props.group}
-                    id={this.props.name}
+                    name={this.props.name}
                     onChange={this.onChange}
                     checked={this.props.checked}
-                    value={this.props.checked}
+                    value={this.props.value}
                     disabled={this.props.disabled}
                 />
                 {icon}
@@ -61,7 +60,6 @@ Radio.defaultProps = {
 Radio.propTypes = {
     label: PropTypes.string,
     name: PropTypes.string.isRequired,
-    group: PropTypes.string.isRequired,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     onChange: PropTypes.func.isRequired,

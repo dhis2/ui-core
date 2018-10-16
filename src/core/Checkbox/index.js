@@ -38,10 +38,9 @@ class Checkbox extends React.Component {
         )
 
         return (
-            <label htmlFor={this.props.name} className={s('container')}>
+            <label className={s('container')}>
                 <input
                     type="checkbox"
-                    id={this.props.name}
                     onChange={this.onChange}
                     checked={this.state.checked}
                     disabled={this.props.disabled}

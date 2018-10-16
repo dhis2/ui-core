@@ -6,18 +6,18 @@ import { Text, Row, Col, Divider } from '../../../../helpers'
 const group1 = [
     {
         label: 'Radio',
-        group: 'radio-group-1',
-        name: 'default-radio',
+        name: 'radio-group-1',
+        value: 'default-radio',
     },
     {
         label: 'Checked Radio',
-        group: 'radio-group-1',
-        name: 'checked-radio',
+        name: 'radio-group-1',
+        value: 'checked-radio',
     },
     {
         label: 'Disabled Radio',
-        group: 'radio-group-1',
-        name: 'disabled-radio',
+        name: 'radio-group-1',
+        value: 'disabled-radio',
         disabled: true,
     },
 ]
@@ -25,20 +25,20 @@ const group1 = [
 const group2 = [
     {
         label: 'Valid Radio',
-        group: 'radio-group-2',
-        name: 'valid-radio',
+        name: 'radio-group-2',
+        value: 'valid-radio',
         status: 'valid',
     },
     {
         label: 'Warning Radio',
-        group: 'radio-group-2',
-        name: 'warning-radio',
+        name: 'radio-group-2',
+        value: 'warning-radio',
         status: 'warning',
     },
     {
         label: 'Error Radio',
-        group: 'radio-group-2',
-        name: 'error-radio',
+        name: 'radio-group-2',
+        value: 'error-radio',
         status: 'error',
     },
 ]
@@ -52,12 +52,12 @@ export class RadioDemo extends React.Component {
 
     onChangeGroup1 = (target, value) => {
         console.log(`toggle ${target} to ${value}`)
-        return this.setState({ selectedGroup1: target })
+        return this.setState({ selectedGroup1: value })
     }
 
     onChangeGroup2 = (target, value) => {
         console.log(`toggle ${target} to ${value}`)
-        return this.setState({ selectedGroup2: target })
+        return this.setState({ selectedGroup2: value })
     }
 
     render() {
@@ -68,13 +68,14 @@ export class RadioDemo extends React.Component {
                         <Text>Types</Text>
                         {group1.map(radio => {
                             const checked =
-                                this.state.selectedGroup1 === radio.name
+                                this.state.selectedGroup1 === radio.value
                             return (
                                 <Radio
+                                    key={radio.value}
                                     checked={checked}
                                     label={radio.label}
                                     name={radio.name}
-                                    group={radio.group}
+                                    value={radio.value}
                                     disabled={radio.disabled}
                                     onChange={(name, v) =>
                                         this.onChangeGroup1(name, v)
@@ -87,13 +88,14 @@ export class RadioDemo extends React.Component {
                         <Text>States</Text>
                         {group2.map(radio => {
                             const checked =
-                                this.state.selectedGroup2 === radio.name
+                                this.state.selectedGroup2 === radio.value
                             return (
                                 <Radio
+                                    key={radio.value}
                                     checked={checked}
                                     label={radio.label}
                                     name={radio.name}
-                                    group={radio.group}
+                                    value={radio.value}
                                     disabled={radio.disabled}
                                     status={radio.status}
                                     onChange={(name, v) =>
