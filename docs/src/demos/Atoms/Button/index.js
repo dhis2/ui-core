@@ -90,10 +90,6 @@ const buttons = {
             label: 'default',
         },
         {
-            active: true,
-            label: 'active',
-        },
-        {
             disabled: true,
             label: 'disabled',
         },
@@ -101,10 +97,6 @@ const buttons = {
     raised_default: [
         {
             label: 'default',
-        },
-        {
-            active: true,
-            label: 'active',
         },
         {
             disabled: true,
@@ -116,10 +108,6 @@ const buttons = {
             label: 'default',
         },
         {
-            active: true,
-            label: 'active',
-        },
-        {
             disabled: true,
             label: 'disabled',
         },
@@ -129,10 +117,6 @@ const buttons = {
             label: 'default',
         },
         {
-            active: true,
-            label: 'active',
-        },
-        {
             disabled: true,
             label: 'disabled',
         },
@@ -140,10 +124,6 @@ const buttons = {
     circle: [
         {
             icon: 'add',
-        },
-        {
-            icon: 'add',
-            active: true,
         },
         {
             icon: 'add',
@@ -159,12 +139,6 @@ const buttons = {
         },
         {
             list,
-            active: true,
-            label: 'dropdown button',
-            onClick: v => console.log('Clicked on DropdownButton', v),
-        },
-        {
-            list,
             icon: 'face',
             disabled: true,
             label: 'dropdown button',
@@ -175,11 +149,6 @@ const buttons = {
         {
             label: 'icon button',
             icon: 'face',
-        },
-        {
-            label: 'icon button',
-            icon: 'face',
-            active: true,
         },
         {
             label: 'icon button',
