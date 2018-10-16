@@ -7,7 +7,7 @@
     justify-content: start;
 }
 
-.container input[type='checkbox'] {
+.container input[type='radio'] {
     display: none;
 }
 

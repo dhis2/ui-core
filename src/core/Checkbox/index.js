@@ -65,6 +65,7 @@ Checkbox.defaultProps = {
     indeterminate: false,
     checked: false,
     required: false,
+    status: 'default',
     label: '',
 }
 
