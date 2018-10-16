@@ -1,4 +1,4 @@
-import classNames from '../../../utils/css'
+import classNames from '../../utils/css'
 import styles from './styles.json'
 import './styles.css'
 

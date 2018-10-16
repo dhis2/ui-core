@@ -5,29 +5,19 @@ import Icon from '../Icon'
 
 import s from './styles'
 
-class Checkbox extends React.Component {
-    state = {
-        checked: !!this.props.checked,
-        indeterminate: !!this.props.indeterminate,
-    }
-
-    onChange = () => {
-        const checked = !this.state.checked
-        this.props.onChange(this.props.name, checked)
-        this.setState({ checked, indeterminate: false })
+class Radio extends React.Component {
+    onChange = evt => {
+        return this.props.onChange(this.props.name, this.props.value)
     }
 
     render() {
         let icoColor = this.props.disabled ? 'grey-light' : 'grey'
         let icoName
 
-        if (this.state.indeterminate) {
-            icoName = 'indeterminate_check_box'
-        } else if (this.state.checked) {
-            icoName = 'check_box'
-            icoColor = this.props.disabled ? icoColor : 'secondary-light'
+        if (this.props.checked) {
+            icoName = 'radio_button_checked'
         } else {
-            icoName = 'check_box_outline_blank'
+            icoName = 'radio_button_unchecked'
         }
 
         const icon = (
@@ -40,15 +30,16 @@ class Checkbox extends React.Component {
         return (
             <label className={s('container')}>
                 <input
-                    type="checkbox"
+                    type="radio"
+                    name={this.props.name}
                     onChange={this.onChange}
-                    checked={this.state.checked}
+                    checked={this.props.checked}
+                    value={this.props.value}
                     disabled={this.props.disabled}
                 />
                 {icon}
                 <span
                     className={s('label', {
-                        required: this.props.required,
                         [this.props.status]: true,
                     })}
                 >
@@ -59,25 +50,22 @@ class Checkbox extends React.Component {
     }
 }
 
-Checkbox.defaultProps = {
+Radio.defaultProps = {
     disabled: false,
-    indeterminate: false,
     checked: false,
-    required: false,
     status: 'default',
     label: '',
 }
 
-Checkbox.propTypes = {
-    label: PropTypes.string,
-    name: PropTypes.string.isRequired,
+Radio.propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
-    indeterminate: PropTypes.bool,
-    required: PropTypes.bool,
+    label: PropTypes.string,
+    name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    value: PropTypes.string.isRequired,
 }
 
-export { Checkbox }
-export default Checkbox
+export { Radio }
+export default Radio
