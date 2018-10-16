@@ -27,7 +27,6 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-    role: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.string,
     disabled: PropTypes.bool,
