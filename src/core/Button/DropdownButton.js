@@ -47,6 +47,7 @@ class DropdownButton extends Component {
         return (
             <div className={s('dropdown')} ref={c => (this.elContainer = c)}>
                 <Button
+                    icon={this.props.icon}
                     kind={this.props.kind}
                     label={this.props.label}
                     active={this.props.active}
