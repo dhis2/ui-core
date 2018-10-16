@@ -9,7 +9,7 @@ if (isProd) {
     if (typeof manifest !== 'undefined') {
         url = manifest.activities.dhis.href
         version = manifest.dhis2.apiVersion
-        endpoint = `${serverURL}/api/${version}`
+        endpoint = `${url}/api/${version}`
     } else if (typeof DHIS_CONFIG === 'object') {
         url = DHIS_CONFIG.baseUrl
     } else {

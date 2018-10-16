@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
 
-import { Label, Help } from '../helpers'
-
 import s from './styles'
 
 class Checkbox extends React.Component {
