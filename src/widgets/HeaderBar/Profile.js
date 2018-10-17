@@ -2,34 +2,45 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, MenuItem, Divider } from '../../core'
 import s from './styles'
+import { isPointInRect } from '../../utils'
 
-function TextIcon({ name }) {
+function TextIcon({ name, onClick }) {
     let title = name[0]
     if (name.indexOf(' ') > 0) {
         title += name.split(' ')[1][0]
     }
 
     return (
-        <div className={s('icon')}>
+        <div className={s('icon')} onClick={onClick}>
             <div className={s('initials')}>{title}</div>
         </div>
     )
 }
 
-TextIcon.propTypes = {
-    name: PropTypes.string,
+TextIcon.defaultProps = {
+    onClick: undefined,
 }
 
-function ImageIcon({ src }) {
+TextIcon.propTypes = {
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+}
+
+function ImageIcon({ src, onClick }) {
     return (
-        <div className={s('icon')}>
+        <div className={s('icon')} onClick={onClick}>
             <img src={src} />
         </div>
     )
 }
 
+ImageIcon.defaultProps = {
+    onClick: undefined,
+}
+
 ImageIcon.propTypes = {
-    src: PropTypes.string,
+    src: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
 }
 
 function Header({ name, email, img, baseURL }) {
@@ -81,6 +92,35 @@ const list = [
 ]
 
 export default class Profile extends React.Component {
+    state = {
+        show: false,
+    }
+
+    componentDidMount() {
+        document.addEventListener('click', this.onDocClick)
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.onDocClick)
+    }
+
+    onDocClick = evt => {
+        if (this.elContainer && this.elContents) {
+            const target = { x: evt.clientX, y: evt.clientY }
+            const contents = this.elContents.getBoundingClientRect()
+            const container = this.elContainer.getBoundingClientRect()
+
+            if (
+                !isPointInRect(target, contents) &&
+                !isPointInRect(target, container)
+            ) {
+                this.setState({ show: false })
+            }
+        }
+    }
+
+    onToggle = () => this.setState({ show: !this.state.show })
+
     onClick = value => {
         const { baseURL } = this.props
         const paths = {
@@ -101,35 +141,56 @@ export default class Profile extends React.Component {
 
     onHeaderClick = () => this.onClick('edit_profile')
 
-    render() {
-        const {
-            baseURL,
-            profile: { name, email, img },
-        } = this.props
+    viewIcon() {
+        if (this.props.profile.img) {
+            return (
+                <ImageIcon
+                    src={this.props.profile.img}
+                    onClick={this.onToggle}
+                />
+            )
+        }
+
         return (
-            <div className={s('profile')}>
-                {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
-                <div className={s('contents')}>
-                    <Card height="298px">
-                        <Header
-                            name={name}
-                            email={email}
-                            img={img}
-                            baseURL={baseURL}
-                            onClick={this.onHeaderClick}
+            <TextIcon name={this.props.profile.name} onClick={this.onToggle} />
+        )
+    }
+
+    viewContents() {
+        if (!this.state.show) {
+            return null
+        }
+
+        return (
+            <div className={s('contents')} ref={c => (this.elContents = c)}>
+                <Card height="298px">
+                    <Header
+                        baseURL={this.props.baseURL}
+                        img={this.props.profile.img}
+                        name={this.props.profile.name}
+                        email={this.props.profile.email}
+                        onClick={this.onHeaderClick}
+                    />
+                    <Divider margin="13px 0 7px 0" />
+                    {list.map(({ label, value, icon }) => (
+                        <MenuItem
+                            key={`h-mi-${value}`}
+                            label={label}
+                            value={value}
+                            icon={icon}
+                            onClick={this.onClick}
                         />
-                        <Divider margin="13px 0 7px 0" />
-                        {list.map(({ label, value, icon }) => (
-                            <MenuItem
-                                key={`h-mi-${value}`}
-                                label={label}
-                                value={value}
-                                icon={icon}
-                                onClick={this.onClick}
-                            />
-                        ))}
-                    </Card>
-                </div>
+                    ))}
+                </Card>
+            </div>
+        )
+    }
+
+    render() {
+        return (
+            <div className={s('profile')} ref={c => (this.elContainer = c)}>
+                {this.viewIcon()}
+                {this.viewContents()}
             </div>
         )
     }

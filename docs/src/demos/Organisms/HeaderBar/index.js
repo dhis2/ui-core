@@ -3,8 +3,8 @@ import HeaderBar from 'widgets/HeaderBar/HeaderBar.Component'
 import { Col } from '../../../helpers'
 
 const props = {
-    title: 'Demo - Sierra Leone',
-    status: 'ANC: 1-4 visits by districts this year',
+    instanceName: 'Sierra Leone',
+    appName: 'Import / Export',
     profile: {
         name: 'John Doe',
         email: 'john_doe@dhis2.org',
@@ -74,20 +74,13 @@ function getProps() {
         },
     }
 }
-
-const types = ['blue', 'white', 'transparent']
-
 export class HeaderBarDemo extends React.Component {
     static id = 'headerbar'
 
     render() {
         return (
             <Col style={{ marginBottom: 250 }}>
-                {types.map(type => (
-                    <div key={`headerbar-${type}`} style={{ marginBottom: 20 }}>
-                        <HeaderBar type={type} {...getProps()} />
-                    </div>
-                ))}
+                <HeaderBar {...getProps()} />
             </Col>
         )
     }

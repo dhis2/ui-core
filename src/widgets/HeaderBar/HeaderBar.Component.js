@@ -1,16 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { LogoIcon, LogoIconWhite } from '../../core/Logo'
+import { LogoIconWhite } from '../../core/Logo'
 import NotificationIcon from './NotificationIcon'
 import Apps from './Apps'
 import Profile from './Profile'
 import s from './styles'
 
+function getTitle(instanceName, appName = '') {
+    if (!appName) {
+        return instanceName
+    }
+
+    return `${instanceName} - ${appName}`
+}
+
 function HeaderBar({
-    type,
     baseURL,
-    title,
+    instanceName,
+    appName,
     status,
     apps,
     profile,
@@ -18,14 +26,15 @@ function HeaderBar({
     interpretations,
 }) {
     return (
-        <header className={s('container', type)}>
+        <header className={s('container', 'blue')}>
             <div className={s('first')}>
                 <div className={s('logo')}>
-                    {type === 'blue' ? <LogoIconWhite /> : <LogoIcon />}
+                    <LogoIconWhite />
                 </div>
-                <div className={s('title')}>{title}</div>
+                <div className={s('title')}>
+                    {getTitle(instanceName, appName)}
+                </div>
             </div>
-            {status && <div className={s('status')}>{status}</div>}
             <div className={s('last')}>
                 <NotificationIcon
                     icon="message"
@@ -39,16 +48,10 @@ function HeaderBar({
     )
 }
 
-HeaderBar.defaultProps = {
-    type: 'blue',
-    status: '',
-}
-
 HeaderBar.propTypes = {
     baseURL: PropTypes.string,
-    type: PropTypes.oneOf(['blue', 'white', 'transparent']),
-    title: PropTypes.string,
-    status: PropTypes.string,
+    instanceName: PropTypes.string.isRequired,
+    appName: PropTypes.string,
     messages: PropTypes.shape({
         count: PropTypes.number,
     }),

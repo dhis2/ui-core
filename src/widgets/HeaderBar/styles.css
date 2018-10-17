@@ -27,21 +27,11 @@
 
 .title {
     color: #000;
-    width: 178px;
     overflow: hidden;
     white-space: nowrap;
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0.01em;
-}
-
-.status {
-    font-weight: 400;
-    font-size: 14px;
-    margin-right: 64px;
-}
-.status:empty {
-    display: none;
 }
 
 .last {
@@ -216,16 +206,12 @@
 }
 
 .profile .contents {
-    display: none;
     z-index: 10;
     position: absolute;
     right: -6px;
     border-top: 4px solid transparent;
     top: 36px;
     width: 310px;
-}
-.profile:hover .contents {
-    display: block;
 }
 .header {
     display: flex;
@@ -274,26 +260,10 @@
     color: #fff;
 }
 
-.blue > .status {
-    color: #fff;
-}
-
 .blue > .last > .notification > i,
 .blue > .last > .apps > i:first-child {
     color: #fff;
 }
 .container.blue .profile > .icon > .initials {
     color: #fff;
-}
-
-.white {
-    background-color: #fff;
-}
-
-.transparent {
-    background-color: transparent;
-    border-bottom-color: transparent;
-}
-.transparent .first .logo {
-    border-right-color: transparent;
 }
