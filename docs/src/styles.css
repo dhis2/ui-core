@@ -17,3 +17,6 @@ caption {
 .d2ui-app .d2ui-paper--padded {
     margin: 2rem 1rem;
 }
+body {
+    background-color: #eeeeee;
+}
