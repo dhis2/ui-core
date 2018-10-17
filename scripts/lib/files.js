@@ -10,5 +10,5 @@ async function writeFile(target, content) {
 }
 
 module.exports = {
-    writeFile
+    writeFile,
 }

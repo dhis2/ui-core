@@ -1,10 +1,9 @@
 const path = require('path')
 
 // webpack plugins
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const devMode = process.env.NODE_ENV !== 'production'
 
@@ -14,7 +13,7 @@ module.exports = {
     name: 'ui',
     output: {
         path: path.resolve(__dirname, 'dist', 'bundle'),
-        filename: devMode ? '[name].js' : '[name].[chunkhash:8].js'
+        filename: devMode ? '[name].js' : '[name].[chunkhash:8].js',
     },
     module: {
         rules: [
@@ -22,8 +21,8 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader'
-                }
+                    loader: 'babel-loader',
+                },
             },
             {
                 test: /\.css$/,
@@ -39,8 +38,8 @@ module.exports = {
                 options: {
                     name: 'files/[name].[hash:8].[ext]',
                 },
-            }
-        ]
+            },
+        ],
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -48,7 +47,7 @@ module.exports = {
             // both options are optional
             filename: devMode ? 'css/[name].css' : 'css/[name].[hash].css',
             chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[hash].css',
-        })
+        }),
     ],
     externals: {
         react: {
@@ -63,16 +62,16 @@ module.exports = {
             commonjs: 'react-dom',
             amd: 'react-dom',
             umd: 'react-dom',
-        }
+        },
     },
     optimization: {
         minimizer: [
             new UglifyJsPlugin({
                 cache: true,
                 parallel: true,
-                sourceMap: true // set to true if you want JS source maps
+                sourceMap: true, // set to true if you want JS source maps
             }),
-            new OptimizeCSSAssetsPlugin({})
-        ]
+            new OptimizeCSSAssetsPlugin({}),
+        ],
     },
 }
