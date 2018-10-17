@@ -3,111 +3,97 @@ import Radio from 'core/Radio'
 
 import { Text, Row, Col, Divider } from '../../../../helpers'
 
-const group1 = [
+const types = [
     {
-        label: 'Radio',
-        name: 'radio-group-1',
         value: 'default-radio',
+        label: 'Default',
     },
     {
-        label: 'Checked Radio',
-        name: 'radio-group-1',
         value: 'checked-radio',
+        label: 'Checked',
     },
     {
-        label: 'Disabled Radio',
-        name: 'radio-group-1',
-        value: 'disabled-radio',
         disabled: true,
+        value: 'disabled-radio',
+        label: 'Disabled Radio',
     },
 ]
 
-const group2 = [
+const states = [
     {
-        label: 'Valid Radio',
-        name: 'radio-group-2',
+        required: true,
+        label: 'Valid',
         value: 'valid-radio',
         status: 'valid',
     },
     {
-        label: 'Warning Radio',
-        name: 'radio-group-2',
+        required: true,
+        label: 'Warning',
         value: 'warning-radio',
         status: 'warning',
     },
     {
-        label: 'Error Radio',
-        name: 'radio-group-2',
+        required: true,
+        label: 'Error',
         value: 'error-radio',
         status: 'error',
     },
 ]
 
+const wrapperStyle = {
+    marginRight: 20,
+    width: 150,
+}
+
 export class RadioDemo extends React.Component {
     static id = 'input-radio'
 
     state = {
-        selectedGroup1: 'checked-radio',
+        types: 'checked-radio',
+        states: 'valid-radio',
     }
 
-    onChangeGroup1 = (target, value) => {
-        console.log(`toggle ${target} to ${value}`)
-        return this.setState({ selectedGroup1: value })
-    }
-
-    onChangeGroup2 = (target, value) => {
-        console.log(`toggle ${target} to ${value}`)
-        return this.setState({ selectedGroup2: value })
+    onChange = (name, value) => {
+        this.setState({ [name]: value })
+        console.log(`onChange ${name} to ${value}`)
     }
 
     render() {
         return (
-            <div>
-                <Row>
-                    <Col>
-                        <Text>Types</Text>
-                        {group1.map(radio => {
-                            const checked =
-                                this.state.selectedGroup1 === radio.value
-                            return (
+            <Col>
+                <Text>Types</Text>
+                <Row style={{ marginBottom: 20 }}>
+                    {types.map(p => {
+                        return (
+                            <div key={`rbr-${p.value}`} style={wrapperStyle}>
                                 <Radio
-                                    key={radio.value}
-                                    checked={checked}
-                                    label={radio.label}
-                                    name={radio.name}
-                                    value={radio.value}
-                                    disabled={radio.disabled}
-                                    onChange={(name, v) =>
-                                        this.onChangeGroup1(name, v)
-                                    }
+                                    {...p}
+                                    name="types"
+                                    checked={this.state.types === p.value}
+                                    onChange={this.onChange}
                                 />
-                            )
-                        })}
-                    </Col>
-                    <Col>
-                        <Text>States</Text>
-                        {group2.map(radio => {
-                            const checked =
-                                this.state.selectedGroup2 === radio.value
-                            return (
+                            </div>
+                        )
+                    })}
+                </Row>
+
+                <Text>States</Text>
+                <Row style={{ marginBottom: 20 }}>
+                    {states.map(p => {
+                        return (
+                            <div key={`rbr-${p.value}`} style={wrapperStyle}>
                                 <Radio
-                                    key={radio.value}
-                                    checked={checked}
-                                    label={radio.label}
-                                    name={radio.name}
-                                    value={radio.value}
-                                    disabled={radio.disabled}
-                                    status={radio.status}
-                                    onChange={(name, v) =>
-                                        this.onChangeGroup2(name, v)
-                                    }
+                                    {...p}
+                                    name="states"
+                                    checked={this.state.states === p.value}
+                                    onChange={this.onChange}
                                 />
-                            )
-                        })}
-                    </Col>
+                            </div>
+                        )
+                    })}
                 </Row>
                 <Divider />
-            </div>
+            </Col>
         )
     }
 }

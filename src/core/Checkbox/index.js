@@ -12,10 +12,14 @@ class Checkbox extends React.Component {
 
     onChange = () => {
         this.props.onChange(this.props.name, !this.props.checked)
-        this.setState({ indeterminate: false })
+
+        if (this.state.indeterminate) {
+            this.setState({ indeterminate: false })
+        }
     }
 
     render() {
+        const { required, status } = this.props
         let name = 'check_box_outline_blank'
         if (this.state.indeterminate) {
             name = 'indeterminate_check_box'
@@ -29,7 +33,7 @@ class Checkbox extends React.Component {
                 className={`${inputColorClass(
                     this.props.checked,
                     this.props.disabled
-                )} ${this.props.status}`}
+                )} ${status}`}
             />
         )
 
@@ -42,12 +46,7 @@ class Checkbox extends React.Component {
                     disabled={this.props.disabled}
                 />
                 {icon}
-                <span
-                    className={s('label', {
-                        required: this.props.required,
-                        [this.props.status]: true,
-                    })}
-                >
+                <span className={s('label', status, { required })}>
                     {this.props.label}
                 </span>
             </label>

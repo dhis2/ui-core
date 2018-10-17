@@ -66,7 +66,7 @@ export class CheckboxDemo extends React.Component {
 
     onChange = (name, value) => {
         this.setState({ [name]: value })
-        console.log(`toggle ${name} to ${value}`)
+        console.log(`onChange ${name} to ${value}`)
     }
 
     render() {

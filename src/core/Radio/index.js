@@ -9,6 +9,7 @@ class Radio extends React.Component {
     onChange = () => this.props.onChange(this.props.name, this.props.value)
 
     render() {
+        const { required, status } = this.props
         const icon = (
             <Icon
                 name={
@@ -19,7 +20,7 @@ class Radio extends React.Component {
                 className={`${inputColorClass(
                     this.props.checked,
                     this.props.disabled
-                )} ${this.props.status}`}
+                )} ${status}`}
             />
         )
 
@@ -28,17 +29,13 @@ class Radio extends React.Component {
                 <input
                     type="radio"
                     name={this.props.name}
-                    onChange={this.onChange}
-                    checked={this.props.checked}
                     value={this.props.value}
+                    checked={this.props.checked}
                     disabled={this.props.disabled}
+                    onChange={this.onChange}
                 />
                 {icon}
-                <span
-                    className={s('label', {
-                        [this.props.status]: true,
-                    })}
-                >
+                <span className={s('label', status, { required })}>
                     {this.props.label}
                 </span>
             </label>
