@@ -2,28 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
-
+import { inputColorClass } from '../../utils'
 import s from './styles'
 
 class Radio extends React.Component {
-    onChange = evt => {
-        return this.props.onChange(this.props.name, this.props.value)
-    }
+    onChange = () => this.props.onChange(this.props.name, this.props.value)
 
     render() {
-        let icoColor = this.props.disabled ? 'grey-light' : 'grey'
-        let icoName
-
-        if (this.props.checked) {
-            icoName = 'radio_button_checked'
-        } else {
-            icoName = 'radio_button_unchecked'
-        }
-
         const icon = (
             <Icon
-                name={icoName}
-                className={`${icoColor} ${this.props.status}`}
+                name={
+                    this.props.checked
+                        ? 'radio_button_checked'
+                        : 'radio_button_unchecked'
+                }
+                className={`${inputColorClass(
+                    this.props.checked,
+                    this.props.disabled
+                )} ${this.props.status}`}
             />
         )
 
@@ -51,20 +47,20 @@ class Radio extends React.Component {
 }
 
 Radio.defaultProps = {
-    disabled: false,
+    label: '',
     checked: false,
     status: 'default',
-    label: '',
+    disabled: false,
 }
 
 Radio.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
-    label: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
-    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
 }
 
 export { Radio }

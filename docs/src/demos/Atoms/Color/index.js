@@ -104,8 +104,8 @@ const list = [
                 color: 'e59635',
             },
             {
-                id: 'success',
-                name: 'Success',
+                id: 'valid',
+                name: 'Valid',
                 color: '3d9305',
             },
             {

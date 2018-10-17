@@ -14,7 +14,7 @@ class DropdownButton extends Component {
         document.addEventListener('click', this.onDocClick)
     }
 
-    componentWillMount() {
+    componentWillUnmount() {
         document.removeEventListener('click', this.onDocClick)
     }
 
@@ -66,7 +66,7 @@ class DropdownButton extends Component {
                 {open && (
                     <div className={s('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
-                            width={width}
+                            width={`${width}px`}
                             size={this.props.size}
                             list={this.props.list}
                             onClick={this.props.onClick}

@@ -100,10 +100,10 @@
 :global .blue .warning-bg {
     background-color: #e59635;
 }
-:global .blue .success {
+:global .blue .valid {
     color: #3d9305;
 }
-:global .blue .success-bg {
+:global .blue .valid-bg {
     background-color: #3d9305;
 }
 :global .blue .info {

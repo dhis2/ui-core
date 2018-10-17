@@ -22,4 +22,5 @@
 
 .required:after {
     content: '*';
+    padding-left: 4px;
 }

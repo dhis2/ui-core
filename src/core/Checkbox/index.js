@@ -2,38 +2,34 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
-
+import { inputColorClass } from '../../utils'
 import s from './styles'
 
 class Checkbox extends React.Component {
     state = {
-        checked: !!this.props.checked,
-        indeterminate: !!this.props.indeterminate,
+        indeterminate: this.props.indeterminate,
     }
 
     onChange = () => {
-        const checked = !this.state.checked
-        this.props.onChange(this.props.name, checked)
-        this.setState({ checked, indeterminate: false })
+        this.props.onChange(this.props.name, !this.props.checked)
+        this.setState({ indeterminate: false })
     }
 
     render() {
-        let icoColor = this.props.disabled ? 'grey-light' : 'grey'
-        let icoName
-
+        let name = 'check_box_outline_blank'
         if (this.state.indeterminate) {
-            icoName = 'indeterminate_check_box'
-        } else if (this.state.checked) {
-            icoName = 'check_box'
-            icoColor = this.props.disabled ? icoColor : 'secondary-light'
-        } else {
-            icoName = 'check_box_outline_blank'
+            name = 'indeterminate_check_box'
+        } else if (this.props.checked) {
+            name = 'check_box'
         }
 
         const icon = (
             <Icon
-                name={icoName}
-                className={`${icoColor} ${this.props.status}`}
+                name={name}
+                className={`${inputColorClass(
+                    this.props.checked,
+                    this.props.disabled
+                )} ${this.props.status}`}
             />
         )
 
@@ -42,7 +38,7 @@ class Checkbox extends React.Component {
                 <input
                     type="checkbox"
                     onChange={this.onChange}
-                    checked={this.state.checked}
+                    checked={this.props.checked}
                     disabled={this.props.disabled}
                 />
                 {icon}
@@ -60,23 +56,23 @@ class Checkbox extends React.Component {
 }
 
 Checkbox.defaultProps = {
-    disabled: false,
-    indeterminate: false,
+    label: '',
     checked: false,
     required: false,
+    disabled: false,
+    indeterminate: false,
     status: 'default',
-    label: '',
 }
 
 Checkbox.propTypes = {
-    label: PropTypes.string,
     name: PropTypes.string.isRequired,
+    label: PropTypes.string,
     checked: PropTypes.bool,
+    required: PropTypes.bool,
     disabled: PropTypes.bool,
     indeterminate: PropTypes.bool,
-    required: PropTypes.bool,
-    onChange: PropTypes.func.isRequired,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    onChange: PropTypes.func.isRequired,
 }
 
 export { Checkbox }
