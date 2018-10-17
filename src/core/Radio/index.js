@@ -2,15 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
+import { inputColorClass } from '../../utils'
 import s from './styles'
 
 class Radio extends React.Component {
-    onChange = evt => {
-        return this.props.onChange(this.props.name, this.props.value)
-    }
+    onChange = () => this.props.onChange(this.props.name, this.props.value)
 
     render() {
-        let color = this.props.disabled ? 'grey-light' : 'grey'
         const icon = (
             <Icon
                 name={
@@ -18,7 +16,10 @@ class Radio extends React.Component {
                         ? 'radio_button_checked'
                         : 'radio_button_unchecked'
                 }
-                className={`${color} ${this.props.status}`}
+                className={`${inputColorClass(
+                    this.props.checked,
+                    this.props.disabled
+                )} ${this.props.status}`}
             />
         )
 
