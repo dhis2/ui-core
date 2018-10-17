@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
-
 import s from './styles'
 
 class Checkbox extends React.Component {
     state = {
-        checked: !!this.props.checked,
-        indeterminate: !!this.props.indeterminate,
+        checked: this.props.checked,
+        indeterminate: this.props.indeterminate,
     }
 
     onChange = () => {
@@ -60,23 +59,23 @@ class Checkbox extends React.Component {
 }
 
 Checkbox.defaultProps = {
-    disabled: false,
-    indeterminate: false,
+    label: '',
     checked: false,
     required: false,
+    disabled: false,
+    indeterminate: false,
     status: 'default',
-    label: '',
 }
 
 Checkbox.propTypes = {
-    label: PropTypes.string,
     name: PropTypes.string.isRequired,
+    label: PropTypes.string,
     checked: PropTypes.bool,
+    required: PropTypes.bool,
     disabled: PropTypes.bool,
     indeterminate: PropTypes.bool,
-    required: PropTypes.bool,
-    onChange: PropTypes.func.isRequired,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    onChange: PropTypes.func.isRequired,
 }
 
 export { Checkbox }
