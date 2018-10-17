@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
-
 import s from './styles'
 
 class Radio extends React.Component {
@@ -11,19 +10,15 @@ class Radio extends React.Component {
     }
 
     render() {
-        let icoColor = this.props.disabled ? 'grey-light' : 'grey'
-        let icoName
-
-        if (this.props.checked) {
-            icoName = 'radio_button_checked'
-        } else {
-            icoName = 'radio_button_unchecked'
-        }
-
+        let color = this.props.disabled ? 'grey-light' : 'grey'
         const icon = (
             <Icon
-                name={icoName}
-                className={`${icoColor} ${this.props.status}`}
+                name={
+                    this.props.checked
+                        ? 'radio_button_checked'
+                        : 'radio_button_unchecked'
+                }
+                className={`${color} ${this.props.status}`}
             />
         )
 
@@ -51,20 +46,20 @@ class Radio extends React.Component {
 }
 
 Radio.defaultProps = {
-    disabled: false,
+    label: '',
     checked: false,
     status: 'default',
-    label: '',
+    disabled: false,
 }
 
 Radio.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
-    label: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
-    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
 }
 
 export { Radio }
