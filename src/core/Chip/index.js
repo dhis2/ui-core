@@ -4,7 +4,14 @@ import Icon from '../Icon'
 import s from './styles'
 
 class Chip extends React.PureComponent {
+    onClick = evt => {
+        if (!this.props.disabled && this.props.onClick) {
+            return this.props.onClick()
+        }
+    }
+
     onRemove = evt => {
+        // stop onRemove from triggering onClick on container
         evt.stopPropagation()
         this.props.onRemove()
     }
@@ -37,25 +44,17 @@ class Chip extends React.PureComponent {
     }
 
     render() {
-        const {
-            label,
-            onClick,
-            selected,
-            disabled,
-            dragging,
-            overflow,
-            icon,
-        } = this.props
+        const { label, selected, disabled, dragging, overflow } = this.props
 
         return (
             <div
                 className={s('container', {
-                    static: !onClick,
+                    static: !this.props.onClick,
                     selected,
                     disabled,
                     dragging,
                 })}
-                onClick={(!disabled && onClick) || undefined}
+                onClick={this.onClick}
             >
                 {this.showIcon()}
                 <span className={s('label', { overflow })}>{label}</span>
