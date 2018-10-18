@@ -8,6 +8,11 @@
 
 https://jira.dhis2.org/browse/TECH-59 (Spec and design)
 
+## Style
+
+-   CSS: https://github.com/necolas/idiomatic-css
+-   JS: https://github.com/dhis2/code-style
+
 ### Review
 
 Make a PR from the component branch. Add a team member who can review the code and example for both **LTR** and **RTL** modes.
