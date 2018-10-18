@@ -4,31 +4,30 @@ import Icon from '../Icon'
 import s from './styles'
 
 class Chip extends React.PureComponent {
-    onClick = evt => {
+    onClick = () => {
         if (!this.props.disabled && this.props.onClick) {
             return this.props.onClick()
         }
     }
 
     onRemove = evt => {
-        // stop onRemove from triggering onClick on container
-        evt.stopPropagation()
+        evt.stopPropagation() // stop onRemove from triggering onClick on container
         this.props.onRemove()
     }
 
     showIcon() {
-        const { icon, type } = this.props
+        const { icon } = this.props
         if (!icon) {
             return
         }
 
-        if (type === 'image') {
+        if (this.props.type === 'image') {
             return (
-                <img src={icon} alt="chip-icon" className={s('image-icon')} />
+                <img src={icon} alt="chip icon" className={s('image-icon')} />
             )
-        } else {
-            return <Icon name={icon} className={s('icon')} />
         }
+
+        return <Icon name={icon} className={s('icon')} />
     }
 
     showRemove() {
@@ -49,10 +48,10 @@ class Chip extends React.PureComponent {
         return (
             <div
                 className={s('container', {
-                    static: !this.props.onClick,
                     selected,
                     disabled,
                     dragging,
+                    static: !this.props.onClick,
                 })}
                 onClick={this.onClick}
             >
