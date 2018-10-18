@@ -10,16 +10,6 @@ const rows = [
         title: 'Static chips: no "onClick" handler and no visible hover states',
     },
     {
-        id: 'selectable',
-        title:
-            'Selectable chips: have an "onClick" handler which toggles "selected" state',
-    },
-    {
-        id: 'deletable',
-        title:
-            'Delete only chips: with "onRemove" handler but without "onClick" handler',
-    },
-    {
         id: 'selectAndDelete',
         title: 'Chips with both an "onRemove" and an "onClick" handler',
     },
@@ -30,12 +20,17 @@ const chipList = [
         label: 'Text only',
     },
     {
+        label: 'Selected',
+        selected: true,
+    },
+    {
         label: 'With icon',
         icon: 'star',
     },
     {
         label: 'With image icon',
         icon: 'http://placeimg.com/50/50/people',
+        type: 'image',
     },
     {
         label: 'Visual dragging state',
@@ -58,7 +53,7 @@ export class ChipDemo extends React.Component {
             acc.static[key] = { ...chip }
             acc.selectable[key] = {
                 ...chip,
-                selected: false,
+                selected: chip.selected || false,
                 onClick: () => this.toggleChipSelected('selectable', key),
             }
             acc.deletable[key] = {
@@ -67,7 +62,7 @@ export class ChipDemo extends React.Component {
             }
             acc.selectAndDelete[key] = {
                 ...chip,
-                selected: false,
+                selected: chip.selected || false,
                 onClick: () => this.toggleChipSelected('selectAndDelete', key),
                 onRemove: () => this.deleteChip('selectAndDelete', key),
             }

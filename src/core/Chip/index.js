@@ -3,17 +3,15 @@ import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import s from './styles'
 
-// Only allow lower case letters, optionally seperated by underscore
-const mdIconNamePattern = /^[a-z]+_*[a-z]+$/
-
 class Chip extends React.PureComponent {
     onRemove = event => {
         event.stopPropagation()
         this.props.onRemove()
     }
 
-    renderIcon(icon) {
-        return mdIconNamePattern.test(icon) ? (
+    renderIcon() {
+        const { icon, type } = this.props
+        return type === 'icon' ? (
             <Icon name={icon} className={s('icon')} />
         ) : (
             <img src={icon} alt="chip-icon" className={s('image-icon')} />
@@ -28,7 +26,6 @@ class Chip extends React.PureComponent {
             disabled,
             dragging,
             icon,
-            onRemove,
         } = this.props
 
         return (
@@ -43,7 +40,7 @@ class Chip extends React.PureComponent {
             >
                 {icon && this.renderIcon(icon)}
                 {label && <span className={s('label')}>{label}</span>}
-                {onRemove && (
+                {this.props.onRemove && (
                     <Icon
                         name="cancel"
                         className={s('remove-icon')}
@@ -58,11 +55,17 @@ class Chip extends React.PureComponent {
 Chip.propTypes = {
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+    icon: PropTypes.string,
+    type: PropTypes.oneOf(['image', 'icon']),
+    onRemove: PropTypes.func,
     selected: PropTypes.bool,
     disabled: PropTypes.bool,
     dragging: PropTypes.bool,
-    icon: PropTypes.string,
-    onRemove: PropTypes.func,
+}
+
+Chip.defaultProps = {
+    onClick: undefined,
+    type: 'icon',
 }
 
 export { Chip }
