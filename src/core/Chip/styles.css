@@ -79,3 +79,7 @@
 .static {
     pointer-events: none;
 }
+
+.static:hover {
+    background-color: #eceff1;
+}
