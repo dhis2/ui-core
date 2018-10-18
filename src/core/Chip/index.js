@@ -44,12 +44,11 @@ class Chip extends React.PureComponent {
                 {icon && this.renderIcon(icon)}
                 {label && <span className={s('label')}>{label}</span>}
                 {onRemove && (
-                    <button
-                        className={s('remove-button')}
+                    <Icon
+                        name="cancel"
+                        className={s('remove-icon')}
                         onClick={this.onRemove}
-                    >
-                        <Icon name="cancel" className={s('remove-icon')} />
-                    </button>
+                    />
                 )}
             </div>
         )
