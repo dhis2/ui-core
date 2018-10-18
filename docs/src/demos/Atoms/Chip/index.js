@@ -1,7 +1,5 @@
 import React from 'react'
-
 import Chip from 'core/Chip'
-
 import { Text, Row, Col, Divider } from '../../../helpers'
 
 const rows = [
@@ -51,6 +49,11 @@ const chipList = [
         icon: 'star',
     },
 ]
+
+const sChipContainer = { margin: '0 20px 20px 0' }
+const ChipContainer = ({ children }) => (
+    <div style={sChipContainer}>{children}</div>
+)
 
 export class ChipDemo extends React.Component {
     static id = 'chip'
@@ -109,7 +112,12 @@ export class ChipDemo extends React.Component {
 
     renderChipRow(chips) {
         return Object.keys(chips).map(
-            key => chips[key] && <Chip key={key} {...chips[key]} />
+            key =>
+                chips[key] && (
+                    <ChipContainer>
+                        <Chip key={key} {...chips[key]} />
+                    </ChipContainer>
+                )
         )
     }
 
@@ -119,11 +127,13 @@ export class ChipDemo extends React.Component {
                 {rows.map(({ id, title }) => {
                     return (
                         <Col
-                            key={`btn-${title}`}
+                            key={`chip-${title}`}
                             style={{ width: '100%', marginBottom: 40 }}
                         >
                             <Text>{title}</Text>
-                            <Row>{this.renderChipRow(this.state[id])}</Row>
+                            <Row style={{ flexWrap: 'wrap' }}>
+                                {this.renderChipRow(this.state[id])}
+                            </Row>
                         </Col>
                     )
                 })}
