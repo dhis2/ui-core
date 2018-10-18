@@ -1,0 +1,89 @@
+.container {
+    display: inline-flex;
+    align-items: center;
+    margin: 4px;
+    border-radius: 16px;
+    height: 32px;
+    background-color: #eceff1;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.container:hover {
+    background-color: #e0f2f1;
+}
+
+.container.selected,
+.container.selected.static:hover {
+    background-color: #00796b;
+}
+
+.container.selected:hover {
+    background-color: #00695c;
+}
+
+.container.selected,
+.container.selected .icon,
+.container.selected .remove-icon {
+    color: #ffffff;
+}
+
+.container.static {
+    pointer-events: none;
+}
+
+.container.static:hover {
+    background-color: #eceff1;
+}
+
+.container.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+}
+
+.container.disabled .remove-icon {
+    pointer-events: none;
+}
+
+.container.dragging {
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.icon {
+    margin-left: 5px;
+    color: #494949;
+    font-size: 20px;
+}
+
+.image-icon {
+    margin-left: 4px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+
+.label {
+    margin: 0 12px;
+    white-space: nowrap;
+}
+
+.label.overflow {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.remove-icon {
+    opacity: 1;
+    margin-right: 4px;
+    color: #494949;
+    font-size: 18px;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.remove-icon:hover {
+    opacity: 0.82;
+}
