@@ -4,18 +4,36 @@ import Icon from '../Icon'
 import s from './styles'
 
 class Chip extends React.PureComponent {
-    onRemove = event => {
-        event.stopPropagation()
+    onRemove = evt => {
+        evt.stopPropagation()
         this.props.onRemove()
     }
 
-    renderIcon() {
+    showIcon() {
         const { icon, type } = this.props
-        return type === 'icon' ? (
-            <Icon name={icon} className={s('icon')} />
-        ) : (
-            <img src={icon} alt="chip-icon" className={s('image-icon')} />
-        )
+        if (!icon) {
+            return
+        }
+
+        if (type === 'image') {
+            return (
+                <img src={icon} alt="chip-icon" className={s('image-icon')} />
+            )
+        } else {
+            return <Icon name={icon} className={s('icon')} />
+        }
+    }
+
+    showRemove() {
+        if (this.props.onRemove) {
+            return (
+                <Icon
+                    name="cancel"
+                    className={s('remove-icon')}
+                    onClick={this.onRemove}
+                />
+            )
+        }
     }
 
     render() {
@@ -25,6 +43,7 @@ class Chip extends React.PureComponent {
             selected,
             disabled,
             dragging,
+            overflow,
             icon,
         } = this.props
 
@@ -38,34 +57,34 @@ class Chip extends React.PureComponent {
                 })}
                 onClick={(!disabled && onClick) || undefined}
             >
-                {icon && this.renderIcon(icon)}
-                {label && <span className={s('label')}>{label}</span>}
-                {this.props.onRemove && (
-                    <Icon
-                        name="cancel"
-                        className={s('remove-icon')}
-                        onClick={this.onRemove}
-                    />
-                )}
+                {this.showIcon()}
+                <span className={s('label', { overflow })}>{label}</span>
+                {this.showRemove()}
             </div>
         )
     }
 }
 
+Chip.defaultProps = {
+    type: 'icon',
+    selected: false,
+    disabled: false,
+    dragging: false,
+    overflow: true,
+    onClick: undefined,
+    onRemove: undefined,
+}
+
 Chip.propTypes = {
     label: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
     icon: PropTypes.string,
-    type: PropTypes.oneOf(['image', 'icon']),
-    onRemove: PropTypes.func,
+    type: PropTypes.oneOf(['icon', 'image']),
     selected: PropTypes.bool,
     disabled: PropTypes.bool,
     dragging: PropTypes.bool,
-}
-
-Chip.defaultProps = {
-    onClick: undefined,
-    type: 'icon',
+    overflow: PropTypes.bool,
+    onClick: PropTypes.func,
+    onRemove: PropTypes.func,
 }
 
 export { Chip }

@@ -41,6 +41,15 @@ const chipList = [
         icon: 'star',
         disabled: true,
     },
+    {
+        label: 'Very very very very long chip and allow overflow',
+        icon: 'star',
+        overflow: false,
+    },
+    {
+        label: 'Truncated very very long chip name',
+        icon: 'star',
+    },
 ]
 
 export class ChipDemo extends React.Component {
