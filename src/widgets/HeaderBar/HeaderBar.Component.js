@@ -19,7 +19,6 @@ function HeaderBar({
     baseURL,
     instanceName,
     appName,
-    status,
     apps,
     profile,
     messages,

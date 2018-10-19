@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import HeaderBar from './HeaderBar.Component'
 import { get, post, getAction, serverURL } from '../../utils'
 
@@ -21,7 +22,7 @@ function appPath(path) {
 class HeaderBarContainer extends React.Component {
     state = {
         type: 'blue',
-        title: '',
+        instanceName: '',
         messages: {
             count: 0,
         },
@@ -71,7 +72,7 @@ class HeaderBarContainer extends React.Component {
             const me = await get('me.json').then(r => r.json())
 
             this.setState({
-                title: systemName,
+                instanceName: systemName,
                 messages: {
                     count: unreadMessageConversations,
                 },
@@ -94,27 +95,24 @@ class HeaderBarContainer extends React.Component {
     }
 
     render() {
-        const {
-            type,
-            title,
-            messages,
-            interpretations,
-            apps,
-            profile,
-        } = this.state
+        const { type, messages, interpretations, apps, profile } = this.state
         return (
             <HeaderBar
                 baseURL={serverURL}
                 type={type}
-                title={title}
-                status={this.props.status}
-                messages={messages}
-                interpretations={interpretations}
+                instanceName={this.state.instanceName}
+                appName={this.props.appName}
                 apps={apps}
                 profile={profile}
+                messages={messages}
+                interpretations={interpretations}
             />
         )
     }
+}
+
+HeaderBarContainer.propTypes = {
+    appName: PropTypes.string.isRequired,
 }
 
 export { HeaderBarContainer }
