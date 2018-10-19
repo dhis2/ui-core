@@ -20,9 +20,20 @@
     height: 48px;
     text-align: center;
 }
-.logo svg {
+.logo svg,
+.logo a {
     width: 27px;
     height: 25px;
+}
+
+.logo a,
+.logo a:hover,
+.logo a:focus,
+.logo a:active,
+.logo a:visited {
+    display: inline-block;
+    user-select: none;
+    background-color: transparent;
 }
 
 .title {
