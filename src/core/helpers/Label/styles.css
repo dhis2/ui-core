@@ -31,20 +31,21 @@
     line-height: 44px;
 }
 .container.kind-filled.focused {
-    border-bottom: 1.5px solid #00796b;
+    border-bottom: 2px solid #00796b;
 }
 .container.kind-outlined.focused {
     border: 1.5px solid #00796b;
 }
 
 .kind-filled {
-    border: 1px hidden transparent;
+    border-bottom: 2px hidden transparent;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     background-color: rgba(0, 0, 10, 0.05);
 }
 .kind-outlined {
     border: 1px solid #c4c4c4;
 }
-.kind-filled.focused,
 .kind-outlined.focused {
     border-width: 1.5px;
 }

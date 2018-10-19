@@ -9,7 +9,11 @@ class InputField extends React.Component {
         focused: false,
     }
 
-    onChange = evt => this.props.onChange(this.props.name, evt.target.value)
+    onChange = evt => {
+        if (!this.props.disabled) {
+            this.props.onChange(this.props.name, evt.target.value)
+        }
+    }
 
     onClick = () => {
         if (this.ref) {
@@ -18,13 +22,20 @@ class InputField extends React.Component {
         }
     }
 
-    onFocus = () => this.setState({ focused: true })
+    onFocus = evt => {
+        if (this.props.disabled) {
+            evt.target.blur()
+            return
+        }
+
+        this.setState({ focused: true })
+    }
+
     onBlur = () => this.setState({ focused: false })
 
     render() {
         return (
             <div
-                ref={c => (this.elContainer = c)}
                 className={s('container', {
                     disabled: this.props.disabled,
                     [`size-${this.props.size}`]: true,
