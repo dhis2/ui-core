@@ -6,7 +6,6 @@
     width: 100%;
 }
 .container.disabled {
-    pointer-events: none;
     cursor: not-allowed;
 }
 
