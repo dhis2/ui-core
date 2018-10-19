@@ -1,6 +1,9 @@
 .container {
     position: relative;
 }
+.container.disabled {
+    cursor: not-allowed;
+}
 .container.disabled .icon,
 .container.disabled .dropdown-icon {
     color: rgba(0, 0, 0,.3);
