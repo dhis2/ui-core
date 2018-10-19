@@ -23,7 +23,7 @@ Search.propTypes = {
 function Item({ name, path, img }) {
     return (
         <a href={path} className={s('app')}>
-            <img src={img} />
+            <img src={img} alt="app logo" />
             <div className={s('name')}>{name}</div>
         </a>
     )

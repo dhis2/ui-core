@@ -29,7 +29,9 @@ function HeaderBar({
         <header className={s('container', 'blue')}>
             <div className={s('first')}>
                 <div className={s('logo')}>
-                    <LogoIconWhite />
+                    <a href={`${baseURL}`}>
+                        <LogoIconWhite />
+                    </a>
                 </div>
                 <div className={s('title')}>
                     {getTitle(instanceName, appName)}

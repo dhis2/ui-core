@@ -29,7 +29,7 @@ TextIcon.propTypes = {
 function ImageIcon({ src, onClick }) {
     return (
         <div className={s('icon')} onClick={onClick}>
-            <img src={src} />
+            <img src={src} alt="user avatar" />
         </div>
     )
 }
