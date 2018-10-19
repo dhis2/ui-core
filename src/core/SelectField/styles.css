@@ -1,6 +1,10 @@
 .container {
     position: relative;
 }
+.container.disabled .icon,
+.container.disabled .dropdown-icon {
+    color: rgba(0, 0, 0,.3);
+}
 
 .icon {
     margin: 0 7px 0 14px;

@@ -50,9 +50,19 @@ class SelectField extends React.Component {
         }
     }
 
-    onToggle = () => this.setState({ open: !this.state.open })
+    onToggle = () => {
+        if (this.props.disabled) {
+            return false
+        }
+
+        this.setState({ open: !this.state.open })
+    }
 
     onClick = value => {
+        if (this.props.disabled) {
+            return false
+        }
+
         this.setState({ open: false })
         this.props.onChange(this.props.name, value)
     }
@@ -84,6 +94,7 @@ class SelectField extends React.Component {
                 ref={c => (this.elContainer = c)}
                 className={s('container', {
                     selected: !!this.props.value,
+                    disabled: this.props.disabled,
                     [`kind-${this.props.kind}`]: true,
                     [`size-${this.props.size}`]: true,
                 })}
@@ -106,6 +117,7 @@ class SelectField extends React.Component {
                         text={this.props.label}
                         status={this.props.status}
                         hasIcon={!!this.props.icon}
+                        disabled={this.props.disabled}
                         state={selected ? 'minimized' : 'default'}
                     />
                     <Icon
