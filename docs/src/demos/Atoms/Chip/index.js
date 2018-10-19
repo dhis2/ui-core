@@ -114,7 +114,7 @@ export class ChipDemo extends React.Component {
         return Object.keys(chips).map(
             key =>
                 chips[key] && (
-                    <ChipContainer>
+                    <ChipContainer key={`cc-${key}`}>
                         <Chip key={key} {...chips[key]} />
                     </ChipContainer>
                 )
@@ -127,7 +127,7 @@ export class ChipDemo extends React.Component {
                 {rows.map(({ id, title }) => {
                     return (
                         <Col
-                            key={`chip-${title}`}
+                            key={`cr-${title}`}
                             style={{ width: '100%', marginBottom: 40 }}
                         >
                             <Text>{title}</Text>

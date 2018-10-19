@@ -13,14 +13,13 @@
 }
 
 .select {
-    cursor: pointer;
-    pointer-events: all;
-    user-select: none;
+    margin-bottom: 8px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 8px;
+    cursor: pointer;
+    user-select: none;
 }
 .container.size-default .select {
     height: 56px;
@@ -30,8 +29,8 @@
 }
 
 .value {
-    height: 24px;
     color: #000;
+    font-size: 16px;
 }
 .container.kind-filled .value {
     margin-left: 14px;
@@ -39,14 +38,12 @@
 .container.kind-outlined .value {
     margin-left: 20px;
 }
-.container.selected.size-dense .select .value {
+.container.selected.kind-filled.size-dense .select .value {
+    margin-top: 17px;
     font-size: 13px;
 }
-.container.selected.size-default.kind-filled .select .value {
+.container.selected.kind-filled.size-default .select .value {
     margin-top: 15px;
-}
-.container.selected.size-dense.kind-filled .select .value {
-    margin-top: 17px;
 }
 
 /* icon in filled bg, default size */
