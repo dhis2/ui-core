@@ -13,7 +13,6 @@
 }
 
 .select {
-    pointer-events: all;
     margin-bottom: 8px;
     display: flex;
     flex-direction: row;
