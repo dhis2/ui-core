@@ -5,6 +5,7 @@ export * from './Card'
 export * from './Chip'
 export * from './Color'
 export * from './Input'
+export * from './Select'
 export * from './Menu'
 
 export class Atoms extends React.Component {
