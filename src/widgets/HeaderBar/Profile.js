@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { Card, MenuItem, Divider } from '../../core'
+import { gotoURL, isPointInRect } from '../../utils'
 import s from './styles'
-import { isPointInRect } from '../../utils'
 
 function TextIcon({ name, onClick }) {
     let title = name[0]
@@ -133,7 +134,7 @@ export default class Profile extends React.Component {
         }
 
         if (typeof paths[value] !== 'undefined') {
-            window.location = paths[value]
+            gotoURL(paths[value])
         } else {
             console.warn('onClick: not implemented', value)
         }

@@ -41,7 +41,7 @@ function HeaderBar({
                     count={interpretations.count}
                 />
                 <NotificationIcon icon="email" count={messages.count} />
-                <Apps apps={apps} />
+                <Apps apps={apps} baseURL={baseURL} />
                 <Profile profile={profile} baseURL={baseURL} />
             </div>
         </header>

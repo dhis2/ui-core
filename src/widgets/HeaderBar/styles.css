@@ -1,10 +1,10 @@
 .container {
+    border-bottom: 1px solid rgba(32, 32, 32, 0.15);
+    height: 48px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 48px;
-    border-bottom: 1px solid rgba(32, 32, 32, 0.15);
 }
 
 .first {
@@ -42,9 +42,9 @@
 }
 
 .notification {
-    cursor: pointer;
-    position: relative;
     margin: 8px 24px 0 0;
+    position: relative;
+    cursor: pointer;
 }
 .notification .message {
     margin-top: 10px;
@@ -59,13 +59,13 @@
     position: absolute;
     right: -10px;
     top: -6px;
-    font-size: 9px;
-    font-weight: 500;
+    border-radius: 50%;
     width: 16px;
     height: 16px;
+    font-size: 9px;
+    font-weight: 500;
     line-height: 16px;
     text-align: center;
-    border-radius: 50%;
     color: #fff;
 }
 
@@ -87,9 +87,9 @@
 .apps .contents {
     z-index: 10;
     position: absolute;
+    top: 20px;
     right: -6px;
     border-top: 4px solid transparent;
-    top: 20px;
 }
 
 .apps .contents > div:first-child {
@@ -98,11 +98,12 @@
     height: 301px;
 }
 .search {
+    margin: 8px 0 12px 8px;
+    padding-top: 8px;
+    height: 52px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    height: 52px;
-    margin: 8px 0 12px 8px;
 }
 
 .search > div:first-child {
@@ -123,7 +124,7 @@
 }
 
 .apps .settings {
-    margin: 16px 14px 0 14px;
+    margin: 8px 16px 0;
     color: #949394;
     font-size: 22px;
 }
@@ -134,7 +135,6 @@
     margin: 0 8px 0 8px;
     width: 400px;
     height: 235px;
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -143,13 +143,13 @@
 }
 
 .app {
+    border-radius: 12px;
+    width: calc(100% / 4);
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: calc(100% / 4);
-    height: 100px;
-    border-radius: 12px;
     text-decoration: none;
 }
 .app:hover {
@@ -208,16 +208,16 @@
 .profile .contents {
     z-index: 10;
     position: absolute;
+    top: 36px;
     right: -6px;
     border-top: 4px solid transparent;
-    top: 36px;
     width: 310px;
 }
 .header {
-    display: flex;
-    flex-direction: row;
     margin-left: 24px;
     padding-top: 20px;
+    display: flex;
+    flex-direction: row;
 }
 .header > .icon {
     width: 48px;
@@ -228,7 +228,6 @@
     display: flex;
     flex-direction: column;
     margin-left: 20px;
-
     font-weight: 400;
     font-size: 14px;
     color: #000;
