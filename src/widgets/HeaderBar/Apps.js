@@ -1,23 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import Card from '../../core/Card'
 import Icon from '../../core/Icon'
-import TextField from '../../core/Input/TextField'
-import { isPointInRect } from '../../utils'
+import InputField from '../../core/InputField'
+import { gotoURL, isPointInRect } from '../../utils'
 import s from './styles'
 
-function Search({ value, onChange }) {
+function Search({ value, onChange, onSettingsClick }) {
     return (
         <div className={s('search')}>
-            <TextField label="Search apps" value={value} onChange={onChange} />
-            <Icon name="settings" className={s('settings')} />
+            <InputField
+                name="filter"
+                value={value}
+                kind="filled"
+                size="dense"
+                label="Search apps"
+                onChange={onChange}
+            />
+            <Icon
+                name="settings"
+                className={s('settings')}
+                onClick={onSettingsClick}
+            />
         </div>
     )
 }
 
 Search.propTypes = {
-    value: PropTypes.string,
-    onChange: PropTypes.func,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onSettingsClick: PropTypes.func.isRequired,
 }
 
 function Item({ name, path, img }) {
@@ -88,7 +101,10 @@ export default class Apps extends React.Component {
 
     onToggle = () => this.setState({ show: !this.state.show })
 
-    onChange = evt => this.setState({ filter: evt.target.value })
+    onChange = (_, filter) => this.setState({ filter })
+
+    onSettingsClick = () =>
+        gotoURL(`${this.props.baseURL}/dhis-web-user-profile/#/account`)
 
     render() {
         return (
@@ -100,6 +116,7 @@ export default class Apps extends React.Component {
                             <Search
                                 value={this.state.filter}
                                 onChange={this.onChange}
+                                onSettingsClick={this.onSettingsClick}
                             />
                             <List
                                 apps={this.props.apps}
@@ -111,4 +128,8 @@ export default class Apps extends React.Component {
             </div>
         )
     }
+}
+
+Apps.propTypes = {
+    baseURL: PropTypes.string.isRequired,
 }

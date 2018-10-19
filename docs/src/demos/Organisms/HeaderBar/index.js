@@ -3,6 +3,7 @@ import HeaderBar from 'widgets/HeaderBar/HeaderBar.Component'
 import { Col } from '../../../helpers'
 
 const props = {
+    baseURL: 'https://play.dhis2.org/dev',
     instanceName: 'Sierra Leone',
     appName: 'Import / Export',
     profile: {
