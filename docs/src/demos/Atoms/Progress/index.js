@@ -41,7 +41,7 @@ const rows = [
             {
                 Component: CenteredProgress,
                 props: {
-                    center: true,
+                    overlay: true,
                 },
             },
         ],
@@ -56,13 +56,12 @@ const rows = [
         ],
     },
     {
-        title:
-            'Linear progress with "padded" prop (adds whitespace above and below)',
+        title: 'Linear progress with "margin" prop (sting or number)',
         columns: [
             {
                 Component: LinearProgress,
                 props: {
-                    padded: true,
+                    margin: '16px 0',
                 },
             },
         ],
@@ -91,20 +90,18 @@ export class ProgressDemo extends React.Component {
 
     render() {
         return (
-            <div>
-                {rows.map(({ title, columns }, index) => {
-                    return (
-                        <Col
-                            key={`btn-${title}`}
-                            style={{ width: '100%', marginBottom: 40 }}
-                        >
-                            <Text>{title}</Text>
-                            <Row>{this.renderProgressRow(columns)}</Row>
-                        </Col>
-                    )
-                })}
+            <Col>
+                {rows.map(({ title, columns }, index) => (
+                    <div
+                        key={`progress-${title}`}
+                        style={{ width: '100%', marginBottom: 40 }}
+                    >
+                        <Text>{title}</Text>
+                        <Row>{this.renderProgressRow(columns)}</Row>
+                    </div>
+                ))}
                 <Divider />
-            </div>
+            </Col>
         )
     }
 }

@@ -1,45 +1,44 @@
 /* rtl:begin:ignore */
-.container {
-    display: inline-block;
-    color: #1976d2;
-    line-height: 1;
-    margin: 1rem;
-    animation: anim-rotate 1.4s linear infinite;
-}
-
-.small {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.medium {
-    width: 3.125rem;
-    height: 3.125rem;
-}
-
-.large {
-    width: 5rem;
-    height: 5rem;
-}
-
-.circle {
-    stroke: currentColor;
-    animation: anim-dash 1.4s ease-in-out infinite;
-    stroke-dasharray: 80px, 200px;
-    stroke-dashoffset: 0;
-}
-
 .overlay {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    display: flex;
     width: 100%;
     height: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    display: inline-block;
+    margin: 16px;
+    color: #1976d2;
+    animation: anim-rotate 1.4s linear infinite;
+}
+
+.container.small {
+    width: 24px;
+    height: 24px;
+}
+
+.container.medium {
+    width: 50px;
+    height: 50px;
+}
+
+.container.large {
+    width: 80px;
+    height: 80px;
+}
+
+.circle {
+    stroke: currentColor;
+    stroke-dasharray: 80px, 200px;
+    stroke-dashoffset: 0;
+    animation: anim-dash 1.4s ease-in-out infinite;
 }
 
 @keyframes anim-rotate {

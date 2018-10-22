@@ -17,27 +17,27 @@ function Circle() {
     )
 }
 
-function CircularProgress({ size, center }) {
+function CircularProgress({ size, overlay }) {
     const loader = (
         <div role="progressbar" className={s('container', size)}>
             <Circle />
         </div>
     )
 
-    if (center) {
+    if (overlay) {
         return <div className={s('overlay')}>{loader}</div>
     }
 
     return loader
 }
 
-CircularProgress.propTypes = {
-    center: PropTypes.bool,
-    size: PropTypes.oneOf(['large', 'medium', 'small']),
-}
-
 CircularProgress.defaultProps = {
     size: 'medium',
+}
+
+CircularProgress.propTypes = {
+    overlay: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
 }
 
 export { CircularProgress }

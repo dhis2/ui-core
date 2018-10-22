@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import s from './styles'
 
-function LinearProgress({ amount, padded }) {
+function LinearProgress({ amount, margin }) {
     const type =
         typeof amount === 'undefined' ? s('indeterminate') : s('determinate')
     const style = amount ? { width: `${amount}%` } : null
 
     return (
-        <div role="progressbar" className={s('container', { padded })}>
+        <div role="progressbar" className={s('container')} style={{ margin }}>
             <div style={style} className={s('progress', type)} />
         </div>
     )
@@ -16,7 +16,7 @@ function LinearProgress({ amount, padded }) {
 
 LinearProgress.propTypes = {
     amount: PropTypes.number,
-    padded: PropTypes.bool,
+    margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 export { LinearProgress }
