@@ -11,6 +11,16 @@
  * *****************************************************************************
  */
 
+
+
+[dir="ltr"] body, [dir="ltr"] div {
+    font-family: Roboto, sans-serif;
+}
+
+[dir="rtl"] body, [dir="rtl"] div {
+    font-family: "Noto Naskh Arabic", sans-serif;
+}
+
 body,
 .primary-text {
     font-size: 1rem;
