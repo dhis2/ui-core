@@ -15,7 +15,7 @@ function CenteredProgress(props) {
 const rows = [
     {
         title: 'Circular progress with "size" prop in small / medium / large',
-        columns: [
+        list: [
             {
                 Component: CircularProgress,
                 props: {
@@ -24,7 +24,7 @@ const rows = [
             },
             {
                 Component: CircularProgress,
-                props: {}, // medium = default
+                props: {},
             },
             {
                 Component: CircularProgress,
@@ -37,7 +37,7 @@ const rows = [
     {
         title:
             'Circular progress with "center" prop (will overlay a relatively positioned container)',
-        columns: [
+        list: [
             {
                 Component: CenteredProgress,
                 props: {
@@ -48,7 +48,7 @@ const rows = [
     },
     {
         title: 'Linear progress without "amount" prop (indeterminate mode)',
-        columns: [
+        list: [
             {
                 Component: LinearProgress,
                 props: {},
@@ -56,8 +56,8 @@ const rows = [
         ],
     },
     {
-        title: 'Linear progress with "margin" prop (sting or number)',
-        columns: [
+        title: 'Linear progress with "margin" prop (string or number)',
+        list: [
             {
                 Component: LinearProgress,
                 props: {
@@ -68,7 +68,7 @@ const rows = [
     },
     {
         title: 'Linear progress with "amount" prop at value 60 (60% progress)',
-        columns: [
+        list: [
             {
                 Component: LinearProgress,
                 props: {
@@ -82,22 +82,20 @@ const rows = [
 export class ProgressDemo extends React.Component {
     static id = 'progress'
 
-    renderProgressRow(columns) {
-        return columns.map(({ Component, props }, index) => (
-            <Component key={`comp-${index}`} {...props} />
+    renderRow(list) {
+        return list.map(({ Component, props }, index) => (
+            <Component key={`progress-${index}`} {...props} />
         ))
     }
 
     render() {
+        const style = { width: '100%', marginBottom: 40 }
         return (
             <Col>
-                {rows.map(({ title, columns }, index) => (
-                    <div
-                        key={`progress-${title}`}
-                        style={{ width: '100%', marginBottom: 40 }}
-                    >
+                {rows.map(({ title, list }) => (
+                    <div key={`progress-${title}`} style={style}>
                         <Text>{title}</Text>
-                        <Row>{this.renderProgressRow(columns)}</Row>
+                        <Row>{this.renderRow(list)}</Row>
                     </div>
                 ))}
                 <Divider />
