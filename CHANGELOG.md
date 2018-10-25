@@ -1,6 +1,6 @@
-<a name="1.0.0-beta.4"></a>
+<a name="1.0.0-beta.5"></a>
 
-# [1.0.0-beta.4](https://github.com/dhis2/ui/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2018-10-25)
+# [1.0.0-beta.5](https://github.com/dhis2/ui/compare/v1.0.0-beta.3...v1.0.0-beta.5) (2018-10-25)
 
 ### Bug Fixes
 
