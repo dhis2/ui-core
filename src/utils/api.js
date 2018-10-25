@@ -19,6 +19,10 @@ if (isProd) {
     if (!endpoint) {
         endpoint = `${url}/api`
     }
+} else {
+    // for dev. environments
+    url = DHIS_CONFIG.baseUrl
+    endpoint = `${url}/api`
 }
 
 export const serverURL = url
