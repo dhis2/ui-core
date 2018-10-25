@@ -1,23 +1,17 @@
 /* global DHIS_CONFIG, manifest */
 
-let version
+const IS_PROD = process.env.NODE_ENV === 'production'
+
 let url
 let endpoint
 
-const isProd = process.env.NODE_ENV === 'production'
-if (isProd) {
+if (IS_PROD) {
+    url = '..'
+    endpoint = `${url}/api`
     if (typeof manifest !== 'undefined') {
+        let version = manifest.dhis2.apiVersion
         url = manifest.activities.dhis.href
-        version = manifest.dhis2.apiVersion
         endpoint = `${url}/api/${version}`
-    } else if (typeof DHIS_CONFIG === 'object') {
-        url = DHIS_CONFIG.baseUrl
-    } else {
-        url = '..'
-    }
-
-    if (!endpoint) {
-        endpoint = `${url}/api`
     }
 } else {
     // for dev. environments
