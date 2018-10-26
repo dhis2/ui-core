@@ -117,23 +117,6 @@
     flex-wrap: nowrap;
 }
 
-.search > div:first-child {
-    margin: 0;
-}
-
-.search > div:first-child > label:first-child {
-    overflow: visible;
-}
-.search > div:first-child > label:first-child > input:first-child {
-    padding: 0 0 0 11px;
-    height: 44px;
-    width: 358px;
-    border-radius: 4px 4px 0 0;
-    background-color: rgba(0, 0, 10, 0.05);
-    color: #494949;
-    font-size: 13px;
-}
-
 .apps .settings {
     margin: 8px 16px 0;
     color: #949394;
