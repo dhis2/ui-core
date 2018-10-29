@@ -80,7 +80,7 @@ export default class Apps extends React.Component {
         document.addEventListener('click', this.onDocClick)
     }
 
-    componentWillMount() {
+    componentWillUnmount() {
         document.removeEventListener('click', this.onDocClick)
     }
 
