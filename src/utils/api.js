@@ -1,4 +1,4 @@
-/* global DHIS_CONFIG, manifest */
+/* global manifest */
 
 const IS_PROD = process.env.NODE_ENV === 'production'
 
@@ -15,7 +15,7 @@ if (IS_PROD) {
     }
 } else {
     // for dev. environments
-    url = DHIS_CONFIG.baseUrl
+    url = 'https://play.dhis2.org/dev'
     endpoint = `${url}/api`
 }
 
