@@ -22,6 +22,7 @@ export const list = [
             { id: 'card', title: 'Card' },
             { id: 'chip', title: 'Chip' },
             { id: 'color', title: 'Color' },
+            { id: 'icon', title: 'Icon' },
             {
                 id: 'input-fields',
                 title: 'Input Fields',
