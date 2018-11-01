@@ -35,6 +35,7 @@ export const list = [
                     { id: 'input-slider', title: 'Slider' },
                 ],
             },
+            { id: 'logo', title: 'Logo' },
             { id: 'menu', title: 'Menu' },
             { id: 'progress', title: 'Progress' },
             { id: 'segmented-control', title: 'Segmented Control' },
