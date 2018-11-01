@@ -40,8 +40,13 @@ function HeaderBar({
                 <NotificationIcon
                     icon="message"
                     count={interpretations.count}
+                    href={`${baseURL}/dhis-web-interpretation`}
                 />
-                <NotificationIcon icon="email" count={messages.count} />
+                <NotificationIcon
+                    icon="email"
+                    count={messages.count}
+                    href={`${baseURL}/dhis-web-messaging`}
+                />
                 <Apps apps={apps} baseURL={baseURL} />
                 <Profile profile={profile} baseURL={baseURL} />
             </div>
