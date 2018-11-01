@@ -121,7 +121,3 @@
 :global .blue a:visited {
     color: #1976d2;
 }
-:global .blue a:focus,
-:global .blue a:active {
-    background-color: #eceff1;
-}
