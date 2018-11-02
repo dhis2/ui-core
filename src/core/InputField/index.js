@@ -16,7 +16,7 @@ class InputField extends React.Component {
     }
 
     onClick = () => {
-        if (this.ref) {
+        if (this.ref && !this.props.disabled) {
             this.ref.focus()
             this.setState({ focused: true })
         }

@@ -53,17 +53,21 @@
     background-color: #3d9305;
 }
 
-.status-warning.label::before {
+.status-warning.label::before,
+.input:checked + .status-warning.label::before {
     background-color: #e59635;
 }
-.status-warning.label::after {
+.status-warning.label::after,
+.input:checked + .status-warning.label::after {
     background-color: #e59635;
 }
 
-.status-error.label::before {
+.status-error.label::before,
+.input:checked + .status-error.label::before {
     background-color: #e53935;
 }
-.status-error.label::after {
+.status-error.label::after,
+.input:checked + .status-error.label::after {
     background-color: #e53935;
 }
 
