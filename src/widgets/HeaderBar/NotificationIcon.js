@@ -4,26 +4,27 @@ import Icon from '../../core/Icon'
 import { t } from '../../utils'
 import s from './styles'
 
-function NotificationIcon({ icon, count }) {
+function NotificationIcon({ icon, count, href }) {
     return (
-        <div className={s('notification', { icon })}>
+        <a className={s('notification', { icon })} href={href}>
             {count > 0 && (
-                <div className={s('count', t('secondary-light-bg'))}>
+                <span className={s('count', t('secondary-light-bg'))}>
                     {count}
-                </div>
+                </span>
             )}
             <Icon name={icon} />
-        </div>
+        </a>
     )
-}
-
-NotificationIcon.propTypes = {
-    count: PropTypes.number,
-    icon: PropTypes.string.isRequired,
 }
 
 NotificationIcon.defaultProps = {
     count: 0,
+}
+
+NotificationIcon.propTypes = {
+    icon: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
+    count: PropTypes.number,
 }
 
 export default NotificationIcon

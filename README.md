@@ -2,7 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/dhis2/ui.svg)](https://greenkeeper.io/)
 
-**[Online docs and demos (latest master build)](https://dhis2.github.io/ui-builds/)**
+**[Online docs and demos (latest master build)](https://d2-ci.github.io/ui/)**
 
 ## Resources
 
