@@ -96,7 +96,7 @@
 }
 
 .apps .contents {
-    z-index: 10;
+    z-index: 10000;
     position: absolute;
     top: 20px;
     right: -6px;
@@ -200,7 +200,7 @@
 }
 
 .profile .contents {
-    z-index: 10;
+    z-index: 10000;
     position: absolute;
     top: 36px;
     right: -6px;
