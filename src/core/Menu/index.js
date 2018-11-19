@@ -8,7 +8,7 @@ import s from './styles'
 
 export function Menu({ size, width, list, onClick }) {
     return (
-        <Card width={width}>
+        <Card>
             <ul className={s('menu', size)}>
                 {list.map(
                     (
