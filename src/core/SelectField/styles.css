@@ -28,6 +28,14 @@
     cursor: pointer;
     user-select: none;
 }
+
+.container.size-default {
+    height: 68px;
+}
+.container.size-dense {
+    height: 56px;
+}
+
 .container.size-default .select {
     height: 56px;
 }
@@ -69,13 +77,10 @@
 }
 
 .menu {
-    position: absolute;
+    position: relative;
     z-index: 1000;
     left: 0;
-}
-.container.size-default .menu {
-    top: 56px;
-}
-.container.size-dense .menu {
-    top: 44px;
+    top: -15px;
+    right: 0;
+    bottom: 0;
 }
