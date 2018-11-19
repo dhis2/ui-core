@@ -5,6 +5,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: start;
+    cursor: pointer;
 }
 
 .container input[type='radio'] {
@@ -20,7 +21,39 @@
     margin: 0 0 0 8px;
 }
 
+.disabled,
+.disabled .label {
+    cursor: not-allowed;
+}
+
 .required:after {
     content: '*';
     padding-left: 4px;
+}
+
+.valid,
+.valid-icon {
+    composes: valid from '../mixins-state.css';
+}
+
+.warning,
+.warning-icon {
+    composes: warning from '../mixins-state.css';
+}
+
+.error,
+.error-icon {
+    composes: error from '../mixins-state.css';
+}
+
+.default-icon {
+    composes: secondary-light from '../mixins-color.css';
+}
+
+.default {
+    composes: grey-dark from '../mixins-color.css';
+}
+
+.disabled {
+    composes: grey-light from '../mixins-color.css';
 }

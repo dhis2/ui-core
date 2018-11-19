@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
-import { inputColorClass } from '../../utils'
 import s from './styles'
 
 class Checkbox extends React.Component {
@@ -21,6 +20,7 @@ class Checkbox extends React.Component {
     render() {
         const { required, status } = this.props
         let name = 'check_box_outline_blank'
+
         if (this.state.indeterminate) {
             name = 'indeterminate_check_box'
         } else if (this.props.checked) {
@@ -30,15 +30,17 @@ class Checkbox extends React.Component {
         const icon = (
             <Icon
                 name={name}
-                className={`${inputColorClass(
-                    this.props.checked,
-                    this.props.disabled
-                )} ${status}`}
+                className={s(`${status}-icon`, {
+                    disabled: this.props.disabled,
+                    checked: this.props.checked,
+                })}
             />
         )
 
         return (
-            <label className={s('container')}>
+            <label
+                className={s('container', { disabled: this.props.disabled })}
+            >
                 <input
                     type="checkbox"
                     onChange={this.onChange}
