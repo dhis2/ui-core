@@ -1,0 +1,27 @@
+.error {
+    color: #e53935;
+}
+.error-bg {
+    background-color: #e53935;
+}
+
+.warning {
+    color: #e59635;
+}
+.warning-bg {
+    background-color: #e59635;
+}
+
+.valid {
+    color: #3d9305;
+}
+.valid-bg {
+    background-color: #3d9305;
+}
+
+.info {
+    color: #eaf4ff;
+}
+.info-bg {
+    background-color: #eaf4ff;
+}
