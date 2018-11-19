@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 import s from './styles'
 import Menu from '../Menu'
-import Icon from '../Icon'
 import { isPointInRect } from '../../utils'
 
-class DropdownButton extends Component {
+class SplitButton extends Component {
     state = {
         open: false,
     }
@@ -38,7 +37,6 @@ class DropdownButton extends Component {
 
     render() {
         const { open } = this.state
-
         let width = this.props.width
         if (!width) {
             width = this.elContainer
@@ -46,23 +44,24 @@ class DropdownButton extends Component {
                 : 'inherit'
         }
 
-        const icon = open ? 'arrow_drop_up' : 'arrow_drop_down'
-
         return (
-            <div
-                className={s('dropdown', `${this.props.size}`)}
-                ref={c => (this.elContainer = c)}
-            >
+            <div className={s('split')} ref={c => (this.elContainer = c)}>
                 <Button
                     icon={this.props.icon}
+                    kind={this.props.kind}
+                    label={this.props.label}
+                    active={this.props.active}
+                    disabled={this.props.disabled}
+                    onClick={this.props.onClick}
+                />
+
+                <Button
                     kind={this.props.kind}
                     active={this.props.active}
                     disabled={this.props.disabled}
                     onClick={this.onToggle}
-                >
-                    {this.props.label}
-                    <Icon className="menu-icon" name={icon} />
-                </Button>
+                    icon={open ? 'arrow_drop_up' : 'arrow_drop_down'}
+                />
 
                 {open && (
                     <div
@@ -70,6 +69,7 @@ class DropdownButton extends Component {
                         ref={c => (this.elMenu = c)}
                     >
                         <Menu
+                            width={`${width}px`}
                             size={this.props.size}
                             list={this.props.list}
                             onClick={this.props.onClick}
@@ -81,14 +81,14 @@ class DropdownButton extends Component {
     }
 }
 
-DropdownButton.defaultProps = {
+SplitButton.defaultProps = {
     size: 'medium',
     kind: 'basic',
     active: false,
     disabled: false,
 }
 
-DropdownButton.propTypes = {
+SplitButton.propTypes = {
     width: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary']),
     icon: PropTypes.string,
@@ -100,5 +100,5 @@ DropdownButton.propTypes = {
     onClick: PropTypes.func.isRequired,
 }
 
-export { DropdownButton }
-export default DropdownButton
+export { SplitButton }
+export default SplitButton

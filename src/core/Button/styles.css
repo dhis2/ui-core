@@ -1,35 +1,21 @@
 .button {
+    composes: boxmodel from '../mixins-global.css';
+
     user-select: none;
     position: relative;
     border: 1px solid transparent;
-    border-radius: 2px;
+    border-radius: 5px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     background-color: transparent;
     font-family: Roboto, sans-serif;
-    font-weight: 500;
-    font-size: 13px;
-    letter-spacing: 0.46px;
-    padding: 0 16px;
-    height: 36px;
-    line-height: 36px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: capitalize;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-/* Remove pointer events so event.target of the click handler is always the button */
-.button i {
-    pointer-events: none;
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
-.icon-only i {
-    margin-right: 0;
-    margin-left: 0;
 }
 
 .button:disabled {
@@ -41,137 +27,166 @@
     outline: none;
 }
 
-.outlined,
-.circle {
-    border-width: 2px;
+.button.icon {
+    padding-left: 10px;
 }
 
-.primary,
-.raised,
-.circle {
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12),
-        0 1px 3px 0 rgba(0, 0, 0, 0.2);
+.size-small {
+    font-size: 14px;
+    line-height: 16px;
+    height: 28px;
+    padding: 6px 16px;
 }
 
-.primary:disabled,
-.raised:disabled,
-.circle:disabled {
+.size-medium {
+    font-size: 14px;
+    line-height: 16px;
+    height: 36px;
+    padding: 10px 16px;
+}
+
+.size-large {
+    font-size: 16px;
+    line-height: 19px;
+    height: 43px;
+    padding: 12px 24px;
+}
+
+.icon-only i {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.kind-basic {
+    background-color: #f9fafb;
+    border: 1px solid #c5c9cc;
+}
+
+.kind-basic:hover {
+    border: 1px solid #c5c9cc;
+    background-color: #f3f4f5;
+}
+
+.kind-basic:active,
+.kind-basic:active:focus {
+    background-color: #f3f4f5;
+    border: 1px solid #c5c9cc;
+    box-shadow: 0 0 0 1px #dfe0e1 inset;
+}
+
+.kind-basic:focus {
+    background-color: #f9fafb;
+    border: 1px solid #366acf;
+    box-shadow: 0 0 0 1px #366acf inset;
+}
+
+.kind-basic:disabled {
+    color: #a0a0a0;
+    border: 1px solid #c5c9cc;
+    background-color: #f9fafb;
     box-shadow: none;
 }
 
-.circle {
-    border-radius: 50%;
-    padding: 0;
-    width: 36px;
+.kind-primary {
+    color: #fff;
+    background-color: #2b61b3;
+    border: 1px solid #1e4f9d;
+    background: linear-gradient(#275cad, #1e4f9d);
 }
 
-.flat {
-    color: #004ba0;
+.kind-primary:hover {
+    border: 1px solid #1e4f9d;
+    background-color: #21539f;
+    background: linear-gradient(#21539f, #1c4a90);
 }
 
-.flat:hover {
-    background-color: rgba(234, 244, 255, 0.4);
-}
-.flat:active {
-    background-color: #eaf4ff;
-}
-.flat:focus {
-    background-color: #ffffff;
-    border: 1px solid #004ba0;
-}
-.flat:disabled {
-    color: #9e9e9e;
-    background-color: transparent;
+.kind-primary:active,
+.kind-primary:active:focus {
+    background-color: #1c4a90;
+    background: linear-gradient(#1c4a90, #1d4b90);
+    border: 1px solid #1b4689;
+    box-shadow: 0 0 0 1px #1b4689 inset;
 }
 
-.raised {
-    color: #004ba0;
-    background-color: #ffffff;
+.kind-primary:focus {
+    background-color: #285dac;
+    background: linear-gradient(#2f69bc, #2253a0);
+    border: 1px solid #081f46;
+    box-shadow: 0 0 0 1px #081f46 inset;
 }
 
-.raised:hover {
-    background-color: rgba(234, 244, 255, 0.4);
+.kind-primary:disabled {
+    color: #fff;
+    background-color: #b6c8e2;
+    background: linear-gradient(#b8cbe6, #b4c5de);
+    border: 1px solid #b2c3dd;
+    box-shadow: none;
 }
 
-.raised:active {
-    background-color: #eaf4ff;
+.kind-secondary {
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
 }
 
-.raised:focus {
-    border: 1px solid rgba(0, 75, 160, 0.8);
-    background-color: rgba(234, 244, 255, 0.4);
+.kind-secondary:hover {
+    border: 1px solid #e0e0e0;
+    background-color: #f5f5f5;
 }
 
-.raised:disabled {
-    color: rgba(0, 75, 160, 0.5);
-    background-color: rgba(153, 153, 153, 0.1);
+.kind-secondary:active,
+.kind-secondary:active:focus {
+    background-color: #ebebeb;
+    border: 1px solid #e0e0e0;
+    box-shadow: none;
 }
 
-.primary {
-    color: #ffffff;
-    background-color: #004ba0;
+.kind-secondary:focus {
+    background-color: #fcfcfc;
+    border: 1px solid #377acf;
+    box-shadow: 0 0 0 1px #377acf inset;
 }
 
-.primary:hover {
-    background-color: #1976d2;
+.kind-secondary:disabled {
+    color: #b2b2b2;
+    border: 1px solid #e0e0e0;
+    background-color: #fcfcfc;
+    box-shadow: none;
 }
 
-.primary:active {
-    background-color: #033976;
+.kind-destructive {
+    color: #fff;
+    background-color: #b9242b;
+    border: 1px solid #960813;
+    background: linear-gradient(#c62d34, #ab1a22);
 }
 
-.primary:focus {
-    border: 1px solid #63a4ff;
-    background-color: #004ba0;
+.kind-destructive:hover {
+    border: 1px solid #960813;
+    background-color: #ac0f1a;
+    background: linear-gradient(#ac1a22, #ac0615);
 }
 
-.primary:disabled {
-    color: #9e9e9e;
-    background-color: #e3f2fd;
+.kind-destructive:active,
+.kind-destructive:active:focus {
+    background-color: #ac101b;
+    background: linear-gradient(#a5181f, #ac0715);
+    border: 1px solid #960813;
+    box-shadow: 0 0 0 1px #960813 inset;
 }
 
-.outlined {
-    border: 2px solid rgba(0, 75, 160, 0.8);
-    color: #004ba0;
-    background-color: #f8f8f8;
-    line-height: 34px;
+.kind-destructive:focus {
+    background-color: #b72229;
+    background: linear-gradient(#c52d34, #ab1a22);
+    border: 1px solid #570206;
+    box-shadow: 0 0 0 1px #570206 inset;
 }
 
-.outlined:hover,
-.outlined:focus {
-    background-color: rgba(234, 244, 255, 0.4);
-}
-
-.outlined:active {
-    background-color: #eaf4ff;
-}
-
-.outlined:disabled {
-    border: 2px solid rgba(0, 75, 160, 0.5);
-    color: rgba(0, 75, 160, 0.5);
-    background-color: rgba(153, 153, 153, 0.1);
-}
-
-.circle {
-    color: #ffffff;
-    background-color: #61a799;
-}
-
-.circle:hover {
-    background-color: #31776b;
-}
-
-.circle:active {
-    background-color: #1c4b40;
-}
-
-.circle:focus {
-    border: 2px solid #54c0a4;
-    background-color: #31776b;
-}
-
-.circle:disabled {
-    background-color: #badedb;
+.kind-destructive:disabled {
+    color: #fffefe;
+    background-color: #e5b5b7;
+    background: linear-gradient(#eab8ba, #e1b2b4);
+    border: 1px solid #dbabaf;
+    box-shadow: none;
 }
 
 .dropdown {
@@ -180,11 +195,17 @@
     white-space: nowrap;
 }
 
-.dropdown .button:first-child {
+.split {
+    position: relative;
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+.split .button:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-.dropdown .button:nth-child(2) {
+.split .button:nth-child(2) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     display: inline-flex;
@@ -192,26 +213,21 @@
     align-items: center;
     width: 32px;
 }
-.dropdown .button:nth-child(2) i {
-    margin-right: 0;
-    margin-bottom: 0;
-}
-
-/* Use hover color for dropdown section of the dropdownbutton */
-.dropdown .button.raised:nth-child(2):focus {
-    border: 1px solid rgba(234, 244, 255, 0.4);
-    background-color: rgba(234, 244, 255, 0.4);
-}
-.dropdown .button.primary:nth-child(2):focus {
-    border: 1px solid #033976;
-    background-color: #033976;
-}
 
 .menu {
     position: absolute;
     z-index: 1000;
-    right: 0;
+    left: 0;
+}
+
+.menu.small {
+    top: 28px;
+}
+.menu.medium {
     top: 36px;
+}
+.menu.large {
+    top: 43px;
 }
 
 /* IE11 hacks */
@@ -222,13 +238,6 @@
     */
     .button {
         border-radius: 0;
-    }
-    .button.circle {
-        border-radius: 50%;
-    }
-    /* Fixes the circle button white px on edge */
-    .button.circle {
-        border-color: #61a799;
     }
     /* Prevent icon position shifting during a click */
     .button .material-icons {
