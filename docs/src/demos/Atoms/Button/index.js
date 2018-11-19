@@ -1,23 +1,16 @@
 import React from 'react'
-import {
-    FlatButton,
-    CircleButton,
-    RaisedButton,
-    PrimaryButton,
-    OutlinedButton,
-    DropdownButton,
-} from 'core/Button'
+
+import Button, { DropdownButton, SplitButton } from 'core/Button'
 
 import { Text, Row, Col, Divider } from '../../../helpers'
 
 const rows = [
-    { id: 'flat', title: 'Flat' },
-    { id: 'raised_default', title: 'Raised Default' },
-    { id: 'raised_primary', title: 'Raised Primary' },
-    { id: 'outlined', title: 'Outlined' },
-    { id: 'circle', title: 'Circle' },
+    { id: 'basic', title: 'Basic' },
+    { id: 'primary', title: 'Primary' },
+    { id: 'secondary', title: 'Secondary' },
+    { id: 'destructive', title: 'Destructive' },
     { id: 'dropdown', title: 'Dropdown' },
-    { id: 'icon', title: 'Icon' },
+    { id: 'split', title: 'Split button' },
 ]
 
 function onButtonClick(msg) {
@@ -27,40 +20,27 @@ function onButtonClick(msg) {
 const sButtonContainer = {
     marginRight: 8,
 }
+
 function ButtonContainer({ children }) {
     return <div style={sButtonContainer}>{children}</div>
 }
 
-function Content({ type, list }) {
-    let Component = false
-    let onClick = null
+function Content({ type, kind, list }) {
+    let Component = Button
 
-    if (type === 'flat') {
-        Component = FlatButton
-        onClick = () => onButtonClick('Flat Button')
-    } else if (type === 'raised_default') {
-        Component = RaisedButton
-        onClick = () => onButtonClick('Raised Button')
-    } else if (type === 'raised_primary') {
-        Component = PrimaryButton
-        onClick = () => onButtonClick('Primary Button')
-    } else if (type === 'outlined') {
-        Component = OutlinedButton
-        onClick = () => onButtonClick('Outlined Button')
-    } else if (type === 'circle') {
-        Component = CircleButton
-        onClick = () => onButtonClick('Circle Button')
-    } else if (type === 'dropdown') {
+    if (type === 'dropdown') {
         Component = DropdownButton
-        onClick = () => onButtonClick('Dropdown Button')
-    } else if (type === 'icon') {
-        Component = RaisedButton
-        onClick = () => onButtonClick('Icon Button')
+    } else if (type === 'split') {
+        Component = SplitButton
     }
 
     return list.map((props, idx) => (
         <ButtonContainer key={`btn-${type}-${idx}`}>
-            <Component {...props} onClick={onClick} />
+            <Component
+                kind={kind}
+                {...props}
+                onClick={() => onButtonClick(`Button: ${type}`)}
+            />
         </ButtonContainer>
     ))
 }
@@ -85,49 +65,195 @@ const list = [
 ]
 
 const buttons = {
-    flat: [
+    primary: [
         {
             label: 'default',
+            kind: 'primary',
         },
         {
             disabled: true,
             label: 'disabled',
-        },
-    ],
-    raised_default: [
-        {
-            label: 'default',
-        },
-        {
-            disabled: true,
-            label: 'disabled',
-        },
-    ],
-    raised_primary: [
-        {
-            label: 'default',
-        },
-        {
-            disabled: true,
-            label: 'disabled',
-        },
-    ],
-    outlined: [
-        {
-            label: 'default',
-        },
-        {
-            disabled: true,
-            label: 'disabled',
-        },
-    ],
-    circle: [
-        {
-            icon: 'add',
+            kind: 'primary',
         },
         {
             icon: 'add',
+            label: 'with icon',
+            kind: 'primary',
+        },
+        {
+            size: 'small',
+            label: 'small',
+            kind: 'primary',
+        },
+        {
+            size: 'small',
             disabled: true,
+            label: 'small',
+            kind: 'primary',
+        },
+        {
+            size: 'small',
+            icon: 'add',
+            label: 'with icon',
+            kind: 'primary',
+        },
+        {
+            size: 'large',
+            label: 'large',
+            kind: 'primary',
+        },
+        {
+            size: 'large',
+            disabled: true,
+            label: 'large',
+            kind: 'primary',
+        },
+        {
+            icon: 'add',
+            size: 'large',
+            label: 'with icon',
+            kind: 'primary',
+        },
+    ],
+    secondary: [
+        {
+            label: 'default',
+            kind: 'secondary',
+        },
+        {
+            disabled: true,
+            label: 'disabled',
+            kind: 'secondary',
+        },
+        {
+            icon: 'add',
+            label: 'with icon',
+            kind: 'secondary',
+        },
+        {
+            size: 'small',
+            label: 'small',
+            kind: 'secondary',
+        },
+        {
+            size: 'small',
+            disabled: true,
+            label: 'small',
+            kind: 'secondary',
+        },
+        {
+            size: 'small',
+            icon: 'add',
+            label: 'with icon',
+            kind: 'secondary',
+        },
+        {
+            size: 'large',
+            label: 'large',
+            kind: 'secondary',
+        },
+        {
+            size: 'large',
+            disabled: true,
+            label: 'large',
+            kind: 'secondary',
+        },
+        {
+            icon: 'add',
+            size: 'large',
+            label: 'with icon',
+            kind: 'secondary',
+        },
+    ],
+    basic: [
+        {
+            label: 'default',
+        },
+        {
+            disabled: true,
+            label: 'disabled',
+        },
+        {
+            icon: 'add',
+            label: 'with icon',
+        },
+        {
+            size: 'small',
+            label: 'small',
+        },
+        {
+            size: 'small',
+            disabled: true,
+            label: 'small',
+        },
+        {
+            size: 'small',
+            icon: 'add',
+            label: 'with icon',
+        },
+        {
+            size: 'large',
+            label: 'large',
+        },
+        {
+            size: 'large',
+            disabled: true,
+            label: 'large',
+        },
+        {
+            icon: 'add',
+            size: 'large',
+            label: 'with icon',
+        },
+    ],
+    destructive: [
+        {
+            label: 'default',
+            kind: 'destructive',
+        },
+        {
+            disabled: true,
+            label: 'disabled',
+            kind: 'destructive',
+        },
+        {
+            icon: 'add',
+            label: 'with icon',
+            kind: 'destructive',
+        },
+        {
+            size: 'small',
+            label: 'small',
+            kind: 'destructive',
+        },
+        {
+            size: 'small',
+            disabled: true,
+            label: 'small',
+            kind: 'destructive',
+        },
+        {
+            size: 'small',
+            icon: 'add',
+            label: 'with icon',
+            kind: 'destructive',
+        },
+        {
+            size: 'large',
+            label: 'large',
+            kind: 'destructive',
+        },
+        {
+            size: 'large',
+            disabled: true,
+            label: 'large',
+            kind: 'destructive',
+        },
+        {
+            icon: 'add',
+            size: 'large',
+            label: 'with icon',
+            kind: 'destructive',
         },
     ],
     links: [],
@@ -140,9 +266,36 @@ const buttons = {
         {
             list,
             icon: 'face',
+            kind: 'primary',
+            label: 'dropdown button',
+            onClick: v => console.log('Clicked on DropdownButton', v),
+        },
+        {
+            list,
+            icon: 'face',
             disabled: true,
             label: 'dropdown button',
             onClick: v => console.log('Clicked on DropdownButton', v),
+        },
+    ],
+    split: [
+        {
+            list,
+            label: 'split button',
+            onClick: v => console.log('Clicked on SplitButton', v),
+        },
+        {
+            list,
+            kind: 'primary',
+            icon: 'face',
+            label: 'split button',
+            onClick: v => console.log('Clicked on SplitButton', v),
+        },
+        {
+            list,
+            disabled: true,
+            label: 'split button',
+            onClick: v => console.log('Clicked on SplitButton', v),
         },
     ],
     icon: [
@@ -164,7 +317,7 @@ export class ButtonDemo extends React.Component {
     render() {
         return (
             <div>
-                {rows.map(({ id, title }) => {
+                {rows.map(({ id, kind, title }) => {
                     return (
                         <Col
                             key={`btn-${title}`}
@@ -172,7 +325,11 @@ export class ButtonDemo extends React.Component {
                         >
                             <Text>{title}</Text>
                             <Row>
-                                <Content type={id} list={buttons[id]} />
+                                <Content
+                                    kind={kind}
+                                    type={id}
+                                    list={buttons[id]}
+                                />
                             </Row>
                         </Col>
                     )

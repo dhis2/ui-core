@@ -38,17 +38,16 @@ export class MenuDemo extends React.Component {
         return (
             <Col>
                 <Text>Default</Text>
-                <Menu width="250px" list={list} onClick={onClick} />
+                <div style={{ width: '250px' }}>
+                    <Menu list={list} onClick={onClick} />
+                </div>
 
                 <Spacer height="40px" />
 
                 <Text>Dense</Text>
-                <Menu
-                    width="250px"
-                    size="dense"
-                    list={list}
-                    onClick={onClick}
-                />
+                <div style={{ width: '250px' }}>
+                    <Menu size="dense" list={list} onClick={onClick} />
+                </div>
                 <Divider />
             </Col>
         )
