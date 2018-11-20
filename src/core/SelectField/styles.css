@@ -1,5 +1,5 @@
 .container {
-    composes: boxmodel from '../mixins/globals.css';
+    composes: boxmodel font from '../mixins/globals.css';
 
     position: relative;
 }

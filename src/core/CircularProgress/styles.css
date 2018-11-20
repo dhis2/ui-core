@@ -1,6 +1,6 @@
 /* rtl:begin:ignore */
 .overlay {
-    composes: boxmodel from '../mixins/globals.css';
+    composes: boxmodel font from '../mixins/globals.css';
 
     position: absolute;
     top: 0;
@@ -15,7 +15,7 @@
 }
 
 .container {
-    composes: boxmodel from '../mixins/globals.css';
+    composes: boxmodel font from '../mixins/globals.css';
 
     display: inline-block;
     margin: 16px;

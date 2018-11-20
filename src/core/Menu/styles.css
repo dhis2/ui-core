@@ -1,5 +1,5 @@
 .menu {
-    composes: boxmodel from '../mixins/globals.css';
+    composes: boxmodel font from '../mixins/globals.css';
 
     user-select: none;
     display: flex;

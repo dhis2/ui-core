@@ -1,19 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik:400,500');
-
 body {
     margin: 0;
     padding: 0;
+    font-family: Roboto;
 }
 
-body,
-div {
-    box-sizing: border-box;
-    font-size: 14px;
-    line-height: 17px;
-    font-weight: 400;
-    font-family: Rubik, sans-serif;
-    color: #0d0d0e;
-}
 a {
     cursor: pointer;
     color: #0d0d0e;
@@ -102,11 +92,4 @@ a {
 .col {
     display: flex;
     flex-direction: column;
-}
-
-.row,
-.col,
-.row div,
-.col div {
-    font-family: Roboto, sans-serif;
 }

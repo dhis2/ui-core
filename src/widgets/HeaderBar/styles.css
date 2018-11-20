@@ -1,4 +1,6 @@
 .container {
+    composes: boxmodel font from '../../core/mixins/globals.css';
+
     border-bottom: 1px solid rgba(32, 32, 32, 0.15);
     height: 48px;
     display: flex;

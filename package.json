@@ -69,7 +69,6 @@
   "dependencies": {
     "@babel/runtime-corejs2": "^7.1.5",
     "classnames": "^2.2.6",
-    "material-design-icons-iconfont": "^4.0.2",
-    "typeface-roboto": "^0.0.54"
+    "material-design-icons-iconfont": "^4.0.2"
   }
 }
