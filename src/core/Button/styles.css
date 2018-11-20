@@ -190,12 +190,14 @@
 }
 
 .dropdown {
+    composes: boxmodel from '../mixins-global.css';
     position: relative;
     display: inline-flex;
     white-space: nowrap;
 }
 
 .split {
+    composes: boxmodel from '../mixins-global.css';
     position: relative;
     display: inline-flex;
     white-space: nowrap;
@@ -215,6 +217,7 @@
 }
 
 .menu {
+    composes: boxmodel from '../mixins-global.css';
     position: absolute;
     z-index: 1000;
     left: 0;
@@ -228,6 +231,10 @@
 }
 .menu.large {
     top: 43px;
+}
+
+.menu-label {
+    margin-right: 10px;
 }
 
 /* IE11 hacks */

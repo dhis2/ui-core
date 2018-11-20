@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 import s from './styles'
 import Menu from '../Menu'
+import Icon from '../Icon'
 import { isPointInRect } from '../../utils'
 
 class SplitButton extends Component {
@@ -60,8 +61,12 @@ class SplitButton extends Component {
                     active={this.props.active}
                     disabled={this.props.disabled}
                     onClick={this.onToggle}
-                    icon={open ? 'arrow_drop_up' : 'arrow_drop_down'}
-                />
+                >
+                    <Icon
+                        className="menu-icon"
+                        name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
+                    />
+                </Button>
 
                 {open && (
                     <div

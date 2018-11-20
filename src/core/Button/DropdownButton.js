@@ -60,7 +60,7 @@ class DropdownButton extends Component {
                     disabled={this.props.disabled}
                     onClick={this.onToggle}
                 >
-                    {this.props.label}
+                    <span className={s('menu-label')}>{this.props.label}</span>
                     <Icon className="menu-icon" name={icon} />
                 </Button>
 
