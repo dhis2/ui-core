@@ -50,7 +50,6 @@ class HeaderBarContainer extends React.Component {
             get('me.json').then(r => r.json()),
         ])
             .then(([info, apps, unread, me]) => {
-                console.log(info, apps, unread, me)
                 return post('i18n', JSON.stringify(apps.map(a => a.name)))
                     .then(r => r.json())
                     .then(i18n => {
@@ -73,10 +72,14 @@ class HeaderBarContainer extends React.Component {
                             },
                         }
                     })
-                    .catch(e => console.error('bar', e))
             })
             .then(res => this.setState(res))
-            .catch(e => console.error('foo', e))
+            .catch(e =>
+                console.error(
+                    'HeaderBar failed to mount because of API errors.',
+                    e
+                )
+            )
     }
 
     render() {
