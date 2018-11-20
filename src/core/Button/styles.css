@@ -48,6 +48,7 @@
 .size-large {
     font-size: 16px;
     line-height: 19px;
+    letter-spacing: 0.57px;
     height: 43px;
     padding: 0 24px;
 }
