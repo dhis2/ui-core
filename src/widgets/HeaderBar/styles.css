@@ -81,7 +81,7 @@
 }
 
 .count {
-    composes: secondary-light-bg from '../../core/mixins-color.css';
+    composes: secondary-light-bg from '../../core/mixins/colors.css';
 }
 
 .notification > .count i {

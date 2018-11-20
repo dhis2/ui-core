@@ -1,5 +1,5 @@
 .button {
-    composes: boxmodel from '../mixins-global.css';
+    composes: boxmodel from '../mixins/globals.css';
 
     user-select: none;
     position: relative;
@@ -192,14 +192,14 @@
 }
 
 .dropdown {
-    composes: boxmodel from '../mixins-global.css';
+    composes: boxmodel from '../mixins/globals.css';
     position: relative;
     display: inline-flex;
     white-space: nowrap;
 }
 
 .split {
-    composes: boxmodel from '../mixins-global.css';
+    composes: boxmodel from '../mixins/globals.css';
     position: relative;
     display: inline-flex;
     white-space: nowrap;
@@ -217,7 +217,7 @@
 }
 
 .menu {
-    composes: boxmodel from '../mixins-global.css';
+    composes: boxmodel from '../mixins/globals.css';
     position: absolute;
     z-index: 1000;
     left: 0;
