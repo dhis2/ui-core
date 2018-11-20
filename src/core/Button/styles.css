@@ -35,21 +35,21 @@
     font-size: 14px;
     line-height: 16px;
     height: 28px;
-    padding: 6px 16px;
+    padding: 0 16px;
 }
 
 .size-medium {
     font-size: 14px;
     line-height: 16px;
     height: 36px;
-    padding: 10px 16px;
+    padding: 0 16px;
 }
 
 .size-large {
     font-size: 16px;
     line-height: 19px;
     height: 43px;
-    padding: 12px 24px;
+    padding: 0 24px;
 }
 
 .icon-only i {
@@ -211,7 +211,7 @@
 .split .button:nth-child(2) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-    padding: 0px 9px;
+    padding: 0 9px;
 }
 
 .menu {
