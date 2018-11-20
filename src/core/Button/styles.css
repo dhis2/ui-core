@@ -207,13 +207,11 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
+
 .split .button:nth-child(2) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
+    padding: 0px 9px;
 }
 
 .menu {
