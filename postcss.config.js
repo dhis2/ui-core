@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs-extra')
+const stringHash = require('string-hash')
 
 module.exports = {
     plugins: {
@@ -27,6 +28,21 @@ module.exports = {
                 )
                 fs.ensureDirSync(jsonFileDir)
                 fs.writeFileSync(jsonFileName, JSON.stringify(json))
+            },
+            generateScopedName: function(name, filename, css) {
+                const path = require('path')
+
+                const i = css.indexOf('.' + name)
+                const lineNumber = css.substr(0, i).split(/[\r\n]/).length
+                const component = path
+                    .basename(path.dirname(filename))
+                    .toLowerCase()
+
+                const hash = stringHash(css)
+                    .toString(36)
+                    .substr(0, 5)
+
+                return `_ui_${component}_${name}_${hash}_${lineNumber}`
             },
         },
         'postcss-rtl': {},

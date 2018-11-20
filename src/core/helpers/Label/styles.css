@@ -1,4 +1,6 @@
 .container {
+    composes: boxmodel from '../../mixins/globals.css';
+
     position: absolute;
     left: 0;
     top: 0;

@@ -1,4 +1,6 @@
 .container {
+    composes: boxmodel from '../mixins/globals.css';
+
     content: ' ';
     font-family: 'Material Icons';
     font-weight: normal;

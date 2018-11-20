@@ -1,4 +1,6 @@
 .container {
+    composes: boxmodel from '../mixins/globals.css';
+
     display: inline-flex;
     align-items: center;
     margin: 4px;
@@ -6,6 +8,7 @@
     height: 32px;
     background-color: #eceff1;
     font-size: 14px;
+    line-height: 16px;
     cursor: pointer;
     user-select: none;
 }

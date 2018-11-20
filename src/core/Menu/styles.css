@@ -1,4 +1,6 @@
 .menu {
+    composes: boxmodel from '../mixins/globals.css';
+
     user-select: none;
     display: flex;
     flex-direction: column;

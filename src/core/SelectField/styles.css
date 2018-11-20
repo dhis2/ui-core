@@ -1,5 +1,6 @@
 .container {
     composes: boxmodel from '../mixins/globals.css';
+
     position: relative;
 }
 .container.disabled {
