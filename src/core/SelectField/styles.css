@@ -1,5 +1,5 @@
 .container {
-    composes: boxmodel from '../mixin-global.css';
+    composes: boxmodel from '../mixins-global.css';
     position: relative;
 }
 .container.disabled {
