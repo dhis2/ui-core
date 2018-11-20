@@ -59,11 +59,11 @@
 
 .kind-basic {
     background-color: #f9fafb;
-    border: 1px solid #c5c9cc;
+    border: 1px solid #c4c9cc;
 }
 
 .kind-basic:hover {
-    border: 1px solid #c5c9cc;
+    border: 1px solid #c4c9cc;
     background-color: #f3f4f5;
 }
 
@@ -71,18 +71,18 @@
 .kind-basic:active:focus {
     background-color: #f3f4f5;
     border: 1px solid #c5c9cc;
-    box-shadow: 0 0 0 1px #dfe0e1 inset;
+    box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.1) inset;
 }
 
 .kind-basic:focus {
     background-color: #f9fafb;
-    border: 1px solid #366acf;
-    box-shadow: 0 0 0 1px #366acf inset;
+    border: 1px solid #1976d2;
+    box-shadow: 0 0 0 1px #1976d2 inset;
 }
 
 .kind-basic:disabled {
-    color: #a0a0a0;
-    border: 1px solid #c5c9cc;
+    color: #9e9e9e;
+    border: 1px solid #c4c9cc;
     background-color: #f9fafb;
     box-shadow: none;
 }
@@ -90,64 +90,65 @@
 .kind-primary {
     color: #fff;
     background-color: #2b61b3;
-    border: 1px solid #1e4f9d;
-    background: linear-gradient(#275cad, #1e4f9d);
+    border: 1px solid #004ba0;
+    background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
 }
 
 .kind-primary:hover {
-    border: 1px solid #1e4f9d;
+    border: 1px solid #004ba0;
     background-color: #21539f;
-    background: linear-gradient(#21539f, #1c4a90);
+    background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
 }
 
 .kind-primary:active,
 .kind-primary:active:focus {
     background-color: #1c4a90;
-    background: linear-gradient(#1c4a90, #1d4b90);
-    border: 1px solid #1b4689;
-    box-shadow: 0 0 0 1px #1b4689 inset;
+    background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
+    border: 1px solid #004ba0;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
 }
 
 .kind-primary:focus {
     background-color: #285dac;
-    background: linear-gradient(#2f69bc, #2253a0);
-    border: 1px solid #081f46;
-    box-shadow: 0 0 0 1px #081f46 inset;
+    background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
+    border: 1px solid #001d47;
+    box-shadow: 0 0 0 1px #001d47 inset;
 }
 
 .kind-primary:disabled {
     color: #fff;
     background-color: #b6c8e2;
-    background: linear-gradient(#b8cbe6, #b4c5de);
-    border: 1px solid #b2c3dd;
+    background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
+    opacity: 0.33;
+    border: 1px solid #004ba0;
     box-shadow: none;
 }
 
 .kind-secondary {
-    background-color: #fcfcfc;
+    background-color: transparent;
     border: 1px solid #e0e0e0;
 }
 
 .kind-secondary:hover {
     border: 1px solid #e0e0e0;
-    background-color: #f5f5f5;
+    background-color: rgba(158, 158, 158, 0.07);
 }
 
 .kind-secondary:active,
 .kind-secondary:active:focus {
-    background-color: #ebebeb;
+    background-color: rgba(158, 158, 158, 0.18);
     border: 1px solid #e0e0e0;
     box-shadow: none;
 }
 
 .kind-secondary:focus {
-    background-color: #fcfcfc;
-    border: 1px solid #377acf;
-    box-shadow: 0 0 0 1px #377acf inset;
+    background-color: transparent;
+    border: 1px solid #1976d2;
+    box-shadow: 0 0 0 1px #1976d2 inset;
 }
 
 .kind-secondary:disabled {
-    color: #b2b2b2;
+    color: #9e9e9e;
     border: 1px solid #e0e0e0;
     background-color: #fcfcfc;
     box-shadow: none;
@@ -156,36 +157,36 @@
 .kind-destructive {
     color: #fff;
     background-color: #b9242b;
-    border: 1px solid #960813;
-    background: linear-gradient(#c62d34, #ab1a22);
+    border: 1px solid #a10b0b;
+    background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
 }
 
 .kind-destructive:hover {
-    border: 1px solid #960813;
+    border: 1px solid #a10b0b;
     background-color: #ac0f1a;
-    background: linear-gradient(#ac1a22, #ac0615);
+    background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
 }
 
 .kind-destructive:active,
 .kind-destructive:active:focus {
     background-color: #ac101b;
-    background: linear-gradient(#a5181f, #ac0715);
-    border: 1px solid #960813;
-    box-shadow: 0 0 0 1px #960813 inset;
+    background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
+    border: 1px solid #a10b0b;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
 }
 
 .kind-destructive:focus {
     background-color: #b72229;
-    background: linear-gradient(#c52d34, #ab1a22);
-    border: 1px solid #570206;
-    box-shadow: 0 0 0 1px #570206 inset;
+    background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+    border: 1px solid #5e0303;
+    box-shadow: 0 0 0 1px #5e0303 inset;
 }
 
 .kind-destructive:disabled {
-    color: #fffefe;
+    color: #fff;
     background-color: #e5b5b7;
-    background: linear-gradient(#eab8ba, #e1b2b4);
-    border: 1px solid #dbabaf;
+    background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+    border: 1px solid #a10b0b;
     box-shadow: none;
 }
 

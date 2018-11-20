@@ -18,8 +18,9 @@
 
 .item:hover,
 .item.active {
-    background-color: #f2f2f2;
+    background-color: #f7f7f7;
 }
+
 .menu.dense .item {
     height: 32px;
 }
