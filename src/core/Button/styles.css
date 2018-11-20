@@ -4,7 +4,7 @@
     user-select: none;
     position: relative;
     border: 1px solid transparent;
-    border-radius: 5px;
+    border-radius: 4px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -186,6 +186,7 @@
     color: #fff;
     background-color: #e5b5b7;
     background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+    opacity: 0.33;
     border: 1px solid #a10b0b;
     box-shadow: none;
 }
@@ -220,16 +221,7 @@
     position: absolute;
     z-index: 1000;
     left: 0;
-}
-
-.menu.small {
-    top: 28px;
-}
-.menu.medium {
     top: 36px;
-}
-.menu.large {
-    top: 43px;
 }
 
 .menu-label {

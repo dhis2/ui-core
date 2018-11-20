@@ -87,7 +87,7 @@ class SplitButton extends Component {
 }
 
 SplitButton.defaultProps = {
-    size: 'medium',
+    size: 'default',
     kind: 'basic',
     active: false,
     disabled: false,
@@ -99,7 +99,7 @@ SplitButton.propTypes = {
     icon: PropTypes.string,
     active: PropTypes.bool,
     disabled: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(['default', 'dense']),
     label: PropTypes.string.isRequired,
     list: PropTypes.array.isRequired,
     onClick: PropTypes.func.isRequired,

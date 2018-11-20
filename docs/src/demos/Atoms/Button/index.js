@@ -2,7 +2,7 @@ import React from 'react'
 
 import Button, { DropdownButton, SplitButton } from 'core/Button'
 
-import { Text, Row, Col, Divider } from '../../../helpers'
+import { Text, Row, Col, Divider, Heading } from '../../../helpers'
 
 const rows = [
     { id: 'basic', title: 'Basic' },
@@ -18,14 +18,16 @@ function onButtonClick(msg) {
 }
 
 const sButtonContainer = {
+    marginBottom: 8,
     marginRight: 8,
+    width: '250px',
 }
 
 function ButtonContainer({ children }) {
     return <div style={sButtonContainer}>{children}</div>
 }
 
-function Content({ type, kind, list }) {
+function Content({ id, type, ...props }) {
     let Component = Button
 
     if (type === 'dropdown') {
@@ -34,15 +36,20 @@ function Content({ type, kind, list }) {
         Component = SplitButton
     }
 
-    return list.map((props, idx) => (
-        <ButtonContainer key={`btn-${type}-${idx}`}>
+    let label = props.label
+    if (props.size) {
+        label = `${props.label} (${props.size})`
+    }
+
+    return (
+        <ButtonContainer key={`btn-${type}-${id}`}>
             <Component
-                kind={kind}
                 {...props}
+                label={label}
                 onClick={() => onButtonClick(`Button: ${type}`)}
             />
         </ButtonContainer>
-    ))
+    )
 }
 
 const list = [
@@ -64,6 +71,8 @@ const list = [
     },
 ]
 
+const sizes = ['small', 'medium', 'large']
+
 const buttons = {
     primary: [
         {
@@ -77,40 +86,6 @@ const buttons = {
         },
         {
             icon: 'add',
-            label: 'with icon',
-            kind: 'primary',
-        },
-        {
-            size: 'small',
-            label: 'small',
-            kind: 'primary',
-        },
-        {
-            size: 'small',
-            disabled: true,
-            label: 'small',
-            kind: 'primary',
-        },
-        {
-            size: 'small',
-            icon: 'add',
-            label: 'with icon',
-            kind: 'primary',
-        },
-        {
-            size: 'large',
-            label: 'large',
-            kind: 'primary',
-        },
-        {
-            size: 'large',
-            disabled: true,
-            label: 'large',
-            kind: 'primary',
-        },
-        {
-            icon: 'add',
-            size: 'large',
             label: 'with icon',
             kind: 'primary',
         },
@@ -130,40 +105,6 @@ const buttons = {
             label: 'with icon',
             kind: 'secondary',
         },
-        {
-            size: 'small',
-            label: 'small',
-            kind: 'secondary',
-        },
-        {
-            size: 'small',
-            disabled: true,
-            label: 'small',
-            kind: 'secondary',
-        },
-        {
-            size: 'small',
-            icon: 'add',
-            label: 'with icon',
-            kind: 'secondary',
-        },
-        {
-            size: 'large',
-            label: 'large',
-            kind: 'secondary',
-        },
-        {
-            size: 'large',
-            disabled: true,
-            label: 'large',
-            kind: 'secondary',
-        },
-        {
-            icon: 'add',
-            size: 'large',
-            label: 'with icon',
-            kind: 'secondary',
-        },
     ],
     basic: [
         {
@@ -175,34 +116,6 @@ const buttons = {
         },
         {
             icon: 'add',
-            label: 'with icon',
-        },
-        {
-            size: 'small',
-            label: 'small',
-        },
-        {
-            size: 'small',
-            disabled: true,
-            label: 'small',
-        },
-        {
-            size: 'small',
-            icon: 'add',
-            label: 'with icon',
-        },
-        {
-            size: 'large',
-            label: 'large',
-        },
-        {
-            size: 'large',
-            disabled: true,
-            label: 'large',
-        },
-        {
-            icon: 'add',
-            size: 'large',
             label: 'with icon',
         },
     ],
@@ -221,40 +134,6 @@ const buttons = {
             label: 'with icon',
             kind: 'destructive',
         },
-        {
-            size: 'small',
-            label: 'small',
-            kind: 'destructive',
-        },
-        {
-            size: 'small',
-            disabled: true,
-            label: 'small',
-            kind: 'destructive',
-        },
-        {
-            size: 'small',
-            icon: 'add',
-            label: 'with icon',
-            kind: 'destructive',
-        },
-        {
-            size: 'large',
-            label: 'large',
-            kind: 'destructive',
-        },
-        {
-            size: 'large',
-            disabled: true,
-            label: 'large',
-            kind: 'destructive',
-        },
-        {
-            icon: 'add',
-            size: 'large',
-            label: 'with icon',
-            kind: 'destructive',
-        },
     ],
     links: [],
     dropdown: [
@@ -267,14 +146,13 @@ const buttons = {
             list,
             icon: 'face',
             kind: 'primary',
-            label: 'dropdown button',
+            label: 'with icon',
             onClick: v => console.log('Clicked on DropdownButton', v),
         },
         {
             list,
-            icon: 'face',
             disabled: true,
-            label: 'dropdown button',
+            label: 'disabled',
             onClick: v => console.log('Clicked on DropdownButton', v),
         },
     ],
@@ -288,25 +166,14 @@ const buttons = {
             list,
             kind: 'primary',
             icon: 'face',
-            label: 'split button',
+            label: 'with icon',
             onClick: v => console.log('Clicked on SplitButton', v),
         },
         {
             list,
             disabled: true,
-            label: 'split button',
+            label: 'disabled',
             onClick: v => console.log('Clicked on SplitButton', v),
-        },
-    ],
-    icon: [
-        {
-            label: 'icon button',
-            icon: 'face',
-        },
-        {
-            label: 'icon button',
-            icon: 'face',
-            disabled: true,
         },
     ],
 }
@@ -317,23 +184,100 @@ export class ButtonDemo extends React.Component {
     render() {
         return (
             <div>
-                {rows.map(({ id, kind, title }) => {
+                <Heading>Basic</Heading>
+                {sizes.map(size => {
                     return (
-                        <Col
-                            key={`btn-${title}`}
-                            style={{ width: '100%', marginBottom: 40 }}
-                        >
-                            <Text>{title}</Text>
-                            <Row>
-                                <Content
-                                    kind={kind}
-                                    type={id}
-                                    list={buttons[id]}
-                                />
-                            </Row>
-                        </Col>
+                        <Row>
+                            {buttons.basic.map((b, id) => {
+                                return (
+                                    <Content
+                                        key={`${id}-basic-${size}`}
+                                        id={id}
+                                        {...b}
+                                        size={size}
+                                    />
+                                )
+                            })}
+                        </Row>
                     )
                 })}
+                <Heading>Primary</Heading>
+                {sizes.map(size => {
+                    return (
+                        <Row>
+                            {buttons.primary.map((b, id) => {
+                                return (
+                                    <Content
+                                        key={`${id}-primary-${size}`}
+                                        id={id}
+                                        {...b}
+                                        size={size}
+                                    />
+                                )
+                            })}
+                        </Row>
+                    )
+                })}
+                <Heading>Secondary</Heading>
+                {sizes.map(size => {
+                    return (
+                        <Row>
+                            {buttons.secondary.map((b, id) => {
+                                return (
+                                    <Content
+                                        key={`${id}-secondary-${size}`}
+                                        id={id}
+                                        {...b}
+                                        size={size}
+                                    />
+                                )
+                            })}
+                        </Row>
+                    )
+                })}
+                <Heading>Destructive</Heading>
+                {sizes.map(size => {
+                    return (
+                        <Row>
+                            {buttons.destructive.map((b, id) => {
+                                return (
+                                    <Content
+                                        key={`${id}-primary-${size}`}
+                                        id={id}
+                                        {...b}
+                                        size={size}
+                                    />
+                                )
+                            })}
+                        </Row>
+                    )
+                })}
+                <Heading>Dropdown</Heading>
+                <Row>
+                    {buttons.dropdown.map((b, id) => {
+                        return (
+                            <Content
+                                key={`${id}-dropdown`}
+                                id={id}
+                                type="dropdown"
+                                {...b}
+                            />
+                        )
+                    })}
+                </Row>
+                <Heading>Split</Heading>
+                <Row>
+                    {buttons.split.map((b, id) => {
+                        return (
+                            <Content
+                                key={`${id}-split`}
+                                id={id}
+                                type="split"
+                                {...b}
+                            />
+                        )
+                    })}
+                </Row>
                 <Divider />
             </div>
         )

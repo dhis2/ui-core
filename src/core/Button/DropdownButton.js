@@ -65,10 +65,7 @@ class DropdownButton extends Component {
                 </Button>
 
                 {open && (
-                    <div
-                        className={s('menu', `${this.props.size}`)}
-                        ref={c => (this.elMenu = c)}
-                    >
+                    <div className={s('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
                             size={this.props.size}
                             list={this.props.list}
@@ -82,7 +79,7 @@ class DropdownButton extends Component {
 }
 
 DropdownButton.defaultProps = {
-    size: 'medium',
+    size: 'default',
     kind: 'basic',
     active: false,
     disabled: false,
@@ -94,7 +91,7 @@ DropdownButton.propTypes = {
     icon: PropTypes.string,
     active: PropTypes.bool,
     disabled: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(['default', 'dense']),
     label: PropTypes.string.isRequired,
     list: PropTypes.array.isRequired,
     onClick: PropTypes.func.isRequired,
