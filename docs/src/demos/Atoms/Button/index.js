@@ -2,16 +2,7 @@ import React from 'react'
 
 import Button, { DropdownButton, SplitButton } from 'core/Button'
 
-import { Text, Row, Col, Divider, Heading } from '../../../helpers'
-
-const rows = [
-    { id: 'basic', title: 'Basic' },
-    { id: 'primary', title: 'Primary' },
-    { id: 'secondary', title: 'Secondary' },
-    { id: 'destructive', title: 'Destructive' },
-    { id: 'dropdown', title: 'Dropdown' },
-    { id: 'split', title: 'Split button' },
-]
+import { Row, Divider, Heading } from '../../../helpers'
 
 function onButtonClick(msg) {
     console.log('onClick', msg)
