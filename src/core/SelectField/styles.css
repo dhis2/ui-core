@@ -1,4 +1,5 @@
 .container {
+    composes: boxmodel from '../mixins/globals.css';
     position: relative;
 }
 .container.disabled {
@@ -10,16 +11,25 @@
 }
 
 .icon {
-    margin: 0 7px 0 14px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    left: 7px;
     height: 24px;
 }
 
 .dropdown-icon {
-    margin: 0 7px 0 auto;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    right: 7px;
     height: 24px;
 }
 
 .select {
+    position: relative;
     margin-bottom: 8px;
     display: flex;
     flex-direction: row;
@@ -28,6 +38,14 @@
     cursor: pointer;
     user-select: none;
 }
+
+.container.size-default {
+    height: 68px;
+}
+.container.size-dense {
+    height: 56px;
+}
+
 .container.size-default .select {
     height: 56px;
 }
@@ -69,13 +87,10 @@
 }
 
 .menu {
-    position: absolute;
+    position: relative;
     z-index: 1000;
     left: 0;
-}
-.container.size-default .menu {
-    top: 56px;
-}
-.container.size-dense .menu {
-    top: 44px;
+    top: -20px;
+    right: 0;
+    bottom: 0;
 }

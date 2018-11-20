@@ -16,6 +16,19 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.menu-icon {
+    pointer-events: none;
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+.button-icon {
+    pointer-events: none;
+    vertical-align: middle;
+    margin-right: 10px;
+    font-size: 26px;
+}
+
 .align-icon .material-icons {
     pointer-events: none;
     line-height: 0.9375rem;

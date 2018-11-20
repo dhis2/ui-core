@@ -17,7 +17,6 @@ module.exports = {
             },
         },
         'postcss-flexbugs-fixes': {},
-        'postcss-rtl': {},
         'postcss-modules': {
             getJSON: function(cssFileName, json, outputFileName) {
                 const cssName = path.basename(cssFileName, '.css')
@@ -30,6 +29,7 @@ module.exports = {
                 fs.writeFileSync(jsonFileName, JSON.stringify(json))
             },
         },
+        'postcss-rtl': {},
         cssnano: {},
     },
 }

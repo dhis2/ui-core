@@ -1,5 +1,6 @@
 import React from 'react'
-import UI from 'core/UI'
+
+import 'core/UI'
 
 import { list } from '../Sidebar'
 import { Title, Heading } from '../helpers'
@@ -30,16 +31,14 @@ function Section({ id, title, list }) {
 export default function Content() {
     return (
         <div className="content">
-            <UI theme="blue">
-                {list.map(({ id, title, list }) => (
-                    <Section
-                        key={`section-${id}`}
-                        id={id}
-                        title={title}
-                        list={list}
-                    />
-                ))}
-            </UI>
+            {list.map(({ id, title, list }) => (
+                <Section
+                    key={`section-${id}`}
+                    id={id}
+                    title={title}
+                    list={list}
+                />
+            ))}
         </div>
     )
 }

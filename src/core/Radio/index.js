@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
-import { inputColorClass } from '../../utils'
 import s from './styles'
 
 class Radio extends React.Component {
@@ -17,15 +16,17 @@ class Radio extends React.Component {
                         ? 'radio_button_checked'
                         : 'radio_button_unchecked'
                 }
-                className={`${inputColorClass(
-                    this.props.checked,
-                    this.props.disabled
-                )} ${status}`}
+                className={s(`${status}-icon`, {
+                    disabled: this.props.disabled,
+                    checked: this.props.checked,
+                })}
             />
         )
 
         return (
-            <label className={s('container')}>
+            <label
+                className={s('container', { disabled: this.props.disabled })}
+            >
                 <input
                     type="radio"
                     name={this.props.name}

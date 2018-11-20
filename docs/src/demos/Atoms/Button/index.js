@@ -1,68 +1,46 @@
 import React from 'react'
-import {
-    FlatButton,
-    CircleButton,
-    RaisedButton,
-    PrimaryButton,
-    OutlinedButton,
-    DropdownButton,
-} from 'core/Button'
 
-import { Text, Row, Col, Divider } from '../../../helpers'
+import Button, { DropdownButton, SplitButton } from 'core/Button'
 
-const rows = [
-    { id: 'flat', title: 'Flat' },
-    { id: 'raised_default', title: 'Raised Default' },
-    { id: 'raised_primary', title: 'Raised Primary' },
-    { id: 'outlined', title: 'Outlined' },
-    { id: 'circle', title: 'Circle' },
-    { id: 'dropdown', title: 'Dropdown' },
-    { id: 'icon', title: 'Icon' },
-]
+import { Row, Divider, Heading } from '../../../helpers'
 
 function onButtonClick(msg) {
     console.log('onClick', msg)
 }
 
 const sButtonContainer = {
+    marginBottom: 8,
     marginRight: 8,
+    width: '250px',
 }
+
 function ButtonContainer({ children }) {
     return <div style={sButtonContainer}>{children}</div>
 }
 
-function Content({ type, list }) {
-    let Component = false
-    let onClick = null
+function Content({ id, type, ...props }) {
+    let Component = Button
 
-    if (type === 'flat') {
-        Component = FlatButton
-        onClick = () => onButtonClick('Flat Button')
-    } else if (type === 'raised_default') {
-        Component = RaisedButton
-        onClick = () => onButtonClick('Raised Button')
-    } else if (type === 'raised_primary') {
-        Component = PrimaryButton
-        onClick = () => onButtonClick('Primary Button')
-    } else if (type === 'outlined') {
-        Component = OutlinedButton
-        onClick = () => onButtonClick('Outlined Button')
-    } else if (type === 'circle') {
-        Component = CircleButton
-        onClick = () => onButtonClick('Circle Button')
-    } else if (type === 'dropdown') {
+    if (type === 'dropdown') {
         Component = DropdownButton
-        onClick = () => onButtonClick('Dropdown Button')
-    } else if (type === 'icon') {
-        Component = RaisedButton
-        onClick = () => onButtonClick('Icon Button')
+    } else if (type === 'split') {
+        Component = SplitButton
     }
 
-    return list.map((props, idx) => (
-        <ButtonContainer key={`btn-${type}-${idx}`}>
-            <Component {...props} onClick={onClick} />
+    let label = props.label
+    if (props.size) {
+        label = `${props.label} (${props.size})`
+    }
+
+    return (
+        <ButtonContainer key={`btn-${type}-${id}`}>
+            <Component
+                {...props}
+                label={label}
+                onClick={() => onButtonClick(`Button: ${type}`)}
+            />
         </ButtonContainer>
-    ))
+    )
 }
 
 const list = [
@@ -84,50 +62,68 @@ const list = [
     },
 ]
 
+const sizes = ['small', 'medium', 'large']
+
 const buttons = {
-    flat: [
+    primary: [
         {
             label: 'default',
+            kind: 'primary',
         },
         {
             disabled: true,
             label: 'disabled',
-        },
-    ],
-    raised_default: [
-        {
-            label: 'default',
-        },
-        {
-            disabled: true,
-            label: 'disabled',
-        },
-    ],
-    raised_primary: [
-        {
-            label: 'default',
-        },
-        {
-            disabled: true,
-            label: 'disabled',
-        },
-    ],
-    outlined: [
-        {
-            label: 'default',
-        },
-        {
-            disabled: true,
-            label: 'disabled',
-        },
-    ],
-    circle: [
-        {
-            icon: 'add',
+            kind: 'primary',
         },
         {
             icon: 'add',
+            label: 'with icon',
+            kind: 'primary',
+        },
+    ],
+    secondary: [
+        {
+            label: 'default',
+            kind: 'secondary',
+        },
+        {
             disabled: true,
+            label: 'disabled',
+            kind: 'secondary',
+        },
+        {
+            icon: 'add',
+            label: 'with icon',
+            kind: 'secondary',
+        },
+    ],
+    basic: [
+        {
+            label: 'default',
+        },
+        {
+            disabled: true,
+            label: 'disabled',
+        },
+        {
+            icon: 'add',
+            label: 'with icon',
+        },
+    ],
+    destructive: [
+        {
+            label: 'default',
+            kind: 'destructive',
+        },
+        {
+            disabled: true,
+            label: 'disabled',
+            kind: 'destructive',
+        },
+        {
+            icon: 'add',
+            label: 'with icon',
+            kind: 'destructive',
         },
     ],
     links: [],
@@ -140,20 +136,35 @@ const buttons = {
         {
             list,
             icon: 'face',
+            kind: 'primary',
+            label: 'with icon',
+            onClick: v => console.log('Clicked on DropdownButton', v),
+        },
+        {
+            list,
             disabled: true,
-            label: 'dropdown button',
+            label: 'disabled',
             onClick: v => console.log('Clicked on DropdownButton', v),
         },
     ],
-    icon: [
+    split: [
         {
-            label: 'icon button',
-            icon: 'face',
+            list,
+            label: 'split button',
+            onClick: v => console.log('Clicked on SplitButton', v),
         },
         {
-            label: 'icon button',
+            list,
+            kind: 'primary',
             icon: 'face',
+            label: 'with icon',
+            onClick: v => console.log('Clicked on SplitButton', v),
+        },
+        {
+            list,
             disabled: true,
+            label: 'disabled',
+            onClick: v => console.log('Clicked on SplitButton', v),
         },
     ],
 }
@@ -164,19 +175,100 @@ export class ButtonDemo extends React.Component {
     render() {
         return (
             <div>
-                {rows.map(({ id, title }) => {
+                <Heading>Basic</Heading>
+                {sizes.map(size => {
                     return (
-                        <Col
-                            key={`btn-${title}`}
-                            style={{ width: '100%', marginBottom: 40 }}
-                        >
-                            <Text>{title}</Text>
-                            <Row>
-                                <Content type={id} list={buttons[id]} />
-                            </Row>
-                        </Col>
+                        <Row>
+                            {buttons.basic.map((b, id) => {
+                                return (
+                                    <Content
+                                        key={`${id}-basic-${size}`}
+                                        id={id}
+                                        {...b}
+                                        size={size}
+                                    />
+                                )
+                            })}
+                        </Row>
                     )
                 })}
+                <Heading>Primary</Heading>
+                {sizes.map(size => {
+                    return (
+                        <Row>
+                            {buttons.primary.map((b, id) => {
+                                return (
+                                    <Content
+                                        key={`${id}-primary-${size}`}
+                                        id={id}
+                                        {...b}
+                                        size={size}
+                                    />
+                                )
+                            })}
+                        </Row>
+                    )
+                })}
+                <Heading>Secondary</Heading>
+                {sizes.map(size => {
+                    return (
+                        <Row>
+                            {buttons.secondary.map((b, id) => {
+                                return (
+                                    <Content
+                                        key={`${id}-secondary-${size}`}
+                                        id={id}
+                                        {...b}
+                                        size={size}
+                                    />
+                                )
+                            })}
+                        </Row>
+                    )
+                })}
+                <Heading>Destructive</Heading>
+                {sizes.map(size => {
+                    return (
+                        <Row>
+                            {buttons.destructive.map((b, id) => {
+                                return (
+                                    <Content
+                                        key={`${id}-primary-${size}`}
+                                        id={id}
+                                        {...b}
+                                        size={size}
+                                    />
+                                )
+                            })}
+                        </Row>
+                    )
+                })}
+                <Heading>Dropdown</Heading>
+                <Row>
+                    {buttons.dropdown.map((b, id) => {
+                        return (
+                            <Content
+                                key={`${id}-dropdown`}
+                                id={id}
+                                type="dropdown"
+                                {...b}
+                            />
+                        )
+                    })}
+                </Row>
+                <Heading>Split</Heading>
+                <Row>
+                    {buttons.split.map((b, id) => {
+                        return (
+                            <Content
+                                key={`${id}-split`}
+                                id={id}
+                                type="split"
+                                {...b}
+                            />
+                        )
+                    })}
+                </Row>
                 <Divider />
             </div>
         )

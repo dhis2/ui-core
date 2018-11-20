@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
-import Menu from '../Menu/index'
+import Menu from '../Menu'
 import { Label, Help } from '../helpers'
 import { isPointInRect } from '../../utils'
 import s from './styles'
@@ -132,7 +132,6 @@ class SelectField extends React.Component {
                     <div className={s('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
                             list={list}
-                            width={width}
                             size={this.props.size}
                             onClick={this.onClick}
                         />

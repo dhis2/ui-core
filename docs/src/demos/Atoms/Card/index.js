@@ -7,8 +7,8 @@ export class CardDemo extends React.Component {
 
     render() {
         return (
-            <Col>
-                <Card width="358px" height="186px" />
+            <Col style={{ width: '358px', height: '358px' }}>
+                <Card />
                 <Divider />
             </Col>
         )

@@ -80,6 +80,10 @@
     color: #fff;
 }
 
+.count {
+    composes: secondary-light-bg from '../../core/mixins/colors.css';
+}
+
 .notification > .count i {
     width: 20px;
     height: 20px;

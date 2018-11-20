@@ -6,9 +6,11 @@ import { Text, Row, Col, Divider } from '../../../helpers'
 
 function CenteredProgress(props) {
     return (
-        <Card width="358px" height="186px">
-            <CircularProgress {...props} />
-        </Card>
+        <div style={{ width: '358px', height: '186px' }}>
+            <Card>
+                <CircularProgress {...props} />
+            </Card>
+        </div>
     )
 }
 
