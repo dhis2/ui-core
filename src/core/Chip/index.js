@@ -47,7 +47,7 @@ class Chip extends React.PureComponent {
 
         return (
             <div
-                className={s('container', {
+                className={s('base', {
                     selected,
                     disabled,
                     dragging,

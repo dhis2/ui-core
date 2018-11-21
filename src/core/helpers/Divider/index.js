@@ -4,7 +4,7 @@ import s from './styles'
 
 export function Divider({ margin }) {
     const style = { margin }
-    return <div style={style} className={s('divider')} />
+    return <div style={style} className={s('base')} />
 }
 
 Divider.defaultProps = {

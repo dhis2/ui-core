@@ -92,7 +92,7 @@ class SelectField extends React.Component {
         return (
             <div
                 ref={c => (this.elContainer = c)}
-                className={s('container', {
+                className={s('base', {
                     selected: !!this.props.value,
                     disabled: this.props.disabled,
                     [`kind-${this.props.kind}`]: true,

@@ -1,4 +1,4 @@
-.container {
+.base {
     composes: boxmodel font from '../mixins/globals.css';
 
     pointer-events: all;
@@ -10,7 +10,7 @@
     cursor: pointer;
 }
 
-.container input[type='radio'] {
+.base input[type='radio'] {
     display: none;
 }
 

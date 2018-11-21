@@ -17,7 +17,7 @@ function Button({
         <button
             disabled={disabled}
             onClick={onClick}
-            className={s('button', `kind-${kind}`, `size-${size}`, {
+            className={s('base', `kind-${kind}`, `size-${size}`, {
                 'icon-only': icon && !label && !children,
                 icon,
             })}

@@ -25,7 +25,7 @@ function HeaderBar({
     interpretations,
 }) {
     return (
-        <header className={s('container', 'blue')}>
+        <header className={s('base', 'blue')}>
             <div className={s('first')}>
                 <div className={s('logo')}>
                     <a href={`${baseURL}`}>

@@ -36,7 +36,7 @@ class InputField extends React.Component {
     render() {
         return (
             <div
-                className={s('container', {
+                className={s('base', {
                     disabled: this.props.disabled,
                     [`size-${this.props.size}`]: true,
                     [`kind-${this.props.kind}`]: true,

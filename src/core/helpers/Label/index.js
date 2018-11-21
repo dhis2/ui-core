@@ -22,7 +22,7 @@ function Label({
 }) {
     return (
         <div
-            className={s('container', {
+            className={s('base', {
                 disabled,
                 'has-icon': hasIcon,
                 [`focused`]: focused,

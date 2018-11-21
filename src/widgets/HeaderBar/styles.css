@@ -1,4 +1,4 @@
-.container {
+.base {
     composes: boxmodel font from '../../core/mixins/globals.css';
 
     border-bottom: 1px solid rgba(32, 32, 32, 0.15);
@@ -10,11 +10,14 @@
 }
 
 .first {
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
 .logo {
+    box-sizing: border-box;
     margin: 0 12px 0 0;
     border-right: 1px solid rgba(32, 32, 32, 0.15);
     padding-top: 12px;
@@ -22,6 +25,7 @@
     height: 48px;
     text-align: center;
 }
+
 .logo svg,
 .logo a {
     width: 27px;
@@ -263,6 +267,6 @@
 .blue > .last > .apps > i:first-child {
     color: #fff;
 }
-.container.blue .profile > .icon > .initials {
+.base.blue .profile > .icon > .initials {
     color: #fff;
 }

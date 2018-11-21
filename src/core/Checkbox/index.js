@@ -38,9 +38,7 @@ class Checkbox extends React.Component {
         )
 
         return (
-            <label
-                className={s('container', { disabled: this.props.disabled })}
-            >
+            <label className={s('base', { disabled: this.props.disabled })}>
                 <input
                     type="checkbox"
                     onChange={this.onChange}

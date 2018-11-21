@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-.container {
+.base {
     composes: boxmodel font from '../mixins/globals.css';
 
     display: inline-block;
@@ -23,17 +23,17 @@
     animation: anim-rotate 1.4s linear infinite;
 }
 
-.container.small {
+.base.small {
     width: 24px;
     height: 24px;
 }
 
-.container.medium {
+.base.medium {
     width: 50px;
     height: 50px;
 }
 
-.container.large {
+.base.large {
     width: 80px;
     height: 80px;
 }

@@ -1,4 +1,4 @@
-.button {
+.base {
     composes: boxmodel font from '../mixins/globals.css';
 
     user-select: none;
@@ -15,18 +15,24 @@
     text-decoration: none;
     text-transform: capitalize;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+    margin: 0 /* rtl:ignore */;
+    padding: 0 /* rtl:ignore */;
+    border: 0 /* rtl:ignore */;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-.button:disabled {
+.base:disabled {
     cursor: not-allowed;
 }
 
-.button:focus {
+.base:focus {
     /* Prevent default browser behavior whcih adds an outline */
     outline: none;
 }
 
-.button.icon {
+.base.icon {
     padding-left: 10px;
 }
 
@@ -193,24 +199,45 @@
 
 .dropdown {
     composes: boxmodel font from '../mixins/globals.css';
+
+    display: block;
     position: relative;
-    display: inline-flex;
     white-space: nowrap;
+    margin: 0 /* rtl:ignore */;
+    padding: 0 /* rtl:ignore */;
+    border: 0 /* rtl:ignore */;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0 /* rtl:ignore */;
+    padding: 0 /* rtl:ignore */;
+    border: 0 /* rtl:ignore */;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
 .split {
     composes: boxmodel font from '../mixins/globals.css';
+
+    display: block;
     position: relative;
     display: inline-flex;
     white-space: nowrap;
+    margin: 0 /* rtl:ignore */;
+    padding: 0 /* rtl:ignore */;
+    border: 0 /* rtl:ignore */;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-.split .button:first-child {
+.split .base:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-.split .button:nth-child(2) {
+.split .base:nth-child(2) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     padding: 0 9px;
@@ -218,6 +245,8 @@
 
 .menu {
     composes: boxmodel font from '../mixins/globals.css';
+
+    display: block;
     position: absolute;
     z-index: 1000;
     left: 0;
@@ -234,11 +263,11 @@
        Graceful degradation: remove the rounded corners on all buttons apart from circle.
        These are not rendered correctly in IE11, where they produce white pixels in the corners 
     */
-    .button {
+    .base {
         border-radius: 0;
     }
     /* Prevent icon position shifting during a click */
-    .button .material-icons {
+    .base .material-icons {
         position: relative;
         top: 0;
         left: 0;

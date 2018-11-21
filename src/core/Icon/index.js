@@ -6,7 +6,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 function Icon({ name, className, onClick }) {
     return (
-        <i onClick={onClick} className={s('container', className)}>
+        <i onClick={onClick} className={s('base', className)}>
             {name}
         </i>
     )

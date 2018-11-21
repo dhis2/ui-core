@@ -1,4 +1,4 @@
-.container {
+.base {
     composes: boxmodel font from '../../mixins/globals.css';
 
     cursor: help;
@@ -8,19 +8,19 @@
     color: #494949;
     font-size: 12px;
 }
-.container.status-default {
+.base.status-default {
     color: #494949;
     border-color: #c4c4c4;
 }
-.container.status-valid {
+.base.status-valid {
     color: #1976d2;
     border-color: #1976d2;
 }
-.container.status-error {
+.base.status-error {
     color: #e53935;
     border-color: #e53935;
 }
-.container.status-warning {
+.base.status-warning {
     color: #f19c02;
     border-color: #f19c02;
 }
