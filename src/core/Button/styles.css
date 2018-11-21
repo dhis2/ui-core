@@ -15,12 +15,6 @@
     text-decoration: none;
     text-transform: capitalize;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
-    margin: 0 /* rtl:ignore */;
-    padding: 0 /* rtl:ignore */;
-    border: 0 /* rtl:ignore */;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
 }
 
 .base:disabled {
@@ -200,36 +194,16 @@
 .dropdown {
     composes: boxmodel font from '../mixins/globals.css';
 
-    display: block;
     position: relative;
     white-space: nowrap;
-    margin: 0 /* rtl:ignore */;
-    padding: 0 /* rtl:ignore */;
-    border: 0 /* rtl:ignore */;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    margin: 0 /* rtl:ignore */;
-    padding: 0 /* rtl:ignore */;
-    border: 0 /* rtl:ignore */;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
 }
 
 .split {
     composes: boxmodel font from '../mixins/globals.css';
 
-    display: block;
     position: relative;
     display: inline-flex;
     white-space: nowrap;
-    margin: 0 /* rtl:ignore */;
-    padding: 0 /* rtl:ignore */;
-    border: 0 /* rtl:ignore */;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
 }
 
 .split .base:first-child {
@@ -246,7 +220,6 @@
 .menu {
     composes: boxmodel font from '../mixins/globals.css';
 
-    display: block;
     position: absolute;
     z-index: 1000;
     left: 0;

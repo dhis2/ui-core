@@ -1,7 +1,6 @@
 .base {
     composes: boxmodel font from '../mixins/globals.css';
 
-    display: block;
     user-select: none;
     padding: 0;
     margin: 0;

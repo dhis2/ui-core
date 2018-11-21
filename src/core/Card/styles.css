@@ -1,7 +1,6 @@
 .base {
     composes: boxmodel font from '../mixins/globals.css';
 
-    display: block;
     height: inherit;
     width: inherit;
     border-radius: 2px;
