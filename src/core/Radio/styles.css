@@ -1,4 +1,6 @@
 .container {
+    composes: boxmodel font from '../mixins/globals.css';
+
     pointer-events: all;
     user-select: none;
     display: flex;

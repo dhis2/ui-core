@@ -1,3 +1,6 @@
+.container {
+    composes: boxmodel font from '../mixins/globals.css';
+}
 .input {
     display: none;
 }

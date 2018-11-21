@@ -1,14 +1,23 @@
 const presets = [
+    '@babel/react',
     [
-        '@babel/env',
+        '@babel/preset-env',
         {
-            useBuiltIns: 'usage',
+            modules: false,
         },
     ],
-    '@babel/react',
 ]
 
-const plugins = [['@babel/plugin-proposal-class-properties']]
+const plugins = [
+    '@babel/plugin-proposal-class-properties',
+    [
+        '@babel/plugin-transform-runtime',
+        {
+            useESModules: true,
+            corejs: 2,
+        },
+    ],
+]
 
 module.exports = {
     env: {

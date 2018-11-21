@@ -1,9 +1,0 @@
-/*
-  Don't convert colours and reset CSS rules to [dir] rules as it breaks
-  the CSS rule scopes, requiring `dir` to be added to the <html> and
-  <body> tags. We don't want to reach out from our scope to do that.
-*/
-
-/* rtl:begin:ignore */
-@import 'typography.css';
-/* rtl:end:ignore */

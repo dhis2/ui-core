@@ -3,8 +3,10 @@ import React from 'react'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
-import './App.css'
+import 'typeface-roboto/index.css'
+
 import './reset.css'
+import './App.css'
 
 export default function App() {
     return (

@@ -37,61 +37,49 @@ class HeaderBarContainer extends React.Component {
         },
     }
 
-    async componentDidMount() {
-        await this.fetch()
-    }
-
-    async fetch() {
-        try {
-            // DHIS2 host name
-            const { systemName } = await get('system/info').then(r => r.json())
-
-            // Apps
-            const { modules } = await getAction(
-                `dhis-web-commons/menu/getModules.action?_=${Date.now()}`
-            )
+    componentDidMount() {
+        Promise.all([
+            get('system/info').then(r => r.json()),
+            getAction(`dhis-web-commons/menu/getModules.action?_=${Date.now()}`)
                 .then(r => r.text())
                 .then(r => JSON.parse(r))
-            const apps = modules.filter(
-                m => typeof m.displayName !== 'undefined'
-            )
-
-            // Translations for module names
-            const i18n = await post(
-                'i18n',
-                JSON.stringify(apps.map(a => a.name))
-            ).then(r => r.json())
-
-            // Interpretations and Unread messages count
-            const {
-                unreadInterpretations,
-                unreadMessageConversations,
-            } = await get('me/dashboard').then(r => r.json())
-
-            // Profile info
-            const me = await get('me.json').then(r => r.json())
-
-            this.setState({
-                instanceName: systemName,
-                messages: {
-                    count: unreadMessageConversations,
-                },
-                interpretations: {
-                    count: unreadInterpretations,
-                },
-                apps: apps.map(a => ({
-                    name: i18n[a.name] || a.name,
-                    path: appPath(a.defaultAction),
-                    img: appIconPath(a.icon),
-                })),
-                profile: {
-                    name: me.name,
-                    email: me.email,
-                },
+                .then(r =>
+                    r.modules.filter(m => typeof m.displayName !== 'undefined')
+                ),
+            get('me/dashboard').then(r => r.json()),
+            get('me.json').then(r => r.json()),
+        ])
+            .then(([info, apps, unread, me]) => {
+                return post('i18n', JSON.stringify(apps.map(a => a.name)))
+                    .then(r => r.json())
+                    .then(i18n => {
+                        return {
+                            instanceName: info.systemName,
+                            messages: {
+                                count: unread.unreadMessageConversations,
+                            },
+                            interpretations: {
+                                count: unread.unreadInterpretations,
+                            },
+                            apps: apps.map(a => ({
+                                name: i18n[a.name] || a.name,
+                                path: appPath(a.defaultAction),
+                                img: appIconPath(a.icon),
+                            })),
+                            profile: {
+                                name: me.name,
+                                email: me.email,
+                            },
+                        }
+                    })
             })
-        } catch (e) {
-            console.error('HeaderBar(fetch)', e)
-        }
+            .then(res => this.setState(res))
+            .catch(e =>
+                console.error(
+                    'HeaderBar failed to mount because of API errors.',
+                    e
+                )
+            )
     }
 
     render() {

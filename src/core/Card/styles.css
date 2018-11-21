@@ -1,4 +1,6 @@
 .container {
+    composes: boxmodel font from '../mixins/globals.css';
+
     position: relative;
     height: inherit;
     width: inherit;

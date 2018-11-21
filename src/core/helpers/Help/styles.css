@@ -1,4 +1,6 @@
 .container {
+    composes: boxmodel font from '../../mixins/globals.css';
+
     cursor: help;
     padding-left: 14px;
     height: 12px;

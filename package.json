@@ -18,7 +18,7 @@
     "start": "npm run clean && node scripts/watch.js",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "build:css": "postcss --verbose src/**/*.css --base src --dir build",
-    "build:es": "babel src --out-dir build --copy-files",
+    "build:es": "babel src --out-dir build --copy-files --verbose",
     "build:files": "node scripts/setup-dist-package.js",
     "build:docs": "node scripts/docs.js",
     "build": "NODE_ENV=production npm run build:es && npm run build:css && npm run build:files"
@@ -33,14 +33,13 @@
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "@dhis2/code-style": "^1.5.0",
     "babel-eslint": "^7.2.3",
-    "babel-loader": "^8.0.2",
     "chokidar": "^2.0.4",
     "conventional-changelog-cli": "^2.0.5",
-    "core-js": "^2.5.7",
     "cssnano": "^4.1.3",
     "eslint": "^4.1.1",
     "eslint-config-react-app": "^2.1.0",
@@ -48,12 +47,9 @@
     "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
-    "file-loader": "^2.0.0",
     "fs-extra": "^7.0.0",
     "husky": "^1.0.1",
-    "mini-css-extract-plugin": "^0.4.3",
     "nodemon": "^1.18.4",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-cli": "^6.0.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-import": "^12.0.0",
@@ -62,20 +58,17 @@
     "postcss-rtl": "^1.3.2",
     "prop-types-exact": "^1.2.0",
     "react-dev-utils": "^5.0.2",
-    "style-loader": "^0.23.0",
-    "tape": "^4.9.1",
-    "webpack": "^4.20.2",
-    "webpack-bundle-analyzer": "^3.0.2"
+    "string-hash": "^1.1.3",
+    "tape": "^4.9.1"
   },
   "peerDependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "prop-types": "^15",
+    "react": "^16",
+    "react-dom": "^16"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime-corejs2": "^7.1.5",
     "classnames": "^2.2.6",
-    "material-design-icons-iconfont": "^4.0.2",
-    "prop-types": "^15.6.2",
-    "typeface-roboto": "^0.0.54"
+    "material-design-icons-iconfont": "^4.0.2"
   }
 }

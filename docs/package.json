@@ -6,7 +6,8 @@
     "dependencies": {
         "react": "^16.4.2",
         "react-dom": "^16.4.2",
-        "react-scripts": "1.1.5"
+        "react-scripts": "1.1.5",
+        "typeface-roboto": "^0.0.54"
     },
     "scripts": {
         "start": "PORT=5000 react-scripts start",
