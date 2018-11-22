@@ -19,7 +19,7 @@ function Circle() {
 
 function CircularProgress({ size, overlay }) {
     const loader = (
-        <div role="progressbar" className={s('container', size)}>
+        <div role="progressbar" className={s('base', size)}>
             <Circle />
         </div>
     )

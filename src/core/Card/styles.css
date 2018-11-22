@@ -1,11 +1,11 @@
-.container {
+.base {
     composes: boxmodel font from '../mixins/globals.css';
 
-    position: relative;
     height: inherit;
     width: inherit;
     border-radius: 2px;
     background-color: #fff;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12),
         0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
 }

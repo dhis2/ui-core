@@ -1,4 +1,4 @@
-.button {
+.base {
     composes: boxmodel font from '../mixins/globals.css';
 
     user-select: none;
@@ -17,16 +17,16 @@
     transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-.button:disabled {
+.base:disabled {
     cursor: not-allowed;
 }
 
-.button:focus {
+.base:focus {
     /* Prevent default browser behavior whcih adds an outline */
     outline: none;
 }
 
-.button.icon {
+.base.icon {
     padding-left: 10px;
 }
 
@@ -193,24 +193,25 @@
 
 .dropdown {
     composes: boxmodel font from '../mixins/globals.css';
+
     position: relative;
-    display: inline-flex;
     white-space: nowrap;
 }
 
 .split {
     composes: boxmodel font from '../mixins/globals.css';
+
     position: relative;
     display: inline-flex;
     white-space: nowrap;
 }
 
-.split .button:first-child {
+.split .base:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-.split .button:nth-child(2) {
+.split .base:nth-child(2) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     padding: 0 9px;
@@ -218,6 +219,7 @@
 
 .menu {
     composes: boxmodel font from '../mixins/globals.css';
+
     position: absolute;
     z-index: 1000;
     left: 0;
@@ -234,11 +236,11 @@
        Graceful degradation: remove the rounded corners on all buttons apart from circle.
        These are not rendered correctly in IE11, where they produce white pixels in the corners 
     */
-    .button {
+    .base {
         border-radius: 0;
     }
     /* Prevent icon position shifting during a click */
-    .button .material-icons {
+    .base .material-icons {
         position: relative;
         top: 0;
         left: 0;

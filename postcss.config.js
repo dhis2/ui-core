@@ -4,7 +4,6 @@ const stringHash = require('string-hash')
 
 module.exports = {
     plugins: {
-        'postcss-import': {},
         'postcss-preset-env': {
             browsers: [
                 '> 0.5%',
@@ -33,7 +32,6 @@ module.exports = {
                 const path = require('path')
 
                 const i = css.indexOf('.' + name)
-                const lineNumber = css.substr(0, i).split(/[\r\n]/).length
                 const component = path
                     .basename(path.dirname(filename))
                     .toLowerCase()
@@ -42,7 +40,7 @@ module.exports = {
                     .toString(36)
                     .substr(0, 5)
 
-                return `_ui_${component}_${name}_${hash}_${lineNumber}`
+                return `_ui_${component}_${name}_${hash}`
             },
         },
         'postcss-rtl': {},

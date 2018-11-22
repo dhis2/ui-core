@@ -1,13 +1,13 @@
-.container {
+.base {
     composes: boxmodel font from '../mixins/globals.css';
 
     position: relative;
 }
-.container.disabled {
+.base.disabled {
     cursor: not-allowed;
 }
-.container.disabled .icon,
-.container.disabled .dropdown-icon {
+.base.disabled .icon,
+.base.disabled .dropdown-icon {
     color: rgba(0, 0, 0, 0.3);
 }
 
@@ -40,17 +40,17 @@
     user-select: none;
 }
 
-.container.size-default {
+.base.size-default {
     height: 68px;
 }
-.container.size-dense {
+.base.size-dense {
     height: 56px;
 }
 
-.container.size-default .select {
+.base.size-default .select {
     height: 56px;
 }
-.container.size-dense .select {
+.base.size-dense .select {
     height: 44px;
 }
 
@@ -58,32 +58,32 @@
     color: #000;
     font-size: 16px;
 }
-.container.kind-filled .value {
+.base.kind-filled .value {
     margin-left: 14px;
 }
-.container.kind-outlined .value {
+.base.kind-outlined .value {
     margin-left: 20px;
 }
-.container.selected.kind-filled.size-dense .select .value {
+.base.selected.kind-filled.size-dense .select .value {
     margin-top: 17px;
     font-size: 13px;
 }
-.container.selected.kind-filled.size-default .select .value {
+.base.selected.kind-filled.size-default .select .value {
     margin-top: 15px;
 }
 
 /* icon in filled bg, default size */
-.container.selected.kind-filled.size-default .icon {
+.base.selected.kind-filled.size-default .icon {
     margin: 11px 4px 0 14px;
 }
-.container.selected.kind-filled.size-dense .icon {
+.base.selected.kind-filled.size-dense .icon {
     margin: 22px 3px 0 10px;
 }
-.container.kind-filled .icon + .value,
-.container.kind-outlined .icon + .value {
+.base.kind-filled .icon + .value,
+.base.kind-outlined .icon + .value {
     margin-left: 0;
 }
-.container.selected.kind-filled.size-dense .icon i {
+.base.selected.kind-filled.size-dense .icon i {
     font-size: 18px;
 }
 

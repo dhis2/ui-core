@@ -1,4 +1,4 @@
-.container {
+.base {
     composes: boxmodel font from '../mixins/globals.css';
     pointer-events: all;
     user-select: none;
@@ -9,7 +9,7 @@
     cursor: pointer;
 }
 
-.container input[type='checkbox'] {
+.base input[type='checkbox'] {
     display: none;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .disabled,
-.container .disabled {
+.base .disabled {
     cursor: not-allowed;
 }
 

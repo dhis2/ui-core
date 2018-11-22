@@ -8,7 +8,7 @@ function LinearProgress({ amount, margin }) {
     const style = amount ? { width: `${amount}%` } : null
 
     return (
-        <div role="progressbar" className={s('container')} style={{ margin }}>
+        <div role="progressbar" className={s('base')} style={{ margin }}>
             <div style={style} className={s('progress', type)} />
         </div>
     )

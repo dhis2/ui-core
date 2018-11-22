@@ -1,4 +1,4 @@
-.container {
+.base {
     composes: boxmodel font from '../../mixins/globals.css';
 
     position: absolute;
@@ -8,34 +8,34 @@
     height: 100%;
     border-radius: 5px;
 }
-.container.disabled,
-.container.disabled.status-default,
-.container.disabled.status-error,
-.container.disabled.status-valid,
-.container.disabled.status-warning {
+.base.disabled,
+.base.disabled.status-default,
+.base.disabled.status-error,
+.base.disabled.status-valid,
+.base.disabled.status-warning {
     color: #9e9e9e;
     border-color: rgba(196, 196, 196, 0.2);
 }
-.container.disabled .content,
-.container.disabled.status-default .content,
-.container.disabled.status-error .content,
-.container.disabled.status-valid .content,
-.container.disabled.status-warning .content {
+.base.disabled .content,
+.base.disabled.status-default .content,
+.base.disabled.status-error .content,
+.base.disabled.status-valid .content,
+.base.disabled.status-warning .content {
     color: #9e9e9e;
 }
 
-.container.size-default {
+.base.size-default {
     height: 56px;
     line-height: 56px;
 }
-.container.size-dense {
+.base.size-dense {
     height: 44px;
     line-height: 44px;
 }
-.container.kind-filled.focused {
+.base.kind-filled.focused {
     border-bottom: 2px solid #00796b;
 }
-.container.kind-outlined.focused {
+.base.kind-outlined.focused {
     border: 1.5px solid #00796b;
 }
 
@@ -106,29 +106,29 @@
     right: 28px;
 }
 
-.container.status-default,
-.container.status-default .content {
+.base.status-default,
+.base.status-default .content {
     color: #494949;
     border-color: #c4c4c4;
 }
-.container.status-default.focused .content {
+.base.status-default.focused .content {
     color: #00796b;
 }
-.container.status-valid,
-.container.status-valid.focused,
-.container.status-valid .content {
+.base.status-valid,
+.base.status-valid.focused,
+.base.status-valid .content {
     color: #1976d2;
     border-color: #1976d2;
 }
-.container.status-error,
-.container.status-error.focused,
-.container.status-error .content {
+.base.status-error,
+.base.status-error.focused,
+.base.status-error .content {
     color: #e53935;
     border-color: #e53935;
 }
-.container.status-warning,
-.container.status-warning.focused,
-.container.status-warning .content {
+.base.status-warning,
+.base.status-warning.focused,
+.base.status-warning .content {
     color: #f19c02;
     border-color: #f19c02;
 }

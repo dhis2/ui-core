@@ -3,7 +3,7 @@
  */
 
 /* rtl:begin:ignore */
-.container {
+.base {
     composes: boxmodel font from '../mixins/globals.css';
 
     position: relative;
@@ -53,16 +53,16 @@
     will-change: left, right;
 }
 
-[dir='rtl'] .container .progress.determinate {
+[dir='rtl'] .base .progress.determinate {
     left: auto;
     right: 0;
 }
 
-[dir='rtl'] .container .progress.indeterminate:before {
+[dir='rtl'] .base .progress.indeterminate:before {
     animation-name: anim-indeterminate-rtl;
 }
 
-[dir='rtl'] .container .progress.indeterminate:after {
+[dir='rtl'] .base .progress.indeterminate:after {
     animation-name: anim-indeterminate-short-rtl;
 }
 

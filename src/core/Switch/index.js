@@ -16,7 +16,7 @@ class Switch extends React.Component {
         const { status, disabled } = this.props
         return (
             <label
-                className={s('container', status, { disabled })}
+                className={s('base', status, { disabled })}
                 onChange={this.onChange}
             >
                 <input
