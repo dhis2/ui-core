@@ -19,13 +19,13 @@ function Circle() {
 
 function CircularProgress({ size, overlay }) {
     const loader = (
-        <div role="progressbar" className={s('base', size)}>
+        <div role="progressbar" className={s('reset', 'base', size)}>
             <Circle />
         </div>
     )
 
     if (overlay) {
-        return <div className={s('overlay')}>{loader}</div>
+        return <div className={s('reset', 'overlay')}>{loader}</div>
     }
 
     return loader

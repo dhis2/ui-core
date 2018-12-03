@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Button from './Button'
+import Button from '../Button'
 import s from './styles'
 import Menu from '../Menu'
 import Icon from '../Icon'
@@ -50,7 +50,7 @@ class DropdownButton extends Component {
 
         return (
             <div
-                className={s('dropdown', `${this.props.size}`)}
+                className={s('base', `${this.props.size}`)}
                 ref={c => (this.elContainer = c)}
             >
                 <Button
@@ -61,7 +61,7 @@ class DropdownButton extends Component {
                     onClick={this.onToggle}
                 >
                     <span className={s('menu-label')}>{this.props.label}</span>
-                    <Icon className="menu-icon" name={icon} />
+                    <Icon className={s('menu-icon')} name={icon} />
                 </Button>
 
                 {open && (

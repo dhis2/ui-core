@@ -4,19 +4,13 @@ const stringHash = require('string-hash')
 
 module.exports = {
     plugins: {
+        'postcss-rtl': {},
         'postcss-preset-env': {
-            browsers: [
-                '> 0.5%',
-                'last 2 versions',
-                'Firefox ESR',
-                'ie 11',
-                'not dead',
-            ],
+            stage: 3,
             autoprefixer: {
                 flexbox: 'no-2009',
             },
         },
-        'postcss-flexbugs-fixes': {},
         'postcss-modules': {
             getJSON: function(cssFileName, json, outputFileName) {
                 const cssName = path.basename(cssFileName, '.css')
@@ -43,7 +37,7 @@ module.exports = {
                 return `_ui_${component}_${name}_${hash}`
             },
         },
-        'postcss-rtl': {},
+        'postcss-flexbugs-fixes': {},
         cssnano: {},
     },
 }

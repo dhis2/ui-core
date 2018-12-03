@@ -1,5 +1,7 @@
 .base {
-    composes: boxmodel font from '../mixins/globals.css';
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
 
     user-select: none;
     position: relative;
@@ -191,45 +193,6 @@
     box-shadow: none;
 }
 
-.dropdown {
-    composes: boxmodel font from '../mixins/globals.css';
-
-    position: relative;
-    white-space: nowrap;
-}
-
-.split {
-    composes: boxmodel font from '../mixins/globals.css';
-
-    position: relative;
-    display: inline-flex;
-    white-space: nowrap;
-}
-
-.split .base:first-child {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.split .base:nth-child(2) {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    padding: 0 9px;
-}
-
-.menu {
-    composes: boxmodel font from '../mixins/globals.css';
-
-    position: absolute;
-    z-index: 1000;
-    left: 0;
-    top: 36px;
-}
-
-.menu-label {
-    margin-right: 10px;
-}
-
 /* IE11 hacks */
 @media all and (-ms-high-contrast: none) {
     /* 
@@ -245,4 +208,12 @@
         top: 0;
         left: 0;
     }
+}
+
+.button-icon {
+    color: inherit;
+    pointer-events: none;
+    vertical-align: middle;
+    margin-right: 10px;
+    font-size: 26px;
 }

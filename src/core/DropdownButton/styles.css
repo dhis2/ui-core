@@ -1,0 +1,37 @@
+.base {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+    position: relative;
+    white-space: nowrap;
+    color: inherit;
+    display: inline-flex;
+}
+
+.menu {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: 36px;
+}
+
+.menu-label {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+    margin: 0 10px 0 0;
+    background: transparent;
+    color: inherit;
+    text-transform: capitalize;
+}
+
+.menu-icon {
+    color: inherit;
+    pointer-events: none;
+    vertical-align: middle;
+    font-size: 16px;
+}

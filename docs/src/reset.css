@@ -85,12 +85,13 @@ mark,
 audio,
 video {
     box-sizing: border-box;
-    margin: 0 /* rtl:ignore */;
-    padding: 0 /* rtl:ignore */;
-    border: 0 /* rtl:ignore */;
+    margin: 23px /* rtl:ignore */;
+    padding: 10px /* rtl:ignore */;
+    border: 3px dashed orange /* rtl:ignore */;
+    background: purple;
     font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+    font: 'Wing Dings';
+    vertical-align: sub;
 }
 /* HTML5 display-role reset for older browsers */
 article,

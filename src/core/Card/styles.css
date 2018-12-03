@@ -1,11 +1,19 @@
-.base {
-    composes: boxmodel font from '../mixins/globals.css';
+.reset {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+}
 
-    height: inherit;
-    width: inherit;
+.base {
+    position: relative;
+    display: inline-flex;
+
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+
     border-radius: 2px;
-    background-color: #fff;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12),
         0 1px 3px 0 rgba(0, 0, 0, 0.2);
-    position: relative;
+    background: #ffffff;
 }

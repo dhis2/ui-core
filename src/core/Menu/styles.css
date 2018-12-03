@@ -1,13 +1,22 @@
 .base {
-    composes: boxmodel font from '../mixins/globals.css';
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
 
+    width: 100%;
+
+    display: block;
+    position: relative;
     user-select: none;
     padding: 0;
     margin: 0;
-    position: relative;
 }
 
 .item {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+
     cursor: pointer;
     padding: 0 24px;
     position: relative;
@@ -27,6 +36,15 @@
 }
 
 .label {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+
+    white-space: nowrap;
+
+    user-select: none;
+    pointer-events: none;
+
     color: rgba(0, 0, 0, 0.87);
     font-size: 15px;
 }
@@ -35,38 +53,53 @@
 }
 
 .icon {
+    user-select: none;
+    pointer-events: none;
+    box-sizing: border-box;
+
     margin-right: 18px;
     color: #404040;
     font-size: 24px;
 }
+
 .base.dense .icon {
     font-size: 20px;
 }
+
 .base.dense .divider {
     margin: 4px 0;
 }
 
 .item.disabled {
     cursor: not-allowed;
+    user-select: none;
     pointer-events: none;
 }
+
 .item.disabled .icon,
 .item.disabled .label {
     color: rgba(0, 0, 0, 0.3);
 }
 
 /* SUB-MENU */
-.base .chevron {
-    margin: 0 14px 0 auto;
+.sub-chevron {
+    user-select: none;
+    pointer-events: none;
+    margin: 0 -14px 0 auto;
     font-size: 18px;
 }
+
 .sub-menu {
+    all: initial;
+    box-sizing: border-box;
+
     display: none;
     position: absolute;
     left: 100%;
     top: 0;
     white-space: nowrap;
 }
+
 .item:hover .sub-menu {
     display: block;
 }

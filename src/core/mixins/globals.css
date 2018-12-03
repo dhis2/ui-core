@@ -1,5 +1,8 @@
 .boxmodel {
-    box-sizing: border-box;
+    /*
+all: initial;
+box-sizing: border-box;
+   */
 }
 
 .font {

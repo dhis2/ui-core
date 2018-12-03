@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Button from './Button'
+import Button from '../Button'
 import s from './styles'
 import Menu from '../Menu'
 import Icon from '../Icon'
@@ -46,7 +46,7 @@ class SplitButton extends Component {
         }
 
         return (
-            <div className={s('split')} ref={c => (this.elContainer = c)}>
+            <div className={s('base')} ref={c => (this.elContainer = c)}>
                 <Button
                     icon={this.props.icon}
                     kind={this.props.kind}
@@ -63,7 +63,7 @@ class SplitButton extends Component {
                     onClick={this.onToggle}
                 >
                     <Icon
-                        className="menu-icon"
+                        className={s('menu-icon')}
                         name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
                     />
                 </Button>

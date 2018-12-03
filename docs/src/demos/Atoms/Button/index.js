@@ -1,6 +1,8 @@
 import React from 'react'
 
-import Button, { DropdownButton, SplitButton } from 'core/Button'
+import Button from 'core/Button'
+import SplitButton from 'core/SplitButton'
+import DropdownButton from 'core/DropdownButton'
 
 import { Row, Divider, Heading } from '../../../helpers'
 

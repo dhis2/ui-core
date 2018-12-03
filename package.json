@@ -15,13 +15,13 @@
     "clean": "rm -rf ./build/*",
     "format": "code-style",
     "test": "NODE_ENV=test tape -r babel-register tests/*.js",
-    "start": "npm run clean && node scripts/watch.js",
+    "start": "node scripts/watch.js",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "build:css": "postcss --verbose src/**/*.css --base src --dir build",
     "build:es": "babel src --out-dir build --copy-files --verbose",
     "build:files": "node scripts/setup-dist-package.js",
     "build:docs": "node scripts/docs.js",
-    "build": "NODE_ENV=production npm run build:es && npm run build:css && npm run build:files"
+    "build": "NODE_ENV=production npm run clean && npm run build:es && npm run build:css && npm run build:files"
   },
   "husky": {
     "hooks": {

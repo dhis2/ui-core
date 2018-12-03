@@ -1,4 +1,9 @@
-/* rtl:begin:ignore */
+.reset {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+}
+
 .overlay {
     composes: boxmodel font from '../mixins/globals.css';
 
@@ -23,21 +28,25 @@
     animation: anim-rotate 1.4s linear infinite;
 }
 
+/* rtl:ignore */
 .base.small {
     width: 24px;
     height: 24px;
 }
 
+/* rtl:ignore */
 .base.medium {
     width: 50px;
     height: 50px;
 }
 
+/* rtl:ignore */
 .base.large {
     width: 80px;
     height: 80px;
 }
 
+/* rtl:ignore */
 .circle {
     stroke: currentColor;
     stroke-dasharray: 80px, 200px;
@@ -45,12 +54,14 @@
     animation: anim-dash 1.4s ease-in-out infinite;
 }
 
+/* rtl:ignore */
 @keyframes anim-rotate {
     100% {
         transform: rotate(360deg);
     }
 }
 
+/* rtl:ignore */
 @keyframes anim-dash {
     0% {
         stroke-dasharray: 1px, 200px;
@@ -65,4 +76,3 @@
         stroke-dashoffset: -120px;
     }
 }
-/* rtl:end:ignore */

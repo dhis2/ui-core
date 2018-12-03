@@ -34,7 +34,9 @@ export default function MenuItem({
         >
             {icon && <Icon name={icon} className={s('icon')} />}
             <div className={s('label')}>{label}</div>
-            {hasMenu && <Icon name="chevron_right" className={s('chevron')} />}
+            {hasMenu && (
+                <Icon name="chevron_right" className={s('sub-chevron')} />
+            )}
             {hasMenu && <SubMenu size={size} list={list} onClick={onClick} />}
         </li>
     )

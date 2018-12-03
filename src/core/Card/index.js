@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import s from './styles'
 
 function Card({ className, children }) {
-    return <div className={s('base', className)}>{children}</div>
+    return <div className={s('reset', 'base', className)}>{children}</div>
 }
 
 Card.defaultProps = {
