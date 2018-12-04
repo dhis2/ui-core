@@ -5,7 +5,7 @@ import s from './styles'
 function Help({ text, status }) {
     return (
         <div
-            className={s('base', {
+            className={s('reset', 'base', {
                 [`status-${status}`]: true,
             })}
         >

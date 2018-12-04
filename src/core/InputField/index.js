@@ -36,10 +36,8 @@ class InputField extends React.Component {
     render() {
         return (
             <div
-                className={s('base', {
+                className={s('reset', 'base', {
                     disabled: this.props.disabled,
-                    [`size-${this.props.size}`]: true,
-                    [`kind-${this.props.kind}`]: true,
                     'is-empty': !(
                         this.props.value ||
                         this.props.placeholder ||
@@ -48,21 +46,29 @@ class InputField extends React.Component {
                 })}
                 onClick={this.onClick}
             >
-                <div className={s('field')}>
+                <div
+                    className={s('reset', 'field', {
+                        focused: this.state.focused,
+                        [`kind-${this.props.kind}`]: true,
+                        [`size-${this.props.size}`]: true,
+                        [`status-${this.props.status}`]: true,
+                    })}
+                >
                     {this.props.icon && (
-                        <div className={s('icon')}>
-                            <Icon name={this.props.icon} />
-                        </div>
+                        <Icon name={this.props.icon} className={s('icon')} />
                     )}
                     <input
                         ref={c => (this.ref = c)}
-                        className={s('input')}
+                        className={s('reset', 'input', {
+                            disabled: this.props.disabled,
+                        })}
                         type={this.props.type}
                         value={this.props.value}
                         onChange={this.onChange}
                         onFocus={this.onFocus}
                         onBlur={this.onBlur}
                         placeholder={this.props.placeholder}
+                        disabled={this.props.disabled}
                     />
                     <Label
                         size={this.props.size}
@@ -75,6 +81,7 @@ class InputField extends React.Component {
                         state={
                             this.props.placeholder ||
                             this.props.value ||
+                            this.props.icon ||
                             this.state.focused
                                 ? 'minimized'
                                 : 'default'
@@ -92,6 +99,7 @@ class InputField extends React.Component {
 InputField.defaultProps = {
     disabled: false,
     label: '',
+    status: 'default',
     size: 'default',
     kind: 'filled',
 }

@@ -22,19 +22,17 @@ function Label({
 }) {
     return (
         <div
-            className={s('base', {
+            className={s('reset', 'base', {
                 disabled,
-                'has-icon': hasIcon,
                 [`focused`]: focused,
                 [`state-${state}`]: true,
                 [`size-${size}`]: true,
                 [`type-${type}`]: true,
-                [`status-${status}`]: true,
                 [`kind-${kind}`]: true,
             })}
         >
             <div
-                className={s('content', {
+                className={s('reset', 'content', {
                     [`state-${state}`]: true,
                 })}
             >

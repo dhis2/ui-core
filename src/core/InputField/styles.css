@@ -1,116 +1,99 @@
-.base {
-    composes: boxmodel font from '../mixins/globals.css';
+.reset {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+}
 
+.base {
     position: relative;
+    display: inline-block;
     pointer-events: all;
     user-select: none;
     cursor: pointer;
     width: 100%;
-}
-
-.base.disabled {
-    cursor: not-allowed;
+    background-color: inherit;
 }
 
 .field {
     display: flex;
+    background-color: inherit;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
+    justify-content: space-between;
+    border-radius: 5px;
 }
-.base.size-default,
-.base.size-default .field {
+
+.size-default,
+.size-default .field {
     height: 56px;
 }
-.base.size-dense,
-.base.size-dense .field {
+
+.size-dense,
+.size-dense .field {
     height: 44px;
 }
 
 .input {
-    margin: 0 14px 0 18px;
     border: 0;
     width: 100%;
     color: #000;
     background-color: transparent;
 }
+
 .input:focus {
     outline: none;
 }
 .input::placeholder {
     color: #494949;
+    opacity: 1;
 }
 
-.base.disabled .input,
-.base.disabled .input::placeholder {
-    color: #9e9e9e;
-}
-.base.size-default .input {
+.size-default .input {
     height: 16px;
     line-height: 16px;
     font-size: 16px;
 }
-.base.size-dense .input {
+
+.size-dense .input {
     height: 13px;
     line-height: 13px;
     font-size: 13px;
     font-weight: 300;
 }
-.base.kind-filled.size-default .input {
-    margin: 20px 14px 0 14px;
+
+.kind-filled {
+    background-color: rgba(0, 0, 10, 0.05);
+    border-bottom: 2px solid transparent;
 }
-.base.kind-filled.size-dense .input {
-    margin: 18px 14px 0 14px;
-    height: 13px;
+
+.kind-filled:hover {
+    background-color: rgba(0, 0, 10, 0.08);
+}
+
+.kind-filled.focused {
+    background-color: rgba(0, 0, 10, 0.08);
+    border-bottom: 2px solid #00796b;
 }
 
 .icon {
-    margin: 0 7px 0 14px;
+    color: #494949;
     height: 24px;
+    width: 24px;
+    margin-right: 8px;
 }
 
-/* icon in filled bg, default size */
-.base.kind-filled.size-default .icon {
-    margin: 12px 7px 0 14px;
-}
-.base.is-empty.kind-filled.size-default .icon {
-    margin-top: 0;
-}
-.base.kind-filled.size-default .icon + .input {
-    margin: 18px 14px 0 0;
+.kind-outlined {
+    background-color: inherit;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
 }
 
-/* icon in filled bg, dense size */
-.base.kind-filled.size-dense .icon i {
-    font-size: 18px;
-}
-.base.is-empty.kind-filled.size-dense .icon {
-    margin-top: 4px;
-}
-.base.kind-filled.size-dense .icon + .input::placeholder {
-}
-.base.kind-filled.size-dense .icon {
-    margin: 22px 5px 0 14px;
-}
-.base.kind-filled.size-dense .icon + .input {
-    margin: 16px 14px 0 0;
+.kind-outlined:hover {
+    border: 1.5px solid #494949;
 }
 
-/* icon in outlined, default size */
-.base.kind-outlined.size-default .icon + .input {
-    margin-left: 0;
-}
-
-/* icon in outlined, dense size */
-.base.kind-outlined.size-dense .icon i {
-    font-size: 18px;
-}
-.base.kind-outlined.size-dense .icon {
-    margin: 6px 5px 0 14px;
-}
-.base.kind-outlined.size-dense .icon + .input {
-    margin-left: 0;
+.kind-outlined.focused {
+    border: 1.5px solid #00796b;
 }
 
 .value {
@@ -122,4 +105,53 @@
     z-index: 1000;
     left: 0;
     top: 44px;
+}
+
+.kind-outlined.size-default {
+    padding: 20px 16px;
+}
+
+.kind-outlined.size-dense {
+    padding: 14px 16px;
+}
+
+.kind-filled.size-default {
+    padding: 30px 16px 10px 16px;
+}
+
+.kind-filled.size-dense {
+    padding: 22px 11px 8px 11px;
+}
+
+/* status */
+.disabled,
+.disabled::placeholder {
+    cursor: not-allowed;
+    color: #9e9e9e;
+    opacity: 1;
+}
+
+.status-default,
+.status-default .content {
+    color: #00796b;
+}
+.status-valid,
+.status-valid.focused,
+.status-valid .content {
+    color: #1976d2;
+    border-color: #1976d2;
+}
+
+.status-error,
+.status-error.focused,
+.status-error .content {
+    color: #e53935;
+    border-color: #e53935;
+}
+
+.status-warning,
+.status-warning.focused,
+.status-warning .content {
+    color: #f19c02;
+    border-color: #f19c02;
 }
