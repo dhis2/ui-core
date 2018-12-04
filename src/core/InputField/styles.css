@@ -75,13 +75,6 @@
     border-bottom: 2px solid #00796b;
 }
 
-.icon {
-    color: #494949;
-    height: 24px;
-    width: 24px;
-    margin-right: 8px;
-}
-
 .kind-outlined {
     background-color: inherit;
     border: 1px solid #c4c4c4;
@@ -94,6 +87,13 @@
 
 .kind-outlined.focused {
     border: 1.5px solid #00796b;
+}
+
+.icon {
+    color: #494949;
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
 }
 
 .value {
@@ -124,6 +124,10 @@
 }
 
 /* status */
+.disabled .kind-outlined {
+    border: 1px solid #c4c4c4;
+}
+
 .disabled,
 .disabled::placeholder {
     cursor: not-allowed;

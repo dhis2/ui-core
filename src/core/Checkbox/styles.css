@@ -1,5 +1,9 @@
+.reset {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+}
 .base {
-    composes: boxmodel font from '../mixins/globals.css';
     pointer-events: all;
     user-select: none;
     display: flex;

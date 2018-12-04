@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Card, MenuItem, Divider } from '../../core'
+import { Card, MenuItem, Divider, Menu } from '../../core'
 import { gotoURL, isPointInRect } from '../../utils'
 import s from './styles'
 
@@ -12,8 +12,8 @@ function TextIcon({ name, onClick }) {
     }
 
     return (
-        <div className={s('icon')} onClick={onClick}>
-            <div className={s('initials')}>{title}</div>
+        <div className={s('reset', 'icon')} onClick={onClick}>
+            <div className={s('reset', 'initials')}>{title}</div>
         </div>
     )
 }
@@ -29,7 +29,7 @@ TextIcon.propTypes = {
 
 function ImageIcon({ src, onClick }) {
     return (
-        <div className={s('icon')} onClick={onClick}>
+        <div className={s('reset', 'icon')} onClick={onClick}>
             <img src={src} alt="user avatar" />
         </div>
     )
@@ -46,13 +46,13 @@ ImageIcon.propTypes = {
 
 function Header({ name, email, img, baseURL }) {
     return (
-        <div className={s('header')}>
+        <div className={s('reset', 'header')}>
             {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
-            <div className={s('details')}>
-                <div className={s('name')}>{name}</div>
-                <div className={s('email')}>{email}</div>
+            <div className={s('reset', 'details')}>
+                <div className={s('reset', 'name')}>{name}</div>
+                <div className={s('reset', 'email')}>{email}</div>
                 <a
-                    className={s('edit_profile')}
+                    className={s('reset', 'edit_profile')}
                     href={`${baseURL}/dhis-web-user-profile/#/profile`}
                 >
                     Edit profile
@@ -163,25 +163,32 @@ export default class Profile extends React.Component {
         }
 
         return (
-            <div className={s('contents')} ref={c => (this.elContents = c)}>
+            <div
+                className={s('reset', 'contents')}
+                ref={c => (this.elContents = c)}
+            >
                 <Card height="298px">
-                    <Header
-                        baseURL={this.props.baseURL}
-                        img={this.props.profile.img}
-                        name={this.props.profile.name}
-                        email={this.props.profile.email}
-                        onClick={this.onHeaderClick}
-                    />
-                    <Divider margin="13px 0 7px 0" />
-                    {list.map(({ label, value, icon }) => (
-                        <MenuItem
-                            key={`h-mi-${value}`}
-                            label={label}
-                            value={value}
-                            icon={icon}
-                            onClick={this.onClick}
+                    <div className={s('reset', 'profile-alignment')}>
+                        <Header
+                            baseURL={this.props.baseURL}
+                            img={this.props.profile.img}
+                            name={this.props.profile.name}
+                            email={this.props.profile.email}
+                            onClick={this.onHeaderClick}
                         />
-                    ))}
+                        <Divider margin="13px 0 7px 0" />
+                        <ul className={s('reset')}>
+                            {list.map(({ label, value, icon }) => (
+                                <MenuItem
+                                    key={`h-mi-${value}`}
+                                    label={label}
+                                    value={value}
+                                    icon={icon}
+                                    onClick={this.onClick}
+                                />
+                            ))}
+                        </ul>
+                    </div>
                 </Card>
             </div>
         )
@@ -189,7 +196,10 @@ export default class Profile extends React.Component {
 
     render() {
         return (
-            <div className={s('profile')} ref={c => (this.elContainer = c)}>
+            <div
+                className={s('reset', 'profile')}
+                ref={c => (this.elContainer = c)}
+            >
                 {this.viewIcon()}
                 {this.viewContents()}
             </div>

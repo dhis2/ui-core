@@ -25,18 +25,18 @@ function HeaderBar({
     interpretations,
 }) {
     return (
-        <header className={s('base', 'blue')}>
-            <div className={s('first')}>
-                <div className={s('logo')}>
-                    <a href={`${baseURL}`}>
+        <header className={s('reset', 'base', 'blue')}>
+            <div className={s('reset', 'first')}>
+                <div className={s('reset', 'logo')}>
+                    <a href={`${baseURL}`} className={s('reset')}>
                         <LogoIconWhite />
                     </a>
                 </div>
-                <div className={s('title')}>
+                <div className={s('reset', 'title')}>
                     {getTitle(instanceName, appName)}
                 </div>
             </div>
-            <div className={s('last')}>
+            <div className={s('reset', 'last')}>
                 <NotificationIcon
                     icon="message"
                     count={interpretations.count}

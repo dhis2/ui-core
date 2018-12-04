@@ -6,8 +6,8 @@ import s from './styles'
 
 function NotificationIcon({ icon, count, href }) {
     return (
-        <a className={s('notification', { icon })} href={href}>
-            {count > 0 && <span className={s('count')}>{count}</span>}
+        <a className={s('reset', 'notification', { icon })} href={href}>
+            {count > 0 && <span className={s('reset', 'count')}>{count}</span>}
             <Icon name={icon} />
         </a>
     )

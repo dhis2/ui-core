@@ -1,20 +1,30 @@
-.base {
-    composes: boxmodel font from '../mixins/globals.css';
-
-    position: relative;
+.reset {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
 }
-.base.disabled {
+
+.base {
+    position: relative;
+    display: inline-block;
+    pointer-events: all;
+    user-select: none;
+    cursor: pointer;
+    width: 100%;
+    background-color: inherit;
+}
+
+.disabled {
     cursor: not-allowed;
 }
-.base.disabled .icon,
-.base.disabled .dropdown-icon {
+.disabled .icon,
+.disabled .dropdown-icon {
     color: rgba(0, 0, 0, 0.3);
 }
 
 .icon {
     position: absolute;
-    top: 0px;
-    bottom: 0px;
+    bottom: 8px;
     margin: auto;
     left: 7px;
     height: 24px;
@@ -38,19 +48,20 @@
     justify-content: center;
     cursor: pointer;
     user-select: none;
+    border-radius: 5px;
 }
 
-.base.size-default {
+.size-default {
     height: 68px;
 }
-.base.size-dense {
+.size-dense {
     height: 56px;
 }
 
-.base.size-default .select {
+.size-default .select {
     height: 56px;
 }
-.base.size-dense .select {
+.size-dense .select {
     height: 44px;
 }
 
@@ -58,40 +69,73 @@
     color: #000;
     font-size: 16px;
 }
-.base.kind-filled .value {
+.kind-filled .value {
     margin-left: 14px;
 }
-.base.kind-outlined .value {
+.kind-outlined .value {
     margin-left: 20px;
 }
-.base.selected.kind-filled.size-dense .select .value {
+.selected.kind-filled.size-dense .select .value {
     margin-top: 17px;
     font-size: 13px;
 }
-.base.selected.kind-filled.size-default .select .value {
+.selected.kind-filled.size-default .select .value {
     margin-top: 15px;
 }
 
 /* icon in filled bg, default size */
-.base.selected.kind-filled.size-default .icon {
+.selected.kind-filled.size-default .icon {
     margin: 11px 4px 0 14px;
 }
-.base.selected.kind-filled.size-dense .icon {
+.selected.kind-filled.size-dense .icon {
     margin: 22px 3px 0 10px;
 }
-.base.kind-filled .icon + .value,
-.base.kind-outlined .icon + .value {
+.kind-filled .icon + .value,
+.kind-outlined .icon + .value {
     margin-left: 0;
 }
-.base.selected.kind-filled.size-dense .icon i {
+.selected.kind-filled.size-dense .icon i {
     font-size: 18px;
 }
 
+.kind-filled {
+    background-color: rgba(0, 0, 10, 0.05);
+    border-bottom: 2px solid transparent;
+}
+
+.kind-filled:hover {
+    background-color: rgba(0, 0, 10, 0.08);
+}
+
+.kind-filled.focused {
+    background-color: rgba(0, 0, 10, 0.08);
+    border-bottom: 2px solid #00796b;
+}
+
+.kind-outlined {
+    background-color: inherit;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+}
+
+.kind-outlined:hover {
+    border: 1.5px solid #494949;
+}
+
+.kind-outlined.focused {
+    border: 1.5px solid #00796b;
+}
+
 .menu {
-    position: relative;
+    position: absolute;
     z-index: 1000;
     left: 0;
-    top: -20px;
-    right: 0;
-    bottom: 0;
+}
+
+.size-default .menu {
+    top: 56px;
+}
+
+.size-dense .menu {
+    top: 44px;
 }

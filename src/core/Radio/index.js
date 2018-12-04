@@ -24,7 +24,11 @@ class Radio extends React.Component {
         )
 
         return (
-            <label className={s('base', { disabled: this.props.disabled })}>
+            <label
+                className={s('reset', 'base', {
+                    disabled: this.props.disabled,
+                })}
+            >
                 <input
                     type="radio"
                     name={this.props.name}
@@ -34,7 +38,7 @@ class Radio extends React.Component {
                     onChange={this.onChange}
                 />
                 {icon}
-                <span className={s('label', status, { required })}>
+                <span className={s('reset', 'label', status, { required })}>
                     {this.props.label}
                 </span>
             </label>

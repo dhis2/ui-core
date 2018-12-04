@@ -92,24 +92,23 @@ class SelectField extends React.Component {
         return (
             <div
                 ref={c => (this.elContainer = c)}
-                className={s('base', {
+                className={s('reset', 'base', {
                     selected: !!this.props.value,
                     disabled: this.props.disabled,
-                    [`kind-${this.props.kind}`]: true,
                     [`size-${this.props.size}`]: true,
                 })}
             >
                 <div
                     ref={c => (this.elSelect = c)}
-                    className={s('select')}
+                    className={s('reset', 'select', {
+                        [`kind-${this.props.kind}`]: true,
+                    })}
                     onClick={this.onToggle}
                 >
                     {this.props.icon && (
-                        <div className={s('icon')}>
-                            <Icon name={this.props.icon} />
-                        </div>
+                        <Icon name={this.props.icon} className={s('icon')} />
                     )}
-                    <div className={s('value')}>{selected}</div>
+                    <div className={s('reset', 'value')}>{selected}</div>
                     <Label
                         type="select"
                         size={this.props.size}
@@ -129,7 +128,10 @@ class SelectField extends React.Component {
                     <Help text={this.props.help} status={this.props.status} />
                 )}
                 {open && (
-                    <div className={s('menu')} ref={c => (this.elMenu = c)}>
+                    <div
+                        className={s('reset', 'menu')}
+                        ref={c => (this.elMenu = c)}
+                    >
                         <Menu
                             list={list}
                             size={this.props.size}

@@ -9,7 +9,7 @@ import s from './styles'
 
 function Search({ value, onChange, onSettingsClick }) {
     return (
-        <div className={s('search')}>
+        <div className={s('reset', 'search')}>
             <InputField
                 name="filter"
                 value={value}
@@ -35,9 +35,9 @@ Search.propTypes = {
 
 function Item({ name, path, img }) {
     return (
-        <a href={path} className={s('app')}>
-            <img src={img} alt="app logo" />
-            <div className={s('name')}>{name}</div>
+        <a href={path} className={s('reset', 'app')}>
+            <img src={img} alt="app logo" className={s('reset')} />
+            <div className={s('reset', 'name')}>{name}</div>
         </a>
     )
 }
@@ -50,7 +50,7 @@ Item.propTypes = {
 
 function List({ apps, filter }) {
     return (
-        <div className={s('modules')}>
+        <div className={s('reset', 'modules')}>
             {apps
                 .filter(
                     ({ name }) =>
@@ -108,20 +108,28 @@ export default class Apps extends React.Component {
 
     render() {
         return (
-            <div className={s('apps')} ref={c => (this.elContainer = c)}>
+            <div
+                className={s('reset', 'apps')}
+                ref={c => (this.elContainer = c)}
+            >
                 <Icon name="apps" onClick={this.onToggle} />
                 {this.state.show && (
-                    <div className={s('contents')} ref={c => (this.elApps = c)}>
+                    <div
+                        className={s('reset', 'contents')}
+                        ref={c => (this.elApps = c)}
+                    >
                         <Card width="416px" height="301px">
-                            <Search
-                                value={this.state.filter}
-                                onChange={this.onChange}
-                                onSettingsClick={this.onSettingsClick}
-                            />
-                            <List
-                                apps={this.props.apps}
-                                filter={this.state.filter}
-                            />
+                            <div className={s('reset')}>
+                                <Search
+                                    value={this.state.filter}
+                                    onChange={this.onChange}
+                                    onSettingsClick={this.onSettingsClick}
+                                />
+                                <List
+                                    apps={this.props.apps}
+                                    filter={this.state.filter}
+                                />
+                            </div>
                         </Card>
                     </div>
                 )}

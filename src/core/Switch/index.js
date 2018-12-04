@@ -16,7 +16,7 @@ class Switch extends React.Component {
         const { status, disabled } = this.props
         return (
             <label
-                className={s('base', status, { disabled })}
+                className={s('reset', 'base', status, { disabled })}
                 onChange={this.onChange}
             >
                 <input
@@ -25,10 +25,16 @@ class Switch extends React.Component {
                     checked={this.props.checked}
                     disabled={disabled}
                 />
-                <span className={s('label', { [`status-${status}`]: true })}>
+                <span
+                    className={s('reset', 'label', {
+                        [`status-${status}`]: true,
+                    })}
+                >
                     {this.props.label}
                 </span>
-                {this.props.required && <span className={s('required')} />}
+                {this.props.required && (
+                    <span className={s('reset', 'required')} />
+                )}
             </label>
         )
     }
