@@ -23,7 +23,11 @@ class Chip extends React.PureComponent {
 
         if (this.props.type === 'image') {
             return (
-                <img src={icon} alt="chip icon" className={s('image-icon')} />
+                <img
+                    src={icon}
+                    alt="chip icon"
+                    className={s('reset', 'image-icon')}
+                />
             )
         }
 
@@ -47,7 +51,7 @@ class Chip extends React.PureComponent {
 
         return (
             <div
-                className={s('base', {
+                className={s('reset', 'base', {
                     selected,
                     disabled,
                     dragging,
@@ -56,7 +60,9 @@ class Chip extends React.PureComponent {
                 onClick={this.onClick}
             >
                 {this.showIcon()}
-                <span className={s('label', { overflow })}>{label}</span>
+                <span className={s('reset', 'label', { overflow })}>
+                    {label}
+                </span>
                 {this.showRemove()}
             </div>
         )

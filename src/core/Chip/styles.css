@@ -1,6 +1,10 @@
-.base {
-    composes: boxmodel font from '../mixins/globals.css';
+.reset {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+}
 
+.base {
     display: inline-flex;
     align-items: center;
     margin: 4px;
@@ -17,39 +21,39 @@
     background-color: #e0f2f1;
 }
 
-.base.selected,
-.base.selected.static:hover {
+.selected,
+.selected.static:hover {
     background-color: #00796b;
 }
 
-.base.selected:hover {
+.selected:hover {
     background-color: #00695c;
 }
 
-.base.selected,
-.base.selected .icon,
-.base.selected .remove-icon {
+.selected,
+.selected .icon,
+.selected .remove-icon {
     color: #ffffff;
 }
 
-.base.static {
+.static {
     pointer-events: none;
 }
 
-.base.static:hover {
+.static:hover {
     background-color: #eceff1;
 }
 
-.base.disabled {
+.disabled {
     cursor: not-allowed;
     opacity: 0.3;
 }
 
-.base.disabled .remove-icon {
+.disabled .remove-icon {
     pointer-events: none;
 }
 
-.base.dragging {
+.dragging {
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
         0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
@@ -70,6 +74,7 @@
 .label {
     margin: 0 12px;
     white-space: nowrap;
+    color: inherit;
 }
 
 .label.overflow {
