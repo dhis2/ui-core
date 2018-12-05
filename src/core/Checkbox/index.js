@@ -50,7 +50,7 @@ class Checkbox extends React.Component {
                     disabled={this.props.disabled}
                 />
                 {icon}
-                <span className={s('reset', 'label', status, { required })}>
+                <span className={s('reset', 'label', { required })}>
                     {this.props.label}
                 </span>
             </label>

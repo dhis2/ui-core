@@ -24,6 +24,7 @@
 
 .label {
     margin: 0 0 0 8px;
+    color: #000000;
 }
 
 .disabled,
@@ -53,10 +54,6 @@
 
 .default-icon {
     composes: secondary-light from '../mixins/colors.css';
-}
-
-.default {
-    composes: grey-dark from '../mixins/colors.css';
 }
 
 .disabled {

@@ -104,7 +104,7 @@ export default class Apps extends React.Component {
     onChange = (_, filter) => this.setState({ filter })
 
     onSettingsClick = () =>
-        gotoURL(`${this.props.baseURL}/dhis-web-user-profile/#/account`)
+        gotoURL(`${this.props.baseURL}/dhis-web-menu-management`)
 
     render() {
         return (
