@@ -906,10 +906,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dhis2/code-style@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/code-style/-/code-style-1.5.0.tgz#629216663445043fcd3fb307aae0650ddc9273bb"
-  integrity sha512-CurXtReqzARN8gDc4xOHyyWgjT4+OftgN7f/eW1Ou+fmWer9G5KoVH+39HmRhabGeZ+hxYuOu3bMN8LHCpbqLg==
+"@dhis2/code-style@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/code-style/-/code-style-1.6.1.tgz#2ce26edf59a4e4cf4100df3d0eec5c6c3393e226"
+  integrity sha512-bbgE8YOZSnpbUb50B5W7llAOPuZQ/4p9UlmikmKPeFSi52FpfE6Sf85ot8QTXXIsgQrcIk8nvVs3wPi4KzHT4A==
   dependencies:
     "@commitlint/config-conventional" "^7.1.2"
     "@commitlint/format" "^7.2.1"
