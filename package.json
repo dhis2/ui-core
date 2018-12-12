@@ -13,7 +13,8 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf ./build/*",
-    "format": "code-style",
+    "format": "packages code-style",
+    "release": "packages release",
     "test": "NODE_ENV=test tape -r babel-register tests/*.js",
     "start": "node scripts/watch.js",
     "build:css": "postcss --verbose src/**/*.css --base src --dir build",
@@ -24,8 +25,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commit-style",
-      "pre-commit": "npm run format"
+      "commit-msg": "packages commit-style",
+      "pre-commit": "packages code-style"
     }
   },
   "devDependencies": {
@@ -35,7 +36,7 @@
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
-    "@dhis2/code-style": "^1.6.2",
+    "@dhis2/packages": "^1.3.0",
     "babel-eslint": "^7.2.3",
     "chokidar": "^2.0.4",
     "conventional-changelog-cli": "^2.0.5",
