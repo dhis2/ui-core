@@ -55,38 +55,44 @@ class InputField extends React.Component {
                     })}
                 >
                     {this.props.icon && (
-                        <Icon name={this.props.icon} className={s('icon')} />
+                        <div className={s('reset', 'icon-field')}>
+                            <Icon
+                                name={this.props.icon}
+                                className={s('icon')}
+                            />
+                        </div>
                     )}
-                    <input
-                        ref={c => (this.ref = c)}
-                        className={s('reset', 'input', {
-                            disabled: this.props.disabled,
-                        })}
-                        type={this.props.type}
-                        value={this.props.value}
-                        onChange={this.onChange}
-                        onFocus={this.onFocus}
-                        onBlur={this.onBlur}
-                        placeholder={this.props.placeholder}
-                        disabled={this.props.disabled}
-                    />
-                    <Label
-                        size={this.props.size}
-                        kind={this.props.kind}
-                        text={this.props.label}
-                        status={this.props.status}
-                        focused={this.state.focused}
-                        disabled={this.props.disabled}
-                        hasIcon={!!this.props.icon}
-                        state={
-                            this.props.placeholder ||
-                            this.props.value ||
-                            this.props.icon ||
-                            this.state.focused
-                                ? 'minimized'
-                                : 'default'
-                        }
-                    />
+                    <div className={s('reset', 'input-field')}>
+                        <input
+                            ref={c => (this.ref = c)}
+                            className={s('reset', 'input', {
+                                disabled: this.props.disabled,
+                            })}
+                            type={this.props.type}
+                            value={this.props.value}
+                            onChange={this.onChange}
+                            onFocus={this.onFocus}
+                            onBlur={this.onBlur}
+                            placeholder={this.props.placeholder}
+                            disabled={this.props.disabled}
+                        />
+                        <Label
+                            size={this.props.size}
+                            kind={this.props.kind}
+                            text={this.props.label}
+                            status={this.props.status}
+                            focused={this.state.focused}
+                            disabled={this.props.disabled}
+                            hasIcon={!!this.props.icon}
+                            state={
+                                this.props.placeholder ||
+                                this.props.value ||
+                                this.state.focused
+                                    ? 'minimized'
+                                    : 'default'
+                            }
+                        />
+                    </div>
                 </div>
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />

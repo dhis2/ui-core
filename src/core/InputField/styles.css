@@ -38,6 +38,7 @@
     width: 100%;
     color: #000;
     background-color: transparent;
+    z-index: 1;
 }
 
 .input:focus {
@@ -49,13 +50,11 @@
 }
 
 .size-default .input {
-    height: 16px;
     line-height: 16px;
     font-size: 16px;
 }
 
 .size-dense .input {
-    height: 13px;
     line-height: 13px;
     font-size: 13px;
     font-weight: 300;
@@ -75,6 +74,24 @@
     border-bottom: 2px solid #00796b;
 }
 
+.icon-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 0 0 4px;
+}
+
+.input-field {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    color: inherit;
+    height: 100%;
+    width: 100%;
+    padding: 8px 8px;
+}
+
 .kind-outlined {
     background-color: inherit;
     border: 1px solid #c4c4c4;
@@ -89,11 +106,16 @@
     border: 1.5px solid #00796b;
 }
 
+.kind-outlined .input-field {
+    align-items: center;
+    background-color: inherit;
+    border-radius: inherit;
+}
+
 .icon {
     color: #494949;
     height: 24px;
     width: 24px;
-    margin-right: 8px;
 }
 
 .value {
@@ -105,22 +127,6 @@
     z-index: 1000;
     left: 0;
     top: 44px;
-}
-
-.kind-outlined.size-default {
-    padding: 20px 16px;
-}
-
-.kind-outlined.size-dense {
-    padding: 14px 16px;
-}
-
-.kind-filled.size-default {
-    padding: 30px 16px 10px 16px;
-}
-
-.kind-filled.size-dense {
-    padding: 22px 11px 8px 11px;
 }
 
 /* status */

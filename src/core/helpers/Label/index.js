@@ -29,6 +29,7 @@ function Label({
                 [`size-${size}`]: true,
                 [`type-${type}`]: true,
                 [`kind-${kind}`]: true,
+                'has-icon': hasIcon,
             })}
         >
             <div

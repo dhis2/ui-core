@@ -102,27 +102,37 @@ class SelectField extends React.Component {
                     ref={c => (this.elSelect = c)}
                     className={s('reset', 'select', {
                         [`kind-${this.props.kind}`]: true,
+                        [`status-${this.props.status}`]: true,
                     })}
                     onClick={this.onToggle}
                 >
                     {this.props.icon && (
-                        <Icon name={this.props.icon} className={s('icon')} />
+                        <div className={s('reset', 'lead-icon-field')}>
+                            <Icon
+                                name={this.props.icon}
+                                className={s('icon')}
+                            />
+                        </div>
                     )}
-                    <div className={s('reset', 'value')}>{selected}</div>
-                    <Label
-                        type="select"
-                        size={this.props.size}
-                        kind={this.props.kind}
-                        text={this.props.label}
-                        status={this.props.status}
-                        hasIcon={!!this.props.icon}
-                        disabled={this.props.disabled}
-                        state={selected ? 'minimized' : 'default'}
-                    />
-                    <Icon
-                        name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
-                        className={s('dropdown-icon')}
-                    />
+                    <div className={s('reset', 'input-field')}>
+                        <div className={s('reset', 'value')}>{selected}</div>
+                        <Label
+                            type="select"
+                            size={this.props.size}
+                            kind={this.props.kind}
+                            text={this.props.label}
+                            status={this.props.status}
+                            hasIcon={!!this.props.icon}
+                            disabled={this.props.disabled}
+                            state={selected ? 'minimized' : 'default'}
+                        />
+                    </div>
+                    <div className={s('reset', 'trail-icon-field')}>
+                        <Icon
+                            name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
+                            className={s('icon')}
+                        />
+                    </div>
                 </div>
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />
@@ -148,6 +158,7 @@ SelectField.defaultProps = {
     disabled: false,
     label: '',
     size: 'default',
+    status: 'default',
 }
 
 SelectField.propTypes = {
