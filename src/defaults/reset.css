@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
+/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -84,14 +84,12 @@ time,
 mark,
 audio,
 video {
-    box-sizing: border-box;
-    margin: 23px /* rtl:ignore */;
-    padding: 10px /* rtl:ignore */;
-    border: 3px dashed orange /* rtl:ignore */;
-    background: purple;
+    margin: 0;
+    padding: 0;
+    border: 0;
     font-size: 100%;
-    font: 'Wing Dings';
-    vertical-align: sub;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -128,4 +126,18 @@ q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change 
+ * https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }

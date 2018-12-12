@@ -5,8 +5,6 @@
 }
 
 .overlay {
-    composes: boxmodel font from '../mixins/globals.css';
-
     position: absolute;
     top: 0;
     right: 0;
@@ -20,8 +18,6 @@
 }
 
 .base {
-    composes: boxmodel font from '../mixins/globals.css';
-
     display: inline-block;
     margin: 16px;
     color: #1976d2;
