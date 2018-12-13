@@ -4,99 +4,125 @@ import Icon from '../Icon'
 import { Label, Help } from '../helpers'
 import s from './styles'
 
+function outlined(kind) {
+    return 'outlined' === kind
+}
+
+function icon(i, action = null) {
+    if (i) {
+        return (
+            <div>
+                <Icon name={i} onClick={action} className={s('icon')} />
+            </div>
+        )
+    }
+    return null
+}
+
 class InputField extends React.Component {
     state = {
         focused: false,
+        text: this.props.value,
+        labelWidth: 0,
     }
 
-    onChange = evt => {
-        if (!this.props.disabled) {
-            this.props.onChange(this.props.name, evt.target.value)
-        }
+    constructor(props) {
+        super(props)
+        this.labelRef = React.createRef()
     }
 
-    onClick = () => {
-        if (this.ref && !this.props.disabled) {
-            this.ref.focus()
-            this.setState({ focused: true })
-        }
+    componentDidMount() {
+        this.setState({ labelWidth: this.labelRef.current.offsetWidth })
+    }
+
+    isFocused() {
+        return this.state.focused
+    }
+
+    shrink() {
+        return this.isFocused() || this.state.text || this.props.placeholder
     }
 
     onFocus = evt => {
-        if (this.props.disabled) {
-            evt.target.blur()
-            return
-        }
-
         this.setState({ focused: true })
     }
 
-    onBlur = () => this.setState({ focused: false })
+    onBlur = evt => {
+        this.setState({ focused: false })
+    }
+
+    onChange = evt => {
+        if (this.props.disabled) {
+            return
+        }
+
+        this.props.onChange(this.props.name, evt.target.value)
+        this.setState({ text: evt.target.value })
+    }
 
     render() {
+        const legendWidth = this.shrink()
+            ? { width: `${this.state.labelWidth}px` }
+            : { width: 0 }
+
         return (
             <div
                 className={s('reset', 'base', {
+                    focused: this.isFocused(),
                     disabled: this.props.disabled,
-                    'is-empty': !(
-                        this.props.value ||
-                        this.props.placeholder ||
-                        this.state.focused
-                    ),
+                    [`kind-${this.props.kind}`]: true,
                 })}
-                onClick={this.onClick}
             >
+                <label
+                    ref={this.labelRef}
+                    className={s({
+                        'has-icon': this.props.icon,
+                        focused: this.shrink(),
+                        [`status-${this.props.status}`]: true,
+                        [`label-size-${this.props.size}`]: true,
+                    })}
+                >
+                    {this.props.label}
+                </label>
                 <div
-                    className={s('reset', 'field', {
-                        focused: this.state.focused,
-                        [`kind-${this.props.kind}`]: true,
+                    className={s('field', {
                         [`size-${this.props.size}`]: true,
+                        [`status-${this.props.status}`]: true,
+                        empty:
+                            !this.isFocused() &&
+                            !this.state.text &&
+                            this.props.status === 'default',
+                        focused: this.isFocused(),
+                        filled: this.state.text,
+                    })}
+                >
+                    {outlined(this.props.kind) && (
+                        <fieldset>
+                            <legend style={legendWidth}>&nbsp;</legend>
+                        </fieldset>
+                    )}
+                    {icon(this.props.icon)}
+                    <input
+                        className={s('reset', 'input', {
+                            disabled: this.props.disabled,
+                        })}
+                        type={this.props.type}
+                        placeholder={this.props.placeholder}
+                        disabled={this.props.disabled}
+                        value={this.state.text}
+                        onFocus={this.onFocus}
+                        onBlur={this.onBlur}
+                        onChange={this.onChange}
+                    />
+                    {icon(this.props.trailIcon)}
+                </div>
+                <p
+                    className={s('reset', 'help', {
                         [`status-${this.props.status}`]: true,
                     })}
                 >
-                    <Label
-                        size={this.props.size}
-                        kind={this.props.kind}
-                        text={this.props.label}
-                        status={this.props.status}
-                        focused={this.state.focused}
-                        disabled={this.props.disabled}
-                        hasIcon={!!this.props.icon}
-                        state={
-                            this.props.placeholder ||
-                            this.props.value ||
-                            this.state.focused
-                                ? 'minimized'
-                                : 'default'
-                        }
-                    />
-                    {this.props.icon && (
-                        <div className={s('reset', 'icon-field')}>
-                            <Icon
-                                name={this.props.icon}
-                                className={s('icon')}
-                            />
-                        </div>
-                    )}
-                    <div className={s('reset', 'input-field')}>
-                        <input
-                            ref={c => (this.ref = c)}
-                            className={s('reset', 'input', {
-                                disabled: this.props.disabled,
-                            })}
-                            type={this.props.type}
-                            value={this.props.value}
-                            onChange={this.onChange}
-                            onFocus={this.onFocus}
-                            onBlur={this.onBlur}
-                            placeholder={this.props.placeholder}
-                            disabled={this.props.disabled}
-                        />
-                    </div>
-                </div>
-                {this.props.help && (
-                    <Help text={this.props.help} status={this.props.status} />
-                )}
+                    {this.props.help}
+                </p>
             </div>
         )
     }

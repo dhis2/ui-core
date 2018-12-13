@@ -90,22 +90,3 @@
     cursor: not-allowed;
     color: #9e9e9e;
 }
-
-.kind-outlined {
-    border: 1px solid #c4c4c4;
-    border-radius: 5px;
-}
-
-.kind-outlined:hover {
-    border: 1.5px solid #494949;
-}
-
-.kind-outlined.focused {
-    border: 1.5px solid #00796b;
-}
-
-.disabled.kind-outlined,
-.disabled.kind-outlined:hover {
-    color: #9e9e9e;
-    border: 1px solid #c4c4c4;
-}

@@ -6,9 +6,8 @@
 
 .base {
     position: relative;
+    color: #494949;
     display: inline-block;
-    pointer-events: all;
-    cursor: pointer;
     width: 100%;
 }
 
@@ -18,126 +17,197 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-radius: 5px;
-    padding-top: 8px;
-}
-
-.size-default,
-.size-default .field {
-    height: 56px;
-}
-
-.size-dense,
-.size-dense .field {
-    height: 44px;
-}
-
-.input {
-    border: 0;
-    width: 100%;
-    color: #000;
-    background-color: transparent;
-    z-index: 1;
-}
-
-.input::placeholder {
-    color: #494949;
-    opacity: 1;
-}
-
-.size-default .input {
-    line-height: 16px;
-    font-size: 16px;
-}
-
-.size-dense .input {
-    line-height: 13px;
-    font-size: 13px;
-    font-weight: 300;
-}
-
-.kind-filled {
-    background-color: rgba(0, 0, 10, 0.05);
-    border-bottom: 2px solid transparent;
-}
-
-.kind-filled:hover {
-    background-color: rgba(0, 0, 10, 0.08);
-}
-
-.kind-filled.focused {
-    background-color: rgba(0, 0, 10, 0.08);
-    border-bottom: 2px solid #00796b;
-}
-
-.icon-field {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0 0 0 4px;
-}
-
-.input-field {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: inherit;
-    height: 100%;
-    width: 100%;
-    padding: 8px 8px;
-}
-
-.kind-outlined .input-field {
-    align-items: center;
-    border-radius: inherit;
+    padding-left: 8px;
 }
 
 .icon {
+    margin: 0 8px 0 0;
+}
+
+.help {
+    cursor: help;
+    padding-left: 14px;
+    height: 12px;
+    line-height: 12px;
     color: #494949;
-    height: 24px;
-    width: 24px;
+    font-size: 12px;
 }
 
-.value {
-    height: 24px;
+.field input {
+    height: 100%;
+    width: 100%;
 }
 
-.menu {
+.field fieldset {
+    padding-left: 8px;
     position: absolute;
-    z-index: 1000;
+
+    top: -8px;
+    bottom: 0;
     left: 0;
-    top: 44px;
+    right: 0;
+
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
+
+    pointer-events: none;
 }
 
-/* status */
-.status-default,
-.status-default .content {
-    color: #00796b;
+.kind-outlined .field.focused fieldset {
+    border-width: 1.5px;
 }
-.status-valid,
-.status-valid.focused,
-.status-valid .content {
+
+.kind-outlined .field.filled fieldset {
+    border-width: 1.5px;
+}
+
+.kind-outlined .field.filled:hover fieldset,
+.kind-outlined .field.filled:hover fieldset,
+.kind-outlined .field:hover fieldset {
+    border-width: 1px;
+    border-color: #494949;
+}
+
+.size-default {
+    height: 56px;
+}
+
+.size-dense {
+    height: 44px;
+}
+
+.empty.status-default,
+.filled.status-default,
+.status-default {
+    color: #c4c4c4;
+    border-color: #c4c4c4;
+}
+
+.focused.status-default,
+.focused.filled.status-default,
+.status-default {
+    color: #00796b;
+    border-color: #00796b;
+}
+
+.focused.status-valid,
+.status-valid {
     color: #1976d2;
     border-color: #1976d2;
 }
 
-.status-error,
-.status-error.focused,
-.status-error .content {
+.focused.status-error,
+.status-error {
     color: #e53935;
     border-color: #e53935;
 }
 
-.status-warning,
-.status-warning.focused,
-.status-warning .content {
+.focused.status-warning,
+.status-warning {
     color: #f19c02;
     border-color: #f19c02;
+}
+
+.kind-filled .field {
+    background-color: rgba(0, 0, 10, 0.05);
+    border-bottom: 2px solid transparent;
+    border-radius: 5px;
+}
+
+.kind-filled .field:hover,
+.focused.kind-filled .field {
+    background-color: rgba(0, 0, 10, 0.08);
+    border-bottom: 2px solid;
+}
+
+.kind-filled input {
+    padding-top: 14px;
+}
+
+.base label {
+    pointer-events: none;
+    position: absolute;
+    white-space: nowrap;
+
+    display: block;
+    color: #494949;
+}
+
+.kind-filled label {
+    transition: all 0.1s;
+    transform-origin: top left;
+    transform: translate(14px, 25px) scale(1);
+}
+
+.kind-filled label.label-size-dense {
+    transform: translate(14px, 15px) scale(1);
+}
+
+.kind-filled label.focused {
+    transform: translate(14px, 6px) scale(0.75);
+}
+
+.kind-filled label.focused.label-size-dense {
+    transform: translate(14px, 2px) scale(0.75);
+}
+
+.kind-filled label.has-icon {
+    left: 24px;
+}
+
+.kind-filled.focused label.has-icon {
+    left: 24px;
+}
+
+.kind-outlined label {
+    transition: all 0.1s;
+    transform-origin: top left;
+    transform: translate(14px, 17px) scale(1);
+}
+
+.kind-outlined label.label-size-dense {
+    transform: translate(14px, 12px) scale(1);
+}
+
+.kind-outlined label.focused {
+    transform: translate(14px, -6px) scale(0.75);
+}
+
+.kind-outlined label.focused.label-size-dense {
+    transform: translate(14px, -6px) scale(0.75);
+}
+
+.kind-outlined label.has-icon {
+    left: 24px;
+}
+
+.kind-outlined label.focused.has-icon {
+    left: 0px;
+}
+
+.disabled.kind-filled label,
+.disabled.kind-filled .field {
+    background-color: rgba(0, 0, 10, 0.02);
+    border: 2px solid transparent;
+    color: #9e9e9e;
+}
+
+.disabled.kind-filled label {
+    background-color: transparent;
+}
+
+.disabled.kind-outlined .field fieldset {
+    border: 1px solid rgba(196, 196, 196, 0.2);
+}
+
+.disabled.kind-outlined label {
+    color: #9e9e9e;
 }
 
 .disabled,
 .disabled::placeholder {
     cursor: not-allowed;
     color: #9e9e9e;
-    opacity: 1;
 }
