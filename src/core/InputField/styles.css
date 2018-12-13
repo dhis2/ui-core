@@ -1,3 +1,12 @@
+:root {
+    --idle: #c4c4c4;
+    --solid: #494949;
+    --default: #00796b;
+    --valid: #1976d2;
+    --warning: #f19c02;
+    --error: #e53935;
+}
+
 .reset {
     all: initial;
     box-sizing: border-box;
@@ -38,7 +47,11 @@
     width: 100%;
 }
 
-.field fieldset {
+/*
+ * OUTLINE
+ *
+ */
+.outline {
     padding-left: 8px;
     position: absolute;
 
@@ -47,27 +60,137 @@
     left: 0;
     right: 0;
 
+    border: 1px solid var(--idle);
     border-radius: 5px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: inherit;
 
     pointer-events: none;
 }
 
-.kind-outlined .field.focused fieldset {
-    border-width: 1.5px;
+/* we have disabled the pointer-events for the fieldset so we can click
+   through it, that's why we target it through the parent's hover */
+.field:hover .outline,
+.field:hover .outline.idle.filled,
+.field:hover .outline.focused {
+    border: 1px solid var(--solid);
 }
 
-.kind-outlined .field.filled fieldset {
-    border-width: 1.5px;
+.outline.idle.filled {
+    border: 1.5px solid var(--idle);
 }
 
-.kind-outlined .field.filled:hover fieldset,
-.kind-outlined .field.filled:hover fieldset,
-.kind-outlined .field:hover fieldset {
-    border-width: 1px;
-    border-color: #494949;
+.outline.focused {
+    border: 1.5px solid var(--default);
+}
+
+/*
+ * outlined fieldset status states
+ */
+.outline.valid,
+.outline.valid.idle.filled,
+.outline.valid.focused {
+    border: 1.5px solid var(--valid);
+}
+.outline.warning,
+.outline.warning.idle.filled,
+.outline.warning.focused {
+    border: 1.5px solid var(--warning);
+}
+.outline.error,
+.outline.error.idle.filled,
+.outline.error.focused {
+    border: 1.5px solid var(--error);
+}
+
+/*
+ *
+ * LABEL
+ *
+ */
+
+.label {
+    pointer-events: none;
+    position: absolute;
+    white-space: nowrap;
+
+    display: block;
+    color: var(--solid);
+}
+
+.label.filled {
+    transition: all 0.1s;
+    transform-origin: top left;
+    transform: translate(14px, 25px) scale(1);
+}
+
+.label.filled.dense {
+    transform: translate(14px, 15px) scale(1);
+}
+
+.label.filled.focused {
+    color: var(--default);
+}
+
+.label.filled.shrink {
+    transform: translate(14px, 6px) scale(0.75);
+}
+
+.label.filled.dense.shrink {
+    transform: translate(14px, 2px) scale(0.75);
+}
+
+.label.filled.has-icon {
+    left: 24px;
+}
+
+.label.filled.shrink.has-icon {
+    left: 24px;
+}
+
+.label.outlined {
+    transition: all 0.1s;
+    transform-origin: top left;
+    transform: translate(14px, 17px) scale(1);
+}
+
+.label.outlined.dense {
+    transform: translate(14px, 12px) scale(1);
+}
+
+.label.outlined.focused {
+    color: var(--default);
+}
+
+.label.outlined.shrink {
+    transform: translate(14px, -6px) scale(0.75);
+}
+
+.label.outlined.shrink.dense {
+    transform: translate(14px, -6px) scale(0.75);
+}
+
+.label.outlined.has-icon {
+    left: 24px;
+}
+
+.label.outlined.shrink.has-icon {
+    left: 0px;
+}
+
+/*
+ * label status states
+ */
+.label.filled.valid,
+.label.outlined.valid {
+    color: var(--valid);
+}
+
+.label.filled.warning,
+.label.outlined.warning {
+    color: var(--warning);
+}
+.label.filled.error,
+.label.outlined.error {
+    color: var(--error);
 }
 
 .size-default {
@@ -78,131 +201,58 @@
     height: 44px;
 }
 
-.empty.status-default,
-.filled.status-default,
-.status-default {
-    color: #c4c4c4;
-    border-color: #c4c4c4;
-}
-
-.focused.status-default,
-.focused.filled.status-default,
-.status-default {
-    color: #00796b;
-    border-color: #00796b;
-}
-
-.focused.status-valid,
-.status-valid {
-    color: #1976d2;
-    border-color: #1976d2;
-}
-
-.focused.status-error,
-.status-error {
-    color: #e53935;
-    border-color: #e53935;
-}
-
-.focused.status-warning,
-.status-warning {
-    color: #f19c02;
-    border-color: #f19c02;
-}
-
-.kind-filled .field {
+.field.kind-filled {
     background-color: rgba(0, 0, 10, 0.05);
     border-bottom: 2px solid transparent;
     border-radius: 5px;
 }
 
-.kind-filled .field:hover,
-.focused.kind-filled .field {
+.field.kind-filled:hover,
+.field.kind-filled.focused {
     background-color: rgba(0, 0, 10, 0.08);
-    border-bottom: 2px solid;
+    border-bottom: 2px solid var(--default);
 }
 
-.kind-filled input {
+.field.kind-filled .input {
     padding-top: 14px;
 }
 
-.base label {
-    pointer-events: none;
-    position: absolute;
-    white-space: nowrap;
-
-    display: block;
-    color: #494949;
+/*
+ * filled field states
+ */
+.field.kind-filled.status-valid:hover,
+.field.kind-filled.focused.status-valid {
+    border-bottom: 2px solid var(--valid);
+}
+.field.kind-filled.status-warning:hover,
+.field.kind-filled.focused.status-warning {
+    border-bottom: 2px solid var(--warning);
+}
+.field.kind-filled.status-error:hover,
+.field.kind-filled.focused.status-error {
+    border-bottom: 2px solid var(--error);
 }
 
-.kind-filled label {
-    transition: all 0.1s;
-    transform-origin: top left;
-    transform: translate(14px, 25px) scale(1);
-}
+/* disabled */
 
-.kind-filled label.label-size-dense {
-    transform: translate(14px, 15px) scale(1);
-}
-
-.kind-filled label.focused {
-    transform: translate(14px, 6px) scale(0.75);
-}
-
-.kind-filled label.focused.label-size-dense {
-    transform: translate(14px, 2px) scale(0.75);
-}
-
-.kind-filled label.has-icon {
-    left: 24px;
-}
-
-.kind-filled.focused label.has-icon {
-    left: 24px;
-}
-
-.kind-outlined label {
-    transition: all 0.1s;
-    transform-origin: top left;
-    transform: translate(14px, 17px) scale(1);
-}
-
-.kind-outlined label.label-size-dense {
-    transform: translate(14px, 12px) scale(1);
-}
-
-.kind-outlined label.focused {
-    transform: translate(14px, -6px) scale(0.75);
-}
-
-.kind-outlined label.focused.label-size-dense {
-    transform: translate(14px, -6px) scale(0.75);
-}
-
-.kind-outlined label.has-icon {
-    left: 24px;
-}
-
-.kind-outlined label.focused.has-icon {
-    left: 0px;
-}
-
-.disabled.kind-filled label,
-.disabled.kind-filled .field {
+.label.filled.disabled,
+.field.kind-filled.disabled:hover,
+.field.kind-filled.disabled {
     background-color: rgba(0, 0, 10, 0.02);
     border: 2px solid transparent;
     color: #9e9e9e;
 }
 
-.disabled.kind-filled label {
+.label.filled.disabled {
     background-color: transparent;
 }
 
-.disabled.kind-outlined .field fieldset {
+.field.disabled .outline,
+.field.disabled:hover .outline {
     border: 1px solid rgba(196, 196, 196, 0.2);
 }
 
-.disabled.kind-outlined label {
+.label.kind-outlined.disabled {
     color: #9e9e9e;
 }
 

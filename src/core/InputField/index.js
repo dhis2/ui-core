@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
-import { Label, Help } from '../helpers'
 import s from './styles'
 
 function outlined(kind) {
@@ -70,35 +69,48 @@ class InputField extends React.Component {
                 className={s('reset', 'base', {
                     focused: this.isFocused(),
                     disabled: this.props.disabled,
-                    [`kind-${this.props.kind}`]: true,
                 })}
             >
                 <label
                     ref={this.labelRef}
-                    className={s({
+                    className={s('reset', 'label', {
+                        disabled: this.props.disabled,
+                        focused: this.isFocused(),
+                        shrink: this.shrink(),
                         'has-icon': this.props.icon,
-                        focused: this.shrink(),
-                        [`status-${this.props.status}`]: true,
-                        [`label-size-${this.props.size}`]: true,
+                        [`${this.props.status}`]: true,
+                        [`${this.props.size}`]: true,
+                        [`${this.props.kind}`]: true,
                     })}
                 >
                     {this.props.label}
                 </label>
                 <div
-                    className={s('field', {
+                    className={s('reset', 'field', {
                         [`size-${this.props.size}`]: true,
                         [`status-${this.props.status}`]: true,
+                        [`kind-${this.props.kind}`]: true,
                         empty:
                             !this.isFocused() &&
                             !this.state.text &&
                             this.props.status === 'default',
                         focused: this.isFocused(),
                         filled: this.state.text,
+                        disabled: this.props.disabled,
                     })}
                 >
                     {outlined(this.props.kind) && (
-                        <fieldset>
-                            <legend style={legendWidth}>&nbsp;</legend>
+                        <fieldset
+                            className={s('reset', 'outline', {
+                                focused: this.isFocused(),
+                                idle: !this.isFocused(),
+                                filled: this.state.text,
+                                [`${this.props.status}`]: true,
+                            })}
+                        >
+                            <legend className={s('reset')} style={legendWidth}>
+                                &nbsp;
+                            </legend>
                         </fieldset>
                     )}
                     {icon(this.props.icon)}
