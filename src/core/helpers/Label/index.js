@@ -9,41 +9,71 @@ const statusToIcon = {
     error: 'error',
 }
 
-function Label({
-    text,
-    type,
-    focused,
-    size,
-    kind,
-    state,
-    status,
-    disabled,
-    hasIcon,
-}) {
-    return (
-        <div
-            className={s('reset', 'base', {
-                disabled,
-                [`focused`]: focused,
-                [`state-${state}`]: true,
-                [`size-${size}`]: true,
-                [`type-${type}`]: true,
-                [`kind-${kind}`]: true,
-                'has-icon': hasIcon,
-            })}
-        >
-            <div
-                className={s('reset', 'content', {
+class Label extends React.Component {
+    constructor(props) {
+        super(props)
+        this.ref = React.createRef()
+        this.state = {
+            legend: {
+                width: '0px',
+            },
+        }
+    }
+
+    componentDidMount() {
+        this.setState({
+            legend: { width: `${this.ref.current.offsetWidth}px` },
+        })
+    }
+
+    render() {
+        const {
+            text,
+            type,
+            focused,
+            size,
+            kind,
+            state,
+            status,
+            disabled,
+            hasIcon,
+        } = this.props
+
+        return (
+            <fieldset
+                className={s('reset', 'base', {
+                    disabled,
+                    [`focused`]: focused,
                     [`state-${state}`]: true,
+                    [`size-${size}`]: true,
+                    [`type-${type}`]: true,
+                    [`kind-${kind}`]: true,
+                    'has-icon': hasIcon,
                 })}
             >
-                {text}
-            </div>
-            {status !== 'default' && (
-                <Icon name={statusToIcon[status]} className={s('icon')} />
-            )}
-        </div>
-    )
+                <legend
+                    style={
+                        state === 'minimized'
+                            ? this.state.legend
+                            : { width: '0px' }
+                    }
+                >
+                    &nbsp;
+                </legend>
+                <div
+                    ref={this.ref}
+                    className={s('reset', 'content', {
+                        [`state-${state}`]: true,
+                    })}
+                >
+                    {text}
+                </div>
+                {status !== 'default' && (
+                    <Icon name={statusToIcon[status]} className={s('icon')} />
+                )}
+            </fieldset>
+        )
+    }
 }
 
 Label.defaultProps = {

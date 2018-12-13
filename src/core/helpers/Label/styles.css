@@ -12,23 +12,27 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: inherit;
     color: inherit;
     border-radius: inherit;
+    padding-left: 8px;
+    line-height: 16px;
 }
 
 .size-default .content {
-    top: 18px;
+    top: 4px;
 }
 
 .size-dense .content {
-    top: 12px;
+    top: 0px;
+}
+
+.kind-outlined.size-default .content {
+    top: 8px;
 }
 
 .content {
     pointer-events: none;
     position: absolute;
-    left: 14px;
     transition: all 0.1s;
     white-space: nowrap;
     color: #494949;
@@ -46,19 +50,26 @@
 }
 
 .kind-filled.state-minimized .content {
-    top: 6px;
+    top: -12px;
     color: inherit;
 }
 
 .kind-outlined.state-minimized .content {
-    top: -4px;
+    top: -12px;
     padding: 0 4px;
-    background-color: inherit;
     color: inherit;
 }
 
-.has-icon.kind-outlined.state-minimized .content {
-    left: -14px;
+.kind-outlined .icon {
+    top: 4px;
+}
+
+.has-icon .content {
+    left: 32px;
+}
+
+.state-minimized.has-icon .content {
+    left: 12px;
 }
 
 .icon {
@@ -68,14 +79,33 @@
     color: inherit;
 }
 
-.size-default .icon {
-    top: 16px;
+.kind-outlined.size-dense .icon {
+    top: -2px;
 }
-.size-dense .icon {
-    top: 10px;
+.kind-filled.size-dense .icon {
+    top: -6px;
 }
 
 .disabled {
     cursor: not-allowed;
     color: #9e9e9e;
+}
+
+.kind-outlined {
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+}
+
+.kind-outlined:hover {
+    border: 1.5px solid #494949;
+}
+
+.kind-outlined.focused {
+    border: 1.5px solid #00796b;
+}
+
+.disabled.kind-outlined,
+.disabled.kind-outlined:hover {
+    color: #9e9e9e;
+    border: 1px solid #c4c4c4;
 }

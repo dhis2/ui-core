@@ -29,10 +29,10 @@
     cursor: pointer;
     user-select: none;
     border-radius: 5px;
+    padding-top: 6px;
 }
 
 .value {
-    z-index: 1;
 }
 
 .size-default {
@@ -75,20 +75,6 @@
     border-bottom: 2px solid #00796b;
 }
 
-.kind-outlined {
-    background-color: inherit;
-    border: 1px solid #c4c4c4;
-    border-radius: 5px;
-}
-
-.kind-outlined:hover {
-    border: 1.5px solid #494949;
-}
-
-.kind-outlined.focused {
-    border: 1.5px solid #00796b;
-}
-
 .menu {
     position: absolute;
     z-index: 1000;
@@ -121,7 +107,7 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     color: inherit;
     height: 100%;
     width: 100%;
@@ -129,15 +115,11 @@
 }
 
 .kind-outlined .input-field {
-    align-items: center;
     background-color: inherit;
     border-radius: inherit;
 }
 
 /* status */
-.disabled .kind-outlined {
-    border: 1px solid #c4c4c4;
-}
 
 .disabled,
 .disabled .select,

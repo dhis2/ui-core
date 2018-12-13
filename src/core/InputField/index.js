@@ -54,6 +54,22 @@ class InputField extends React.Component {
                         [`status-${this.props.status}`]: true,
                     })}
                 >
+                    <Label
+                        size={this.props.size}
+                        kind={this.props.kind}
+                        text={this.props.label}
+                        status={this.props.status}
+                        focused={this.state.focused}
+                        disabled={this.props.disabled}
+                        hasIcon={!!this.props.icon}
+                        state={
+                            this.props.placeholder ||
+                            this.props.value ||
+                            this.state.focused
+                                ? 'minimized'
+                                : 'default'
+                        }
+                    />
                     {this.props.icon && (
                         <div className={s('reset', 'icon-field')}>
                             <Icon
@@ -75,22 +91,6 @@ class InputField extends React.Component {
                             onBlur={this.onBlur}
                             placeholder={this.props.placeholder}
                             disabled={this.props.disabled}
-                        />
-                        <Label
-                            size={this.props.size}
-                            kind={this.props.kind}
-                            text={this.props.label}
-                            status={this.props.status}
-                            focused={this.state.focused}
-                            disabled={this.props.disabled}
-                            hasIcon={!!this.props.icon}
-                            state={
-                                this.props.placeholder ||
-                                this.props.value ||
-                                this.state.focused
-                                    ? 'minimized'
-                                    : 'default'
-                            }
                         />
                     </div>
                 </div>

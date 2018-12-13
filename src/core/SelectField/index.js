@@ -106,6 +106,16 @@ class SelectField extends React.Component {
                     })}
                     onClick={this.onToggle}
                 >
+                    <Label
+                        type="select"
+                        size={this.props.size}
+                        kind={this.props.kind}
+                        text={this.props.label}
+                        status={this.props.status}
+                        hasIcon={!!this.props.icon}
+                        disabled={this.props.disabled}
+                        state={selected ? 'minimized' : 'default'}
+                    />
                     {this.props.icon && (
                         <div className={s('reset', 'lead-icon-field')}>
                             <Icon
@@ -116,16 +126,6 @@ class SelectField extends React.Component {
                     )}
                     <div className={s('reset', 'input-field')}>
                         <div className={s('reset', 'value')}>{selected}</div>
-                        <Label
-                            type="select"
-                            size={this.props.size}
-                            kind={this.props.kind}
-                            text={this.props.label}
-                            status={this.props.status}
-                            hasIcon={!!this.props.icon}
-                            disabled={this.props.disabled}
-                            state={selected ? 'minimized' : 'default'}
-                        />
                     </div>
                     <div className={s('reset', 'trail-icon-field')}>
                         <Icon
