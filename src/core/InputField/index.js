@@ -74,6 +74,7 @@ class InputField extends React.Component {
                 <label
                     ref={this.labelRef}
                     className={s('reset', 'label', {
+                        required: this.props.required,
                         disabled: this.props.disabled,
                         focused: this.isFocused(),
                         shrink: this.shrink(),
@@ -90,10 +91,6 @@ class InputField extends React.Component {
                         [`size-${this.props.size}`]: true,
                         [`status-${this.props.status}`]: true,
                         [`kind-${this.props.kind}`]: true,
-                        empty:
-                            !this.isFocused() &&
-                            !this.state.text &&
-                            this.props.status === 'default',
                         focused: this.isFocused(),
                         filled: this.state.text,
                         disabled: this.props.disabled,
@@ -155,6 +152,7 @@ InputField.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onChange: PropTypes.func.isRequired,
     icon: PropTypes.string,
+    trailIcon: PropTypes.string,
     help: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,

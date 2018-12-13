@@ -15,6 +15,7 @@ const fields = [
                 placeholder: undefined,
                 kind: 'filled',
                 size: 'dense',
+                required: true,
             },
             {
                 placeholder: undefined,

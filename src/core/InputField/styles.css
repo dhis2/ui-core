@@ -116,6 +116,10 @@
     color: var(--solid);
 }
 
+.label.required::after {
+    content: '*';
+}
+
 .label.filled {
     transition: all 0.1s;
     transform-origin: top left;
