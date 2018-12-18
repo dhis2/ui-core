@@ -1,3 +1,14 @@
+:root {
+    --idle: #c4c4c4;
+    --solid: #494949;
+    --default: #00796b;
+    --valid: #1976d2;
+    --warning: #f19c02;
+    --error: #e53935;
+    --secondary-light: #48a999;
+    --grey-light: #e0e0e0;
+}
+
 .reset {
     all: initial;
     box-sizing: border-box;
@@ -24,7 +35,7 @@
 
 .label {
     margin: 0 0 0 8px;
-    color: #000000;
+    color: var(--solid);
 }
 
 .disabled,
@@ -39,23 +50,23 @@
 
 .valid,
 .valid-icon {
-    composes: valid from '../mixins/states.css';
+    color: var(--valid);
 }
 
 .warning,
 .warning-icon {
-    composes: warning from '../mixins/states.css';
+    color: var(--warning);
 }
 
 .error,
 .error-icon {
-    composes: error from '../mixins/states.css';
+    color: var(--error);
 }
 
 .default-icon {
-    composes: secondary-light from '../mixins/colors.css';
+    color: var(--secondary-light);
 }
 
 .disabled {
-    composes: grey-light from '../mixins/colors.css';
+    color: var(--grey-light);
 }

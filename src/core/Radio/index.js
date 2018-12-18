@@ -38,7 +38,7 @@ class Radio extends React.Component {
                     onChange={this.onChange}
                 />
                 {icon}
-                <span className={s('reset', 'label', status, { required })}>
+                <span className={s('reset', 'label', { required })}>
                     {this.props.label}
                 </span>
             </label>

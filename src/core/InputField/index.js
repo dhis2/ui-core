@@ -1,21 +1,32 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import s from './styles'
+import { Help } from '../helpers'
 
-function outlined(kind) {
-    return 'outlined' === kind
+const statusToIcon = {
+    valid: 'check_circle',
+    warning: 'warning',
+    error: 'error',
 }
 
-function icon(i, action = null) {
+function icon(i, action = null, extra = null) {
     if (i) {
         return (
             <div>
-                <Icon name={i} onClick={action} className={s('icon')} />
+                <Icon name={i} onClick={action} className={s('icon', extra)} />
             </div>
         )
     }
     return null
+}
+
+function trailIcon(status, trail) {
+    if (status !== 'default') {
+        return icon(statusToIcon[status], null, `icon-${status}`)
+    } else {
+        return icon(trail)
+    }
 }
 
 class InputField extends React.Component {
@@ -39,7 +50,7 @@ class InputField extends React.Component {
     }
 
     shrink() {
-        return this.isFocused() || this.state.text || this.props.placeholder
+        return !!(this.isFocused() || this.state.text || this.props.placeholder)
     }
 
     onFocus = evt => {
@@ -71,21 +82,6 @@ class InputField extends React.Component {
                     disabled: this.props.disabled,
                 })}
             >
-                <label
-                    ref={this.labelRef}
-                    className={s('reset', 'label', {
-                        required: this.props.required,
-                        disabled: this.props.disabled,
-                        focused: this.isFocused(),
-                        shrink: this.shrink(),
-                        'has-icon': this.props.icon,
-                        [`${this.props.status}`]: true,
-                        [`${this.props.size}`]: true,
-                        [`${this.props.kind}`]: true,
-                    })}
-                >
-                    {this.props.label}
-                </label>
                 <div
                     className={s('reset', 'field', {
                         [`size-${this.props.size}`]: true,
@@ -96,13 +92,28 @@ class InputField extends React.Component {
                         disabled: this.props.disabled,
                     })}
                 >
-                    {outlined(this.props.kind) && (
+                    <label
+                        ref={this.labelRef}
+                        className={s('reset', 'label', {
+                            [`${this.props.status}`]: true,
+                            [`${this.props.size}`]: true,
+                            [`${this.props.kind}`]: true,
+                            'has-icon': !!this.props.icon,
+                            required: this.props.required,
+                            disabled: this.props.disabled,
+                            focused: this.isFocused(),
+                            shrink: this.shrink(),
+                        })}
+                    >
+                        {this.props.label}
+                    </label>
+                    {this.props.kind === 'outlined' && (
                         <fieldset
                             className={s('reset', 'outline', {
+                                [`${this.props.status}`]: true,
                                 focused: this.isFocused(),
                                 idle: !this.isFocused(),
                                 filled: this.state.text,
-                                [`${this.props.status}`]: true,
                             })}
                         >
                             <legend className={s('reset')} style={legendWidth}>
@@ -110,6 +121,7 @@ class InputField extends React.Component {
                             </legend>
                         </fieldset>
                     )}
+
                     {icon(this.props.icon)}
                     <input
                         className={s('reset', 'input', {
@@ -123,15 +135,11 @@ class InputField extends React.Component {
                         onBlur={this.onBlur}
                         onChange={this.onChange}
                     />
-                    {icon(this.props.trailIcon)}
+                    {trailIcon(this.props.status, this.props.trailIcon)}
                 </div>
-                <p
-                    className={s('reset', 'help', {
-                        [`status-${this.props.status}`]: true,
-                    })}
-                >
-                    {this.props.help}
-                </p>
+                {this.props.help && (
+                    <Help text={this.props.help} status={this.props.status} />
+                )}
             </div>
         )
     }

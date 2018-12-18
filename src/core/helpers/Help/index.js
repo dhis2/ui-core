@@ -4,13 +4,13 @@ import s from './styles'
 
 function Help({ text, status }) {
     return (
-        <div
+        <p
             className={s('reset', 'base', {
                 [`status-${status}`]: true,
             })}
         >
             {text}
-        </div>
+        </p>
     )
 }
 

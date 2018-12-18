@@ -2,9 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import Menu from '../Menu'
-import { Label, Help } from '../helpers'
+import { Help } from '../helpers'
 import { isPointInRect } from '../../utils'
 import s from './styles'
+
+const statusToIcon = {
+    valid: 'check_circle',
+    warning: 'warning',
+    error: 'error',
+}
 
 function markActive(list, value) {
     if (!value) {
@@ -25,10 +31,18 @@ function markActive(list, value) {
 class SelectField extends React.Component {
     state = {
         open: false,
+        labelWidth: 0,
+    }
+
+    constructor(props) {
+        super(props)
+        this.labelRef = React.createRef()
     }
 
     componentDidMount() {
         document.addEventListener('click', this.onDocClick)
+
+        this.setState({ labelWidth: this.labelRef.current.offsetWidth })
     }
 
     componentWillUnmount() {
@@ -78,7 +92,23 @@ class SelectField extends React.Component {
         return selected.length > 0 ? selected[0]['label'] : null
     }
 
+    isFocused() {
+        return this.state.focused
+    }
+
+    shrink() {
+        return !!(
+            this.isFocused() ||
+            this.props.value ||
+            this.props.placeholder
+        )
+    }
+
     render() {
+        const legendWidth = this.shrink()
+            ? { width: `${this.state.labelWidth}px` }
+            : { width: 0 }
+
         const { open } = this.state
 
         let width = 'inherit'
@@ -103,19 +133,40 @@ class SelectField extends React.Component {
                     className={s('reset', 'select', {
                         [`kind-${this.props.kind}`]: true,
                         [`status-${this.props.status}`]: true,
+                        disabled: this.props.disabled,
                     })}
                     onClick={this.onToggle}
                 >
-                    <Label
-                        type="select"
-                        size={this.props.size}
-                        kind={this.props.kind}
-                        text={this.props.label}
-                        status={this.props.status}
-                        hasIcon={!!this.props.icon}
-                        disabled={this.props.disabled}
-                        state={selected ? 'minimized' : 'default'}
-                    />
+                    <label
+                        ref={this.labelRef}
+                        className={s('reset', 'label', {
+                            [`${this.props.status}`]: true,
+                            [`${this.props.size}`]: true,
+                            [`${this.props.kind}`]: true,
+                            'has-icon': !!this.props.icon,
+                            required: this.props.required,
+                            disabled: this.props.disabled,
+                            focused: this.isFocused(),
+                            shrink: !!selected,
+                        })}
+                    >
+                        {this.props.label}
+                    </label>
+                    {this.props.kind === 'outlined' && (
+                        <fieldset
+                            className={s('reset', 'outline', {
+                                [`${this.props.status}`]: true,
+                                focused: this.isFocused(),
+                                idle: !this.isFocused(),
+                                filled: this.state.text,
+                            })}
+                        >
+                            <legend className={s('reset')} style={legendWidth}>
+                                &nbsp;
+                            </legend>
+                        </fieldset>
+                    )}
+
                     {this.props.icon && (
                         <div className={s('reset', 'lead-icon-field')}>
                             <Icon
@@ -124,13 +175,33 @@ class SelectField extends React.Component {
                             />
                         </div>
                     )}
-                    <div className={s('reset', 'input-field')}>
+                    <div
+                        className={s('reset', 'input-field', {
+                            disabled: this.props.disabled,
+                        })}
+                    >
                         <div className={s('reset', 'value')}>{selected}</div>
                     </div>
                     <div className={s('reset', 'trail-icon-field')}>
+                        {this.props.status !== 'default' && (
+                            <Icon
+                                name={statusToIcon[this.props.status]}
+                                className={s('icon', {
+                                    [`icon-${this.props.status}`]: true,
+                                })}
+                            />
+                        )}
+                    </div>
+                    <div
+                        className={s('reset', 'trail-icon-field', {
+                            disabled: this.props.disabled,
+                        })}
+                    >
                         <Icon
                             name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
-                            className={s('icon')}
+                            className={s('icon', {
+                                disabled: this.props.disabled,
+                            })}
                         />
                     </div>
                 </div>
