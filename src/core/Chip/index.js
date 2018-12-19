@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
-import s from './styles'
+import cx, { rx } from './styles'
 
 class Chip extends React.PureComponent {
     onClick = () => {
@@ -23,15 +23,11 @@ class Chip extends React.PureComponent {
 
         if (this.props.type === 'image') {
             return (
-                <img
-                    src={icon}
-                    alt="chip icon"
-                    className={s('reset', 'image-icon')}
-                />
+                <img src={icon} alt="chip icon" className={rx('image-icon')} />
             )
         }
 
-        return <Icon name={icon} className={s('icon')} />
+        return <Icon name={icon} className={cx('icon')} />
     }
 
     showRemove() {
@@ -39,7 +35,7 @@ class Chip extends React.PureComponent {
             return (
                 <Icon
                     name="cancel"
-                    className={s('remove-icon')}
+                    className={cx('remove-icon')}
                     onClick={this.onRemove}
                 />
             )
@@ -51,7 +47,7 @@ class Chip extends React.PureComponent {
 
         return (
             <div
-                className={s('reset', 'base', {
+                className={rx('base', {
                     selected,
                     disabled,
                     dragging,
@@ -60,9 +56,7 @@ class Chip extends React.PureComponent {
                 onClick={this.onClick}
             >
                 {this.showIcon()}
-                <span className={s('reset', 'label', { overflow })}>
-                    {label}
-                </span>
+                <span className={rx('label', { overflow })}>{label}</span>
                 {this.showRemove()}
             </div>
         )

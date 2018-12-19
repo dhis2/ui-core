@@ -1,9 +1,3 @@
-.reset {
-    all: initial;
-    box-sizing: border-box;
-    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
-}
-
 .base {
     width: 100%;
 
@@ -15,10 +9,6 @@
 }
 
 .item {
-    all: initial;
-    box-sizing: border-box;
-    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
-
     cursor: pointer;
     padding: 0 24px;
     position: relative;
@@ -38,10 +28,6 @@
 }
 
 .label {
-    all: initial;
-    box-sizing: border-box;
-    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
-
     white-space: nowrap;
 
     user-select: none;
@@ -92,9 +78,6 @@
 }
 
 .sub-menu {
-    all: initial;
-    box-sizing: border-box;
-
     display: none;
     position: absolute;
     left: 100%;

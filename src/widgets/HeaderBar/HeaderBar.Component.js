@@ -5,7 +5,7 @@ import { LogoIconWhite } from '../../core/Logo'
 import NotificationIcon from './NotificationIcon'
 import Apps from './Apps'
 import Profile from './Profile'
-import s from './styles'
+import { rx } from './styles'
 
 function getTitle(instanceName, appName = '') {
     if (!appName) {
@@ -25,18 +25,18 @@ function HeaderBar({
     interpretations,
 }) {
     return (
-        <header className={s('reset', 'base', 'blue')}>
-            <div className={s('reset', 'first')}>
-                <div className={s('reset', 'logo')}>
-                    <a href={`${baseURL}`} className={s('reset')}>
+        <header className={rx('base', 'blue')}>
+            <div className={rx('first')}>
+                <div className={rx('logo')}>
+                    <a href={`${baseURL}`} className={rx()}>
                         <LogoIconWhite />
                     </a>
                 </div>
-                <div className={s('reset', 'title')}>
+                <div className={rx('title')}>
                     {getTitle(instanceName, appName)}
                 </div>
             </div>
-            <div className={s('reset', 'last')}>
+            <div className={rx('last')}>
                 <NotificationIcon
                     icon="message"
                     count={interpretations.count}

@@ -4,12 +4,12 @@ const stringHash = require('string-hash')
 
 module.exports = {
     plugins: {
-        'postcss-rtl': {},
         'postcss-preset-env': {
             stage: 3,
             autoprefixer: {
                 flexbox: 'no-2009',
             },
+            importFrom: 'src/defaults/colors.css',
         },
         'postcss-modules': {
             getJSON: function(cssFileName, json, outputFileName) {
@@ -34,10 +34,11 @@ module.exports = {
                     .toString(36)
                     .substr(0, 5)
 
-                return `_ui_${name}_${hash}`
+                return `_ui_${component}_${name}_${hash}`
             },
         },
         'postcss-flexbugs-fixes': {},
+        'postcss-rtl': {},
         cssnano: {},
     },
 }

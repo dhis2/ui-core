@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../Button'
-import s from './styles'
+import cx, { rx } from './styles'
 import Menu from '../Menu'
 import Icon from '../Icon'
 import { isPointInRect } from '../../utils'
@@ -50,7 +50,7 @@ class DropdownButton extends Component {
 
         return (
             <div
-                className={s('base', `${this.props.size}`)}
+                className={rx('base', `${this.props.size}`)}
                 ref={c => (this.elContainer = c)}
             >
                 <Button
@@ -60,12 +60,12 @@ class DropdownButton extends Component {
                     disabled={this.props.disabled}
                     onClick={this.onToggle}
                 >
-                    <span className={s('menu-label')}>{this.props.label}</span>
-                    <Icon className={s('menu-icon')} name={icon} />
+                    <span className={rx('menu-label')}>{this.props.label}</span>
+                    <Icon className={cx('menu-icon')} name={icon} />
                 </Button>
 
                 {open && (
-                    <div className={s('menu')} ref={c => (this.elMenu = c)}>
+                    <div className={rx('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
                             size={this.props.size}
                             list={this.props.list}

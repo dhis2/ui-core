@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
-import s from './styles'
+import cx, { rx } from './styles'
 import { Help } from '../helpers'
 
 const statusToIcon = {
@@ -14,7 +14,7 @@ function icon(i, action = null, extra = null) {
     if (i) {
         return (
             <div>
-                <Icon name={i} onClick={action} className={s('icon', extra)} />
+                <Icon name={i} onClick={action} className={cx('icon', extra)} />
             </div>
         )
     }
@@ -77,13 +77,13 @@ class InputField extends React.Component {
 
         return (
             <div
-                className={s('reset', 'base', {
+                className={rx('base', {
                     focused: this.isFocused(),
                     disabled: this.props.disabled,
                 })}
             >
                 <div
-                    className={s('reset', 'field', {
+                    className={rx('field', {
                         [`size-${this.props.size}`]: true,
                         [`status-${this.props.status}`]: true,
                         [`kind-${this.props.kind}`]: true,
@@ -94,7 +94,7 @@ class InputField extends React.Component {
                 >
                     <label
                         ref={this.labelRef}
-                        className={s('reset', 'label', {
+                        className={rx('label', {
                             [`${this.props.status}`]: true,
                             [`${this.props.size}`]: true,
                             [`${this.props.kind}`]: true,
@@ -109,14 +109,14 @@ class InputField extends React.Component {
                     </label>
                     {this.props.kind === 'outlined' && (
                         <fieldset
-                            className={s('reset', 'outline', {
+                            className={rx('flatline', {
                                 [`${this.props.status}`]: true,
                                 focused: this.isFocused(),
                                 idle: !this.isFocused(),
                                 filled: this.state.text,
                             })}
                         >
-                            <legend className={s('reset')} style={legendWidth}>
+                            <legend className={rx()} style={legendWidth}>
                                 &nbsp;
                             </legend>
                         </fieldset>
@@ -124,7 +124,7 @@ class InputField extends React.Component {
 
                     {icon(this.props.icon)}
                     <input
-                        className={s('reset', 'input', {
+                        className={rx('input', {
                             disabled: this.props.disabled,
                         })}
                         type={this.props.type}

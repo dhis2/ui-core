@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
-import s from './styles'
+import cx, { rx } from './styles'
 
 class Checkbox extends React.Component {
     state = {
@@ -30,7 +30,7 @@ class Checkbox extends React.Component {
         const icon = (
             <Icon
                 name={name}
-                className={s(`${status}-icon`, {
+                className={cx(`${status}-icon`, {
                     disabled: this.props.disabled,
                     checked: this.props.checked,
                 })}
@@ -39,7 +39,7 @@ class Checkbox extends React.Component {
 
         return (
             <label
-                className={s('reset', 'base', {
+                className={rx('base', {
                     disabled: this.props.disabled,
                 })}
             >
@@ -50,7 +50,7 @@ class Checkbox extends React.Component {
                     disabled={this.props.disabled}
                 />
                 {icon}
-                <span className={s('reset', 'label', { required })}>
+                <span className={rx('label', { required })}>
                     {this.props.label}
                 </span>
             </label>

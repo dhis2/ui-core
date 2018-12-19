@@ -1,7 +1,4 @@
 .base {
-    all: initial;
-    box-sizing: border-box;
-    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
     position: relative;
     white-space: nowrap;
     color: inherit;
@@ -9,10 +6,6 @@
 }
 
 .menu {
-    all: initial;
-    box-sizing: border-box;
-    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
-
     position: absolute;
     z-index: 1000;
     left: 0;
@@ -20,9 +13,6 @@
 }
 
 .menu-label {
-    all: initial;
-    box-sizing: border-box;
-    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
     margin: 0 10px 0 0;
     background: transparent;
     color: inherit;

@@ -1,18 +1,3 @@
-:root {
-    --idle: #c4c4c4;
-    --solid: #494949;
-    --default: #00796b;
-    --valid: #1976d2;
-    --warning: #f19c02;
-    --error: #e53935;
-}
-
-.reset {
-    all: initial;
-    box-sizing: border-box;
-    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
-}
-
 .base {
     position: relative;
     color: #494949;
@@ -31,9 +16,9 @@
 
 /* we have disabled the pointer-events for the fieldset so we can click
    through it, that's why we target it through the parent's hover */
-.field:hover .outline,
-.field:hover .outline.idle.filled,
-.field:hover .outline.focused {
+.field:hover .flatline,
+.field:hover .flatline.idle.filled,
+.field:hover .flatline.focused {
     border: 1px solid var(--solid);
 }
 
@@ -50,7 +35,7 @@
  * OUTLINE
  *
  */
-.outline {
+.flatline {
     padding-left: 8px;
     position: absolute;
 
@@ -65,30 +50,30 @@
     pointer-events: none;
 }
 
-.outline.idle.filled {
+.flatline.idle.filled {
     border: 1.5px solid var(--idle);
 }
 
-.outline.focused {
+.flatline.focused {
     border: 1.5px solid var(--default);
 }
 
 /*
- * outlined fieldset status states
+ * flatlined fieldset status states
  */
-.outline.valid,
-.outline.valid.idle.filled,
-.outline.valid.focused {
+.flatline.valid,
+.flatline.valid.idle.filled,
+.flatline.valid.focused {
     border: 1.5px solid var(--valid);
 }
-.outline.warning,
-.outline.warning.idle.filled,
-.outline.warning.focused {
+.flatline.warning,
+.flatline.warning.idle.filled,
+.flatline.warning.focused {
     border: 1.5px solid var(--warning);
 }
-.outline.error,
-.outline.error.idle.filled,
-.outline.error.focused {
+.flatline.error,
+.flatline.error.idle.filled,
+.flatline.error.focused {
     border: 1.5px solid var(--error);
 }
 
@@ -230,8 +215,8 @@
     background-color: transparent;
 }
 
-.field.disabled .outline,
-.field.disabled:hover .outline {
+.field.disabled .flatline,
+.field.disabled:hover .flatline {
     border: 1px solid rgba(196, 196, 196, 0.2);
 }
 

@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../../core/Icon'
 import { t } from '../../utils'
-import s from './styles'
+import { rx } from './styles'
 
 function NotificationIcon({ icon, count, href }) {
     return (
-        <a className={s('reset', 'notification', { icon })} href={href}>
-            {count > 0 && <span className={s('reset', 'count')}>{count}</span>}
+        <a className={rx('notification', { icon })} href={href}>
+            {count > 0 && <span className={rx('count')}>{count}</span>}
             <Icon name={icon} />
         </a>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
-import s from './styles'
+import cx, { rx } from './styles'
 
 function Button({
     type,
@@ -17,12 +17,12 @@ function Button({
         <button
             disabled={disabled}
             onClick={onClick}
-            className={s('reset', 'base', `kind-${kind}`, `size-${size}`, {
+            className={rx('base', `kind-${kind}`, `size-${size}`, {
                 'icon-only': icon && !label && !children,
                 icon,
             })}
         >
-            {icon && <Icon className={s('button-icon')} name={icon} />}
+            {icon && <Icon className={cx('button-icon')} name={icon} />}
             {label || children}
         </button>
     )
