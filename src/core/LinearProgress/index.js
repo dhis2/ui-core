@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import s from './styles'
+import cx, { rx } from './styles'
 
 function LinearProgress({ amount, margin }) {
     const type =
-        typeof amount === 'undefined' ? s('indeterminate') : s('determinate')
+        typeof amount === 'undefined' ? cx('indeterminate') : cx('determinate')
     const style = amount ? { width: `${amount}%` } : null
 
     return (
-        <div role="progressbar" className={s('base')} style={{ margin }}>
-            <div style={style} className={s('progress', type)} />
+        <div role="progressbar" className={rx('base')} style={{ margin }}>
+            <div style={style} className={rx('progress', type)} />
         </div>
     )
 }

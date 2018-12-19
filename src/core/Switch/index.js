@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import s from './styles'
+import cx, { rx } from './styles'
 
 class Switch extends React.Component {
     onChange = () => {
@@ -16,19 +16,23 @@ class Switch extends React.Component {
         const { status, disabled } = this.props
         return (
             <label
-                className={s('base', status, { disabled })}
+                className={rx(status, { disabled })}
                 onChange={this.onChange}
             >
                 <input
                     type="checkbox"
-                    className={s('input')}
+                    className={cx('input')}
                     checked={this.props.checked}
                     disabled={disabled}
                 />
-                <span className={s('label', { [`status-${status}`]: true })}>
+                <span
+                    className={rx('label', {
+                        [`status-${status}`]: true,
+                    })}
+                >
                     {this.props.label}
                 </span>
-                {this.props.required && <span className={s('required')} />}
+                {this.props.required && <span className={rx('required')} />}
             </label>
         )
     }

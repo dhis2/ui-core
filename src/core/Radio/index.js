@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
-import s from './styles'
+import cx, { rx } from './styles'
 
 class Radio extends React.Component {
     onChange = () => this.props.onChange(this.props.name, this.props.value)
@@ -16,7 +16,7 @@ class Radio extends React.Component {
                         ? 'radio_button_checked'
                         : 'radio_button_unchecked'
                 }
-                className={s(`${status}-icon`, {
+                className={cx(`${status}-icon`, {
                     disabled: this.props.disabled,
                     checked: this.props.checked,
                 })}
@@ -24,7 +24,11 @@ class Radio extends React.Component {
         )
 
         return (
-            <label className={s('base', { disabled: this.props.disabled })}>
+            <label
+                className={rx('base', {
+                    disabled: this.props.disabled,
+                })}
+            >
                 <input
                     type="radio"
                     name={this.props.name}
@@ -34,7 +38,7 @@ class Radio extends React.Component {
                     onChange={this.onChange}
                 />
                 {icon}
-                <span className={s('label', status, { required })}>
+                <span className={rx('label', { required })}>
                     {this.props.label}
                 </span>
             </label>

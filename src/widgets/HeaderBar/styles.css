@@ -1,6 +1,4 @@
 .base {
-    composes: boxmodel font from '../../core/mixins/globals.css';
-
     border-bottom: 1px solid rgba(32, 32, 32, 0.15);
     height: 48px;
     display: flex;
@@ -28,6 +26,7 @@
 
 .logo svg,
 .logo a {
+    cursor: pointer;
     width: 27px;
     height: 25px;
 }
@@ -37,6 +36,7 @@
 .logo a:focus,
 .logo a:active,
 .logo a:visited {
+    cursor: pointer;
     display: inline-block;
     user-select: none;
     background-color: transparent;
@@ -65,13 +65,16 @@
 }
 .notification .message {
     margin-top: 10px;
+    cursor: inherit;
 }
 
 .notification .email {
     margin-right: 0;
+    cursor: inherit;
 }
 
 .notification > .count {
+    cursor: inherit;
     z-index: 1;
     position: absolute;
     right: -10px;
@@ -84,13 +87,11 @@
     line-height: 16px;
     text-align: center;
     color: #fff;
-}
-
-.count {
-    composes: secondary-light-bg from '../../core/mixins/colors.css';
+    background-color: #48a999;
 }
 
 .notification > .count i {
+    cursor: inherit;
     width: 20px;
     height: 20px;
 }
@@ -116,7 +117,7 @@
 .apps .contents > div:first-child {
     padding: 0;
     width: 416px;
-    height: 301px;
+    height: auto;
 }
 .search {
     margin: 8px 0 12px 8px;
@@ -178,6 +179,10 @@
     letter-spacing: 0.01em;
 }
 
+.profile-alignment {
+    width: 100%;
+    padding: 8px 0;
+}
 .profile {
     position: relative;
     margin: 2px 12px 0 24px;
@@ -236,6 +241,7 @@
     font-size: 14px;
     color: #000;
 }
+
 .details > .name {
     margin-bottom: 3px;
     font-size: 16px;
@@ -265,8 +271,10 @@
 
 .blue > .last > .notification > i,
 .blue > .last > .apps > i:first-child {
+    cursor: pointer;
     color: #fff;
 }
 .base.blue .profile > .icon > .initials {
+    cursor: pointer;
     color: #fff;
 }

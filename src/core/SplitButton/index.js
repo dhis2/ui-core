@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Button from './Button'
-import s from './styles'
+import Button from '../Button'
+import cx, { rx } from './styles'
 import Menu from '../Menu'
 import Icon from '../Icon'
 import { isPointInRect } from '../../utils'
@@ -46,7 +46,7 @@ class SplitButton extends Component {
         }
 
         return (
-            <div className={s('split')} ref={c => (this.elContainer = c)}>
+            <div className={rx('base')} ref={c => (this.elContainer = c)}>
                 <Button
                     icon={this.props.icon}
                     kind={this.props.kind}
@@ -63,14 +63,14 @@ class SplitButton extends Component {
                     onClick={this.onToggle}
                 >
                     <Icon
-                        className="menu-icon"
+                        className={cx('menu-icon')}
                         name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
                     />
                 </Button>
 
                 {open && (
                     <div
-                        className={s('menu', `${this.props.size}`)}
+                        className={rx('menu', `${this.props.size}`)}
                         ref={c => (this.elMenu = c)}
                     >
                         <Menu

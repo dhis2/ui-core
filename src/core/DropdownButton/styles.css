@@ -1,0 +1,27 @@
+.base {
+    position: relative;
+    white-space: nowrap;
+    color: inherit;
+    display: inline-flex;
+}
+
+.menu {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: 36px;
+}
+
+.menu-label {
+    margin: 0 10px 0 0;
+    background: transparent;
+    color: inherit;
+    text-transform: capitalize;
+}
+
+.menu-icon {
+    color: inherit;
+    pointer-events: none;
+    vertical-align: middle;
+    font-size: 16px;
+}

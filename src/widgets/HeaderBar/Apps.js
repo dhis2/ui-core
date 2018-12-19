@@ -5,11 +5,11 @@ import Card from '../../core/Card'
 import Icon from '../../core/Icon'
 import InputField from '../../core/InputField'
 import { gotoURL, isPointInRect } from '../../utils'
-import s from './styles'
+import cx, { rx } from './styles'
 
 function Search({ value, onChange, onSettingsClick }) {
     return (
-        <div className={s('search')}>
+        <div className={rx('search')}>
             <InputField
                 name="filter"
                 value={value}
@@ -20,7 +20,7 @@ function Search({ value, onChange, onSettingsClick }) {
             />
             <Icon
                 name="settings"
-                className={s('settings')}
+                className={cx('settings')}
                 onClick={onSettingsClick}
             />
         </div>
@@ -35,9 +35,9 @@ Search.propTypes = {
 
 function Item({ name, path, img }) {
     return (
-        <a href={path} className={s('app')}>
-            <img src={img} alt="app logo" />
-            <div className={s('name')}>{name}</div>
+        <a href={path} className={rx('app')}>
+            <img src={img} alt="app logo" className={rx()} />
+            <div className={rx('name')}>{name}</div>
         </a>
     )
 }
@@ -50,13 +50,12 @@ Item.propTypes = {
 
 function List({ apps, filter }) {
     return (
-        <div className={s('modules')}>
+        <div className={rx('modules')}>
             {apps
-                .filter(
-                    ({ name }) =>
-                        filter.length > 0
-                            ? name.toLowerCase().includes(filter.toLowerCase())
-                            : true
+                .filter(({ name }) =>
+                    filter.length > 0
+                        ? name.toLowerCase().includes(filter.toLowerCase())
+                        : true
                 )
                 .map(({ name, path, img }, idx) => (
                     <Item
@@ -104,24 +103,29 @@ export default class Apps extends React.Component {
     onChange = (_, filter) => this.setState({ filter })
 
     onSettingsClick = () =>
-        gotoURL(`${this.props.baseURL}/dhis-web-user-profile/#/account`)
+        gotoURL(`${this.props.baseURL}/dhis-web-menu-management`)
 
     render() {
         return (
-            <div className={s('apps')} ref={c => (this.elContainer = c)}>
+            <div className={rx('apps')} ref={c => (this.elContainer = c)}>
                 <Icon name="apps" onClick={this.onToggle} />
                 {this.state.show && (
-                    <div className={s('contents')} ref={c => (this.elApps = c)}>
+                    <div
+                        className={rx('contents')}
+                        ref={c => (this.elApps = c)}
+                    >
                         <Card width="416px" height="301px">
-                            <Search
-                                value={this.state.filter}
-                                onChange={this.onChange}
-                                onSettingsClick={this.onSettingsClick}
-                            />
-                            <List
-                                apps={this.props.apps}
-                                filter={this.state.filter}
-                            />
+                            <div className={rx()}>
+                                <Search
+                                    value={this.state.filter}
+                                    onChange={this.onChange}
+                                    onSettingsClick={this.onSettingsClick}
+                                />
+                                <List
+                                    apps={this.props.apps}
+                                    filter={this.state.filter}
+                                />
+                            </div>
                         </Card>
                     </div>
                 )}

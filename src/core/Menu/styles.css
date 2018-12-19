@@ -1,10 +1,11 @@
 .base {
-    composes: boxmodel font from '../mixins/globals.css';
+    width: 100%;
 
-    user-select: none;
-    padding: 0;
-    margin: 0;
+    padding: 8px 0;
+    display: block;
     position: relative;
+    user-select: none;
+    margin: 0;
 }
 
 .item {
@@ -27,6 +28,11 @@
 }
 
 .label {
+    white-space: nowrap;
+
+    user-select: none;
+    pointer-events: none;
+
     color: rgba(0, 0, 0, 0.87);
     font-size: 15px;
 }
@@ -35,31 +41,42 @@
 }
 
 .icon {
+    user-select: none;
+    pointer-events: none;
+    box-sizing: border-box;
+
     margin-right: 18px;
     color: #404040;
     font-size: 24px;
 }
+
 .base.dense .icon {
     font-size: 20px;
 }
+
 .base.dense .divider {
     margin: 4px 0;
 }
 
 .item.disabled {
     cursor: not-allowed;
+    user-select: none;
     pointer-events: none;
 }
+
 .item.disabled .icon,
 .item.disabled .label {
     color: rgba(0, 0, 0, 0.3);
 }
 
 /* SUB-MENU */
-.base .chevron {
-    margin: 0 14px 0 auto;
+.sub-chevron {
+    user-select: none;
+    pointer-events: none;
+    margin: 0 -14px 0 auto;
     font-size: 18px;
 }
+
 .sub-menu {
     display: none;
     position: absolute;
@@ -67,6 +84,7 @@
     top: 0;
     white-space: nowrap;
 }
+
 .item:hover .sub-menu {
     display: block;
 }

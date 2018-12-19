@@ -1,5 +1,20 @@
+:root {
+    --idle: #c4c4c4;
+    --solid: #494949;
+    --default: #00796b;
+    --valid: #1976d2;
+    --warning: #f19c02;
+    --error: #e53935;
+    --secondary-light: #48a999;
+    --grey-light: #e0e0e0;
+}
+
+.reset {
+    all: initial;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
+}
 .base {
-    composes: boxmodel font from '../mixins/globals.css';
     pointer-events: all;
     user-select: none;
     display: flex;
@@ -20,6 +35,7 @@
 
 .label {
     margin: 0 0 0 8px;
+    color: var(--solid);
 }
 
 .disabled,
@@ -34,27 +50,23 @@
 
 .valid,
 .valid-icon {
-    composes: valid from '../mixins/states.css';
+    color: var(--valid);
 }
 
 .warning,
 .warning-icon {
-    composes: warning from '../mixins/states.css';
+    color: var(--warning);
 }
 
 .error,
 .error-icon {
-    composes: error from '../mixins/states.css';
+    color: var(--error);
 }
 
 .default-icon {
-    composes: secondary-light from '../mixins/colors.css';
-}
-
-.default {
-    composes: grey-dark from '../mixins/colors.css';
+    color: var(--secondary-light);
 }
 
 .disabled {
-    composes: grey-light from '../mixins/colors.css';
+    color: var(--grey-light);
 }

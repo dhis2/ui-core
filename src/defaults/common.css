@@ -1,7 +1,5 @@
-.boxmodel {
+.reset {
+    all: initial;
     box-sizing: border-box;
-}
-
-.font {
     font-family: Roboto, sans-serif /*rtl:prepend:"Noto Naskh Arabic",*/;
 }

@@ -1,26 +1,25 @@
 .base {
-    composes: boxmodel font from '../../mixins/globals.css';
+    height: 12px;
+    padding-left: 14px;
+
+    line-height: 12px;
+    font-size: 12px;
 
     cursor: help;
-    padding-left: 14px;
-    height: 12px;
-    line-height: 12px;
-    color: #494949;
-    font-size: 12px;
 }
-.base.status-default {
-    color: #494949;
-    border-color: #c4c4c4;
+
+.status-default {
+    color: var(--solid);
 }
-.base.status-valid {
-    color: #1976d2;
-    border-color: #1976d2;
+
+.status-valid {
+    color: var(--valid);
 }
-.base.status-error {
-    color: #e53935;
-    border-color: #e53935;
+
+.status-error {
+    color: var(--error);
 }
-.base.status-warning {
-    color: #f19c02;
-    border-color: #f19c02;
+
+.status-warning {
+    color: var(--warning);
 }

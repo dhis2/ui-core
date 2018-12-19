@@ -2,9 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import Menu from '../Menu'
-import { Label, Help } from '../helpers'
+import { Help } from '../helpers'
 import { isPointInRect } from '../../utils'
-import s from './styles'
+
+import cx, { rx } from './styles'
+
+const statusToIcon = {
+    valid: 'check_circle',
+    warning: 'warning',
+    error: 'error',
+}
 
 function markActive(list, value) {
     if (!value) {
@@ -25,10 +32,18 @@ function markActive(list, value) {
 class SelectField extends React.Component {
     state = {
         open: false,
+        labelWidth: 0,
+    }
+
+    constructor(props) {
+        super(props)
+        this.labelRef = React.createRef()
     }
 
     componentDidMount() {
         document.addEventListener('click', this.onDocClick)
+
+        this.setState({ labelWidth: this.labelRef.current.offsetWidth })
     }
 
     componentWillUnmount() {
@@ -78,7 +93,23 @@ class SelectField extends React.Component {
         return selected.length > 0 ? selected[0]['label'] : null
     }
 
+    isFocused() {
+        return this.state.focused
+    }
+
+    shrink() {
+        return !!(
+            this.isFocused() ||
+            this.props.value ||
+            this.props.placeholder
+        )
+    }
+
     render() {
+        const legendWidth = this.shrink()
+            ? { width: `${this.state.labelWidth}px` }
+            : { width: 0 }
+
         const { open } = this.state
 
         let width = 'inherit'
@@ -92,44 +123,97 @@ class SelectField extends React.Component {
         return (
             <div
                 ref={c => (this.elContainer = c)}
-                className={s('base', {
+                className={rx('base', {
                     selected: !!this.props.value,
                     disabled: this.props.disabled,
-                    [`kind-${this.props.kind}`]: true,
                     [`size-${this.props.size}`]: true,
                 })}
             >
                 <div
                     ref={c => (this.elSelect = c)}
-                    className={s('select')}
+                    className={rx('select', {
+                        [`kind-${this.props.kind}`]: true,
+                        [`status-${this.props.status}`]: true,
+                        disabled: this.props.disabled,
+                    })}
                     onClick={this.onToggle}
                 >
+                    <label
+                        ref={this.labelRef}
+                        className={rx('label', {
+                            [`${this.props.status}`]: true,
+                            [`${this.props.size}`]: true,
+                            [`${this.props.kind}`]: true,
+                            'has-icon': !!this.props.icon,
+                            required: this.props.required,
+                            disabled: this.props.disabled,
+                            focused: this.isFocused(),
+                            shrink: !!selected,
+                        })}
+                    >
+                        {this.props.label}
+                    </label>
+                    {this.props.kind === 'outlined' && (
+                        <fieldset
+                            className={rx('flatline', {
+                                [`${this.props.status}`]: true,
+                                focused: this.isFocused(),
+                                idle: !this.isFocused(),
+                                filled: this.state.text,
+                            })}
+                        >
+                            <legend
+                                className={cx('legend')}
+                                style={legendWidth}
+                            >
+                                &nbsp;
+                            </legend>
+                        </fieldset>
+                    )}
+
                     {this.props.icon && (
-                        <div className={s('icon')}>
-                            <Icon name={this.props.icon} />
+                        <div className={cx('lead-icon-field')}>
+                            <Icon
+                                name={this.props.icon}
+                                className={cx('icon')}
+                            />
                         </div>
                     )}
-                    <div className={s('value')}>{selected}</div>
-                    <Label
-                        type="select"
-                        size={this.props.size}
-                        kind={this.props.kind}
-                        text={this.props.label}
-                        status={this.props.status}
-                        hasIcon={!!this.props.icon}
-                        disabled={this.props.disabled}
-                        state={selected ? 'minimized' : 'default'}
-                    />
-                    <Icon
-                        name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
-                        className={s('dropdown-icon')}
-                    />
+                    <div
+                        className={rx('input-field', {
+                            disabled: this.props.disabled,
+                        })}
+                    >
+                        <div className={rx('value')}>{selected}</div>
+                    </div>
+                    <div className={rx('trail-icon-field')}>
+                        {this.props.status !== 'default' && (
+                            <Icon
+                                name={statusToIcon[this.props.status]}
+                                className={cx('icon', {
+                                    [`icon-${this.props.status}`]: true,
+                                })}
+                            />
+                        )}
+                    </div>
+                    <div
+                        className={rx('trail-icon-field', {
+                            disabled: this.props.disabled,
+                        })}
+                    >
+                        <Icon
+                            name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
+                            className={cx('icon', {
+                                disabled: this.props.disabled,
+                            })}
+                        />
+                    </div>
                 </div>
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />
                 )}
                 {open && (
-                    <div className={s('menu')} ref={c => (this.elMenu = c)}>
+                    <div className={rx('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
                             list={list}
                             size={this.props.size}
@@ -146,6 +230,7 @@ SelectField.defaultProps = {
     disabled: false,
     label: '',
     size: 'default',
+    status: 'default',
 }
 
 SelectField.propTypes = {

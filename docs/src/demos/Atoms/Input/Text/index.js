@@ -15,6 +15,7 @@ const fields = [
                 placeholder: undefined,
                 kind: 'filled',
                 size: 'dense',
+                required: true,
             },
             {
                 placeholder: undefined,
@@ -54,20 +55,24 @@ const fields = [
             {
                 kind: 'filled',
                 icon: 'face',
+                placeholder: undefined,
             },
             {
                 kind: 'filled',
                 icon: 'face',
                 size: 'dense',
+                placeholder: undefined,
             },
             {
                 kind: 'outlined',
                 icon: 'face',
+                placeholder: undefined,
             },
             {
                 kind: 'outlined',
                 icon: 'face',
                 size: 'dense',
+                placeholder: undefined,
             },
         ],
     },
@@ -78,19 +83,23 @@ const fields = [
             {
                 status: 'error',
                 kind: 'filled',
+                placeholder: undefined,
             },
             {
                 status: 'error',
                 kind: 'filled',
+                placeholder: undefined,
                 size: 'dense',
             },
             {
                 status: 'error',
+                placeholder: undefined,
                 kind: 'outlined',
             },
             {
                 status: 'error',
                 kind: 'outlined',
+                placeholder: undefined,
                 size: 'dense',
             },
         ],

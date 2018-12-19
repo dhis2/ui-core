@@ -1,6 +1,4 @@
 .base {
-    composes: boxmodel font from '../mixins/globals.css';
-
     pointer-events: all;
     user-select: none;
     display: flex;
@@ -33,29 +31,29 @@
     padding-left: 4px;
 }
 
+.default {
+    color: var(--solid);
+}
+
 .valid,
 .valid-icon {
-    composes: valid from '../mixins/states.css';
+    color: var(--valid);
 }
 
 .warning,
 .warning-icon {
-    composes: warning from '../mixins/states.css';
+    color: var(--warning);
 }
 
 .error,
 .error-icon {
-    composes: error from '../mixins/states.css';
+    color: var(--error);
 }
 
 .default-icon {
-    composes: secondary-light from '../mixins/colors.css';
-}
-
-.default {
-    composes: grey-dark from '../mixins/colors.css';
+    color: var(--secondary-light);
 }
 
 .disabled {
-    composes: grey-light from '../mixins/colors.css';
+    color: var(--grey-light);
 }

@@ -4,12 +4,12 @@ import Card from '../Card'
 import MenuItem from './MenuItem'
 import Divider from '../helpers/Divider'
 
-import s from './styles'
+import { rx } from './styles'
 
 export function Menu({ size, width, list, onClick }) {
     return (
         <Card>
-            <ul className={s('base', size)}>
+            <ul className={rx('base', size)}>
                 {list.map(
                     (
                         { label, value, icon, list, active, type, disabled },
@@ -28,7 +28,6 @@ export function Menu({ size, width, list, onClick }) {
                                 list={list}
                                 type={type}
                                 size={size}
-                                width={width}
                                 disabled={disabled}
                                 active={active}
                                 onClick={onClick}
@@ -42,12 +41,10 @@ export function Menu({ size, width, list, onClick }) {
 }
 
 Menu.defaultProps = {
-    width: '100%',
     size: 'default',
 }
 
 Menu.propTypes = {
-    width: PropTypes.string,
     list: PropTypes.arrayOf(
         PropTypes.shape({
             type: PropTypes.oneOf(['divider']),
