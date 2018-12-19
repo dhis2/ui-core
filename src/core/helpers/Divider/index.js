@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import s from './styles'
+import { rx } from './styles'
 
 export function Divider({ margin }) {
     const style = { margin }
-    return <div style={style} className={s('base')} />
+    return <div style={style} className={rx('base')} />
 }
 
 Divider.defaultProps = {

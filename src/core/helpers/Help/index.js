@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import s from './styles'
+import { rx } from './styles'
 
 function Help({ text, status }) {
     return (
         <p
-            className={s('reset', 'base', {
+            className={rx('base', {
                 [`status-${status}`]: true,
             })}
         >
