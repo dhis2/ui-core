@@ -4,10 +4,6 @@
 
 **[Online docs and demos (latest master build)](https://d2-ci.github.io/ui/)**
 
-## Resources
-
-https://jira.dhis2.org/browse/TECH-59 (Spec and design)
-
 ## Style
 
 -   CSS: https://github.com/necolas/idiomatic-css
