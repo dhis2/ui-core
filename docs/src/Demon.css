@@ -1,0 +1,27 @@
+/********
+
+/!\ DEMONIC CSS BELOW /!\
+
+This file is for component isolation testing and can (should!) be enabled to
+test if our components are well isolated, which means that no matter (...well)
+what an Application does with its styles, the components should be isolated as
+much as possible from the Application-level style rules.
+
+Please add your own Evil CSS rules to try and break the components so we figure
+out where the boundaries are.
+
+********/
+
+body {
+    background-color: #fea;
+}
+
+body > * {
+    padding: 16px -3px 0px 32px;
+    pointer-events: none;
+    user-select: none;
+}
+
+article div {
+    border: 2px solid red;
+}
