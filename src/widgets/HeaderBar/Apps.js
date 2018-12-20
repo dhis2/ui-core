@@ -7,16 +7,19 @@ import InputField from '../../core/InputField'
 import { gotoURL, isPointInRect } from '../../utils'
 import cx, { rx } from './styles'
 
-function Search({ onChange, onSettingsClick }) {
+function Search({ value, onChange, onSettingsClick, onIconClick }) {
     return (
         <div className={rx('search')}>
             <InputField
+                value={value}
                 name="filter"
                 kind="filled"
                 size="dense"
                 focus={true}
                 label="Search apps"
                 onChange={onChange}
+                trailIcon="cancel"
+                onTrailIconClick={onIconClick}
             />
             <Icon
                 name="settings"
@@ -27,10 +30,15 @@ function Search({ onChange, onSettingsClick }) {
     )
 }
 
+Search.defaultProps = {
+    onIconClick: null,
+}
+
 Search.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     onSettingsClick: PropTypes.func.isRequired,
+    onIconClick: PropTypes.func,
 }
 
 function Item({ name, path, img }) {
@@ -105,6 +113,8 @@ export default class Apps extends React.Component {
     onSettingsClick = () =>
         gotoURL(`${this.props.baseURL}/dhis-web-menu-management`)
 
+    onIconClick = () => this.setState({ filter: '' })
+
     render() {
         return (
             <div className={rx('apps')} ref={c => (this.elContainer = c)}>
@@ -116,8 +126,10 @@ export default class Apps extends React.Component {
                     >
                         <Card>
                             <Search
+                                value={this.state.filter}
                                 onChange={this.onChange}
                                 onSettingsClick={this.onSettingsClick}
+                                onIconClick={this.onIconClick}
                             />
                             <List
                                 apps={this.props.apps}

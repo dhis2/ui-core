@@ -134,7 +134,7 @@
     min-width: 300px;
     max-width: 550px;
 
-    height: 30vh;
+    height: 35vh;
     min-height: 200px;
     max-height: 465px;
 
@@ -146,12 +146,15 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
+    align-content: flex-start;
 }
 
 .app {
+    cursor: pointer;
     display: inline-block;
     border-radius: 12px;
     padding: 8px;
+    margin: 8px;
     width: 96px;
     display: flex;
     flex-direction: column;
@@ -160,18 +163,22 @@
     text-decoration: none;
 }
 .app:hover {
+    cursor: pointer;
     background-color: #eaf4ff;
 }
 .app:hover > .name {
+    cursor: pointer;
     font-weight: 500;
 }
 
 .app > img {
+    cursor: pointer;
     width: 48px;
     height: 48px;
 }
 
 .app > .name {
+    cursor: pointer;
     margin-top: 14px;
     color: rgba(0, 0, 0, 0.87);
     font-size: 12px;

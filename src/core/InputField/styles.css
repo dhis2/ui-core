@@ -23,6 +23,7 @@
 }
 
 .icon {
+    color: var(--solid);
     margin: 0 8px 0 0;
 }
 

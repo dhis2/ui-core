@@ -21,18 +21,17 @@ function icon(i, action = null, extra = null) {
     return null
 }
 
-function trailIcon(status, trail) {
+function trailIcon(status, trail, fn) {
     if (status !== 'default') {
-        return icon(statusToIcon[status], null, `icon-${status}`)
+        return icon(statusToIcon[status], fn, `icon-${status}`)
     } else {
-        return icon(trail)
+        return icon(trail, fn)
     }
 }
 
 class InputField extends React.Component {
     state = {
         focused: false,
-        text: this.props.value,
         labelWidth: 0,
     }
 
@@ -59,7 +58,11 @@ class InputField extends React.Component {
     }
 
     shrink() {
-        return !!(this.isFocused() || this.state.text || this.props.placeholder)
+        return !!(
+            this.isFocused() ||
+            this.props.value ||
+            this.props.placeholder
+        )
     }
 
     onFocus = evt => {
@@ -76,7 +79,6 @@ class InputField extends React.Component {
         }
 
         this.props.onChange(this.props.name, evt.target.value)
-        this.setState({ text: evt.target.value })
     }
 
     render() {
@@ -97,7 +99,7 @@ class InputField extends React.Component {
                         [`status-${this.props.status}`]: true,
                         [`kind-${this.props.kind}`]: true,
                         focused: this.isFocused(),
-                        filled: this.state.text,
+                        filled: this.props.value,
                         disabled: this.props.disabled,
                     })}
                 >
@@ -122,7 +124,7 @@ class InputField extends React.Component {
                                 [`${this.props.status}`]: true,
                                 focused: this.isFocused(),
                                 idle: !this.isFocused(),
-                                filled: this.state.text,
+                                filled: this.props.value,
                             })}
                         >
                             <legend className={rx()} style={legendWidth}>
@@ -140,12 +142,16 @@ class InputField extends React.Component {
                         type={this.props.type}
                         placeholder={this.props.placeholder}
                         disabled={this.props.disabled}
-                        value={this.state.text}
+                        value={this.props.value}
                         onFocus={this.onFocus}
                         onBlur={this.onBlur}
                         onChange={this.onChange}
                     />
-                    {trailIcon(this.props.status, this.props.trailIcon)}
+                    {trailIcon(
+                        this.props.status,
+                        this.props.trailIcon,
+                        this.props.onTrailIconClick
+                    )}
                 </div>
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />
@@ -163,6 +169,7 @@ InputField.defaultProps = {
     kind: 'filled',
     focus: false,
     type: 'text',
+    onTrailIconClick: null,
 }
 
 InputField.propTypes = {
@@ -174,6 +181,7 @@ InputField.propTypes = {
     onChange: PropTypes.func.isRequired,
     icon: PropTypes.string,
     trailIcon: PropTypes.string,
+    onTrailIconClick: PropTypes.func,
     help: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
