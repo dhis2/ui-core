@@ -1,7 +1,7 @@
 /** @format */
 
 module.exports = {
-    extends: ['react-app', 'prettier'],
+    extends: ['react-app'],
     rules: {
         'no-console': 'off',
     },

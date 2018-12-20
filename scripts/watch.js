@@ -114,18 +114,15 @@ async function main() {
     watcher.on('change', fileChange)
     watcher.on('add', fileAdd)
 
-    exec('npm run build:files', { cwd: root }, function(error, stdout, stderr) {
-        if (error) {
-            console.error(`exec error: ${error}`)
-            process.exit(1)
-        }
-
-        console.log(`stdout: ${stdout}`)
-
-        if (stderr) {
-            console.log(`stderr: ${stderr}`)
-        }
-    })
+    try {
+        console.info('Copying package.json to build/')
+        fs.copy(
+            path.join(root, 'package.json'),
+            path.join(dest, 'package.json')
+        )
+    } catch (err) {
+        console.error('... File copy failed.\n', err)
+    }
 
     console.log('The watch has begun...')
 }
