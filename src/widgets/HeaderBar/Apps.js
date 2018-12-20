@@ -7,16 +7,19 @@ import InputField from '../../core/InputField'
 import { gotoURL, isPointInRect } from '../../utils'
 import cx, { rx } from './styles'
 
-function Search({ value, onChange, onSettingsClick }) {
+function Search({ value, onChange, onSettingsClick, onIconClick }) {
     return (
         <div className={rx('search')}>
             <InputField
-                name="filter"
                 value={value}
+                name="filter"
                 kind="filled"
                 size="dense"
+                focus={true}
                 label="Search apps"
                 onChange={onChange}
+                trailIcon="cancel"
+                onTrailIconClick={onIconClick}
             />
             <Icon
                 name="settings"
@@ -27,10 +30,15 @@ function Search({ value, onChange, onSettingsClick }) {
     )
 }
 
+Search.defaultProps = {
+    onIconClick: null,
+}
+
 Search.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     onSettingsClick: PropTypes.func.isRequired,
+    onIconClick: PropTypes.func,
 }
 
 function Item({ name, path, img }) {
@@ -105,6 +113,8 @@ export default class Apps extends React.Component {
     onSettingsClick = () =>
         gotoURL(`${this.props.baseURL}/dhis-web-menu-management`)
 
+    onIconClick = () => this.setState({ filter: '' })
+
     render() {
         return (
             <div className={rx('apps')} ref={c => (this.elContainer = c)}>
@@ -114,18 +124,17 @@ export default class Apps extends React.Component {
                         className={rx('contents')}
                         ref={c => (this.elApps = c)}
                     >
-                        <Card width="416px" height="301px">
-                            <div className={rx()}>
-                                <Search
-                                    value={this.state.filter}
-                                    onChange={this.onChange}
-                                    onSettingsClick={this.onSettingsClick}
-                                />
-                                <List
-                                    apps={this.props.apps}
-                                    filter={this.state.filter}
-                                />
-                            </div>
+                        <Card>
+                            <Search
+                                value={this.state.filter}
+                                onChange={this.onChange}
+                                onSettingsClick={this.onSettingsClick}
+                                onIconClick={this.onIconClick}
+                            />
+                            <List
+                                apps={this.props.apps}
+                                filter={this.state.filter}
+                            />
                         </Card>
                     </div>
                 )}

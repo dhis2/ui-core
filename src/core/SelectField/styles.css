@@ -65,6 +65,14 @@
     top: 44px;
 }
 
+.icon {
+    color: var(--solid);
+}
+
+.arrow-icon {
+    color: var(--black);
+}
+
 .lead-icon-field {
     display: flex;
     flex-direction: row;

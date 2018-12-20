@@ -203,7 +203,7 @@ class SelectField extends React.Component {
                     >
                         <Icon
                             name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
-                            className={cx('icon', {
+                            className={cx('arrow-icon', {
                                 disabled: this.props.disabled,
                             })}
                         />

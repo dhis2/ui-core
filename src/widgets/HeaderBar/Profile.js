@@ -164,7 +164,7 @@ export default class Profile extends React.Component {
 
         return (
             <div className={rx('contents')} ref={c => (this.elContents = c)}>
-                <Card height="298px">
+                <Card>
                     <div className={rx('profile-alignment')}>
                         <Header
                             baseURL={this.props.baseURL}
