@@ -10,14 +10,14 @@
     width: 100%;
     height: 4px;
     margin: 0;
-    background-color: #eaf4ff;
+    background-color: var(--primary-lightest);
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
 .progress {
-    background-color: #1976d2;
+    background-color: var(--primary);
 }
 
 .progress.determinate {

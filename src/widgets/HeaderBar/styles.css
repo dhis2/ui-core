@@ -87,7 +87,7 @@
     line-height: 16px;
     text-align: center;
     color: #fff;
-    background-color: #48a999;
+    background-color: var(--secondary-light);
 }
 
 .notification > .count i {
@@ -163,7 +163,7 @@
 }
 .app:hover {
     cursor: pointer;
-    background-color: #eaf4ff;
+    background-color: var(--primary-lightest);
 }
 .app:hover > .name {
     cursor: pointer;

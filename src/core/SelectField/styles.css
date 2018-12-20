@@ -3,7 +3,7 @@
     display: inline-block;
     pointer-events: all;
     user-select: none;
-    color: #494949;
+    color: var(--solid);
     width: 100%;
     background-color: inherit;
 }
@@ -37,7 +37,7 @@
 .select.kind-filled:hover,
 .select.kind-filled.focused {
     background-color: rgba(0, 0, 10, 0.08);
-    border-bottom: 2px solid var(--default);
+    border-bottom: 2px solid var(--secondary);
 }
 
 .value {
@@ -113,7 +113,7 @@
 .disabled .select .value,
 .disabled::placeholder {
     cursor: not-allowed;
-    color: #9e9e9e;
+    color: var(--grey);
     opacity: 1;
 }
 
@@ -141,7 +141,7 @@
 }
 
 .flatline.focused {
-    border: 1.5px solid var(--default);
+    border: 1.5px solid var(--secondary);
 }
 
 /*
@@ -189,7 +189,7 @@
 }
 
 .label.filled.focused {
-    color: var(--default);
+    color: var(--secondary);
 }
 
 .label.filled.shrink {
@@ -209,7 +209,7 @@
 }
 
 .label.outlined.focused {
-    color: var(--default);
+    color: var(--secondary);
 }
 
 .label.outlined.shrink {
@@ -272,7 +272,7 @@
 .select.kind-filled.disabled {
     background-color: rgba(0, 0, 10, 0.02);
     border: 2px solid transparent;
-    color: #9e9e9e;
+    color: var(--grey);
 }
 
 .label.filled.disabled {
@@ -285,11 +285,11 @@
 }
 
 .label.kind-outlined.disabled {
-    color: #9e9e9e;
+    color: var(--grey);
 }
 
 .disabled,
 .disabled::placeholder {
     cursor: not-allowed;
-    color: #9e9e9e;
+    color: var(--grey);
 }

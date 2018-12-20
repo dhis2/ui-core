@@ -4,7 +4,7 @@
     margin: 4px;
     border-radius: 16px;
     height: 32px;
-    background-color: #eceff1;
+    background-color: var(--grey-lighter);
     font-size: 14px;
     line-height: 16px;
     cursor: pointer;
@@ -17,7 +17,7 @@
 
 .selected,
 .selected.static:hover {
-    background-color: #00796b;
+    background-color: var(--secondary);
 }
 
 .selected:hover {
@@ -27,7 +27,7 @@
 .selected,
 .selected .icon,
 .selected .remove-icon {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .static {
@@ -35,7 +35,7 @@
 }
 
 .static:hover {
-    background-color: #eceff1;
+    background-color: var(--grey-lighter);
 }
 
 .disabled {
@@ -54,7 +54,7 @@
 
 .icon {
     margin-left: 5px;
-    color: #494949;
+    color: var(--solid);
     font-size: 20px;
 }
 
@@ -80,7 +80,7 @@
 .remove-icon {
     opacity: 1;
     margin-right: 4px;
-    color: #494949;
+    color: var(--solid);
     font-size: 18px;
     cursor: pointer;
     pointer-events: all;
