@@ -1,5 +1,7 @@
 import classNames from '../../utils/css'
 
+import '../../defaults/colors.css'
+
 import '../../defaults/common.css'
 import common from '../../defaults/common.json'
 

@@ -9,7 +9,7 @@ module.exports = {
             autoprefixer: {
                 flexbox: 'no-2009',
             },
-            importFrom: 'src/defaults/colors.css',
+            importFrom: './src/defaults/colors.css',
         },
         'postcss-modules': {
             getJSON: function(cssFileName, json, outputFileName) {
