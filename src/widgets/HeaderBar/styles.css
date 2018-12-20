@@ -102,6 +102,7 @@
     width: 24px;
     height: 24px;
 }
+
 .apps i {
     cursor: pointer;
 }
@@ -109,19 +110,13 @@
 .apps .contents {
     z-index: 10000;
     position: absolute;
-    top: 20px;
+    top: 28px;
     right: -6px;
     border-top: 4px solid transparent;
 }
 
-.apps .contents > div:first-child {
-    padding: 0;
-    width: 416px;
-    height: auto;
-}
 .search {
-    margin: 8px 0 12px 8px;
-    padding-top: 8px;
+    margin: 8px;
     height: 52px;
     display: flex;
     flex-direction: row;
@@ -135,11 +130,17 @@
 }
 
 .modules {
-    overflow: scroll;
+    width: 30vw;
+    min-width: 300px;
+    max-width: 550px;
+
+    height: 30vh;
+    min-height: 200px;
+    max-height: 465px;
+
+    overflow: auto;
     overflow-x: hidden;
-    margin: 0 8px 0 8px;
-    width: 400px;
-    height: 235px;
+    margin: 0 8px 8px 8px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -148,9 +149,10 @@
 }
 
 .app {
+    display: inline-block;
     border-radius: 12px;
-    width: calc(100% / 4);
-    height: 100px;
+    padding: 8px;
+    width: 96px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -165,13 +167,12 @@
 }
 
 .app > img {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
 }
 
 .app > .name {
     margin-top: 14px;
-    height: 14px;
     color: rgba(0, 0, 0, 0.87);
     font-size: 12px;
     line-height: 14px;

@@ -80,7 +80,7 @@ export class HeaderBarDemo extends React.Component {
 
     render() {
         return (
-            <Col style={{ marginBottom: 250 }}>
+            <Col style={{ marginBottom: 500 }}>
                 <HeaderBar {...getProps()} />
             </Col>
         )

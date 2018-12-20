@@ -26,9 +26,10 @@
     margin: 0 8px 0 0;
 }
 
-.field input {
+.input {
     height: 100%;
     width: 100%;
+    user-select: text;
 }
 
 /*

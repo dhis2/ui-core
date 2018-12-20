@@ -38,11 +38,20 @@ class InputField extends React.Component {
 
     constructor(props) {
         super(props)
+
         this.labelRef = React.createRef()
+        this.inputRef = React.createRef()
     }
 
     componentDidMount() {
-        this.setState({ labelWidth: this.labelRef.current.offsetWidth })
+        this.setState({
+            labelWidth: this.labelRef.current.offsetWidth,
+            focused: this.props.focus,
+        })
+
+        if (this.props.focus) {
+            this.inputRef.current.focus()
+        }
     }
 
     isFocused() {
@@ -127,6 +136,7 @@ class InputField extends React.Component {
                         className={rx('input', {
                             disabled: this.props.disabled,
                         })}
+                        ref={this.inputRef}
                         type={this.props.type}
                         placeholder={this.props.placeholder}
                         disabled={this.props.disabled}
@@ -151,9 +161,12 @@ InputField.defaultProps = {
     status: 'default',
     size: 'default',
     kind: 'filled',
+    focus: false,
+    type: 'text',
 }
 
 InputField.propTypes = {
+    focus: PropTypes.string.bool,
     label: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     name: PropTypes.string.isRequired,
