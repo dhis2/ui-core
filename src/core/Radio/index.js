@@ -16,7 +16,7 @@ class Radio extends React.Component {
                         ? 'radio_button_checked'
                         : 'radio_button_unchecked'
                 }
-                className={cx(`${status}-icon`, {
+                className={cx('icon', `${status}-icon`, {
                     disabled: this.props.disabled,
                     checked: this.props.checked,
                 })}

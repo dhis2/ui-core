@@ -18,12 +18,13 @@
 }
 
 .label {
+    cursor: pointer;
     margin: 0 0 0 8px;
     color: var(--solid);
 }
 
 .disabled,
-.base .disabled {
+.disabled .label {
     cursor: not-allowed;
 }
 

@@ -30,7 +30,7 @@ class Checkbox extends React.Component {
         const icon = (
             <Icon
                 name={name}
-                className={cx(`${status}-icon`, {
+                className={cx('icon', `${status}-icon`, {
                     disabled: this.props.disabled,
                     checked: this.props.checked,
                 })}
