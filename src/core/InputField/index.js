@@ -13,7 +13,7 @@ const statusToIcon = {
 function icon(i, action = null, extra = null) {
     if (i) {
         return (
-            <div>
+            <div className={rx()}>
                 <Icon name={i} onClick={action} className={cx('icon', extra)} />
             </div>
         )
