@@ -84,7 +84,7 @@ class InputField extends React.Component {
     render() {
         const legendWidth = this.shrink()
             ? { width: `${this.state.labelWidth}px` }
-            : { width: 0 }
+            : { width: '0.01px' }
 
         return (
             <div
@@ -127,8 +127,11 @@ class InputField extends React.Component {
                                 filled: this.props.value,
                             })}
                         >
-                            <legend className={rx()} style={legendWidth}>
-                                &nbsp;
+                            <legend
+                                className={rx('legend')}
+                                style={legendWidth}
+                            >
+                                <span>&#8203;</span>
                             </legend>
                         </fieldset>
                     )}

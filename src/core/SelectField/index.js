@@ -108,7 +108,7 @@ class SelectField extends React.Component {
     render() {
         const legendWidth = this.shrink()
             ? { width: `${this.state.labelWidth}px` }
-            : { width: 0 }
+            : { width: '0.01px' }
 
         const { open } = this.state
 
@@ -166,7 +166,7 @@ class SelectField extends React.Component {
                                 className={cx('legend')}
                                 style={legendWidth}
                             >
-                                &nbsp;
+                                <span>&#8203;</span>
                             </legend>
                         </fieldset>
                     )}

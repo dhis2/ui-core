@@ -60,11 +60,11 @@ function List({ apps, filter }) {
     return (
         <div className={rx('modules')}>
             {apps
-                .filter(({ name }) =>
-                    filter.length > 0
-                        ? name.toLowerCase().includes(filter.toLowerCase())
+                .filter(({ name }) => {
+                    return filter.length > 0
+                        ? name.toLowerCase().match(filter.toLowerCase())
                         : true
-                )
+                })
                 .map(({ name, path, img }, idx) => (
                     <Item
                         key={`app-${name}-${idx}`}

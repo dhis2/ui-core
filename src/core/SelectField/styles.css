@@ -293,3 +293,34 @@
     cursor: not-allowed;
     color: var(--grey);
 }
+
+/* IE */
+_:-ms-input-placeholder,
+:root .flatline,
+_:-ms-input-placeholder,
+:root .field.kind-filled {
+    border-radius: 0px;
+}
+
+_:-ms-input-placeholder,
+:root .label {
+    transform: translate(14px, -8px) scale(1);
+}
+
+_:-ms-input-placeholder,
+:root .label.filled.shrink {
+    transform: translate(8px, -20px) scale(0.75);
+}
+_:-ms-input-placeholder,
+:root .label.filled.dense.shrink {
+    transform: translate(8px, -18px) scale(0.75);
+}
+_:-ms-input-placeholder,
+:root .label.outlined.shrink {
+    transform: translate(8px, -32px) scale(0.75);
+}
+
+_:-ms-input-placeholder,
+:root .label.outlined.shrink.dense {
+    transform: translate(8px, -26px) scale(0.75);
+}
