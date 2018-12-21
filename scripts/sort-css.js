@@ -2,6 +2,7 @@ const fs = require('fs-extra')
 const path = require('path')
 
 const postcss = require('postcss')
+
 const cssDeclarationSorter = require('css-declaration-sorter')
 
 const { writeFile } = require('./lib/files.js')
@@ -36,7 +37,7 @@ async function main() {
             const pss = await fs.readFile(filename, 'utf8')
             const { css } = await postcss([
                 cssDeclarationSorter({
-                    order: 'smacss',
+                    customOrder: path.join(root, 'css-order.json'),
                 }),
             ]).process(pss, {
                 from: filename,

@@ -1,21 +1,21 @@
 .base {
-    position: relative;
     display: inline-block;
-    pointer-events: all;
-    user-select: none;
-    color: var(--solid);
+    position: relative;
     width: 100%;
     background-color: inherit;
+    color: var(--solid);
+    pointer-events: all;
+    user-select: none;
 }
 
 .select {
-    height: 100%;
-    width: 100%;
-    position: relative;
     display: flex;
+    position: relative;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
     padding-left: 8px;
     border-radius: 5px;
 }
@@ -29,15 +29,15 @@
 }
 
 .select.kind-filled {
-    background-color: rgba(0, 0, 10, 0.05);
     border-bottom: 2px solid transparent;
     border-radius: 5px;
+    background-color: rgba(0, 0, 10, 0.05);
 }
 
 .select.kind-filled:hover,
 .select.kind-filled.focused {
-    background-color: rgba(0, 0, 10, 0.08);
     border-bottom: 2px solid var(--secondary);
+    background-color: rgba(0, 0, 10, 0.08);
 }
 
 .value {
@@ -52,8 +52,8 @@
 }
 
 .menu {
-    position: absolute;
     z-index: 1000;
+    position: absolute;
     left: 0;
 }
 
@@ -77,33 +77,33 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0;
     margin-right: 4px;
+    padding: 0;
 }
 
 .trail-icon-field {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0;
     margin-right: 4px;
+    padding: 0;
 }
 
 .input-field {
-    position: relative;
     display: flex;
+    position: relative;
     flex-direction: row;
     align-items: center;
-    color: inherit;
-    height: 100%;
     width: 100%;
+    height: 100%;
     margin: 12px 0 0 0;
+    color: inherit;
 }
 
 .kind-outlined .input-field {
-    background-color: inherit;
-    border-radius: inherit;
     margin: 0;
+    border-radius: inherit;
+    background-color: inherit;
 }
 
 /* status */
@@ -112,8 +112,8 @@
 .disabled .select,
 .disabled .select .value,
 .disabled::placeholder {
-    cursor: not-allowed;
     color: var(--grey);
+    cursor: not-allowed;
     opacity: 1;
 }
 
@@ -122,13 +122,13 @@
  *
  */
 .flatline {
-    padding-left: 8px;
     position: absolute;
 
     top: -8px;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+    padding-left: 8px;
 
     border: 1px solid var(--idle);
     border-radius: 5px;
@@ -170,18 +170,17 @@
  */
 
 .label {
-    pointer-events: none;
-    position: absolute;
-    white-space: nowrap;
-
     display: block;
-    color: var(--solid);
+    position: absolute;
 
     left: 8px;
-
-    transition: all 0.1s;
     transform: translate(8px, 0px) scale(1);
     transform-origin: top left;
+    color: var(--solid);
+    white-space: nowrap;
+    pointer-events: none;
+
+    transition: all 0.1s;
 }
 
 .label.required::after {
@@ -270,8 +269,8 @@
 .label.filled.disabled,
 .select.kind-filled.disabled:hover,
 .select.kind-filled.disabled {
-    background-color: rgba(0, 0, 10, 0.02);
     border: 2px solid transparent;
+    background-color: rgba(0, 0, 10, 0.02);
     color: var(--grey);
 }
 
@@ -290,8 +289,8 @@
 
 .disabled,
 .disabled::placeholder {
-    cursor: not-allowed;
     color: var(--grey);
+    cursor: not-allowed;
 }
 
 /* IE */

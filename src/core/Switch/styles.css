@@ -2,37 +2,37 @@
     display: none;
 }
 .label {
+    display: inline-block;
     position: relative;
     padding: 0 0 0 44px;
-    display: inline-block;
-    text-align: left;
     font-weight: 400;
+    text-align: left;
     cursor: pointer;
     user-select: none;
 }
 .label:before,
 .label:after {
-    content: '';
     position: absolute;
-    margin: 0;
-    outline: 0;
     top: 50%;
+    margin: 0;
     transform: translate(0, -50%);
+    outline: 0;
+    content: '';
 }
 .label::before {
     left: 1px;
     width: 34px;
     height: 14px;
-    opacity: 0.5;
-    background-color: #bbbaba;
     border-radius: 8px;
+    background-color: #bbbaba;
+    opacity: 0.5;
 }
 .label::after {
     left: 0;
     width: 20px;
     height: 20px;
-    background-color: #efefef;
     border-radius: 50%;
+    background-color: #efefef;
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -40,8 +40,8 @@
     background-color: #009688;
 }
 .input:checked + .label::after {
-    background-color: #009688;
     transform: translate(80%, -50%);
+    background-color: #009688;
 }
 
 .status-valid.label::before,
@@ -83,6 +83,6 @@
 }
 
 .required::after {
-    content: '*';
     padding-left: 4px;
+    content: '*';
 }

@@ -1,10 +1,10 @@
 .base {
-    border-bottom: 1px solid rgba(32, 32, 32, 0.15);
-    height: 48px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    border-bottom: 1px solid rgba(32, 32, 32, 0.15);
 }
 
 .first {
@@ -16,19 +16,19 @@
 
 .logo {
     box-sizing: border-box;
-    margin: 0 12px 0 0;
-    border-right: 1px solid rgba(32, 32, 32, 0.15);
-    padding-top: 12px;
     width: 48px;
     height: 48px;
+    margin: 0 12px 0 0;
+    padding-top: 12px;
+    border-right: 1px solid rgba(32, 32, 32, 0.15);
     text-align: center;
 }
 
 .logo svg,
 .logo a {
-    cursor: pointer;
     width: 27px;
     height: 25px;
+    cursor: pointer;
 }
 
 .logo a,
@@ -36,31 +36,31 @@
 .logo a:focus,
 .logo a:active,
 .logo a:visited {
-    cursor: pointer;
     display: inline-block;
-    user-select: none;
     background-color: transparent;
+    cursor: pointer;
+    user-select: none;
 }
 
 .title {
-    color: #000;
     overflow: hidden;
-    white-space: nowrap;
-    font-weight: 500;
+    color: #000;
     font-size: 14px;
+    font-weight: 500;
     letter-spacing: 0.01em;
+    white-space: nowrap;
 }
 
 .last {
-    user-select: none;
-    margin-left: auto;
     display: flex;
     flex-direction: row;
+    margin-left: auto;
+    user-select: none;
 }
 
 .notification {
-    margin: 8px 24px 0 0;
     position: relative;
+    margin: 8px 24px 0 0;
     cursor: pointer;
 }
 .notification .message {
@@ -74,33 +74,33 @@
 }
 
 .notification > .count {
-    cursor: inherit;
     z-index: 1;
     position: absolute;
-    right: -10px;
     top: -6px;
-    border-radius: 50%;
+    right: -10px;
     width: 16px;
     height: 16px;
+    border-radius: 50%;
+    background-color: var(--secondary-light);
+    color: #fff;
     font-size: 9px;
     font-weight: 500;
     line-height: 16px;
     text-align: center;
-    color: #fff;
-    background-color: var(--secondary-light);
+    cursor: inherit;
 }
 
 .notification > .count i {
-    cursor: inherit;
     width: 20px;
     height: 20px;
+    cursor: inherit;
 }
 
 .apps {
     position: relative;
-    margin: 8px 0 0 0;
     width: 24px;
     height: 24px;
+    margin: 8px 0 0 0;
 }
 
 .apps i {
@@ -116,11 +116,11 @@
 }
 
 .search {
-    margin: 8px;
-    height: 52px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    height: 52px;
+    margin: 8px;
 }
 
 .apps .settings {
@@ -130,60 +130,60 @@
 }
 
 .modules {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 30vw;
     min-width: 300px;
     max-width: 560px;
 
     min-height: 200px;
     max-height: 465px;
+    margin: 0 8px 8px 8px;
 
     overflow: auto;
     overflow-x: hidden;
-    margin: 0 8px 8px 8px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: flex-start;
 }
 
 .app {
-    cursor: pointer;
     display: inline-block;
-    border-radius: 12px;
-    padding: 8px;
-    margin: 8px;
-    width: 96px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: 96px;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 12px;
     text-decoration: none;
+    cursor: pointer;
 }
 .app:hover {
-    cursor: pointer;
     background-color: var(--primary-lightest);
+    cursor: pointer;
 }
 .app:hover > .name {
-    cursor: pointer;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .app > img {
-    cursor: pointer;
     width: 48px;
     height: 48px;
+    cursor: pointer;
 }
 
 .app > .name {
-    cursor: pointer;
     margin-top: 14px;
     color: rgba(0, 0, 0, 0.87);
     font-size: 12px;
+    letter-spacing: 0.01em;
     line-height: 14px;
     text-align: center;
-    letter-spacing: 0.01em;
+    cursor: pointer;
 }
 
 .profile-alignment {
@@ -192,28 +192,28 @@
 }
 .profile {
     position: relative;
-    margin: 2px 12px 0 24px;
     width: 36px;
     height: 36px;
+    margin: 2px 12px 0 24px;
 }
 .profile .icon {
-    cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
-    border-radius: 50%;
+    justify-content: center;
     width: 36px;
     height: 36px;
-    color: #fff;
+    overflow: hidden;
+    border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    cursor: pointer;
 }
 .profile .icon > .initials {
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 1px;
-    text-transform: uppercase;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .profile .icon > img {
@@ -226,14 +226,14 @@
     position: absolute;
     top: 34px;
     right: -6px;
-    border-top: 4px solid transparent;
     width: 310px;
+    border-top: 4px solid transparent;
 }
 .header {
-    margin-left: 24px;
-    padding-top: 20px;
     display: flex;
     flex-direction: row;
+    margin-left: 24px;
+    padding-top: 20px;
 }
 .header > .icon {
     width: 48px;
@@ -244,9 +244,9 @@
     display: flex;
     flex-direction: column;
     margin-left: 20px;
-    font-weight: 400;
-    font-size: 14px;
     color: #000;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .details > .name {
@@ -262,11 +262,11 @@
 }
 
 .details > .edit_profile {
-    cursor: pointer;
+    color: rgba(0, 0, 0, 0.87);
     font-size: 12px;
     line-height: 14px;
     text-decoration: underline;
-    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
 }
 
 .blue {
@@ -278,10 +278,10 @@
 
 .blue > .last > .notification > i,
 .blue > .last > .apps > i:first-child {
-    cursor: pointer;
     color: #fff;
+    cursor: pointer;
 }
 .base.blue .profile > .icon > .initials {
-    cursor: pointer;
     color: #fff;
+    cursor: pointer;
 }

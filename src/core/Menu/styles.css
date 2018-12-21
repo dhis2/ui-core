@@ -1,21 +1,21 @@
 .base {
-    width: 100%;
-
-    padding: 8px 0;
     display: block;
     position: relative;
-    user-select: none;
+    width: 100%;
     margin: 0;
+
+    padding: 8px 0;
+    user-select: none;
 }
 
 .item {
-    cursor: pointer;
-    padding: 0 24px;
-    position: relative;
     display: flex;
+    position: relative;
     flex-direction: row;
     align-items: center;
     height: 48px;
+    padding: 0 24px;
+    cursor: pointer;
 }
 
 .item:hover,
@@ -28,26 +28,25 @@
 }
 
 .label {
-    white-space: nowrap;
-
-    user-select: none;
-    pointer-events: none;
-
     color: rgba(0, 0, 0, 0.87);
     font-size: 15px;
+    white-space: nowrap;
+    pointer-events: none;
+
+    user-select: none;
 }
 .base.dense .label {
     font-size: 13px;
 }
 
 .icon {
-    user-select: none;
-    pointer-events: none;
     box-sizing: border-box;
 
     margin-right: 18px;
     color: #404040;
     font-size: 24px;
+    pointer-events: none;
+    user-select: none;
 }
 
 .base.dense .icon {
@@ -60,8 +59,8 @@
 
 .item.disabled {
     cursor: not-allowed;
-    user-select: none;
     pointer-events: none;
+    user-select: none;
 }
 
 .item.disabled .icon,
@@ -71,17 +70,17 @@
 
 /* SUB-MENU */
 .sub-chevron {
-    user-select: none;
-    pointer-events: none;
     margin: 0 -14px 0 auto;
     font-size: 18px;
+    pointer-events: none;
+    user-select: none;
 }
 
 .sub-menu {
     display: none;
     position: absolute;
-    left: 100%;
     top: 0;
+    left: 100%;
     white-space: nowrap;
 }
 

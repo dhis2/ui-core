@@ -4,31 +4,31 @@
 }
 
 .base {
-    display: inline-block;
-    content: ' ';
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    padding: 0;
-    margin: 0;
-
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    white-space: nowrap;
     word-wrap: normal;
-    direction: ltr;
-    font-feature-settings: 'liga';
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-family: 'Material Icons';
+    font-feature-settings: 'liga';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+
+    line-height: 1;
+    direction: ltr;
+    text-transform: none;
+    white-space: nowrap;
+    content: ' ';
 }
 
 .align-icon .material-icons {
-    pointer-events: none;
-    line-height: 0.9375rem;
-    height: 0.9375rem;
     width: 24pxrem;
+    height: 0.9375rem;
+    line-height: 0.9375rem;
+    pointer-events: none;
 }
 .align-icon .material-icons:first-child {
     margin-right: 0.75rem;
@@ -41,6 +41,6 @@
 }
 
 .align-icon .material-icons:only-child {
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
 }

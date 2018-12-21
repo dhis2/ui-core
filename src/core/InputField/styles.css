@@ -1,12 +1,12 @@
 .base {
-    color: var(--solid);
     display: inline-block;
     width: 100%;
+    color: var(--solid);
 }
 
 .field {
-    position: relative;
     display: flex;
+    position: relative;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -22,13 +22,13 @@
 }
 
 .icon {
-    color: var(--solid);
     margin: 0 8px 0 0;
+    color: var(--solid);
 }
 
 .input {
-    height: 100%;
     width: 100%;
+    height: 100%;
     user-select: text;
 }
 
@@ -37,15 +37,14 @@
  *
  */
 .flatline {
-    padding-left: 8px;
+    display: block;
     position: absolute;
 
-    display: block;
-
     top: -8px;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+    padding-left: 8px;
 
     border: 1px solid var(--idle);
     border-radius: 5px;
@@ -91,16 +90,15 @@
  */
 
 .label {
-    pointer-events: none;
-    position: absolute;
-    white-space: nowrap;
-
     display: block;
-    color: var(--solid);
-
-    transition: all 0.1s;
+    position: absolute;
     transform: translate(14px, 0px) scale(1);
     transform-origin: top left;
+    color: var(--solid);
+    white-space: nowrap;
+    pointer-events: none;
+
+    transition: all 0.1s;
 }
 
 .label.required::after {
@@ -177,15 +175,15 @@
 }
 
 .field.kind-filled {
-    background-color: rgba(0, 0, 10, 0.05);
     border-bottom: 2px solid transparent;
     border-radius: 5px;
+    background-color: rgba(0, 0, 10, 0.05);
 }
 
 .field.kind-filled:hover,
 .field.kind-filled.focused {
-    background-color: rgba(0, 0, 10, 0.08);
     border-bottom: 2px solid var(--secondary);
+    background-color: rgba(0, 0, 10, 0.08);
 }
 
 .field.kind-filled .input {
@@ -213,8 +211,8 @@
 .label.filled.disabled,
 .field.kind-filled.disabled:hover,
 .field.kind-filled.disabled {
-    background-color: rgba(0, 0, 10, 0.02);
     border: 2px solid transparent;
+    background-color: rgba(0, 0, 10, 0.02);
     color: var(--grey);
 }
 
@@ -233,8 +231,8 @@
 
 .disabled,
 .disabled::placeholder {
-    cursor: not-allowed;
     color: var(--grey);
+    cursor: not-allowed;
 }
 
 /* IE */

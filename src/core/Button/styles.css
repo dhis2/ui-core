@@ -1,18 +1,18 @@
 .base {
-    user-select: none;
-    position: relative;
-    border: 1px solid transparent;
-    border-radius: 4px;
     display: inline-flex;
+    position: relative;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
     background-color: transparent;
     font-weight: 400;
     letter-spacing: 0.5px;
     text-decoration: none;
     text-transform: capitalize;
+    cursor: pointer;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+    user-select: none;
 }
 
 .base:disabled {
@@ -29,25 +29,25 @@
 }
 
 .size-small {
-    font-size: 14px;
-    line-height: 16px;
     height: 28px;
     padding: 0 16px;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 .size-medium {
-    font-size: 14px;
-    line-height: 16px;
     height: 36px;
     padding: 0 16px;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 .size-large {
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: 0.57px;
     height: 43px;
     padding: 0 24px;
+    font-size: 16px;
+    letter-spacing: 0.57px;
+    line-height: 19px;
 }
 
 .icon-only i {
@@ -56,8 +56,8 @@
 }
 
 .kind-basic {
-    background-color: #f9fafb;
     border: 1px solid #c4c9cc;
+    background-color: #f9fafb;
 }
 
 .kind-basic:hover {
@@ -67,64 +67,64 @@
 
 .kind-basic:active,
 .kind-basic:active:focus {
-    background-color: #f3f4f5;
     border: 1px solid #c5c9cc;
+    background-color: #f3f4f5;
     box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.1) inset;
 }
 
 .kind-basic:focus {
-    background-color: #f9fafb;
     border: 1px solid var(--primary);
+    background-color: #f9fafb;
     box-shadow: 0 0 0 1px var(--primary);
 }
 
 .kind-basic:disabled {
-    color: var(--grey);
     border: 1px solid #c4c9cc;
     background-color: #f9fafb;
     box-shadow: none;
+    color: var(--grey);
 }
 
 .kind-primary {
-    color: #fff;
-    background-color: #2b61b3;
     border: 1px solid var(--primary-dark);
     background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
+    background-color: #2b61b3;
+    color: #fff;
 }
 
 .kind-primary:hover {
     border: 1px solid var(--primary-dark);
-    background-color: #21539f;
     background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
+    background-color: #21539f;
 }
 
 .kind-primary:active,
 .kind-primary:active:focus {
-    background-color: #1c4a90;
-    background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
     border: 1px solid var(--primary-dark);
+    background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
+    background-color: #1c4a90;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
 }
 
 .kind-primary:focus {
-    background-color: #285dac;
-    background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
     border: 1px solid #001d47;
+    background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
+    background-color: #285dac;
     box-shadow: 0 0 0 1px #001d47 inset;
 }
 
 .kind-primary:disabled {
-    color: #fff;
-    background-color: #b6c8e2;
-    background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
-    opacity: 0.33;
     border: 1px solid var(--primary-dark);
+    background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
+    background-color: #b6c8e2;
     box-shadow: none;
+    color: #fff;
+    opacity: 0.33;
 }
 
 .kind-secondary {
-    background-color: transparent;
     border: 1px solid var(--grey-light);
+    background-color: transparent;
 }
 
 .kind-secondary:hover {
@@ -134,59 +134,59 @@
 
 .kind-secondary:active,
 .kind-secondary:active:focus {
-    background-color: rgba(158, 158, 158, 0.18);
     border: 1px solid var(--grey-light);
+    background-color: rgba(158, 158, 158, 0.18);
     box-shadow: none;
 }
 
 .kind-secondary:focus {
-    background-color: transparent;
     border: 1px solid var(--primary);
+    background-color: transparent;
     box-shadow: 0 0 0 1px var(--primary);
 }
 
 .kind-secondary:disabled {
-    color: var(--grey);
     border: 1px solid var(--grey-light);
     background-color: transparent;
     box-shadow: none;
+    color: var(--grey);
 }
 
 .kind-destructive {
-    color: #fff;
-    background-color: #b9242b;
     border: 1px solid #a10b0b;
     background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+    background-color: #b9242b;
+    color: #fff;
 }
 
 .kind-destructive:hover {
     border: 1px solid #a10b0b;
-    background-color: #ac0f1a;
     background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
+    background-color: #ac0f1a;
 }
 
 .kind-destructive:active,
 .kind-destructive:active:focus {
-    background-color: #ac101b;
-    background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
     border: 1px solid #a10b0b;
+    background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
+    background-color: #ac101b;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
 }
 
 .kind-destructive:focus {
-    background-color: #b72229;
-    background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
     border: 1px solid #5e0303;
+    background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+    background-color: #b72229;
     box-shadow: 0 0 0 1px #5e0303 inset;
 }
 
 .kind-destructive:disabled {
-    color: #fff;
-    background-color: #e5b5b7;
-    background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
-    opacity: 0.33;
     border: 1px solid #a10b0b;
+    background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+    background-color: #e5b5b7;
     box-shadow: none;
+    color: #fff;
+    opacity: 0.33;
 }
 
 /* IE11 hacks */
@@ -207,9 +207,9 @@
 }
 
 .button-icon {
-    color: inherit;
-    pointer-events: none;
-    vertical-align: middle;
     margin-right: 10px;
+    color: inherit;
     font-size: 26px;
+    vertical-align: middle;
+    pointer-events: none;
 }

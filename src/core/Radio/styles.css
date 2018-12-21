@@ -1,11 +1,11 @@
 .base {
-    pointer-events: all;
-    user-select: none;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: start;
     cursor: pointer;
+    pointer-events: all;
+    user-select: none;
 }
 
 .base input[type='radio'] {
@@ -18,8 +18,8 @@
 }
 
 .label {
-    cursor: pointer;
     margin: 0 0 0 8px;
+    cursor: pointer;
 }
 
 .disabled,
@@ -28,8 +28,8 @@
 }
 
 .required:after {
-    content: '*';
     padding-left: 4px;
+    content: '*';
 }
 
 .default {

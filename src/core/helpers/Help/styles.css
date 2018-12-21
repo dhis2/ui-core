@@ -1,9 +1,9 @@
 .base {
     height: 12px;
     padding-left: 14px;
+    font-size: 12px;
 
     line-height: 12px;
-    font-size: 12px;
 
     cursor: help;
 }

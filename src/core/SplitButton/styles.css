@@ -1,6 +1,6 @@
 .base {
-    position: relative;
     display: inline-flex;
+    position: relative;
     white-space: nowrap;
 }
 
@@ -10,21 +10,21 @@
 }
 
 .base button:nth-child(2) {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
     padding: 0 9px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .menu {
-    position: absolute;
     z-index: 1000;
-    left: 0;
+    position: absolute;
     top: 36px;
+    left: 0;
 }
 
 .menu-icon {
     color: inherit;
-    pointer-events: none;
-    vertical-align: middle;
     font-size: 16px;
+    vertical-align: middle;
+    pointer-events: none;
 }
