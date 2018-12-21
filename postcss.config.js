@@ -34,7 +34,10 @@ module.exports = {
                     .toString(36)
                     .substr(0, 5)
 
-                return `_ui_${component}_${name}_${hash}`
+                // development
+                // return `ui_${component}_${name}_${hash}`
+
+                return `ui_${i}_${hash}`
             },
         },
         'postcss-flexbugs-fixes': {},
