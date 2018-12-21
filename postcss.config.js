@@ -38,7 +38,7 @@ module.exports = {
             },
         },
         'postcss-flexbugs-fixes': {},
-        'postcss-rtl': {},
+        'postcss-inline-rtl': {},
         cssnano: {},
     },
 }
