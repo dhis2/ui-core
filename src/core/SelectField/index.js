@@ -227,31 +227,37 @@ class SelectField extends React.Component {
 }
 
 SelectField.defaultProps = {
-    disabled: false,
-    label: '',
+    value: '',
+    icon: '',
+    help: '',
     size: 'default',
+    kind: 'filled',
     status: 'default',
+    disabled: false,
+    required: false,
 }
 
 SelectField.propTypes = {
+    onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     list: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string.isRequired,
             value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
                 .isRequired,
         })
-    ),
+    ).isRequired,
+
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     icon: PropTypes.string,
     help: PropTypes.string,
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
     size: PropTypes.oneOf(['default', 'dense']),
     kind: PropTypes.oneOf(['filled', 'outlined']),
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
-    onChange: PropTypes.func.isRequired,
+
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
 }
 
 export { SelectField }

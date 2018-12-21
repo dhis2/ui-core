@@ -32,18 +32,19 @@ Button.defaultProps = {
     icon: '',
     label: '',
     kind: 'basic',
+    type: 'button',
     size: 'medium',
     disabled: false,
     onClick: undefined,
 }
 
 Button.propTypes = {
-    label: PropTypes.string,
     icon: PropTypes.string,
-    disabled: PropTypes.bool,
-    type: PropTypes.oneOf(['submit', 'reset', 'button']),
+    label: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
+    type: PropTypes.oneOf(['submit', 'reset', 'button']),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
+    disabled: PropTypes.bool,
     onClick: PropTypes.func,
 }
 

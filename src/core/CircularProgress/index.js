@@ -32,6 +32,7 @@ function CircularProgress({ size, overlay }) {
 }
 
 CircularProgress.defaultProps = {
+    overlay: false,
     size: 'medium',
 }
 

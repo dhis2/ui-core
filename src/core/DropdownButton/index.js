@@ -83,18 +83,22 @@ DropdownButton.defaultProps = {
     kind: 'basic',
     active: false,
     disabled: false,
+    width: '',
+    icon: '',
 }
 
 DropdownButton.propTypes = {
-    width: PropTypes.string,
-    kind: PropTypes.oneOf(['basic', 'primary']),
-    icon: PropTypes.string,
-    active: PropTypes.bool,
-    disabled: PropTypes.bool,
-    size: PropTypes.oneOf(['default', 'dense']),
     label: PropTypes.string.isRequired,
     list: PropTypes.array.isRequired,
     onClick: PropTypes.func.isRequired,
+
+    kind: PropTypes.oneOf(['basic', 'primary']),
+    size: PropTypes.oneOf(['default', 'dense']),
+
+    width: PropTypes.string,
+    icon: PropTypes.string,
+    active: PropTypes.bool,
+    disabled: PropTypes.bool,
 }
 
 export { DropdownButton }

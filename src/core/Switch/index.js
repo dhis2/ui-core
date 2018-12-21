@@ -15,15 +15,13 @@ class Switch extends React.Component {
     render() {
         const { status, disabled } = this.props
         return (
-            <label
-                className={rx(status, { disabled })}
-                onChange={this.onChange}
-            >
+            <label className={rx(status, { disabled })}>
                 <input
                     type="checkbox"
                     className={cx('input')}
-                    checked={this.props.checked}
                     disabled={disabled}
+                    checked={this.props.checked}
+                    onChange={this.onChange}
                 />
                 <span
                     className={rx('label', {
@@ -46,12 +44,13 @@ Switch.defaultProps = {
 }
 
 Switch.propTypes = {
+    onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
+
     checked: PropTypes.bool,
     label: PropTypes.string,
     disabled: PropTypes.bool,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
-    onChange: PropTypes.func.isRequired,
 }
 
 export { Switch }

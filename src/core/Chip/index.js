@@ -75,6 +75,7 @@ Chip.defaultProps = {
 
 Chip.propTypes = {
     label: PropTypes.string.isRequired,
+
     icon: PropTypes.string,
     type: PropTypes.oneOf(['icon', 'image']),
     selected: PropTypes.bool,

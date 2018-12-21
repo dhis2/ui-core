@@ -55,7 +55,7 @@ Menu.propTypes = {
             active: PropTypes.bool,
             disabled: PropTypes.bool,
         })
-    ),
+    ).isRequired,
     onClick: PropTypes.func.isRequired,
     size: PropTypes.oneOf(['default', 'dense']),
 }

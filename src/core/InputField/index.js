@@ -165,33 +165,47 @@ class InputField extends React.Component {
 }
 
 InputField.defaultProps = {
-    disabled: false,
+    value: '',
     label: '',
+    help: '',
+    placeholder: '',
+
+    icon: '',
+    trailIcon: '',
+
     status: 'default',
     size: 'default',
     kind: 'filled',
-    focus: false,
     type: 'text',
+
+    focus: false,
+    disabled: false,
+    required: false,
+
     onTrailIconClick: null,
 }
 
 InputField.propTypes = {
-    focus: PropTypes.string.bool,
-    label: PropTypes.string.isRequired,
-    placeholder: PropTypes.string,
     name: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onChange: PropTypes.func.isRequired,
+
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    label: PropTypes.string,
+    placeholder: PropTypes.string,
+    help: PropTypes.string,
+
     icon: PropTypes.string,
     trailIcon: PropTypes.string,
     onTrailIconClick: PropTypes.func,
-    help: PropTypes.string,
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
+
+    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
     size: PropTypes.oneOf(['default', 'dense']),
     kind: PropTypes.oneOf(['filled', 'outlined']),
     type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+
+    focus: PropTypes.bool,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
 }
 
 export { InputField }

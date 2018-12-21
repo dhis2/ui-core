@@ -91,18 +91,21 @@ SplitButton.defaultProps = {
     kind: 'basic',
     active: false,
     disabled: false,
+    width: '',
+    icon: '',
 }
 
 SplitButton.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    label: PropTypes.string.isRequired,
+    list: PropTypes.array.isRequired,
+
     width: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary']),
     icon: PropTypes.string,
     active: PropTypes.bool,
     disabled: PropTypes.bool,
     size: PropTypes.oneOf(['default', 'dense']),
-    label: PropTypes.string.isRequired,
-    list: PropTypes.array.isRequired,
-    onClick: PropTypes.func.isRequired,
 }
 
 export { SplitButton }

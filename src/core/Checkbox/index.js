@@ -68,14 +68,15 @@ Checkbox.defaultProps = {
 }
 
 Checkbox.propTypes = {
+    onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
+
     label: PropTypes.string,
     checked: PropTypes.bool,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
     indeterminate: PropTypes.bool,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
-    onChange: PropTypes.func.isRequired,
 }
 
 export { Checkbox }
