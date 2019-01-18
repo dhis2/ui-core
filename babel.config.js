@@ -1,33 +1,30 @@
-const presets = [
-    '@babel/react',
-    [
-        '@babel/preset-env',
-        {
-            modules: false,
-        },
-    ],
-]
+module.exports = function(api) {
+    api.cache.forever()
 
-const plugins = [
-    '@babel/plugin-proposal-class-properties',
-    [
-        '@babel/plugin-transform-runtime',
-        {
-            useESModules: true,
-            corejs: 2,
-        },
-    ],
-]
+    let defaultPresets
 
-module.exports = {
-    env: {
-        production: {
-            presets,
-            plugins,
-        },
-        development: {
-            presets,
-            plugins,
-        },
-    },
+    if (process.env.BABEL_ENV === 'es') {
+        // pure unadulterated js
+        defaultPresets = []
+    } else {
+        defaultPresets = [
+            [
+                '@babel/preset-env',
+                {
+                    modules: ['modules'].includes(process.env.BABEL_ENV)
+                        ? false
+                        : 'commonjs',
+                },
+            ],
+        ]
+    }
+
+    return {
+        presets: defaultPresets.concat('@babel/preset-react'),
+        plugins: [
+            '@babel/plugin-proposal-class-properties',
+            '@babel/plugin-transform-react-constant-elements',
+            '@babel/plugin-proposal-object-rest-spread',
+        ],
+    }
 }

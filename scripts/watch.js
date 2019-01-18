@@ -66,6 +66,7 @@ async function main() {
                     filename,
                     {
                         sourceMaps: 'inline',
+                        envName: 'es',
                     },
                     async function(err, res) {
                         if (err) {
