@@ -2,7 +2,7 @@
   "name": "@dhis2/ui",
   "version": "1.0.0-beta.7",
   "main": "index.js",
-  "module": "index.es.js",
+  "module": "index.mjs",
   "sideEffects": [
     "*.css"
   ],
@@ -14,13 +14,14 @@
     "clean": "rm -rf ./build/*",
     "format": "packages code-style",
     "release": "packages release",
+    "size": "size-limit",
     "start": "node scripts/watch.js",
     "sort:css": "node scripts/sort-css.js",
-    "build:es": "BABEL_ENV=es babel src --out-dir build --copy-files --verbose && postcss --verbose 'src/**/*.css' --base src --dir build/es",
-    "build:cjs": "BABEL_ENV=cjs babel src --out-dir build --copy-files --verbose && postcss --verbose 'src/**/*.css' --base src --dir build",
-    "build:modules": "BABEL_ENV=modules babel ./src/index.js --out-file ./build/index.es.js --verbose",
+    "build:css": "postcss --verbose 'src/**/*.css' --base src --dir build",
+    "build:cjs": "BABEL_ENV=cjs babel src --out-dir build --copy-files --verbose",
+    "build:modules": "BABEL_ENV=modules babel ./src/index.js --out-file ./build/index.mjs --verbose",
     "build:docs": "node scripts/docs.js",
-    "build": "NODE_ENV=production npm run clean && npm run build:cjs && npm run build:modules"
+    "build": "NODE_ENV=production npm run clean && npm run build:cjs && npm run build:modules && npm run build:css"
   },
   "husky": {
     "hooks": {
@@ -59,7 +60,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "isomorphic-fetch": "^2.2.1",
     "material-design-icons-iconfont": "^4.0.2",
     "typeface-roboto": "^0.0.54"
   }

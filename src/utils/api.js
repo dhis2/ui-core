@@ -2,8 +2,6 @@
 
 const IS_PROD = process.env.NODE_ENV === 'production'
 
-import 'isomorphic-fetch'
-
 let url
 let endpoint
 

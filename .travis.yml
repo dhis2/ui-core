@@ -6,6 +6,7 @@ before_script:
 script:
 - npm run build
 - npm run build:docs
+- npm run size
 deploy:
 - provider: script
   script: deploy-build
