@@ -4,6 +4,27 @@
 
 **[Online docs and demos (latest master build)](https://d2-ci.github.io/ui/)**
 
+## Requires polyfills
+
+These are included with apps generated with Create React App, but if you
+want to use this library with the environments in `.browserslistrc` you
+need to polyfill the following:
+
+-   web.dom.iterable
+-   es6.array.fill
+-   es6.array.iterator
+-   es6.function.name
+-   es6.object.assign
+-   es6.object.keys
+-   es6.object.set-prototype-of
+-   es6.promise
+-   es6.regexp.match
+-   es6.regexp.split
+-   es6.string.starts-with
+-   es6.string.iterator
+-   es6.symbol
+-   es7.symbol.async-iterator
+
 ## Style
 
 -   CSS: https://github.com/necolas/idiomatic-css

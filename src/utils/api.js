@@ -2,8 +2,6 @@
 
 const IS_PROD = process.env.NODE_ENV === 'production'
 
-import 'whatwg-fetch'
-
 let url
 let endpoint
 

@@ -1,9 +1,8 @@
 {
   "name": "@dhis2/ui",
   "version": "1.0.0-beta.7",
-  "main": "index.cjs.js",
-  "module": "index.js",
-  "browser": "index.umd.js",
+  "main": "index.js",
+  "module": "index.mjs",
   "sideEffects": [
     "*.css"
   ],
@@ -15,12 +14,14 @@
     "clean": "rm -rf ./build/*",
     "format": "packages code-style",
     "release": "packages release",
+    "size": "size-limit",
     "start": "node scripts/watch.js",
     "sort:css": "node scripts/sort-css.js",
     "build:css": "postcss --verbose 'src/**/*.css' --base src --dir build",
-    "build:es": "babel src --out-dir build --copy-files --verbose",
+    "build:cjs": "BABEL_ENV=cjs babel src --out-dir build --copy-files --verbose",
+    "build:modules": "BABEL_ENV=modules babel ./src/index.js --out-file ./build/index.mjs --verbose",
     "build:docs": "node scripts/docs.js",
-    "build": "NODE_ENV=production npm run clean && npm run build:es && npm run build:css"
+    "build": "NODE_ENV=production npm run clean && npm run build:cjs && npm run build:modules && npm run build:css"
   },
   "husky": {
     "hooks": {
@@ -32,7 +33,8 @@
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/plugin-transform-react-constant-elements": "^7.2.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "@dhis2/packages": "^1.3.0",
@@ -48,6 +50,7 @@
     "postcss-modules": "^1.4.1",
     "postcss-preset-env": "^6.0.6",
     "react-dev-utils": "^5.0.2",
+    "size-limit": "^0.21.1",
     "string-hash": "^1.1.3"
   },
   "peerDependencies": {
@@ -56,8 +59,8 @@
     "react-dom": "^16"
   },
   "dependencies": {
-    "@babel/runtime-corejs2": "^7.1.5",
     "classnames": "^2.2.6",
-    "material-design-icons-iconfont": "^4.0.2"
+    "material-design-icons-iconfont": "^4.0.2",
+    "typeface-roboto": "^0.0.54"
   }
 }
