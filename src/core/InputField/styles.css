@@ -1,7 +1,7 @@
 .base {
     display: inline-block;
     width: 100%;
-    color: var(--solid);
+    color: var(--grey700);
 }
 
 .field {
@@ -18,12 +18,12 @@
 .field:hover .flatline,
 .field:hover .flatline.idle.filled,
 .field:hover .flatline.focused {
-    border: 1px solid var(--solid);
+    border: 1px solid var(--grey700);
 }
 
 .icon {
     margin: 0 8px 0 0;
-    color: var(--solid);
+    color: var(--grey700);
 }
 
 .input {
@@ -46,7 +46,7 @@
     left: 0;
     padding-left: 8px;
 
-    border: 1px solid var(--idle);
+    border: 1px solid var(--grey500);
     border-radius: 5px;
 
     pointer-events: none;
@@ -57,11 +57,11 @@
 }
 
 .flatline.idle.filled {
-    border: 1.5px solid var(--idle);
+    border: 1.5px solid var(--grey500);
 }
 
 .flatline.focused {
-    border: 1.5px solid var(--secondary);
+    border: 1.5px solid var(--secondary600);
 }
 
 /*
@@ -70,17 +70,17 @@
 .flatline.valid,
 .flatline.valid.idle.filled,
 .flatline.valid.focused {
-    border: 1.5px solid var(--valid);
+    border: 1.5px solid var(--blue600);
 }
 .flatline.warning,
 .flatline.warning.idle.filled,
 .flatline.warning.focused {
-    border: 1.5px solid var(--warning);
+    border: 1.5px solid var(--yellow500);
 }
 .flatline.error,
 .flatline.error.idle.filled,
 .flatline.error.focused {
-    border: 1.5px solid var(--error);
+    border: 1.5px solid var(--red500);
 }
 
 /*
@@ -94,7 +94,7 @@
     position: absolute;
     transform: translate(14px, 0px) scale(1);
     transform-origin: top left;
-    color: var(--solid);
+    color: var(--grey700);
     white-space: nowrap;
     pointer-events: none;
 
@@ -106,7 +106,7 @@
 }
 
 .label.filled.focused {
-    color: var(--secondary);
+    color: var(--secondary600);
 }
 
 .label.filled.shrink {
@@ -126,7 +126,7 @@
 }
 
 .label.outlined.focused {
-    color: var(--secondary);
+    color: var(--secondary600);
 }
 
 .label.outlined.shrink {
@@ -151,19 +151,19 @@
 .icon-valid,
 .label.filled.valid,
 .label.outlined.valid {
-    color: var(--valid);
+    color: var(--blue600);
 }
 
 .icon-warning,
 .label.filled.warning,
 .label.outlined.warning {
-    color: var(--warning);
+    color: var(--yellow500);
 }
 
 .icon-error,
 .label.filled.error,
 .label.outlined.error {
-    color: var(--error);
+    color: var(--red500);
 }
 
 .size-default {
@@ -182,7 +182,7 @@
 
 .field.kind-filled:hover,
 .field.kind-filled.focused {
-    border-bottom: 2px solid var(--secondary);
+    border-bottom: 2px solid var(--secondary600);
     background-color: rgba(0, 0, 10, 0.08);
 }
 
@@ -195,15 +195,15 @@
  */
 .field.kind-filled.status-valid:hover,
 .field.kind-filled.focused.status-valid {
-    border-bottom: 2px solid var(--valid);
+    border-bottom: 2px solid var(--blue600);
 }
 .field.kind-filled.status-warning:hover,
 .field.kind-filled.focused.status-warning {
-    border-bottom: 2px solid var(--warning);
+    border-bottom: 2px solid var(--yellow500);
 }
 .field.kind-filled.status-error:hover,
 .field.kind-filled.focused.status-error {
-    border-bottom: 2px solid var(--error);
+    border-bottom: 2px solid var(--red500);
 }
 
 /* disabled */
@@ -213,7 +213,7 @@
 .field.kind-filled.disabled {
     border: 2px solid transparent;
     background-color: rgba(0, 0, 10, 0.02);
-    color: var(--grey);
+    color: var(--grey500);
 }
 
 .label.filled.disabled {
@@ -226,12 +226,12 @@
 }
 
 .label.kind-outlined.disabled {
-    color: var(--grey);
+    color: var(--grey500);
 }
 
 .disabled,
 .disabled::placeholder {
-    color: var(--grey);
+    color: var(--grey500);
     cursor: not-allowed;
 }
 

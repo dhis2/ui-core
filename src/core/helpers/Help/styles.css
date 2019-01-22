@@ -9,17 +9,17 @@
 }
 
 .status-default {
-    color: var(--solid);
+    color: var(--grey700);
 }
 
 .status-valid {
-    color: var(--valid);
+    color: var(--blue600);
 }
 
 .status-error {
-    color: var(--error);
+    color: var(--red500);
 }
 
 .status-warning {
-    color: var(--warning);
+    color: var(--yellow500);
 }

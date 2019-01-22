@@ -13,11 +13,11 @@
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-    background-color: var(--primary-lightest);
+    background-color: var(--primary050);
 }
 
 .progress {
-    background-color: var(--primary);
+    background-color: var(--primary600);
 }
 
 .progress.determinate {

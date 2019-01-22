@@ -33,28 +33,28 @@
 }
 
 .default {
-    color: var(--solid);
+    color: var(--grey700);
 }
 
 .valid,
 .valid-icon {
-    color: var(--valid);
+    color: var(--blue600);
 }
 
 .warning,
 .warning-icon {
-    color: var(--warning);
+    color: var(--yellow500);
 }
 
 .error,
 .error-icon {
-    color: var(--error);
+    color: var(--red500);
 }
 
 .default-icon {
-    color: var(--secondary-light);
+    color: var(--secondary300);
 }
 
 .disabled {
-    color: var(--grey-light);
+    color: var(--grey300);
 }

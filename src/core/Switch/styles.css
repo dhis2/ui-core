@@ -64,11 +64,11 @@
 
 .status-error.label::before,
 .input:checked + .status-error.label::before {
-    background-color: var(--error);
+    background-color: var(--red500);
 }
 .status-error.label::after,
 .input:checked + .status-error.label::after {
-    background-color: var(--error);
+    background-color: var(--red500);
 }
 
 .disabled,

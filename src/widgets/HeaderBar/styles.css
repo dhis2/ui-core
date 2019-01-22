@@ -81,7 +81,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: var(--secondary-light);
+    background-color: var(--secondary300);
     color: #fff;
     font-size: 9px;
     font-weight: 500;
@@ -162,7 +162,7 @@
     cursor: pointer;
 }
 .app:hover {
-    background-color: var(--primary-lightest);
+    background-color: var(--primary050);
     cursor: pointer;
 }
 .app:hover > .name {

@@ -14,7 +14,7 @@
 .base {
     display: inline-block;
     margin: 16px;
-    color: var(--primary);
+    color: var(--primary600);
     animation: anim-rotate 1.4s linear infinite;
 }
 

@@ -73,34 +73,34 @@
 }
 
 .kind-basic:focus {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--primary600);
     background-color: #f9fafb;
-    box-shadow: 0 0 0 1px var(--primary);
+    box-shadow: 0 0 0 1px var(--primary600);
 }
 
 .kind-basic:disabled {
     border: 1px solid #c4c9cc;
     background-color: #f9fafb;
     box-shadow: none;
-    color: var(--grey);
+    color: var(--grey500);
 }
 
 .kind-primary {
-    border: 1px solid var(--primary-dark);
+    border: 1px solid var(--primary800);
     background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
     background-color: #2b61b3;
     color: #fff;
 }
 
 .kind-primary:hover {
-    border: 1px solid var(--primary-dark);
+    border: 1px solid var(--primary800);
     background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
     background-color: #21539f;
 }
 
 .kind-primary:active,
 .kind-primary:active:focus {
-    border: 1px solid var(--primary-dark);
+    border: 1px solid var(--primary800);
     background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
     background-color: #1c4a90;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
@@ -114,7 +114,7 @@
 }
 
 .kind-primary:disabled {
-    border: 1px solid var(--primary-dark);
+    border: 1px solid var(--primary800);
     background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
     background-color: #b6c8e2;
     box-shadow: none;
@@ -123,33 +123,33 @@
 }
 
 .kind-secondary {
-    border: 1px solid var(--grey-light);
+    border: 1px solid var(--grey300);
     background-color: transparent;
 }
 
 .kind-secondary:hover {
-    border: 1px solid var(--grey-light);
+    border: 1px solid var(--grey300);
     background-color: rgba(158, 158, 158, 0.07);
 }
 
 .kind-secondary:active,
 .kind-secondary:active:focus {
-    border: 1px solid var(--grey-light);
+    border: 1px solid var(--grey300);
     background-color: rgba(158, 158, 158, 0.18);
     box-shadow: none;
 }
 
 .kind-secondary:focus {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--primary600);
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--primary);
+    box-shadow: 0 0 0 1px var(--primary600);
 }
 
 .kind-secondary:disabled {
-    border: 1px solid var(--grey-light);
+    border: 1px solid var(--grey300);
     background-color: transparent;
     box-shadow: none;
-    color: var(--grey);
+    color: var(--grey500);
 }
 
 .kind-destructive {
