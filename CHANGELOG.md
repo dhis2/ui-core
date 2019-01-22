@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.8"></a>
+
+# [1.0.0-beta.8](https://github.com/dhis2/ui/compare/1.0.0-beta.7...1.0.0-beta.8) (2019-01-22)
+
+### Features
+
+-   move to cjs builds to ensure compatibility with create-react-app ([baf5a82](https://github.com/dhis2/ui/commit/baf5a82))
+-   update color schema to match design ([5ae0af3](https://github.com/dhis2/ui/commit/5ae0af3))
+
 <a name="1.0.0-beta.7"></a>
 
 # [1.0.0-beta.7](https://github.com/dhis2/ui/compare/1.0.0-beta.6...1.0.0-beta.7) (2018-12-21)
