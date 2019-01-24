@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.9"></a>
+
+# [1.0.0-beta.9](https://github.com/dhis2/ui/compare/1.0.0-beta.8...1.0.0-beta.9) (2019-01-24)
+
+### Bug Fixes
+
+-   **headerbar:** display avatar img ([#135](https://github.com/dhis2/ui/issues/135)) ([081a857](https://github.com/dhis2/ui/commit/081a857))
+
 <a name="1.0.0-beta.8"></a>
 
 # [1.0.0-beta.8](https://github.com/dhis2/ui/compare/1.0.0-beta.7...1.0.0-beta.8) (2019-01-22)
