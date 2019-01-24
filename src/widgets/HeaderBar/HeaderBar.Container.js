@@ -19,6 +19,14 @@ function appPath(path) {
     return `${serverURL}/api/${path}`
 }
 
+function avatarPath(avatar) {
+    if (!avatar) {
+        return null
+    }
+
+    return `${serverURL}/api/fileResources/${avatar.id}/data`
+}
+
 class HeaderBarContainer extends React.Component {
     state = {
         type: 'blue',
@@ -69,6 +77,7 @@ class HeaderBarContainer extends React.Component {
                             profile: {
                                 name: me.name,
                                 email: me.email,
+                                img: avatarPath(me.avatar),
                             },
                         }
                     })
