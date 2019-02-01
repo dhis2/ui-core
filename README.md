@@ -46,4 +46,4 @@ Make a PR from the component branch. Add a team member who can review the code a
 
 ## Documentation
 
-You can find the most recent documentation [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+You can find the most recent documentation [here](https://d2-ci.github.io/ui/).
