@@ -1,4 +1,4 @@
-/* global manifest */
+/* global DHIS_CONFIG, manifest */
 
 const IS_PROD = process.env.NODE_ENV === 'production'
 
