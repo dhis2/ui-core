@@ -15,7 +15,7 @@ if (IS_PROD) {
     }
 } else {
     // for dev. environments
-    url = DHIS_CONFIG
+    url = typeof DHIS_CONFIG !== 'undefined'
       ? DHIS_CONFIG.baseUrl
       : process.env.REACT_APP_DHIS2_BASE_URL;
 
