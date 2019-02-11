@@ -49,7 +49,7 @@
     "postcss-inline-rtl": "^0.9.8",
     "postcss-modules": "^1.4.1",
     "postcss-preset-env": "^6.0.6",
-    "react-dev-utils": "^5.0.2",
+    "react-dev-utils": "^7.0.3",
     "size-limit": "^0.21.1",
     "string-hash": "^1.1.3"
   },
