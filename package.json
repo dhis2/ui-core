@@ -2,7 +2,7 @@
   "name": "@dhis2/ui",
   "version": "1.0.0-beta.9",
   "main": "index.js",
-  "module": "index.mjs",
+  "module": "index.es.js",
   "sideEffects": [
     "*.css"
   ],
@@ -19,7 +19,7 @@
     "sort:css": "node scripts/sort-css.js",
     "build:css": "postcss --verbose 'src/**/*.css' --base src --dir build",
     "build:cjs": "BABEL_ENV=cjs babel src --out-dir build --copy-files --verbose",
-    "build:modules": "BABEL_ENV=modules babel ./src/index.js --out-file ./build/index.mjs --verbose",
+    "build:modules": "BABEL_ENV=modules babel ./src/index.js --out-file ./build/index.es.js --verbose",
     "build:docs": "node scripts/docs.js",
     "build": "NODE_ENV=production npm run clean && npm run build:cjs && npm run build:modules && npm run build:css"
   },
