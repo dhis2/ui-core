@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.10"></a>
+
+# [1.0.0-beta.10](https://github.com/dhis2/ui/compare/1.0.0-beta.9...1.0.0-beta.10) (2019-02-15)
+
+### Bug Fixes
+
+-   use .es.js extension over .mjs at this point ([#140](https://github.com/dhis2/ui/issues/140)) ([2e9c73c](https://github.com/dhis2/ui/commit/2e9c73c))
+-   use flex-start ([#136](https://github.com/dhis2/ui/issues/136)) ([653d261](https://github.com/dhis2/ui/commit/653d261))
+
 <a name="1.0.0-beta.9"></a>
 
 # [1.0.0-beta.9](https://github.com/dhis2/ui/compare/1.0.0-beta.8...1.0.0-beta.9) (2019-01-24)
