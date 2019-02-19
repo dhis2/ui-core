@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import HeaderBar from './HeaderBar.Component'
-import { get, post, getAction, serverURL } from '../../utils'
+
+import { get, post, getAction, serverURL } from '../../utils/api.js'
 
 function appIconPath(path) {
     if (path.startsWith('http:') || path.startsWith('https:')) {

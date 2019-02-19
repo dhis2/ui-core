@@ -4,8 +4,11 @@ import PropTypes from 'prop-types'
 import Card from '../../core/Card'
 import Icon from '../../core/Icon'
 import InputField from '../../core/InputField'
-import { gotoURL, isPointInRect } from '../../utils'
-import cx, { rx } from './styles'
+
+import { gotoURL } from '../../utils/url.js'
+import { isPointInRect } from '../../utils/math.js'
+
+import cx, { rx } from './styles.js'
 
 function Search({ value, onChange, onSettingsClick, onIconClick }) {
     return (

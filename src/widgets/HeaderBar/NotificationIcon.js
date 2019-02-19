@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import Icon from '../../core/Icon'
-import { t } from '../../utils'
-import { rx } from './styles'
+
+import { rx } from './styles.js'
 
 function NotificationIcon({ icon, count, href }) {
     return (

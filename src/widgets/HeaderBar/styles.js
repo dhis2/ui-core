@@ -1,4 +1,4 @@
-import classNames from '../../utils/css'
+import classNames from '../../utils/css.js'
 
 import '../../defaults/colors.css'
 
