@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import Icon from '../Icon'
-import cx, { rx } from './styles'
+import styles from './styles.js'
 
 class Checkbox extends React.Component {
     state = {
@@ -39,7 +40,7 @@ class Checkbox extends React.Component {
 
         return (
             <label
-                className={rx('base', {
+                className={cx('base', {
                     disabled: this.props.disabled,
                 })}
             >
@@ -50,9 +51,11 @@ class Checkbox extends React.Component {
                     disabled={this.props.disabled}
                 />
                 {icon}
-                <span className={rx('label', { required })}>
+                <span className={cx('label', { required })}>
                     {this.props.label}
                 </span>
+
+                <style jsx>{styles}</style>
             </label>
         )
     }

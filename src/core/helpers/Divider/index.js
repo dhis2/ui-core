@@ -1,10 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { rx } from './styles'
 
 export function Divider({ margin }) {
     const style = { margin }
-    return <div style={style} className={rx('base')} />
+    return (
+        <div style={style} className="base">
+            <style jsx>{`
+                .base {
+                    display: inline-block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: var(--grey300);
+                }
+            `}</style>
+        </div>
+    )
 }
 
 Divider.defaultProps = {

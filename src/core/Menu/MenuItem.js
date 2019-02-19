@@ -2,12 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import Menu from './index'
-import cx, { rx } from './styles'
+import cx from 'classnames'
+import styles from './styles'
 
 function SubMenu({ size, list, onClick }) {
     return (
-        <div className={rx('sub-menu')}>
+        <div className={cx('sub-menu')}>
             <Menu size={size} list={list} onClick={onClick} />
+            <style jsx>{styles}</style>
         </div>
     )
 }
@@ -25,7 +27,7 @@ export default function MenuItem({
     const hasMenu = list.length > 0
     return (
         <li
-            className={rx('item', { disabled, active })}
+            className={cx('item', { disabled, active })}
             onClick={evt => {
                 evt.preventDefault()
                 evt.stopPropagation()
@@ -33,11 +35,13 @@ export default function MenuItem({
             }}
         >
             {icon && <Icon name={icon} className={cx('icon')} />}
-            <div className={rx('label')}>{label}</div>
+            <div className={cx('label')}>{label}</div>
             {hasMenu && (
                 <Icon name="chevron_right" className={cx('sub-chevron')} />
             )}
             {hasMenu && <SubMenu size={size} list={list} onClick={onClick} />}
+
+            <style jsx>{styles}</style>
         </li>
     )
 }

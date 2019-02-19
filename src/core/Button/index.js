@@ -1,7 +1,11 @@
+import cx from 'classnames'
+
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import Icon from '../Icon'
-import cx, { rx } from './styles'
+
+import styles from './styles.js'
 
 function Button({
     type,
@@ -17,13 +21,15 @@ function Button({
         <button
             disabled={disabled}
             onClick={onClick}
-            className={rx('base', `kind-${kind}`, `size-${size}`, {
+            className={cx('base', `kind-${kind}`, `size-${size}`, {
                 'icon-only': icon && !label && !children,
                 icon,
             })}
         >
             {icon && <Icon className={cx('button-icon')} name={icon} />}
             {label || children}
+
+            <style jsx>{styles}</style>
         </button>
     )
 }

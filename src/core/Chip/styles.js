@@ -1,17 +1,95 @@
-import classNames from '../../utils/css'
+import css from 'styled-jsx/css'
 
-import '../../defaults/colors.css'
+export default css`
+    .base {
+        display: inline-flex;
+        align-items: center;
+        height: 32px;
+        margin: 4px;
+        border-radius: 16px;
+        background-color: var(--grey200);
+        font-size: 14px;
+        line-height: 16px;
+        cursor: pointer;
+        user-select: none;
+    }
 
-import '../../defaults/common.css'
-import common from '../../defaults/common.json'
+    .base:hover {
+        background-color: #e0f2f1;
+    }
 
-import './styles.css'
-import styles from './styles.json'
+    .selected,
+    .selected.static:hover {
+        background-color: var(--secondary600);
+    }
 
-const cx = classNames({
-    ...common,
-    ...styles,
-})
+    .selected:hover {
+        background-color: #00695c;
+    }
 
-export default cx
-export const rx = (...args) => cx('reset', ...args)
+    .selected,
+    .selected .icon,
+    .selected .remove-icon {
+        color: var(--white);
+    }
+
+    .static {
+        pointer-events: none;
+    }
+
+    .static:hover {
+        background-color: var(--grey200);
+    }
+
+    .disabled {
+        cursor: not-allowed;
+        opacity: 0.3;
+    }
+
+    .disabled .remove-icon {
+        pointer-events: none;
+    }
+
+    .dragging {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+            0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .icon {
+        margin-left: 5px;
+        color: var(--grey700);
+        font-size: 20px;
+    }
+
+    .image-icon {
+        width: 24px;
+        height: 24px;
+        margin-left: 4px;
+        border-radius: 50%;
+    }
+
+    .label {
+        margin: 0 12px;
+        color: inherit;
+        white-space: nowrap;
+    }
+
+    .label.overflow {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .remove-icon {
+        margin-right: 4px;
+        color: var(--grey700);
+        font-size: 18px;
+        cursor: pointer;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .remove-icon:hover {
+        opacity: 0.82;
+    }
+`

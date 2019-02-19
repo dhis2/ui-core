@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cx, { rx } from './styles'
+import cx from 'classnames'
+import styles from './styles'
 
 function LinearProgress({ amount, margin }) {
     const type =
@@ -8,8 +9,10 @@ function LinearProgress({ amount, margin }) {
     const style = amount ? { width: `${amount}%` } : null
 
     return (
-        <div role="progressbar" className={rx('base')} style={{ margin }}>
-            <div style={style} className={rx('progress', type)} />
+        <div role="progressbar" className={cx('base')} style={{ margin }}>
+            <div style={style} className={cx('progress', type)} />
+
+            <style jsx>{styles}</style>
         </div>
     )
 }

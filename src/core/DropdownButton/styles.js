@@ -1,17 +1,31 @@
-import classNames from '../../utils/css'
+import css from 'styled-jsx/css'
 
-import '../../defaults/colors.css'
+export default css`
+    .base {
+        display: inline-flex;
+        position: relative;
+        color: inherit;
+        white-space: nowrap;
+    }
 
-import '../../defaults/common.css'
-import common from '../../defaults/common.json'
+    .menu {
+        z-index: 1000;
+        position: absolute;
+        top: 36px;
+        left: 0;
+    }
 
-import './styles.css'
-import styles from './styles.json'
+    .menu-label {
+        margin: 0 10px 0 0;
+        background: transparent;
+        color: inherit;
+        text-transform: capitalize;
+    }
 
-const cx = classNames({
-    ...common,
-    ...styles,
-})
-
-export default cx
-export const rx = (...args) => cx('reset', ...args)
+    .menu-icon {
+        color: inherit;
+        font-size: 16px;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+`

@@ -1,8 +1,11 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+
 import Icon from '../Icon'
-import cx, { rx } from './styles'
 import { Help } from '../helpers'
+
+import styles from './styles.js'
 
 const statusToIcon = {
     valid: 'check_circle',
@@ -12,11 +15,7 @@ const statusToIcon = {
 
 function icon(i, action = null, extra = null) {
     if (i) {
-        return (
-            <div className={rx()}>
-                <Icon name={i} onClick={action} className={cx('icon', extra)} />
-            </div>
-        )
+        return <Icon name={i} onClick={action} className={cx('icon', extra)} />
     }
     return null
 }
@@ -88,13 +87,13 @@ class InputField extends React.Component {
 
         return (
             <div
-                className={rx('base', {
+                className={cx('base', {
                     focused: this.isFocused(),
                     disabled: this.props.disabled,
                 })}
             >
                 <div
-                    className={rx('field', {
+                    className={cx('field', {
                         [`size-${this.props.size}`]: true,
                         [`status-${this.props.status}`]: true,
                         [`kind-${this.props.kind}`]: true,
@@ -105,7 +104,7 @@ class InputField extends React.Component {
                 >
                     <label
                         ref={this.labelRef}
-                        className={rx('label', {
+                        className={cx('label', {
                             [`${this.props.status}`]: true,
                             [`${this.props.size}`]: true,
                             [`${this.props.kind}`]: true,
@@ -120,7 +119,7 @@ class InputField extends React.Component {
                     </label>
                     {this.props.kind === 'outlined' && (
                         <fieldset
-                            className={rx('flatline', {
+                            className={cx('flatline', {
                                 [`${this.props.status}`]: true,
                                 focused: this.isFocused(),
                                 idle: !this.isFocused(),
@@ -128,7 +127,7 @@ class InputField extends React.Component {
                             })}
                         >
                             <legend
-                                className={rx('legend')}
+                                className={cx('legend')}
                                 style={legendWidth}
                             >
                                 <span>&#8203;</span>
@@ -138,7 +137,7 @@ class InputField extends React.Component {
 
                     {icon(this.props.icon)}
                     <input
-                        className={rx('input', {
+                        className={cx('input', {
                             disabled: this.props.disabled,
                         })}
                         ref={this.inputRef}
@@ -159,6 +158,7 @@ class InputField extends React.Component {
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />
                 )}
+                <style jsx>{styles}</style>
             </div>
         )
     }

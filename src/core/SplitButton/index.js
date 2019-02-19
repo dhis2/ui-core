@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../Button'
-import cx, { rx } from './styles'
 import Menu from '../Menu'
 import Icon from '../Icon'
 import { isPointInRect } from '../../utils'
+
+import cx from 'classnames'
+import styles from './styles'
 
 class SplitButton extends Component {
     state = {
@@ -46,7 +48,7 @@ class SplitButton extends Component {
         }
 
         return (
-            <div className={rx('base')} ref={c => (this.elContainer = c)}>
+            <div className={cx('base')} ref={c => (this.elContainer = c)}>
                 <Button
                     icon={this.props.icon}
                     kind={this.props.kind}
@@ -70,7 +72,7 @@ class SplitButton extends Component {
 
                 {open && (
                     <div
-                        className={rx('menu', `${this.props.size}`)}
+                        className={cx('menu', `${this.props.size}`)}
                         ref={c => (this.elMenu = c)}
                     >
                         <Menu
@@ -81,6 +83,7 @@ class SplitButton extends Component {
                         />
                     </div>
                 )}
+                <style jsx>{styles}</style>
             </div>
         )
     }

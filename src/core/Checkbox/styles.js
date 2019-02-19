@@ -1,17 +1,61 @@
-import classNames from '../../utils/css'
+import css from 'styled-jsx/css'
 
-import '../../defaults/colors.css'
+export default css`
+    .base {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        cursor: pointer;
+        pointer-events: all;
+        user-select: none;
+    }
 
-import '../../defaults/common.css'
-import common from '../../defaults/common.json'
+    .base input[type='checkbox'] {
+        display: none;
+    }
 
-import './styles.css'
-import styles from './styles.json'
+    .icon {
+        pointer-events: none;
+        user-select: none;
+    }
 
-const cx = classNames({
-    ...common,
-    ...styles,
-})
+    .label {
+        margin: 0 0 0 8px;
+        color: var(--grey700);
+        cursor: pointer;
+    }
 
-export default cx
-export const rx = (...args) => cx('reset', ...args)
+    .disabled,
+    .disabled .label {
+        cursor: not-allowed;
+    }
+
+    .required:after {
+        padding-left: 4px;
+        content: '*';
+    }
+
+    .valid,
+    .valid-icon {
+        color: var(--blue600);
+    }
+
+    .warning,
+    .warning-icon {
+        color: var(--yellow500);
+    }
+
+    .error,
+    .error-icon {
+        color: var(--red500);
+    }
+
+    .default-icon {
+        color: var(--secondary300);
+    }
+
+    .disabled {
+        color: var(--grey300);
+    }
+`

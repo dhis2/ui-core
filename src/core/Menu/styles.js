@@ -1,17 +1,93 @@
-import classNames from '../../utils/css'
+import css from 'styled-jsx/css'
 
-import '../../defaults/colors.css'
+export default css`
+    .base {
+        display: block;
+        position: relative;
+        width: 100%;
+        margin: 0;
 
-import '../../defaults/common.css'
-import common from '../../defaults/common.json'
+        padding: 8px 0;
+        user-select: none;
+    }
 
-import './styles.css'
-import styles from './styles.json'
+    .item {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+        height: 48px;
+        padding: 0 24px;
+        cursor: pointer;
+    }
 
-const cx = classNames({
-    ...common,
-    ...styles,
-})
+    .item:hover,
+    .item.active {
+        background-color: #f7f7f7;
+    }
 
-export default cx
-export const rx = (...args) => cx('reset', ...args)
+    .base.dense .item {
+        height: 32px;
+    }
+
+    .label {
+        color: rgba(0, 0, 0, 0.87);
+        font-size: 15px;
+        white-space: nowrap;
+        pointer-events: none;
+
+        user-select: none;
+    }
+    .base.dense .label {
+        font-size: 13px;
+    }
+
+    .icon {
+        box-sizing: border-box;
+
+        margin-right: 18px;
+        color: #404040;
+        font-size: 24px;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .base.dense .icon {
+        font-size: 20px;
+    }
+
+    .base.dense .divider {
+        margin: 4px 0;
+    }
+
+    .item.disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .item.disabled .icon,
+    .item.disabled .label {
+        color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* SUB-MENU */
+    .sub-chevron {
+        margin: 0 -14px 0 auto;
+        font-size: 18px;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .sub-menu {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        white-space: nowrap;
+    }
+
+    .item:hover .sub-menu {
+        display: block;
+    }
+`

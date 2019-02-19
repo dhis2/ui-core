@@ -1,17 +1,34 @@
-import classNames from '../../utils/css'
+import css from 'styled-jsx/css'
 
-import '../../defaults/colors.css'
+export default css`
+    .base {
+        display: inline-flex;
+        position: relative;
+        white-space: nowrap;
+    }
 
-import '../../defaults/common.css'
-import common from '../../defaults/common.json'
+    .base button:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 
-import './styles.css'
-import styles from './styles.json'
+    .base button:nth-child(2) {
+        padding: 0 9px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
 
-const cx = classNames({
-    ...common,
-    ...styles,
-})
+    .menu {
+        z-index: 1000;
+        position: absolute;
+        top: 36px;
+        left: 0;
+    }
 
-export default cx
-export const rx = (...args) => cx('reset', ...args)
+    .menu-icon {
+        color: inherit;
+        font-size: 16px;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+`

@@ -1,9 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { rx } from './styles'
+import cx from 'classnames'
 
 function Card({ className, children }) {
-    return <div className={rx('base', className)}>{children}</div>
+    return (
+        <div className={cx('base', className)}>
+            {children}
+
+            <style jsx>{`
+                .base {
+                    display: inline-block;
+                    position: relative;
+
+                    width: 100%;
+                    height: 100%;
+
+                    border-radius: 2px;
+                    background: var(--white);
+                    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14),
+                        0 2px 2px 0 rgba(0, 0, 0, 0.12),
+                        0 1px 3px 0 rgba(0, 0, 0, 0.2);
+                }
+            `}</style>
+        </div>
+    )
 }
 
 Card.defaultProps = {

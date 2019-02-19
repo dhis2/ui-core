@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+
 import Button from '../Button'
-import cx, { rx } from './styles'
 import Menu from '../Menu'
 import Icon from '../Icon'
 import { isPointInRect } from '../../utils'
+
+import styles from './styles.js'
 
 class DropdownButton extends Component {
     state = {
@@ -50,7 +53,7 @@ class DropdownButton extends Component {
 
         return (
             <div
-                className={rx('base', `${this.props.size}`)}
+                className={cx('base', `${this.props.size}`)}
                 ref={c => (this.elContainer = c)}
             >
                 <Button
@@ -60,12 +63,12 @@ class DropdownButton extends Component {
                     disabled={this.props.disabled}
                     onClick={this.onToggle}
                 >
-                    <span className={rx('menu-label')}>{this.props.label}</span>
+                    <span className={cx('menu-label')}>{this.props.label}</span>
                     <Icon className={cx('menu-icon')} name={icon} />
                 </Button>
 
                 {open && (
-                    <div className={rx('menu')} ref={c => (this.elMenu = c)}>
+                    <div className={cx('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
                             size={this.props.size}
                             list={this.props.list}
@@ -73,6 +76,8 @@ class DropdownButton extends Component {
                         />
                     </div>
                 )}
+
+                <style jsx>{styles}</style>
             </div>
         )
     }

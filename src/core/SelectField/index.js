@@ -5,7 +5,9 @@ import Menu from '../Menu'
 import { Help } from '../helpers'
 import { isPointInRect } from '../../utils'
 
-import cx, { rx } from './styles'
+import cx from 'classnames'
+
+import styles from './styles.js'
 
 const statusToIcon = {
     valid: 'check_circle',
@@ -123,7 +125,7 @@ class SelectField extends React.Component {
         return (
             <div
                 ref={c => (this.elContainer = c)}
-                className={rx('base', {
+                className={cx('base', {
                     selected: !!this.props.value,
                     disabled: this.props.disabled,
                     [`size-${this.props.size}`]: true,
@@ -131,7 +133,7 @@ class SelectField extends React.Component {
             >
                 <div
                     ref={c => (this.elSelect = c)}
-                    className={rx('select', {
+                    className={cx('select', {
                         [`kind-${this.props.kind}`]: true,
                         [`status-${this.props.status}`]: true,
                         disabled: this.props.disabled,
@@ -140,7 +142,7 @@ class SelectField extends React.Component {
                 >
                     <label
                         ref={this.labelRef}
-                        className={rx('label', {
+                        className={cx('label', {
                             [`${this.props.status}`]: true,
                             [`${this.props.size}`]: true,
                             [`${this.props.kind}`]: true,
@@ -155,7 +157,7 @@ class SelectField extends React.Component {
                     </label>
                     {this.props.kind === 'outlined' && (
                         <fieldset
-                            className={rx('flatline', {
+                            className={cx('flatline', {
                                 [`${this.props.status}`]: true,
                                 focused: this.isFocused(),
                                 idle: !this.isFocused(),
@@ -180,13 +182,13 @@ class SelectField extends React.Component {
                         </div>
                     )}
                     <div
-                        className={rx('input-field', {
+                        className={cx('input-field', {
                             disabled: this.props.disabled,
                         })}
                     >
-                        <div className={rx('value')}>{selected}</div>
+                        <div className={cx('value')}>{selected}</div>
                     </div>
-                    <div className={rx('trail-icon-field')}>
+                    <div className={cx('trail-icon-field')}>
                         {this.props.status !== 'default' && (
                             <Icon
                                 name={statusToIcon[this.props.status]}
@@ -197,7 +199,7 @@ class SelectField extends React.Component {
                         )}
                     </div>
                     <div
-                        className={rx('trail-icon-field', {
+                        className={cx('trail-icon-field', {
                             disabled: this.props.disabled,
                         })}
                     >
@@ -213,7 +215,7 @@ class SelectField extends React.Component {
                     <Help text={this.props.help} status={this.props.status} />
                 )}
                 {open && (
-                    <div className={rx('menu')} ref={c => (this.elMenu = c)}>
+                    <div className={cx('menu')} ref={c => (this.elMenu = c)}>
                         <Menu
                             list={list}
                             size={this.props.size}
@@ -221,6 +223,7 @@ class SelectField extends React.Component {
                         />
                     </div>
                 )}
+                <style jsx>{styles}</style>
             </div>
         )
     }

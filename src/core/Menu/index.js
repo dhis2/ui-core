@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import Card from '../Card'
 import MenuItem from './MenuItem'
 import Divider from '../helpers/Divider'
+import cx from 'classnames'
 
-import { rx } from './styles'
+import styles from './styles'
 
 export function Menu({ size, width, list, onClick }) {
     return (
         <Card>
-            <ul className={rx('base', size)}>
+            <ul className={cx('base', size)}>
                 {list.map(
                     (
                         { label, value, icon, list, active, type, disabled },
@@ -36,6 +37,7 @@ export function Menu({ size, width, list, onClick }) {
                     }
                 )}
             </ul>
+            <style jsx>{styles}</style>
         </Card>
     )
 }

@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import Icon from '../Icon'
-import cx, { rx } from './styles'
+
+import styles from './styles.js'
 
 class Radio extends React.Component {
     onChange = () => this.props.onChange(this.props.name, this.props.value)
@@ -25,7 +27,7 @@ class Radio extends React.Component {
 
         return (
             <label
-                className={rx('base', {
+                className={cx('base', {
                     disabled: this.props.disabled,
                 })}
             >
@@ -38,9 +40,11 @@ class Radio extends React.Component {
                     onChange={this.onChange}
                 />
                 {icon}
-                <span className={rx('label', { required })}>
+                <span className={cx('label', { required })}>
                     {this.props.label}
                 </span>
+
+                <style jsx>{styles}</style>
             </label>
         )
     }

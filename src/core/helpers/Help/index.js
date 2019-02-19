@@ -1,15 +1,43 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { rx } from './styles'
+import cx from 'classnames'
 
 function Help({ text, status }) {
     return (
         <p
-            className={rx('base', {
+            className={cx('base', {
                 [`status-${status}`]: true,
             })}
         >
             {text}
+
+            <style jsx>{`
+                .base {
+                    height: 12px;
+                    padding-left: 14px;
+                    font-size: 12px;
+
+                    line-height: 12px;
+
+                    cursor: help;
+                }
+
+                .status-default {
+                    color: var(--grey700);
+                }
+
+                .status-valid {
+                    color: var(--blue600);
+                }
+
+                .status-error {
+                    color: var(--red500);
+                }
+
+                .status-warning {
+                    color: var(--yellow500);
+                }
+            `}</style>
         </p>
     )
 }

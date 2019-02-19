@@ -1,13 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { rx } from './styles'
+import cx from 'classnames'
+
+import styles from './styles'
 
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 function Icon({ name, className, onClick }) {
     return (
-        <i onClick={onClick} className={rx('base', className)}>
+        <i onClick={onClick} className={cx('base', className)}>
             {name}
+
+            <style jsx>{styles}</style>
         </i>
     )
 }
