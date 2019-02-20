@@ -5,7 +5,8 @@ import { LogoIconWhite } from '../../core/Logo'
 import NotificationIcon from './NotificationIcon'
 import Apps from './Apps'
 import Profile from './Profile'
-import { rx } from './styles'
+
+import { rx } from './styles.js'
 
 function getTitle(instanceName, appName = '') {
     if (!appName) {

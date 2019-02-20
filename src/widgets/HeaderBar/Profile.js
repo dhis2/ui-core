@@ -1,9 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Card, MenuItem, Divider, Menu } from '../../core'
-import { gotoURL, isPointInRect } from '../../utils'
-import { rx } from './styles'
+import Card from '../../core/Card'
+import MenuItem from '../../core/Menu/MenuItem.js'
+import Divider from '../../core/helpers/Divider'
+import Menu from '../../core/Menu'
+
+import { gotoURL } from '../../utils/url.js'
+import { isPointInRect } from '../../utils/math.js'
+
+import { rx } from './styles.js'
 
 function TextIcon({ name, onClick }) {
     let title = name[0]
