@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { colors } from '../../../defaults/colors.js'
+
 export function Divider({ margin }) {
     const style = { margin }
     return (
@@ -10,7 +12,7 @@ export function Divider({ margin }) {
                     display: inline-block;
                     width: 100%;
                     height: 1px;
-                    background-color: var(--grey300);
+                    background-color: ${colors.grey300};
                 }
             `}</style>
         </div>

@@ -1,5 +1,7 @@
 import css from 'styled-jsx/css'
 
+import { theme } from '../../defaults/colors.js'
+
 export default css`
     .reset {
         all: initial;
@@ -16,11 +18,11 @@ export default css`
         overflow: hidden;
         overflow-x: hidden;
         overflow-y: hidden;
-        background-color: var(--primary050);
+        background-color: ${theme.primary050};
     }
 
     .progress {
-        background-color: var(--primary600);
+        background-color: ${theme.primary600};
     }
 
     .progress.determinate {

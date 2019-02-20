@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import { colors } from '../../../defaults/colors.js'
+
 function Help({ text, status }) {
     return (
         <p
@@ -23,19 +25,19 @@ function Help({ text, status }) {
                 }
 
                 .status-default {
-                    color: var(--grey700);
+                    color: ${colors.grey700};
                 }
 
                 .status-valid {
-                    color: var(--blue600);
+                    color: ${colors.blue600};
                 }
 
                 .status-error {
-                    color: var(--red500);
+                    color: ${colors.red500};
                 }
 
                 .status-warning {
-                    color: var(--yellow500);
+                    color: ${colors.yellow500};
                 }
             `}</style>
         </p>

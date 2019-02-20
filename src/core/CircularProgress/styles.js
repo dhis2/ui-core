@@ -1,5 +1,7 @@
 import css from 'styled-jsx/css'
 
+import { theme } from '../../defaults/colors.js'
+
 export default css`
     .overlay {
         display: flex;
@@ -17,7 +19,7 @@ export default css`
     .base {
         display: inline-block;
         margin: 16px;
-        color: var(--primary600);
+        color: ${theme.primary600};
         animation: anim-rotate 1.4s linear infinite;
     }
 

@@ -1,5 +1,7 @@
 import css from 'styled-jsx/css'
 
+import { colors, theme } from '../../defaults/colors.js'
+
 export default css`
     .base {
         display: inline-flex;
@@ -7,7 +9,7 @@ export default css`
         height: 32px;
         margin: 4px;
         border-radius: 16px;
-        background-color: var(--grey200);
+        background-color: ${colors.grey200};
         font-size: 14px;
         line-height: 16px;
         cursor: pointer;
@@ -20,7 +22,7 @@ export default css`
 
     .selected,
     .selected.static:hover {
-        background-color: var(--secondary600);
+        background-color: ${theme.secondary600};
     }
 
     .selected:hover {
@@ -30,7 +32,7 @@ export default css`
     .selected,
     .selected .icon,
     .selected .remove-icon {
-        color: var(--white);
+        color: ${colors.white};
     }
 
     .static {
@@ -38,7 +40,7 @@ export default css`
     }
 
     .static:hover {
-        background-color: var(--grey200);
+        background-color: ${colors.grey200};
     }
 
     .disabled {
@@ -57,7 +59,7 @@ export default css`
 
     .icon {
         margin-left: 5px;
-        color: var(--grey700);
+        color: ${colors.grey700};
         font-size: 20px;
     }
 
@@ -82,7 +84,7 @@ export default css`
 
     .remove-icon {
         margin-right: 4px;
-        color: var(--grey700);
+        color: ${colors.grey700};
         font-size: 18px;
         cursor: pointer;
         opacity: 1;

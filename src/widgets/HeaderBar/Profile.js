@@ -1,15 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Card from '../../core/Card'
-import MenuItem from '../../core/Menu/MenuItem.js'
-import Divider from '../../core/helpers/Divider'
-import Menu from '../../core/Menu'
+import { Card, MenuItem, Divider, Menu } from '../../core'
+import { gotoURL, isPointInRect } from '../../utils'
 
-import { gotoURL } from '../../utils/url.js'
-import { isPointInRect } from '../../utils/math.js'
-
-import { rx } from './styles.js'
+import cx from 'classnames'
+import styles from './styles.js'
 
 function TextIcon({ name, onClick }) {
     let title = name[0]
@@ -18,8 +14,9 @@ function TextIcon({ name, onClick }) {
     }
 
     return (
-        <div className={rx('icon')} onClick={onClick}>
-            <div className={rx('initials')}>{title}</div>
+        <div className={cx('icon')} onClick={onClick}>
+            <div className={cx('initials')}>{title}</div>
+            <style jsx>{styles}</style>
         </div>
     )
 }
@@ -35,8 +32,9 @@ TextIcon.propTypes = {
 
 function ImageIcon({ src, onClick }) {
     return (
-        <div className={rx('icon')} onClick={onClick}>
+        <div className={cx('icon')} onClick={onClick}>
             <img src={src} alt="user avatar" />
+            <style jsx>{styles}</style>
         </div>
     )
 }
@@ -52,13 +50,13 @@ ImageIcon.propTypes = {
 
 function Header({ name, email, img, baseURL }) {
     return (
-        <div className={rx('header')}>
+        <div className={cx('header')}>
             {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
-            <div className={rx('details')}>
-                <div className={rx('name')}>{name}</div>
-                <div className={rx('email')}>{email}</div>
+            <div className={cx('details')}>
+                <div className={cx('name')}>{name}</div>
+                <div className={cx('email')}>{email}</div>
                 <a
-                    className={rx('edit_profile')}
+                    className={cx('edit_profile')}
                     href={`${baseURL}/dhis-web-user-profile/#/profile`}
                 >
                     Edit profile
@@ -151,15 +149,16 @@ export default class Profile extends React.Component {
     viewIcon() {
         if (this.props.profile.img) {
             return (
-                <ImageIcon
-                    src={this.props.profile.img}
-                    onClick={this.onToggle}
-                />
+                <ImageIcon src={this.props.profile.img} onClick={this.onToggle}>
+                    <style jsx>{styles}</style>
+                </ImageIcon>
             )
         }
 
         return (
-            <TextIcon name={this.props.profile.name} onClick={this.onToggle} />
+            <TextIcon name={this.props.profile.name} onClick={this.onToggle}>
+                <style jsx>{styles}</style>
+            </TextIcon>
         )
     }
 
@@ -169,9 +168,9 @@ export default class Profile extends React.Component {
         }
 
         return (
-            <div className={rx('contents')} ref={c => (this.elContents = c)}>
+            <div className={cx('contents')} ref={c => (this.elContents = c)}>
                 <Card>
-                    <div className={rx('profile-alignment')}>
+                    <div className={cx('profile-alignment')}>
                         <Header
                             baseURL={this.props.baseURL}
                             img={this.props.profile.img}
@@ -180,7 +179,7 @@ export default class Profile extends React.Component {
                             onClick={this.onHeaderClick}
                         />
                         <Divider margin="13px 0 7px 0" />
-                        <ul className={rx()}>
+                        <ul className={cx()}>
                             {list.map(({ label, value, icon }) => (
                                 <MenuItem
                                     key={`h-mi-${value}`}
@@ -193,15 +192,17 @@ export default class Profile extends React.Component {
                         </ul>
                     </div>
                 </Card>
+                <style jsx>{styles}</style>
             </div>
         )
     }
 
     render() {
         return (
-            <div className={rx('profile')} ref={c => (this.elContainer = c)}>
+            <div className={cx('profile')} ref={c => (this.elContainer = c)}>
                 {this.viewIcon()}
                 {this.viewContents()}
+                <style jsx>{styles}</style>
             </div>
         )
     }
