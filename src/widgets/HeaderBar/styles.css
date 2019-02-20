@@ -161,7 +161,8 @@
     text-decoration: none;
     cursor: pointer;
 }
-.app:hover {
+.app:hover,
+.app:focus {
     background-color: var(--primary050);
     cursor: pointer;
 }
