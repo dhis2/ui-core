@@ -187,7 +187,7 @@ export default css`
 
     .field.kind-filled:hover,
     .field.kind-filled.focused {
-        border-bottom: 2px solid ${theme.secondary600);
+        border-bottom: 2px solid ${theme.secondary600};
         background-color: rgba(0, 0, 10, 0.08);
     }
 
