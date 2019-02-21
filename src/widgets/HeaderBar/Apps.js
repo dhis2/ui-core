@@ -10,6 +10,9 @@ import { isPointInRect } from '../../utils/math.js'
 
 import cx, { rx } from './styles.js'
 
+const createAppNameFilter = filter => ({ name }) =>
+    filter.length > 0 ? name.toLowerCase().match(filter.toLowerCase()) : true
+
 function Search({ value, onChange, onSettingsClick, onIconClick }) {
     return (
         <div className={rx('search')}>
@@ -44,9 +47,9 @@ Search.propTypes = {
     onIconClick: PropTypes.func,
 }
 
-function Item({ name, path, img }) {
+function Item({ name, path, img, focused }) {
     return (
-        <a href={path} className={rx('app')}>
+        <a href={path} className={rx('app', focused ? 'selected' : null)}>
             <img src={img} alt="app logo" className={rx()} />
             <div className={rx('name')}>{name}</div>
         </a>
@@ -59,9 +62,9 @@ Item.propTypes = {
     img: PropTypes.string,
 }
 
-function List({ apps, filter }) {
+function List({ apps, filter, firstFocused }) {
     return (
-        <div className={rx('modules')}>
+        <div className={rx('modules')} tabIndex="-1">
             {apps
                 .filter(({ name }) => {
                     return filter.length > 0
@@ -74,6 +77,7 @@ function List({ apps, filter }) {
                         name={name}
                         path={path}
                         img={img}
+                        focused={firstFocused && idx === 0}
                     />
                 ))}
         </div>
@@ -84,14 +88,17 @@ export default class Apps extends React.Component {
     state = {
         show: false,
         filter: '',
+        hasTabbed: false,
     }
 
     componentDidMount() {
         document.addEventListener('click', this.onDocClick)
+        document.addEventListener('keyup', this.onKeyPress)
     }
 
     componentWillUnmount() {
         document.removeEventListener('click', this.onDocClick)
+        document.addEventListener('keyup', this.onKeyPress)
     }
 
     onDocClick = evt => {
@@ -104,19 +111,42 @@ export default class Apps extends React.Component {
                 !isPointInRect(target, apps) &&
                 !isPointInRect(target, container)
             ) {
-                this.setState({ show: false })
+                this.setState({ show: false, hasTabbed: false })
             }
         }
     }
 
-    onToggle = () => this.setState({ show: !this.state.show })
+    onToggle = () => this.setState({ show: !this.state.show, hasTabbed: false })
 
-    onChange = (_, filter) => this.setState({ filter })
+    onChange = (_, filter) => this.setState({ filter, hasTabbed: false })
 
     onSettingsClick = () =>
         gotoURL(`${this.props.baseURL}/dhis-web-menu-management`)
 
-    onIconClick = () => this.setState({ filter: '' })
+    onIconClick = () => this.setState({ filter: '', hasTabbed: false })
+
+    onKeyPress = evt => {
+        const isEnterPress = evt.keyCode === 13 || evt.key === 'Enter'
+        const isTabKey = (evt.keyCode === 9) | (evt.key === 'Tab')
+        if (isEnterPress) {
+            return this.handleEnterClick(evt)
+        } else if (isTabKey) {
+            this.setState({ hasTabbed: true })
+        }
+    }
+
+    handleEnterClick(evt) {
+        // We don't know what app is in focus if the user has tabbed since last search change, so we ignore it
+        if (!this.state.show || this.state.hasTabbed) {
+            return
+        }
+        // Else we want to follow the link of the first app, as a shortcut
+        const byNameFilter = createAppNameFilter(this.state.filter)
+        const firstApp = this.props.apps.filter(byNameFilter)[0]
+        if (firstApp) {
+            window.location = firstApp.path
+        }
+    }
 
     render() {
         return (
@@ -137,6 +167,7 @@ export default class Apps extends React.Component {
                             <List
                                 apps={this.props.apps}
                                 filter={this.state.filter}
+                                firstFocused={!this.state.hasTabbed}
                             />
                         </Card>
                     </div>
