@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Icon from '../../core/Icon'
-import { t } from '../utils'
+import Icon from '../Icon'
 
 import cx from 'classnames'
 import styles from './styles.js'

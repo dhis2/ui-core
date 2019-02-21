@@ -1,7 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Card, MenuItem, Divider, Menu } from '../../core'
+import Card from '../Card'
+import Divider from '../Divider'
+import Menu from '../Menu'
+import MenuItem from '../Menu/MenuItem'
+
 import { gotoURL, isPointInRect } from '../utils'
 
 import cx from 'classnames'

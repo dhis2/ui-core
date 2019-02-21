@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { LogoIconWhite } from '../../core/Logo'
+import { LogoIconWhite } from '../Logo'
 import NotificationIcon from './NotificationIcon'
 import Apps from './Apps'
 import Profile from './Profile'
