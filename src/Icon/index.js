@@ -8,7 +8,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 function Icon({ name, className, onClick }) {
     return (
-        <i onClick={onClick} className={cx('base', className)}>
+        <i onClick={onClick} className={className}>
             {name}
 
             <style jsx>{styles}</style>

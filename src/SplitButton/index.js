@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Button from '../Button'
 import Menu from '../Menu'
 import Icon from '../Icon'
 import { isPointInRect } from '../utils'
@@ -48,36 +47,50 @@ class SplitButton extends Component {
         }
 
         return (
-            <div className={cx('base')} ref={c => (this.elContainer = c)}>
-                <Button
+            <div className="base" ref={c => (this.elContainer = c)}>
+                <button
                     icon={this.props.icon}
-                    kind={this.props.kind}
-                    label={this.props.label}
                     active={this.props.active}
                     disabled={this.props.disabled}
                     onClick={this.props.onClick}
-                />
+                    className={cx(
+                        'base',
+                        `kind-${this.props.kind}`,
+                        `size-${this.props.size}`,
+                        {
+                            'icon-only':
+                                this.props.icon &&
+                                !this.props.label &&
+                                !this.props.children,
+                            icon: this.props.icon,
+                        }
+                    )}
+                >
+                    {this.props.icon && <Icon name={this.props.icon} />}
+                    {this.props.label || this.props.children}
+                </button>
 
-                <Button
-                    kind={this.props.kind}
+                <button
+                    icon={this.props.icon}
                     active={this.props.active}
                     disabled={this.props.disabled}
                     onClick={this.onToggle}
+                    className={cx(
+                        'base',
+                        `kind-${this.props.kind}`,
+                        `size-${this.props.size}`
+                    )}
                 >
                     <Icon
-                        className={cx('menu-icon')}
+                        className="menu-icon"
                         name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
                     />
-                </Button>
+                </button>
 
                 {open && (
-                    <div
-                        className={cx('menu', `${this.props.size}`)}
-                        ref={c => (this.elMenu = c)}
-                    >
+                    <div className="menu" ref={c => (this.elMenu = c)}>
                         <Menu
                             width={`${width}px`}
-                            size={this.props.size}
                             list={this.props.list}
                             onClick={this.props.onClick}
                         />
@@ -90,7 +103,7 @@ class SplitButton extends Component {
 }
 
 SplitButton.defaultProps = {
-    size: 'default',
+    size: 'medium',
     kind: 'basic',
     active: false,
     disabled: false,
@@ -108,7 +121,7 @@ SplitButton.propTypes = {
     icon: PropTypes.string,
     active: PropTypes.bool,
     disabled: PropTypes.bool,
-    size: PropTypes.oneOf(['default', 'dense']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
 }
 
 export { SplitButton }
