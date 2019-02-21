@@ -1,5 +1,5 @@
 import React from 'react'
-import SelectField from 'core/SelectField'
+import SelectField from 'SelectField'
 import { Col, Row, Text } from '../../../helpers'
 
 const _list = [

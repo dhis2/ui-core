@@ -1,5 +1,5 @@
 import React from 'react'
-import InputField from 'core/InputField'
+import InputField from 'InputField'
 
 import { Text, Row, Col, Divider } from '../../../../helpers'
 

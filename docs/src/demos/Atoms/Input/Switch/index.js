@@ -1,5 +1,5 @@
 import React from 'react'
-import Switch from 'core/Switch'
+import Switch from 'Switch'
 
 import { Text, Row, Col, Divider } from '../../../../helpers'
 

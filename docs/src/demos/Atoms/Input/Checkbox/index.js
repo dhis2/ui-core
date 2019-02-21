@@ -1,5 +1,5 @@
 import React from 'react'
-import Checkbox from 'core/Checkbox'
+import Checkbox from 'Checkbox'
 
 import { Text, Row, Col, Divider } from '../../../../helpers'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from 'core/Card'
+import Card from 'Card'
 import { Col, Divider } from '../../../helpers'
 
 export class CardDemo extends React.Component {

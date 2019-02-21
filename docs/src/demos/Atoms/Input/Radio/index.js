@@ -1,5 +1,5 @@
 import React from 'react'
-import Radio from 'core/Radio'
+import Radio from 'Radio'
 
 import { Text, Row, Col, Divider } from '../../../../helpers'
 

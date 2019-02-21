@@ -1,5 +1,5 @@
 import React from 'react'
-import Chip from 'core/Chip'
+import Chip from 'Chip'
 import { Text, Row, Col, Divider } from '../../../helpers'
 
 const rows = [

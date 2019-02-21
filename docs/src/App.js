@@ -5,7 +5,7 @@ import Content from './Content'
 
 import 'typeface-roboto/index.css'
 
-import 'defaults/reset.css'
+import '/reset.css'
 
 import './App.css'
 
