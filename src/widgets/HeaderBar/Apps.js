@@ -47,9 +47,9 @@ Search.propTypes = {
     onIconClick: PropTypes.func,
 }
 
-function Item({ name, path, img, focused }) {
+function Item({ name, path, img, forceFocused }) {
     return (
-        <a href={path} className={rx('app', focused ? 'selected' : null)}>
+        <a href={path} className={rx('app', forceFocused ? 'selected' : null)}>
             <img src={img} alt="app logo" className={rx()} />
             <div className={rx('name')}>{name}</div>
         </a>
@@ -63,23 +63,18 @@ Item.propTypes = {
 }
 
 function List({ apps, filter, firstFocused }) {
+    const byNameFilter = createAppNameFilter(filter)
     return (
         <div className={rx('modules')} tabIndex="-1">
-            {apps
-                .filter(({ name }) => {
-                    return filter.length > 0
-                        ? name.toLowerCase().match(filter.toLowerCase())
-                        : true
-                })
-                .map(({ name, path, img }, idx) => (
-                    <Item
-                        key={`app-${name}-${idx}`}
-                        name={name}
-                        path={path}
-                        img={img}
-                        focused={firstFocused && idx === 0}
-                    />
-                ))}
+            {apps.filter(byNameFilter).map(({ name, path, img }, idx) => (
+                <Item
+                    key={`app-${name}-${idx}`}
+                    name={name}
+                    path={path}
+                    img={img}
+                    forceFocused={firstFocused && idx === 0}
+                />
+            ))}
         </div>
     )
 }
