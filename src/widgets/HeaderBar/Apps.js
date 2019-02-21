@@ -7,11 +7,13 @@ import InputField from '../../core/InputField'
 
 import { gotoURL } from '../../utils/url.js'
 import { isPointInRect } from '../../utils/math.js'
-
+import { escapeRegExp } from '../../utils/regex.js'
 import cx, { rx } from './styles.js'
 
 const createAppNameFilter = filter => ({ name }) =>
-    filter.length > 0 ? name.toLowerCase().match(filter.toLowerCase()) : true
+    filter.length > 0
+        ? name.toLowerCase().match(escapeRegExp(filter.toLowerCase()))
+        : true
 
 function Search({ value, onChange, onSettingsClick, onIconClick }) {
     return (
