@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css'
+import { colors, theme } from '../../defaults/colors.js'
 
 export default css`
     .input {
@@ -68,11 +69,11 @@ export default css`
 
     .status-error.label::before,
     .input:checked + .status-error.label::before {
-        background-color: var(--red500);
+        background-color: ${colors.red500};
     }
     .status-error.label::after,
     .input:checked + .status-error.label::after {
-        background-color: var(--red500);
+        background-color: ${colors.red500};
     }
 
     .disabled,

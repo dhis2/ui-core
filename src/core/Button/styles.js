@@ -1,5 +1,7 @@
 import css from 'styled-jsx/css'
 
+import { colors, theme } from '../../defaults/colors.js'
+
 export default css`
     .base {
         display: inline-flex;
@@ -76,34 +78,34 @@ export default css`
     }
 
     .kind-basic:focus {
-        border: 1px solid var(--primary600);
+        border: 1px solid ${theme.primary600};
         background-color: #f9fafb;
-        box-shadow: 0 0 0 1px var(--primary600);
+        box-shadow: 0 0 0 1px ${theme.primary600};
     }
 
     .kind-basic:disabled {
         border: 1px solid #c4c9cc;
         background-color: #f9fafb;
         box-shadow: none;
-        color: var(--grey500);
+        color: ${colors.grey500};
     }
 
     .kind-primary {
-        border: 1px solid var(--primary800);
+        border: 1px solid ${theme.primary800};
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
         background-color: #2b61b3;
         color: #fff;
     }
 
     .kind-primary:hover {
-        border: 1px solid var(--primary800);
+        border: 1px solid ${theme.primary800};
         background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
         background-color: #21539f;
     }
 
     .kind-primary:active,
     .kind-primary:active:focus {
-        border: 1px solid var(--primary800);
+        border: 1px solid ${theme.primary800};
         background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
         background-color: #1c4a90;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
@@ -117,7 +119,7 @@ export default css`
     }
 
     .kind-primary:disabled {
-        border: 1px solid var(--primary800);
+        border: 1px solid ${theme.primary800};
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
         background-color: #b6c8e2;
         box-shadow: none;
@@ -126,33 +128,33 @@ export default css`
     }
 
     .kind-secondary {
-        border: 1px solid var(--grey300);
+        border: 1px solid ${colors.grey300};
         background-color: transparent;
     }
 
     .kind-secondary:hover {
-        border: 1px solid var(--grey300);
+        border: 1px solid ${colors.grey300};
         background-color: rgba(158, 158, 158, 0.07);
     }
 
     .kind-secondary:active,
     .kind-secondary:active:focus {
-        border: 1px solid var(--grey300);
+        border: 1px solid ${colors.grey300};
         background-color: rgba(158, 158, 158, 0.18);
         box-shadow: none;
     }
 
     .kind-secondary:focus {
-        border: 1px solid var(--primary600);
+        border: 1px solid ${theme.primary600};
         background-color: transparent;
-        box-shadow: 0 0 0 1px var(--primary600);
+        box-shadow: 0 0 0 1px ${theme.primary600};
     }
 
     .kind-secondary:disabled {
-        border: 1px solid var(--grey300);
+        border: 1px solid ${colors.grey300};
         background-color: transparent;
         box-shadow: none;
-        color: var(--grey500);
+        color: ${colors.grey500};
     }
 
     .kind-destructive {

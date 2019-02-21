@@ -1,12 +1,14 @@
 import css from 'styled-jsx/css'
 
+import { colors, theme } from '../../defaults/colors.js'
+
 export default css`
     .base {
         display: inline-block;
         position: relative;
         width: 100%;
         background-color: inherit;
-        color: var(--grey700);
+        color: ${colors.grey700};
         pointer-events: all;
         user-select: none;
     }
@@ -28,7 +30,7 @@ export default css`
     .select:hover .flatline,
     .select:hover .flatline.idle.filled,
     .select:hover .flatline.focused {
-        border: 1px solid var(--grey700);
+        border: 1px solid ${colors.grey700};
     }
 
     .select.kind-filled {
@@ -39,7 +41,7 @@ export default css`
 
     .select.kind-filled:hover,
     .select.kind-filled.focused {
-        border-bottom: 2px solid var(--secondary600);
+        border-bottom: 2px solid ${theme.secondary600};
         background-color: rgba(0, 0, 10, 0.08);
     }
 
@@ -69,11 +71,11 @@ export default css`
     }
 
     .icon {
-        color: var(--grey700);
+        color: ${colors.grey700};
     }
 
     .arrow-icon {
-        color: var(--grey900);
+        color: ${colors.grey900};
     }
 
     .lead-icon-field {
@@ -115,7 +117,7 @@ export default css`
     .disabled .select,
     .disabled .select .value,
     .disabled::placeholder {
-        color: var(--grey500);
+        color: ${colors.grey500};
         cursor: not-allowed;
         opacity: 1;
     }
@@ -133,18 +135,18 @@ export default css`
         left: 0;
         padding-left: 8px;
 
-        border: 1px solid var(--grey500);
+        border: 1px solid ${colors.grey500};
         border-radius: 5px;
 
         pointer-events: none;
     }
 
     .flatline.idle.filled {
-        border: 1.5px solid var(--grey500);
+        border: 1.5px solid ${colors.grey500};
     }
 
     .flatline.focused {
-        border: 1.5px solid var(--secondary600);
+        border: 1.5px solid ${theme.secondary600};
     }
 
     /*
@@ -153,17 +155,17 @@ export default css`
     .flatline.valid,
     .flatline.valid.idle.filled,
     .flatline.valid.focused {
-        border: 1.5px solid var(--blue600);
+        border: 1.5px solid ${colors.blue600};
     }
     .flatline.warning,
     .flatline.warning.idle.filled,
     .flatline.warning.focused {
-        border: 1.5px solid var(--yellow500);
+        border: 1.5px solid ${colors.yellow500};
     }
     .flatline.error,
     .flatline.error.idle.filled,
     .flatline.error.focused {
-        border: 1.5px solid var(--red500);
+        border: 1.5px solid ${colors.red500};
     }
 
     /*
@@ -179,7 +181,7 @@ export default css`
         left: 8px;
         transform: translate(8px, 0px) scale(1);
         transform-origin: top left;
-        color: var(--grey700);
+        color: ${colors.grey700};
         white-space: nowrap;
         pointer-events: none;
 
@@ -191,7 +193,7 @@ export default css`
     }
 
     .label.filled.focused {
-        color: var(--secondary600);
+        color: ${theme.secondary600};
     }
 
     .label.filled.shrink {
@@ -211,7 +213,7 @@ export default css`
     }
 
     .label.outlined.focused {
-        color: var(--secondary600);
+        color: ${theme.secondary600};
     }
 
     .label.outlined.shrink {
@@ -236,18 +238,18 @@ export default css`
     .icon-valid,
     .label.filled.valid,
     .label.outlined.valid {
-        color: var(--blue600);
+        color: ${colors.blue600};
     }
 
     .icon-warning,
     .label.filled.warning,
     .label.outlined.warning {
-        color: var(--yellow500);
+        color: ${colors.yellow500};
     }
     .icon-error,
     .label.filled.error,
     .label.outlined.error {
-        color: var(--red500);
+        color: ${colors.red500};
     }
 
     /*
@@ -255,15 +257,15 @@ export default css`
  */
     .select.kind-filled.status-valid:hover,
     .select.kind-filled.focused.status-valid {
-        border-bottom: 2px solid var(--blue600);
+        border-bottom: 2px solid ${colors.blue600};
     }
     .select.kind-filled.status-warning:hover,
     .select.kind-filled.focused.status-warning {
-        border-bottom: 2px solid var(--yellow500);
+        border-bottom: 2px solid ${colors.yellow500};
     }
     .select.kind-filled.status-error:hover,
     .select.kind-filled.focused.status-error {
-        border-bottom: 2px solid var(--red500);
+        border-bottom: 2px solid ${colors.red500};
     }
 
     /*
@@ -274,7 +276,7 @@ export default css`
     .select.kind-filled.disabled {
         border: 2px solid transparent;
         background-color: rgba(0, 0, 10, 0.02);
-        color: var(--grey500);
+        color: ${colors.grey500};
     }
 
     .label.filled.disabled {
@@ -287,12 +289,12 @@ export default css`
     }
 
     .label.kind-outlined.disabled {
-        color: var(--grey500);
+        color: ${colors.grey500};
     }
 
     .disabled,
     .disabled::placeholder {
-        color: var(--grey500);
+        color: ${colors.grey500};
         cursor: not-allowed;
     }
 

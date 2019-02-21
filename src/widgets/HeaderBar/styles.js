@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css'
+import { colors, theme } from '../../defaults/colors.js'
 
 export default css`
     .base {
@@ -84,7 +85,7 @@ export default css`
         width: 16px;
         height: 16px;
         border-radius: 50%;
-        background-color: var(--secondary300);
+        background-color: ${theme.secondary300};
         color: #fff;
         font-size: 9px;
         font-weight: 500;
@@ -166,7 +167,7 @@ export default css`
     }
     .app:hover,
     .app:focus {
-        background-color: var(--primary050);
+        background-color: ${theme.primary050};
         cursor: pointer;
     }
     .app:hover > .name {

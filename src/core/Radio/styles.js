@@ -1,5 +1,7 @@
 import css from 'styled-jsx/css'
 
+import { colors, theme } from '../../defaults/colors.js'
+
 export default css`
     .base {
         display: flex;
@@ -36,29 +38,29 @@ export default css`
     }
 
     .default {
-        color: var(--grey700);
+        color: ${colors.grey700};
     }
 
     .valid,
     .valid-icon {
-        color: var(--blue600);
+        color: ${colors.blue600};
     }
 
     .warning,
     .warning-icon {
-        color: var(--yellow500);
+        color: ${colors.yellow500};
     }
 
     .error,
     .error-icon {
-        color: var(--red500);
+        color: ${colors.red500};
     }
 
     .default-icon {
-        color: var(--secondary300);
+        color: ${theme.secondary300};
     }
 
     .disabled {
-        color: var(--grey300);
+        color: ${colors.grey300};
     }
 `
