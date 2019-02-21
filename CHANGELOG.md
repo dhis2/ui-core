@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.12"></a>
+
+# [1.0.0-beta.12](https://github.com/dhis2/ui/compare/1.0.0-beta.11...1.0.0-beta.12) (2019-02-21)
+
+### Bug Fixes
+
+-   allow headerbar to be tree-shaken ([#144](https://github.com/dhis2/ui/issues/144)) ([5c98df6](https://github.com/dhis2/ui/commit/5c98df6))
+-   **headerbar:** add focus-style when tabbing between apps ([#145](https://github.com/dhis2/ui/issues/145)) ([a1007b5](https://github.com/dhis2/ui/commit/a1007b5))
+
 <a name="1.0.0-beta.11"></a>
 
 # [1.0.0-beta.11](https://github.com/dhis2/ui/compare/1.0.0-beta.10...1.0.0-beta.11) (2019-02-19)
