@@ -10,7 +10,6 @@ function Icon({ name, className, onClick }) {
     return (
         <i onClick={onClick} className={className}>
             {name}
-
             <style jsx>{styles}</style>
         </i>
     )

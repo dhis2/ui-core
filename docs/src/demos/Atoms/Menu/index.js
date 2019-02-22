@@ -1,5 +1,6 @@
 import React from 'react'
 import Menu from 'Menu'
+import Icon from 'Icon'
 import { Text, Col, Divider, Spacer } from '../../../helpers'
 
 const list = []
@@ -7,7 +8,7 @@ for (let i = 1; i <= 5; i += 1) {
     list.push({
         label: `Menu item ${i}`,
         value: i,
-        icon: 'favorite',
+        icon: <Icon name="favorite" />,
     })
 }
 
@@ -16,7 +17,7 @@ for (let i = 6; i <= 9; i += 1) {
     list[2]['list'].push({
         label: `Menu item ${i}`,
         value: i,
-        icon: 'favorite',
+        icon: <Icon name="favorite" />,
     })
 }
 

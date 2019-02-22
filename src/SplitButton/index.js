@@ -4,8 +4,21 @@ import Menu from '../Menu'
 import Icon from '../Icon'
 import { isPointInRect } from '../utils'
 
+import css from 'styled-jsx/css'
+
+import buttons from '../Button/styles.js'
+
 import cx from 'classnames'
 import styles from './styles'
+
+const menuIcon = css.resolve`
+    i {
+        color: inherit;
+        font-size: 24px;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+`
 
 class SplitButton extends Component {
     state = {
@@ -47,10 +60,8 @@ class SplitButton extends Component {
         }
 
         return (
-            <div className="base" ref={c => (this.elContainer = c)}>
+            <div ref={c => (this.elContainer = c)}>
                 <button
-                    icon={this.props.icon}
-                    active={this.props.active}
                     disabled={this.props.disabled}
                     onClick={this.props.onClick}
                     className={cx(
@@ -66,13 +77,13 @@ class SplitButton extends Component {
                         }
                     )}
                 >
-                    {this.props.icon && <Icon name={this.props.icon} />}
+                    {this.props.icon && (
+                        <span className="button-icon">{this.props.icon}</span>
+                    )}
                     {this.props.label || this.props.children}
                 </button>
 
                 <button
-                    icon={this.props.icon}
-                    active={this.props.active}
                     disabled={this.props.disabled}
                     onClick={this.onToggle}
                     className={cx(
@@ -82,7 +93,7 @@ class SplitButton extends Component {
                     )}
                 >
                     <Icon
-                        className="menu-icon"
+                        className={menuIcon.className}
                         name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
                     />
                 </button>
@@ -96,6 +107,8 @@ class SplitButton extends Component {
                         />
                     </div>
                 )}
+                {menuIcon.styles}
+                <style jsx>{buttons}</style>
                 <style jsx>{styles}</style>
             </div>
         )
@@ -105,10 +118,8 @@ class SplitButton extends Component {
 SplitButton.defaultProps = {
     size: 'medium',
     kind: 'basic',
-    active: false,
     disabled: false,
     width: '',
-    icon: '',
 }
 
 SplitButton.propTypes = {
@@ -118,8 +129,7 @@ SplitButton.propTypes = {
 
     width: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary']),
-    icon: PropTypes.string,
-    active: PropTypes.bool,
+    icon: PropTypes.element,
     disabled: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
 }

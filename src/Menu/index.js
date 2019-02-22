@@ -53,7 +53,7 @@ Menu.propTypes = {
             label: PropTypes.string,
             value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
             list: PropTypes.array,
-            icon: PropTypes.string,
+            icon: PropTypes.element,
             active: PropTypes.bool,
             disabled: PropTypes.bool,
         })

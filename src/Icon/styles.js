@@ -1,12 +1,7 @@
 import css from 'styled-jsx/css'
 
 export default css`
-    .reset {
-        all: initial;
-        box-sizing: border-box;
-    }
-
-    .base {
+    i {
         word-wrap: normal;
         -webkit-font-feature-settings: 'liga';
         -webkit-font-smoothing: antialiased;
@@ -28,7 +23,7 @@ export default css`
     }
 
     .align-icon .material-icons {
-        width: 24pxrem;
+        width: 24px;
         height: 0.9375rem;
         line-height: 0.9375rem;
         pointer-events: none;

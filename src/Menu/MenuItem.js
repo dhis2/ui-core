@@ -34,7 +34,7 @@ export default function MenuItem({
                 onClick(value)
             }}
         >
-            {icon && <Icon name={icon} className={cx('icon')} />}
+            {icon}
             <div className={cx('label')}>{label}</div>
             {hasMenu && (
                 <Icon name="chevron_right" className={cx('sub-chevron')} />
@@ -47,7 +47,6 @@ export default function MenuItem({
 }
 
 MenuItem.defaultProps = {
-    icon: '',
     list: [],
     size: 'default',
     active: false,
@@ -57,7 +56,7 @@ MenuItem.defaultProps = {
 MenuItem.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    icon: PropTypes.string,
+    icon: PropTypes.element,
     list: PropTypes.array,
     active: PropTypes.bool,
     disabled: PropTypes.bool,

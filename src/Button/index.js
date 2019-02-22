@@ -26,7 +26,7 @@ function Button({
                 icon,
             })}
         >
-            {icon && <Icon className={cx('button-icon')} name={icon} />}
+            {icon && <span className="button-icon">{icon}</span>}
             {label || children}
 
             <style jsx>{styles}</style>
@@ -35,7 +35,7 @@ function Button({
 }
 
 Button.defaultProps = {
-    icon: '',
+    icon: null,
     label: '',
     kind: 'basic',
     type: 'button',
@@ -45,7 +45,7 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-    icon: PropTypes.string,
+    icon: PropTypes.element,
     label: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
     type: PropTypes.oneOf(['submit', 'reset', 'button']),
