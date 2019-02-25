@@ -8,6 +8,7 @@ import InputField from '../../core/InputField'
 import { gotoURL } from '../../utils/url.js'
 import { isPointInRect } from '../../utils/math.js'
 import { escapeRegExp } from '../../utils/regex.js'
+import memoize from '../../utils/memoize.js'
 import cx, { rx } from './styles.js'
 
 const createAppNameFilter = filter => ({ name }) =>
@@ -49,9 +50,13 @@ Search.propTypes = {
     onIconClick: PropTypes.func,
 }
 
-function Item({ name, path, img, forceFocused }) {
+function Item({ name, path, img, focused, idx }) {
     return (
-        <a href={path} className={rx('app', forceFocused ? 'selected' : null)}>
+        <a
+            href={path}
+            className={rx('app', focused ? 'selected' : null)}
+            tabIndex={idx === 0 ? '-1' : null}
+        >
             <img src={img} alt="app logo" className={rx()} />
             <div className={rx('name')}>{name}</div>
         </a>
@@ -64,17 +69,17 @@ Item.propTypes = {
     img: PropTypes.string,
 }
 
-function List({ apps, filter, firstFocused }) {
-    const byNameFilter = createAppNameFilter(filter)
+function List({ apps, filter, selectedIndex }) {
     return (
-        <div className={rx('modules')} tabIndex="-1">
-            {apps.filter(byNameFilter).map(({ name, path, img }, idx) => (
+        <div className={rx('modules')}>
+            {apps.map(({ name, path, img }, idx) => (
                 <Item
                     key={`app-${name}-${idx}`}
                     name={name}
                     path={path}
                     img={img}
-                    forceFocused={firstFocused && idx === 0}
+                    focused={idx === selectedIndex}
+                    idx={idx}
                 />
             ))}
         </div>
@@ -86,16 +91,27 @@ export default class Apps extends React.Component {
         show: false,
         filter: '',
         hasTabbed: false,
+        selectedIndex: 0,
     }
 
     componentDidMount() {
         document.addEventListener('click', this.onDocClick)
-        document.addEventListener('keyup', this.onKeyPress)
+        document.addEventListener('keyup', this.onKeyUp)
+        document.addEventListener('keydown', this.onKeyDown)
     }
 
     componentWillUnmount() {
         document.removeEventListener('click', this.onDocClick)
-        document.addEventListener('keyup', this.onKeyPress)
+        document.removeEventListener('keyup', this.onKeyUp)
+        document.removeEventListener('keydown', this.onKeyDown)
+    }
+
+    onKeyDown = evt => {
+        // This prevents tabbing though the app while the search is open
+        const isTabKey = (evt.keyCode === 9) | (evt.key === 'Tab')
+        if (this.state.show && isTabKey) {
+            evt.preventDefault()
+        }
     }
 
     onDocClick = evt => {
@@ -113,39 +129,67 @@ export default class Apps extends React.Component {
         }
     }
 
-    onToggle = () => this.setState({ show: !this.state.show, hasTabbed: false })
+    onToggle = () =>
+        this.setState({
+            show: !this.state.show,
+            hasTabbed: false,
+            selectedIndex: 0,
+        })
 
-    onChange = (_, filter) => this.setState({ filter, hasTabbed: false })
+    onChange = (_, filter) =>
+        this.setState({ filter, hasTabbed: false, selectedIndex: 0 })
 
     onSettingsClick = () =>
         gotoURL(`${this.props.baseURL}/dhis-web-menu-management`)
 
-    onIconClick = () => this.setState({ filter: '', hasTabbed: false })
+    onIconClick = () =>
+        this.setState({ filter: '', hasTabbed: false, selectedIndex: 0 })
 
-    onKeyPress = evt => {
-        const isEnterPress = evt.keyCode === 13 || evt.key === 'Enter'
-        const isTabKey = (evt.keyCode === 9) | (evt.key === 'Tab')
-        if (isEnterPress) {
+    onKeyUp = evt => {
+        if (!this.state.show) {
+            return
+        }
+        const isEnterKey = evt.keyCode === 13 || evt.key === 'Enter'
+        const isTabKey = evt.keyCode === 9 || evt.key === 'Tab'
+
+        if (isEnterKey) {
             return this.handleEnterClick(evt)
         } else if (isTabKey) {
-            this.setState({ hasTabbed: true })
+            evt.preventDefault()
+            const apps = this.filterApps(this.props.apps, this.state.filter)
+            if (evt.shiftKey) {
+                if (this.state.selectedIndex > 0) {
+                    this.setState(state => ({
+                        selectedIndex: state.selectedIndex - 1,
+                    }))
+                }
+            } else {
+                if (this.state.selectedIndex < apps.length - 1) {
+                    this.setState(state => ({
+                        selectedIndex: state.selectedIndex + 1,
+                    }))
+                }
+            }
         }
     }
 
     handleEnterClick(evt) {
-        // We don't know what app is in focus if the user has tabbed since last search change, so we ignore it
-        if (!this.state.show || this.state.hasTabbed) {
-            return
-        }
-        // Else we want to follow the link of the first app, as a shortcut
-        const byNameFilter = createAppNameFilter(this.state.filter)
-        const firstApp = this.props.apps.filter(byNameFilter)[0]
-        if (firstApp) {
-            window.location = firstApp.path
+        const selectedApp = this.filterApps(this.props.apps, this.state.filter)[
+            this.state.selectedIndex
+        ]
+        if (selectedApp) {
+            window.location = selectedApp.path
         }
     }
 
+    filterApps = memoize((list, filter) => {
+        const byNameFilter = createAppNameFilter(filter)
+        return list.filter(byNameFilter)
+    })
+
     render() {
+        const filteredApps = this.filterApps(this.props.apps, this.state.filter)
+
         return (
             <div className={rx('apps')} ref={c => (this.elContainer = c)}>
                 <Icon name="apps" onClick={this.onToggle} />
@@ -162,9 +206,8 @@ export default class Apps extends React.Component {
                                 onIconClick={this.onIconClick}
                             />
                             <List
-                                apps={this.props.apps}
-                                filter={this.state.filter}
-                                firstFocused={!this.state.hasTabbed}
+                                apps={filteredApps}
+                                selectedIndex={this.state.selectedIndex}
                             />
                         </Card>
                     </div>
