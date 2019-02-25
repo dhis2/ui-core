@@ -1,9 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export function LogoIcon({ fill }) {
+export function LogoIcon({ fill, className }) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 182">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 200 182"
+            className={className}
+        >
             <defs />
             <path
                 fill={fill}
@@ -29,11 +33,17 @@ LogoIcon.propTypes = {
     fill: PropTypes.string,
 }
 
-export const LogoIconWhite = () => <LogoIcon fill="#fff" />
+export const LogoIconWhite = ({ className }) => (
+    <LogoIcon fill="#fff" className={className} />
+)
 
-export function Logo({ fill1, fill2 }) {
+export function Logo({ fill1, fill2, className }) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 182">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 600 182"
+            className={className}
+        >
             <path
                 fill={fill1}
                 d="M191.91,60,109.17,6.34a19.75,19.75,0,0,0-20.33,0L8.49,58.43a12,12,0,0,0-.25,20.63L88.78,134a19.39,19.39,0,0,0,20.38.25l82.75-53.65a11.87,11.87,0,0,0,0-20.59Zm-91,61.45a4.29,4.29,0,0,1-3.49-.05l-77-52.49L97.13,19.13a4.76,4.76,0,0,1,3.74,0l78.91,51.15Z"

@@ -2,23 +2,32 @@ import css from 'styled-jsx/css'
 import { colors, theme } from '../colors.js'
 
 export default css`
-    .base {
+    header {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         height: 48px;
         border-bottom: 1px solid rgba(32, 32, 32, 0.15);
+        color: ${colors.white};
     }
 
-    .first {
+    header > div:first-child {
         box-sizing: border-box;
         display: flex;
         flex-direction: row;
         align-items: center;
+        overflow: hidden;
     }
 
-    .logo {
+    header > div:last-child {
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        user-select: none;
+    }
+
+    .headerbar-logo {
         box-sizing: border-box;
         width: 48px;
         height: 48px;
@@ -28,38 +37,30 @@ export default css`
         text-align: center;
     }
 
-    .logo svg,
-    .logo a {
-        width: 27px;
-        height: 25px;
+    .headerbar-logo a {
+        width: 48px;
+        height: 48px;
         cursor: pointer;
     }
 
-    .logo a,
-    .logo a:hover,
-    .logo a:focus,
-    .logo a:active,
-    .logo a:visited {
+    .headerbar-logo a,
+    .headerbar-logo a:hover,
+    .headerbar-logo a:focus,
+    .headerbar-logo a:active,
+    .headerbar-logo a:visited {
         display: inline-block;
         background-color: transparent;
         cursor: pointer;
         user-select: none;
     }
 
-    .title {
+    .headerbar-title {
         overflow: hidden;
-        color: #000;
+        text-overflow: ellipsis;
         font-size: 14px;
         font-weight: 500;
         letter-spacing: 0.01em;
         white-space: nowrap;
-    }
-
-    .last {
-        display: flex;
-        flex-direction: row;
-        margin-left: auto;
-        user-select: none;
     }
 
     .notification {
@@ -67,6 +68,7 @@ export default css`
         margin: 8px 24px 0 0;
         cursor: pointer;
     }
+
     .notification .message {
         margin-top: 10px;
         cursor: inherit;
