@@ -9,6 +9,14 @@ import { gotoURL, isPointInRect } from '../utils'
 import cx from 'classnames'
 import styles from './styles.js'
 
+import css from 'styled-jsx/css'
+
+const appIcon = css.resolve`
+    i {
+        cursor: pointer;
+    }
+`
+
 function Search({ value, onChange, onSettingsClick, onIconClick }) {
     return (
         <div className={cx('search')}>
@@ -123,7 +131,11 @@ export default class Apps extends React.Component {
     render() {
         return (
             <div className={cx('apps')} ref={c => (this.elContainer = c)}>
-                <Icon name="apps" onClick={this.onToggle} />
+                <Icon
+                    name="apps"
+                    onClick={this.onToggle}
+                    className={appIcon.className}
+                />
                 {this.state.show && (
                     <div
                         className={cx('contents')}
@@ -143,6 +155,7 @@ export default class Apps extends React.Component {
                         </Card>
                     </div>
                 )}
+                {appIcon.styles}
                 <style jsx>{styles}</style>
             </div>
         )

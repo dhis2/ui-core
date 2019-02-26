@@ -109,10 +109,6 @@ export default css`
         margin: 8px 0 0 0;
     }
 
-    .apps i {
-        cursor: pointer;
-    }
-
     .apps .contents {
         z-index: 10000;
         position: absolute;
