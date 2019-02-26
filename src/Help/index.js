@@ -16,6 +16,7 @@ function Help({ text, status }) {
             <style jsx>{`
                 .base {
                     height: 12px;
+                    padding-top: 8px;
                     padding-left: 14px;
                     font-size: 12px;
 

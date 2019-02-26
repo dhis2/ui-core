@@ -31,10 +31,12 @@ export default css`
         color: ${colors.grey700};
     }
 
-    .input {
+    input {
         width: 100%;
         height: 100%;
         user-select: text;
+        background-color: transparent;
+        border: 0;
     }
 
     /*
@@ -191,7 +193,7 @@ export default css`
         background-color: rgba(0, 0, 10, 0.08);
     }
 
-    .field.kind-filled .input {
+    .field.kind-filled input {
         padding-top: 14px;
     }
 

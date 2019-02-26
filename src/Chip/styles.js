@@ -63,13 +63,6 @@ export default css`
         font-size: 20px;
     }
 
-    .image-icon {
-        width: 24px;
-        height: 24px;
-        margin-left: 4px;
-        border-radius: 50%;
-    }
-
     .label {
         margin: 0 12px;
         color: inherit;

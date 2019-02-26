@@ -4,13 +4,26 @@ import cx from 'classnames'
 
 import Icon from '../Icon'
 
+import { colors } from '../colors.js'
 import styles from './styles.js'
+
+import css from 'styled-jsx/css'
+
+const icons = {
+    default: css.resolve`i { color: ${colors.grey700}; }`,
+    checked: css.resolve`i { color: ${colors.teal400}; }`,
+    valid: css.resolve`i { color: ${colors.blue600}; }`,
+    warning: css.resolve`i { color: ${colors.yellow500}; }`,
+    error: css.resolve`i { color: ${colors.red500}; }`,
+}
 
 class Radio extends React.Component {
     onChange = () => this.props.onChange(this.props.name, this.props.value)
 
     render() {
-        const { required, status } = this.props
+        const { required, status, checked } = this.props
+
+        const state = status === 'default' && checked ? 'checked' : status
         const icon = (
             <Icon
                 name={
@@ -18,10 +31,7 @@ class Radio extends React.Component {
                         ? 'radio_button_checked'
                         : 'radio_button_unchecked'
                 }
-                className={cx('icon', `${status}-icon`, {
-                    disabled: this.props.disabled,
-                    checked: this.props.checked,
-                })}
+                className={icons[state].className}
             />
         )
 
@@ -44,6 +54,7 @@ class Radio extends React.Component {
                     {this.props.label}
                 </span>
 
+                {icons[state].styles}
                 <style jsx>{styles}</style>
             </label>
         )

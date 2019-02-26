@@ -13,7 +13,7 @@ export default css`
         user-select: none;
     }
 
-    .base input[type='radio'] {
+    input[type='radio'] {
         display: none;
     }
 

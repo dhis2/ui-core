@@ -26,7 +26,17 @@ class Chip extends React.PureComponent {
 
         if (this.props.type === 'image') {
             return (
-                <img src={icon} alt="chip icon" className={cx('image-icon')} />
+                <React.Fragment>
+                    <img src={icon} alt="chip icon" className="image-icon" />
+                    <style jsx>{`
+                        .image-icon {
+                            width: 24px;
+                            height: 24px;
+                            margin-left: 4px;
+                            border-radius: 50%;
+                        }
+                    `}</style>
+                </React.Fragment>
             )
         }
 

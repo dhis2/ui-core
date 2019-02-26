@@ -19,7 +19,6 @@ class Switch extends React.Component {
             <label className={cx(status, { disabled })}>
                 <input
                     type="checkbox"
-                    className={cx('input')}
                     disabled={disabled}
                     checked={this.props.checked}
                     onChange={this.onChange}
@@ -31,7 +30,7 @@ class Switch extends React.Component {
                 >
                     {this.props.label}
                 </span>
-                {this.props.required && <span className={cx('required')} />}
+                {this.props.required && <span className="required" />}
                 <style jsx>{styles}</style>
             </label>
         )

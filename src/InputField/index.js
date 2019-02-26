@@ -5,7 +5,10 @@ import cx from 'classnames'
 import Icon from '../Icon'
 import Help from '../Help'
 
+import css from 'styled-jsx/css'
 import styles from './styles.js'
+
+import { colors } from '../colors.js'
 
 const statusToIcon = {
     valid: 'check_circle',
@@ -13,16 +16,32 @@ const statusToIcon = {
     error: 'error',
 }
 
-function icon(i, action = null, extra = null) {
+const icons = {
+    default: css.resolve`i { color: ${colors.grey700}; margin-right: 8px; }`,
+    valid: css.resolve`i { color: ${colors.blue600}; margin-right: 8px; }`,
+    warning: css.resolve`i { color: ${colors.yellow500}; margin-right: 8px; }`,
+    error: css.resolve`i { color: ${colors.red500}; margin-right: 8px; }`,
+}
+
+function icon(i, action = null, extra = 'default') {
     if (i) {
-        return <Icon name={i} onClick={action} className={cx('icon', extra)} />
+        return (
+            <Fragment>
+                <Icon
+                    name={i}
+                    onClick={action}
+                    className={icons[extra].className}
+                />
+                {icons[extra].styles}
+            </Fragment>
+        )
     }
     return null
 }
 
 function trailIcon(status, trail, fn) {
     if (status !== 'default') {
-        return icon(statusToIcon[status], fn, `icon-${status}`)
+        return icon(statusToIcon[status], fn, status)
     } else {
         return icon(trail, fn)
     }
@@ -126,10 +145,7 @@ class InputField extends React.Component {
                                 filled: this.props.value,
                             })}
                         >
-                            <legend
-                                className={cx('legend')}
-                                style={legendWidth}
-                            >
+                            <legend className="legend" style={legendWidth}>
                                 <span>&#8203;</span>
                             </legend>
                         </fieldset>
@@ -137,7 +153,7 @@ class InputField extends React.Component {
 
                     {icon(this.props.icon)}
                     <input
-                        className={cx('input', {
+                        className={cx({
                             disabled: this.props.disabled,
                         })}
                         ref={this.inputRef}

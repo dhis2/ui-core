@@ -8,11 +8,20 @@ import { isPointInRect } from '../utils'
 import cx from 'classnames'
 
 import styles from './styles.js'
+import css from 'styled-jsx/css'
+import { colors } from '../colors.js'
 
 const statusToIcon = {
     valid: 'check_circle',
     warning: 'warning',
     error: 'error',
+}
+
+const icons = {
+    default: css.resolve`i { color: ${colors.grey700}; }`,
+    valid: css.resolve`i { color: ${colors.blue600}; }`,
+    warning: css.resolve`i { color: ${colors.yellow500}; }`,
+    error: css.resolve`i { color: ${colors.red500}; }`,
 }
 
 function markActive(list, value) {
@@ -164,21 +173,19 @@ class SelectField extends React.Component {
                                 filled: this.state.text,
                             })}
                         >
-                            <legend
-                                className={cx('legend')}
-                                style={legendWidth}
-                            >
+                            <legend className="legend" style={legendWidth}>
                                 <span>&#8203;</span>
                             </legend>
                         </fieldset>
                     )}
 
                     {this.props.icon && (
-                        <div className={cx('lead-icon-field')}>
+                        <div className="lead-icon-field">
                             <Icon
                                 name={this.props.icon}
-                                className={cx('icon')}
+                                className={icons.default.className}
                             />
+                            {icons.default.styles}
                         </div>
                     )}
                     <div
@@ -186,17 +193,16 @@ class SelectField extends React.Component {
                             disabled: this.props.disabled,
                         })}
                     >
-                        <div className={cx('value')}>{selected}</div>
+                        <div className="value">{selected}</div>
                     </div>
-                    <div className={cx('trail-icon-field')}>
+                    <div className="trail-icon-field">
                         {this.props.status !== 'default' && (
                             <Icon
                                 name={statusToIcon[this.props.status]}
-                                className={cx('icon', {
-                                    [`icon-${this.props.status}`]: true,
-                                })}
+                                className={icons[this.props.status].className}
                             />
                         )}
+                        {icons[this.props.status].styles}
                     </div>
                     <div
                         className={cx('trail-icon-field', {
@@ -215,7 +221,7 @@ class SelectField extends React.Component {
                     <Help text={this.props.help} status={this.props.status} />
                 )}
                 {open && (
-                    <div className={cx('menu')} ref={c => (this.elMenu = c)}>
+                    <div className="menu" ref={c => (this.elMenu = c)}>
                         <Menu
                             list={list}
                             size={this.props.size}

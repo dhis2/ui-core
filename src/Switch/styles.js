@@ -2,7 +2,7 @@ import css from 'styled-jsx/css'
 import { colors, theme } from '../colors.js'
 
 export default css`
-    .input {
+    input {
         display: none;
     }
     .label {
@@ -41,38 +41,38 @@ export default css`
             0 1px 1px 0 rgba(0, 0, 0, 0.24);
     }
 
-    .input:checked + .label::before {
-        background-color: #009688;
+    input:checked + .label::before {
+        background-color: ${colors.teal400};
     }
-    .input:checked + .label::after {
+    input:checked + .label::after {
         transform: translate(80%, -50%);
-        background-color: #009688;
+        background-color: ${colors.teal400};
     }
 
     .status-valid.label::before,
-    .input:checked + .status-valid.label::before {
-        background-color: #3d9305;
+    input:checked + .status-valid.label::before {
+        background-color: ${colors.blue600};
     }
     .status-valid.label::after,
-    .input:checked + .status-valid.label::after {
-        background-color: #3d9305;
+    input:checked + .status-valid.label::after {
+        background-color: ${colors.blue600};
     }
 
     .status-warning.label::before,
-    .input:checked + .status-warning.label::before {
-        background-color: #e59635;
+    input:checked + .status-warning.label::before {
+        background-color: ${colors.yellow500};
     }
     .status-warning.label::after,
-    .input:checked + .status-warning.label::after {
-        background-color: #e59635;
+    input:checked + .status-warning.label::after {
+        background-color: ${colors.yellow500};
     }
 
     .status-error.label::before,
-    .input:checked + .status-error.label::before {
+    input:checked + .status-error.label::before {
         background-color: ${colors.red500};
     }
     .status-error.label::after,
-    .input:checked + .status-error.label::after {
+    input:checked + .status-error.label::after {
         background-color: ${colors.red500};
     }
 
@@ -80,10 +80,10 @@ export default css`
     .disabled .label {
         cursor: not-allowed;
     }
-    .input:disabled + .label::before {
+    input:disabled + .label::before {
         background-color: #dadada;
     }
-    .input:disabled + .label::after {
+    input:disabled + .label::after {
         background-color: #f5f5f5;
     }
 
