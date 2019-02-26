@@ -16,7 +16,13 @@ const createAppNameFilter = filter => ({ name }) =>
         ? name.toLowerCase().match(escapeRegExp(filter.toLowerCase()))
         : true
 
-function Search({ value, onChange, onSettingsClick, onIconClick }) {
+const isEnterKey = evt => evt.keyCode === 13 || evt.key === 'Enter'
+const isTabKey = evt => evt.keyCode === 9 || evt.key === 'Tab'
+const isEsc = evt => evt.keyCode === 27 || evt.key === 'Escape'
+const isUpArrow = evt => evt.keyCode === 38 || evt.key === 'ArrowUp'
+const isDownArrow = evt => evt.keyCode === 40 || evt.key === 'ArrowDown'
+
+function Search({ value, onChange, onSettingsClick, onIconClick, inputRef }) {
     return (
         <div className={rx('search')}>
             <InputField
@@ -29,6 +35,7 @@ function Search({ value, onChange, onSettingsClick, onIconClick }) {
                 onChange={onChange}
                 trailIcon="cancel"
                 onTrailIconClick={onIconClick}
+                ref={inputRef}
             />
             <Icon
                 name="settings"
@@ -52,11 +59,7 @@ Search.propTypes = {
 
 function Item({ name, path, img, focused, idx }) {
     return (
-        <a
-            href={path}
-            className={rx('app', focused ? 'selected' : null)}
-            tabIndex={idx === 0 ? '-1' : null}
-        >
+        <a href={path} className={rx('app', focused ? 'selected' : null)}>
             <img src={img} alt="app logo" className={rx()} />
             <div className={rx('name')}>{name}</div>
         </a>
@@ -90,31 +93,53 @@ export default class Apps extends React.Component {
     state = {
         show: false,
         filter: '',
-        hasTabbed: false,
         selectedIndex: 0,
     }
 
-    componentDidMount() {
-        document.addEventListener('click', this.onDocClick)
-        document.addEventListener('keyup', this.onKeyUp)
-        document.addEventListener('keydown', this.onKeyDown)
+    constructor(props) {
+        super(props)
+        this.searchRef = React.createRef()
     }
 
     componentWillUnmount() {
-        document.removeEventListener('click', this.onDocClick)
-        document.removeEventListener('keyup', this.onKeyUp)
+        // We remove listeners here as well as when closing the overlay,
+        // just in case the component is nmounted without didUpdate catching it
+        this.removeEventListeners()
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        const isShown = this.state.show
+        const didChange = prevState.show !== isShown
+        // Component is long lived, so we add listeners only when apps menu is opened
+        if (didChange) {
+            if (isShown) {
+                document.addEventListener('click', this.handleDocClick)
+                document.addEventListener('keyup', this.handleKeyUp)
+                document.addEventListener('keydown', this.onKeyDown)
+            } else {
+                this.removeEventListeners()
+            }
+        }
+    }
+
+    removeEventListeners() {
+        document.removeEventListener('click', this.handleDocClick)
+        document.removeEventListener('keyup', this.handleKeyUp)
         document.removeEventListener('keydown', this.onKeyDown)
     }
 
     onKeyDown = evt => {
-        // This prevents tabbing though the app while the search is open
-        const isTabKey = (evt.keyCode === 9) | (evt.key === 'Tab')
-        if (this.state.show && isTabKey) {
+        // When tabbing we remove the "simulated" focus, and let native-tabbing take control
+        if (isTabKey(evt) && this.state.selectedIndex !== -1) {
+            this.setState({ selectedIndex: -1 })
+        }
+        if (isUpArrow(evt) || isDownArrow(evt)) {
+            // prevent moving arrow in searchbox
             evt.preventDefault()
         }
     }
 
-    onDocClick = evt => {
+    handleDocClick = evt => {
         if (this.elContainer && this.elApps) {
             const target = { x: evt.clientX, y: evt.clientY }
             const apps = this.elApps.getBoundingClientRect()
@@ -124,56 +149,61 @@ export default class Apps extends React.Component {
                 !isPointInRect(target, apps) &&
                 !isPointInRect(target, container)
             ) {
-                this.setState({ show: false, hasTabbed: false })
+                this.handleClose()
             }
         }
     }
 
-    onToggle = () =>
+    handleToggle = () =>
         this.setState({
             show: !this.state.show,
-            hasTabbed: false,
             selectedIndex: 0,
         })
 
-    onChange = (_, filter) =>
-        this.setState({ filter, hasTabbed: false, selectedIndex: 0 })
+    handleSearchChange = (_, filter) =>
+        this.setState({ filter, selectedIndex: 0 })
 
-    onSettingsClick = () =>
+    handleSettingsClick = () =>
         gotoURL(`${this.props.baseURL}/dhis-web-menu-management`)
 
-    onIconClick = () =>
-        this.setState({ filter: '', hasTabbed: false, selectedIndex: 0 })
+    handleIconClick = () => this.setState({ filter: '', selectedIndex: 0 })
 
-    onKeyUp = evt => {
-        if (!this.state.show) {
-            return
-        }
-        const isEnterKey = evt.keyCode === 13 || evt.key === 'Enter'
-        const isTabKey = evt.keyCode === 9 || evt.key === 'Tab'
-
-        if (isEnterKey) {
-            return this.handleEnterClick(evt)
-        } else if (isTabKey) {
-            evt.preventDefault()
-            const apps = this.filterApps(this.props.apps, this.state.filter)
-            if (evt.shiftKey) {
-                if (this.state.selectedIndex > 0) {
-                    this.setState(state => ({
-                        selectedIndex: state.selectedIndex - 1,
-                    }))
-                }
-            } else {
-                if (this.state.selectedIndex < apps.length - 1) {
-                    this.setState(state => ({
-                        selectedIndex: state.selectedIndex + 1,
-                    }))
-                }
+    handleKeyUp = evt => {
+        if (isEsc(evt)) {
+            this.handleClose(evt)
+        } else if (this.searchRef.current.isFocused()) {
+            // we enable these escape-hatches only when focused
+            if (isEnterKey(evt)) {
+                this.handleEnterClick(evt)
+            } else if (isUpArrow(evt) || isDownArrow(evt)) {
+                evt.preventDefault()
+                this.handleAppNavigation(evt, isUpArrow(evt))
             }
         }
     }
 
-    handleEnterClick(evt) {
+    handleClose(evt) {
+        this.setState({ show: false })
+    }
+
+    handleAppNavigation = (evt, backwards = false) => {
+        const apps = this.filterApps(this.props.apps, this.state.filter)
+        if (backwards) {
+            if (this.state.selectedIndex > 0) {
+                this.setState(state => ({
+                    selectedIndex: state.selectedIndex - 1,
+                }))
+            }
+        } else {
+            if (this.state.selectedIndex < apps.length - 1) {
+                this.setState(state => ({
+                    selectedIndex: state.selectedIndex + 1,
+                }))
+            }
+        }
+    }
+
+    handleEnterClick = evt => {
         const selectedApp = this.filterApps(this.props.apps, this.state.filter)[
             this.state.selectedIndex
         ]
@@ -192,7 +222,7 @@ export default class Apps extends React.Component {
 
         return (
             <div className={rx('apps')} ref={c => (this.elContainer = c)}>
-                <Icon name="apps" onClick={this.onToggle} />
+                <Icon name="apps" onClick={this.handleToggle} />
                 {this.state.show && (
                     <div
                         className={rx('contents')}
@@ -201,9 +231,10 @@ export default class Apps extends React.Component {
                         <Card>
                             <Search
                                 value={this.state.filter}
-                                onChange={this.onChange}
-                                onSettingsClick={this.onSettingsClick}
-                                onIconClick={this.onIconClick}
+                                onChange={this.handleSearchChange}
+                                onSettingsClick={this.handleSettingsClick}
+                                onIconClick={this.handleIconClick}
+                                inputRef={this.searchRef}
                             />
                             <List
                                 apps={filteredApps}
