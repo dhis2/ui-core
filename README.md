@@ -95,6 +95,10 @@ The build will fail if the size of the built bundle exceeds the value set in [.s
 yarn size
 ```
 
+### Commit messages
+
+This library follows the commit message style defined in [@commitlint/config-conventional](https://www.npmjs.com/package/@commitlint/config-conventional#rules). There is a pre-commit hook that will stop commits that don't follow the convention.
+
 ### Releasing
 
 Once a PR has been approved and merged, you will want to kick-off the release process. Make sure you are in the master branch, and have pulled the latest from the remote. Then run:
