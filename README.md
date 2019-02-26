@@ -56,3 +56,61 @@ the code and example for both **LTR** and **RTL** modes.
     [HeaderBarDemo](https://github.com/dhis2/ui/blob/master/docs/src/demos/Organisms/HeaderBar/index.js).
     Attach a static class variable `static id = 'headerbar'` which will
     connect _HeaderBarDemo_ to link in the _Sidebar_.
+
+## Development
+
+### Run the demo while actively developing
+
+First install dependencies for both the ui components (in root_dir) and the demo (in docs folder):
+
+```
+cd [root_dir]
+yarn install
+cd [root_dir]/docs
+yarn install
+```
+
+Then run the demo while watching the source files:
+
+```
+cd [root_dir]
+yarn start
+cd [root_dir]/docs
+yarn start
+```
+
+The demo runs on localhost:5000.
+
+### Apply the code style
+
+This library follows the [dhis2 code-style](https://github.com/dhis2/cli-style). There is a commit hook that will apply the code style to staged files, but if you want to do this manually during development, run:
+
+```
+yarn format
+```
+
+### Check bundle size
+
+The build will fail if the size of the built bundle exceeds the value set in [.size-limit.js](./.size-limit.js). To check the size of the current bundle, run:
+
+```
+yarn size
+```
+
+### Commit messages
+
+This library follows the commit message style defined in [@commitlint/config-conventional](https://www.npmjs.com/package/@commitlint/config-conventional#rules). There is a pre-commit hook that will stop commits that don't follow the convention.
+
+### Releasing
+
+Once a PR has been approved and merged, you will want to kick off the release process. Make sure you are in the master branch, and have pulled the latest from the remote. Run:
+
+```
+git checkout master
+git pull
+yarn release
+[follow instructions]
+git push --follow-tags origin master
+```
+
+For more information, refer to the [packages readme](https://github.com/dhis2/cli-packages#release-and-generate-changelogmd-tags-etc)
