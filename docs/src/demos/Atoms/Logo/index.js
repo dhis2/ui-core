@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo, { LogoIcon, LogoWhite, LogoIconWhite } from 'Logo'
+import Logo, { LogoIcon, LogoWhite, LogoIconWhite } from 'core/Logo'
 import { Heading, Col, Divider, Spacer } from '../../../helpers'
 
 export class LogoDemo extends React.Component {

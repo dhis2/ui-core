@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Card from '../Card'
-import Icon from '../Icon'
-import InputField from '../InputField'
-import { gotoURL, isPointInRect } from '../utils'
+import Card from '../../core/Card'
+import Icon from '../../core/Icon'
+import InputField from '../../core/InputField'
+import { gotoURL, isPointInRect } from '../../utils'
 
 import cx from 'classnames'
 import styles from './styles.js'

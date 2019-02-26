@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import Menu from '../Menu'
 import Help from '../Help'
-import { isPointInRect } from '../utils'
+import { isPointInRect } from '../../utils'
 
 import cx from 'classnames'
 

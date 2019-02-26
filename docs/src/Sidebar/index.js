@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Logo from 'Logo'
+import Logo from 'core/Logo'
 
 function Title() {
     return (

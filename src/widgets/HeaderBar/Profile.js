@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Card from '../Card'
-import Icon from '../Icon'
-import Divider from '../Divider'
-import Menu from '../Menu'
-import MenuItem from '../Menu/MenuItem'
+import Card from '../../core/Card'
+import Icon from '../../core/Icon'
+import Divider from '../../core/Divider'
+import Menu from '../../core/Menu'
+import MenuItem from '../../core/Menu/MenuItem'
 
 import css from 'styled-jsx/css'
 
-import { gotoURL, isPointInRect } from '../utils'
+import { gotoURL, isPointInRect } from '../../utils'
 
 import styles from './styles.js'
 

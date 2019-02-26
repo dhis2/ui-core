@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Icon from '../Icon'
+import Icon from '../../core/Icon'
 
 import cx from 'classnames'
 import styles from './styles.js'
 
-import { colors } from '../colors.js'
+import { colors } from '../../core/colors.js'
 
 import css from 'styled-jsx/css'
 

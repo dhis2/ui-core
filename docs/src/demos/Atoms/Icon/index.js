@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from 'Icon'
+import Icon from 'core/Icon'
 import { Col, Divider, Text } from '../../../helpers'
 
 export class IconDemo extends React.Component {

@@ -1,16 +1,26 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-
-import Button from '../Button'
 import Menu from '../Menu'
 import Icon from '../Icon'
-import { isPointInRect } from '../utils'
+import { isPointInRect } from '../../utils'
+
+import css from 'styled-jsx/css'
 
 import buttons from '../Button/styles.js'
-import styles from './styles.js'
 
-class DropdownButton extends Component {
+import cx from 'classnames'
+import styles from './styles'
+
+const menuIcon = css.resolve`
+    i {
+        color: inherit;
+        font-size: 24px;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+`
+
+class SplitButton extends Component {
     state = {
         open: false,
     }
@@ -42,7 +52,6 @@ class DropdownButton extends Component {
 
     render() {
         const { open } = this.state
-
         let width = this.props.width
         if (!width) {
             width = this.elContainer
@@ -50,13 +59,11 @@ class DropdownButton extends Component {
                 : 'inherit'
         }
 
-        const icon = open ? 'arrow_drop_up' : 'arrow_drop_down'
-
         return (
             <div ref={c => (this.elContainer = c)}>
                 <button
                     disabled={this.props.disabled}
-                    onClick={this.onToggle}
+                    onClick={this.props.onClick}
                     className={cx(
                         'base',
                         `kind-${this.props.kind}`,
@@ -73,20 +80,34 @@ class DropdownButton extends Component {
                     {this.props.icon && (
                         <span className="button-icon">{this.props.icon}</span>
                     )}
+                    {this.props.label || this.props.children}
+                </button>
 
-                    <span className="menu-label">{this.props.label}</span>
-                    <Icon className="menu-icon" name={icon} />
+                <button
+                    disabled={this.props.disabled}
+                    onClick={this.onToggle}
+                    className={cx(
+                        'base',
+                        `kind-${this.props.kind}`,
+                        `size-${this.props.size}`
+                    )}
+                >
+                    <Icon
+                        className={menuIcon.className}
+                        name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
+                    />
                 </button>
 
                 {open && (
                     <div className="menu" ref={c => (this.elMenu = c)}>
                         <Menu
+                            width={`${width}px`}
                             list={this.props.list}
                             onClick={this.props.onClick}
                         />
                     </div>
                 )}
-
+                {menuIcon.styles}
                 <style jsx>{buttons}</style>
                 <style jsx>{styles}</style>
             </div>
@@ -94,27 +115,24 @@ class DropdownButton extends Component {
     }
 }
 
-DropdownButton.defaultProps = {
+SplitButton.defaultProps = {
     size: 'medium',
     kind: 'basic',
     disabled: false,
     width: '',
-    icon: null,
 }
 
-DropdownButton.propTypes = {
+SplitButton.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    label: PropTypes.string.isRequired,
     list: PropTypes.array.isRequired,
 
     width: PropTypes.string,
+    kind: PropTypes.oneOf(['basic', 'primary']),
     icon: PropTypes.element,
-
-    label: PropTypes.string,
-    kind: PropTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
-    type: PropTypes.oneOf(['submit', 'reset', 'button']),
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
-    onClick: PropTypes.func,
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
 }
 
-export { DropdownButton }
-export default DropdownButton
+export { SplitButton }
+export default SplitButton

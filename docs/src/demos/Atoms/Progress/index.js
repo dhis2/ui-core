@@ -1,7 +1,7 @@
 import React from 'react'
-import CircularProgress from 'CircularProgress'
-import LinearProgress from 'LinearProgress'
-import Card from 'Card'
+import CircularProgress from 'core/CircularProgress'
+import LinearProgress from 'core/LinearProgress'
+import Card from 'core/Card'
 import { Text, Row, Col, Divider } from '../../../helpers'
 
 function CenteredProgress(props) {
