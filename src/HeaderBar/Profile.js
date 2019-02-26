@@ -83,7 +83,6 @@ Header.propTypes = {
 const iconStyle = css.resolve`
     i {
         color: rgba(0, 0, 0, 0.7);
-        margin-right: 16px;
     }
 `
 

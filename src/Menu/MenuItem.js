@@ -5,6 +5,17 @@ import Menu from './index'
 import cx from 'classnames'
 import styles from './styles'
 
+import css from 'styled-jsx/css'
+
+const subChevron = css.resolve`
+    i {
+        margin: 0 -14px 0 auto;
+        font-size: 18px;
+        pointer-events: none;
+        user-select: none;
+    }
+`
+
 function SubMenu({ size, list, onClick }) {
     return (
         <div className={cx('sub-menu')}>
@@ -35,12 +46,13 @@ export default function MenuItem({
             }}
         >
             {icon}
-            <div className={cx('label')}>{label}</div>
+            <div className="label">{label}</div>
             {hasMenu && (
-                <Icon name="chevron_right" className={cx('sub-chevron')} />
+                <Icon name="chevron_right" className={subChevron.className} />
             )}
             {hasMenu && <SubMenu size={size} list={list} onClick={onClick} />}
 
+            {subChevron.styles}
             <style jsx>{styles}</style>
         </li>
     )

@@ -21,6 +21,10 @@ export default css`
         cursor: pointer;
     }
 
+    .item div:not(:first-child) {
+        margin-left: 8px;
+    }
+
     .item:hover,
     .item.active {
         background-color: #f7f7f7;
@@ -72,13 +76,6 @@ export default css`
     }
 
     /* SUB-MENU */
-    .sub-chevron {
-        margin: 0 -14px 0 auto;
-        font-size: 18px;
-        pointer-events: none;
-        user-select: none;
-    }
-
     .sub-menu {
         display: none;
         position: absolute;
