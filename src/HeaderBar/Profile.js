@@ -55,7 +55,7 @@ ImageIcon.propTypes = {
 
 function Header({ name, email, img, baseURL }) {
     return (
-        <div className={cx('header')}>
+        <div className="header">
             {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
             <div className="details">
                 <div className="name">{name}</div>
@@ -67,6 +67,7 @@ function Header({ name, email, img, baseURL }) {
                     Edit profile
                 </a>
             </div>
+            <style jsx>{styles}</style>
         </div>
     )
 }

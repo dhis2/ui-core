@@ -236,12 +236,14 @@ export default css`
         width: 310px;
         border-top: 4px solid transparent;
     }
+
     .header {
         display: flex;
         flex-direction: row;
         margin-left: 24px;
         padding-top: 20px;
     }
+
     .header > .icon {
         width: 48px;
         height: 48px;
