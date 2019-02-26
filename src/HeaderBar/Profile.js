@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Card from '../Card'
+import Icon from '../Icon'
 import Divider from '../Divider'
 import Menu from '../Menu'
 import MenuItem from '../Menu/MenuItem'
@@ -36,7 +37,7 @@ TextIcon.propTypes = {
 
 function ImageIcon({ src, onClick }) {
     return (
-        <div className={cx('icon')} onClick={onClick}>
+        <div className="icon" onClick={onClick}>
             <img src={src} alt="user avatar" />
             <style jsx>{styles}</style>
         </div>
@@ -56,11 +57,11 @@ function Header({ name, email, img, baseURL }) {
     return (
         <div className={cx('header')}>
             {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
-            <div className={cx('details')}>
-                <div className={cx('name')}>{name}</div>
-                <div className={cx('email')}>{email}</div>
+            <div className="details">
+                <div className="name">{name}</div>
+                <div className="email">{email}</div>
                 <a
-                    className={cx('edit_profile')}
+                    className="edit_profile"
                     href={`${baseURL}/dhis-web-user-profile/#/profile`}
                 >
                     Edit profile
@@ -189,7 +190,7 @@ export default class Profile extends React.Component {
                                     key={`h-mi-${value}`}
                                     label={label}
                                     value={value}
-                                    icon={icon}
+                                    icon={<Icon name={icon} />}
                                     onClick={this.onClick}
                                 />
                             ))}
