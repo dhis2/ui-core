@@ -115,7 +115,7 @@ export default class Apps extends React.Component {
             if (isShown) {
                 document.addEventListener('click', this.handleDocClick)
                 document.addEventListener('keyup', this.handleKeyUp)
-                document.addEventListener('keydown', this.onKeyDown)
+                document.addEventListener('keydown', this.handleKeyDown)
             } else {
                 this.removeEventListeners()
             }
@@ -125,10 +125,10 @@ export default class Apps extends React.Component {
     removeEventListeners() {
         document.removeEventListener('click', this.handleDocClick)
         document.removeEventListener('keyup', this.handleKeyUp)
-        document.removeEventListener('keydown', this.onKeyDown)
+        document.removeEventListener('keydown', this.handleKeyDown)
     }
 
-    onKeyDown = evt => {
+    handleKeyDown = evt => {
         // When tabbing we remove the "simulated" focus, and let native-tabbing take control
         if (isTabKey(evt) && this.state.selectedIndex !== -1) {
             this.setState({ selectedIndex: -1 })
