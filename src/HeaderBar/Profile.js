@@ -7,9 +7,10 @@ import Divider from '../Divider'
 import Menu from '../Menu'
 import MenuItem from '../Menu/MenuItem'
 
+import css from 'styled-jsx/css'
+
 import { gotoURL, isPointInRect } from '../utils'
 
-import cx from 'classnames'
 import styles from './styles.js'
 
 function TextIcon({ name, onClick }) {
@@ -19,8 +20,8 @@ function TextIcon({ name, onClick }) {
     }
 
     return (
-        <div className={cx('icon')} onClick={onClick}>
-            <div className={cx('initials')}>{title}</div>
+        <div className="icon" onClick={onClick}>
+            <div className="initials">{title}</div>
             <style jsx>{styles}</style>
         </div>
     )
@@ -79,6 +80,13 @@ Header.propTypes = {
     baseURL: PropTypes.string,
 }
 
+const iconStyle = css.resolve`
+    i {
+        color: rgba(0, 0, 0, 0.7);
+        margin-right: 16px;
+    }
+`
+
 const list = [
     {
         icon: 'settings',
@@ -94,6 +102,11 @@ const list = [
         icon: 'help',
         label: 'Help',
         value: 'help',
+    },
+    {
+        icon: 'info',
+        label: 'About DHIS2',
+        value: 'about',
     },
     {
         icon: 'exit_to_app',
@@ -138,6 +151,7 @@ export default class Profile extends React.Component {
             edit_profile: `${baseURL}/dhis-web-user-profile/#/profile`,
             settings: `${baseURL}/dhis-web-user-profile/#/settings`,
             account: `${baseURL}/dhis-web-user-profile/#/account`,
+            about: `${baseURL}/dhis-web-user-profile/#/aboutPage`,
             help:
                 'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html',
             logout: `${baseURL}/dhis-web-commons-security/logout.action`,
@@ -174,9 +188,9 @@ export default class Profile extends React.Component {
         }
 
         return (
-            <div className={cx('contents')} ref={c => (this.elContents = c)}>
+            <div className="contents" ref={c => (this.elContents = c)}>
                 <Card>
-                    <div className={cx('profile-alignment')}>
+                    <div className="profile-alignment">
                         <Header
                             baseURL={this.props.baseURL}
                             img={this.props.profile.img}
@@ -185,19 +199,25 @@ export default class Profile extends React.Component {
                             onClick={this.onHeaderClick}
                         />
                         <Divider margin="13px 0 7px 0" />
-                        <ul className={cx()}>
+                        <ul>
                             {list.map(({ label, value, icon }) => (
                                 <MenuItem
                                     key={`h-mi-${value}`}
                                     label={label}
                                     value={value}
-                                    icon={<Icon name={icon} />}
+                                    icon={
+                                        <Icon
+                                            name={icon}
+                                            className={iconStyle.className}
+                                        />
+                                    }
                                     onClick={this.onClick}
                                 />
                             ))}
                         </ul>
                     </div>
                 </Card>
+                {iconStyle.styles}
                 <style jsx>{styles}</style>
             </div>
         )
@@ -205,7 +225,7 @@ export default class Profile extends React.Component {
 
     render() {
         return (
-            <div className={cx('profile')} ref={c => (this.elContainer = c)}>
+            <div className="profile" ref={c => (this.elContainer = c)}>
                 {this.viewIcon()}
                 {this.viewContents()}
                 <style jsx>{styles}</style>
