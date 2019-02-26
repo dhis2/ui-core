@@ -61,7 +61,7 @@ the code and example for both **LTR** and **RTL** modes.
 
 ### Run the demo while actively developing
 
-First install dependencies for both the ui components and the demo (in docs folder):
+First install dependencies for both the ui components (in root_dir) and the demo (in docs folder):
 
 ```
 cd [root_dir]
@@ -79,9 +79,11 @@ cd [root_dir]/docs
 yarn start
 ```
 
-### Apply the [dhis2 code-style](https://github.com/dhis2/cli-style)
+The demo runs on localhost:5000.
 
-There is a commit hook that will apply the code style to staged files, but if you want to do this manually during development, run:
+### Apply the code style
+
+This library follows the [dhis2 code-style](https://github.com/dhis2/cli-style). There is a commit hook that will apply the code style to staged files, but if you want to do this manually during development, run:
 
 ```
 yarn format
@@ -101,9 +103,11 @@ This library follows the commit message style defined in [@commitlint/config-con
 
 ### Releasing
 
-Once a PR has been approved and merged, you will want to kick-off the release process. Make sure you are in the master branch, and have pulled the latest from the remote. Then run:
+Once a PR has been approved and merged, you will want to kick off the release process. Make sure you are in the master branch, and have pulled the latest from the remote. Run:
 
 ```
+git checkout master
+git pull
 yarn release
 [follow instructions]
 git push --follow-tags origin master
