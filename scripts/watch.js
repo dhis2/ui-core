@@ -84,23 +84,6 @@ async function main() {
                 )
                 break
 
-            case CSS:
-                try {
-                    const { plugins } = await postcssrc({ parser: true })
-                    const pss = await fs.readFile(filename, 'utf8')
-                    const { css } = await postcss(plugins).process(pss, {
-                        from: filename,
-                        to: distfile,
-                        map: 'inline',
-                    })
-
-                    console.info(`Writing transpiled ${ext} to '${distfile}'.`)
-                    await writeFile(distfile, css)
-                } catch (err) {
-                    console.error('... CSS preprocessing failed.\n', err)
-                }
-                break
-
             default:
                 try {
                     console.info(`Copying to '${distfile}'...`)
@@ -108,6 +91,7 @@ async function main() {
                 } catch (err) {
                     console.error('... File copy failed.\n', err)
                 }
+                break
         }
     }
 
