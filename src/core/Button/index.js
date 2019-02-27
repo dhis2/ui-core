@@ -1,7 +1,11 @@
+import cx from 'classnames'
+
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import Icon from '../Icon'
-import cx, { rx } from './styles'
+
+import styles from './styles.js'
 
 function Button({
     type,
@@ -17,19 +21,21 @@ function Button({
         <button
             disabled={disabled}
             onClick={onClick}
-            className={rx('base', `kind-${kind}`, `size-${size}`, {
+            className={cx('base', `kind-${kind}`, `size-${size}`, {
                 'icon-only': icon && !label && !children,
                 icon,
             })}
         >
-            {icon && <Icon className={cx('button-icon')} name={icon} />}
+            {icon && <span className="button-icon">{icon}</span>}
             {label || children}
+
+            <style jsx>{styles}</style>
         </button>
     )
 }
 
 Button.defaultProps = {
-    icon: '',
+    icon: null,
     label: '',
     kind: 'basic',
     type: 'button',
@@ -39,7 +45,7 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-    icon: PropTypes.string,
+    icon: PropTypes.element,
     label: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
     type: PropTypes.oneOf(['submit', 'reset', 'button']),

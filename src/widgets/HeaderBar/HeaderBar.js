@@ -6,7 +6,18 @@ import NotificationIcon from './NotificationIcon'
 import Apps from './Apps'
 import Profile from './Profile'
 
-import { rx } from './styles.js'
+import cx from 'classnames'
+import styles from './styles.js'
+
+import css from 'styled-jsx/css'
+
+const logotype = css.resolve`
+    svg {    
+        width: 27px;
+        height: 25px;
+        cursor: pointer;
+    }
+`
 
 function getTitle(instanceName, appName = '') {
     if (!appName) {
@@ -26,18 +37,19 @@ function HeaderBar({
     interpretations,
 }) {
     return (
-        <header className={rx('base', 'blue')}>
-            <div className={rx('first')}>
-                <div className={rx('logo')}>
-                    <a href={`${baseURL}`} className={rx()}>
-                        <LogoIconWhite />
+        <header className="blue">
+            <div>
+                <div className="headerbar-logo">
+                    <a href={`${baseURL}`}>
+                        <LogoIconWhite className={logotype.className} />
                     </a>
                 </div>
-                <div className={rx('title')}>
+                <div className="headerbar-title">
                     {getTitle(instanceName, appName)}
                 </div>
             </div>
-            <div className={rx('last')}>
+
+            <div>
                 <NotificationIcon
                     icon="message"
                     count={interpretations.count}
@@ -51,6 +63,9 @@ function HeaderBar({
                 <Apps apps={apps} baseURL={baseURL} />
                 <Profile profile={profile} baseURL={baseURL} />
             </div>
+
+            {logotype.styles}
+            <style jsx>{styles}</style>
         </header>
     )
 }

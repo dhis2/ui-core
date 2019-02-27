@@ -1,3 +1,3 @@
-import { HeaderBarContainer } from './HeaderBar.Container'
-export { HeaderBarContainer }
-export default HeaderBarContainer
+import { HeaderBar } from './HeaderBar.js'
+export { HeaderBar }
+export default HeaderBar

@@ -1,17 +1,45 @@
-import classNames from '../../utils/css'
+import css from 'styled-jsx/css'
 
-import '../../defaults/colors.css'
+export default css`
+    i {
+        word-wrap: normal;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        font-family: 'Material Icons';
+        font-feature-settings: 'liga';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: normal;
+        letter-spacing: normal;
 
-import '../../defaults/common.css'
-import common from '../../defaults/common.json'
+        line-height: 1;
+        direction: ltr;
+        text-transform: none;
+        white-space: nowrap;
+        content: ' ';
+    }
 
-import './styles.css'
-import styles from './styles.json'
+    .align-icon .material-icons {
+        width: 24px;
+        height: 0.9375rem;
+        line-height: 0.9375rem;
+        pointer-events: none;
+    }
+    .align-icon .material-icons:first-child {
+        margin-right: 0.75rem;
+        margin-left: 0;
+    }
 
-const cx = classNames({
-    ...common,
-    ...styles,
-})
+    .align-icon .material-icons:last-child {
+        margin-right: 0;
+        margin-left: 0.75rem;
+    }
 
-export default cx
-export const rx = (...args) => cx('reset', ...args)
+    .align-icon .material-icons:only-child {
+        margin-right: 0;
+        margin-left: 0;
+    }
+`

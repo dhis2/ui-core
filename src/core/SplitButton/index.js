@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Button from '../Button'
-import cx, { rx } from './styles'
 import Menu from '../Menu'
 import Icon from '../Icon'
 import { isPointInRect } from '../../utils'
+
+import css from 'styled-jsx/css'
+
+import buttons from '../Button/styles.js'
+
+import cx from 'classnames'
+import styles from './styles'
+
+const menuIcon = css.resolve`
+    i {
+        color: inherit;
+        font-size: 24px;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+`
 
 class SplitButton extends Component {
     state = {
@@ -46,53 +60,66 @@ class SplitButton extends Component {
         }
 
         return (
-            <div className={rx('base')} ref={c => (this.elContainer = c)}>
-                <Button
-                    icon={this.props.icon}
-                    kind={this.props.kind}
-                    label={this.props.label}
-                    active={this.props.active}
+            <div ref={c => (this.elContainer = c)}>
+                <button
                     disabled={this.props.disabled}
                     onClick={this.props.onClick}
-                />
+                    className={cx(
+                        'base',
+                        `kind-${this.props.kind}`,
+                        `size-${this.props.size}`,
+                        {
+                            'icon-only':
+                                this.props.icon &&
+                                !this.props.label &&
+                                !this.props.children,
+                            icon: this.props.icon,
+                        }
+                    )}
+                >
+                    {this.props.icon && (
+                        <span className="button-icon">{this.props.icon}</span>
+                    )}
+                    {this.props.label || this.props.children}
+                </button>
 
-                <Button
-                    kind={this.props.kind}
-                    active={this.props.active}
+                <button
                     disabled={this.props.disabled}
                     onClick={this.onToggle}
+                    className={cx(
+                        'base',
+                        `kind-${this.props.kind}`,
+                        `size-${this.props.size}`
+                    )}
                 >
                     <Icon
-                        className={cx('menu-icon')}
+                        className={menuIcon.className}
                         name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
                     />
-                </Button>
+                </button>
 
                 {open && (
-                    <div
-                        className={rx('menu', `${this.props.size}`)}
-                        ref={c => (this.elMenu = c)}
-                    >
+                    <div className="menu" ref={c => (this.elMenu = c)}>
                         <Menu
                             width={`${width}px`}
-                            size={this.props.size}
                             list={this.props.list}
                             onClick={this.props.onClick}
                         />
                     </div>
                 )}
+                {menuIcon.styles}
+                <style jsx>{buttons}</style>
+                <style jsx>{styles}</style>
             </div>
         )
     }
 }
 
 SplitButton.defaultProps = {
-    size: 'default',
+    size: 'medium',
     kind: 'basic',
-    active: false,
     disabled: false,
     width: '',
-    icon: '',
 }
 
 SplitButton.propTypes = {
@@ -102,10 +129,9 @@ SplitButton.propTypes = {
 
     width: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary']),
-    icon: PropTypes.string,
-    active: PropTypes.bool,
+    icon: PropTypes.element,
     disabled: PropTypes.bool,
-    size: PropTypes.oneOf(['default', 'dense']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
 }
 
 export { SplitButton }

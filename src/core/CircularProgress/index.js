@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cx, { rx } from './styles'
+import cx from 'classnames'
+
+import styles from './styles.js'
 
 function Circle() {
     return (
@@ -19,13 +21,14 @@ function Circle() {
 
 function CircularProgress({ size, overlay }) {
     const loader = (
-        <div role="progressbar" className={rx('base', size)}>
+        <div role="progressbar" className={cx('base', size)}>
             <Circle />
+            <style jsx>{styles}</style>
         </div>
     )
 
     if (overlay) {
-        return <div className={rx('overlay')}>{loader}</div>
+        return <div className={cx('overlay')}>{loader}</div>
     }
 
     return loader

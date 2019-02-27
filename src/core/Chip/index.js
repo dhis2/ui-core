@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+
 import Icon from '../Icon'
-import cx, { rx } from './styles'
+
+import styles from './styles.js'
 
 class Chip extends React.PureComponent {
     onClick = () => {
@@ -23,7 +26,17 @@ class Chip extends React.PureComponent {
 
         if (this.props.type === 'image') {
             return (
-                <img src={icon} alt="chip icon" className={rx('image-icon')} />
+                <React.Fragment>
+                    <img src={icon} alt="chip icon" className="image-icon" />
+                    <style jsx>{`
+                        .image-icon {
+                            width: 24px;
+                            height: 24px;
+                            margin-left: 4px;
+                            border-radius: 50%;
+                        }
+                    `}</style>
+                </React.Fragment>
             )
         }
 
@@ -47,7 +60,7 @@ class Chip extends React.PureComponent {
 
         return (
             <div
-                className={rx('base', {
+                className={cx('base', {
                     selected,
                     disabled,
                     dragging,
@@ -56,8 +69,10 @@ class Chip extends React.PureComponent {
                 onClick={this.onClick}
             >
                 {this.showIcon()}
-                <span className={rx('label', { overflow })}>{label}</span>
+                <span className={cx('label', { overflow })}>{label}</span>
                 {this.showRemove()}
+
+                <style jsx>{styles}</style>
             </div>
         )
     }

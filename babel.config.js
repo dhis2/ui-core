@@ -21,9 +21,7 @@ module.exports = function(api) {
         [
             '@babel/preset-env',
             {
-                modules: ['modules'].includes(process.env.BABEL_ENV)
-                    ? false
-                    : 'commonjs',
+                modules: 'commonjs',
             },
         ],
     ]
@@ -34,6 +32,7 @@ module.exports = function(api) {
             '@babel/plugin-proposal-class-properties',
             '@babel/plugin-proposal-object-rest-spread',
             '@babel/plugin-transform-react-constant-elements',
+            'styled-jsx/babel',
         ],
     }
 }

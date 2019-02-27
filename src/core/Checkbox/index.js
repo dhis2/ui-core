@@ -1,8 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import Icon from '../Icon'
-import cx, { rx } from './styles'
+
+import { colors } from '../colors.js'
+import styles from './styles.js'
+
+import css from 'styled-jsx/css'
+
+const icons = {
+    default: css.resolve`i { color: ${colors.grey700}; }`,
+    checked: css.resolve`i { color: ${colors.teal400}; }`,
+    valid: css.resolve`i { color: ${colors.blue600}; }`,
+    warning: css.resolve`i { color: ${colors.yellow500}; }`,
+    error: css.resolve`i { color: ${colors.red500}; }`,
+}
 
 class Checkbox extends React.Component {
     state = {
@@ -18,7 +31,9 @@ class Checkbox extends React.Component {
     }
 
     render() {
-        const { required, status } = this.props
+        const { required, status, checked } = this.props
+        const state = status === 'default' && checked ? 'checked' : status
+
         let name = 'check_box_outline_blank'
 
         if (this.state.indeterminate) {
@@ -27,19 +42,11 @@ class Checkbox extends React.Component {
             name = 'check_box'
         }
 
-        const icon = (
-            <Icon
-                name={name}
-                className={cx('icon', `${status}-icon`, {
-                    disabled: this.props.disabled,
-                    checked: this.props.checked,
-                })}
-            />
-        )
+        const icon = <Icon name={name} className={icons[state].className} />
 
         return (
             <label
-                className={rx('base', {
+                className={cx('base', {
                     disabled: this.props.disabled,
                 })}
             >
@@ -50,9 +57,12 @@ class Checkbox extends React.Component {
                     disabled={this.props.disabled}
                 />
                 {icon}
-                <span className={rx('label', { required })}>
+                <span className={cx('label', { required })}>
                     {this.props.label}
                 </span>
+
+                {icons[state].styles}
+                <style jsx>{styles}</style>
             </label>
         )
     }

@@ -1,8 +1,14 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+
 import Icon from '../Icon'
-import cx, { rx } from './styles'
-import { Help } from '../helpers'
+import Help from '../Help'
+
+import css from 'styled-jsx/css'
+import styles from './styles.js'
+
+import { colors } from '../colors.js'
 
 const statusToIcon = {
     valid: 'check_circle',
@@ -10,12 +16,24 @@ const statusToIcon = {
     error: 'error',
 }
 
-function icon(i, action = null, extra = null) {
+const icons = {
+    default: css.resolve`i { color: ${colors.grey700}; margin-right: 8px; }`,
+    valid: css.resolve`i { color: ${colors.blue600}; margin-right: 8px; }`,
+    warning: css.resolve`i { color: ${colors.yellow500}; margin-right: 8px; }`,
+    error: css.resolve`i { color: ${colors.red500}; margin-right: 8px; }`,
+}
+
+function icon(i, action = null, extra = 'default') {
     if (i) {
         return (
-            <div className={rx()}>
-                <Icon name={i} onClick={action} className={cx('icon', extra)} />
-            </div>
+            <Fragment>
+                <Icon
+                    name={i}
+                    onClick={action}
+                    className={icons[extra].className}
+                />
+                {icons[extra].styles}
+            </Fragment>
         )
     }
     return null
@@ -23,7 +41,7 @@ function icon(i, action = null, extra = null) {
 
 function trailIcon(status, trail, fn) {
     if (status !== 'default') {
-        return icon(statusToIcon[status], fn, `icon-${status}`)
+        return icon(statusToIcon[status], fn, status)
     } else {
         return icon(trail, fn)
     }
@@ -88,13 +106,13 @@ class InputField extends React.Component {
 
         return (
             <div
-                className={rx('base', {
+                className={cx('base', {
                     focused: this.isFocused(),
                     disabled: this.props.disabled,
                 })}
             >
                 <div
-                    className={rx('field', {
+                    className={cx('field', {
                         [`size-${this.props.size}`]: true,
                         [`status-${this.props.status}`]: true,
                         [`kind-${this.props.kind}`]: true,
@@ -105,7 +123,7 @@ class InputField extends React.Component {
                 >
                     <label
                         ref={this.labelRef}
-                        className={rx('label', {
+                        className={cx('label', {
                             [`${this.props.status}`]: true,
                             [`${this.props.size}`]: true,
                             [`${this.props.kind}`]: true,
@@ -120,17 +138,14 @@ class InputField extends React.Component {
                     </label>
                     {this.props.kind === 'outlined' && (
                         <fieldset
-                            className={rx('flatline', {
+                            className={cx('flatline', {
                                 [`${this.props.status}`]: true,
                                 focused: this.isFocused(),
                                 idle: !this.isFocused(),
                                 filled: this.props.value,
                             })}
                         >
-                            <legend
-                                className={rx('legend')}
-                                style={legendWidth}
-                            >
+                            <legend className="legend" style={legendWidth}>
                                 <span>&#8203;</span>
                             </legend>
                         </fieldset>
@@ -138,7 +153,7 @@ class InputField extends React.Component {
 
                     {icon(this.props.icon)}
                     <input
-                        className={rx('input', {
+                        className={cx({
                             disabled: this.props.disabled,
                         })}
                         ref={this.inputRef}
@@ -159,6 +174,7 @@ class InputField extends React.Component {
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />
                 )}
+                <style jsx>{styles}</style>
             </div>
         )
     }

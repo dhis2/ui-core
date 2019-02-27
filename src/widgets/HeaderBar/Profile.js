@@ -2,14 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Card from '../../core/Card'
-import MenuItem from '../../core/Menu/MenuItem.js'
-import Divider from '../../core/helpers/Divider'
+import Icon from '../../core/Icon'
+import Divider from '../../core/Divider'
 import Menu from '../../core/Menu'
+import MenuItem from '../../core/Menu/MenuItem'
 
-import { gotoURL } from '../../utils/url.js'
-import { isPointInRect } from '../../utils/math.js'
+import css from 'styled-jsx/css'
 
-import { rx } from './styles.js'
+import { gotoURL, isPointInRect } from '../../utils'
+
+import styles from './styles.js'
 
 function TextIcon({ name, onClick }) {
     let title = name[0]
@@ -18,8 +20,9 @@ function TextIcon({ name, onClick }) {
     }
 
     return (
-        <div className={rx('icon')} onClick={onClick}>
-            <div className={rx('initials')}>{title}</div>
+        <div className="icon" onClick={onClick}>
+            <div className="initials">{title}</div>
+            <style jsx>{styles}</style>
         </div>
     )
 }
@@ -35,8 +38,9 @@ TextIcon.propTypes = {
 
 function ImageIcon({ src, onClick }) {
     return (
-        <div className={rx('icon')} onClick={onClick}>
+        <div className="icon" onClick={onClick}>
             <img src={src} alt="user avatar" />
+            <style jsx>{styles}</style>
         </div>
     )
 }
@@ -52,18 +56,19 @@ ImageIcon.propTypes = {
 
 function Header({ name, email, img, baseURL }) {
     return (
-        <div className={rx('header')}>
+        <div className="header">
             {img ? <ImageIcon src={img} /> : <TextIcon name={name} />}
-            <div className={rx('details')}>
-                <div className={rx('name')}>{name}</div>
-                <div className={rx('email')}>{email}</div>
+            <div className="details">
+                <div className="name">{name}</div>
+                <div className="email">{email}</div>
                 <a
-                    className={rx('edit_profile')}
+                    className="edit_profile"
                     href={`${baseURL}/dhis-web-user-profile/#/profile`}
                 >
                     Edit profile
                 </a>
             </div>
+            <style jsx>{styles}</style>
         </div>
     )
 }
@@ -74,6 +79,12 @@ Header.propTypes = {
     img: PropTypes.string,
     baseURL: PropTypes.string,
 }
+
+const iconStyle = css.resolve`
+    i {
+        color: rgba(0, 0, 0, 0.7);
+    }
+`
 
 const list = [
     {
@@ -90,6 +101,11 @@ const list = [
         icon: 'help',
         label: 'Help',
         value: 'help',
+    },
+    {
+        icon: 'info',
+        label: 'About DHIS2',
+        value: 'about',
     },
     {
         icon: 'exit_to_app',
@@ -134,6 +150,7 @@ export default class Profile extends React.Component {
             edit_profile: `${baseURL}/dhis-web-user-profile/#/profile`,
             settings: `${baseURL}/dhis-web-user-profile/#/settings`,
             account: `${baseURL}/dhis-web-user-profile/#/account`,
+            about: `${baseURL}/dhis-web-user-profile/#/aboutPage`,
             help:
                 'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html',
             logout: `${baseURL}/dhis-web-commons-security/logout.action`,
@@ -151,15 +168,16 @@ export default class Profile extends React.Component {
     viewIcon() {
         if (this.props.profile.img) {
             return (
-                <ImageIcon
-                    src={this.props.profile.img}
-                    onClick={this.onToggle}
-                />
+                <ImageIcon src={this.props.profile.img} onClick={this.onToggle}>
+                    <style jsx>{styles}</style>
+                </ImageIcon>
             )
         }
 
         return (
-            <TextIcon name={this.props.profile.name} onClick={this.onToggle} />
+            <TextIcon name={this.props.profile.name} onClick={this.onToggle}>
+                <style jsx>{styles}</style>
+            </TextIcon>
         )
     }
 
@@ -169,9 +187,9 @@ export default class Profile extends React.Component {
         }
 
         return (
-            <div className={rx('contents')} ref={c => (this.elContents = c)}>
+            <div className="contents" ref={c => (this.elContents = c)}>
                 <Card>
-                    <div className={rx('profile-alignment')}>
+                    <div className="profile-alignment">
                         <Header
                             baseURL={this.props.baseURL}
                             img={this.props.profile.img}
@@ -180,28 +198,36 @@ export default class Profile extends React.Component {
                             onClick={this.onHeaderClick}
                         />
                         <Divider margin="13px 0 7px 0" />
-                        <ul className={rx()}>
+                        <ul>
                             {list.map(({ label, value, icon }) => (
                                 <MenuItem
                                     key={`h-mi-${value}`}
                                     label={label}
                                     value={value}
-                                    icon={icon}
+                                    icon={
+                                        <Icon
+                                            name={icon}
+                                            className={iconStyle.className}
+                                        />
+                                    }
                                     onClick={this.onClick}
                                 />
                             ))}
                         </ul>
                     </div>
                 </Card>
+                {iconStyle.styles}
+                <style jsx>{styles}</style>
             </div>
         )
     }
 
     render() {
         return (
-            <div className={rx('profile')} ref={c => (this.elContainer = c)}>
+            <div className="profile" ref={c => (this.elContainer = c)}>
                 {this.viewIcon()}
                 {this.viewContents()}
+                <style jsx>{styles}</style>
             </div>
         )
     }

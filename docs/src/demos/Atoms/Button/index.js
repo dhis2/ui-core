@@ -3,6 +3,7 @@ import React from 'react'
 import Button from 'core/Button'
 import SplitButton from 'core/SplitButton'
 import DropdownButton from 'core/DropdownButton'
+import Icon from 'core/Icon'
 
 import { Row, Divider, Heading } from '../../../helpers'
 
@@ -53,7 +54,7 @@ const list = [
     {
         label: 'Menu item 2',
         value: '2',
-        icon: 'favorite',
+        icon: <Icon name="favorite" />,
     },
     {
         type: 'divider',
@@ -78,7 +79,7 @@ const buttons = {
             kind: 'primary',
         },
         {
-            icon: 'add',
+            icon: <Icon name="add" />,
             label: 'with icon',
             kind: 'primary',
         },
@@ -94,7 +95,7 @@ const buttons = {
             kind: 'secondary',
         },
         {
-            icon: 'add',
+            icon: <Icon name="add" />,
             label: 'with icon',
             kind: 'secondary',
         },
@@ -108,7 +109,7 @@ const buttons = {
             label: 'disabled',
         },
         {
-            icon: 'add',
+            icon: <Icon name="add" />,
             label: 'with icon',
         },
     ],
@@ -123,7 +124,7 @@ const buttons = {
             kind: 'destructive',
         },
         {
-            icon: 'add',
+            icon: <Icon name="add" />,
             label: 'with icon',
             kind: 'destructive',
         },
@@ -137,7 +138,7 @@ const buttons = {
         },
         {
             list,
-            icon: 'face',
+            icon: <Icon name="face" />,
             kind: 'primary',
             label: 'with icon',
             onClick: v => console.log('Clicked on DropdownButton', v),
@@ -158,7 +159,7 @@ const buttons = {
         {
             list,
             kind: 'primary',
-            icon: 'face',
+            icon: <Icon name="face" />,
             label: 'with icon',
             onClick: v => console.log('Clicked on SplitButton', v),
         },

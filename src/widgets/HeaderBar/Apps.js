@@ -4,15 +4,22 @@ import PropTypes from 'prop-types'
 import Card from '../../core/Card'
 import Icon from '../../core/Icon'
 import InputField from '../../core/InputField'
+import { gotoURL, isPointInRect } from '../../utils'
 
-import { gotoURL } from '../../utils/url.js'
-import { isPointInRect } from '../../utils/math.js'
+import cx from 'classnames'
+import styles from './styles.js'
 
-import cx, { rx } from './styles.js'
+import css from 'styled-jsx/css'
+
+const appIcon = css.resolve`
+    i {
+        cursor: pointer;
+    }
+`
 
 function Search({ value, onChange, onSettingsClick, onIconClick }) {
     return (
-        <div className={rx('search')}>
+        <div className={cx('search')}>
             <InputField
                 value={value}
                 name="filter"
@@ -29,6 +36,7 @@ function Search({ value, onChange, onSettingsClick, onIconClick }) {
                 className={cx('settings')}
                 onClick={onSettingsClick}
             />
+            <style jsx>{styles}</style>
         </div>
     )
 }
@@ -46,9 +54,10 @@ Search.propTypes = {
 
 function Item({ name, path, img }) {
     return (
-        <a href={path} className={rx('app')}>
-            <img src={img} alt="app logo" className={rx()} />
-            <div className={rx('name')}>{name}</div>
+        <a href={path} className={cx('app')}>
+            <img src={img} alt="app logo" className={cx()} />
+            <div className={cx('name')}>{name}</div>
+            <style jsx>{styles}</style>
         </a>
     )
 }
@@ -61,7 +70,7 @@ Item.propTypes = {
 
 function List({ apps, filter }) {
     return (
-        <div className={rx('modules')}>
+        <div className={cx('modules')}>
             {apps
                 .filter(({ name }) => {
                     return filter.length > 0
@@ -76,6 +85,7 @@ function List({ apps, filter }) {
                         img={img}
                     />
                 ))}
+            <style jsx>{styles}</style>
         </div>
     )
 }
@@ -120,11 +130,15 @@ export default class Apps extends React.Component {
 
     render() {
         return (
-            <div className={rx('apps')} ref={c => (this.elContainer = c)}>
-                <Icon name="apps" onClick={this.onToggle} />
+            <div className={cx('apps')} ref={c => (this.elContainer = c)}>
+                <Icon
+                    name="apps"
+                    onClick={this.onToggle}
+                    className={appIcon.className}
+                />
                 {this.state.show && (
                     <div
-                        className={rx('contents')}
+                        className={cx('contents')}
                         ref={c => (this.elApps = c)}
                     >
                         <Card>
@@ -141,6 +155,8 @@ export default class Apps extends React.Component {
                         </Card>
                     </div>
                 )}
+                {appIcon.styles}
+                <style jsx>{styles}</style>
             </div>
         )
     }

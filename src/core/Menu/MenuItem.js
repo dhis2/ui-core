@@ -2,12 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import Menu from './index'
-import cx, { rx } from './styles'
+import cx from 'classnames'
+import styles from './styles'
+
+import css from 'styled-jsx/css'
+
+const subChevron = css.resolve`
+    i {
+        margin: 0 -14px 0 auto;
+        font-size: 18px;
+        pointer-events: none;
+        user-select: none;
+    }
+`
 
 function SubMenu({ size, list, onClick }) {
     return (
-        <div className={rx('sub-menu')}>
+        <div className={cx('sub-menu')}>
             <Menu size={size} list={list} onClick={onClick} />
+            <style jsx>{styles}</style>
         </div>
     )
 }
@@ -25,25 +38,27 @@ export default function MenuItem({
     const hasMenu = list.length > 0
     return (
         <li
-            className={rx('item', { disabled, active })}
+            className={cx('item', { disabled, active })}
             onClick={evt => {
                 evt.preventDefault()
                 evt.stopPropagation()
                 onClick(value)
             }}
         >
-            {icon && <Icon name={icon} className={cx('icon')} />}
-            <div className={rx('label')}>{label}</div>
+            {icon}
+            <div className="label">{label}</div>
             {hasMenu && (
-                <Icon name="chevron_right" className={cx('sub-chevron')} />
+                <Icon name="chevron_right" className={subChevron.className} />
             )}
             {hasMenu && <SubMenu size={size} list={list} onClick={onClick} />}
+
+            {subChevron.styles}
+            <style jsx>{styles}</style>
         </li>
     )
 }
 
 MenuItem.defaultProps = {
-    icon: '',
     list: [],
     size: 'default',
     active: false,
@@ -53,7 +68,7 @@ MenuItem.defaultProps = {
 MenuItem.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    icon: PropTypes.string,
+    icon: PropTypes.element,
     list: PropTypes.array,
     active: PropTypes.bool,
     disabled: PropTypes.bool,

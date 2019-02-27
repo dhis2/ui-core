@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+
 import Button from '../Button'
-import cx, { rx } from './styles'
 import Menu from '../Menu'
 import Icon from '../Icon'
 import { isPointInRect } from '../../utils'
+
+import buttons from '../Button/styles.js'
+import styles from './styles.js'
 
 class DropdownButton extends Component {
     state = {
@@ -49,56 +53,67 @@ class DropdownButton extends Component {
         const icon = open ? 'arrow_drop_up' : 'arrow_drop_down'
 
         return (
-            <div
-                className={rx('base', `${this.props.size}`)}
-                ref={c => (this.elContainer = c)}
-            >
-                <Button
-                    icon={this.props.icon}
-                    kind={this.props.kind}
-                    active={this.props.active}
+            <div ref={c => (this.elContainer = c)}>
+                <button
                     disabled={this.props.disabled}
                     onClick={this.onToggle}
+                    className={cx(
+                        'base',
+                        `kind-${this.props.kind}`,
+                        `size-${this.props.size}`,
+                        {
+                            'icon-only':
+                                this.props.icon &&
+                                !this.props.label &&
+                                !this.props.children,
+                            icon: this.props.icon,
+                        }
+                    )}
                 >
-                    <span className={rx('menu-label')}>{this.props.label}</span>
-                    <Icon className={cx('menu-icon')} name={icon} />
-                </Button>
+                    {this.props.icon && (
+                        <span className="button-icon">{this.props.icon}</span>
+                    )}
+
+                    <span className="menu-label">{this.props.label}</span>
+                    <Icon className="menu-icon" name={icon} />
+                </button>
 
                 {open && (
-                    <div className={rx('menu')} ref={c => (this.elMenu = c)}>
+                    <div className="menu" ref={c => (this.elMenu = c)}>
                         <Menu
-                            size={this.props.size}
                             list={this.props.list}
                             onClick={this.props.onClick}
                         />
                     </div>
                 )}
+
+                <style jsx>{buttons}</style>
+                <style jsx>{styles}</style>
             </div>
         )
     }
 }
 
 DropdownButton.defaultProps = {
-    size: 'default',
+    size: 'medium',
     kind: 'basic',
-    active: false,
     disabled: false,
     width: '',
-    icon: '',
+    icon: null,
 }
 
 DropdownButton.propTypes = {
-    label: PropTypes.string.isRequired,
     list: PropTypes.array.isRequired,
-    onClick: PropTypes.func.isRequired,
-
-    kind: PropTypes.oneOf(['basic', 'primary']),
-    size: PropTypes.oneOf(['default', 'dense']),
 
     width: PropTypes.string,
-    icon: PropTypes.string,
-    active: PropTypes.bool,
+    icon: PropTypes.element,
+
+    label: PropTypes.string,
+    kind: PropTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
+    type: PropTypes.oneOf(['submit', 'reset', 'button']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
+    onClick: PropTypes.func,
 }
 
 export { DropdownButton }
