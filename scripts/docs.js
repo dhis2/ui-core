@@ -3,7 +3,7 @@ const fs = require('fs-extra')
 const path = require('path')
 
 function install_docs(docs, build) {
-    exec('npm install', { cwd: docs }, async function(error, stdout, stderr) {
+    exec('yarn install', { cwd: docs }, async function(error, stdout, stderr) {
         if (error) {
             console.error(`exec error: ${error}`)
             process.exit(1)
@@ -20,7 +20,7 @@ function install_docs(docs, build) {
 }
 
 function build_docs(docs, build) {
-    exec('npm run build', { cwd: docs }, async function(error, stdout, stderr) {
+    exec('yarn build', { cwd: docs }, async function(error, stdout, stderr) {
         if (error) {
             console.error(`exec error: ${error}`)
             process.exit(1)
