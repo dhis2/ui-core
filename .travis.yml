@@ -4,9 +4,9 @@ node_js:
 before_script:
 - npm install --global @dhis2/deploy-build
 script:
-- npm run build
-- npm run build:docs
-- npm run size
+- yarn build
+- yarn build:docs
+- yarn size
 deploy:
 - provider: script
   script: deploy-build
