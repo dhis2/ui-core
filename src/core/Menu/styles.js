@@ -21,7 +21,7 @@ export default css`
         cursor: pointer;
     }
 
-    .item div:not(:first-child) {
+    .item div.label:not(:first-child) {
         margin-left: 8px;
     }
 

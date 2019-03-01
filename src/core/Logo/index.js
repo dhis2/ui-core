@@ -30,6 +30,7 @@ LogoIcon.defaultProps = {
 }
 
 LogoIcon.propTypes = {
+    className: PropTypes.className,
     fill: PropTypes.string,
 }
 
@@ -93,6 +94,7 @@ Logo.defaultProps = {
 }
 
 Logo.propTypes = {
+    className: PropTypes.string,
     fill1: PropTypes.string,
     fill2: PropTypes.string,
 }

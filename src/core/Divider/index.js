@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import cx from 'classnames'
 import { colors } from '../colors.js'
 
-export function Divider({ margin }) {
+export function Divider({ margin, className }) {
     const style = { margin }
     return (
-        <div style={style} className="base">
+        <div style={style} className={cx('base', className)}>
             <style jsx>{`
                 .base {
                     display: inline-block;
@@ -24,6 +25,7 @@ Divider.defaultProps = {
 }
 
 Divider.propTypes = {
+    className: PropTypes.string,
     margin: PropTypes.string,
 }
 

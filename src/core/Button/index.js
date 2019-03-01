@@ -16,12 +16,13 @@ function Button({
     label,
     disabled,
     onClick,
+    className,
 }) {
     return (
         <button
             disabled={disabled}
             onClick={onClick}
-            className={cx('base', `kind-${kind}`, `size-${size}`, {
+            className={cx('base', `kind-${kind}`, `size-${size}`, className, {
                 'icon-only': icon && !label && !children,
                 icon,
             })}
@@ -35,8 +36,6 @@ function Button({
 }
 
 Button.defaultProps = {
-    icon: null,
-    label: '',
     kind: 'basic',
     type: 'button',
     size: 'medium',
@@ -45,6 +44,7 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
+    className: PropTypes.string,
     icon: PropTypes.element,
     label: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),

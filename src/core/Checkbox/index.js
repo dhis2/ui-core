@@ -31,7 +31,7 @@ class Checkbox extends React.Component {
     }
 
     render() {
-        const { required, status, checked } = this.props
+        const { required, status, checked, className } = this.props
         const state = status === 'default' && checked ? 'checked' : status
 
         let name = 'check_box_outline_blank'
@@ -46,7 +46,7 @@ class Checkbox extends React.Component {
 
         return (
             <label
-                className={cx('base', {
+                className={cx('base', className, {
                     disabled: this.props.disabled,
                 })}
             >
@@ -69,7 +69,6 @@ class Checkbox extends React.Component {
 }
 
 Checkbox.defaultProps = {
-    label: '',
     checked: false,
     required: false,
     disabled: false,
@@ -78,6 +77,7 @@ Checkbox.defaultProps = {
 }
 
 Checkbox.propTypes = {
+    className: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
 

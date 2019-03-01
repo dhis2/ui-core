@@ -4,10 +4,10 @@ import cx from 'classnames'
 
 import { colors } from '../colors.js'
 
-function Help({ text, status }) {
+function Help({ text, status, className }) {
     return (
         <p
-            className={cx('base', {
+            className={cx('base', className, {
                 [`status-${status}`]: true,
             })}
         >
@@ -50,6 +50,7 @@ Help.defaultProps = {
 }
 
 Help.propTypes = {
+    className: PropTypes.string,
     text: PropTypes.string.isRequired,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
 }

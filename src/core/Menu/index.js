@@ -7,10 +7,10 @@ import cx from 'classnames'
 
 import styles from './styles'
 
-export function Menu({ size, width, list, onClick }) {
+export function Menu({ size, width, list, onClick, className }) {
     return (
         <Card>
-            <ul className={cx('base', size)}>
+            <ul className={cx('base', size, className)}>
                 {list.map(
                     (
                         { label, value, icon, list, active, type, disabled },
@@ -47,6 +47,7 @@ Menu.defaultProps = {
 }
 
 Menu.propTypes = {
+    className: PropTypes.string,
     list: PropTypes.arrayOf(
         PropTypes.shape({
             type: PropTypes.oneOf(['divider']),
