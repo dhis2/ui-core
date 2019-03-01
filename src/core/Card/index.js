@@ -28,10 +28,6 @@ function Card({ className, children }) {
     )
 }
 
-Card.defaultProps = {
-    className: '',
-}
-
 Card.propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,

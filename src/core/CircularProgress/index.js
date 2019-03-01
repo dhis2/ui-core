@@ -19,9 +19,9 @@ function Circle() {
     )
 }
 
-function CircularProgress({ size, overlay }) {
+function CircularProgress({ size, overlay, className }) {
     const loader = (
-        <div role="progressbar" className={cx('base', size)}>
+        <div role="progressbar" className={cx('base', size, className)}>
             <Circle />
             <style jsx>{styles}</style>
         </div>
@@ -40,6 +40,7 @@ CircularProgress.defaultProps = {
 }
 
 CircularProgress.propTypes = {
+    className: PropTypes.string,
     overlay: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
 }

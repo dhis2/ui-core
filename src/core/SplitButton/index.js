@@ -68,6 +68,7 @@ class SplitButton extends Component {
                         'base',
                         `kind-${this.props.kind}`,
                         `size-${this.props.size}`,
+                        this.props.className,
                         {
                             'icon-only':
                                 this.props.icon &&
@@ -119,14 +120,13 @@ SplitButton.defaultProps = {
     size: 'medium',
     kind: 'basic',
     disabled: false,
-    width: '',
 }
 
 SplitButton.propTypes = {
+    className: PropTypes.string,
     onClick: PropTypes.func.isRequired,
     label: PropTypes.string.isRequired,
     list: PropTypes.array.isRequired,
-
     width: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary']),
     icon: PropTypes.element,

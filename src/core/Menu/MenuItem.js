@@ -16,9 +16,9 @@ const subChevron = css.resolve`
     }
 `
 
-function SubMenu({ size, list, onClick }) {
+function SubMenu({ size, list, onClick, className }) {
     return (
-        <div className={cx('sub-menu')}>
+        <div className={cx('sub-menu', className)}>
             <Menu size={size} list={list} onClick={onClick} />
             <style jsx>{styles}</style>
         </div>
@@ -34,11 +34,12 @@ export default function MenuItem({
     disabled,
     size,
     onClick,
+    className,
 }) {
     const hasMenu = list.length > 0
     return (
         <li
-            className={cx('item', { disabled, active })}
+            className={cx('item', className, { disabled, active })}
             onClick={evt => {
                 evt.preventDefault()
                 evt.stopPropagation()
@@ -66,6 +67,7 @@ MenuItem.defaultProps = {
 }
 
 MenuItem.propTypes = {
+    className: PropTypes.string,
     label: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     icon: PropTypes.element,

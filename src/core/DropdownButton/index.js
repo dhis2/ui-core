@@ -61,6 +61,7 @@ class DropdownButton extends Component {
                         'base',
                         `kind-${this.props.kind}`,
                         `size-${this.props.size}`,
+                        this.props.className,
                         {
                             'icon-only':
                                 this.props.icon &&
@@ -98,16 +99,13 @@ DropdownButton.defaultProps = {
     size: 'medium',
     kind: 'basic',
     disabled: false,
-    width: '',
-    icon: null,
 }
 
 DropdownButton.propTypes = {
+    className: PropTypes.string,
     list: PropTypes.array.isRequired,
-
     width: PropTypes.string,
     icon: PropTypes.element,
-
     label: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
     type: PropTypes.oneOf(['submit', 'reset', 'button']),

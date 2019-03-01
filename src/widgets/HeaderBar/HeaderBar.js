@@ -35,9 +35,10 @@ function HeaderBar({
     profile,
     messages,
     interpretations,
+    className,
 }) {
     return (
-        <header className="blue">
+        <header className={cx('blue', className)}>
             <div>
                 <div className="headerbar-logo">
                     <a href={`${baseURL}`}>
@@ -71,6 +72,7 @@ function HeaderBar({
 }
 
 HeaderBar.propTypes = {
+    className: PropTypes.string,
     baseURL: PropTypes.string,
     instanceName: PropTypes.string.isRequired,
     appName: PropTypes.string,

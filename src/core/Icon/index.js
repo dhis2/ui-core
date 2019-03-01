@@ -15,12 +15,6 @@ function Icon({ name, className, onClick }) {
     )
 }
 
-Icon.defaultProps = {
-    name: '',
-    className: '',
-    onClick: undefined,
-}
-
 Icon.propTypes = {
     name: PropTypes.string.isRequired,
     className: PropTypes.string,

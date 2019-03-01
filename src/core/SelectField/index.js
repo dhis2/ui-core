@@ -134,7 +134,7 @@ class SelectField extends React.Component {
         return (
             <div
                 ref={c => (this.elContainer = c)}
-                className={cx('base', {
+                className={cx('base', this.props.className, {
                     selected: !!this.props.value,
                     disabled: this.props.disabled,
                     [`size-${this.props.size}`]: true,
@@ -236,9 +236,6 @@ class SelectField extends React.Component {
 }
 
 SelectField.defaultProps = {
-    value: '',
-    icon: '',
-    help: '',
     size: 'default',
     kind: 'filled',
     status: 'default',
@@ -247,6 +244,7 @@ SelectField.defaultProps = {
 }
 
 SelectField.propTypes = {
+    className: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
