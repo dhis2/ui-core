@@ -106,7 +106,7 @@ class InputField extends React.Component {
 
         return (
             <div
-                className={cx('base', {
+                className={cx('base', this.props.className, {
                     focused: this.isFocused(),
                     disabled: this.props.disabled,
                 })}
@@ -181,44 +181,31 @@ class InputField extends React.Component {
 }
 
 InputField.defaultProps = {
-    value: '',
-    label: '',
-    help: '',
-    placeholder: '',
-
-    icon: '',
-    trailIcon: '',
-
     status: 'default',
     size: 'default',
     kind: 'filled',
     type: 'text',
-
     focus: false,
     disabled: false,
     required: false,
-
     onTrailIconClick: null,
 }
 
 InputField.propTypes = {
+    className: PropTypes.string,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
-
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     label: PropTypes.string,
     placeholder: PropTypes.string,
     help: PropTypes.string,
-
     icon: PropTypes.string,
     trailIcon: PropTypes.string,
     onTrailIconClick: PropTypes.func,
-
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
     size: PropTypes.oneOf(['default', 'dense']),
     kind: PropTypes.oneOf(['filled', 'outlined']),
     type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
-
     focus: PropTypes.bool,
     disabled: PropTypes.bool,
     required: PropTypes.bool,

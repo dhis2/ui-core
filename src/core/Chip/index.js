@@ -56,11 +56,18 @@ class Chip extends React.PureComponent {
     }
 
     render() {
-        const { label, selected, disabled, dragging, overflow } = this.props
+        const {
+            label,
+            selected,
+            disabled,
+            dragging,
+            overflow,
+            className,
+        } = this.props
 
         return (
             <div
-                className={cx('base', {
+                className={cx('base', className, {
                     selected,
                     disabled,
                     dragging,
@@ -84,13 +91,11 @@ Chip.defaultProps = {
     disabled: false,
     dragging: false,
     overflow: true,
-    onClick: undefined,
-    onRemove: undefined,
 }
 
 Chip.propTypes = {
+    className: PropTypes.className,
     label: PropTypes.string.isRequired,
-
     icon: PropTypes.string,
     type: PropTypes.oneOf(['icon', 'image']),
     selected: PropTypes.bool,

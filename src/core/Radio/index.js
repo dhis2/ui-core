@@ -21,7 +21,7 @@ class Radio extends React.Component {
     onChange = () => this.props.onChange(this.props.name, this.props.value)
 
     render() {
-        const { required, status, checked } = this.props
+        const { required, status, checked, className } = this.props
 
         const state = status === 'default' && checked ? 'checked' : status
         const icon = (
@@ -37,7 +37,7 @@ class Radio extends React.Component {
 
         return (
             <label
-                className={cx('base', {
+                className={cx('base', className, {
                     disabled: this.props.disabled,
                 })}
             >
@@ -62,17 +62,16 @@ class Radio extends React.Component {
 }
 
 Radio.defaultProps = {
-    label: '',
     checked: false,
     status: 'default',
     disabled: false,
 }
 
 Radio.propTypes = {
+    className: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-
     label: PropTypes.string,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
