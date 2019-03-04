@@ -79,6 +79,7 @@ export default css`
     .disabled,
     .disabled .label {
         cursor: not-allowed;
+        color: ${colors.grey500};
     }
     input:disabled + .label::before {
         background-color: #dadada;

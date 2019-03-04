@@ -9,9 +9,14 @@ import MenuItem from '../../core/Menu/MenuItem'
 import css from 'styled-jsx/css'
 
 import { Settings } from '../../icons/Settings.js'
+import { Info } from '../../icons/Info.js'
+import { Help } from '../../icons/Help.js'
+import { Exit } from '../../icons/Exit.js'
+import { Account } from '../../icons/Account.js'
 
 import { gotoURL, isPointInRect } from '../../utils'
 
+import { colors } from '../../core/colors.js'
 import styles from './styles.js'
 
 function TextIcon({ name, onClick }) {
@@ -82,8 +87,11 @@ Header.propTypes = {
 }
 
 const iconStyle = css.resolve`
-    i {
-        color: rgba(0, 0, 0, 0.7);
+    svg {
+		fill: ${colors.grey900};
+        cursor: pointer;
+		height: 24px;
+		width: 24px;
     }
 `
 
@@ -94,22 +102,22 @@ const list = [
         value: 'settings',
     },
     {
-        icon: <Settings className={iconStyle.className} />,
+        icon: <Account className={iconStyle.className} />,
         label: 'Account',
         value: 'account',
     },
     {
-        icon: <Settings className={iconStyle.className} />,
+        icon: <Help className={iconStyle.className} />,
         label: 'Help',
         value: 'help',
     },
     {
-        icon: <Settings className={iconStyle.className} />,
+        icon: <Info className={iconStyle.className} />,
         label: 'About DHIS2',
         value: 'about',
     },
     {
-        icon: <Settings className={iconStyle.className} />,
+        icon: <Exit className={iconStyle.className} />,
         label: 'Logout',
         value: 'logout',
     },

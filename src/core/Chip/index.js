@@ -13,7 +13,8 @@ const removeIcon = css.resolve`
     svg {
         margin-right: 4px;
         color: ${colors.grey700};
-        font-size: 18px;
+		height: 18px;
+		width: 18px;
         cursor: pointer;
         opacity: 1;
         pointer-events: all;
@@ -68,6 +69,7 @@ class Chip extends React.PureComponent {
                         height: 24px;
                         margin-left: 4px;
                         border-radius: 50%;
+                        overflow: hidden;
                     }
                 `}</style>
             </React.Fragment>

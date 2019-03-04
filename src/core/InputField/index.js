@@ -18,21 +18,45 @@ const statusToIcon = {
 }
 
 const icons = {
-    default: css.resolve`i { color: ${colors.grey700}; margin-right: 8px; }`,
-    valid: css.resolve`i { color: ${colors.blue600}; margin-right: 8px; }`,
-    warning: css.resolve`i { color: ${colors.yellow500}; margin-right: 8px; }`,
-    error: css.resolve`i { color: ${colors.red500}; margin-right: 8px; }`,
+    default: css.resolve`
+		svg { 
+			fill: ${colors.grey700}; 
+			height: 24px;
+			width: 24px;
+			margin-right: 8px;
+		}
+	`,
+    valid: css.resolve`
+		svg {
+			fill: ${colors.blue600};
+			height: 24px;
+			width: 24px;
+			margin-right: 8px;
+		}
+	`,
+    warning: css.resolve`
+		svg {
+			fill: ${colors.yellow500};
+			height: 24px;
+			width: 24px;
+			margin-right: 8px;
+		}
+	`,
+    error: css.resolve`
+		svg {
+			fill: ${colors.red500};
+			height: 24px;
+			width: 24px;
+			margin-right: 8px;
+		}
+	`,
 }
 
 function icon(Icon, action = null, extra = 'default') {
     if (Icon) {
         return (
             <Fragment>
-                <Icon.type
-                    {...Icon.props}
-                    onClick={action}
-                    className={icons[extra].className}
-                />
+                <Icon.type {...Icon.props} className={icons[extra].className} />
                 {icons[extra].styles}
             </Fragment>
         )
@@ -44,7 +68,7 @@ function trailIcon(status, trail, fn) {
     if (status !== 'default') {
         return icon(statusToIcon[status], fn, status)
     } else {
-        return icon(trail, fn)
+        return trail
     }
 }
 
@@ -169,11 +193,7 @@ class InputField extends React.Component {
                         onChange={this.onChange}
                     />
 
-                    {trailIcon(
-                        this.props.status,
-                        this.props.trailIcon,
-                        this.props.onTrailIconClick
-                    )}
+                    {trailIcon(this.props.status, this.props.trailIcon)}
                 </div>
 
                 {this.props.help && (
@@ -194,7 +214,6 @@ InputField.defaultProps = {
     focus: false,
     disabled: false,
     required: false,
-    onTrailIconClick: null,
 }
 
 InputField.propTypes = {
@@ -207,7 +226,6 @@ InputField.propTypes = {
     help: PropTypes.string,
     icon: PropTypes.element,
     trailIcon: PropTypes.element,
-    onTrailIconClick: PropTypes.func,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
     size: PropTypes.oneOf(['default', 'dense']),
     kind: PropTypes.oneOf(['filled', 'outlined']),
