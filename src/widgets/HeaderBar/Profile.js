@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Card from '../../core/Card'
-import Icon from '../../core/Icon'
 import Divider from '../../core/Divider'
 import Menu from '../../core/Menu'
 import MenuItem from '../../core/Menu/MenuItem'
 
 import css from 'styled-jsx/css'
+
+import { Settings } from '../../icons/Settings.js'
 
 import { gotoURL, isPointInRect } from '../../utils'
 
@@ -88,27 +89,27 @@ const iconStyle = css.resolve`
 
 const list = [
     {
-        icon: 'settings',
+        icon: <Settings className={iconStyle.className} />,
         label: 'Settings',
         value: 'settings',
     },
     {
-        icon: 'account_box',
+        icon: <Settings className={iconStyle.className} />,
         label: 'Account',
         value: 'account',
     },
     {
-        icon: 'help',
+        icon: <Settings className={iconStyle.className} />,
         label: 'Help',
         value: 'help',
     },
     {
-        icon: 'info',
+        icon: <Settings className={iconStyle.className} />,
         label: 'About DHIS2',
         value: 'about',
     },
     {
-        icon: 'exit_to_app',
+        icon: <Settings className={iconStyle.className} />,
         label: 'Logout',
         value: 'logout',
     },
@@ -204,12 +205,7 @@ export default class Profile extends React.Component {
                                     key={`h-mi-${value}`}
                                     label={label}
                                     value={value}
-                                    icon={
-                                        <Icon
-                                            name={icon}
-                                            className={iconStyle.className}
-                                        />
-                                    }
+                                    icon={icon}
                                     onClick={this.onClick}
                                 />
                             ))}

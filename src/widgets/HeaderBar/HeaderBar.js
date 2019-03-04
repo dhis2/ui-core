@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { LogoIconWhite } from '../../core/Logo'
 import NotificationIcon from './NotificationIcon'
+
 import Apps from './Apps'
 import Profile from './Profile'
 

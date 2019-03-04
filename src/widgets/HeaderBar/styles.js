@@ -125,12 +125,6 @@ export default css`
         margin: 8px;
     }
 
-    .apps .settings {
-        margin: 8px 8px 0 16px;
-        color: #949394;
-        font-size: 22px;
-    }
-
     .modules {
         display: flex;
         flex-direction: row;

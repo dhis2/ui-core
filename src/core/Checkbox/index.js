@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import Icon from '../Icon'
-
 import { colors } from '../colors.js'
 import styles from './styles.js'
+
+import { Indeterminate, Checked, Unchecked } from '../../icons/Checkbox.js'
 
 import css from 'styled-jsx/css'
 
@@ -34,15 +34,15 @@ class Checkbox extends React.Component {
         const { required, status, checked, className } = this.props
         const state = status === 'default' && checked ? 'checked' : status
 
-        let name = 'check_box_outline_blank'
+        let icon = <Unchecked className={icons[state].className} />
 
         if (this.state.indeterminate) {
-            name = 'indeterminate_check_box'
+            icon = <Indeterminate className={icons[state].className} />
         } else if (this.props.checked) {
-            name = 'check_box'
+            icon = <Checked className={icons[state].className} />
         }
 
-        const icon = <Icon name={name} className={icons[state].className} />
+        console.log(icon)
 
         return (
             <label
@@ -80,7 +80,6 @@ Checkbox.propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
-
     label: PropTypes.string,
     checked: PropTypes.bool,
     required: PropTypes.bool,

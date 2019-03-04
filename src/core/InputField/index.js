@@ -2,8 +2,9 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import Icon from '../Icon'
 import Help from '../Help'
+
+import { Valid, Warning, Error } from '../../icons/Status.js'
 
 import css from 'styled-jsx/css'
 import styles from './styles.js'
@@ -11,9 +12,9 @@ import styles from './styles.js'
 import { colors } from '../colors.js'
 
 const statusToIcon = {
-    valid: 'check_circle',
-    warning: 'warning',
-    error: 'error',
+    valid: <Valid />,
+    warning: <Warning />,
+    error: <Error />,
 }
 
 const icons = {
@@ -23,12 +24,12 @@ const icons = {
     error: css.resolve`i { color: ${colors.red500}; margin-right: 8px; }`,
 }
 
-function icon(i, action = null, extra = 'default') {
-    if (i) {
+function icon(Icon, action = null, extra = 'default') {
+    if (Icon) {
         return (
             <Fragment>
-                <Icon
-                    name={i}
+                <Icon.type
+                    {...Icon.props}
                     onClick={action}
                     className={icons[extra].className}
                 />
@@ -136,6 +137,7 @@ class InputField extends React.Component {
                     >
                         {this.props.label}
                     </label>
+
                     {this.props.kind === 'outlined' && (
                         <fieldset
                             className={cx('flatline', {
@@ -152,6 +154,7 @@ class InputField extends React.Component {
                     )}
 
                     {icon(this.props.icon)}
+
                     <input
                         className={cx({
                             disabled: this.props.disabled,
@@ -165,15 +168,18 @@ class InputField extends React.Component {
                         onBlur={this.onBlur}
                         onChange={this.onChange}
                     />
+
                     {trailIcon(
                         this.props.status,
                         this.props.trailIcon,
                         this.props.onTrailIconClick
                     )}
                 </div>
+
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />
                 )}
+
                 <style jsx>{styles}</style>
             </div>
         )
@@ -199,8 +205,8 @@ InputField.propTypes = {
     label: PropTypes.string,
     placeholder: PropTypes.string,
     help: PropTypes.string,
-    icon: PropTypes.string,
-    trailIcon: PropTypes.string,
+    icon: PropTypes.element,
+    trailIcon: PropTypes.element,
     onTrailIconClick: PropTypes.func,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
     size: PropTypes.oneOf(['default', 'dense']),

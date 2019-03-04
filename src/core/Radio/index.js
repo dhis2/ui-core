@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import Icon from '../Icon'
-
 import { colors } from '../colors.js'
 import styles from './styles.js'
+
+import { Checked, Unchecked } from '../../icons/Radio.js'
 
 import css from 'styled-jsx/css'
 
@@ -24,15 +24,10 @@ class Radio extends React.Component {
         const { required, status, checked, className } = this.props
 
         const state = status === 'default' && checked ? 'checked' : status
-        const icon = (
-            <Icon
-                name={
-                    this.props.checked
-                        ? 'radio_button_checked'
-                        : 'radio_button_unchecked'
-                }
-                className={icons[state].className}
-            />
+        const icon = this.props.checked ? (
+            <Checked className={icons[state].className} />
+        ) : (
+            <Unchecked className={icons[state].className} />
         )
 
         return (

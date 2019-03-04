@@ -1,6 +1,8 @@
 import React from 'react'
 import InputField from 'core/InputField'
 
+import Icon from '../../../../Icon.js'
+
 import { Text, Row, Col, Divider } from '../../../../helpers'
 
 const fields = [
@@ -54,23 +56,23 @@ const fields = [
         list: [
             {
                 kind: 'filled',
-                icon: 'face',
+                icon: <Icon name="face" />,
                 placeholder: undefined,
             },
             {
                 kind: 'filled',
-                icon: 'face',
+                icon: <Icon name="face" />,
                 size: 'dense',
                 placeholder: undefined,
             },
             {
                 kind: 'outlined',
-                icon: 'face',
+                icon: <Icon name="face" />,
                 placeholder: undefined,
             },
             {
                 kind: 'outlined',
-                icon: 'face',
+                icon: <Icon name="face" />,
                 size: 'dense',
                 placeholder: undefined,
             },

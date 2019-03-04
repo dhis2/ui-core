@@ -1,20 +1,22 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Menu from '../Menu'
-import Icon from '../Icon'
 import { isPointInRect } from '../../utils'
 
 import css from 'styled-jsx/css'
 
 import buttons from '../Button/styles.js'
 
+import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
+
 import cx from 'classnames'
 import styles from './styles'
 
-const menuIcon = css.resolve`
-    i {
-        color: inherit;
-        font-size: 24px;
+const ArrowIcon = css.resolve`
+    svg {
+        fill: inherit;
+        height: 24px;
+        width: 24px;
         vertical-align: middle;
         pointer-events: none;
     }
@@ -59,6 +61,12 @@ class SplitButton extends Component {
                 : 'inherit'
         }
 
+        const icon = open ? (
+            <ArrowUp className={ArrowIcon.className} />
+        ) : (
+            <ArrowDown className={ArrowIcon.className} />
+        )
+
         return (
             <div ref={c => (this.elContainer = c)}>
                 <button
@@ -93,10 +101,7 @@ class SplitButton extends Component {
                         `size-${this.props.size}`
                     )}
                 >
-                    <Icon
-                        className={menuIcon.className}
-                        name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
-                    />
+                    {icon}
                 </button>
 
                 {open && (
@@ -108,7 +113,7 @@ class SplitButton extends Component {
                         />
                     </div>
                 )}
-                {menuIcon.styles}
+                {ArrowIcon.styles}
                 <style jsx>{buttons}</style>
                 <style jsx>{styles}</style>
             </div>

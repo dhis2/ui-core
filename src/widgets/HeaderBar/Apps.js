@@ -2,9 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Card from '../../core/Card'
-import Icon from '../../core/Icon'
 import InputField from '../../core/InputField'
 import { gotoURL, isPointInRect } from '../../utils'
+
+import { Settings } from '../../icons/Settings.js'
+import { Apps as AppsIcon } from '../../icons/Apps.js'
 
 import cx from 'classnames'
 import styles from './styles.js'
@@ -12,8 +14,16 @@ import styles from './styles.js'
 import css from 'styled-jsx/css'
 
 const appIcon = css.resolve`
-    i {
+    svg {
         cursor: pointer;
+    }
+`
+
+const settingsIcon = css.resolve`
+    svg {
+        margin: 8px 8px 0 16px;
+        color: #949394;
+        font-size: 22px;
     }
 `
 
@@ -31,11 +41,11 @@ function Search({ value, onChange, onSettingsClick, onIconClick }) {
                 trailIcon="cancel"
                 onTrailIconClick={onIconClick}
             />
-            <Icon
-                name="settings"
-                className={cx('settings')}
+            <Settings
+                className={settingsIcon.className}
                 onClick={onSettingsClick}
             />
+            {settingsIcon.styles}
             <style jsx>{styles}</style>
         </div>
     )
@@ -131,8 +141,7 @@ export default class Apps extends React.Component {
     render() {
         return (
             <div className={cx('apps')} ref={c => (this.elContainer = c)}>
-                <Icon
-                    name="apps"
+                <AppsIcon
                     onClick={this.onToggle}
                     className={appIcon.className}
                 />

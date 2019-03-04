@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Icon from '../Icon'
 import Menu from '../Menu'
 import Help from '../Help'
 import { isPointInRect } from '../../utils'
@@ -11,10 +10,23 @@ import styles from './styles.js'
 import css from 'styled-jsx/css'
 import { colors } from '../colors.js'
 
+import { Valid, Warning, Error } from '../../icons/Status.js'
+import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
+
+const ArrowIcon = css.resolve`
+    svg {
+        fill: inherit;
+        height: 24px;
+        width: 24px;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+`
+
 const statusToIcon = {
-    valid: 'check_circle',
-    warning: 'warning',
-    error: 'error',
+    valid: <Valid />,
+    warning: <Warning />,
+    error: <Error />,
 }
 
 const icons = {
@@ -22,6 +34,30 @@ const icons = {
     valid: css.resolve`i { color: ${colors.blue600}; }`,
     warning: css.resolve`i { color: ${colors.yellow500}; }`,
     error: css.resolve`i { color: ${colors.red500}; }`,
+}
+
+function icon(Icon, action = null, extra = 'default') {
+    if (Icon) {
+        return (
+            <Fragment>
+                <Icon.type
+                    {...Icon.props}
+                    onClick={action}
+                    className={icons[extra].className}
+                />
+                {icons[extra].styles}
+            </Fragment>
+        )
+    }
+    return null
+}
+
+function trailIcon(status, trail, fn) {
+    if (status !== 'default') {
+        return icon(statusToIcon[status], fn, status)
+    } else {
+        return icon(trail, fn)
+    }
 }
 
 function markActive(list, value) {
@@ -131,6 +167,12 @@ class SelectField extends React.Component {
         const selected = this.getLabel()
         const list = markActive(this.props.list, this.props.value)
 
+        const Arrow = open ? (
+            <ArrowUp className={ArrowIcon.className} />
+        ) : (
+            <ArrowDown className={ArrowIcon.className} />
+        )
+
         return (
             <div
                 ref={c => (this.elContainer = c)}
@@ -180,14 +222,9 @@ class SelectField extends React.Component {
                     )}
 
                     {this.props.icon && (
-                        <div className="lead-icon-field">
-                            <Icon
-                                name={this.props.icon}
-                                className={icons.default.className}
-                            />
-                            {icons.default.styles}
-                        </div>
+                        <div className="lead-icon-field">{this.props.icon}</div>
                     )}
+
                     <div
                         className={cx('input-field', {
                             disabled: this.props.disabled,
@@ -195,26 +232,18 @@ class SelectField extends React.Component {
                     >
                         <div className="value">{selected}</div>
                     </div>
+
                     <div className="trail-icon-field">
-                        {this.props.status !== 'default' && (
-                            <Icon
-                                name={statusToIcon[this.props.status]}
-                                className={icons[this.props.status].className}
-                            />
-                        )}
-                        {icons[this.props.status].styles}
+                        {this.props.status !== 'default' &&
+                            trailIcon(this.props.status)}
                     </div>
+
                     <div
                         className={cx('trail-icon-field', {
                             disabled: this.props.disabled,
                         })}
                     >
-                        <Icon
-                            name={open ? 'arrow_drop_up' : 'arrow_drop_down'}
-                            className={cx('arrow-icon', {
-                                disabled: this.props.disabled,
-                            })}
-                        />
+                        {Arrow}
                     </div>
                 </div>
                 {this.props.help && (

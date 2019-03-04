@@ -7,6 +7,7 @@
         "react": "^16.4.2",
         "react-dom": "^16.4.2",
         "react-scripts": "1.1.5",
+        "material-design-icons-iconfont": "^4.0.2",
         "typeface-roboto": "^0.0.54"
     },
     "scripts": {

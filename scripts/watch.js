@@ -5,8 +5,6 @@ const { watch } = require('chokidar')
 
 // transpilers
 const babel = require('@babel/core')
-const postcss = require('postcss')
-const postcssrc = require('postcss-load-config')
 
 const { writeFile } = require('./lib/files.js')
 
