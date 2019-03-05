@@ -309,7 +309,7 @@ SelectField.propTypes = {
     ).isRequired,
 
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    icon: PropTypes.string,
+    icon: PropTypes.element,
     help: PropTypes.string,
     size: PropTypes.oneOf(['default', 'dense']),
     kind: PropTypes.oneOf(['filled', 'outlined']),

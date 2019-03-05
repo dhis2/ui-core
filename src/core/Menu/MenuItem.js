@@ -43,9 +43,11 @@ export default function MenuItem({
         <li
             className={cx('item', className, { disabled, active })}
             onClick={evt => {
-                evt.preventDefault()
-                evt.stopPropagation()
-                onClick(value)
+                if (onClick) {
+                    evt.preventDefault()
+                    evt.stopPropagation()
+                    onClick(value)
+                }
             }}
         >
             {icon}
@@ -75,5 +77,5 @@ MenuItem.propTypes = {
     active: PropTypes.bool,
     disabled: PropTypes.bool,
     size: PropTypes.string,
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
 }

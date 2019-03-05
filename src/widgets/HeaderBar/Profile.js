@@ -100,26 +100,38 @@ const list = [
         icon: <Settings className={iconStyle.className} />,
         label: 'Settings',
         value: 'settings',
+        link: `dhis-web-user-profile/#/settings`,
+        target: '_self',
     },
     {
         icon: <Account className={iconStyle.className} />,
         label: 'Account',
         value: 'account',
+        link: `dhis-web-user-profile/#/account`,
+        target: '_self',
     },
     {
         icon: <Help className={iconStyle.className} />,
         label: 'Help',
         value: 'help',
+        link:
+            'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html',
+        target: '_blank',
+        nobase: true,
     },
     {
         icon: <Info className={iconStyle.className} />,
         label: 'About DHIS2',
         value: 'about',
+        link: `dhis-web-user-profile/#/aboutPage`,
+        target: '_self',
     },
     {
         icon: <Exit className={iconStyle.className} />,
         label: 'Logout',
         value: 'logout',
+        link: `dhis-web-commons-security/logout.action`,
+        target: '_self',
     },
 ]
 
@@ -153,27 +165,6 @@ export default class Profile extends React.Component {
 
     onToggle = () => this.setState({ show: !this.state.show })
 
-    onClick = value => {
-        const { baseURL } = this.props
-        const paths = {
-            edit_profile: `${baseURL}/dhis-web-user-profile/#/profile`,
-            settings: `${baseURL}/dhis-web-user-profile/#/settings`,
-            account: `${baseURL}/dhis-web-user-profile/#/account`,
-            about: `${baseURL}/dhis-web-user-profile/#/aboutPage`,
-            help:
-                'https://docs.dhis2.org/master/en/user/html/dhis2_user_manual_en.html',
-            logout: `${baseURL}/dhis-web-commons-security/logout.action`,
-        }
-
-        if (typeof paths[value] !== 'undefined') {
-            gotoURL(paths[value])
-        } else {
-            console.warn('onClick: not implemented', value)
-        }
-    }
-
-    onHeaderClick = () => this.onClick('edit_profile')
-
     viewIcon() {
         if (this.props.profile.img) {
             return (
@@ -195,6 +186,8 @@ export default class Profile extends React.Component {
             return null
         }
 
+        const { baseURL } = this.props
+
         return (
             <div className="contents" ref={c => (this.elContents = c)}>
                 <Card>
@@ -204,19 +197,37 @@ export default class Profile extends React.Component {
                             img={this.props.profile.img}
                             name={this.props.profile.name}
                             email={this.props.profile.email}
-                            onClick={this.onHeaderClick}
                         />
                         <Divider margin="13px 0 7px 0" />
                         <ul>
-                            {list.map(({ label, value, icon }) => (
-                                <MenuItem
-                                    key={`h-mi-${value}`}
-                                    label={label}
-                                    value={value}
-                                    icon={icon}
-                                    onClick={this.onClick}
-                                />
-                            ))}
+                            {list.map(
+                                ({
+                                    label,
+                                    value,
+                                    icon,
+                                    link,
+                                    target,
+                                    nobase,
+                                }) => {
+                                    const url = nobase
+                                        ? link
+                                        : `${baseURL}/${link}`
+                                    return (
+                                        <a
+                                            href={url}
+                                            target={target}
+                                            key={`h-p-${value}`}
+                                        >
+                                            <MenuItem
+                                                key={`h-mi-${value}`}
+                                                label={label}
+                                                value={value}
+                                                icon={icon}
+                                            />
+                                        </a>
+                                    )
+                                }
+                            )}
                         </ul>
                     </div>
                 </Card>
