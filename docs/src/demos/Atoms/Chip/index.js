@@ -2,6 +2,8 @@ import React from 'react'
 import Chip from 'core/Chip'
 import { Text, Row, Col, Divider } from '../../../helpers'
 
+import Icon from '../../../Icon'
+
 const rows = [
     {
         id: 'static',
@@ -23,7 +25,7 @@ const chipList = [
     },
     {
         label: 'With icon',
-        icon: 'star',
+        icon: <Icon name="star" />,
     },
     {
         label: 'With image icon',
@@ -36,17 +38,17 @@ const chipList = [
     },
     {
         label: 'Disabled',
-        icon: 'star',
+        icon: <Icon name="star" />,
         disabled: true,
     },
     {
         label: 'Very very very very long chip and allow overflow',
-        icon: 'star',
+        icon: <Icon name="star" />,
         overflow: false,
     },
     {
         label: 'Truncated very very long chip name',
-        icon: 'star',
+        icon: <Icon name="star" />,
     },
 ]
 
