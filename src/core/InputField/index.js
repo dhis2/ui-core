@@ -55,10 +55,10 @@ const icons = {
 function icon(Icon, action = null, extra = 'default') {
     if (Icon) {
         return (
-            <Fragment>
+            <span>
                 <Icon.type {...Icon.props} className={icons[extra].className} />
                 {icons[extra].styles}
-            </Fragment>
+            </span>
         )
     }
     return null

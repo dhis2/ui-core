@@ -2,12 +2,14 @@ import React from 'react'
 import SelectField from 'core/SelectField'
 import { Col, Row, Text } from '../../../helpers'
 
+import Icon from '../../../Icon.js'
+
 const _list = [
-    { value: 1, label: 'One ', icon: 'alarm' },
-    { value: 2, label: 'Two', icon: 'alarm' },
-    { value: 3, label: 'Three', icon: 'face' },
-    { value: 4, label: 'Four', icon: 'alarm' },
-    { value: 5, label: 'Five', icon: 'alarm' },
+    { value: 1, label: 'One ', icon: <Icon name="alarm" /> },
+    { value: 2, label: 'Two', icon: <Icon name="alarm" /> },
+    { value: 3, label: 'Three', icon: <Icon name="alarm" /> },
+    { value: 4, label: 'Four', icon: <Icon name="alarm" /> },
+    { value: 5, label: 'Five', icon: <Icon name="alarm" /> },
 ]
 
 const fields = [
@@ -56,20 +58,20 @@ const fields = [
         list: [
             {
                 kind: 'filled',
-                icon: 'face',
+                icon: <Icon name="face" />,
             },
             {
                 kind: 'filled',
-                icon: 'face',
+                icon: <Icon name="face" />,
                 size: 'dense',
             },
             {
                 kind: 'outlined',
-                icon: 'face',
+                icon: <Icon name="face" />,
             },
             {
                 kind: 'outlined',
-                icon: 'face',
+                icon: <Icon name="face" />,
                 size: 'dense',
             },
         ],
