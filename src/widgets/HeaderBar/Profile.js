@@ -2,15 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Card from '../../core/Card'
-import Icon from '../../core/Icon'
 import Divider from '../../core/Divider'
 import Menu from '../../core/Menu'
 import MenuItem from '../../core/Menu/MenuItem'
 
 import css from 'styled-jsx/css'
 
+import { Settings } from '../../icons/Settings.js'
+import { Info } from '../../icons/Info.js'
+import { Help } from '../../icons/Help.js'
+import { Exit } from '../../icons/Exit.js'
+import { Account } from '../../icons/Account.js'
+
 import { gotoURL, isPointInRect } from '../../utils'
 
+import { colors } from '../../core/colors.js'
 import styles from './styles.js'
 
 function TextIcon({ name, onClick }) {
@@ -81,34 +87,37 @@ Header.propTypes = {
 }
 
 const iconStyle = css.resolve`
-    i {
-        color: rgba(0, 0, 0, 0.7);
+    svg {
+		fill: ${colors.grey900};
+        cursor: pointer;
+		height: 24px;
+		width: 24px;
     }
 `
 
 const list = [
     {
-        icon: 'settings',
+        icon: <Settings className={iconStyle.className} />,
         label: 'Settings',
         value: 'settings',
     },
     {
-        icon: 'account_box',
+        icon: <Account className={iconStyle.className} />,
         label: 'Account',
         value: 'account',
     },
     {
-        icon: 'help',
+        icon: <Help className={iconStyle.className} />,
         label: 'Help',
         value: 'help',
     },
     {
-        icon: 'info',
+        icon: <Info className={iconStyle.className} />,
         label: 'About DHIS2',
         value: 'about',
     },
     {
-        icon: 'exit_to_app',
+        icon: <Exit className={iconStyle.className} />,
         label: 'Logout',
         value: 'logout',
     },
@@ -204,12 +213,7 @@ export default class Profile extends React.Component {
                                     key={`h-mi-${value}`}
                                     label={label}
                                     value={value}
-                                    icon={
-                                        <Icon
-                                            name={icon}
-                                            className={iconStyle.className}
-                                        />
-                                    }
+                                    icon={icon}
                                     onClick={this.onClick}
                                 />
                             ))}

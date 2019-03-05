@@ -88,13 +88,15 @@ export default css`
         background-color: #f9fafb;
         box-shadow: none;
         color: ${colors.grey500};
+        fill: ${colors.grey500};
     }
 
     .kind-primary {
         border: 1px solid ${theme.primary800};
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
         background-color: #2b61b3;
-        color: #fff;
+        color: ${colors.white};
+        fill: ${colors.white};
     }
 
     .kind-primary:hover {
@@ -123,7 +125,8 @@ export default css`
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
         background-color: #b6c8e2;
         box-shadow: none;
-        color: #fff;
+        color: ${colors.white};
+        fill: ${colors.white};
         opacity: 0.33;
     }
 
@@ -155,13 +158,15 @@ export default css`
         background-color: transparent;
         box-shadow: none;
         color: ${colors.grey500};
+        fill: ${colors.grey500};
     }
 
     .kind-destructive {
         border: 1px solid #a10b0b;
         background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
         background-color: #b9242b;
-        color: #fff;
+        color: ${colors.white};
+        fill: ${colors.white};
     }
 
     .kind-destructive:hover {
@@ -190,7 +195,8 @@ export default css`
         background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
         background-color: #e5b5b7;
         box-shadow: none;
-        color: #fff;
+        color: ${colors.white};
+        fill: ${colors.white};
         opacity: 0.33;
     }
 
@@ -214,6 +220,7 @@ export default css`
     .button-icon {
         margin-right: 10px;
         color: inherit;
+        fill: inherit;
         font-size: 26px;
         vertical-align: middle;
         pointer-events: none;

@@ -30,6 +30,7 @@ export default css`
     .disabled,
     .disabled .label {
         cursor: not-allowed;
+        color: ${colors.grey500};
     }
 
     .required:after {

@@ -2,8 +2,9 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import Icon from '../Icon'
 import Help from '../Help'
+
+import { Valid, Warning, Error } from '../../icons/Status.js'
 
 import css from 'styled-jsx/css'
 import styles from './styles.js'
@@ -11,27 +12,51 @@ import styles from './styles.js'
 import { colors } from '../colors.js'
 
 const statusToIcon = {
-    valid: 'check_circle',
-    warning: 'warning',
-    error: 'error',
+    valid: <Valid />,
+    warning: <Warning />,
+    error: <Error />,
 }
 
 const icons = {
-    default: css.resolve`i { color: ${colors.grey700}; margin-right: 8px; }`,
-    valid: css.resolve`i { color: ${colors.blue600}; margin-right: 8px; }`,
-    warning: css.resolve`i { color: ${colors.yellow500}; margin-right: 8px; }`,
-    error: css.resolve`i { color: ${colors.red500}; margin-right: 8px; }`,
+    default: css.resolve`
+		svg { 
+			fill: ${colors.grey700}; 
+			height: 24px;
+			width: 24px;
+			margin-right: 8px;
+		}
+	`,
+    valid: css.resolve`
+		svg {
+			fill: ${colors.blue600};
+			height: 24px;
+			width: 24px;
+			margin-right: 8px;
+		}
+	`,
+    warning: css.resolve`
+		svg {
+			fill: ${colors.yellow500};
+			height: 24px;
+			width: 24px;
+			margin-right: 8px;
+		}
+	`,
+    error: css.resolve`
+		svg {
+			fill: ${colors.red500};
+			height: 24px;
+			width: 24px;
+			margin-right: 8px;
+		}
+	`,
 }
 
-function icon(i, action = null, extra = 'default') {
-    if (i) {
+function icon(Icon, action = null, extra = 'default') {
+    if (Icon) {
         return (
             <Fragment>
-                <Icon
-                    name={i}
-                    onClick={action}
-                    className={icons[extra].className}
-                />
+                <Icon.type {...Icon.props} className={icons[extra].className} />
                 {icons[extra].styles}
             </Fragment>
         )
@@ -43,7 +68,7 @@ function trailIcon(status, trail, fn) {
     if (status !== 'default') {
         return icon(statusToIcon[status], fn, status)
     } else {
-        return icon(trail, fn)
+        return trail
     }
 }
 
@@ -136,6 +161,7 @@ class InputField extends React.Component {
                     >
                         {this.props.label}
                     </label>
+
                     {this.props.kind === 'outlined' && (
                         <fieldset
                             className={cx('flatline', {
@@ -152,6 +178,7 @@ class InputField extends React.Component {
                     )}
 
                     {icon(this.props.icon)}
+
                     <input
                         className={cx({
                             disabled: this.props.disabled,
@@ -165,15 +192,14 @@ class InputField extends React.Component {
                         onBlur={this.onBlur}
                         onChange={this.onChange}
                     />
-                    {trailIcon(
-                        this.props.status,
-                        this.props.trailIcon,
-                        this.props.onTrailIconClick
-                    )}
+
+                    {trailIcon(this.props.status, this.props.trailIcon)}
                 </div>
+
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />
                 )}
+
                 <style jsx>{styles}</style>
             </div>
         )
@@ -188,7 +214,6 @@ InputField.defaultProps = {
     focus: false,
     disabled: false,
     required: false,
-    onTrailIconClick: null,
 }
 
 InputField.propTypes = {
@@ -199,9 +224,8 @@ InputField.propTypes = {
     label: PropTypes.string,
     placeholder: PropTypes.string,
     help: PropTypes.string,
-    icon: PropTypes.string,
-    trailIcon: PropTypes.string,
-    onTrailIconClick: PropTypes.func,
+    icon: PropTypes.element,
+    trailIcon: PropTypes.element,
     status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
     size: PropTypes.oneOf(['default', 'dense']),
     kind: PropTypes.oneOf(['filled', 'outlined']),

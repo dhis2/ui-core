@@ -74,17 +74,4 @@ export default css`
         overflow: hidden;
         text-overflow: ellipsis;
     }
-
-    .remove-icon {
-        margin-right: 4px;
-        color: ${colors.grey700};
-        font-size: 18px;
-        cursor: pointer;
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    .remove-icon:hover {
-        opacity: 0.82;
-    }
 `

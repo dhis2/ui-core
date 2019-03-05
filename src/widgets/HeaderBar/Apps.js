@@ -2,20 +2,56 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Card from '../../core/Card'
-import Icon from '../../core/Icon'
 import InputField from '../../core/InputField'
 import { gotoURL, isPointInRect } from '../../utils'
+
+import { Settings } from '../../icons/Settings.js'
+import { Apps as AppsIcon } from '../../icons/Apps.js'
+import { Cancel } from '../../icons/Cancel.js'
 
 import cx from 'classnames'
 import styles from './styles.js'
 
+import { colors } from '../../core/colors.js'
+
 import css from 'styled-jsx/css'
 
 const appIcon = css.resolve`
-    i {
+    svg {
+		fill: ${colors.white};
         cursor: pointer;
+		height: 24px;
+		width: 24px;
     }
 `
+
+const trailIcon = css.resolve`
+    svg {
+		fill: ${colors.grey900};
+        cursor: pointer;
+		height: 24px;
+		width: 24px;
+		margin-right: 8px;
+		margin-top: 4px;
+    }
+`
+
+const settingsIcon = css.resolve`
+    svg {
+        margin: 8px 8px 0 16px;
+        color: ${colors.grey900};
+		height: 24px;
+		width: 24px;
+    }
+`
+
+function TrailIcon({ onClick }) {
+    return (
+        <a onClick={onClick}>
+            <Cancel className={trailIcon.className} />
+        </a>
+    )
+}
 
 function Search({ value, onChange, onSettingsClick, onIconClick }) {
     return (
@@ -28,14 +64,15 @@ function Search({ value, onChange, onSettingsClick, onIconClick }) {
                 focus={true}
                 label="Search apps"
                 onChange={onChange}
-                trailIcon="cancel"
-                onTrailIconClick={onIconClick}
+                trailIcon={<TrailIcon onClick={onIconClick} />}
             />
-            <Icon
-                name="settings"
-                className={cx('settings')}
-                onClick={onSettingsClick}
-            />
+
+            <a onClick={onSettingsClick}>
+                <Settings className={settingsIcon.className} />
+            </a>
+
+            {trailIcon.styles}
+            {settingsIcon.styles}
             <style jsx>{styles}</style>
         </div>
     )
@@ -131,11 +168,9 @@ export default class Apps extends React.Component {
     render() {
         return (
             <div className={cx('apps')} ref={c => (this.elContainer = c)}>
-                <Icon
-                    name="apps"
-                    onClick={this.onToggle}
-                    className={appIcon.className}
-                />
+                <a onClick={this.onToggle}>
+                    <AppsIcon className={appIcon.className} />
+                </a>
                 {this.state.show && (
                     <div
                         className={cx('contents')}

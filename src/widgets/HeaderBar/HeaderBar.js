@@ -3,13 +3,28 @@ import PropTypes from 'prop-types'
 
 import { LogoIconWhite } from '../../core/Logo'
 import NotificationIcon from './NotificationIcon'
+
 import Apps from './Apps'
 import Profile from './Profile'
 
-import cx from 'classnames'
-import styles from './styles.js'
+import { Email } from '../../icons/Email.js'
+import { Message } from '../../icons/Message.js'
 
 import css from 'styled-jsx/css'
+import cx from 'classnames'
+
+import styles from './styles.js'
+
+import { colors } from '../../core/colors.js'
+
+const notificationIcon = css.resolve`
+    svg {
+		fill: ${colors.white};
+        cursor: pointer;
+		height: 24px;
+		width: 24px;
+    }
+`
 
 const logotype = css.resolve`
     svg {    
@@ -52,19 +67,23 @@ function HeaderBar({
 
             <div>
                 <NotificationIcon
-                    icon="message"
                     count={interpretations.count}
                     href={`${baseURL}/dhis-web-interpretation`}
-                />
+                >
+                    <Message className={notificationIcon.className} />
+                </NotificationIcon>
                 <NotificationIcon
                     icon="email"
                     count={messages.count}
                     href={`${baseURL}/dhis-web-messaging`}
-                />
+                >
+                    <Email className={notificationIcon.className} />
+                </NotificationIcon>
                 <Apps apps={apps} baseURL={baseURL} />
                 <Profile profile={profile} baseURL={baseURL} />
             </div>
 
+            {notificationIcon.styles}
             {logotype.styles}
             <style jsx>{styles}</style>
         </header>
