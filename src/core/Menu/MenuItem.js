@@ -1,16 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icon from '../Icon'
 import Menu from './index'
 import cx from 'classnames'
 import styles from './styles'
 
+import { ChevronRight } from '../../icons/Chevron.js'
+
 import css from 'styled-jsx/css'
 
 const subChevron = css.resolve`
-    i {
+    svg {
         margin: 0 -14px 0 auto;
-        font-size: 18px;
+        width: 18px;
+        height: 18px;
         pointer-events: none;
         user-select: none;
     }
@@ -48,9 +50,7 @@ export default function MenuItem({
         >
             {icon}
             <div className="label">{label}</div>
-            {hasMenu && (
-                <Icon name="chevron_right" className={subChevron.className} />
-            )}
+            {hasMenu && <ChevronRight className={subChevron.className} />}
             {hasMenu && <SubMenu size={size} list={list} onClick={onClick} />}
 
             {subChevron.styles}

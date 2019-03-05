@@ -3,7 +3,7 @@ import React from 'react'
 import Button from 'core/Button'
 import SplitButton from 'core/SplitButton'
 import DropdownButton from 'core/DropdownButton'
-import Icon from 'core/Icon'
+import Icon from '../../../Icon'
 
 import { Row, Divider, Heading } from '../../../helpers'
 

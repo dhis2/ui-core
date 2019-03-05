@@ -4,11 +4,24 @@ import cx from 'classnames'
 
 import Button from '../Button'
 import Menu from '../Menu'
-import Icon from '../Icon'
 import { isPointInRect } from '../../utils'
+
+import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
 
 import buttons from '../Button/styles.js'
 import styles from './styles.js'
+
+import css from 'styled-jsx/css'
+
+const ArrowIcon = css.resolve`
+    svg {
+        fill: inherit;
+        height: 24px;
+        width: 24px;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+`
 
 class DropdownButton extends Component {
     state = {
@@ -50,7 +63,11 @@ class DropdownButton extends Component {
                 : 'inherit'
         }
 
-        const icon = open ? 'arrow_drop_up' : 'arrow_drop_down'
+        const icon = open ? (
+            <ArrowUp className={ArrowIcon.className} />
+        ) : (
+            <ArrowDown className={ArrowIcon.className} />
+        )
 
         return (
             <div ref={c => (this.elContainer = c)}>
@@ -76,7 +93,7 @@ class DropdownButton extends Component {
                     )}
 
                     <span className="menu-label">{this.props.label}</span>
-                    <Icon className="menu-icon" name={icon} />
+                    {icon}
                 </button>
 
                 {open && (
@@ -88,6 +105,7 @@ class DropdownButton extends Component {
                     </div>
                 )}
 
+                {ArrowIcon.styles}
                 <style jsx>{buttons}</style>
                 <style jsx>{styles}</style>
             </div>

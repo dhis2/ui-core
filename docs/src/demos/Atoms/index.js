@@ -8,7 +8,6 @@ export * from './Select'
 export * from './Menu'
 export * from './Progress'
 export * from './Logo'
-export * from './Icon'
 
 export class Atoms extends React.Component {
     static id = 'atoms'

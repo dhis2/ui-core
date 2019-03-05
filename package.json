@@ -49,7 +49,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "material-design-icons-iconfont": "^4.0.2",
     "styled-jsx": "^3.2.1"
   }
 }

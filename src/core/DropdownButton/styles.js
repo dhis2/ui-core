@@ -21,11 +21,4 @@ export default css`
         color: inherit;
         text-transform: capitalize;
     }
-
-    .menu-icon {
-        color: inherit;
-        font-size: 16px;
-        vertical-align: middle;
-        pointer-events: none;
-    }
 `

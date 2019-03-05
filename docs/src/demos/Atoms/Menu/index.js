@@ -1,6 +1,7 @@
 import React from 'react'
 import Menu from 'core/Menu'
-import Icon from 'core/Icon'
+import Icon from '../../../Icon'
+
 import { Text, Col, Divider, Spacer } from '../../../helpers'
 
 const list = []

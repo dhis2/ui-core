@@ -2,19 +2,49 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import Icon from '../Icon'
-
 import { colors } from '../colors.js'
 import styles from './styles.js'
+
+import { Checked, Unchecked } from '../../icons/Radio.js'
 
 import css from 'styled-jsx/css'
 
 const icons = {
-    default: css.resolve`i { color: ${colors.grey700}; }`,
-    checked: css.resolve`i { color: ${colors.teal400}; }`,
-    valid: css.resolve`i { color: ${colors.blue600}; }`,
-    warning: css.resolve`i { color: ${colors.yellow500}; }`,
-    error: css.resolve`i { color: ${colors.red500}; }`,
+    default: css.resolve`
+		svg { 
+			fill: ${colors.grey700}; 
+			height: 24px;
+			width: 24px;
+		}
+	`,
+    checked: css.resolve`
+		svg {
+			fill: ${colors.teal400};
+			height: 24px;
+			width: 24px;
+		}
+	`,
+    valid: css.resolve`
+		svg {
+			fill: ${colors.blue600};
+			height: 24px;
+			width: 24px;
+		}
+	`,
+    warning: css.resolve`
+		svg {
+			fill: ${colors.yellow500};
+			height: 24px;
+			width: 24px;
+		}
+	`,
+    error: css.resolve`
+		svg {
+			fill: ${colors.red500};
+			height: 24px;
+			width: 24px;
+		}
+	`,
 }
 
 class Radio extends React.Component {
@@ -24,15 +54,10 @@ class Radio extends React.Component {
         const { required, status, checked, className } = this.props
 
         const state = status === 'default' && checked ? 'checked' : status
-        const icon = (
-            <Icon
-                name={
-                    this.props.checked
-                        ? 'radio_button_checked'
-                        : 'radio_button_unchecked'
-                }
-                className={icons[state].className}
-            />
+        const icon = this.props.checked ? (
+            <Checked className={icons[state].className} />
+        ) : (
+            <Unchecked className={icons[state].className} />
         )
 
         return (
@@ -50,6 +75,7 @@ class Radio extends React.Component {
                     onChange={this.onChange}
                 />
                 {icon}
+
                 <span className={cx('label', { required })}>
                     {this.props.label}
                 </span>

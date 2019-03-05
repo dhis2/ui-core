@@ -1,25 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Icon from '../../core/Icon'
-
 import cx from 'classnames'
 import styles from './styles.js'
 
 import { colors } from '../../core/colors.js'
 
-import css from 'styled-jsx/css'
-
-const notificationIcon = css.resolve`
-    color: ${colors.white};
-`
-
-function NotificationIcon({ icon, count, href }) {
+function NotificationIcon({ count, href, children }) {
     return (
         <a className="notification" href={href}>
             {count > 0 && <span className={cx('count')}>{count}</span>}
-            <Icon name={icon} className={notificationIcon.className} />
-            {notificationIcon.styles}
+            {children}
             <style jsx>{styles}</style>
         </a>
     )
@@ -30,7 +21,7 @@ NotificationIcon.defaultProps = {
 }
 
 NotificationIcon.propTypes = {
-    icon: PropTypes.string.isRequired,
+    children: PropTypes.element,
     href: PropTypes.string.isRequired,
     count: PropTypes.number,
 }
