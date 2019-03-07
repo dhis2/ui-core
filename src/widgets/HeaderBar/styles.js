@@ -37,6 +37,14 @@ export default css`
         text-align: center;
     }
 
+    a,
+    a:hover,
+    a:focus,
+    a:active,
+    a:visited {
+        text-decoration: none;
+    }
+
     .headerbar-logo a {
         width: 48px;
         height: 48px;
