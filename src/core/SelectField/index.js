@@ -281,6 +281,7 @@ class SelectField extends React.Component {
                         />
                     </div>
                 )}
+                {ArrowIcon.styles}
                 <style jsx>{fonts}</style>
                 <style jsx>{styles}</style>
             </div>
