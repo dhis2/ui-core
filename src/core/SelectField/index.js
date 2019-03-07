@@ -8,7 +8,7 @@ import cx from 'classnames'
 
 import styles from './styles.js'
 import css from 'styled-jsx/css'
-import { colors } from '../colors.js'
+import { colors, fonts } from '../colors.js'
 
 import { Valid, Warning, Error } from '../../icons/Status.js'
 import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
@@ -281,6 +281,8 @@ class SelectField extends React.Component {
                         />
                     </div>
                 )}
+                {ArrowIcon.styles}
+                <style jsx>{fonts}</style>
                 <style jsx>{styles}</style>
             </div>
         )

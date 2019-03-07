@@ -12,6 +12,8 @@ import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
 import cx from 'classnames'
 import styles from './styles'
 
+import { fonts } from '../colors.js'
+
 const ArrowIcon = css.resolve`
     svg {
         fill: inherit;
@@ -114,6 +116,7 @@ class SplitButton extends Component {
                     </div>
                 )}
                 {ArrowIcon.styles}
+                <style jsx>{fonts}</style>
                 <style jsx>{buttons}</style>
                 <style jsx>{styles}</style>
             </div>

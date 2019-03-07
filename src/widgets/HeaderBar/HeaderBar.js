@@ -15,7 +15,7 @@ import cx from 'classnames'
 
 import styles from './styles.js'
 
-import { colors } from '../../core/colors.js'
+import { colors, fonts } from '../../core/colors.js'
 
 const notificationIcon = css.resolve`
     svg {
@@ -85,6 +85,7 @@ function HeaderBar({
 
             {notificationIcon.styles}
             {logotype.styles}
+            <style jsx>{fonts}</style>
             <style jsx>{styles}</style>
         </header>
     )

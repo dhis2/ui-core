@@ -4,6 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './styles.js'
+import { fonts } from '../colors.js'
 
 function Button({
     type,
@@ -28,6 +29,7 @@ function Button({
             {icon && <span className="button-icon">{icon}</span>}
             {label || children}
 
+            <style jsx>{fonts}</style>
             <style jsx>{styles}</style>
         </button>
     )

@@ -9,7 +9,7 @@ import { Valid, Warning, Error } from '../../icons/Status.js'
 import css from 'styled-jsx/css'
 import styles from './styles.js'
 
-import { colors } from '../colors.js'
+import { colors, fonts } from '../colors.js'
 
 const statusToIcon = {
     valid: <Valid />,
@@ -200,6 +200,7 @@ class InputField extends React.Component {
                     <Help text={this.props.help} status={this.props.status} />
                 )}
 
+                <style jsx>{fonts}</style>
                 <style jsx>{styles}</style>
             </div>
         )

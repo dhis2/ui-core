@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors } from '../colors.js'
+import { colors, fonts } from '../colors.js'
 import styles from './styles.js'
 
 import { Indeterminate, Checked, Unchecked } from '../../icons/Checkbox.js'
@@ -93,6 +93,7 @@ class Checkbox extends React.Component {
                 </span>
 
                 {icons[state].styles}
+                <style jsx>{fonts}</style>
                 <style jsx>{styles}</style>
             </label>
         )

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors } from '../colors.js'
+import { colors, fonts } from '../colors.js'
 
 function Help({ text, status, className }) {
     return (
@@ -13,6 +13,7 @@ function Help({ text, status, className }) {
         >
             {text}
 
+            <style jsx>{fonts}</style>
             <style jsx>{`
                 .base {
                     height: 12px;
