@@ -38,7 +38,7 @@
     "conventional-changelog-cli": "^2.0.5",
     "fs-extra": "^7.0.0",
     "husky": "^1.0.1",
-    "react-dev-utils": "^7.0.3",
+    "react-dev-utils": "^8.0.0",
     "size-limit": "^0.21.1",
     "string-hash": "^1.1.3"
   },
