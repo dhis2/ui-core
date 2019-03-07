@@ -10,7 +10,6 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf ./build/*",
-    "format": "packages code-style",
     "release": "packages release",
     "size": "size-limit",
     "start": "node scripts/watch.js",
@@ -21,8 +20,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "packages commit-style",
-      "pre-commit": "packages code-style"
+      "commit-msg": "d2-style commit check",
+      "pre-commit": "d2-style js apply"
     }
   },
   "devDependencies": {
@@ -33,6 +32,7 @@
     "@babel/plugin-transform-react-constant-elements": "^7.2.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
+    "@dhis2/cli-style": "^2.2.1",
     "@dhis2/packages": "^1.3.0",
     "chokidar": "^2.0.4",
     "conventional-changelog-cli": "^2.0.5",
