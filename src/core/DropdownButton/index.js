@@ -8,7 +8,7 @@ import { isPointInRect } from '../../utils'
 
 import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
 
-import { fonts } from '../colors.js'
+import { fonts } from '../theme.js'
 import buttons from '../Button/styles.js'
 import styles from './styles.js'
 

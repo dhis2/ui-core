@@ -12,7 +12,7 @@ import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
 import cx from 'classnames'
 import styles from './styles'
 
-import { fonts } from '../colors.js'
+import { fonts } from '../theme.js'
 
 const ArrowIcon = css.resolve`
     svg {

@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-import { colors, theme, fonts } from '../colors.js'
+import { colors, theme, fonts } from '../theme.js'
 
 export default css`
     .base {
@@ -202,9 +202,9 @@ export default css`
 
     /* IE11 hacks */
     @media all and (-ms-high-contrast: none) {
-        /* 
+        /*
        Graceful degradation: remove the rounded corners on all buttons apart from circle.
-       These are not rendered correctly in IE11, where they produce white pixels in the corners 
+       These are not rendered correctly in IE11, where they produce white pixels in the corners
     */
         .base {
             border-radius: 0;

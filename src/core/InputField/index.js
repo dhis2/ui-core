@@ -9,7 +9,7 @@ import { Valid, Warning, Error } from '../../icons/Status.js'
 import css from 'styled-jsx/css'
 import styles from './styles.js'
 
-import { colors, fonts } from '../colors.js'
+import { colors, fonts } from '../theme.js'
 
 const statusToIcon = {
     valid: <Valid />,
@@ -19,8 +19,8 @@ const statusToIcon = {
 
 const icons = {
     default: css.resolve`
-		svg { 
-			fill: ${colors.grey700}; 
+		svg {
+			fill: ${colors.grey700};
 			height: 24px;
 			width: 24px;
 			margin-right: 8px;

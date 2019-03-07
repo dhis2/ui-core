@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors, fonts } from '../colors.js'
+import { colors, fonts } from '../theme.js'
 import styles from './styles.js'
 
 import css from 'styled-jsx/css'
