@@ -13,7 +13,7 @@ import { colors, fonts } from '../theme.js'
 import { Valid, Warning, Error } from '../../icons/Status.js'
 import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
 
-const ArrowIcon = css.resolve`
+const arrowIcon = css.resolve`
     svg {
         fill: inherit;
         height: 24px;
@@ -21,6 +21,11 @@ const ArrowIcon = css.resolve`
         vertical-align: middle;
         pointer-events: none;
     }
+`
+
+const menuOverride = css.resolve`
+    max-height: 300px;
+    overflow-y: auto;
 `
 
 const statusToIcon = {
@@ -191,9 +196,9 @@ class SelectField extends React.Component {
         const list = markActive(this.props.list, this.props.value)
 
         const Arrow = open ? (
-            <ArrowUp className={ArrowIcon.className} />
+            <ArrowUp className={arrowIcon.className} />
         ) : (
-            <ArrowDown className={ArrowIcon.className} />
+            <ArrowDown className={arrowIcon.className} />
         )
 
         return (
@@ -278,10 +283,12 @@ class SelectField extends React.Component {
                             list={list}
                             size={this.props.size}
                             onClick={this.onClick}
+                            className={menuOverride.className}
                         />
                     </div>
                 )}
-                {ArrowIcon.styles}
+                {menuOverride.styles}
+                {arrowIcon.styles}
                 <style jsx>{fonts}</style>
                 <style jsx>{styles}</style>
             </div>
