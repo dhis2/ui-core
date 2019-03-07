@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderBar from 'widgets/HeaderBar'
+import { HeaderBar } from 'widgets/HeaderBar'
 import { Col } from '../../../helpers'
 
 const props = {

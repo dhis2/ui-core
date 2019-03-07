@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-import { colors, theme } from '../colors.js'
+import { colors, theme, fonts } from '../colors.js'
 
 export default css`
     .base {
@@ -208,12 +208,6 @@ export default css`
     */
         .base {
             border-radius: 0;
-        }
-        /* Prevent icon position shifting during a click */
-        .base .material-icons {
-            position: relative;
-            top: 0;
-            left: 0;
         }
     }
 

@@ -8,6 +8,7 @@ import { isPointInRect } from '../../utils'
 
 import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
 
+import { fonts } from '../colors.js'
 import buttons from '../Button/styles.js'
 import styles from './styles.js'
 
@@ -106,6 +107,7 @@ class DropdownButton extends Component {
                 )}
 
                 {ArrowIcon.styles}
+                <style jsx>{fonts}</style>
                 <style jsx>{buttons}</style>
                 <style jsx>{styles}</style>
             </div>
