@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.14"></a>
+
+# [1.0.0-beta.14](https://github.com/dhis2/ui/compare/1.0.0-beta.13...1.0.0-beta.14) (2019-03-07)
+
+### Bug Fixes
+
+-   readd container for headerbar ([#160](https://github.com/dhis2/ui/issues/160)) ([83e6f1a](https://github.com/dhis2/ui/commit/83e6f1a))
+-   replace the last demo icons, span around if icon ([#157](https://github.com/dhis2/ui/issues/157)) ([a5a7464](https://github.com/dhis2/ui/commit/a5a7464))
+-   use a for profile links ([#158](https://github.com/dhis2/ui/issues/158)) ([3638c3b](https://github.com/dhis2/ui/commit/3638c3b))
+
+### Features
+
+-   svg icons ([#156](https://github.com/dhis2/ui/issues/156)) ([8b94fa1](https://github.com/dhis2/ui/commit/8b94fa1))
+
 <a name="1.0.0-beta.13"></a>
 
 # [1.0.0-beta.13](https://github.com/dhis2/ui/compare/1.0.0-beta.12...1.0.0-beta.13) (2019-03-04)
