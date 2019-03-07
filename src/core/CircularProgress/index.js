@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import styles from './styles.js'
-import { fonts } from '../colors.js'
+import { fonts } from '../theme.js'
 
 function Circle() {
     return (

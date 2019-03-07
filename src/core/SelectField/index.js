@@ -8,7 +8,7 @@ import cx from 'classnames'
 
 import styles from './styles.js'
 import css from 'styled-jsx/css'
-import { colors, fonts } from '../colors.js'
+import { colors, fonts } from '../theme.js'
 
 import { Valid, Warning, Error } from '../../icons/Status.js'
 import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
@@ -31,8 +31,8 @@ const statusToIcon = {
 
 const icons = {
     default: css.resolve`
-		svg { 
-			fill: ${colors.grey700}; 
+		svg {
+			fill: ${colors.grey700};
 			height: 24px;
 			width: 24px;
 		}

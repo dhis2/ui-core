@@ -7,7 +7,7 @@ import cx from 'classnames'
 
 import styles from './styles'
 
-import { fonts } from '../colors.js'
+import { fonts } from '../theme.js'
 
 export function Menu({ size, width, list, onClick, className }) {
     return (

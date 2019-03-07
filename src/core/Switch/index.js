@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import styles from './styles'
-import { fonts } from '../colors.js'
+import { fonts } from '../theme.js'
 
 class Switch extends React.Component {
     onChange = () => {

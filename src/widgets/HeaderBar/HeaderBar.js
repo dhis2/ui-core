@@ -15,7 +15,7 @@ import cx from 'classnames'
 
 import styles from './styles.js'
 
-import { colors, fonts } from '../../core/colors.js'
+import { colors, fonts } from '../../core/theme.js'
 
 const notificationIcon = css.resolve`
     svg {
@@ -27,7 +27,7 @@ const notificationIcon = css.resolve`
 `
 
 const logotype = css.resolve`
-    svg {    
+    svg {
         width: 27px;
         height: 25px;
         cursor: pointer;

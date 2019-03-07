@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { colors, theme } from '../../core/colors.js'
+import { colors, theme } from '../../core/theme.js'
 
 export default css`
     header {

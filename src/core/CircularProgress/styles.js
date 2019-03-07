@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-import { theme } from '../colors.js'
+import { theme } from '../theme.js'
 
 export default css`
     .overlay {

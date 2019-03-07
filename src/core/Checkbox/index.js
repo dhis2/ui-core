@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors, fonts } from '../colors.js'
+import { colors, fonts } from '../theme.js'
 import styles from './styles.js'
 
 import { Indeterminate, Checked, Unchecked } from '../../icons/Checkbox.js'
@@ -11,8 +11,8 @@ import css from 'styled-jsx/css'
 
 const icons = {
     default: css.resolve`
-		svg { 
-			fill: ${colors.grey700}; 
+		svg {
+			fill: ${colors.grey700};
 			height: 24px;
 			width: 24px;
 		}

@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-import { colors, theme } from '../colors.js'
+import { colors, theme } from '../theme.js'
 
 export default css`
     .base {

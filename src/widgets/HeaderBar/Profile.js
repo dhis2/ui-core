@@ -16,7 +16,7 @@ import { Account } from '../../icons/Account.js'
 
 import { gotoURL, isPointInRect } from '../../utils'
 
-import { colors } from '../../core/colors.js'
+import { colors } from '../../core/theme.js'
 import styles from './styles.js'
 
 function TextIcon({ name, onClick }) {

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import cx from 'classnames'
-import { colors } from '../colors.js'
+import { colors } from '../theme.js'
 
 export function Divider({ margin, className }) {
     const style = { margin }

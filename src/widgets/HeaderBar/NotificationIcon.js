@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import styles from './styles.js'
 
-import { colors } from '../../core/colors.js'
+import { colors } from '../../core/theme.js'
 
 function NotificationIcon({ count, href, children }) {
     return (

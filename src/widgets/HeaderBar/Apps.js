@@ -12,7 +12,7 @@ import { Cancel } from '../../icons/Cancel.js'
 import cx from 'classnames'
 import styles from './styles.js'
 
-import { colors } from '../../core/colors.js'
+import { colors } from '../../core/theme.js'
 
 import css from 'styled-jsx/css'
 
