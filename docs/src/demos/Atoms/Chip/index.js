@@ -15,6 +15,16 @@ const rows = [
     },
 ]
 
+function iconImage(url) {
+    return (
+        <img
+            src={url}
+            alt="chip icon"
+            style={{ width: '24px', height: '24px' }}
+        />
+    )
+}
+
 const chipList = [
     {
         label: 'Text only',
@@ -29,8 +39,7 @@ const chipList = [
     },
     {
         label: 'With image icon',
-        icon: 'http://placeimg.com/50/50/people',
-        type: 'image',
+        icon: iconImage('http://placeimg.com/50/50/people'),
     },
     {
         label: 'Visual dragging state',
