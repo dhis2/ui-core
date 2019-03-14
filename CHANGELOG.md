@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.15"></a>
+# [1.0.0-beta.15](https://github.com/dhis2/ui/compare/1.0.0-beta.14...1.0.0-beta.15) (2019-03-14)
+
+
+### Bug Fixes
+
+* add max-height to select fields ([#162](https://github.com/dhis2/ui/issues/162)) ([1ea7ea1](https://github.com/dhis2/ui/commit/1ea7ea1))
+* logo classname should be string, icon should be an element ([#164](https://github.com/dhis2/ui/issues/164)) ([0cc5b09](https://github.com/dhis2/ui/commit/0cc5b09))
+
+
+
 <a name="1.0.0-beta.14"></a>
 # [1.0.0-beta.14](https://github.com/dhis2/ui/compare/1.0.0-beta.13...1.0.0-beta.14) (2019-03-07)
 
