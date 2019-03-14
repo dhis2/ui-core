@@ -43,22 +43,6 @@ class Chip extends React.PureComponent {
             return
         }
 
-        if (this.props.type === 'image') {
-            return (
-                <React.Fragment>
-                    <img src={icon} alt="chip icon" />
-                    <style jsx>{`
-                        img {
-                            width: 24px;
-                            height: 24px;
-                            margin-left: 4px;
-                            border-radius: 50%;
-                        }
-                    `}</style>
-                </React.Fragment>
-            )
-        }
-
         return (
             <React.Fragment>
                 <span>{icon}</span>
@@ -123,7 +107,6 @@ class Chip extends React.PureComponent {
 }
 
 Chip.defaultProps = {
-    type: 'icon',
     selected: false,
     disabled: false,
     dragging: false,
@@ -131,10 +114,9 @@ Chip.defaultProps = {
 }
 
 Chip.propTypes = {
-    className: PropTypes.className,
+    className: PropTypes.string,
     label: PropTypes.string.isRequired,
     icon: PropTypes.element,
-    type: PropTypes.oneOf(['icon', 'image']),
     selected: PropTypes.bool,
     disabled: PropTypes.bool,
     dragging: PropTypes.bool,
