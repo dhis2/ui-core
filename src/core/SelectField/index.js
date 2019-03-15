@@ -318,6 +318,8 @@ SelectField.defaultProps = {
     size: sizes.DEFAULT,
     kind: kinds.FILLED,
     status: statuses.DEFAULT,
+    help: '',
+    className: '',
     disabled: false,
     required: false,
 }
@@ -333,10 +335,11 @@ SelectField.propTypes = {
                 .isRequired,
         })
     ).isRequired,
-
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
     icon: PropTypes.element,
     help: PropTypes.string,
+
     size: PropTypes.oneOf([
         sizes.DEFAULT,
         sizes.DENSE,
