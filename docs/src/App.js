@@ -5,7 +5,7 @@ import Content from './Content'
 
 import 'typeface-roboto/index.css'
 
-import '@dhis2/ui-core/build/es/css/reset.css'
+import { CssReset } from '@dhis2/ui-core'
 
 import './App.css'
 
@@ -15,6 +15,7 @@ import './App.css'
 export default function App() {
     return (
         <div className="container">
+            <CssReset />
             <Sidebar />
             <Content />
         </div>

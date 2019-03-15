@@ -4,11 +4,12 @@
     "private": true,
     "homepage": ".",
     "dependencies": {
+        "@dhis2/ui-core": "../",
         "material-design-icons-iconfont": "^4.0.2",
         "prop-types": "^15.7.2",
-        "react": "^16.4.2",
-        "react-dom": "^16.4.2",
-        "react-scripts": "^1.1.5",
+        "react": "16.8.1",
+        "react-dom": "16.8.1",
+        "react-scripts": "^2.0.0",
         "typeface-roboto": "^0.0.54"
     },
     "scripts": {
