@@ -13,6 +13,23 @@ import { colors, fonts } from '../theme.js'
 import { Valid, Warning, Error } from '../../icons/Status.js'
 import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
 
+const statuses = {
+    DEFAULT: 'default',
+    VALID: 'valid',
+    WARNING: 'warning',
+    ERROR: 'error',
+}
+
+const sizes = {
+    DEFAULT: 'default',
+    DENSE: 'dense',
+}
+
+const kinds = {
+    FILLED: 'filled',
+    OUTLINED: 'outlined',
+}
+
 const arrowIcon = css.resolve`
     svg {
         fill: inherit;
@@ -29,34 +46,34 @@ const menuOverride = css.resolve`
 `
 
 const statusToIcon = {
-    valid: <Valid />,
-    warning: <Warning />,
-    error: <Error />,
+    [statuses.VALID]: <Valid />,
+    [statuses.WARNING]: <Warning />,
+    [statuses.ERROR]: <Error />,
 }
 
 const icons = {
-    default: css.resolve`
+    [statuses.DEFAULT]: css.resolve`
 		svg {
 			fill: ${colors.grey700};
 			height: 24px;
 			width: 24px;
 		}
 	`,
-    valid: css.resolve`
+    [statuses.VALID]: css.resolve`
 		svg {
 			fill: ${colors.blue600};
 			height: 24px;
 			width: 24px;
 		}
 	`,
-    warning: css.resolve`
+    [statuses.WARNING]: css.resolve`
 		svg {
 			fill: ${colors.yellow500};
 			height: 24px;
 			width: 24px;
 		}
 	`,
-    error: css.resolve`
+    [statuses.ERROR]: css.resolve`
 		svg {
 			fill: ${colors.red500};
 			height: 24px;
@@ -64,16 +81,17 @@ const icons = {
 		}
 	`,
 }
-function icon(Icon, action = null, extra = 'default') {
+
+function icon(Icon, action = null, status = statuses.DEFAULT) {
     if (Icon) {
         return (
             <Fragment>
                 <Icon.type
                     {...Icon.props}
                     onClick={action}
-                    className={icons[extra].className}
+                    className={icons[status].className}
                 />
-                {icons[extra].styles}
+                {icons[status].styles}
             </Fragment>
         )
     }
@@ -81,7 +99,7 @@ function icon(Icon, action = null, extra = 'default') {
 }
 
 function trailIcon(status, trail, fn) {
-    if (status !== 'default') {
+    if (status !== statuses.DEFAULT) {
         return icon(statusToIcon[status], fn, status)
     } else {
         return icon(trail, fn)
@@ -262,7 +280,7 @@ class SelectField extends React.Component {
                     </div>
 
                     <div className="trail-icon-field">
-                        {this.props.status !== 'default' &&
+                        {this.props.status !== statuses.DEFAULT &&
                             trailIcon(this.props.status)}
                     </div>
 
@@ -297,15 +315,14 @@ class SelectField extends React.Component {
 }
 
 SelectField.defaultProps = {
-    size: 'default',
-    kind: 'filled',
-    status: 'default',
+    size: sizes.DEFAULT,
+    kind: kinds.FILLED,
+    status: statuses.DEFAULT,
     disabled: false,
     required: false,
 }
 
 SelectField.propTypes = {
-    className: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
@@ -320,13 +337,30 @@ SelectField.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     icon: PropTypes.element,
     help: PropTypes.string,
-    size: PropTypes.oneOf(['default', 'dense']),
-    kind: PropTypes.oneOf(['filled', 'outlined']),
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    size: PropTypes.oneOf([
+        sizes.DEFAULT,
+        sizes.DENSE,
+    ]),
+    kind: PropTypes.oneOf([
+        kinds.FILLED,
+        kinds.OUTLINED,
+    ]),
+    status: PropTypes.oneOf([
+        statuses.DEFAULT,
+        statuses.VALID,
+        statuses.WARNING,
+        statuses.ERROR,
+    ]),
 
+    className: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
 }
 
-export { SelectField }
+export { 
+    SelectField,
+    statuses,
+    sizes,
+    kinds,
+}
 export default SelectField
