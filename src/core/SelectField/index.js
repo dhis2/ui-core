@@ -335,11 +335,13 @@ SelectField.propTypes = {
                 .isRequired,
         })
     ).isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
-    icon: PropTypes.element,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     help: PropTypes.string,
-
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    icon: PropTypes.element,
     size: PropTypes.oneOf([
         sizes.DEFAULT,
         sizes.DENSE,
@@ -354,10 +356,6 @@ SelectField.propTypes = {
         statuses.WARNING,
         statuses.ERROR,
     ]),
-
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
 }
 
 export { 
