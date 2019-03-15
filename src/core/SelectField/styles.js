@@ -329,3 +329,50 @@ export default css`
         transform: translate(8px, -26px) scale(0.75);
     }
 `
+
+const arrowIcon = css.resolve`
+    svg {
+        fill: inherit;
+        height: 24px;
+        width: 24px;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+`
+
+const menuOverride = css.resolve`
+    max-height: 300px;
+    overflow-y: auto;
+`
+
+const iconStyleDefault = css.resolve`
+    svg {
+        fill: ${colors.grey700};
+        height: 24px;
+        width: 24px;
+    }
+`
+
+const iconStyleValid =  css.resolve`
+    svg {
+        fill: ${colors.blue600};
+        height: 24px;
+        width: 24px;
+    }
+`
+
+const iconStyleWarning =  css.resolve`
+    svg {
+        fill: ${colors.yellow500};
+        height: 24px;
+        width: 24px;
+    }
+`
+
+const iconStyleError =  css.resolve`
+    svg {
+        fill: ${colors.red500};
+        height: 24px;
+        width: 24px;
+    }
+`

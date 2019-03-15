@@ -1,17 +1,22 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Menu from '../Menu'
-import Help from '../Help'
-import { isPointInRect } from '../../utils'
-
+import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import styles from './styles.js'
-import css from 'styled-jsx/css'
-import { colors, fonts } from '../theme.js'
-
+import { isPointInRect } from '../../utils'
 import { Valid, Warning, Error } from '../../icons/Status.js'
 import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
+import { colors, fonts } from '../theme.js'
+import Menu from '../Menu'
+import Help from '../Help'
+import styles, {
+    arrowIcon,
+    menuOverride,
+    iconStyleDefault,
+    iconStyleValid,
+    iconStyleWarning,
+    iconStyleError,
+} from './styles.js'
 
 const statuses = {
     DEFAULT: 'default',
@@ -30,21 +35,6 @@ const kinds = {
     OUTLINED: 'outlined',
 }
 
-const arrowIcon = css.resolve`
-    svg {
-        fill: inherit;
-        height: 24px;
-        width: 24px;
-        vertical-align: middle;
-        pointer-events: none;
-    }
-`
-
-const menuOverride = css.resolve`
-    max-height: 300px;
-    overflow-y: auto;
-`
-
 const statusToIcon = {
     [statuses.VALID]: <Valid />,
     [statuses.WARNING]: <Warning />,
@@ -52,58 +42,33 @@ const statusToIcon = {
 }
 
 const icons = {
-    [statuses.DEFAULT]: css.resolve`
-		svg {
-			fill: ${colors.grey700};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    [statuses.VALID]: css.resolve`
-		svg {
-			fill: ${colors.blue600};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    [statuses.WARNING]: css.resolve`
-		svg {
-			fill: ${colors.yellow500};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    [statuses.ERROR]: css.resolve`
-		svg {
-			fill: ${colors.red500};
-			height: 24px;
-			width: 24px;
-		}
-	`,
+    [statuses.DEFAULT]: iconStyleDefault,
+    [statuses.VALID]: iconStyleValid,
+    [statuses.WARNING]: iconStyleWarning,
+    [statuses.ERROR]: iconStyleError,
 }
 
 function icon(Icon, action = null, status = statuses.DEFAULT) {
-    if (Icon) {
-        return (
-            <Fragment>
-                <Icon.type
-                    {...Icon.props}
-                    onClick={action}
-                    className={icons[status].className}
-                />
-                {icons[status].styles}
-            </Fragment>
-        )
+    if (!Icon) {
+        return null
     }
-    return null
+
+    return (
+        <Fragment>
+            <Icon.type
+                {...Icon.props}
+                onClick={action}
+                className={icons[status].className}
+            />
+            {icons[status].styles}
+        </Fragment>
+    )
 }
 
 function trailIcon(status, trail, fn) {
-    if (status !== statuses.DEFAULT) {
-        return icon(statusToIcon[status], fn, status)
-    } else {
-        return icon(trail, fn)
-    }
+    return status !== statuses.DEFAULT
+        ? icon(statusToIcon[status], fn, status)
+        : icon(trail, fn)
 }
 
 function markActive(list, value) {
@@ -183,6 +148,7 @@ class SelectField extends React.Component {
         const selected = this.props.list.filter(
             ({ value }) => this.props.value === value
         )
+
         return selected.length > 0 ? selected[0]['label'] : null
     }
 
@@ -199,25 +165,21 @@ class SelectField extends React.Component {
     }
 
     render() {
+        const { open } = this.state
+        const selected = this.getLabel()
+        const list = markActive(this.props.list, this.props.value)
+
         const legendWidth = this.shrink()
             ? { width: `${this.state.labelWidth}px` }
             : { width: '0.01px' }
 
-        const { open } = this.state
+        const width = open && this.elSelect
+            ? `${this.elSelect.getBoundingClientRect().width}px`
+            : 'inherit'
 
-        let width = 'inherit'
-        if (open && this.elSelect) {
-            width = `${this.elSelect.getBoundingClientRect().width}px`
-        }
-
-        const selected = this.getLabel()
-        const list = markActive(this.props.list, this.props.value)
-
-        const Arrow = open ? (
-            <ArrowUp className={arrowIcon.className} />
-        ) : (
-            <ArrowDown className={arrowIcon.className} />
-        )
+        const Arrow = open 
+            ? <ArrowUp className={arrowIcon.className} />
+            : <ArrowDown className={arrowIcon.className} />
 
         return (
             <div
@@ -252,6 +214,7 @@ class SelectField extends React.Component {
                     >
                         {this.props.label}
                     </label>
+
                     {this.props.kind === 'outlined' && (
                         <fieldset
                             className={cx('flatline', {
@@ -292,9 +255,14 @@ class SelectField extends React.Component {
                         {Arrow}
                     </div>
                 </div>
+
                 {this.props.help && (
-                    <Help text={this.props.help} status={this.props.status} />
+                    <Help
+                        text={this.props.help}
+                        status={this.props.status}
+                    />
                 )}
+
                 {open && (
                     <div className="menu" ref={c => (this.elMenu = c)}>
                         <Menu
@@ -305,6 +273,7 @@ class SelectField extends React.Component {
                         />
                     </div>
                 )}
+
                 {menuOverride.styles}
                 {arrowIcon.styles}
                 <style jsx>{fonts}</style>
