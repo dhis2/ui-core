@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors, fonts } from '../theme.js'
+import { colors } from '../theme.js'
 import styles from './styles.js'
 
 import css from 'styled-jsx/css'
@@ -99,7 +99,6 @@ class Chip extends React.PureComponent {
                 <span className={cx('label', { overflow })}>{label}</span>
                 {this.showRemove()}
 
-                <style jsx>{fonts}</style>
                 <style jsx>{styles}</style>
             </div>
         )

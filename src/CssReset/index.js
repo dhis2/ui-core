@@ -154,6 +154,10 @@ function CssReset() {
             *:after {
                 box-sizing: inherit;
             }
+
+            body {
+                font-family: Roboto, sans-serif;
+            }
         `}</style>
     )
 }

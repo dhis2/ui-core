@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors, fonts } from '../theme.js'
+import { colors } from '../theme.js'
 import styles from './styles.js'
 
 import { Checked, Unchecked } from '../icons/Radio.js'
@@ -81,7 +81,6 @@ class Radio extends React.Component {
                 </span>
 
                 {icons[state].styles}
-                <style jsx>{fonts}</style>
                 <style jsx>{styles}</style>
             </label>
         )

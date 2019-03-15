@@ -2,14 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors, fonts } from '../theme.js'
+import { colors } from '../theme.js'
 
 function Card({ className, children }) {
     return (
         <div className={cx('base', className)}>
             {children}
 
-            <style jsx>{fonts}</style>
             <style jsx>{`
                 .base {
                     display: inline-block;

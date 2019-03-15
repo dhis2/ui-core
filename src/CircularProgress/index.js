@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import styles from './styles.js'
-import { fonts } from '../theme.js'
 
 function Circle() {
     return (
@@ -24,7 +23,6 @@ function CircularProgress({ size, overlay, className }) {
     const loader = (
         <div role="progressbar" className={cx('base', size, className)}>
             <Circle />
-            <style jsx>{fonts}</style>
             <style jsx>{styles}</style>
         </div>
     )

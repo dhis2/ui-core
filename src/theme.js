@@ -105,10 +105,3 @@ export const theme = {
     secondary100: colors.teal100,
     secondary050: colors.teal050,
 }
-
-export const fonts = css`
-    * {
-        box-sizing: border-box;
-        font-family: Roboto, sans-serif;
-    }
-`

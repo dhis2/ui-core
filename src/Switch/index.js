@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import styles from './styles'
-import { fonts } from '../theme.js'
 
 class Switch extends React.Component {
     onChange = () => {
@@ -32,7 +31,6 @@ class Switch extends React.Component {
                     {this.props.label}
                 </span>
                 {this.props.required && <span className="required" />}
-                <style jsx>{fonts}</style>
                 <style jsx>{styles}</style>
             </label>
         )

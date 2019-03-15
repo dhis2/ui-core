@@ -7,8 +7,6 @@ import cx from 'classnames'
 
 import styles from './styles'
 
-import { fonts } from '../theme.js'
-
 export function Menu({ size, width, list, onClick, className }) {
     return (
         <Card>
@@ -39,7 +37,6 @@ export function Menu({ size, width, list, onClick, className }) {
                     }
                 )}
             </ul>
-            <style jsx>{fonts}</style>
             <style jsx>{styles}</style>
         </Card>
     )
