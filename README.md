@@ -1,4 +1,4 @@
-# ui
+# ui-core
 
 [![Greenkeeper
 badge](https://badges.greenkeeper.io/dhis2/ui.svg)](https://greenkeeper.io/)
@@ -66,6 +66,7 @@ First install dependencies for both the ui components (in root_dir) and the demo
 ```
 cd [root_dir]
 yarn install
+
 cd [root_dir]/docs
 yarn install
 ```
@@ -74,8 +75,11 @@ Then run the demo while watching the source files:
 
 ```
 cd [root_dir]
+yarn link
 yarn start
+
 cd [root_dir]/docs
+yarn link @dhis2/ui-core
 yarn start
 ```
 

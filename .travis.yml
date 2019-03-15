@@ -7,17 +7,6 @@ script:
 - yarn build
 - yarn build:docs
 - yarn size
-deploy:
-- provider: script
-  script: deploy-build
-  skip_cleanup: true
-  on:
-    all_branches: true
-- provider: script
-  script: publish-build
-  skip_cleanup: true
-  on:
-    tags: true
 env:
   global:
   - secure: GKxMHoTokCyhT5KbSZcz6jcxT8WrhR3Mr/Ra6Es3+fsGXsHUh5PqBel/ygZhpoWyrsKuYg0diu+N8sgTguhHvaEOOr2R2qgtrDXWDychlBYNsfvwesiIMdbdQFZVSxbi9q6rRDqzJ9n8W6M+3tfpaTSZCAxySjIrOe+HMYA/ecTxhbVdh32FmF65kYSAkc+r2yIsob4eMOl0sh5rLD+vHYvNUpRnhfhijOJEE7uQUYB7KzjIFOe7D5H4sikq9SUkxQs8dqW6crqKz+oMcYAGx2FXvjykGcIe6yxWDaRBJURjlBzjcjOVrTrEjItX3884gGF3p4wLHMPKlNs3EONEO9xKs8ANRqE6TYrq+uxwDiQ9Wb37s2VxIxD8XCUj2osOfk5RLhnnta+Ot1WAf+M+CtlYPlB+H8+0mkXspPuazlcgHqRms7yr66M6EYgWh1RrB7ID825GIQaP+jQmhHXqulkqGe3kMK0lkR0F5gwRg9VqWaCdlv5+VBPO3vy9tmoYPQovTuUdhbQidH93lIW6e00iKLs31bEvB8NPgVpyEjd1aPdN1BhhDF79kFYqMMD2Xh7MJ+X3GAk/ACvqJR8rpq1WCTX9T2KYNWybv/H9vnSmSQCHwaQP1c370UWLCSiK+vZIGR1WYzdk01uGh5BjgHB0pa+rr4RI8dz+7RR8Y28=
