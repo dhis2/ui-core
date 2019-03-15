@@ -15,7 +15,7 @@
     "start": "node scripts/watch.js",
     "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
     "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
-    "build:docs": "node scripts/docs.js",
+    "build:docs": "cd ./docs && yarn install && yarn build && cd .. && cp -r ./docs/build ./build/docs",
     "build": "NODE_ENV=production yarn clean && yarn build:commonjs && yarn build:modules"
   },
   "husky": {
