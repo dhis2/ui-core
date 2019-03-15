@@ -1,13 +1,14 @@
 import React from 'react'
 
+/*
+ * http://meyerweb.com/eric/tools/css/reset/
+ * v2.0 | 20110126
+ * License: none (public domain)
+ */
+
 function CssReset() {
     return (
         <style jsx global>{`
-            /* http://meyerweb.com/eric/tools/css/reset/
-               v2.0 | 20110126
-               License: none (public domain)
-            */
-
             html,
             body,
             div,
@@ -154,6 +155,10 @@ function CssReset() {
             *:after {
                 box-sizing: inherit;
             }
+
+            /*
+             * apply our standard font to everything
+             */
 
             body {
                 font-family: Roboto, sans-serif;
