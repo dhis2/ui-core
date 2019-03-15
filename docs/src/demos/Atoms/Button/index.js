@@ -1,8 +1,7 @@
 import React from 'react'
 
-import Button from 'core/Button'
-import SplitButton from 'core/SplitButton'
-import DropdownButton from 'core/DropdownButton'
+import { Button, SplitButton, DropdownButton } from '@dhis2/ui-core'
+
 import Icon from '../../../Icon'
 
 import { Row, Divider, Heading } from '../../../helpers'

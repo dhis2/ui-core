@@ -5,7 +5,7 @@ import Content from './Content'
 
 import 'typeface-roboto/index.css'
 
-import 'css/reset.css'
+import '@dhis2/ui-core/build/es/css/reset.css'
 
 import './App.css'
 

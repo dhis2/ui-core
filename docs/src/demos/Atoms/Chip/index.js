@@ -1,5 +1,5 @@
 import React from 'react'
-import Chip from 'core/Chip'
+import { Chip } from '@dhis2/ui-core'
 import { Text, Row, Col, Divider } from '../../../helpers'
 
 import Icon from '../../../Icon'

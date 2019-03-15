@@ -4,9 +4,9 @@ import cx from 'classnames'
 
 import Button from '../Button'
 import Menu from '../Menu'
-import { isPointInRect } from '../../utils'
+import { isPointInRect } from '../utils'
 
-import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
+import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
 
 import { fonts } from '../theme.js'
 import buttons from '../Button/styles.js'

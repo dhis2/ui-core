@@ -7,7 +7,7 @@ import styles from './styles.js'
 
 import css from 'styled-jsx/css'
 
-import { Cancel } from '../../icons/Cancel.js'
+import { Cancel } from '../icons/Cancel.js'
 
 const removeIcon = css.resolve`
     svg {

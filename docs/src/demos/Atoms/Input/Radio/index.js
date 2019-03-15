@@ -1,5 +1,5 @@
 import React from 'react'
-import Radio from 'core/Radio'
+import { Radio } from '@dhis2/ui-core'
 
 import { Text, Row, Col, Divider } from '../../../../helpers'
 

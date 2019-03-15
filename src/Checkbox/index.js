@@ -5,7 +5,7 @@ import cx from 'classnames'
 import { colors, fonts } from '../theme.js'
 import styles from './styles.js'
 
-import { Indeterminate, Checked, Unchecked } from '../../icons/Checkbox.js'
+import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox.js'
 
 import css from 'styled-jsx/css'
 

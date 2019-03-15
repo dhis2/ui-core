@@ -5,7 +5,7 @@ import cx from 'classnames'
 import { colors, fonts } from '../theme.js'
 import styles from './styles.js'
 
-import { Checked, Unchecked } from '../../icons/Radio.js'
+import { Checked, Unchecked } from '../icons/Radio.js'
 
 import css from 'styled-jsx/css'
 

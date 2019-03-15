@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Menu from '../Menu'
 import Help from '../Help'
-import { isPointInRect } from '../../utils'
+import { isPointInRect } from '../utils'
 
 import cx from 'classnames'
 
@@ -10,8 +10,8 @@ import styles from './styles.js'
 import css from 'styled-jsx/css'
 import { colors, fonts } from '../theme.js'
 
-import { Valid, Warning, Error } from '../../icons/Status.js'
-import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
+import { Valid, Warning, Error } from '../icons/Status.js'
+import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
 
 const arrowIcon = css.resolve`
     svg {

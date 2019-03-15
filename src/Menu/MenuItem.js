@@ -4,7 +4,7 @@ import Menu from './index'
 import cx from 'classnames'
 import styles from './styles'
 
-import { ChevronRight } from '../../icons/Chevron.js'
+import { ChevronRight } from '../icons/Chevron.js'
 
 import css from 'styled-jsx/css'
 

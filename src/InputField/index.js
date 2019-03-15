@@ -4,7 +4,7 @@ import cx from 'classnames'
 
 import Help from '../Help'
 
-import { Valid, Warning, Error } from '../../icons/Status.js'
+import { Valid, Warning, Error } from '../icons/Status.js'
 
 import css from 'styled-jsx/css'
 import styles from './styles.js'

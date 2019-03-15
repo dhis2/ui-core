@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Logo from 'core/Logo'
+import { Logo } from '@dhis2/ui-core'
 
 function Title() {
     return (
@@ -62,11 +62,6 @@ export const list = [
             { id: 'modal', title: 'Modal' },
             { id: 'table', title: 'Table' },
         ],
-    },
-    {
-        id: 'organisms',
-        title: 'Organisms',
-        list: [{ id: 'headerbar', title: 'Header bar' }],
     },
 ]
 

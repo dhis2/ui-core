@@ -1,22 +1,22 @@
 {
-  "name": "@dhis2/ui",
+  "name": "@dhis2/ui-core",
   "version": "1.0.0-beta.15",
-  "main": "index.js",
-  "module": "index.es.js",
+  "main": "./build/cjs/index.js",
+  "module": "./build/es/index.js",
   "sideEffects": false,
   "repository": "git@github.com:dhis2/ui.git",
   "author": "Viktor Varland <viktor@dhis2.org>",
   "license": "BSD-3-Clause",
-  "private": true,
+  "private": false,
   "scripts": {
     "clean": "rm -rf ./build/*",
     "release": "packages release",
     "size": "size-limit",
     "start": "node scripts/watch.js",
-    "build:cjs": "BABEL_ENV=cjs babel src --out-dir build --copy-files --verbose",
-    "build:modules": "BABEL_ENV=modules babel ./src/index.js --out-file ./build/index.es.js --verbose",
+    "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
+    "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
     "build:docs": "node scripts/docs.js",
-    "build": "NODE_ENV=production npm run clean && npm run build:cjs && npm run build:modules"
+    "build": "NODE_ENV=production yarn clean && yarn build:commonjs && yarn build:modules"
   },
   "husky": {
     "hooks": {
@@ -50,5 +50,8 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "styled-jsx": "^3.2.1"
-  }
+  },
+  "files": [
+    "./build"
+  ]
 }

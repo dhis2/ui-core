@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Menu from '../Menu'
-import { isPointInRect } from '../../utils'
+import { isPointInRect } from '../utils'
 
 import css from 'styled-jsx/css'
 
 import buttons from '../Button/styles.js'
 
-import { ArrowUp, ArrowDown } from '../../icons/Arrow.js'
+import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
 
 import cx from 'classnames'
 import styles from './styles'

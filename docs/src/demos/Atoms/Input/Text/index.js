@@ -1,5 +1,5 @@
 import React from 'react'
-import InputField from 'core/InputField'
+import { InputField } from '@dhis2/ui-core'
 
 import Icon from '../../../../Icon.js'
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import CircularProgress from 'core/CircularProgress'
-import LinearProgress from 'core/LinearProgress'
-import Card from 'core/Card'
+
+import { CircularProgress, LinearProgress, Card } from '@dhis2/ui-core'
+
 import { Text, Row, Col, Divider } from '../../../helpers'
 
 function CenteredProgress(props) {
