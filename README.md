@@ -2,6 +2,7 @@
 
 [![Greenkeeper
 badge](https://badges.greenkeeper.io/dhis2/ui.svg)](https://greenkeeper.io/)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 **[Online docs and demos (latest master
 build)](https://d2-ci.github.io/ui/)**
@@ -107,14 +108,9 @@ This library follows the commit message style defined in [@commitlint/config-con
 
 ### Releasing
 
-Once a PR has been approved and merged, you will want to kick off the release process. Make sure you are in the master branch, and have pulled the latest from the remote. Run:
+When a PR is merged to the **master** branch, the release process
+automatically starts.
 
-```
-git checkout master
-git pull
-yarn release
-[follow instructions]
-git push --follow-tags origin master
-```
-
-For more information, refer to the [packages readme](https://github.com/dhis2/cli-packages#release-and-generate-changelogmd-tags-etc)
+It is very important that the commit that lands on **master** follows
+the conventional commit format, since that is what is used to
+automatically determine the next version.

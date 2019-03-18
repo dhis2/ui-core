@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Menu from '../Menu'
 import Help from '../Help'
-import { isPointInRect } from '../utils'
+import { isPointInRect } from '../utils/math'
 
 import cx from 'classnames'
 
