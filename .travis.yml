@@ -14,6 +14,9 @@ jobs:
         skip_cleanup: true
         script:
           - npx --package @dhis2/deploy-build deploy-build
+        on:
+          tags: false
+          all_branches: true
 
     - stage: release
       node_js: lts/*
