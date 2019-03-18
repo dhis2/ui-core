@@ -1,7 +1,11 @@
-import { configure } from '@storybook/react'
+import { configure, addDecorator } from '@storybook/react'
+import { jsxDecorator } from 'storybook-addon-jsx'
+
+addDecorator(jsxDecorator)
 
 function loadStories() {
-    require('../stories/core/SelectField.js')
+    const req = require.context('../stories', true, /\.stories\.js$/)
+    req.keys().forEach(filename => req(filename))
 }
 
 configure(loadStories, module)

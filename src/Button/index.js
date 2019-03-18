@@ -24,6 +24,7 @@ function Button({
                 'icon-only': icon && !label && !children,
                 icon,
             })}
+            type={type}
         >
             {icon && <span className="button-icon">{icon}</span>}
             {label || children}

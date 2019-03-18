@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { SelectField } from '../../src/core/SelectField'
+import { SelectField } from '../src'
 
 const noop = () => undefined
 const options = [

@@ -1,11 +1,9 @@
 language: node_js
 node_js:
-- 8.11.1
+- lts/*
 
 script:
 - yarn build
-- yarn build:docs
-- yarn size
 
 jobs:
   include:
