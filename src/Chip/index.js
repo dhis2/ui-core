@@ -83,6 +83,7 @@ class Chip extends React.PureComponent {
             dragging,
             overflow,
             className,
+            children,
         } = this.props
 
         return (
@@ -96,7 +97,9 @@ class Chip extends React.PureComponent {
                 onClick={this.onClick}
             >
                 {this.showIcon()}
-                <span className={cx('label', { overflow })}>{label}</span>
+                <span className={cx('label', { overflow })}>
+                    {label || children}
+                </span>
                 {this.showRemove()}
 
                 <style jsx>{styles}</style>

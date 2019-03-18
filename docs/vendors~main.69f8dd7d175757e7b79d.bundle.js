@@ -3,14 +3,14 @@
     [
         function(module, exports, __webpack_require__) {
             'use strict'
-            module.exports = __webpack_require__(322)
+            module.exports = __webpack_require__(325)
         },
         function(module, exports, __webpack_require__) {
-            var global = __webpack_require__(17),
-                core = __webpack_require__(29),
-                hide = __webpack_require__(26),
-                redefine = __webpack_require__(19),
-                ctx = __webpack_require__(35),
+            var global = __webpack_require__(20),
+                core = __webpack_require__(33),
+                hide = __webpack_require__(30),
+                redefine = __webpack_require__(22),
+                ctx = __webpack_require__(40),
                 $export = function(type, name, source) {
                     var key,
                         own,
@@ -59,13 +59,37 @@
                 ($export.R = 128),
                 (module.exports = $export)
         },
+        function(module, exports) {
+            module.exports = function(module) {
+                return (
+                    module.webpackPolyfill ||
+                        ((module.deprecate = function() {}),
+                        (module.paths = []),
+                        module.children || (module.children = []),
+                        Object.defineProperty(module, 'loaded', {
+                            enumerable: !0,
+                            get: function() {
+                                return module.l
+                            },
+                        }),
+                        Object.defineProperty(module, 'id', {
+                            enumerable: !0,
+                            get: function() {
+                                return module.i
+                            },
+                        }),
+                        (module.webpackPolyfill = 1)),
+                    module
+                )
+            }
+        },
         ,
         function(module, exports, __webpack_require__) {
-            module.exports = __webpack_require__(349)()
+            module.exports = __webpack_require__(357)()
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var keys = __webpack_require__(67),
+            var keys = __webpack_require__(69),
                 hasSymbols =
                     'function' == typeof Symbol &&
                     'symbol' == typeof Symbol('foo'),
@@ -123,9 +147,9 @@
                 (module.exports = defineProperties)
         },
         function(module, exports, __webpack_require__) {
-            var store = __webpack_require__(54)('wks'),
-                uid = __webpack_require__(43),
-                Symbol = __webpack_require__(17).Symbol,
+            var store = __webpack_require__(56)('wks'),
+                uid = __webpack_require__(46),
+                Symbol = __webpack_require__(20).Symbol,
                 USE_SYMBOL = 'function' == typeof Symbol
             ;(module.exports = function(name) {
                 return (
@@ -137,7 +161,67 @@
             }).store = store
         },
         function(module, exports, __webpack_require__) {
-            module.exports = __webpack_require__(345)
+            module.exports = __webpack_require__(353)
+        },
+        function(module, exports, __webpack_require__) {
+            'use strict'
+            ;(function(module) {
+                __webpack_require__(19),
+                    Object.defineProperty(exports, '__esModule', { value: !0 }),
+                    Object.defineProperty(exports, 'storiesOf', {
+                        enumerable: !0,
+                        get: function get() {
+                            return _preview.storiesOf
+                        },
+                    }),
+                    Object.defineProperty(exports, 'setAddon', {
+                        enumerable: !0,
+                        get: function get() {
+                            return _preview.setAddon
+                        },
+                    }),
+                    Object.defineProperty(exports, 'addDecorator', {
+                        enumerable: !0,
+                        get: function get() {
+                            return _preview.addDecorator
+                        },
+                    }),
+                    Object.defineProperty(exports, 'addParameters', {
+                        enumerable: !0,
+                        get: function get() {
+                            return _preview.addParameters
+                        },
+                    }),
+                    Object.defineProperty(exports, 'configure', {
+                        enumerable: !0,
+                        get: function get() {
+                            return _preview.configure
+                        },
+                    }),
+                    Object.defineProperty(exports, 'getStorybook', {
+                        enumerable: !0,
+                        get: function get() {
+                            return _preview.getStorybook
+                        },
+                    }),
+                    Object.defineProperty(exports, 'raw', {
+                        enumerable: !0,
+                        get: function get() {
+                            return _preview.raw
+                        },
+                    }),
+                    Object.defineProperty(exports, 'forceReRender', {
+                        enumerable: !0,
+                        get: function get() {
+                            return _preview.forceReRender
+                        },
+                    })
+                var _preview = __webpack_require__(270)
+                module &&
+                    module.hot &&
+                    module.hot.decline &&
+                    module.hot.decline()
+            }.call(this, __webpack_require__(2)(module)))
         },
         function(module, exports, __webpack_require__) {
             var __WEBPACK_AMD_DEFINE_RESULT__
@@ -185,9 +269,10 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(189)
+            var implementation = __webpack_require__(192)
             module.exports = Function.prototype.bind || implementation
         },
+        ,
         function(module, exports) {
             var g
             g = (function() {
@@ -201,60 +286,32 @@
             module.exports = g
         },
         function(module, exports, __webpack_require__) {
-            module.exports = !__webpack_require__(11)(function() {
-                return (
-                    7 !=
-                    Object.defineProperty({}, 'a', {
-                        get: function() {
-                            return 7
-                        },
-                    }).a
-                )
-            })
-        },
-        function(module, exports) {
-            module.exports = function(exec) {
-                try {
-                    return !!exec()
-                } catch (e) {
-                    return !0
-                }
-            }
-        },
-        function(module, exports, __webpack_require__) {
-            var isObject = __webpack_require__(18)
-            module.exports = function(it) {
-                if (!isObject(it)) throw TypeError(it + ' is not an object!')
-                return it
-            }
-        },
-        function(module, exports, __webpack_require__) {
             'use strict'
-            var global = __webpack_require__(17),
-                has = __webpack_require__(25),
-                DESCRIPTORS = __webpack_require__(10),
+            var global = __webpack_require__(20),
+                has = __webpack_require__(29),
+                DESCRIPTORS = __webpack_require__(14),
                 $export = __webpack_require__(1),
-                redefine = __webpack_require__(19),
-                META = __webpack_require__(57).KEY,
-                $fails = __webpack_require__(11),
-                shared = __webpack_require__(54),
-                setToStringTag = __webpack_require__(58),
-                uid = __webpack_require__(43),
-                wks = __webpack_require__(5),
-                wksExt = __webpack_require__(126),
-                wksDefine = __webpack_require__(74),
-                enumKeys = __webpack_require__(258),
-                isArray = __webpack_require__(78),
-                anObject = __webpack_require__(12),
-                isObject = __webpack_require__(18),
-                toIObject = __webpack_require__(31),
-                toPrimitive = __webpack_require__(53),
-                createDesc = __webpack_require__(42),
-                _create = __webpack_require__(47),
-                gOPNExt = __webpack_require__(260),
-                $GOPD = __webpack_require__(80),
-                $DP = __webpack_require__(14),
-                $keys = __webpack_require__(30),
+                redefine = __webpack_require__(22),
+                META = __webpack_require__(59).KEY,
+                $fails = __webpack_require__(15),
+                shared = __webpack_require__(56),
+                setToStringTag = __webpack_require__(60),
+                uid = __webpack_require__(46),
+                wks = __webpack_require__(6),
+                wksExt = __webpack_require__(131),
+                wksDefine = __webpack_require__(76),
+                enumKeys = __webpack_require__(261),
+                isArray = __webpack_require__(80),
+                anObject = __webpack_require__(16),
+                isObject = __webpack_require__(21),
+                toIObject = __webpack_require__(35),
+                toPrimitive = __webpack_require__(55),
+                createDesc = __webpack_require__(45),
+                _create = __webpack_require__(50),
+                gOPNExt = __webpack_require__(263),
+                $GOPD = __webpack_require__(82),
+                $DP = __webpack_require__(18),
+                $keys = __webpack_require__(34),
                 gOPD = $GOPD.f,
                 dP = $DP.f,
                 gOPN = gOPNExt.f,
@@ -449,11 +506,11 @@
                 ),
                 ($GOPD.f = $getOwnPropertyDescriptor),
                 ($DP.f = $defineProperty),
-                (__webpack_require__(79).f = gOPNExt.f = $getOwnPropertyNames),
-                (__webpack_require__(46).f = $propertyIsEnumerable),
-                (__webpack_require__(77).f = $getOwnPropertySymbols),
+                (__webpack_require__(81).f = gOPNExt.f = $getOwnPropertyNames),
+                (__webpack_require__(49).f = $propertyIsEnumerable),
+                (__webpack_require__(79).f = $getOwnPropertySymbols),
                 DESCRIPTORS &&
-                    !__webpack_require__(55) &&
+                    !__webpack_require__(57) &&
                     redefine(
                         ObjectProto,
                         'propertyIsEnumerable',
@@ -561,7 +618,7 @@
                         }
                     ),
                 $Symbol.prototype[TO_PRIMITIVE] ||
-                    __webpack_require__(26)(
+                    __webpack_require__(30)(
                         $Symbol.prototype,
                         TO_PRIMITIVE,
                         $Symbol.prototype.valueOf
@@ -571,11 +628,42 @@
                 setToStringTag(global.JSON, 'JSON', !0)
         },
         function(module, exports, __webpack_require__) {
-            var anObject = __webpack_require__(12),
-                IE8_DOM_DEFINE = __webpack_require__(124),
-                toPrimitive = __webpack_require__(53),
+            module.exports = !__webpack_require__(15)(function() {
+                return (
+                    7 !=
+                    Object.defineProperty({}, 'a', {
+                        get: function() {
+                            return 7
+                        },
+                    }).a
+                )
+            })
+        },
+        function(module, exports) {
+            module.exports = function(exec) {
+                try {
+                    return !!exec()
+                } catch (e) {
+                    return !0
+                }
+            }
+        },
+        function(module, exports, __webpack_require__) {
+            var isObject = __webpack_require__(21)
+            module.exports = function(it) {
+                if (!isObject(it)) throw TypeError(it + ' is not an object!')
+                return it
+            }
+        },
+        function(module, exports, __webpack_require__) {
+            __webpack_require__(76)('asyncIterator')
+        },
+        function(module, exports, __webpack_require__) {
+            var anObject = __webpack_require__(16),
+                IE8_DOM_DEFINE = __webpack_require__(129),
+                toPrimitive = __webpack_require__(55),
                 dP = Object.defineProperty
-            exports.f = __webpack_require__(10)
+            exports.f = __webpack_require__(14)
                 ? Object.defineProperty
                 : function defineProperty(O, P, Attributes) {
                       if (
@@ -595,14 +683,11 @@
                   }
         },
         function(module, exports, __webpack_require__) {
-            __webpack_require__(74)('asyncIterator')
-        },
-        function(module, exports, __webpack_require__) {
             var $export = __webpack_require__(1)
             $export(
-                $export.S + $export.F * !__webpack_require__(10),
+                $export.S + $export.F * !__webpack_require__(14),
                 'Object',
-                { defineProperty: __webpack_require__(14).f }
+                { defineProperty: __webpack_require__(18).f }
             )
         },
         function(module, exports) {
@@ -622,13 +707,13 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var global = __webpack_require__(17),
-                hide = __webpack_require__(26),
-                has = __webpack_require__(25),
-                SRC = __webpack_require__(43)('src'),
-                $toString = __webpack_require__(257),
+            var global = __webpack_require__(20),
+                hide = __webpack_require__(30),
+                has = __webpack_require__(29),
+                SRC = __webpack_require__(46)('src'),
+                $toString = __webpack_require__(260),
                 TPL = ('' + $toString).split('toString')
-            ;(__webpack_require__(29).inspectSource = function(it) {
+            ;(__webpack_require__(33).inspectSource = function(it) {
                 return $toString.call(it)
             }),
                 (module.exports = function(O, key, val, safe) {
@@ -659,21 +744,21 @@
                 })
         },
         function(module, exports, __webpack_require__) {
+            var $export = __webpack_require__(1)
+            $export($export.S, 'Object', {
+                setPrototypeOf: __webpack_require__(160).set,
+            })
+        },
+        function(module, exports, __webpack_require__) {
             'use strict'
-            var bind = __webpack_require__(8)
+            var bind = __webpack_require__(10)
             module.exports = bind.call(
                 Function.call,
                 Object.prototype.hasOwnProperty
             )
         },
         function(module, exports, __webpack_require__) {
-            var $export = __webpack_require__(1)
-            $export($export.S, 'Object', {
-                setPrototypeOf: __webpack_require__(157).set,
-            })
-        },
-        function(module, exports, __webpack_require__) {
-            var toInteger = __webpack_require__(60),
+            var toInteger = __webpack_require__(62),
                 min = Math.min
             module.exports = function(it) {
                 return it > 0 ? min(toInteger(it), 9007199254740991) : 0
@@ -691,37 +776,20 @@
                         ? self
                         : {}),
                     (module.exports = win)
-            }.call(this, __webpack_require__(9)))
+            }.call(this, __webpack_require__(12)))
         },
         function(module, exports, __webpack_require__) {
-            var defined = __webpack_require__(45)
+            var defined = __webpack_require__(48)
             module.exports = function(it) {
                 return Object(defined(it))
             }
         },
-        function(module, exports) {
-            var hasOwnProperty = {}.hasOwnProperty
-            module.exports = function(it, key) {
-                return hasOwnProperty.call(it, key)
-            }
-        },
         function(module, exports, __webpack_require__) {
-            var dP = __webpack_require__(14),
-                createDesc = __webpack_require__(42)
-            module.exports = __webpack_require__(10)
-                ? function(object, key, value) {
-                      return dP.f(object, key, createDesc(1, value))
-                  }
-                : function(object, key, value) {
-                      return (object[key] = value), object
-                  }
-        },
-        function(module, exports, __webpack_require__) {
-            var dP = __webpack_require__(14).f,
+            var dP = __webpack_require__(18).f,
                 FProto = Function.prototype,
                 nameRE = /^\s*function ([^ (]*)/
             'name' in FProto ||
-                (__webpack_require__(10) &&
+                (__webpack_require__(14) &&
                     dP(FProto, 'name', {
                         configurable: !0,
                         get: function() {
@@ -733,11 +801,34 @@
                         },
                     }))
         },
+        function(module, exports) {
+            var hasOwnProperty = {}.hasOwnProperty
+            module.exports = function(it, key) {
+                return hasOwnProperty.call(it, key)
+            }
+        },
+        function(module, exports, __webpack_require__) {
+            var dP = __webpack_require__(18),
+                createDesc = __webpack_require__(45)
+            module.exports = __webpack_require__(14)
+                ? function(object, key, value) {
+                      return dP.f(object, key, createDesc(1, value))
+                  }
+                : function(object, key, value) {
+                      return (object[key] = value), object
+                  }
+        },
+        function(module, exports, __webpack_require__) {
+            var $export = __webpack_require__(1)
+            $export($export.S + $export.F, 'Object', {
+                assign: __webpack_require__(282),
+            })
+        },
         function(module, exports, __webpack_require__) {
             'use strict'
             ;(function(global) {
                 var origSymbol = global.Symbol,
-                    hasSymbolSham = __webpack_require__(197)
+                    hasSymbolSham = __webpack_require__(200)
                 module.exports = function hasNativeSymbols() {
                     return (
                         'function' == typeof origSymbol &&
@@ -747,15 +838,15 @@
                                     hasSymbolSham())))
                     )
                 }
-            }.call(this, __webpack_require__(9)))
+            }.call(this, __webpack_require__(12)))
         },
         function(module, exports) {
             var core = (module.exports = { version: '2.6.5' })
             'number' == typeof __e && (__e = core)
         },
         function(module, exports, __webpack_require__) {
-            var $keys = __webpack_require__(127),
-                enumBugKeys = __webpack_require__(76)
+            var $keys = __webpack_require__(132),
+                enumBugKeys = __webpack_require__(78)
             module.exports =
                 Object.keys ||
                 function keys(O) {
@@ -763,17 +854,113 @@
                 }
         },
         function(module, exports, __webpack_require__) {
-            var IObject = __webpack_require__(59),
-                defined = __webpack_require__(45)
+            var IObject = __webpack_require__(61),
+                defined = __webpack_require__(48)
             module.exports = function(it) {
                 return IObject(defined(it))
             }
         },
         function(module, exports, __webpack_require__) {
-            var $export = __webpack_require__(1)
-            $export($export.S + $export.F, 'Object', {
-                assign: __webpack_require__(279),
-            })
+            'use strict'
+            var addToUnscopables = __webpack_require__(84),
+                step = __webpack_require__(136),
+                Iterators = __webpack_require__(51),
+                toIObject = __webpack_require__(35)
+            ;(module.exports = __webpack_require__(85)(
+                Array,
+                'Array',
+                function(iterated, kind) {
+                    ;(this._t = toIObject(iterated)),
+                        (this._i = 0),
+                        (this._k = kind)
+                },
+                function() {
+                    var O = this._t,
+                        kind = this._k,
+                        index = this._i++
+                    return !O || index >= O.length
+                        ? ((this._t = void 0), step(1))
+                        : step(
+                              0,
+                              'keys' == kind
+                                  ? index
+                                  : 'values' == kind
+                                  ? O[index]
+                                  : [index, O[index]]
+                          )
+                },
+                'values'
+            )),
+                (Iterators.Arguments = Iterators.Array),
+                addToUnscopables('keys'),
+                addToUnscopables('values'),
+                addToUnscopables('entries')
+        },
+        function(module, exports, __webpack_require__) {
+            for (
+                var $iterators = __webpack_require__(36),
+                    getKeys = __webpack_require__(34),
+                    redefine = __webpack_require__(22),
+                    global = __webpack_require__(20),
+                    hide = __webpack_require__(30),
+                    Iterators = __webpack_require__(51),
+                    wks = __webpack_require__(6),
+                    ITERATOR = wks('iterator'),
+                    TO_STRING_TAG = wks('toStringTag'),
+                    ArrayValues = Iterators.Array,
+                    DOMIterables = {
+                        CSSRuleList: !0,
+                        CSSStyleDeclaration: !1,
+                        CSSValueList: !1,
+                        ClientRectList: !1,
+                        DOMRectList: !1,
+                        DOMStringList: !1,
+                        DOMTokenList: !0,
+                        DataTransferItemList: !1,
+                        FileList: !1,
+                        HTMLAllCollection: !1,
+                        HTMLCollection: !1,
+                        HTMLFormElement: !1,
+                        HTMLSelectElement: !1,
+                        MediaList: !0,
+                        MimeTypeArray: !1,
+                        NamedNodeMap: !1,
+                        NodeList: !0,
+                        PaintRequestList: !1,
+                        Plugin: !1,
+                        PluginArray: !1,
+                        SVGLengthList: !1,
+                        SVGNumberList: !1,
+                        SVGPathSegList: !1,
+                        SVGPointList: !1,
+                        SVGStringList: !1,
+                        SVGTransformList: !1,
+                        SourceBufferList: !1,
+                        StyleSheetList: !0,
+                        TextTrackCueList: !1,
+                        TextTrackList: !1,
+                        TouchList: !1,
+                    },
+                    collections = getKeys(DOMIterables),
+                    i = 0;
+                i < collections.length;
+                i++
+            ) {
+                var key,
+                    NAME = collections[i],
+                    explicit = DOMIterables[NAME],
+                    Collection = global[NAME],
+                    proto = Collection && Collection.prototype
+                if (
+                    proto &&
+                    (proto[ITERATOR] || hide(proto, ITERATOR, ArrayValues),
+                    proto[TO_STRING_TAG] || hide(proto, TO_STRING_TAG, NAME),
+                    (Iterators[NAME] = ArrayValues),
+                    explicit)
+                )
+                    for (key in $iterators)
+                        proto[key] || redefine(proto, key, $iterators[key], !0)
+            }
         },
         function(module, exports, __webpack_require__) {
             'use strict'
@@ -1076,7 +1263,7 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var aFunction = __webpack_require__(56)
+            var aFunction = __webpack_require__(58)
             module.exports = function(fn, that, length) {
                 if ((aFunction(fn), void 0 === that)) return fn
                 switch (length) {
@@ -1100,7 +1287,7 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var fails = __webpack_require__(11)
+            var fails = __webpack_require__(15)
             module.exports = function(method, arg) {
                 return (
                     !!method &&
@@ -1110,108 +1297,6 @@
                             : method.call(null)
                     })
                 )
-            }
-        },
-        function(module, exports, __webpack_require__) {
-            'use strict'
-            var addToUnscopables = __webpack_require__(85),
-                step = __webpack_require__(141),
-                Iterators = __webpack_require__(49),
-                toIObject = __webpack_require__(31)
-            ;(module.exports = __webpack_require__(82)(
-                Array,
-                'Array',
-                function(iterated, kind) {
-                    ;(this._t = toIObject(iterated)),
-                        (this._i = 0),
-                        (this._k = kind)
-                },
-                function() {
-                    var O = this._t,
-                        kind = this._k,
-                        index = this._i++
-                    return !O || index >= O.length
-                        ? ((this._t = void 0), step(1))
-                        : step(
-                              0,
-                              'keys' == kind
-                                  ? index
-                                  : 'values' == kind
-                                  ? O[index]
-                                  : [index, O[index]]
-                          )
-                },
-                'values'
-            )),
-                (Iterators.Arguments = Iterators.Array),
-                addToUnscopables('keys'),
-                addToUnscopables('values'),
-                addToUnscopables('entries')
-        },
-        function(module, exports, __webpack_require__) {
-            for (
-                var $iterators = __webpack_require__(37),
-                    getKeys = __webpack_require__(30),
-                    redefine = __webpack_require__(19),
-                    global = __webpack_require__(17),
-                    hide = __webpack_require__(26),
-                    Iterators = __webpack_require__(49),
-                    wks = __webpack_require__(5),
-                    ITERATOR = wks('iterator'),
-                    TO_STRING_TAG = wks('toStringTag'),
-                    ArrayValues = Iterators.Array,
-                    DOMIterables = {
-                        CSSRuleList: !0,
-                        CSSStyleDeclaration: !1,
-                        CSSValueList: !1,
-                        ClientRectList: !1,
-                        DOMRectList: !1,
-                        DOMStringList: !1,
-                        DOMTokenList: !0,
-                        DataTransferItemList: !1,
-                        FileList: !1,
-                        HTMLAllCollection: !1,
-                        HTMLCollection: !1,
-                        HTMLFormElement: !1,
-                        HTMLSelectElement: !1,
-                        MediaList: !0,
-                        MimeTypeArray: !1,
-                        NamedNodeMap: !1,
-                        NodeList: !0,
-                        PaintRequestList: !1,
-                        Plugin: !1,
-                        PluginArray: !1,
-                        SVGLengthList: !1,
-                        SVGNumberList: !1,
-                        SVGPathSegList: !1,
-                        SVGPointList: !1,
-                        SVGStringList: !1,
-                        SVGTransformList: !1,
-                        SourceBufferList: !1,
-                        StyleSheetList: !0,
-                        TextTrackCueList: !1,
-                        TextTrackList: !1,
-                        TouchList: !1,
-                    },
-                    collections = getKeys(DOMIterables),
-                    i = 0;
-                i < collections.length;
-                i++
-            ) {
-                var key,
-                    NAME = collections[i],
-                    explicit = DOMIterables[NAME],
-                    Collection = global[NAME],
-                    proto = Collection && Collection.prototype
-                if (
-                    proto &&
-                    (proto[ITERATOR] || hide(proto, ITERATOR, ArrayValues),
-                    proto[TO_STRING_TAG] || hide(proto, TO_STRING_TAG, NAME),
-                    (Iterators[NAME] = ArrayValues),
-                    explicit)
-                )
-                    for (key in $iterators)
-                        proto[key] || redefine(proto, key, $iterators[key], !0)
             }
         },
         function(module, exports, __webpack_require__) {
@@ -1261,10 +1346,10 @@
                         )
                     },
                 }
-            }.call(this, __webpack_require__(9)))
+            }.call(this, __webpack_require__(12)))
         },
         function(module, exports, __webpack_require__) {
-            var has = __webpack_require__(8).call(
+            var has = __webpack_require__(10).call(
                     Function.call,
                     Object.prototype.hasOwnProperty
                 ),
@@ -1278,11 +1363,11 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var bind = __webpack_require__(8),
-                ES2016 = __webpack_require__(71),
-                assign = __webpack_require__(40),
-                forEach = __webpack_require__(119),
-                GetIntrinsic = __webpack_require__(34),
+            var bind = __webpack_require__(10),
+                ES2016 = __webpack_require__(73),
+                assign = __webpack_require__(43),
+                forEach = __webpack_require__(124),
+                GetIntrinsic = __webpack_require__(39),
                 $TypeError = GetIntrinsic('%TypeError%'),
                 $isEnumerable = bind.call(
                     Function.call,
@@ -1370,18 +1455,18 @@
             exports.f = {}.propertyIsEnumerable
         },
         function(module, exports, __webpack_require__) {
-            var anObject = __webpack_require__(12),
-                dPs = __webpack_require__(130),
-                enumBugKeys = __webpack_require__(76),
-                IE_PROTO = __webpack_require__(75)('IE_PROTO'),
+            var anObject = __webpack_require__(16),
+                dPs = __webpack_require__(135),
+                enumBugKeys = __webpack_require__(78),
+                IE_PROTO = __webpack_require__(77)('IE_PROTO'),
                 Empty = function() {},
                 createDict = function() {
                     var iframeDocument,
-                        iframe = __webpack_require__(125)('iframe'),
+                        iframe = __webpack_require__(130)('iframe'),
                         i = enumBugKeys.length
                     for (
                         iframe.style.display = 'none',
-                            __webpack_require__(259).appendChild(iframe),
+                            __webpack_require__(262).appendChild(iframe),
                             iframe.src = 'javascript:',
                             (iframeDocument =
                                 iframe.contentWindow.document).open(),
@@ -1412,36 +1497,12 @@
                 }
         },
         function(module, exports) {
-            module.exports = function(module) {
-                return (
-                    module.webpackPolyfill ||
-                        ((module.deprecate = function() {}),
-                        (module.paths = []),
-                        module.children || (module.children = []),
-                        Object.defineProperty(module, 'loaded', {
-                            enumerable: !0,
-                            get: function() {
-                                return module.l
-                            },
-                        }),
-                        Object.defineProperty(module, 'id', {
-                            enumerable: !0,
-                            get: function() {
-                                return module.i
-                            },
-                        }),
-                        (module.webpackPolyfill = 1)),
-                    module
-                )
-            }
-        },
-        function(module, exports) {
             module.exports = {}
         },
         ,
         function(module, exports, __webpack_require__) {
             'use strict'
-            var has = __webpack_require__(20),
+            var has = __webpack_require__(24),
                 regexExec = RegExp.prototype.exec,
                 gOPD = Object.getOwnPropertyDescriptor,
                 toStr = Object.prototype.toString,
@@ -1472,10 +1533,10 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            module.exports = __webpack_require__(71)
+            module.exports = __webpack_require__(73)
         },
         function(module, exports, __webpack_require__) {
-            var isObject = __webpack_require__(18)
+            var isObject = __webpack_require__(21)
             module.exports = function(it, S) {
                 if (!isObject(it)) return it
                 var fn, val
@@ -1500,8 +1561,8 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var core = __webpack_require__(29),
-                global = __webpack_require__(17),
+            var core = __webpack_require__(33),
+                global = __webpack_require__(20),
                 store =
                     global['__core-js_shared__'] ||
                     (global['__core-js_shared__'] = {})
@@ -1511,7 +1572,7 @@
                 )
             })('versions', []).push({
                 version: core.version,
-                mode: __webpack_require__(55) ? 'pure' : 'global',
+                mode: __webpack_require__(57) ? 'pure' : 'global',
                 copyright: '© 2019 Denis Pushkarev (zloirock.ru)',
             })
         },
@@ -1526,17 +1587,17 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var META = __webpack_require__(43)('meta'),
-                isObject = __webpack_require__(18),
-                has = __webpack_require__(25),
-                setDesc = __webpack_require__(14).f,
+            var META = __webpack_require__(46)('meta'),
+                isObject = __webpack_require__(21),
+                has = __webpack_require__(29),
+                setDesc = __webpack_require__(18).f,
                 id = 0,
                 isExtensible =
                     Object.isExtensible ||
                     function() {
                         return !0
                     },
-                FREEZE = !__webpack_require__(11)(function() {
+                FREEZE = !__webpack_require__(15)(function() {
                     return isExtensible(Object.preventExtensions({}))
                 }),
                 setMeta = function(it) {
@@ -1578,9 +1639,9 @@
                 })
         },
         function(module, exports, __webpack_require__) {
-            var def = __webpack_require__(14).f,
-                has = __webpack_require__(25),
-                TAG = __webpack_require__(5)('toStringTag')
+            var def = __webpack_require__(18).f,
+                has = __webpack_require__(29),
+                TAG = __webpack_require__(6)('toStringTag')
             module.exports = function(it, tag, stat) {
                 it &&
                     !has((it = stat ? it : it.prototype), TAG) &&
@@ -1588,7 +1649,7 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var cof = __webpack_require__(44)
+            var cof = __webpack_require__(47)
             module.exports = Object('z').propertyIsEnumerable(0)
                 ? Object
                 : function(it) {
@@ -1603,11 +1664,11 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var ctx = __webpack_require__(35),
-                IObject = __webpack_require__(59),
-                toObject = __webpack_require__(24),
-                toLength = __webpack_require__(22),
-                asc = __webpack_require__(277)
+            var ctx = __webpack_require__(40),
+                IObject = __webpack_require__(61),
+                toObject = __webpack_require__(27),
+                toLength = __webpack_require__(25),
+                asc = __webpack_require__(280)
             module.exports = function(TYPE, $create) {
                 var IS_MAP = 1 == TYPE,
                     IS_FILTER = 2 == TYPE,
@@ -1659,9 +1720,9 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var toObject = __webpack_require__(24),
-                $keys = __webpack_require__(30)
-            __webpack_require__(142)('keys', function() {
+            var toObject = __webpack_require__(27),
+                $keys = __webpack_require__(34)
+            __webpack_require__(146)('keys', function() {
                 return function keys(it) {
                     return $keys(toObject(it))
                 }
@@ -1713,11 +1774,11 @@
                 (exports.STORY_THREW_EXCEPTION = events.STORY_THREW_EXCEPTION)
         },
         function(module, exports, __webpack_require__) {
-            module.exports = __webpack_require__(288)
+            module.exports = __webpack_require__(291)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var classof = __webpack_require__(81),
+            var classof = __webpack_require__(83),
                 builtinExec = RegExp.prototype.exec
             module.exports = function(R, S) {
                 var exec = R.exec
@@ -1738,13 +1799,13 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(303)
-            var redefine = __webpack_require__(19),
-                hide = __webpack_require__(26),
-                fails = __webpack_require__(11),
-                defined = __webpack_require__(45),
-                wks = __webpack_require__(5),
-                regexpExec = __webpack_require__(89),
+            __webpack_require__(306)
+            var redefine = __webpack_require__(22),
+                hide = __webpack_require__(30),
+                fails = __webpack_require__(15),
+                defined = __webpack_require__(48),
+                wks = __webpack_require__(6),
+                regexpExec = __webpack_require__(92),
                 SPECIES = wks('species'),
                 REPLACE_SUPPORTS_NAMED_GROUPS = !fails(function() {
                     var re = /./
@@ -1859,7 +1920,7 @@
             var has = Object.prototype.hasOwnProperty,
                 toStr = Object.prototype.toString,
                 slice = Array.prototype.slice,
-                isArgs = __webpack_require__(186),
+                isArgs = __webpack_require__(189),
                 isEnumerable = Object.prototype.propertyIsEnumerable,
                 hasDontEnumBug = !isEnumerable.call(
                     { toString: null },
@@ -1991,10 +2052,10 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var has = __webpack_require__(20),
-                toPrimitive = __webpack_require__(69),
-                keys = __webpack_require__(67),
-                GetIntrinsic = __webpack_require__(34),
+            var has = __webpack_require__(24),
+                toPrimitive = __webpack_require__(71),
+                keys = __webpack_require__(69),
+                GetIntrinsic = __webpack_require__(39),
                 $TypeError = GetIntrinsic('%TypeError%'),
                 $SyntaxError = GetIntrinsic('%SyntaxError%'),
                 $Array = GetIntrinsic('%Array%'),
@@ -2004,17 +2065,17 @@
                 $Symbol = GetIntrinsic('%Symbol%', !0),
                 $RegExp = GetIntrinsic('%RegExp%'),
                 hasSymbols = !!$Symbol,
-                assertRecord = __webpack_require__(101),
-                $isNaN = __webpack_require__(102),
-                $isFinite = __webpack_require__(103),
+                assertRecord = __webpack_require__(106),
+                $isNaN = __webpack_require__(107),
+                $isFinite = __webpack_require__(108),
                 MAX_SAFE_INTEGER =
                     $Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1,
-                assign = __webpack_require__(40),
-                sign = __webpack_require__(104),
-                mod = __webpack_require__(105),
-                isPrimitive = __webpack_require__(198),
+                assign = __webpack_require__(43),
+                sign = __webpack_require__(109),
+                mod = __webpack_require__(110),
+                isPrimitive = __webpack_require__(201),
                 parseInteger = parseInt,
-                bind = __webpack_require__(8),
+                bind = __webpack_require__(10),
                 arraySlice = bind.call(Function.call, $Array.prototype.slice),
                 strSlice = bind.call(Function.call, $String.prototype.slice),
                 isBinary = bind.call(
@@ -2079,8 +2140,8 @@
                     'g'
                 ),
                 replace = bind.call(Function.call, $String.prototype.replace),
-                ES5 = __webpack_require__(106),
-                hasRegExpMatcher = __webpack_require__(51),
+                ES5 = __webpack_require__(111),
+                hasRegExpMatcher = __webpack_require__(53),
                 ES6 = assign(assign({}, ES5), {
                     Call: function Call(F, V) {
                         var args = arguments.length > 2 ? arguments[2] : []
@@ -2684,13 +2745,13 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            module.exports = __webpack_require__(195)
+            module.exports = __webpack_require__(198)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
             var toStr = Object.prototype.toString,
-                isPrimitive = __webpack_require__(99),
-                isCallable = __webpack_require__(33),
+                isPrimitive = __webpack_require__(104),
+                isCallable = __webpack_require__(38),
                 ES5internalSlots___DefaultValue__ = function(O) {
                     var actualHint
                     if (
@@ -2730,8 +2791,8 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES2015 = __webpack_require__(68),
-                assign = __webpack_require__(40),
+            var ES2015 = __webpack_require__(70),
+                assign = __webpack_require__(43),
                 ES2016 = assign(assign({}, ES2015), {
                     SameValueNonNumber: function SameValueNonNumber(x, y) {
                         if ('number' == typeof x || typeof x != typeof y)
@@ -2754,18 +2815,18 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var assign = __webpack_require__(40),
-                ES5 = __webpack_require__(106),
-                ES2015 = __webpack_require__(68),
-                ES2016 = __webpack_require__(71),
+            var assign = __webpack_require__(43),
+                ES5 = __webpack_require__(111),
+                ES2015 = __webpack_require__(70),
+                ES2016 = __webpack_require__(73),
                 ES = {
                     ES5: ES5,
                     ES6: ES2015,
                     ES2015: ES2015,
                     ES7: ES2016,
                     ES2016: ES2016,
-                    ES2017: __webpack_require__(41),
-                    ES2018: __webpack_require__(247),
+                    ES2017: __webpack_require__(44),
+                    ES2018: __webpack_require__(250),
                 }
             assign(ES, ES5),
                 delete ES.CheckObjectCoercible,
@@ -2773,11 +2834,11 @@
                 (module.exports = ES)
         },
         function(module, exports, __webpack_require__) {
-            var global = __webpack_require__(17),
-                core = __webpack_require__(29),
-                LIBRARY = __webpack_require__(55),
-                wksExt = __webpack_require__(126),
-                defineProperty = __webpack_require__(14).f
+            var global = __webpack_require__(20),
+                core = __webpack_require__(33),
+                LIBRARY = __webpack_require__(57),
+                wksExt = __webpack_require__(131),
+                defineProperty = __webpack_require__(18).f
             module.exports = function(name) {
                 var $Symbol =
                     core.Symbol ||
@@ -2788,8 +2849,8 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var shared = __webpack_require__(54)('keys'),
-                uid = __webpack_require__(43)
+            var shared = __webpack_require__(56)('keys'),
+                uid = __webpack_require__(46)
             module.exports = function(key) {
                 return shared[key] || (shared[key] = uid(key))
             }
@@ -2803,7 +2864,7 @@
             exports.f = Object.getOwnPropertySymbols
         },
         function(module, exports, __webpack_require__) {
-            var cof = __webpack_require__(44)
+            var cof = __webpack_require__(47)
             module.exports =
                 Array.isArray ||
                 function isArray(arg) {
@@ -2811,8 +2872,8 @@
                 }
         },
         function(module, exports, __webpack_require__) {
-            var $keys = __webpack_require__(127),
-                hiddenKeys = __webpack_require__(76).concat(
+            var $keys = __webpack_require__(132),
+                hiddenKeys = __webpack_require__(78).concat(
                     'length',
                     'prototype'
                 )
@@ -2823,14 +2884,14 @@
                 }
         },
         function(module, exports, __webpack_require__) {
-            var pIE = __webpack_require__(46),
-                createDesc = __webpack_require__(42),
-                toIObject = __webpack_require__(31),
-                toPrimitive = __webpack_require__(53),
-                has = __webpack_require__(25),
-                IE8_DOM_DEFINE = __webpack_require__(124),
+            var pIE = __webpack_require__(49),
+                createDesc = __webpack_require__(45),
+                toIObject = __webpack_require__(35),
+                toPrimitive = __webpack_require__(55),
+                has = __webpack_require__(29),
+                IE8_DOM_DEFINE = __webpack_require__(129),
                 gOPD = Object.getOwnPropertyDescriptor
-            exports.f = __webpack_require__(10)
+            exports.f = __webpack_require__(14)
                 ? gOPD
                 : function getOwnPropertyDescriptor(O, P) {
                       if (
@@ -2845,8 +2906,8 @@
                   }
         },
         function(module, exports, __webpack_require__) {
-            var cof = __webpack_require__(44),
-                TAG = __webpack_require__(5)('toStringTag'),
+            var cof = __webpack_require__(47),
+                TAG = __webpack_require__(6)('toStringTag'),
                 ARG =
                     'Arguments' ==
                     cof(
@@ -2875,16 +2936,25 @@
             }
         },
         function(module, exports, __webpack_require__) {
+            var UNSCOPABLES = __webpack_require__(6)('unscopables'),
+                ArrayProto = Array.prototype
+            null == ArrayProto[UNSCOPABLES] &&
+                __webpack_require__(30)(ArrayProto, UNSCOPABLES, {}),
+                (module.exports = function(key) {
+                    ArrayProto[UNSCOPABLES][key] = !0
+                })
+        },
+        function(module, exports, __webpack_require__) {
             'use strict'
-            var LIBRARY = __webpack_require__(55),
+            var LIBRARY = __webpack_require__(57),
                 $export = __webpack_require__(1),
-                redefine = __webpack_require__(19),
-                hide = __webpack_require__(26),
-                Iterators = __webpack_require__(49),
-                $iterCreate = __webpack_require__(270),
-                setToStringTag = __webpack_require__(58),
-                getPrototypeOf = __webpack_require__(271),
-                ITERATOR = __webpack_require__(5)('iterator'),
+                redefine = __webpack_require__(22),
+                hide = __webpack_require__(30),
+                Iterators = __webpack_require__(51),
+                $iterCreate = __webpack_require__(268),
+                setToStringTag = __webpack_require__(60),
+                getPrototypeOf = __webpack_require__(269),
+                ITERATOR = __webpack_require__(6)('iterator'),
                 BUGGY = !([].keys && 'next' in [].keys()),
                 returnThis = function() {
                     return this
@@ -2978,7 +3048,7 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var anObject = __webpack_require__(12)
+            var anObject = __webpack_require__(16)
             module.exports = function() {
                 var that = anObject(this),
                     result = ''
@@ -2995,9 +3065,9 @@
         function(module, exports, __webpack_require__) {
             'use strict'
             var $export = __webpack_require__(1),
-                $map = __webpack_require__(61)(1)
+                $map = __webpack_require__(63)(1)
             $export(
-                $export.P + $export.F * !__webpack_require__(36)([].map, !0),
+                $export.P + $export.F * !__webpack_require__(41)([].map, !0),
                 'Array',
                 {
                     map: function map(callbackfn) {
@@ -3007,19 +3077,10 @@
             )
         },
         function(module, exports, __webpack_require__) {
-            var UNSCOPABLES = __webpack_require__(5)('unscopables'),
-                ArrayProto = Array.prototype
-            null == ArrayProto[UNSCOPABLES] &&
-                __webpack_require__(26)(ArrayProto, UNSCOPABLES, {}),
-                (module.exports = function(key) {
-                    ArrayProto[UNSCOPABLES][key] = !0
-                })
-        },
-        function(module, exports, __webpack_require__) {
             'use strict'
             var $export = __webpack_require__(1),
-                $forEach = __webpack_require__(61)(0),
-                STRICT = __webpack_require__(36)([].forEach, !0)
+                $forEach = __webpack_require__(63)(0),
+                STRICT = __webpack_require__(41)([].forEach, !0)
             $export($export.P + $export.F * !STRICT, 'Array', {
                 forEach: function forEach(callbackfn) {
                     return $forEach(this, callbackfn, arguments[1])
@@ -3028,7 +3089,20 @@
         },
         function(module, exports, __webpack_require__) {
             var $export = __webpack_require__(1)
-            $export($export.S, 'Array', { isArray: __webpack_require__(78) })
+            $export($export.S, 'Array', { isArray: __webpack_require__(80) })
+        },
+        function(module, exports, __webpack_require__) {
+            'use strict'
+            function __export(m) {
+                for (var p in m)
+                    exports.hasOwnProperty(p) || (exports[p] = m[p])
+            }
+            Object.defineProperty(exports, '__esModule', { value: !0 }),
+                __export(__webpack_require__(286)),
+                __export(__webpack_require__(150)),
+                __export(__webpack_require__(288))
+            var _1 = __webpack_require__(150)
+            exports.default = _1.addons
         },
         function(module, exports, __webpack_require__) {
             var require
@@ -3376,7 +3450,7 @@
             'use strict'
             var re1,
                 re2,
-                regexpFlags = __webpack_require__(83),
+                regexpFlags = __webpack_require__(86),
                 nativeExec = RegExp.prototype.exec,
                 nativeReplace = String.prototype.replace,
                 patchedExec = nativeExec,
@@ -3421,20 +3495,20 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var isRegExp = __webpack_require__(305),
-                anObject = __webpack_require__(12),
-                speciesConstructor = __webpack_require__(306),
-                advanceStringIndex = __webpack_require__(91),
-                toLength = __webpack_require__(22),
-                callRegExpExec = __webpack_require__(65),
-                regexpExec = __webpack_require__(89),
-                fails = __webpack_require__(11),
+            var isRegExp = __webpack_require__(308),
+                anObject = __webpack_require__(16),
+                speciesConstructor = __webpack_require__(309),
+                advanceStringIndex = __webpack_require__(94),
+                toLength = __webpack_require__(25),
+                callRegExpExec = __webpack_require__(67),
+                regexpExec = __webpack_require__(92),
+                fails = __webpack_require__(15),
                 $min = Math.min,
                 $push = [].push,
                 SUPPORTS_Y = !fails(function() {
                     RegExp(4294967295, 'y')
                 })
-            __webpack_require__(66)('split', 2, function(
+            __webpack_require__(68)('split', 2, function(
                 defined,
                 SPLIT,
                 $split,
@@ -3614,14 +3688,5598 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var at = __webpack_require__(134)(!0)
+            var at = __webpack_require__(139)(!0)
             module.exports = function(S, index, unicode) {
                 return index + (unicode ? at(S, index).length : 1)
             }
         },
         function(module, exports, __webpack_require__) {
-            var Symbol = __webpack_require__(335).Symbol
+            var Symbol = __webpack_require__(338).Symbol
             module.exports = Symbol
+        },
+        function(module, exports, __webpack_require__) {
+            var __WEBPACK_AMD_DEFINE_RESULT__, js_beautify
+            ;(js_beautify = (function(modules) {
+                var installedModules = {}
+                function __webpack_require__(moduleId) {
+                    if (installedModules[moduleId])
+                        return installedModules[moduleId].exports
+                    var module = (installedModules[moduleId] = {
+                        i: moduleId,
+                        l: !1,
+                        exports: {},
+                    })
+                    return (
+                        modules[moduleId].call(
+                            module.exports,
+                            module,
+                            module.exports,
+                            __webpack_require__
+                        ),
+                        (module.l = !0),
+                        module.exports
+                    )
+                }
+                return (
+                    (__webpack_require__.m = modules),
+                    (__webpack_require__.c = installedModules),
+                    (__webpack_require__.d = function(exports, name, getter) {
+                        __webpack_require__.o(exports, name) ||
+                            Object.defineProperty(exports, name, {
+                                enumerable: !0,
+                                get: getter,
+                            })
+                    }),
+                    (__webpack_require__.r = function(exports) {
+                        'undefined' != typeof Symbol &&
+                            Symbol.toStringTag &&
+                            Object.defineProperty(exports, Symbol.toStringTag, {
+                                value: 'Module',
+                            }),
+                            Object.defineProperty(exports, '__esModule', {
+                                value: !0,
+                            })
+                    }),
+                    (__webpack_require__.t = function(value, mode) {
+                        if (
+                            (1 & mode && (value = __webpack_require__(value)),
+                            8 & mode)
+                        )
+                            return value
+                        if (
+                            4 & mode &&
+                            'object' == typeof value &&
+                            value &&
+                            value.__esModule
+                        )
+                            return value
+                        var ns = Object.create(null)
+                        if (
+                            (__webpack_require__.r(ns),
+                            Object.defineProperty(ns, 'default', {
+                                enumerable: !0,
+                                value: value,
+                            }),
+                            2 & mode && 'string' != typeof value)
+                        )
+                            for (var key in value)
+                                __webpack_require__.d(
+                                    ns,
+                                    key,
+                                    function(key) {
+                                        return value[key]
+                                    }.bind(null, key)
+                                )
+                        return ns
+                    }),
+                    (__webpack_require__.n = function(module) {
+                        var getter =
+                            module && module.__esModule
+                                ? function getDefault() {
+                                      return module.default
+                                  }
+                                : function getModuleExports() {
+                                      return module
+                                  }
+                        return (
+                            __webpack_require__.d(getter, 'a', getter), getter
+                        )
+                    }),
+                    (__webpack_require__.o = function(object, property) {
+                        return Object.prototype.hasOwnProperty.call(
+                            object,
+                            property
+                        )
+                    }),
+                    (__webpack_require__.p = ''),
+                    __webpack_require__((__webpack_require__.s = 0))
+                )
+            })([
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var Beautifier = __webpack_require__(1).Beautifier,
+                        Options = __webpack_require__(5).Options
+                    ;(module.exports = function js_beautify(
+                        js_source_text,
+                        options
+                    ) {
+                        return new Beautifier(
+                            js_source_text,
+                            options
+                        ).beautify()
+                    }),
+                        (module.exports.defaultOptions = function() {
+                            return new Options()
+                        })
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var Output = __webpack_require__(2).Output,
+                        Token = __webpack_require__(3).Token,
+                        acorn = __webpack_require__(4),
+                        Options = __webpack_require__(5).Options,
+                        Tokenizer = __webpack_require__(7).Tokenizer,
+                        line_starters = __webpack_require__(7).line_starters,
+                        positionable_operators = __webpack_require__(7)
+                            .positionable_operators,
+                        TOKEN = __webpack_require__(7).TOKEN
+                    function in_array(what, arr) {
+                        return -1 !== arr.indexOf(what)
+                    }
+                    function reserved_word(token, word) {
+                        return (
+                            token &&
+                            token.type === TOKEN.RESERVED &&
+                            token.text === word
+                        )
+                    }
+                    function reserved_array(token, words) {
+                        return (
+                            token &&
+                            token.type === TOKEN.RESERVED &&
+                            in_array(token.text, words)
+                        )
+                    }
+                    var special_words = [
+                            'case',
+                            'return',
+                            'do',
+                            'if',
+                            'throw',
+                            'else',
+                            'await',
+                            'break',
+                            'continue',
+                            'async',
+                        ],
+                        OPERATOR_POSITION = (function generateMapFromStrings(
+                            list
+                        ) {
+                            for (var result = {}, x = 0; x < list.length; x++)
+                                result[list[x].replace(/-/g, '_')] = list[x]
+                            return result
+                        })([
+                            'before-newline',
+                            'after-newline',
+                            'preserve-newline',
+                        ]),
+                        OPERATOR_POSITION_BEFORE_OR_PRESERVE = [
+                            OPERATOR_POSITION.before_newline,
+                            OPERATOR_POSITION.preserve_newline,
+                        ],
+                        MODE = {
+                            BlockStatement: 'BlockStatement',
+                            Statement: 'Statement',
+                            ObjectLiteral: 'ObjectLiteral',
+                            ArrayLiteral: 'ArrayLiteral',
+                            ForInitializer: 'ForInitializer',
+                            Conditional: 'Conditional',
+                            Expression: 'Expression',
+                        }
+                    function remove_redundant_indentation(output, frame) {
+                        frame.multiline_frame ||
+                            frame.mode === MODE.ForInitializer ||
+                            frame.mode === MODE.Conditional ||
+                            output.remove_indent(frame.start_line_index)
+                    }
+                    function is_array(mode) {
+                        return mode === MODE.ArrayLiteral
+                    }
+                    function is_expression(mode) {
+                        return in_array(mode, [
+                            MODE.Expression,
+                            MODE.ForInitializer,
+                            MODE.Conditional,
+                        ])
+                    }
+                    function Beautifier(source_text, options) {
+                        ;(options = options || {}),
+                            (this._source_text = source_text || ''),
+                            (this._output = null),
+                            (this._tokens = null),
+                            (this._last_last_text = null),
+                            (this._flags = null),
+                            (this._previous_flags = null),
+                            (this._flag_store = null),
+                            (this._options = new Options(options))
+                    }
+                    ;(Beautifier.prototype.create_flags = function(
+                        flags_base,
+                        mode
+                    ) {
+                        var next_indent_level = 0
+                        return (
+                            flags_base &&
+                                ((next_indent_level =
+                                    flags_base.indentation_level),
+                                !this._output.just_added_newline() &&
+                                    flags_base.line_indent_level >
+                                        next_indent_level &&
+                                    (next_indent_level =
+                                        flags_base.line_indent_level)),
+                            {
+                                mode: mode,
+                                parent: flags_base,
+                                last_token: flags_base
+                                    ? flags_base.last_token
+                                    : new Token(TOKEN.START_BLOCK, ''),
+                                last_word: flags_base
+                                    ? flags_base.last_word
+                                    : '',
+                                declaration_statement: !1,
+                                declaration_assignment: !1,
+                                multiline_frame: !1,
+                                inline_frame: !1,
+                                if_block: !1,
+                                else_block: !1,
+                                do_block: !1,
+                                do_while: !1,
+                                import_block: !1,
+                                in_case_statement: !1,
+                                in_case: !1,
+                                case_body: !1,
+                                indentation_level: next_indent_level,
+                                alignment: 0,
+                                line_indent_level: flags_base
+                                    ? flags_base.line_indent_level
+                                    : next_indent_level,
+                                start_line_index: this._output.get_line_number(),
+                                ternary_depth: 0,
+                            }
+                        )
+                    }),
+                        (Beautifier.prototype._reset = function(source_text) {
+                            var baseIndentString = source_text.match(
+                                /^[\t ]*/
+                            )[0]
+                            ;(this._last_last_text = ''),
+                                (this._output = new Output(
+                                    this._options,
+                                    baseIndentString
+                                )),
+                                (this._output.raw = this._options.test_output_raw),
+                                (this._flag_store = []),
+                                this.set_mode(MODE.BlockStatement)
+                            var tokenizer = new Tokenizer(
+                                source_text,
+                                this._options
+                            )
+                            return (
+                                (this._tokens = tokenizer.tokenize()),
+                                source_text
+                            )
+                        }),
+                        (Beautifier.prototype.beautify = function() {
+                            if (this._options.disabled) return this._source_text
+                            var source_text = this._reset(this._source_text),
+                                eol = this._options.eol
+                            'auto' === this._options.eol &&
+                                ((eol = '\n'),
+                                source_text &&
+                                    acorn.lineBreak.test(source_text || '') &&
+                                    (eol = source_text.match(
+                                        acorn.lineBreak
+                                    )[0]))
+                            for (
+                                var current_token = this._tokens.next();
+                                current_token;
+
+                            )
+                                this.handle_token(current_token),
+                                    (this._last_last_text = this._flags.last_token.text),
+                                    (this._flags.last_token = current_token),
+                                    (current_token = this._tokens.next())
+                            return this._output.get_code(eol)
+                        }),
+                        (Beautifier.prototype.handle_token = function(
+                            current_token,
+                            preserve_statement_flags
+                        ) {
+                            current_token.type === TOKEN.START_EXPR
+                                ? this.handle_start_expr(current_token)
+                                : current_token.type === TOKEN.END_EXPR
+                                ? this.handle_end_expr(current_token)
+                                : current_token.type === TOKEN.START_BLOCK
+                                ? this.handle_start_block(current_token)
+                                : current_token.type === TOKEN.END_BLOCK
+                                ? this.handle_end_block(current_token)
+                                : current_token.type === TOKEN.WORD
+                                ? this.handle_word(current_token)
+                                : current_token.type === TOKEN.RESERVED
+                                ? this.handle_word(current_token)
+                                : current_token.type === TOKEN.SEMICOLON
+                                ? this.handle_semicolon(current_token)
+                                : current_token.type === TOKEN.STRING
+                                ? this.handle_string(current_token)
+                                : current_token.type === TOKEN.EQUALS
+                                ? this.handle_equals(current_token)
+                                : current_token.type === TOKEN.OPERATOR
+                                ? this.handle_operator(current_token)
+                                : current_token.type === TOKEN.COMMA
+                                ? this.handle_comma(current_token)
+                                : current_token.type === TOKEN.BLOCK_COMMENT
+                                ? this.handle_block_comment(
+                                      current_token,
+                                      preserve_statement_flags
+                                  )
+                                : current_token.type === TOKEN.COMMENT
+                                ? this.handle_comment(
+                                      current_token,
+                                      preserve_statement_flags
+                                  )
+                                : current_token.type === TOKEN.DOT
+                                ? this.handle_dot(current_token)
+                                : current_token.type === TOKEN.EOF
+                                ? this.handle_eof(current_token)
+                                : (current_token.type,
+                                  TOKEN.UNKNOWN,
+                                  this.handle_unknown(
+                                      current_token,
+                                      preserve_statement_flags
+                                  ))
+                        }),
+                        (Beautifier.prototype.handle_whitespace_and_comments = function(
+                            current_token,
+                            preserve_statement_flags
+                        ) {
+                            var newlines = current_token.newlines,
+                                keep_whitespace =
+                                    this._options.keep_array_indentation &&
+                                    is_array(this._flags.mode)
+                            if (current_token.comments_before)
+                                for (
+                                    var comment_token = current_token.comments_before.next();
+                                    comment_token;
+
+                                )
+                                    this.handle_whitespace_and_comments(
+                                        comment_token,
+                                        preserve_statement_flags
+                                    ),
+                                        this.handle_token(
+                                            comment_token,
+                                            preserve_statement_flags
+                                        ),
+                                        (comment_token = current_token.comments_before.next())
+                            if (keep_whitespace)
+                                for (var i = 0; i < newlines; i += 1)
+                                    this.print_newline(
+                                        i > 0,
+                                        preserve_statement_flags
+                                    )
+                            else if (
+                                (this._options.max_preserve_newlines &&
+                                    newlines >
+                                        this._options.max_preserve_newlines &&
+                                    (newlines = this._options
+                                        .max_preserve_newlines),
+                                this._options.preserve_newlines && newlines > 1)
+                            ) {
+                                this.print_newline(!1, preserve_statement_flags)
+                                for (var j = 1; j < newlines; j += 1)
+                                    this.print_newline(
+                                        !0,
+                                        preserve_statement_flags
+                                    )
+                            }
+                        })
+                    var newline_restricted_tokens = [
+                        'async',
+                        'break',
+                        'continue',
+                        'return',
+                        'throw',
+                        'yield',
+                    ]
+                    ;(Beautifier.prototype.allow_wrap_or_preserved_newline = function(
+                        current_token,
+                        force_linewrap
+                    ) {
+                        if (
+                            ((force_linewrap =
+                                void 0 !== force_linewrap && force_linewrap),
+                            !this._output.just_added_newline())
+                        ) {
+                            var shouldPreserveOrForce =
+                                (this._options.preserve_newlines &&
+                                    current_token.newlines) ||
+                                force_linewrap
+                            if (
+                                in_array(
+                                    this._flags.last_token.text,
+                                    positionable_operators
+                                ) ||
+                                in_array(
+                                    current_token.text,
+                                    positionable_operators
+                                )
+                            ) {
+                                var shouldPrintOperatorNewline =
+                                    (in_array(
+                                        this._flags.last_token.text,
+                                        positionable_operators
+                                    ) &&
+                                        in_array(
+                                            this._options.operator_position,
+                                            OPERATOR_POSITION_BEFORE_OR_PRESERVE
+                                        )) ||
+                                    in_array(
+                                        current_token.text,
+                                        positionable_operators
+                                    )
+                                shouldPreserveOrForce =
+                                    shouldPreserveOrForce &&
+                                    shouldPrintOperatorNewline
+                            }
+                            if (shouldPreserveOrForce)
+                                this.print_newline(!1, !0)
+                            else if (this._options.wrap_line_length) {
+                                if (
+                                    reserved_array(
+                                        this._flags.last_token,
+                                        newline_restricted_tokens
+                                    )
+                                )
+                                    return
+                                this._output.set_wrap_point()
+                            }
+                        }
+                    }),
+                        (Beautifier.prototype.print_newline = function(
+                            force_newline,
+                            preserve_statement_flags
+                        ) {
+                            if (
+                                !preserve_statement_flags &&
+                                ';' !== this._flags.last_token.text &&
+                                ',' !== this._flags.last_token.text &&
+                                '=' !== this._flags.last_token.text &&
+                                (this._flags.last_token.type !==
+                                    TOKEN.OPERATOR ||
+                                    '--' === this._flags.last_token.text ||
+                                    '++' === this._flags.last_token.text)
+                            )
+                                for (
+                                    var next_token = this._tokens.peek();
+                                    !(
+                                        this._flags.mode !== MODE.Statement ||
+                                        (this._flags.if_block &&
+                                            reserved_word(
+                                                next_token,
+                                                'else'
+                                            )) ||
+                                        this._flags.do_block
+                                    );
+
+                                )
+                                    this.restore_mode()
+                            this._output.add_new_line(force_newline) &&
+                                (this._flags.multiline_frame = !0)
+                        }),
+                        (Beautifier.prototype.print_token_line_indentation = function(
+                            current_token
+                        ) {
+                            this._output.just_added_newline() &&
+                                (this._options.keep_array_indentation &&
+                                current_token.newlines &&
+                                ('[' === current_token.text ||
+                                    is_array(this._flags.mode))
+                                    ? (this._output.current_line.set_indent(-1),
+                                      this._output.current_line.push(
+                                          current_token.whitespace_before
+                                      ),
+                                      (this._output.space_before_token = !1))
+                                    : this._output.set_indent(
+                                          this._flags.indentation_level,
+                                          this._flags.alignment
+                                      ) &&
+                                      (this._flags.line_indent_level = this._flags.indentation_level))
+                        }),
+                        (Beautifier.prototype.print_token = function(
+                            current_token,
+                            printable_token
+                        ) {
+                            if (this._output.raw)
+                                this._output.add_raw_token(current_token)
+                            else {
+                                if (
+                                    this._options.comma_first &&
+                                    current_token.previous &&
+                                    current_token.previous.type ===
+                                        TOKEN.COMMA &&
+                                    this._output.just_added_newline() &&
+                                    ',' === this._output.previous_line.last()
+                                ) {
+                                    var popped = this._output.previous_line.pop()
+                                    this._output.previous_line.is_empty() &&
+                                        (this._output.previous_line.push(
+                                            popped
+                                        ),
+                                        this._output.trim(!0),
+                                        this._output.current_line.pop(),
+                                        this._output.trim()),
+                                        this.print_token_line_indentation(
+                                            current_token
+                                        ),
+                                        this._output.add_token(','),
+                                        (this._output.space_before_token = !0)
+                                }
+                                ;(printable_token =
+                                    printable_token || current_token.text),
+                                    this.print_token_line_indentation(
+                                        current_token
+                                    ),
+                                    (this._output.non_breaking_space = !0),
+                                    this._output.add_token(printable_token),
+                                    this._output.previous_token_wrapped &&
+                                        (this._flags.multiline_frame = !0)
+                            }
+                        }),
+                        (Beautifier.prototype.indent = function() {
+                            ;(this._flags.indentation_level += 1),
+                                this._output.set_indent(
+                                    this._flags.indentation_level,
+                                    this._flags.alignment
+                                )
+                        }),
+                        (Beautifier.prototype.deindent = function() {
+                            this._flags.indentation_level > 0 &&
+                                (!this._flags.parent ||
+                                    this._flags.indentation_level >
+                                        this._flags.parent.indentation_level) &&
+                                ((this._flags.indentation_level -= 1),
+                                this._output.set_indent(
+                                    this._flags.indentation_level,
+                                    this._flags.alignment
+                                ))
+                        }),
+                        (Beautifier.prototype.set_mode = function(mode) {
+                            this._flags
+                                ? (this._flag_store.push(this._flags),
+                                  (this._previous_flags = this._flags))
+                                : (this._previous_flags = this.create_flags(
+                                      null,
+                                      mode
+                                  )),
+                                (this._flags = this.create_flags(
+                                    this._previous_flags,
+                                    mode
+                                )),
+                                this._output.set_indent(
+                                    this._flags.indentation_level,
+                                    this._flags.alignment
+                                )
+                        }),
+                        (Beautifier.prototype.restore_mode = function() {
+                            this._flag_store.length > 0 &&
+                                ((this._previous_flags = this._flags),
+                                (this._flags = this._flag_store.pop()),
+                                this._previous_flags.mode === MODE.Statement &&
+                                    remove_redundant_indentation(
+                                        this._output,
+                                        this._previous_flags
+                                    ),
+                                this._output.set_indent(
+                                    this._flags.indentation_level,
+                                    this._flags.alignment
+                                ))
+                        }),
+                        (Beautifier.prototype.start_of_object_property = function() {
+                            return (
+                                this._flags.parent.mode ===
+                                    MODE.ObjectLiteral &&
+                                this._flags.mode === MODE.Statement &&
+                                ((':' === this._flags.last_token.text &&
+                                    0 === this._flags.ternary_depth) ||
+                                    reserved_array(this._flags.last_token, [
+                                        'get',
+                                        'set',
+                                    ]))
+                            )
+                        }),
+                        (Beautifier.prototype.start_of_statement = function(
+                            current_token
+                        ) {
+                            var start = !1
+                            return (
+                                !!(start =
+                                    (start =
+                                        (start =
+                                            (start =
+                                                (start =
+                                                    (start =
+                                                        (start =
+                                                            start ||
+                                                            (reserved_array(
+                                                                this._flags
+                                                                    .last_token,
+                                                                [
+                                                                    'var',
+                                                                    'let',
+                                                                    'const',
+                                                                ]
+                                                            ) &&
+                                                                current_token.type ===
+                                                                    TOKEN.WORD)) ||
+                                                        reserved_word(
+                                                            this._flags
+                                                                .last_token,
+                                                            'do'
+                                                        )) ||
+                                                    (!(
+                                                        this._flags.parent
+                                                            .mode ===
+                                                            MODE.ObjectLiteral &&
+                                                        this._flags.mode ===
+                                                            MODE.Statement
+                                                    ) &&
+                                                        reserved_array(
+                                                            this._flags
+                                                                .last_token,
+                                                            newline_restricted_tokens
+                                                        ) &&
+                                                        !current_token.newlines)) ||
+                                                (reserved_word(
+                                                    this._flags.last_token,
+                                                    'else'
+                                                ) &&
+                                                    !(
+                                                        reserved_word(
+                                                            current_token,
+                                                            'if'
+                                                        ) &&
+                                                        !current_token.comments_before
+                                                    ))) ||
+                                            (this._flags.last_token.type ===
+                                                TOKEN.END_EXPR &&
+                                                (this._previous_flags.mode ===
+                                                    MODE.ForInitializer ||
+                                                    this._previous_flags
+                                                        .mode ===
+                                                        MODE.Conditional))) ||
+                                        (this._flags.last_token.type ===
+                                            TOKEN.WORD &&
+                                            this._flags.mode ===
+                                                MODE.BlockStatement &&
+                                            !this._flags.in_case &&
+                                            !(
+                                                '--' === current_token.text ||
+                                                '++' === current_token.text
+                                            ) &&
+                                            'function' !==
+                                                this._last_last_text &&
+                                            current_token.type !== TOKEN.WORD &&
+                                            current_token.type !==
+                                                TOKEN.RESERVED)) ||
+                                    (this._flags.mode === MODE.ObjectLiteral &&
+                                        ((':' === this._flags.last_token.text &&
+                                            0 === this._flags.ternary_depth) ||
+                                            reserved_array(
+                                                this._flags.last_token,
+                                                ['get', 'set']
+                                            )))) &&
+                                (this.set_mode(MODE.Statement),
+                                this.indent(),
+                                this.handle_whitespace_and_comments(
+                                    current_token,
+                                    !0
+                                ),
+                                this.start_of_object_property() ||
+                                    this.allow_wrap_or_preserved_newline(
+                                        current_token,
+                                        reserved_array(current_token, [
+                                            'do',
+                                            'for',
+                                            'if',
+                                            'while',
+                                        ])
+                                    ),
+                                !0)
+                            )
+                        }),
+                        (Beautifier.prototype.handle_start_expr = function(
+                            current_token
+                        ) {
+                            this.start_of_statement(current_token) ||
+                                this.handle_whitespace_and_comments(
+                                    current_token
+                                )
+                            var next_mode = MODE.Expression
+                            if ('[' === current_token.text) {
+                                if (
+                                    this._flags.last_token.type ===
+                                        TOKEN.WORD ||
+                                    ')' === this._flags.last_token.text
+                                )
+                                    return (
+                                        reserved_array(
+                                            this._flags.last_token,
+                                            line_starters
+                                        ) &&
+                                            (this._output.space_before_token = !0),
+                                        this.print_token(current_token),
+                                        this.set_mode(next_mode),
+                                        this.indent(),
+                                        void (
+                                            this._options.space_in_paren &&
+                                            (this._output.space_before_token = !0)
+                                        )
+                                    )
+                                ;(next_mode = MODE.ArrayLiteral),
+                                    is_array(this._flags.mode) &&
+                                        (('[' !== this._flags.last_token.text &&
+                                            (',' !==
+                                                this._flags.last_token.text ||
+                                                (']' !== this._last_last_text &&
+                                                    '}' !==
+                                                        this
+                                                            ._last_last_text))) ||
+                                            this._options
+                                                .keep_array_indentation ||
+                                            this.print_newline()),
+                                    in_array(this._flags.last_token.type, [
+                                        TOKEN.START_EXPR,
+                                        TOKEN.END_EXPR,
+                                        TOKEN.WORD,
+                                        TOKEN.OPERATOR,
+                                    ]) || (this._output.space_before_token = !0)
+                            } else {
+                                if (
+                                    this._flags.last_token.type ===
+                                    TOKEN.RESERVED
+                                )
+                                    'for' === this._flags.last_token.text
+                                        ? ((this._output.space_before_token = this._options.space_before_conditional),
+                                          (next_mode = MODE.ForInitializer))
+                                        : in_array(
+                                              this._flags.last_token.text,
+                                              ['if', 'while']
+                                          )
+                                        ? ((this._output.space_before_token = this._options.space_before_conditional),
+                                          (next_mode = MODE.Conditional))
+                                        : in_array(this._flags.last_word, [
+                                              'await',
+                                              'async',
+                                          ])
+                                        ? (this._output.space_before_token = !0)
+                                        : 'import' ===
+                                              this._flags.last_token.text &&
+                                          '' === current_token.whitespace_before
+                                        ? (this._output.space_before_token = !1)
+                                        : (in_array(
+                                              this._flags.last_token.text,
+                                              line_starters
+                                          ) ||
+                                              'catch' ===
+                                                  this._flags.last_token
+                                                      .text) &&
+                                          (this._output.space_before_token = !0)
+                                else if (
+                                    this._flags.last_token.type ===
+                                        TOKEN.EQUALS ||
+                                    this._flags.last_token.type ===
+                                        TOKEN.OPERATOR
+                                )
+                                    this.start_of_object_property() ||
+                                        this.allow_wrap_or_preserved_newline(
+                                            current_token
+                                        )
+                                else if (
+                                    this._flags.last_token.type === TOKEN.WORD
+                                ) {
+                                    this._output.space_before_token = !1
+                                    var peek_back_two = this._tokens.peek(-3)
+                                    if (
+                                        this._options
+                                            .space_after_named_function &&
+                                        peek_back_two
+                                    ) {
+                                        var peek_back_three = this._tokens.peek(
+                                            -4
+                                        )
+                                        reserved_array(peek_back_two, [
+                                            'async',
+                                            'function',
+                                        ]) ||
+                                        ('*' === peek_back_two.text &&
+                                            reserved_array(peek_back_three, [
+                                                'async',
+                                                'function',
+                                            ]))
+                                            ? (this._output.space_before_token = !0)
+                                            : this._flags.mode ===
+                                                  MODE.ObjectLiteral &&
+                                              (('{' !== peek_back_two.text &&
+                                                  ',' !== peek_back_two.text &&
+                                                  ('*' !== peek_back_two.text ||
+                                                      ('{' !==
+                                                          peek_back_three.text &&
+                                                          ',' !==
+                                                              peek_back_three.text))) ||
+                                                  (this._output.space_before_token = !0))
+                                    }
+                                } else
+                                    this.allow_wrap_or_preserved_newline(
+                                        current_token
+                                    )
+                                ;((this._flags.last_token.type ===
+                                    TOKEN.RESERVED &&
+                                    ('function' === this._flags.last_word ||
+                                        'typeof' === this._flags.last_word)) ||
+                                    ('*' === this._flags.last_token.text &&
+                                        (in_array(this._last_last_text, [
+                                            'function',
+                                            'yield',
+                                        ]) ||
+                                            (this._flags.mode ===
+                                                MODE.ObjectLiteral &&
+                                                in_array(this._last_last_text, [
+                                                    '{',
+                                                    ',',
+                                                ]))))) &&
+                                    (this._output.space_before_token = this._options.space_after_anon_function)
+                            }
+                            ';' === this._flags.last_token.text ||
+                            this._flags.last_token.type === TOKEN.START_BLOCK
+                                ? this.print_newline()
+                                : (this._flags.last_token.type !==
+                                      TOKEN.END_EXPR &&
+                                      this._flags.last_token.type !==
+                                          TOKEN.START_EXPR &&
+                                      this._flags.last_token.type !==
+                                          TOKEN.END_BLOCK &&
+                                      '.' !== this._flags.last_token.text &&
+                                      this._flags.last_token.type !==
+                                          TOKEN.COMMA) ||
+                                  this.allow_wrap_or_preserved_newline(
+                                      current_token,
+                                      current_token.newlines
+                                  ),
+                                this.print_token(current_token),
+                                this.set_mode(next_mode),
+                                this._options.space_in_paren &&
+                                    (this._output.space_before_token = !0),
+                                this.indent()
+                        }),
+                        (Beautifier.prototype.handle_end_expr = function(
+                            current_token
+                        ) {
+                            for (; this._flags.mode === MODE.Statement; )
+                                this.restore_mode()
+                            this.handle_whitespace_and_comments(current_token),
+                                this._flags.multiline_frame &&
+                                    this.allow_wrap_or_preserved_newline(
+                                        current_token,
+                                        ']' === current_token.text &&
+                                            is_array(this._flags.mode) &&
+                                            !this._options
+                                                .keep_array_indentation
+                                    ),
+                                this._options.space_in_paren &&
+                                    (this._flags.last_token.type !==
+                                        TOKEN.START_EXPR ||
+                                    this._options.space_in_empty_paren
+                                        ? (this._output.space_before_token = !0)
+                                        : (this._output.trim(),
+                                          (this._output.space_before_token = !1))),
+                                this.deindent(),
+                                this.print_token(current_token),
+                                this.restore_mode(),
+                                remove_redundant_indentation(
+                                    this._output,
+                                    this._previous_flags
+                                ),
+                                this._flags.do_while &&
+                                    this._previous_flags.mode ===
+                                        MODE.Conditional &&
+                                    ((this._previous_flags.mode =
+                                        MODE.Expression),
+                                    (this._flags.do_block = !1),
+                                    (this._flags.do_while = !1))
+                        }),
+                        (Beautifier.prototype.handle_start_block = function(
+                            current_token
+                        ) {
+                            this.handle_whitespace_and_comments(current_token)
+                            var next_token = this._tokens.peek(),
+                                second_token = this._tokens.peek(1)
+                            'switch' === this._flags.last_word &&
+                            this._flags.last_token.type === TOKEN.END_EXPR
+                                ? (this.set_mode(MODE.BlockStatement),
+                                  (this._flags.in_case_statement = !0))
+                                : second_token &&
+                                  ((in_array(second_token.text, [':', ',']) &&
+                                      in_array(next_token.type, [
+                                          TOKEN.STRING,
+                                          TOKEN.WORD,
+                                          TOKEN.RESERVED,
+                                      ])) ||
+                                      (in_array(next_token.text, [
+                                          'get',
+                                          'set',
+                                          '...',
+                                      ]) &&
+                                          in_array(second_token.type, [
+                                              TOKEN.WORD,
+                                              TOKEN.RESERVED,
+                                          ])))
+                                ? in_array(this._last_last_text, [
+                                      'class',
+                                      'interface',
+                                  ])
+                                    ? this.set_mode(MODE.BlockStatement)
+                                    : this.set_mode(MODE.ObjectLiteral)
+                                : this._flags.last_token.type ===
+                                      TOKEN.OPERATOR &&
+                                  '=>' === this._flags.last_token.text
+                                ? this.set_mode(MODE.BlockStatement)
+                                : in_array(this._flags.last_token.type, [
+                                      TOKEN.EQUALS,
+                                      TOKEN.START_EXPR,
+                                      TOKEN.COMMA,
+                                      TOKEN.OPERATOR,
+                                  ]) ||
+                                  reserved_array(this._flags.last_token, [
+                                      'return',
+                                      'throw',
+                                      'import',
+                                      'default',
+                                  ])
+                                ? this.set_mode(MODE.ObjectLiteral)
+                                : this.set_mode(MODE.BlockStatement)
+                            var empty_braces =
+                                    !next_token.comments_before &&
+                                    '}' === next_token.text,
+                                empty_anonymous_function =
+                                    empty_braces &&
+                                    'function' === this._flags.last_word &&
+                                    this._flags.last_token.type ===
+                                        TOKEN.END_EXPR
+                            if (this._options.brace_preserve_inline) {
+                                var index = 0,
+                                    check_token = null
+                                this._flags.inline_frame = !0
+                                do {
+                                    if (
+                                        ((index += 1),
+                                        (check_token = this._tokens.peek(
+                                            index - 1
+                                        )).newlines)
+                                    ) {
+                                        this._flags.inline_frame = !1
+                                        break
+                                    }
+                                } while (
+                                    check_token.type !== TOKEN.EOF &&
+                                    (check_token.type !== TOKEN.END_BLOCK ||
+                                        check_token.opened !== current_token)
+                                )
+                            }
+                            ;('expand' === this._options.brace_style ||
+                                ('none' === this._options.brace_style &&
+                                    current_token.newlines)) &&
+                            !this._flags.inline_frame
+                                ? this._flags.last_token.type !==
+                                      TOKEN.OPERATOR &&
+                                  (empty_anonymous_function ||
+                                      this._flags.last_token.type ===
+                                          TOKEN.EQUALS ||
+                                      (reserved_array(
+                                          this._flags.last_token,
+                                          special_words
+                                      ) &&
+                                          'else' !==
+                                              this._flags.last_token.text))
+                                    ? (this._output.space_before_token = !0)
+                                    : this.print_newline(!1, !0)
+                                : (!is_array(this._previous_flags.mode) ||
+                                      (this._flags.last_token.type !==
+                                          TOKEN.START_EXPR &&
+                                          this._flags.last_token.type !==
+                                              TOKEN.COMMA) ||
+                                      ((this._flags.last_token.type ===
+                                          TOKEN.COMMA ||
+                                          this._options.space_in_paren) &&
+                                          (this._output.space_before_token = !0),
+                                      (this._flags.last_token.type ===
+                                          TOKEN.COMMA ||
+                                          (this._flags.last_token.type ===
+                                              TOKEN.START_EXPR &&
+                                              this._flags.inline_frame)) &&
+                                          (this.allow_wrap_or_preserved_newline(
+                                              current_token
+                                          ),
+                                          (this._previous_flags.multiline_frame =
+                                              this._previous_flags
+                                                  .multiline_frame ||
+                                              this._flags.multiline_frame),
+                                          (this._flags.multiline_frame = !1))),
+                                  this._flags.last_token.type !==
+                                      TOKEN.OPERATOR &&
+                                      this._flags.last_token.type !==
+                                          TOKEN.START_EXPR &&
+                                      (this._flags.last_token.type !==
+                                          TOKEN.START_BLOCK ||
+                                      this._flags.inline_frame
+                                          ? (this._output.space_before_token = !0)
+                                          : this.print_newline())),
+                                this.print_token(current_token),
+                                this.indent(),
+                                empty_braces ||
+                                    (this._options.brace_preserve_inline &&
+                                        this._flags.inline_frame) ||
+                                    this.print_newline()
+                        }),
+                        (Beautifier.prototype.handle_end_block = function(
+                            current_token
+                        ) {
+                            for (
+                                this.handle_whitespace_and_comments(
+                                    current_token
+                                );
+                                this._flags.mode === MODE.Statement;
+
+                            )
+                                this.restore_mode()
+                            var empty_braces =
+                                this._flags.last_token.type ===
+                                TOKEN.START_BLOCK
+                            this._flags.inline_frame && !empty_braces
+                                ? (this._output.space_before_token = !0)
+                                : 'expand' === this._options.brace_style
+                                ? empty_braces || this.print_newline()
+                                : empty_braces ||
+                                  (is_array(this._flags.mode) &&
+                                  this._options.keep_array_indentation
+                                      ? ((this._options.keep_array_indentation = !1),
+                                        this.print_newline(),
+                                        (this._options.keep_array_indentation = !0))
+                                      : this.print_newline()),
+                                this.restore_mode(),
+                                this.print_token(current_token)
+                        }),
+                        (Beautifier.prototype.handle_word = function(
+                            current_token
+                        ) {
+                            if (current_token.type === TOKEN.RESERVED)
+                                if (
+                                    in_array(current_token.text, [
+                                        'set',
+                                        'get',
+                                    ]) &&
+                                    this._flags.mode !== MODE.ObjectLiteral
+                                )
+                                    current_token.type = TOKEN.WORD
+                                else if (
+                                    'import' === current_token.text &&
+                                    '(' === this._tokens.peek().text
+                                )
+                                    current_token.type = TOKEN.WORD
+                                else if (
+                                    in_array(current_token.text, [
+                                        'as',
+                                        'from',
+                                    ]) &&
+                                    !this._flags.import_block
+                                )
+                                    current_token.type = TOKEN.WORD
+                                else if (
+                                    this._flags.mode === MODE.ObjectLiteral
+                                ) {
+                                    ':' === this._tokens.peek().text &&
+                                        (current_token.type = TOKEN.WORD)
+                                }
+                            if (
+                                (this.start_of_statement(current_token)
+                                    ? reserved_array(this._flags.last_token, [
+                                          'var',
+                                          'let',
+                                          'const',
+                                      ]) &&
+                                      current_token.type === TOKEN.WORD &&
+                                      (this._flags.declaration_statement = !0)
+                                    : !current_token.newlines ||
+                                      is_expression(this._flags.mode) ||
+                                      (this._flags.last_token.type ===
+                                          TOKEN.OPERATOR &&
+                                          '--' !==
+                                              this._flags.last_token.text &&
+                                          '++' !==
+                                              this._flags.last_token.text) ||
+                                      this._flags.last_token.type ===
+                                          TOKEN.EQUALS ||
+                                      (!this._options.preserve_newlines &&
+                                          reserved_array(
+                                              this._flags.last_token,
+                                              [
+                                                  'var',
+                                                  'let',
+                                                  'const',
+                                                  'set',
+                                                  'get',
+                                              ]
+                                          ))
+                                    ? this.handle_whitespace_and_comments(
+                                          current_token
+                                      )
+                                    : (this.handle_whitespace_and_comments(
+                                          current_token
+                                      ),
+                                      this.print_newline()),
+                                this._flags.do_block && !this._flags.do_while)
+                            ) {
+                                if (reserved_word(current_token, 'while'))
+                                    return (
+                                        (this._output.space_before_token = !0),
+                                        this.print_token(current_token),
+                                        (this._output.space_before_token = !0),
+                                        void (this._flags.do_while = !0)
+                                    )
+                                this.print_newline(),
+                                    (this._flags.do_block = !1)
+                            }
+                            if (this._flags.if_block)
+                                if (
+                                    !this._flags.else_block &&
+                                    reserved_word(current_token, 'else')
+                                )
+                                    this._flags.else_block = !0
+                                else {
+                                    for (
+                                        ;
+                                        this._flags.mode === MODE.Statement;
+
+                                    )
+                                        this.restore_mode()
+                                    ;(this._flags.if_block = !1),
+                                        (this._flags.else_block = !1)
+                                }
+                            if (
+                                this._flags.in_case_statement &&
+                                reserved_array(current_token, [
+                                    'case',
+                                    'default',
+                                ])
+                            )
+                                return (
+                                    this.print_newline(),
+                                    (this._flags.case_body ||
+                                        this._options.jslint_happy) &&
+                                        (this.deindent(),
+                                        (this._flags.case_body = !1)),
+                                    this.print_token(current_token),
+                                    void (this._flags.in_case = !0)
+                                )
+                            if (
+                                ((this._flags.last_token.type !== TOKEN.COMMA &&
+                                    this._flags.last_token.type !==
+                                        TOKEN.START_EXPR &&
+                                    this._flags.last_token.type !==
+                                        TOKEN.EQUALS &&
+                                    this._flags.last_token.type !==
+                                        TOKEN.OPERATOR) ||
+                                    this.start_of_object_property() ||
+                                    this.allow_wrap_or_preserved_newline(
+                                        current_token
+                                    ),
+                                reserved_word(current_token, 'function'))
+                            )
+                                return (
+                                    (in_array(this._flags.last_token.text, [
+                                        '}',
+                                        ';',
+                                    ]) ||
+                                        (this._output.just_added_newline() &&
+                                            !in_array(
+                                                this._flags.last_token.text,
+                                                ['(', '[', '{', ':', '=', ',']
+                                            ) &&
+                                            this._flags.last_token.type !==
+                                                TOKEN.OPERATOR)) &&
+                                        (this._output.just_added_blankline() ||
+                                            current_token.comments_before ||
+                                            (this.print_newline(),
+                                            this.print_newline(!0))),
+                                    this._flags.last_token.type ===
+                                        TOKEN.RESERVED ||
+                                    this._flags.last_token.type === TOKEN.WORD
+                                        ? reserved_array(
+                                              this._flags.last_token,
+                                              ['get', 'set', 'new', 'export']
+                                          ) ||
+                                          reserved_array(
+                                              this._flags.last_token,
+                                              newline_restricted_tokens
+                                          )
+                                            ? (this._output.space_before_token = !0)
+                                            : reserved_word(
+                                                  this._flags.last_token,
+                                                  'default'
+                                              ) &&
+                                              'export' === this._last_last_text
+                                            ? (this._output.space_before_token = !0)
+                                            : 'declare' ===
+                                              this._flags.last_token.text
+                                            ? (this._output.space_before_token = !0)
+                                            : this.print_newline()
+                                        : this._flags.last_token.type ===
+                                              TOKEN.OPERATOR ||
+                                          '=' === this._flags.last_token.text
+                                        ? (this._output.space_before_token = !0)
+                                        : (this._flags.multiline_frame ||
+                                              (!is_expression(
+                                                  this._flags.mode
+                                              ) &&
+                                                  !is_array(
+                                                      this._flags.mode
+                                                  ))) &&
+                                          this.print_newline(),
+                                    this.print_token(current_token),
+                                    void (this._flags.last_word =
+                                        current_token.text)
+                                )
+                            var prefix = 'NONE'
+                            ;(this._flags.last_token.type === TOKEN.END_BLOCK
+                                ? this._previous_flags.inline_frame
+                                    ? (prefix = 'SPACE')
+                                    : reserved_array(current_token, [
+                                          'else',
+                                          'catch',
+                                          'finally',
+                                          'from',
+                                      ])
+                                    ? 'expand' === this._options.brace_style ||
+                                      'end-expand' ===
+                                          this._options.brace_style ||
+                                      ('none' === this._options.brace_style &&
+                                          current_token.newlines)
+                                        ? (prefix = 'NEWLINE')
+                                        : ((prefix = 'SPACE'),
+                                          (this._output.space_before_token = !0))
+                                    : (prefix = 'NEWLINE')
+                                : this._flags.last_token.type ===
+                                      TOKEN.SEMICOLON &&
+                                  this._flags.mode === MODE.BlockStatement
+                                ? (prefix = 'NEWLINE')
+                                : this._flags.last_token.type ===
+                                      TOKEN.SEMICOLON &&
+                                  is_expression(this._flags.mode)
+                                ? (prefix = 'SPACE')
+                                : this._flags.last_token.type === TOKEN.STRING
+                                ? (prefix = 'NEWLINE')
+                                : this._flags.last_token.type ===
+                                      TOKEN.RESERVED ||
+                                  this._flags.last_token.type === TOKEN.WORD ||
+                                  ('*' === this._flags.last_token.text &&
+                                      (in_array(this._last_last_text, [
+                                          'function',
+                                          'yield',
+                                      ]) ||
+                                          (this._flags.mode ===
+                                              MODE.ObjectLiteral &&
+                                              in_array(this._last_last_text, [
+                                                  '{',
+                                                  ',',
+                                              ]))))
+                                ? (prefix = 'SPACE')
+                                : this._flags.last_token.type ===
+                                  TOKEN.START_BLOCK
+                                ? (prefix = this._flags.inline_frame
+                                      ? 'SPACE'
+                                      : 'NEWLINE')
+                                : this._flags.last_token.type ===
+                                      TOKEN.END_EXPR &&
+                                  ((this._output.space_before_token = !0),
+                                  (prefix = 'NEWLINE')),
+                            reserved_array(current_token, line_starters) &&
+                                ')' !== this._flags.last_token.text &&
+                                (prefix =
+                                    this._flags.inline_frame ||
+                                    'else' === this._flags.last_token.text ||
+                                    'export' === this._flags.last_token.text
+                                        ? 'SPACE'
+                                        : 'NEWLINE'),
+                            reserved_array(current_token, [
+                                'else',
+                                'catch',
+                                'finally',
+                            ]))
+                                ? (this._flags.last_token.type !==
+                                      TOKEN.END_BLOCK ||
+                                      this._previous_flags.mode !==
+                                          MODE.BlockStatement ||
+                                      'expand' === this._options.brace_style ||
+                                      'end-expand' ===
+                                          this._options.brace_style ||
+                                      ('none' === this._options.brace_style &&
+                                          current_token.newlines)) &&
+                                  !this._flags.inline_frame
+                                    ? this.print_newline()
+                                    : (this._output.trim(!0),
+                                      '}' !==
+                                          this._output.current_line.last() &&
+                                          this.print_newline(),
+                                      (this._output.space_before_token = !0))
+                                : 'NEWLINE' === prefix
+                                ? reserved_array(
+                                      this._flags.last_token,
+                                      special_words
+                                  )
+                                    ? (this._output.space_before_token = !0)
+                                    : 'declare' ===
+                                          this._flags.last_token.text &&
+                                      reserved_array(current_token, [
+                                          'var',
+                                          'let',
+                                          'const',
+                                      ])
+                                    ? (this._output.space_before_token = !0)
+                                    : this._flags.last_token.type !==
+                                      TOKEN.END_EXPR
+                                    ? (this._flags.last_token.type ===
+                                          TOKEN.START_EXPR &&
+                                          reserved_array(current_token, [
+                                              'var',
+                                              'let',
+                                              'const',
+                                          ])) ||
+                                      ':' === this._flags.last_token.text ||
+                                      (reserved_word(current_token, 'if') &&
+                                      reserved_word(
+                                          current_token.previous,
+                                          'else'
+                                      )
+                                          ? (this._output.space_before_token = !0)
+                                          : this.print_newline())
+                                    : reserved_array(
+                                          current_token,
+                                          line_starters
+                                      ) &&
+                                      ')' !== this._flags.last_token.text &&
+                                      this.print_newline()
+                                : this._flags.multiline_frame &&
+                                  is_array(this._flags.mode) &&
+                                  ',' === this._flags.last_token.text &&
+                                  '}' === this._last_last_text
+                                ? this.print_newline()
+                                : 'SPACE' === prefix &&
+                                  (this._output.space_before_token = !0)
+                            !current_token.previous ||
+                                (current_token.previous.type !== TOKEN.WORD &&
+                                    current_token.previous.type !==
+                                        TOKEN.RESERVED) ||
+                                (this._output.space_before_token = !0),
+                                this.print_token(current_token),
+                                (this._flags.last_word = current_token.text),
+                                current_token.type === TOKEN.RESERVED &&
+                                    ('do' === current_token.text
+                                        ? (this._flags.do_block = !0)
+                                        : 'if' === current_token.text
+                                        ? (this._flags.if_block = !0)
+                                        : 'import' === current_token.text
+                                        ? (this._flags.import_block = !0)
+                                        : this._flags.import_block &&
+                                          reserved_word(
+                                              current_token,
+                                              'from'
+                                          ) &&
+                                          (this._flags.import_block = !1))
+                        }),
+                        (Beautifier.prototype.handle_semicolon = function(
+                            current_token
+                        ) {
+                            this.start_of_statement(current_token)
+                                ? (this._output.space_before_token = !1)
+                                : this.handle_whitespace_and_comments(
+                                      current_token
+                                  )
+                            for (
+                                var next_token = this._tokens.peek();
+                                !(
+                                    this._flags.mode !== MODE.Statement ||
+                                    (this._flags.if_block &&
+                                        reserved_word(next_token, 'else')) ||
+                                    this._flags.do_block
+                                );
+
+                            )
+                                this.restore_mode()
+                            this._flags.import_block &&
+                                (this._flags.import_block = !1),
+                                this.print_token(current_token)
+                        }),
+                        (Beautifier.prototype.handle_string = function(
+                            current_token
+                        ) {
+                            this.start_of_statement(current_token)
+                                ? (this._output.space_before_token = !0)
+                                : (this.handle_whitespace_and_comments(
+                                      current_token
+                                  ),
+                                  this._flags.last_token.type ===
+                                      TOKEN.RESERVED ||
+                                  this._flags.last_token.type === TOKEN.WORD ||
+                                  this._flags.inline_frame
+                                      ? (this._output.space_before_token = !0)
+                                      : this._flags.last_token.type ===
+                                            TOKEN.COMMA ||
+                                        this._flags.last_token.type ===
+                                            TOKEN.START_EXPR ||
+                                        this._flags.last_token.type ===
+                                            TOKEN.EQUALS ||
+                                        this._flags.last_token.type ===
+                                            TOKEN.OPERATOR
+                                      ? this.start_of_object_property() ||
+                                        this.allow_wrap_or_preserved_newline(
+                                            current_token
+                                        )
+                                      : this.print_newline()),
+                                this.print_token(current_token)
+                        }),
+                        (Beautifier.prototype.handle_equals = function(
+                            current_token
+                        ) {
+                            this.start_of_statement(current_token) ||
+                                this.handle_whitespace_and_comments(
+                                    current_token
+                                ),
+                                this._flags.declaration_statement &&
+                                    (this._flags.declaration_assignment = !0),
+                                (this._output.space_before_token = !0),
+                                this.print_token(current_token),
+                                (this._output.space_before_token = !0)
+                        }),
+                        (Beautifier.prototype.handle_comma = function(
+                            current_token
+                        ) {
+                            this.handle_whitespace_and_comments(
+                                current_token,
+                                !0
+                            ),
+                                this.print_token(current_token),
+                                (this._output.space_before_token = !0),
+                                this._flags.declaration_statement
+                                    ? (is_expression(this._flags.parent.mode) &&
+                                          (this._flags.declaration_assignment = !1),
+                                      this._flags.declaration_assignment
+                                          ? ((this._flags.declaration_assignment = !1),
+                                            this.print_newline(!1, !0))
+                                          : this._options.comma_first &&
+                                            this.allow_wrap_or_preserved_newline(
+                                                current_token
+                                            ))
+                                    : this._flags.mode === MODE.ObjectLiteral ||
+                                      (this._flags.mode === MODE.Statement &&
+                                          this._flags.parent.mode ===
+                                              MODE.ObjectLiteral)
+                                    ? (this._flags.mode === MODE.Statement &&
+                                          this.restore_mode(),
+                                      this._flags.inline_frame ||
+                                          this.print_newline())
+                                    : this._options.comma_first &&
+                                      this.allow_wrap_or_preserved_newline(
+                                          current_token
+                                      )
+                        }),
+                        (Beautifier.prototype.handle_operator = function(
+                            current_token
+                        ) {
+                            var isGeneratorAsterisk =
+                                    '*' === current_token.text &&
+                                    (reserved_array(this._flags.last_token, [
+                                        'function',
+                                        'yield',
+                                    ]) ||
+                                        in_array(this._flags.last_token.type, [
+                                            TOKEN.START_BLOCK,
+                                            TOKEN.COMMA,
+                                            TOKEN.END_BLOCK,
+                                            TOKEN.SEMICOLON,
+                                        ])),
+                                isUnary =
+                                    in_array(current_token.text, ['-', '+']) &&
+                                    (in_array(this._flags.last_token.type, [
+                                        TOKEN.START_BLOCK,
+                                        TOKEN.START_EXPR,
+                                        TOKEN.EQUALS,
+                                        TOKEN.OPERATOR,
+                                    ]) ||
+                                        in_array(
+                                            this._flags.last_token.text,
+                                            line_starters
+                                        ) ||
+                                        ',' === this._flags.last_token.text)
+                            if (this.start_of_statement(current_token));
+                            else {
+                                var preserve_statement_flags = !isGeneratorAsterisk
+                                this.handle_whitespace_and_comments(
+                                    current_token,
+                                    preserve_statement_flags
+                                )
+                            }
+                            if (
+                                reserved_array(
+                                    this._flags.last_token,
+                                    special_words
+                                )
+                            )
+                                return (
+                                    (this._output.space_before_token = !0),
+                                    void this.print_token(current_token)
+                                )
+                            if (
+                                '*' !== current_token.text ||
+                                this._flags.last_token.type !== TOKEN.DOT
+                            )
+                                if ('::' !== current_token.text) {
+                                    if (
+                                        (this._flags.last_token.type ===
+                                            TOKEN.OPERATOR &&
+                                            in_array(
+                                                this._options.operator_position,
+                                                OPERATOR_POSITION_BEFORE_OR_PRESERVE
+                                            ) &&
+                                            this.allow_wrap_or_preserved_newline(
+                                                current_token
+                                            ),
+                                        ':' === current_token.text &&
+                                            this._flags.in_case)
+                                    )
+                                        return (
+                                            (this._flags.case_body = !0),
+                                            this.indent(),
+                                            this.print_token(current_token),
+                                            this.print_newline(),
+                                            void (this._flags.in_case = !1)
+                                        )
+                                    var space_before = !0,
+                                        space_after = !0,
+                                        in_ternary = !1
+                                    if (
+                                        (':' === current_token.text
+                                            ? 0 === this._flags.ternary_depth
+                                                ? (space_before = !1)
+                                                : ((this._flags.ternary_depth -= 1),
+                                                  (in_ternary = !0))
+                                            : '?' === current_token.text &&
+                                              (this._flags.ternary_depth += 1),
+                                        !isUnary &&
+                                            !isGeneratorAsterisk &&
+                                            this._options.preserve_newlines &&
+                                            in_array(
+                                                current_token.text,
+                                                positionable_operators
+                                            ))
+                                    ) {
+                                        var isColon =
+                                                ':' === current_token.text,
+                                            isTernaryColon =
+                                                isColon && in_ternary,
+                                            isOtherColon =
+                                                isColon && !in_ternary
+                                        switch (
+                                            this._options.operator_position
+                                        ) {
+                                            case OPERATOR_POSITION.before_newline:
+                                                return (
+                                                    (this._output.space_before_token = !isOtherColon),
+                                                    this.print_token(
+                                                        current_token
+                                                    ),
+                                                    (isColon &&
+                                                        !isTernaryColon) ||
+                                                        this.allow_wrap_or_preserved_newline(
+                                                            current_token
+                                                        ),
+                                                    void (this._output.space_before_token = !0)
+                                                )
+                                            case OPERATOR_POSITION.after_newline:
+                                                return (
+                                                    (this._output.space_before_token = !0),
+                                                    !isColon || isTernaryColon
+                                                        ? this._tokens.peek()
+                                                              .newlines
+                                                            ? this.print_newline(
+                                                                  !1,
+                                                                  !0
+                                                              )
+                                                            : this.allow_wrap_or_preserved_newline(
+                                                                  current_token
+                                                              )
+                                                        : (this._output.space_before_token = !1),
+                                                    this.print_token(
+                                                        current_token
+                                                    ),
+                                                    void (this._output.space_before_token = !0)
+                                                )
+                                            case OPERATOR_POSITION.preserve_newline:
+                                                return (
+                                                    isOtherColon ||
+                                                        this.allow_wrap_or_preserved_newline(
+                                                            current_token
+                                                        ),
+                                                    (space_before = !(
+                                                        this._output.just_added_newline() ||
+                                                        isOtherColon
+                                                    )),
+                                                    (this._output.space_before_token = space_before),
+                                                    this.print_token(
+                                                        current_token
+                                                    ),
+                                                    void (this._output.space_before_token = !0)
+                                                )
+                                        }
+                                    }
+                                    if (isGeneratorAsterisk) {
+                                        this.allow_wrap_or_preserved_newline(
+                                            current_token
+                                        ),
+                                            (space_before = !1)
+                                        var next_token = this._tokens.peek()
+                                        space_after =
+                                            next_token &&
+                                            in_array(next_token.type, [
+                                                TOKEN.WORD,
+                                                TOKEN.RESERVED,
+                                            ])
+                                    } else
+                                        '...' === current_token.text
+                                            ? (this.allow_wrap_or_preserved_newline(
+                                                  current_token
+                                              ),
+                                              (space_before =
+                                                  this._flags.last_token
+                                                      .type ===
+                                                  TOKEN.START_BLOCK),
+                                              (space_after = !1))
+                                            : (in_array(current_token.text, [
+                                                  '--',
+                                                  '++',
+                                                  '!',
+                                                  '~',
+                                              ]) ||
+                                                  isUnary) &&
+                                              ((this._flags.last_token.type !==
+                                                  TOKEN.COMMA &&
+                                                  this._flags.last_token
+                                                      .type !==
+                                                      TOKEN.START_EXPR) ||
+                                                  this.allow_wrap_or_preserved_newline(
+                                                      current_token
+                                                  ),
+                                              (space_before = !1),
+                                              (space_after = !1),
+                                              !current_token.newlines ||
+                                                  ('--' !==
+                                                      current_token.text &&
+                                                      '++' !==
+                                                          current_token.text) ||
+                                                  this.print_newline(!1, !0),
+                                              ';' ===
+                                                  this._flags.last_token.text &&
+                                                  is_expression(
+                                                      this._flags.mode
+                                                  ) &&
+                                                  (space_before = !0),
+                                              this._flags.last_token.type ===
+                                              TOKEN.RESERVED
+                                                  ? (space_before = !0)
+                                                  : this._flags.last_token
+                                                        .type === TOKEN.END_EXPR
+                                                  ? (space_before = !(
+                                                        ']' ===
+                                                            this._flags
+                                                                .last_token
+                                                                .text &&
+                                                        ('--' ===
+                                                            current_token.text ||
+                                                            '++' ===
+                                                                current_token.text)
+                                                    ))
+                                                  : this._flags.last_token
+                                                        .type ===
+                                                        TOKEN.OPERATOR &&
+                                                    ((space_before =
+                                                        in_array(
+                                                            current_token.text,
+                                                            [
+                                                                '--',
+                                                                '-',
+                                                                '++',
+                                                                '+',
+                                                            ]
+                                                        ) &&
+                                                        in_array(
+                                                            this._flags
+                                                                .last_token
+                                                                .text,
+                                                            [
+                                                                '--',
+                                                                '-',
+                                                                '++',
+                                                                '+',
+                                                            ]
+                                                        )),
+                                                    in_array(
+                                                        current_token.text,
+                                                        ['+', '-']
+                                                    ) &&
+                                                        in_array(
+                                                            this._flags
+                                                                .last_token
+                                                                .text,
+                                                            ['--', '++']
+                                                        ) &&
+                                                        (space_after = !0)),
+                                              ((this._flags.mode !==
+                                                  MODE.BlockStatement ||
+                                                  this._flags.inline_frame) &&
+                                                  this._flags.mode !==
+                                                      MODE.Statement) ||
+                                                  ('{' !==
+                                                      this._flags.last_token
+                                                          .text &&
+                                                      ';' !==
+                                                          this._flags.last_token
+                                                              .text) ||
+                                                  this.print_newline())
+                                    ;(this._output.space_before_token =
+                                        this._output.space_before_token ||
+                                        space_before),
+                                        this.print_token(current_token),
+                                        (this._output.space_before_token = space_after)
+                                } else this.print_token(current_token)
+                            else this.print_token(current_token)
+                        }),
+                        (Beautifier.prototype.handle_block_comment = function(
+                            current_token,
+                            preserve_statement_flags
+                        ) {
+                            if (this._output.raw)
+                                return (
+                                    this._output.add_raw_token(current_token),
+                                    void (
+                                        current_token.directives &&
+                                        'end' ===
+                                            current_token.directives.preserve &&
+                                        (this._output.raw = this._options.test_output_raw)
+                                    )
+                                )
+                            if (current_token.directives)
+                                return (
+                                    this.print_newline(
+                                        !1,
+                                        preserve_statement_flags
+                                    ),
+                                    this.print_token(current_token),
+                                    'start' ===
+                                        current_token.directives.preserve &&
+                                        (this._output.raw = !0),
+                                    void this.print_newline(!1, !0)
+                                )
+                            if (
+                                !acorn.newline.test(current_token.text) &&
+                                !current_token.newlines
+                            )
+                                return (
+                                    (this._output.space_before_token = !0),
+                                    this.print_token(current_token),
+                                    void (this._output.space_before_token = !0)
+                                )
+                            var j,
+                                lines = (function split_linebreaks(s) {
+                                    for (
+                                        var out = [],
+                                            idx = (s = s.replace(
+                                                acorn.allLineBreaks,
+                                                '\n'
+                                            )).indexOf('\n');
+                                        -1 !== idx;
+
+                                    )
+                                        out.push(s.substring(0, idx)),
+                                            (idx = (s = s.substring(
+                                                idx + 1
+                                            )).indexOf('\n'))
+                                    return s.length && out.push(s), out
+                                })(current_token.text),
+                                javadoc = !1,
+                                starless = !1,
+                                lastIndent = current_token.whitespace_before,
+                                lastIndentLength = lastIndent.length
+                            if (
+                                (this.print_newline(
+                                    !1,
+                                    preserve_statement_flags
+                                ),
+                                this.print_token(current_token, lines[0]),
+                                this.print_newline(
+                                    !1,
+                                    preserve_statement_flags
+                                ),
+                                lines.length > 1)
+                            ) {
+                                for (
+                                    javadoc = (function all_lines_start_with(
+                                        lines,
+                                        c
+                                    ) {
+                                        for (var i = 0; i < lines.length; i++)
+                                            if (lines[i].trim().charAt(0) !== c)
+                                                return !1
+                                        return !0
+                                    })((lines = lines.slice(1)), '*'),
+                                        starless = (function each_line_matches_indent(
+                                            lines,
+                                            indent
+                                        ) {
+                                            for (
+                                                var line,
+                                                    i = 0,
+                                                    len = lines.length;
+                                                i < len;
+                                                i++
+                                            )
+                                                if (
+                                                    (line = lines[i]) &&
+                                                    0 !== line.indexOf(indent)
+                                                )
+                                                    return !1
+                                            return !0
+                                        })(lines, lastIndent),
+                                        javadoc && (this._flags.alignment = 1),
+                                        j = 0;
+                                    j < lines.length;
+                                    j++
+                                )
+                                    javadoc
+                                        ? this.print_token(
+                                              current_token,
+                                              lines[j].replace(/^\s+/g, '')
+                                          )
+                                        : starless && lines[j]
+                                        ? this.print_token(
+                                              current_token,
+                                              lines[j].substring(
+                                                  lastIndentLength
+                                              )
+                                          )
+                                        : (this._output.current_line.set_indent(
+                                              -1
+                                          ),
+                                          this._output.add_token(lines[j])),
+                                        this.print_newline(
+                                            !1,
+                                            preserve_statement_flags
+                                        )
+                                this._flags.alignment = 0
+                            }
+                        }),
+                        (Beautifier.prototype.handle_comment = function(
+                            current_token,
+                            preserve_statement_flags
+                        ) {
+                            current_token.newlines
+                                ? this.print_newline(
+                                      !1,
+                                      preserve_statement_flags
+                                  )
+                                : this._output.trim(!0),
+                                (this._output.space_before_token = !0),
+                                this.print_token(current_token),
+                                this.print_newline(!1, preserve_statement_flags)
+                        }),
+                        (Beautifier.prototype.handle_dot = function(
+                            current_token
+                        ) {
+                            this.start_of_statement(current_token) ||
+                                this.handle_whitespace_and_comments(
+                                    current_token,
+                                    !0
+                                ),
+                                reserved_array(
+                                    this._flags.last_token,
+                                    special_words
+                                )
+                                    ? (this._output.space_before_token = !1)
+                                    : this.allow_wrap_or_preserved_newline(
+                                          current_token,
+                                          ')' === this._flags.last_token.text &&
+                                              this._options
+                                                  .break_chained_methods
+                                      ),
+                                this._options.unindent_chained_methods &&
+                                    this._output.just_added_newline() &&
+                                    this.deindent(),
+                                this.print_token(current_token)
+                        }),
+                        (Beautifier.prototype.handle_unknown = function(
+                            current_token,
+                            preserve_statement_flags
+                        ) {
+                            this.print_token(current_token),
+                                '\n' ===
+                                    current_token.text[
+                                        current_token.text.length - 1
+                                    ] &&
+                                    this.print_newline(
+                                        !1,
+                                        preserve_statement_flags
+                                    )
+                        }),
+                        (Beautifier.prototype.handle_eof = function(
+                            current_token
+                        ) {
+                            for (; this._flags.mode === MODE.Statement; )
+                                this.restore_mode()
+                            this.handle_whitespace_and_comments(current_token)
+                        }),
+                        (module.exports.Beautifier = Beautifier)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function OutputLine(parent) {
+                        ;(this.__parent = parent),
+                            (this.__character_count = 0),
+                            (this.__indent_count = -1),
+                            (this.__alignment_count = 0),
+                            (this.__wrap_point_index = 0),
+                            (this.__wrap_point_character_count = 0),
+                            (this.__wrap_point_indent_count = -1),
+                            (this.__wrap_point_alignment_count = 0),
+                            (this.__items = [])
+                    }
+                    function IndentStringCache(options, baseIndentString) {
+                        ;(this.__cache = ['']),
+                            (this.__indent_size = options.indent_size),
+                            (this.__indent_string = options.indent_char),
+                            options.indent_with_tabs ||
+                                (this.__indent_string = new Array(
+                                    options.indent_size + 1
+                                ).join(options.indent_char)),
+                            (baseIndentString = baseIndentString || ''),
+                            options.indent_level > 0 &&
+                                (baseIndentString = new Array(
+                                    options.indent_level + 1
+                                ).join(this.__indent_string)),
+                            (this.__base_string = baseIndentString),
+                            (this.__base_string_length =
+                                baseIndentString.length)
+                    }
+                    function Output(options, baseIndentString) {
+                        ;(this.__indent_cache = new IndentStringCache(
+                            options,
+                            baseIndentString
+                        )),
+                            (this.raw = !1),
+                            (this._end_with_newline = options.end_with_newline),
+                            (this.indent_size = options.indent_size),
+                            (this.wrap_line_length = options.wrap_line_length),
+                            (this.__lines = []),
+                            (this.previous_line = null),
+                            (this.current_line = null),
+                            (this.next_line = new OutputLine(this)),
+                            (this.space_before_token = !1),
+                            (this.non_breaking_space = !1),
+                            (this.previous_token_wrapped = !1),
+                            this.__add_outputline()
+                    }
+                    ;(OutputLine.prototype.clone_empty = function() {
+                        var line = new OutputLine(this.__parent)
+                        return (
+                            line.set_indent(
+                                this.__indent_count,
+                                this.__alignment_count
+                            ),
+                            line
+                        )
+                    }),
+                        (OutputLine.prototype.item = function(index) {
+                            return index < 0
+                                ? this.__items[this.__items.length + index]
+                                : this.__items[index]
+                        }),
+                        (OutputLine.prototype.has_match = function(pattern) {
+                            for (
+                                var lastCheckedOutput = this.__items.length - 1;
+                                lastCheckedOutput >= 0;
+                                lastCheckedOutput--
+                            )
+                                if (
+                                    this.__items[lastCheckedOutput].match(
+                                        pattern
+                                    )
+                                )
+                                    return !0
+                            return !1
+                        }),
+                        (OutputLine.prototype.set_indent = function(
+                            indent,
+                            alignment
+                        ) {
+                            this.is_empty() &&
+                                ((this.__indent_count = indent || 0),
+                                (this.__alignment_count = alignment || 0),
+                                (this.__character_count = this.__parent.get_indent_size(
+                                    this.__indent_count,
+                                    this.__alignment_count
+                                )))
+                        }),
+                        (OutputLine.prototype._set_wrap_point = function() {
+                            this.__parent.wrap_line_length &&
+                                ((this.__wrap_point_index = this.__items.length),
+                                (this.__wrap_point_character_count = this.__character_count),
+                                (this.__wrap_point_indent_count = this.__parent.next_line.__indent_count),
+                                (this.__wrap_point_alignment_count = this.__parent.next_line.__alignment_count))
+                        }),
+                        (OutputLine.prototype._should_wrap = function() {
+                            return (
+                                this.__wrap_point_index &&
+                                this.__character_count >
+                                    this.__parent.wrap_line_length &&
+                                this.__wrap_point_character_count >
+                                    this.__parent.next_line.__character_count
+                            )
+                        }),
+                        (OutputLine.prototype._allow_wrap = function() {
+                            if (this._should_wrap()) {
+                                this.__parent.add_new_line()
+                                var next = this.__parent.current_line
+                                return (
+                                    next.set_indent(
+                                        this.__wrap_point_indent_count,
+                                        this.__wrap_point_alignment_count
+                                    ),
+                                    (next.__items = this.__items.slice(
+                                        this.__wrap_point_index
+                                    )),
+                                    (this.__items = this.__items.slice(
+                                        0,
+                                        this.__wrap_point_index
+                                    )),
+                                    (next.__character_count +=
+                                        this.__character_count -
+                                        this.__wrap_point_character_count),
+                                    (this.__character_count = this.__wrap_point_character_count),
+                                    ' ' === next.__items[0] &&
+                                        (next.__items.splice(0, 1),
+                                        (next.__character_count -= 1)),
+                                    !0
+                                )
+                            }
+                            return !1
+                        }),
+                        (OutputLine.prototype.is_empty = function() {
+                            return 0 === this.__items.length
+                        }),
+                        (OutputLine.prototype.last = function() {
+                            return this.is_empty()
+                                ? null
+                                : this.__items[this.__items.length - 1]
+                        }),
+                        (OutputLine.prototype.push = function(item) {
+                            this.__items.push(item)
+                            var last_newline_index = item.lastIndexOf('\n')
+                            ;-1 !== last_newline_index
+                                ? (this.__character_count =
+                                      item.length - last_newline_index)
+                                : (this.__character_count += item.length)
+                        }),
+                        (OutputLine.prototype.pop = function() {
+                            var item = null
+                            return (
+                                this.is_empty() ||
+                                    ((item = this.__items.pop()),
+                                    (this.__character_count -= item.length)),
+                                item
+                            )
+                        }),
+                        (OutputLine.prototype._remove_indent = function() {
+                            this.__indent_count > 0 &&
+                                ((this.__indent_count -= 1),
+                                (this.__character_count -= this.__parent.indent_size))
+                        }),
+                        (OutputLine.prototype._remove_wrap_indent = function() {
+                            this.__wrap_point_indent_count > 0 &&
+                                (this.__wrap_point_indent_count -= 1)
+                        }),
+                        (OutputLine.prototype.trim = function() {
+                            for (; ' ' === this.last(); )
+                                this.__items.pop(),
+                                    (this.__character_count -= 1)
+                        }),
+                        (OutputLine.prototype.toString = function() {
+                            var result = ''
+                            return (
+                                this.is_empty() ||
+                                    ((result = this.__parent.get_indent_string(
+                                        this.__indent_count,
+                                        this.__alignment_count
+                                    )),
+                                    (result += this.__items.join(''))),
+                                result
+                            )
+                        }),
+                        (IndentStringCache.prototype.get_indent_size = function(
+                            indent,
+                            column
+                        ) {
+                            var result = this.__base_string_length
+                            return (
+                                (column = column || 0),
+                                indent < 0 && (result = 0),
+                                (result += indent * this.__indent_size),
+                                (result += column)
+                            )
+                        }),
+                        (IndentStringCache.prototype.get_indent_string = function(
+                            indent_level,
+                            column
+                        ) {
+                            var result = this.__base_string
+                            return (
+                                (column = column || 0),
+                                indent_level < 0 &&
+                                    ((indent_level = 0), (result = '')),
+                                (column += indent_level * this.__indent_size),
+                                this.__ensure_cache(column),
+                                (result += this.__cache[column])
+                            )
+                        }),
+                        (IndentStringCache.prototype.__ensure_cache = function(
+                            column
+                        ) {
+                            for (; column >= this.__cache.length; )
+                                this.__add_column()
+                        }),
+                        (IndentStringCache.prototype.__add_column = function() {
+                            var column = this.__cache.length,
+                                indent = 0,
+                                result = ''
+                            this.__indent_size &&
+                                column >= this.__indent_size &&
+                                ((column -=
+                                    (indent = Math.floor(
+                                        column / this.__indent_size
+                                    )) * this.__indent_size),
+                                (result = new Array(indent + 1).join(
+                                    this.__indent_string
+                                ))),
+                                column &&
+                                    (result += new Array(column + 1).join(' ')),
+                                this.__cache.push(result)
+                        }),
+                        (Output.prototype.__add_outputline = function() {
+                            ;(this.previous_line = this.current_line),
+                                (this.current_line = this.next_line.clone_empty()),
+                                this.__lines.push(this.current_line)
+                        }),
+                        (Output.prototype.get_line_number = function() {
+                            return this.__lines.length
+                        }),
+                        (Output.prototype.get_indent_string = function(
+                            indent,
+                            column
+                        ) {
+                            return this.__indent_cache.get_indent_string(
+                                indent,
+                                column
+                            )
+                        }),
+                        (Output.prototype.get_indent_size = function(
+                            indent,
+                            column
+                        ) {
+                            return this.__indent_cache.get_indent_size(
+                                indent,
+                                column
+                            )
+                        }),
+                        (Output.prototype.is_empty = function() {
+                            return (
+                                !this.previous_line &&
+                                this.current_line.is_empty()
+                            )
+                        }),
+                        (Output.prototype.add_new_line = function(
+                            force_newline
+                        ) {
+                            return (
+                                !(
+                                    this.is_empty() ||
+                                    (!force_newline &&
+                                        this.just_added_newline())
+                                ) && (this.raw || this.__add_outputline(), !0)
+                            )
+                        }),
+                        (Output.prototype.get_code = function(eol) {
+                            this.trim(!0)
+                            var last_item = this.current_line.pop()
+                            last_item &&
+                                ('\n' === last_item[last_item.length - 1] &&
+                                    (last_item = last_item.replace(
+                                        /\n+$/g,
+                                        ''
+                                    )),
+                                this.current_line.push(last_item)),
+                                this._end_with_newline &&
+                                    this.__add_outputline()
+                            var sweet_code = this.__lines.join('\n')
+                            return (
+                                '\n' !== eol &&
+                                    (sweet_code = sweet_code.replace(
+                                        /[\n]/g,
+                                        eol
+                                    )),
+                                sweet_code
+                            )
+                        }),
+                        (Output.prototype.set_wrap_point = function() {
+                            this.current_line._set_wrap_point()
+                        }),
+                        (Output.prototype.set_indent = function(
+                            indent,
+                            alignment
+                        ) {
+                            return (
+                                (indent = indent || 0),
+                                (alignment = alignment || 0),
+                                this.next_line.set_indent(indent, alignment),
+                                this.__lines.length > 1
+                                    ? (this.current_line.set_indent(
+                                          indent,
+                                          alignment
+                                      ),
+                                      !0)
+                                    : (this.current_line.set_indent(), !1)
+                            )
+                        }),
+                        (Output.prototype.add_raw_token = function(token) {
+                            for (var x = 0; x < token.newlines; x++)
+                                this.__add_outputline()
+                            this.current_line.set_indent(-1),
+                                this.current_line.push(token.whitespace_before),
+                                this.current_line.push(token.text),
+                                (this.space_before_token = !1),
+                                (this.non_breaking_space = !1),
+                                (this.previous_token_wrapped = !1)
+                        }),
+                        (Output.prototype.add_token = function(
+                            printable_token
+                        ) {
+                            this.__add_space_before_token(),
+                                this.current_line.push(printable_token),
+                                (this.space_before_token = !1),
+                                (this.non_breaking_space = !1),
+                                (this.previous_token_wrapped = this.current_line._allow_wrap())
+                        }),
+                        (Output.prototype.__add_space_before_token = function() {
+                            this.space_before_token &&
+                                !this.just_added_newline() &&
+                                (this.non_breaking_space ||
+                                    this.set_wrap_point(),
+                                this.current_line.push(' '))
+                        }),
+                        (Output.prototype.remove_indent = function(index) {
+                            for (
+                                var output_length = this.__lines.length;
+                                index < output_length;
+
+                            )
+                                this.__lines[index]._remove_indent(), index++
+                            this.current_line._remove_wrap_indent()
+                        }),
+                        (Output.prototype.trim = function(eat_newlines) {
+                            for (
+                                eat_newlines =
+                                    void 0 !== eat_newlines && eat_newlines,
+                                    this.current_line.trim();
+                                eat_newlines &&
+                                this.__lines.length > 1 &&
+                                this.current_line.is_empty();
+
+                            )
+                                this.__lines.pop(),
+                                    (this.current_line = this.__lines[
+                                        this.__lines.length - 1
+                                    ]),
+                                    this.current_line.trim()
+                            this.previous_line =
+                                this.__lines.length > 1
+                                    ? this.__lines[this.__lines.length - 2]
+                                    : null
+                        }),
+                        (Output.prototype.just_added_newline = function() {
+                            return this.current_line.is_empty()
+                        }),
+                        (Output.prototype.just_added_blankline = function() {
+                            return (
+                                this.is_empty() ||
+                                (this.current_line.is_empty() &&
+                                    this.previous_line.is_empty())
+                            )
+                        }),
+                        (Output.prototype.ensure_empty_line_above = function(
+                            starts_with,
+                            ends_with
+                        ) {
+                            for (
+                                var index = this.__lines.length - 2;
+                                index >= 0;
+
+                            ) {
+                                var potentialEmptyLine = this.__lines[index]
+                                if (potentialEmptyLine.is_empty()) break
+                                if (
+                                    0 !==
+                                        potentialEmptyLine
+                                            .item(0)
+                                            .indexOf(starts_with) &&
+                                    potentialEmptyLine.item(-1) !== ends_with
+                                ) {
+                                    this.__lines.splice(
+                                        index + 1,
+                                        0,
+                                        new OutputLine(this)
+                                    ),
+                                        (this.previous_line = this.__lines[
+                                            this.__lines.length - 2
+                                        ])
+                                    break
+                                }
+                                index--
+                            }
+                        }),
+                        (module.exports.Output = Output)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    module.exports.Token = function Token(
+                        type,
+                        text,
+                        newlines,
+                        whitespace_before
+                    ) {
+                        ;(this.type = type),
+                            (this.text = text),
+                            (this.comments_before = null),
+                            (this.newlines = newlines || 0),
+                            (this.whitespace_before = whitespace_before || ''),
+                            (this.parent = null),
+                            (this.next = null),
+                            (this.previous = null),
+                            (this.opened = null),
+                            (this.closed = null),
+                            (this.directives = null)
+                    }
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var nonASCIIidentifierStartChars =
+                            '\\xaa\\xb5\\xba\\xc0-\\xd6\\xd8-\\xf6\\xf8-\\u02c1\\u02c6-\\u02d1\\u02e0-\\u02e4\\u02ec\\u02ee\\u0370-\\u0374\\u0376\\u0377\\u037a-\\u037d\\u0386\\u0388-\\u038a\\u038c\\u038e-\\u03a1\\u03a3-\\u03f5\\u03f7-\\u0481\\u048a-\\u0527\\u0531-\\u0556\\u0559\\u0561-\\u0587\\u05d0-\\u05ea\\u05f0-\\u05f2\\u0620-\\u064a\\u066e\\u066f\\u0671-\\u06d3\\u06d5\\u06e5\\u06e6\\u06ee\\u06ef\\u06fa-\\u06fc\\u06ff\\u0710\\u0712-\\u072f\\u074d-\\u07a5\\u07b1\\u07ca-\\u07ea\\u07f4\\u07f5\\u07fa\\u0800-\\u0815\\u081a\\u0824\\u0828\\u0840-\\u0858\\u08a0\\u08a2-\\u08ac\\u0904-\\u0939\\u093d\\u0950\\u0958-\\u0961\\u0971-\\u0977\\u0979-\\u097f\\u0985-\\u098c\\u098f\\u0990\\u0993-\\u09a8\\u09aa-\\u09b0\\u09b2\\u09b6-\\u09b9\\u09bd\\u09ce\\u09dc\\u09dd\\u09df-\\u09e1\\u09f0\\u09f1\\u0a05-\\u0a0a\\u0a0f\\u0a10\\u0a13-\\u0a28\\u0a2a-\\u0a30\\u0a32\\u0a33\\u0a35\\u0a36\\u0a38\\u0a39\\u0a59-\\u0a5c\\u0a5e\\u0a72-\\u0a74\\u0a85-\\u0a8d\\u0a8f-\\u0a91\\u0a93-\\u0aa8\\u0aaa-\\u0ab0\\u0ab2\\u0ab3\\u0ab5-\\u0ab9\\u0abd\\u0ad0\\u0ae0\\u0ae1\\u0b05-\\u0b0c\\u0b0f\\u0b10\\u0b13-\\u0b28\\u0b2a-\\u0b30\\u0b32\\u0b33\\u0b35-\\u0b39\\u0b3d\\u0b5c\\u0b5d\\u0b5f-\\u0b61\\u0b71\\u0b83\\u0b85-\\u0b8a\\u0b8e-\\u0b90\\u0b92-\\u0b95\\u0b99\\u0b9a\\u0b9c\\u0b9e\\u0b9f\\u0ba3\\u0ba4\\u0ba8-\\u0baa\\u0bae-\\u0bb9\\u0bd0\\u0c05-\\u0c0c\\u0c0e-\\u0c10\\u0c12-\\u0c28\\u0c2a-\\u0c33\\u0c35-\\u0c39\\u0c3d\\u0c58\\u0c59\\u0c60\\u0c61\\u0c85-\\u0c8c\\u0c8e-\\u0c90\\u0c92-\\u0ca8\\u0caa-\\u0cb3\\u0cb5-\\u0cb9\\u0cbd\\u0cde\\u0ce0\\u0ce1\\u0cf1\\u0cf2\\u0d05-\\u0d0c\\u0d0e-\\u0d10\\u0d12-\\u0d3a\\u0d3d\\u0d4e\\u0d60\\u0d61\\u0d7a-\\u0d7f\\u0d85-\\u0d96\\u0d9a-\\u0db1\\u0db3-\\u0dbb\\u0dbd\\u0dc0-\\u0dc6\\u0e01-\\u0e30\\u0e32\\u0e33\\u0e40-\\u0e46\\u0e81\\u0e82\\u0e84\\u0e87\\u0e88\\u0e8a\\u0e8d\\u0e94-\\u0e97\\u0e99-\\u0e9f\\u0ea1-\\u0ea3\\u0ea5\\u0ea7\\u0eaa\\u0eab\\u0ead-\\u0eb0\\u0eb2\\u0eb3\\u0ebd\\u0ec0-\\u0ec4\\u0ec6\\u0edc-\\u0edf\\u0f00\\u0f40-\\u0f47\\u0f49-\\u0f6c\\u0f88-\\u0f8c\\u1000-\\u102a\\u103f\\u1050-\\u1055\\u105a-\\u105d\\u1061\\u1065\\u1066\\u106e-\\u1070\\u1075-\\u1081\\u108e\\u10a0-\\u10c5\\u10c7\\u10cd\\u10d0-\\u10fa\\u10fc-\\u1248\\u124a-\\u124d\\u1250-\\u1256\\u1258\\u125a-\\u125d\\u1260-\\u1288\\u128a-\\u128d\\u1290-\\u12b0\\u12b2-\\u12b5\\u12b8-\\u12be\\u12c0\\u12c2-\\u12c5\\u12c8-\\u12d6\\u12d8-\\u1310\\u1312-\\u1315\\u1318-\\u135a\\u1380-\\u138f\\u13a0-\\u13f4\\u1401-\\u166c\\u166f-\\u167f\\u1681-\\u169a\\u16a0-\\u16ea\\u16ee-\\u16f0\\u1700-\\u170c\\u170e-\\u1711\\u1720-\\u1731\\u1740-\\u1751\\u1760-\\u176c\\u176e-\\u1770\\u1780-\\u17b3\\u17d7\\u17dc\\u1820-\\u1877\\u1880-\\u18a8\\u18aa\\u18b0-\\u18f5\\u1900-\\u191c\\u1950-\\u196d\\u1970-\\u1974\\u1980-\\u19ab\\u19c1-\\u19c7\\u1a00-\\u1a16\\u1a20-\\u1a54\\u1aa7\\u1b05-\\u1b33\\u1b45-\\u1b4b\\u1b83-\\u1ba0\\u1bae\\u1baf\\u1bba-\\u1be5\\u1c00-\\u1c23\\u1c4d-\\u1c4f\\u1c5a-\\u1c7d\\u1ce9-\\u1cec\\u1cee-\\u1cf1\\u1cf5\\u1cf6\\u1d00-\\u1dbf\\u1e00-\\u1f15\\u1f18-\\u1f1d\\u1f20-\\u1f45\\u1f48-\\u1f4d\\u1f50-\\u1f57\\u1f59\\u1f5b\\u1f5d\\u1f5f-\\u1f7d\\u1f80-\\u1fb4\\u1fb6-\\u1fbc\\u1fbe\\u1fc2-\\u1fc4\\u1fc6-\\u1fcc\\u1fd0-\\u1fd3\\u1fd6-\\u1fdb\\u1fe0-\\u1fec\\u1ff2-\\u1ff4\\u1ff6-\\u1ffc\\u2071\\u207f\\u2090-\\u209c\\u2102\\u2107\\u210a-\\u2113\\u2115\\u2119-\\u211d\\u2124\\u2126\\u2128\\u212a-\\u212d\\u212f-\\u2139\\u213c-\\u213f\\u2145-\\u2149\\u214e\\u2160-\\u2188\\u2c00-\\u2c2e\\u2c30-\\u2c5e\\u2c60-\\u2ce4\\u2ceb-\\u2cee\\u2cf2\\u2cf3\\u2d00-\\u2d25\\u2d27\\u2d2d\\u2d30-\\u2d67\\u2d6f\\u2d80-\\u2d96\\u2da0-\\u2da6\\u2da8-\\u2dae\\u2db0-\\u2db6\\u2db8-\\u2dbe\\u2dc0-\\u2dc6\\u2dc8-\\u2dce\\u2dd0-\\u2dd6\\u2dd8-\\u2dde\\u2e2f\\u3005-\\u3007\\u3021-\\u3029\\u3031-\\u3035\\u3038-\\u303c\\u3041-\\u3096\\u309d-\\u309f\\u30a1-\\u30fa\\u30fc-\\u30ff\\u3105-\\u312d\\u3131-\\u318e\\u31a0-\\u31ba\\u31f0-\\u31ff\\u3400-\\u4db5\\u4e00-\\u9fcc\\ua000-\\ua48c\\ua4d0-\\ua4fd\\ua500-\\ua60c\\ua610-\\ua61f\\ua62a\\ua62b\\ua640-\\ua66e\\ua67f-\\ua697\\ua6a0-\\ua6ef\\ua717-\\ua71f\\ua722-\\ua788\\ua78b-\\ua78e\\ua790-\\ua793\\ua7a0-\\ua7aa\\ua7f8-\\ua801\\ua803-\\ua805\\ua807-\\ua80a\\ua80c-\\ua822\\ua840-\\ua873\\ua882-\\ua8b3\\ua8f2-\\ua8f7\\ua8fb\\ua90a-\\ua925\\ua930-\\ua946\\ua960-\\ua97c\\ua984-\\ua9b2\\ua9cf\\uaa00-\\uaa28\\uaa40-\\uaa42\\uaa44-\\uaa4b\\uaa60-\\uaa76\\uaa7a\\uaa80-\\uaaaf\\uaab1\\uaab5\\uaab6\\uaab9-\\uaabd\\uaac0\\uaac2\\uaadb-\\uaadd\\uaae0-\\uaaea\\uaaf2-\\uaaf4\\uab01-\\uab06\\uab09-\\uab0e\\uab11-\\uab16\\uab20-\\uab26\\uab28-\\uab2e\\uabc0-\\uabe2\\uac00-\\ud7a3\\ud7b0-\\ud7c6\\ud7cb-\\ud7fb\\uf900-\\ufa6d\\ufa70-\\ufad9\\ufb00-\\ufb06\\ufb13-\\ufb17\\ufb1d\\ufb1f-\\ufb28\\ufb2a-\\ufb36\\ufb38-\\ufb3c\\ufb3e\\ufb40\\ufb41\\ufb43\\ufb44\\ufb46-\\ufbb1\\ufbd3-\\ufd3d\\ufd50-\\ufd8f\\ufd92-\\ufdc7\\ufdf0-\\ufdfb\\ufe70-\\ufe74\\ufe76-\\ufefc\\uff21-\\uff3a\\uff41-\\uff5a\\uff66-\\uffbe\\uffc2-\\uffc7\\uffca-\\uffcf\\uffd2-\\uffd7\\uffda-\\uffdc',
+                        nonASCIIidentifierChars =
+                            '\\u0300-\\u036f\\u0483-\\u0487\\u0591-\\u05bd\\u05bf\\u05c1\\u05c2\\u05c4\\u05c5\\u05c7\\u0610-\\u061a\\u0620-\\u0649\\u0672-\\u06d3\\u06e7-\\u06e8\\u06fb-\\u06fc\\u0730-\\u074a\\u0800-\\u0814\\u081b-\\u0823\\u0825-\\u0827\\u0829-\\u082d\\u0840-\\u0857\\u08e4-\\u08fe\\u0900-\\u0903\\u093a-\\u093c\\u093e-\\u094f\\u0951-\\u0957\\u0962-\\u0963\\u0966-\\u096f\\u0981-\\u0983\\u09bc\\u09be-\\u09c4\\u09c7\\u09c8\\u09d7\\u09df-\\u09e0\\u0a01-\\u0a03\\u0a3c\\u0a3e-\\u0a42\\u0a47\\u0a48\\u0a4b-\\u0a4d\\u0a51\\u0a66-\\u0a71\\u0a75\\u0a81-\\u0a83\\u0abc\\u0abe-\\u0ac5\\u0ac7-\\u0ac9\\u0acb-\\u0acd\\u0ae2-\\u0ae3\\u0ae6-\\u0aef\\u0b01-\\u0b03\\u0b3c\\u0b3e-\\u0b44\\u0b47\\u0b48\\u0b4b-\\u0b4d\\u0b56\\u0b57\\u0b5f-\\u0b60\\u0b66-\\u0b6f\\u0b82\\u0bbe-\\u0bc2\\u0bc6-\\u0bc8\\u0bca-\\u0bcd\\u0bd7\\u0be6-\\u0bef\\u0c01-\\u0c03\\u0c46-\\u0c48\\u0c4a-\\u0c4d\\u0c55\\u0c56\\u0c62-\\u0c63\\u0c66-\\u0c6f\\u0c82\\u0c83\\u0cbc\\u0cbe-\\u0cc4\\u0cc6-\\u0cc8\\u0cca-\\u0ccd\\u0cd5\\u0cd6\\u0ce2-\\u0ce3\\u0ce6-\\u0cef\\u0d02\\u0d03\\u0d46-\\u0d48\\u0d57\\u0d62-\\u0d63\\u0d66-\\u0d6f\\u0d82\\u0d83\\u0dca\\u0dcf-\\u0dd4\\u0dd6\\u0dd8-\\u0ddf\\u0df2\\u0df3\\u0e34-\\u0e3a\\u0e40-\\u0e45\\u0e50-\\u0e59\\u0eb4-\\u0eb9\\u0ec8-\\u0ecd\\u0ed0-\\u0ed9\\u0f18\\u0f19\\u0f20-\\u0f29\\u0f35\\u0f37\\u0f39\\u0f41-\\u0f47\\u0f71-\\u0f84\\u0f86-\\u0f87\\u0f8d-\\u0f97\\u0f99-\\u0fbc\\u0fc6\\u1000-\\u1029\\u1040-\\u1049\\u1067-\\u106d\\u1071-\\u1074\\u1082-\\u108d\\u108f-\\u109d\\u135d-\\u135f\\u170e-\\u1710\\u1720-\\u1730\\u1740-\\u1750\\u1772\\u1773\\u1780-\\u17b2\\u17dd\\u17e0-\\u17e9\\u180b-\\u180d\\u1810-\\u1819\\u1920-\\u192b\\u1930-\\u193b\\u1951-\\u196d\\u19b0-\\u19c0\\u19c8-\\u19c9\\u19d0-\\u19d9\\u1a00-\\u1a15\\u1a20-\\u1a53\\u1a60-\\u1a7c\\u1a7f-\\u1a89\\u1a90-\\u1a99\\u1b46-\\u1b4b\\u1b50-\\u1b59\\u1b6b-\\u1b73\\u1bb0-\\u1bb9\\u1be6-\\u1bf3\\u1c00-\\u1c22\\u1c40-\\u1c49\\u1c5b-\\u1c7d\\u1cd0-\\u1cd2\\u1d00-\\u1dbe\\u1e01-\\u1f15\\u200c\\u200d\\u203f\\u2040\\u2054\\u20d0-\\u20dc\\u20e1\\u20e5-\\u20f0\\u2d81-\\u2d96\\u2de0-\\u2dff\\u3021-\\u3028\\u3099\\u309a\\ua640-\\ua66d\\ua674-\\ua67d\\ua69f\\ua6f0-\\ua6f1\\ua7f8-\\ua800\\ua806\\ua80b\\ua823-\\ua827\\ua880-\\ua881\\ua8b4-\\ua8c4\\ua8d0-\\ua8d9\\ua8f3-\\ua8f7\\ua900-\\ua909\\ua926-\\ua92d\\ua930-\\ua945\\ua980-\\ua983\\ua9b3-\\ua9c0\\uaa00-\\uaa27\\uaa40-\\uaa41\\uaa4c-\\uaa4d\\uaa50-\\uaa59\\uaa7b\\uaae0-\\uaae9\\uaaf2-\\uaaf3\\uabc0-\\uabe1\\uabec\\uabed\\uabf0-\\uabf9\\ufb20-\\ufb28\\ufe00-\\ufe0f\\ufe20-\\ufe26\\ufe33\\ufe34\\ufe4d-\\ufe4f\\uff10-\\uff19\\uff3f',
+                        identifierStart =
+                            '(?:\\\\u[0-9a-fA-F]{4}|[\\x24\\x40\\x41-\\x5a\\x5f\\x61-\\x7a' +
+                            nonASCIIidentifierStartChars +
+                            '])'
+                    ;(exports.identifier = new RegExp(
+                        identifierStart +
+                            '(?:\\\\u[0-9a-fA-F]{4}|[\\x24\\x30-\\x39\\x41-\\x5a\\x5f\\x61-\\x7a\\xaa\\xb5\\xba\\xc0-\\xd6\\xd8-\\xf6\\xf8-\\u02c1\\u02c6-\\u02d1\\u02e0-\\u02e4\\u02ec\\u02ee\\u0370-\\u0374\\u0376\\u0377\\u037a-\\u037d\\u0386\\u0388-\\u038a\\u038c\\u038e-\\u03a1\\u03a3-\\u03f5\\u03f7-\\u0481\\u048a-\\u0527\\u0531-\\u0556\\u0559\\u0561-\\u0587\\u05d0-\\u05ea\\u05f0-\\u05f2\\u0620-\\u064a\\u066e\\u066f\\u0671-\\u06d3\\u06d5\\u06e5\\u06e6\\u06ee\\u06ef\\u06fa-\\u06fc\\u06ff\\u0710\\u0712-\\u072f\\u074d-\\u07a5\\u07b1\\u07ca-\\u07ea\\u07f4\\u07f5\\u07fa\\u0800-\\u0815\\u081a\\u0824\\u0828\\u0840-\\u0858\\u08a0\\u08a2-\\u08ac\\u0904-\\u0939\\u093d\\u0950\\u0958-\\u0961\\u0971-\\u0977\\u0979-\\u097f\\u0985-\\u098c\\u098f\\u0990\\u0993-\\u09a8\\u09aa-\\u09b0\\u09b2\\u09b6-\\u09b9\\u09bd\\u09ce\\u09dc\\u09dd\\u09df-\\u09e1\\u09f0\\u09f1\\u0a05-\\u0a0a\\u0a0f\\u0a10\\u0a13-\\u0a28\\u0a2a-\\u0a30\\u0a32\\u0a33\\u0a35\\u0a36\\u0a38\\u0a39\\u0a59-\\u0a5c\\u0a5e\\u0a72-\\u0a74\\u0a85-\\u0a8d\\u0a8f-\\u0a91\\u0a93-\\u0aa8\\u0aaa-\\u0ab0\\u0ab2\\u0ab3\\u0ab5-\\u0ab9\\u0abd\\u0ad0\\u0ae0\\u0ae1\\u0b05-\\u0b0c\\u0b0f\\u0b10\\u0b13-\\u0b28\\u0b2a-\\u0b30\\u0b32\\u0b33\\u0b35-\\u0b39\\u0b3d\\u0b5c\\u0b5d\\u0b5f-\\u0b61\\u0b71\\u0b83\\u0b85-\\u0b8a\\u0b8e-\\u0b90\\u0b92-\\u0b95\\u0b99\\u0b9a\\u0b9c\\u0b9e\\u0b9f\\u0ba3\\u0ba4\\u0ba8-\\u0baa\\u0bae-\\u0bb9\\u0bd0\\u0c05-\\u0c0c\\u0c0e-\\u0c10\\u0c12-\\u0c28\\u0c2a-\\u0c33\\u0c35-\\u0c39\\u0c3d\\u0c58\\u0c59\\u0c60\\u0c61\\u0c85-\\u0c8c\\u0c8e-\\u0c90\\u0c92-\\u0ca8\\u0caa-\\u0cb3\\u0cb5-\\u0cb9\\u0cbd\\u0cde\\u0ce0\\u0ce1\\u0cf1\\u0cf2\\u0d05-\\u0d0c\\u0d0e-\\u0d10\\u0d12-\\u0d3a\\u0d3d\\u0d4e\\u0d60\\u0d61\\u0d7a-\\u0d7f\\u0d85-\\u0d96\\u0d9a-\\u0db1\\u0db3-\\u0dbb\\u0dbd\\u0dc0-\\u0dc6\\u0e01-\\u0e30\\u0e32\\u0e33\\u0e40-\\u0e46\\u0e81\\u0e82\\u0e84\\u0e87\\u0e88\\u0e8a\\u0e8d\\u0e94-\\u0e97\\u0e99-\\u0e9f\\u0ea1-\\u0ea3\\u0ea5\\u0ea7\\u0eaa\\u0eab\\u0ead-\\u0eb0\\u0eb2\\u0eb3\\u0ebd\\u0ec0-\\u0ec4\\u0ec6\\u0edc-\\u0edf\\u0f00\\u0f40-\\u0f47\\u0f49-\\u0f6c\\u0f88-\\u0f8c\\u1000-\\u102a\\u103f\\u1050-\\u1055\\u105a-\\u105d\\u1061\\u1065\\u1066\\u106e-\\u1070\\u1075-\\u1081\\u108e\\u10a0-\\u10c5\\u10c7\\u10cd\\u10d0-\\u10fa\\u10fc-\\u1248\\u124a-\\u124d\\u1250-\\u1256\\u1258\\u125a-\\u125d\\u1260-\\u1288\\u128a-\\u128d\\u1290-\\u12b0\\u12b2-\\u12b5\\u12b8-\\u12be\\u12c0\\u12c2-\\u12c5\\u12c8-\\u12d6\\u12d8-\\u1310\\u1312-\\u1315\\u1318-\\u135a\\u1380-\\u138f\\u13a0-\\u13f4\\u1401-\\u166c\\u166f-\\u167f\\u1681-\\u169a\\u16a0-\\u16ea\\u16ee-\\u16f0\\u1700-\\u170c\\u170e-\\u1711\\u1720-\\u1731\\u1740-\\u1751\\u1760-\\u176c\\u176e-\\u1770\\u1780-\\u17b3\\u17d7\\u17dc\\u1820-\\u1877\\u1880-\\u18a8\\u18aa\\u18b0-\\u18f5\\u1900-\\u191c\\u1950-\\u196d\\u1970-\\u1974\\u1980-\\u19ab\\u19c1-\\u19c7\\u1a00-\\u1a16\\u1a20-\\u1a54\\u1aa7\\u1b05-\\u1b33\\u1b45-\\u1b4b\\u1b83-\\u1ba0\\u1bae\\u1baf\\u1bba-\\u1be5\\u1c00-\\u1c23\\u1c4d-\\u1c4f\\u1c5a-\\u1c7d\\u1ce9-\\u1cec\\u1cee-\\u1cf1\\u1cf5\\u1cf6\\u1d00-\\u1dbf\\u1e00-\\u1f15\\u1f18-\\u1f1d\\u1f20-\\u1f45\\u1f48-\\u1f4d\\u1f50-\\u1f57\\u1f59\\u1f5b\\u1f5d\\u1f5f-\\u1f7d\\u1f80-\\u1fb4\\u1fb6-\\u1fbc\\u1fbe\\u1fc2-\\u1fc4\\u1fc6-\\u1fcc\\u1fd0-\\u1fd3\\u1fd6-\\u1fdb\\u1fe0-\\u1fec\\u1ff2-\\u1ff4\\u1ff6-\\u1ffc\\u2071\\u207f\\u2090-\\u209c\\u2102\\u2107\\u210a-\\u2113\\u2115\\u2119-\\u211d\\u2124\\u2126\\u2128\\u212a-\\u212d\\u212f-\\u2139\\u213c-\\u213f\\u2145-\\u2149\\u214e\\u2160-\\u2188\\u2c00-\\u2c2e\\u2c30-\\u2c5e\\u2c60-\\u2ce4\\u2ceb-\\u2cee\\u2cf2\\u2cf3\\u2d00-\\u2d25\\u2d27\\u2d2d\\u2d30-\\u2d67\\u2d6f\\u2d80-\\u2d96\\u2da0-\\u2da6\\u2da8-\\u2dae\\u2db0-\\u2db6\\u2db8-\\u2dbe\\u2dc0-\\u2dc6\\u2dc8-\\u2dce\\u2dd0-\\u2dd6\\u2dd8-\\u2dde\\u2e2f\\u3005-\\u3007\\u3021-\\u3029\\u3031-\\u3035\\u3038-\\u303c\\u3041-\\u3096\\u309d-\\u309f\\u30a1-\\u30fa\\u30fc-\\u30ff\\u3105-\\u312d\\u3131-\\u318e\\u31a0-\\u31ba\\u31f0-\\u31ff\\u3400-\\u4db5\\u4e00-\\u9fcc\\ua000-\\ua48c\\ua4d0-\\ua4fd\\ua500-\\ua60c\\ua610-\\ua61f\\ua62a\\ua62b\\ua640-\\ua66e\\ua67f-\\ua697\\ua6a0-\\ua6ef\\ua717-\\ua71f\\ua722-\\ua788\\ua78b-\\ua78e\\ua790-\\ua793\\ua7a0-\\ua7aa\\ua7f8-\\ua801\\ua803-\\ua805\\ua807-\\ua80a\\ua80c-\\ua822\\ua840-\\ua873\\ua882-\\ua8b3\\ua8f2-\\ua8f7\\ua8fb\\ua90a-\\ua925\\ua930-\\ua946\\ua960-\\ua97c\\ua984-\\ua9b2\\ua9cf\\uaa00-\\uaa28\\uaa40-\\uaa42\\uaa44-\\uaa4b\\uaa60-\\uaa76\\uaa7a\\uaa80-\\uaaaf\\uaab1\\uaab5\\uaab6\\uaab9-\\uaabd\\uaac0\\uaac2\\uaadb-\\uaadd\\uaae0-\\uaaea\\uaaf2-\\uaaf4\\uab01-\\uab06\\uab09-\\uab0e\\uab11-\\uab16\\uab20-\\uab26\\uab28-\\uab2e\\uabc0-\\uabe2\\uac00-\\ud7a3\\ud7b0-\\ud7c6\\ud7cb-\\ud7fb\\uf900-\\ufa6d\\ufa70-\\ufad9\\ufb00-\\ufb06\\ufb13-\\ufb17\\ufb1d\\ufb1f-\\ufb28\\ufb2a-\\ufb36\\ufb38-\\ufb3c\\ufb3e\\ufb40\\ufb41\\ufb43\\ufb44\\ufb46-\\ufbb1\\ufbd3-\\ufd3d\\ufd50-\\ufd8f\\ufd92-\\ufdc7\\ufdf0-\\ufdfb\\ufe70-\\ufe74\\ufe76-\\ufefc\\uff21-\\uff3a\\uff41-\\uff5a\\uff66-\\uffbe\\uffc2-\\uffc7\\uffca-\\uffcf\\uffd2-\\uffd7\\uffda-\\uffdc\\u0300-\\u036f\\u0483-\\u0487\\u0591-\\u05bd\\u05bf\\u05c1\\u05c2\\u05c4\\u05c5\\u05c7\\u0610-\\u061a\\u0620-\\u0649\\u0672-\\u06d3\\u06e7-\\u06e8\\u06fb-\\u06fc\\u0730-\\u074a\\u0800-\\u0814\\u081b-\\u0823\\u0825-\\u0827\\u0829-\\u082d\\u0840-\\u0857\\u08e4-\\u08fe\\u0900-\\u0903\\u093a-\\u093c\\u093e-\\u094f\\u0951-\\u0957\\u0962-\\u0963\\u0966-\\u096f\\u0981-\\u0983\\u09bc\\u09be-\\u09c4\\u09c7\\u09c8\\u09d7\\u09df-\\u09e0\\u0a01-\\u0a03\\u0a3c\\u0a3e-\\u0a42\\u0a47\\u0a48\\u0a4b-\\u0a4d\\u0a51\\u0a66-\\u0a71\\u0a75\\u0a81-\\u0a83\\u0abc\\u0abe-\\u0ac5\\u0ac7-\\u0ac9\\u0acb-\\u0acd\\u0ae2-\\u0ae3\\u0ae6-\\u0aef\\u0b01-\\u0b03\\u0b3c\\u0b3e-\\u0b44\\u0b47\\u0b48\\u0b4b-\\u0b4d\\u0b56\\u0b57\\u0b5f-\\u0b60\\u0b66-\\u0b6f\\u0b82\\u0bbe-\\u0bc2\\u0bc6-\\u0bc8\\u0bca-\\u0bcd\\u0bd7\\u0be6-\\u0bef\\u0c01-\\u0c03\\u0c46-\\u0c48\\u0c4a-\\u0c4d\\u0c55\\u0c56\\u0c62-\\u0c63\\u0c66-\\u0c6f\\u0c82\\u0c83\\u0cbc\\u0cbe-\\u0cc4\\u0cc6-\\u0cc8\\u0cca-\\u0ccd\\u0cd5\\u0cd6\\u0ce2-\\u0ce3\\u0ce6-\\u0cef\\u0d02\\u0d03\\u0d46-\\u0d48\\u0d57\\u0d62-\\u0d63\\u0d66-\\u0d6f\\u0d82\\u0d83\\u0dca\\u0dcf-\\u0dd4\\u0dd6\\u0dd8-\\u0ddf\\u0df2\\u0df3\\u0e34-\\u0e3a\\u0e40-\\u0e45\\u0e50-\\u0e59\\u0eb4-\\u0eb9\\u0ec8-\\u0ecd\\u0ed0-\\u0ed9\\u0f18\\u0f19\\u0f20-\\u0f29\\u0f35\\u0f37\\u0f39\\u0f41-\\u0f47\\u0f71-\\u0f84\\u0f86-\\u0f87\\u0f8d-\\u0f97\\u0f99-\\u0fbc\\u0fc6\\u1000-\\u1029\\u1040-\\u1049\\u1067-\\u106d\\u1071-\\u1074\\u1082-\\u108d\\u108f-\\u109d\\u135d-\\u135f\\u170e-\\u1710\\u1720-\\u1730\\u1740-\\u1750\\u1772\\u1773\\u1780-\\u17b2\\u17dd\\u17e0-\\u17e9\\u180b-\\u180d\\u1810-\\u1819\\u1920-\\u192b\\u1930-\\u193b\\u1951-\\u196d\\u19b0-\\u19c0\\u19c8-\\u19c9\\u19d0-\\u19d9\\u1a00-\\u1a15\\u1a20-\\u1a53\\u1a60-\\u1a7c\\u1a7f-\\u1a89\\u1a90-\\u1a99\\u1b46-\\u1b4b\\u1b50-\\u1b59\\u1b6b-\\u1b73\\u1bb0-\\u1bb9\\u1be6-\\u1bf3\\u1c00-\\u1c22\\u1c40-\\u1c49\\u1c5b-\\u1c7d\\u1cd0-\\u1cd2\\u1d00-\\u1dbe\\u1e01-\\u1f15\\u200c\\u200d\\u203f\\u2040\\u2054\\u20d0-\\u20dc\\u20e1\\u20e5-\\u20f0\\u2d81-\\u2d96\\u2de0-\\u2dff\\u3021-\\u3028\\u3099\\u309a\\ua640-\\ua66d\\ua674-\\ua67d\\ua69f\\ua6f0-\\ua6f1\\ua7f8-\\ua800\\ua806\\ua80b\\ua823-\\ua827\\ua880-\\ua881\\ua8b4-\\ua8c4\\ua8d0-\\ua8d9\\ua8f3-\\ua8f7\\ua900-\\ua909\\ua926-\\ua92d\\ua930-\\ua945\\ua980-\\ua983\\ua9b3-\\ua9c0\\uaa00-\\uaa27\\uaa40-\\uaa41\\uaa4c-\\uaa4d\\uaa50-\\uaa59\\uaa7b\\uaae0-\\uaae9\\uaaf2-\\uaaf3\\uabc0-\\uabe1\\uabec\\uabed\\uabf0-\\uabf9\\ufb20-\\ufb28\\ufe00-\\ufe0f\\ufe20-\\ufe26\\ufe33\\ufe34\\ufe4d-\\ufe4f\\uff10-\\uff19\\uff3f])*',
+                        'g'
+                    )),
+                        (exports.identifierStart = new RegExp(identifierStart)),
+                        (exports.identifierMatch = new RegExp(
+                            '(?:\\\\u[0-9a-fA-F]{4}|[\\x24\\x30-\\x39\\x41-\\x5a\\x5f\\x61-\\x7a' +
+                                nonASCIIidentifierStartChars +
+                                nonASCIIidentifierChars +
+                                '])+'
+                        ))
+                    ;(exports.newline = /[\n\r\u2028\u2029]/),
+                        (exports.lineBreak = new RegExp(
+                            '\r\n|' + exports.newline.source
+                        )),
+                        (exports.allLineBreaks = new RegExp(
+                            exports.lineBreak.source,
+                            'g'
+                        ))
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var BaseOptions = __webpack_require__(6).Options,
+                        validPositionValues = [
+                            'before-newline',
+                            'after-newline',
+                            'preserve-newline',
+                        ]
+                    function Options(options) {
+                        BaseOptions.call(this, options, 'js')
+                        var raw_brace_style =
+                            this.raw_options.brace_style || null
+                        'expand-strict' === raw_brace_style
+                            ? (this.raw_options.brace_style = 'expand')
+                            : 'collapse-preserve-inline' === raw_brace_style
+                            ? (this.raw_options.brace_style =
+                                  'collapse,preserve-inline')
+                            : void 0 !== this.raw_options.braces_on_own_line &&
+                              (this.raw_options.brace_style = this.raw_options
+                                  .braces_on_own_line
+                                  ? 'expand'
+                                  : 'collapse')
+                        var brace_style_split = this._get_selection_list(
+                            'brace_style',
+                            [
+                                'collapse',
+                                'expand',
+                                'end-expand',
+                                'none',
+                                'preserve-inline',
+                            ]
+                        )
+                        ;(this.brace_preserve_inline = !1),
+                            (this.brace_style = 'collapse')
+                        for (var bs = 0; bs < brace_style_split.length; bs++)
+                            'preserve-inline' === brace_style_split[bs]
+                                ? (this.brace_preserve_inline = !0)
+                                : (this.brace_style = brace_style_split[bs])
+                        ;(this.unindent_chained_methods = this._get_boolean(
+                            'unindent_chained_methods'
+                        )),
+                            (this.break_chained_methods = this._get_boolean(
+                                'break_chained_methods'
+                            )),
+                            (this.space_in_paren = this._get_boolean(
+                                'space_in_paren'
+                            )),
+                            (this.space_in_empty_paren = this._get_boolean(
+                                'space_in_empty_paren'
+                            )),
+                            (this.jslint_happy = this._get_boolean(
+                                'jslint_happy'
+                            )),
+                            (this.space_after_anon_function = this._get_boolean(
+                                'space_after_anon_function'
+                            )),
+                            (this.space_after_named_function = this._get_boolean(
+                                'space_after_named_function'
+                            )),
+                            (this.keep_array_indentation = this._get_boolean(
+                                'keep_array_indentation'
+                            )),
+                            (this.space_before_conditional = this._get_boolean(
+                                'space_before_conditional',
+                                !0
+                            )),
+                            (this.unescape_strings = this._get_boolean(
+                                'unescape_strings'
+                            )),
+                            (this.e4x = this._get_boolean('e4x')),
+                            (this.comma_first = this._get_boolean(
+                                'comma_first'
+                            )),
+                            (this.operator_position = this._get_selection(
+                                'operator_position',
+                                validPositionValues
+                            )),
+                            (this.test_output_raw = this._get_boolean(
+                                'test_output_raw'
+                            )),
+                            this.jslint_happy &&
+                                (this.space_after_anon_function = !0)
+                    }
+                    ;(Options.prototype = new BaseOptions()),
+                        (module.exports.Options = Options)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function Options(options, merge_child_field) {
+                        ;(this.raw_options = _mergeOpts(
+                            options,
+                            merge_child_field
+                        )),
+                            (this.disabled = this._get_boolean('disabled')),
+                            (this.eol = this._get_characters('eol', 'auto')),
+                            (this.end_with_newline = this._get_boolean(
+                                'end_with_newline'
+                            )),
+                            (this.indent_size = this._get_number(
+                                'indent_size',
+                                4
+                            )),
+                            (this.indent_char = this._get_characters(
+                                'indent_char',
+                                ' '
+                            )),
+                            (this.indent_level = this._get_number(
+                                'indent_level'
+                            )),
+                            (this.preserve_newlines = this._get_boolean(
+                                'preserve_newlines',
+                                !0
+                            )),
+                            (this.max_preserve_newlines = this._get_number(
+                                'max_preserve_newlines',
+                                32786
+                            )),
+                            this.preserve_newlines ||
+                                (this.max_preserve_newlines = 0),
+                            (this.indent_with_tabs = this._get_boolean(
+                                'indent_with_tabs',
+                                '\t' === this.indent_char
+                            )),
+                            this.indent_with_tabs &&
+                                ((this.indent_char = '\t'),
+                                1 === this.indent_size &&
+                                    (this.indent_size = 4)),
+                            (this.wrap_line_length = this._get_number(
+                                'wrap_line_length',
+                                this._get_number('max_char')
+                            ))
+                    }
+                    function _mergeOpts(allOptions, childFieldName) {
+                        var name,
+                            finalOpts = {}
+                        for (name in (allOptions = _normalizeOpts(allOptions)))
+                            name !== childFieldName &&
+                                (finalOpts[name] = allOptions[name])
+                        if (childFieldName && allOptions[childFieldName])
+                            for (name in allOptions[childFieldName])
+                                finalOpts[name] =
+                                    allOptions[childFieldName][name]
+                        return finalOpts
+                    }
+                    function _normalizeOpts(options) {
+                        var key,
+                            convertedOpts = {}
+                        for (key in options) {
+                            convertedOpts[key.replace(/-/g, '_')] = options[key]
+                        }
+                        return convertedOpts
+                    }
+                    ;(Options.prototype._get_array = function(
+                        name,
+                        default_value
+                    ) {
+                        var option_value = this.raw_options[name],
+                            result = default_value || []
+                        return (
+                            'object' == typeof option_value
+                                ? null !== option_value &&
+                                  'function' == typeof option_value.concat &&
+                                  (result = option_value.concat())
+                                : 'string' == typeof option_value &&
+                                  (result = option_value.split(
+                                      /[^a-zA-Z0-9_\/\-]+/
+                                  )),
+                            result
+                        )
+                    }),
+                        (Options.prototype._get_boolean = function(
+                            name,
+                            default_value
+                        ) {
+                            var option_value = this.raw_options[name]
+                            return void 0 === option_value
+                                ? !!default_value
+                                : !!option_value
+                        }),
+                        (Options.prototype._get_characters = function(
+                            name,
+                            default_value
+                        ) {
+                            var option_value = this.raw_options[name],
+                                result = default_value || ''
+                            return (
+                                'string' == typeof option_value &&
+                                    (result = option_value
+                                        .replace(/\\r/, '\r')
+                                        .replace(/\\n/, '\n')
+                                        .replace(/\\t/, '\t')),
+                                result
+                            )
+                        }),
+                        (Options.prototype._get_number = function(
+                            name,
+                            default_value
+                        ) {
+                            var option_value = this.raw_options[name]
+                            ;(default_value = parseInt(default_value, 10)),
+                                isNaN(default_value) && (default_value = 0)
+                            var result = parseInt(option_value, 10)
+                            return (
+                                isNaN(result) && (result = default_value),
+                                result
+                            )
+                        }),
+                        (Options.prototype._get_selection = function(
+                            name,
+                            selection_list,
+                            default_value
+                        ) {
+                            var result = this._get_selection_list(
+                                name,
+                                selection_list,
+                                default_value
+                            )
+                            if (1 !== result.length)
+                                throw new Error(
+                                    "Invalid Option Value: The option '" +
+                                        name +
+                                        "' can only be one of the following values:\n" +
+                                        selection_list +
+                                        "\nYou passed in: '" +
+                                        this.raw_options[name] +
+                                        "'"
+                                )
+                            return result[0]
+                        }),
+                        (Options.prototype._get_selection_list = function(
+                            name,
+                            selection_list,
+                            default_value
+                        ) {
+                            if (!selection_list || 0 === selection_list.length)
+                                throw new Error(
+                                    'Selection list cannot be empty.'
+                                )
+                            if (
+                                ((default_value = default_value || [
+                                    selection_list[0],
+                                ]),
+                                !this._is_valid_selection(
+                                    default_value,
+                                    selection_list
+                                ))
+                            )
+                                throw new Error('Invalid Default Value!')
+                            var result = this._get_array(name, default_value)
+                            if (
+                                !this._is_valid_selection(
+                                    result,
+                                    selection_list
+                                )
+                            )
+                                throw new Error(
+                                    "Invalid Option Value: The option '" +
+                                        name +
+                                        "' can contain only the following values:\n" +
+                                        selection_list +
+                                        "\nYou passed in: '" +
+                                        this.raw_options[name] +
+                                        "'"
+                                )
+                            return result
+                        }),
+                        (Options.prototype._is_valid_selection = function(
+                            result,
+                            selection_list
+                        ) {
+                            return (
+                                result.length &&
+                                selection_list.length &&
+                                !result.some(function(item) {
+                                    return -1 === selection_list.indexOf(item)
+                                })
+                            )
+                        }),
+                        (module.exports.Options = Options),
+                        (module.exports.normalizeOpts = _normalizeOpts),
+                        (module.exports.mergeOpts = _mergeOpts)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var InputScanner = __webpack_require__(8).InputScanner,
+                        BaseTokenizer = __webpack_require__(9).Tokenizer,
+                        BASETOKEN = __webpack_require__(9).TOKEN,
+                        Directives = __webpack_require__(13).Directives,
+                        acorn = __webpack_require__(4),
+                        Pattern = __webpack_require__(12).Pattern,
+                        TemplatablePattern = __webpack_require__(14)
+                            .TemplatablePattern
+                    function in_array(what, arr) {
+                        return -1 !== arr.indexOf(what)
+                    }
+                    var TOKEN = {
+                            START_EXPR: 'TK_START_EXPR',
+                            END_EXPR: 'TK_END_EXPR',
+                            START_BLOCK: 'TK_START_BLOCK',
+                            END_BLOCK: 'TK_END_BLOCK',
+                            WORD: 'TK_WORD',
+                            RESERVED: 'TK_RESERVED',
+                            SEMICOLON: 'TK_SEMICOLON',
+                            STRING: 'TK_STRING',
+                            EQUALS: 'TK_EQUALS',
+                            OPERATOR: 'TK_OPERATOR',
+                            COMMA: 'TK_COMMA',
+                            BLOCK_COMMENT: 'TK_BLOCK_COMMENT',
+                            COMMENT: 'TK_COMMENT',
+                            DOT: 'TK_DOT',
+                            UNKNOWN: 'TK_UNKNOWN',
+                            START: BASETOKEN.START,
+                            RAW: BASETOKEN.RAW,
+                            EOF: BASETOKEN.EOF,
+                        },
+                        directives_core = new Directives(/\/\*/, /\*\//),
+                        number_pattern = /0[xX][0123456789abcdefABCDEF]*|0[oO][01234567]*|0[bB][01]*|\d+n|(?:\.\d+|\d+\.?\d*)(?:[eE][+-]?\d+)?/,
+                        digit = /[0-9]/,
+                        dot_pattern = /[^\d\.]/,
+                        positionable_operators = '>>> === !== << && >= ** != == <= >> || < / - + > : & % ? ^ | *'.split(
+                            ' '
+                        ),
+                        punct =
+                            '>>>= ... >>= <<= === >>> !== **= => ^= :: /= << <= == && -= >= >> != -- += ** || ++ %= &= *= |= = ! ? > < : / ^ - + * & % ~ |'
+                    punct = (punct = punct.replace(
+                        /[-[\]{}()*+?.,\\^$|#]/g,
+                        '\\$&'
+                    )).replace(/ /g, '|')
+                    var in_html_comment,
+                        punct_pattern = new RegExp(punct),
+                        line_starters = 'continue,try,throw,return,var,let,const,if,switch,case,default,for,while,break,function,import,export'.split(
+                            ','
+                        ),
+                        reserved_words = line_starters.concat([
+                            'do',
+                            'in',
+                            'of',
+                            'else',
+                            'get',
+                            'set',
+                            'new',
+                            'catch',
+                            'finally',
+                            'typeof',
+                            'yield',
+                            'async',
+                            'await',
+                            'from',
+                            'as',
+                        ]),
+                        reserved_word_pattern = new RegExp(
+                            '^(?:' + reserved_words.join('|') + ')$'
+                        ),
+                        Tokenizer = function(input_string, options) {
+                            BaseTokenizer.call(this, input_string, options),
+                                (this._patterns.whitespace = this._patterns.whitespace.matching(
+                                    /\u00A0\u1680\u180e\u2000-\u200a\u202f\u205f\u3000\ufeff/
+                                        .source,
+                                    /\u2028\u2029/.source
+                                ))
+                            var pattern_reader = new Pattern(this._input),
+                                templatable = new TemplatablePattern(
+                                    this._input
+                                )
+                            ;(templatable = (templatable = templatable.disable(
+                                'handlebars'
+                            )).disable('django')),
+                                (this.__patterns = {
+                                    template: templatable,
+                                    identifier: templatable
+                                        .starting_with(acorn.identifier)
+                                        .matching(acorn.identifierMatch),
+                                    number: pattern_reader.matching(
+                                        number_pattern
+                                    ),
+                                    punct: pattern_reader.matching(
+                                        punct_pattern
+                                    ),
+                                    comment: pattern_reader
+                                        .starting_with(/\/\//)
+                                        .until(/[\n\r\u2028\u2029]/),
+                                    block_comment: pattern_reader
+                                        .starting_with(/\/\*/)
+                                        .until_after(/\*\//),
+                                    html_comment_start: pattern_reader.matching(
+                                        /<!--/
+                                    ),
+                                    html_comment_end: pattern_reader.matching(
+                                        /-->/
+                                    ),
+                                    include: pattern_reader
+                                        .starting_with(/#include/)
+                                        .until_after(acorn.lineBreak),
+                                    shebang: pattern_reader
+                                        .starting_with(/#!/)
+                                        .until_after(acorn.lineBreak),
+                                    xml: pattern_reader.matching(
+                                        /[\s\S]*?<(\/?)([-a-zA-Z:0-9_.]+|{[\s\S]+?}|!\[CDATA\[[\s\S]*?\]\])(\s+{[\s\S]+?}|\s+[-a-zA-Z:0-9_.]+|\s+[-a-zA-Z:0-9_.]+\s*=\s*('[^']*'|"[^"]*"|{[\s\S]+?}))*\s*(\/?)\s*>/
+                                    ),
+                                    single_quote: templatable.until(
+                                        /['\\\n\r\u2028\u2029]/
+                                    ),
+                                    double_quote: templatable.until(
+                                        /["\\\n\r\u2028\u2029]/
+                                    ),
+                                    template_text: templatable.until(/[`\\$]/),
+                                    template_expression: templatable.until(
+                                        /[`}\\]/
+                                    ),
+                                })
+                        }
+                    ;((Tokenizer.prototype = new BaseTokenizer())._is_comment = function(
+                        current_token
+                    ) {
+                        return (
+                            current_token.type === TOKEN.COMMENT ||
+                            current_token.type === TOKEN.BLOCK_COMMENT ||
+                            current_token.type === TOKEN.UNKNOWN
+                        )
+                    }),
+                        (Tokenizer.prototype._is_opening = function(
+                            current_token
+                        ) {
+                            return (
+                                current_token.type === TOKEN.START_BLOCK ||
+                                current_token.type === TOKEN.START_EXPR
+                            )
+                        }),
+                        (Tokenizer.prototype._is_closing = function(
+                            current_token,
+                            open_token
+                        ) {
+                            return (
+                                (current_token.type === TOKEN.END_BLOCK ||
+                                    current_token.type === TOKEN.END_EXPR) &&
+                                open_token &&
+                                ((']' === current_token.text &&
+                                    '[' === open_token.text) ||
+                                    (')' === current_token.text &&
+                                        '(' === open_token.text) ||
+                                    ('}' === current_token.text &&
+                                        '{' === open_token.text))
+                            )
+                        }),
+                        (Tokenizer.prototype._reset = function() {
+                            in_html_comment = !1
+                        }),
+                        (Tokenizer.prototype._get_next_token = function(
+                            previous_token,
+                            open_token
+                        ) {
+                            var token = null
+                            this._readWhitespace()
+                            var c = this._input.peek()
+                            return null === c
+                                ? this._create_token(TOKEN.EOF, '')
+                                : (token =
+                                      (token =
+                                          (token =
+                                              (token =
+                                                  (token =
+                                                      (token =
+                                                          (token =
+                                                              (token =
+                                                                  (token =
+                                                                      token ||
+                                                                      this._read_string(
+                                                                          c
+                                                                      )) ||
+                                                                  this._read_word(
+                                                                      previous_token
+                                                                  )) ||
+                                                              this._read_singles(
+                                                                  c
+                                                              )) ||
+                                                          this._read_comment(
+                                                              c
+                                                          )) ||
+                                                      this._read_regexp(
+                                                          c,
+                                                          previous_token
+                                                      )) ||
+                                                  this._read_xml(
+                                                      c,
+                                                      previous_token
+                                                  )) ||
+                                              this._read_non_javascript(c)) ||
+                                          this._read_punctuation()) ||
+                                      this._create_token(
+                                          TOKEN.UNKNOWN,
+                                          this._input.next()
+                                      ))
+                        }),
+                        (Tokenizer.prototype._read_word = function(
+                            previous_token
+                        ) {
+                            var resulting_string
+                            return '' !==
+                                (resulting_string = this.__patterns.identifier.read())
+                                ? ((resulting_string = resulting_string.replace(
+                                      acorn.allLineBreaks,
+                                      '\n'
+                                  )),
+                                  previous_token.type !== TOKEN.DOT &&
+                                  (previous_token.type !== TOKEN.RESERVED ||
+                                      ('set' !== previous_token.text &&
+                                          'get' !== previous_token.text)) &&
+                                  reserved_word_pattern.test(resulting_string)
+                                      ? 'in' === resulting_string ||
+                                        'of' === resulting_string
+                                          ? this._create_token(
+                                                TOKEN.OPERATOR,
+                                                resulting_string
+                                            )
+                                          : this._create_token(
+                                                TOKEN.RESERVED,
+                                                resulting_string
+                                            )
+                                      : this._create_token(
+                                            TOKEN.WORD,
+                                            resulting_string
+                                        ))
+                                : '' !==
+                                  (resulting_string = this.__patterns.number.read())
+                                ? this._create_token(
+                                      TOKEN.WORD,
+                                      resulting_string
+                                  )
+                                : void 0
+                        }),
+                        (Tokenizer.prototype._read_singles = function(c) {
+                            var token = null
+                            return (
+                                '(' === c || '[' === c
+                                    ? (token = this._create_token(
+                                          TOKEN.START_EXPR,
+                                          c
+                                      ))
+                                    : ')' === c || ']' === c
+                                    ? (token = this._create_token(
+                                          TOKEN.END_EXPR,
+                                          c
+                                      ))
+                                    : '{' === c
+                                    ? (token = this._create_token(
+                                          TOKEN.START_BLOCK,
+                                          c
+                                      ))
+                                    : '}' === c
+                                    ? (token = this._create_token(
+                                          TOKEN.END_BLOCK,
+                                          c
+                                      ))
+                                    : ';' === c
+                                    ? (token = this._create_token(
+                                          TOKEN.SEMICOLON,
+                                          c
+                                      ))
+                                    : '.' === c &&
+                                      dot_pattern.test(this._input.peek(1))
+                                    ? (token = this._create_token(TOKEN.DOT, c))
+                                    : ',' === c &&
+                                      (token = this._create_token(
+                                          TOKEN.COMMA,
+                                          c
+                                      )),
+                                token && this._input.next(),
+                                token
+                            )
+                        }),
+                        (Tokenizer.prototype._read_punctuation = function() {
+                            var resulting_string = this.__patterns.punct.read()
+                            if ('' !== resulting_string)
+                                return '=' === resulting_string
+                                    ? this._create_token(
+                                          TOKEN.EQUALS,
+                                          resulting_string
+                                      )
+                                    : this._create_token(
+                                          TOKEN.OPERATOR,
+                                          resulting_string
+                                      )
+                        }),
+                        (Tokenizer.prototype._read_non_javascript = function(
+                            c
+                        ) {
+                            var resulting_string = ''
+                            if ('#' === c) {
+                                if (
+                                    this._is_first_token() &&
+                                    (resulting_string = this.__patterns.shebang.read())
+                                )
+                                    return this._create_token(
+                                        TOKEN.UNKNOWN,
+                                        resulting_string.trim() + '\n'
+                                    )
+                                if (
+                                    (resulting_string = this.__patterns.include.read())
+                                )
+                                    return this._create_token(
+                                        TOKEN.UNKNOWN,
+                                        resulting_string.trim() + '\n'
+                                    )
+                                c = this._input.next()
+                                var sharp = '#'
+                                if (
+                                    this._input.hasNext() &&
+                                    this._input.testChar(digit)
+                                ) {
+                                    do {
+                                        sharp += c = this._input.next()
+                                    } while (
+                                        this._input.hasNext() &&
+                                        '#' !== c &&
+                                        '=' !== c
+                                    )
+                                    return (
+                                        '#' === c ||
+                                            ('[' === this._input.peek() &&
+                                            ']' === this._input.peek(1)
+                                                ? ((sharp += '[]'),
+                                                  this._input.next(),
+                                                  this._input.next())
+                                                : '{' === this._input.peek() &&
+                                                  '}' === this._input.peek(1) &&
+                                                  ((sharp += '{}'),
+                                                  this._input.next(),
+                                                  this._input.next())),
+                                        this._create_token(TOKEN.WORD, sharp)
+                                    )
+                                }
+                                this._input.back()
+                            } else if ('<' === c) {
+                                if (
+                                    (resulting_string = this.__patterns.html_comment_start.read())
+                                ) {
+                                    for (
+                                        ;
+                                        this._input.hasNext() &&
+                                        !this._input.testChar(acorn.newline);
+
+                                    )
+                                        resulting_string += this._input.next()
+                                    return (
+                                        (in_html_comment = !0),
+                                        this._create_token(
+                                            TOKEN.COMMENT,
+                                            resulting_string
+                                        )
+                                    )
+                                }
+                            } else if (
+                                in_html_comment &&
+                                '-' === c &&
+                                (resulting_string = this.__patterns.html_comment_end.read())
+                            )
+                                return (
+                                    (in_html_comment = !1),
+                                    this._create_token(
+                                        TOKEN.COMMENT,
+                                        resulting_string
+                                    )
+                                )
+                            return null
+                        }),
+                        (Tokenizer.prototype._read_comment = function(c) {
+                            var token = null
+                            if ('/' === c) {
+                                var comment = ''
+                                if ('*' === this._input.peek(1)) {
+                                    comment = this.__patterns.block_comment.read()
+                                    var directives = directives_core.get_directives(
+                                        comment
+                                    )
+                                    directives &&
+                                        'start' === directives.ignore &&
+                                        (comment += directives_core.readIgnored(
+                                            this._input
+                                        )),
+                                        (comment = comment.replace(
+                                            acorn.allLineBreaks,
+                                            '\n'
+                                        )),
+                                        ((token = this._create_token(
+                                            TOKEN.BLOCK_COMMENT,
+                                            comment
+                                        )).directives = directives)
+                                } else
+                                    '/' === this._input.peek(1) &&
+                                        ((comment = this.__patterns.comment.read()),
+                                        (token = this._create_token(
+                                            TOKEN.COMMENT,
+                                            comment
+                                        )))
+                            }
+                            return token
+                        }),
+                        (Tokenizer.prototype._read_string = function(c) {
+                            if ('`' === c || "'" === c || '"' === c) {
+                                var resulting_string = this._input.next()
+                                return (
+                                    (this.has_char_escapes = !1),
+                                    (resulting_string +=
+                                        '`' === c
+                                            ? this._read_string_recursive(
+                                                  '`',
+                                                  !0,
+                                                  '${'
+                                              )
+                                            : this._read_string_recursive(c)),
+                                    this.has_char_escapes &&
+                                        this._options.unescape_strings &&
+                                        (resulting_string = (function unescape_string(
+                                            s
+                                        ) {
+                                            var out = '',
+                                                escaped = 0,
+                                                input_scan = new InputScanner(
+                                                    s
+                                                ),
+                                                matched = null
+                                            for (; input_scan.hasNext(); )
+                                                if (
+                                                    ((matched = input_scan.match(
+                                                        /([\s]|[^\\]|\\\\)+/g
+                                                    )) && (out += matched[0]),
+                                                    '\\' === input_scan.peek())
+                                                ) {
+                                                    if (
+                                                        (input_scan.next(),
+                                                        'x' ===
+                                                            input_scan.peek())
+                                                    )
+                                                        matched = input_scan.match(
+                                                            /x([0-9A-Fa-f]{2})/g
+                                                        )
+                                                    else {
+                                                        if (
+                                                            'u' !==
+                                                            input_scan.peek()
+                                                        ) {
+                                                            ;(out += '\\'),
+                                                                input_scan.hasNext() &&
+                                                                    (out += input_scan.next())
+                                                            continue
+                                                        }
+                                                        matched = input_scan.match(
+                                                            /u([0-9A-Fa-f]{4})/g
+                                                        )
+                                                    }
+                                                    if (!matched) return s
+                                                    if (
+                                                        (escaped = parseInt(
+                                                            matched[1],
+                                                            16
+                                                        )) > 126 &&
+                                                        escaped <= 255 &&
+                                                        0 ===
+                                                            matched[0].indexOf(
+                                                                'x'
+                                                            )
+                                                    )
+                                                        return s
+                                                    if (
+                                                        escaped >= 0 &&
+                                                        escaped < 32
+                                                    ) {
+                                                        out += '\\' + matched[0]
+                                                        continue
+                                                    }
+                                                    out +=
+                                                        34 === escaped ||
+                                                        39 === escaped ||
+                                                        92 === escaped
+                                                            ? '\\' +
+                                                              String.fromCharCode(
+                                                                  escaped
+                                                              )
+                                                            : String.fromCharCode(
+                                                                  escaped
+                                                              )
+                                                }
+                                            return out
+                                        })(resulting_string)),
+                                    this._input.peek() === c &&
+                                        (resulting_string += this._input.next()),
+                                    (resulting_string = resulting_string.replace(
+                                        acorn.allLineBreaks,
+                                        '\n'
+                                    )),
+                                    this._create_token(
+                                        TOKEN.STRING,
+                                        resulting_string
+                                    )
+                                )
+                            }
+                            return null
+                        }),
+                        (Tokenizer.prototype._allow_regexp_or_xml = function(
+                            previous_token
+                        ) {
+                            return (
+                                (previous_token.type === TOKEN.RESERVED &&
+                                    in_array(previous_token.text, [
+                                        'return',
+                                        'case',
+                                        'throw',
+                                        'else',
+                                        'do',
+                                        'typeof',
+                                        'yield',
+                                    ])) ||
+                                (previous_token.type === TOKEN.END_EXPR &&
+                                    ')' === previous_token.text &&
+                                    previous_token.opened.previous.type ===
+                                        TOKEN.RESERVED &&
+                                    in_array(
+                                        previous_token.opened.previous.text,
+                                        ['if', 'while', 'for']
+                                    )) ||
+                                in_array(previous_token.type, [
+                                    TOKEN.COMMENT,
+                                    TOKEN.START_EXPR,
+                                    TOKEN.START_BLOCK,
+                                    TOKEN.START,
+                                    TOKEN.END_BLOCK,
+                                    TOKEN.OPERATOR,
+                                    TOKEN.EQUALS,
+                                    TOKEN.EOF,
+                                    TOKEN.SEMICOLON,
+                                    TOKEN.COMMA,
+                                ])
+                            )
+                        }),
+                        (Tokenizer.prototype._read_regexp = function(
+                            c,
+                            previous_token
+                        ) {
+                            if (
+                                '/' === c &&
+                                this._allow_regexp_or_xml(previous_token)
+                            ) {
+                                for (
+                                    var resulting_string = this._input.next(),
+                                        esc = !1,
+                                        in_char_class = !1;
+                                    this._input.hasNext() &&
+                                    (esc ||
+                                        in_char_class ||
+                                        this._input.peek() !== c) &&
+                                    !this._input.testChar(acorn.newline);
+
+                                )
+                                    (resulting_string += this._input.peek()),
+                                        esc
+                                            ? (esc = !1)
+                                            : ((esc =
+                                                  '\\' === this._input.peek()),
+                                              '[' === this._input.peek()
+                                                  ? (in_char_class = !0)
+                                                  : ']' ===
+                                                        this._input.peek() &&
+                                                    (in_char_class = !1)),
+                                        this._input.next()
+                                return (
+                                    this._input.peek() === c &&
+                                        ((resulting_string += this._input.next()),
+                                        (resulting_string += this._input.read(
+                                            acorn.identifier
+                                        ))),
+                                    this._create_token(
+                                        TOKEN.STRING,
+                                        resulting_string
+                                    )
+                                )
+                            }
+                            return null
+                        }),
+                        (Tokenizer.prototype._read_xml = function(
+                            c,
+                            previous_token
+                        ) {
+                            if (
+                                this._options.e4x &&
+                                '<' === c &&
+                                this._allow_regexp_or_xml(previous_token)
+                            ) {
+                                var xmlStr = '',
+                                    match = this.__patterns.xml.read_match()
+                                if (match) {
+                                    for (
+                                        var rootTag = match[2]
+                                                .replace(/^{\s+/, '{')
+                                                .replace(/\s+}$/, '}'),
+                                            isCurlyRoot =
+                                                0 === rootTag.indexOf('{'),
+                                            depth = 0;
+                                        match;
+
+                                    ) {
+                                        var isEndTag = !!match[1],
+                                            tagName = match[2]
+                                        if (
+                                            (!(
+                                                !!match[match.length - 1] ||
+                                                '![CDATA[' ===
+                                                    tagName.slice(0, 8)
+                                            ) &&
+                                                (tagName === rootTag ||
+                                                    (isCurlyRoot &&
+                                                        tagName
+                                                            .replace(
+                                                                /^{\s+/,
+                                                                '{'
+                                                            )
+                                                            .replace(
+                                                                /\s+}$/,
+                                                                '}'
+                                                            ))) &&
+                                                (isEndTag ? --depth : ++depth),
+                                            (xmlStr += match[0]),
+                                            depth <= 0)
+                                        )
+                                            break
+                                        match = this.__patterns.xml.read_match()
+                                    }
+                                    return (
+                                        match ||
+                                            (xmlStr += this._input.match(
+                                                /[\s\S]*/g
+                                            )[0]),
+                                        (xmlStr = xmlStr.replace(
+                                            acorn.allLineBreaks,
+                                            '\n'
+                                        )),
+                                        this._create_token(TOKEN.STRING, xmlStr)
+                                    )
+                                }
+                            }
+                            return null
+                        }),
+                        (Tokenizer.prototype._read_string_recursive = function(
+                            delimiter,
+                            allow_unescaped_newlines,
+                            start_sub
+                        ) {
+                            var current_char, pattern
+                            "'" === delimiter
+                                ? (pattern = this.__patterns.single_quote)
+                                : '"' === delimiter
+                                ? (pattern = this.__patterns.double_quote)
+                                : '`' === delimiter
+                                ? (pattern = this.__patterns.template_text)
+                                : '}' === delimiter &&
+                                  (pattern = this.__patterns
+                                      .template_expression)
+                            for (
+                                var resulting_string = pattern.read(),
+                                    next = '';
+                                this._input.hasNext();
+
+                            ) {
+                                if (
+                                    (next = this._input.next()) === delimiter ||
+                                    (!allow_unescaped_newlines &&
+                                        acorn.newline.test(next))
+                                ) {
+                                    this._input.back()
+                                    break
+                                }
+                                '\\' === next && this._input.hasNext()
+                                    ? ('x' ===
+                                          (current_char = this._input.peek()) ||
+                                      'u' === current_char
+                                          ? (this.has_char_escapes = !0)
+                                          : '\r' === current_char &&
+                                            '\n' === this._input.peek(1) &&
+                                            this._input.next(),
+                                      (next += this._input.next()))
+                                    : start_sub &&
+                                      ('${' === start_sub &&
+                                          '$' === next &&
+                                          '{' === this._input.peek() &&
+                                          (next += this._input.next()),
+                                      start_sub === next &&
+                                          ((next +=
+                                              '`' === delimiter
+                                                  ? this._read_string_recursive(
+                                                        '}',
+                                                        allow_unescaped_newlines,
+                                                        '`'
+                                                    )
+                                                  : this._read_string_recursive(
+                                                        '`',
+                                                        allow_unescaped_newlines,
+                                                        '${'
+                                                    )),
+                                          this._input.hasNext() &&
+                                              (next += this._input.next()))),
+                                    (resulting_string += next += pattern.read())
+                            }
+                            return resulting_string
+                        }),
+                        (module.exports.Tokenizer = Tokenizer),
+                        (module.exports.TOKEN = TOKEN),
+                        (module.exports.positionable_operators = positionable_operators.slice()),
+                        (module.exports.line_starters = line_starters.slice())
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var regexp_has_sticky = RegExp.prototype.hasOwnProperty(
+                        'sticky'
+                    )
+                    function InputScanner(input_string) {
+                        ;(this.__input = input_string || ''),
+                            (this.__input_length = this.__input.length),
+                            (this.__position = 0)
+                    }
+                    ;(InputScanner.prototype.restart = function() {
+                        this.__position = 0
+                    }),
+                        (InputScanner.prototype.back = function() {
+                            this.__position > 0 && (this.__position -= 1)
+                        }),
+                        (InputScanner.prototype.hasNext = function() {
+                            return this.__position < this.__input_length
+                        }),
+                        (InputScanner.prototype.next = function() {
+                            var val = null
+                            return (
+                                this.hasNext() &&
+                                    ((val = this.__input.charAt(
+                                        this.__position
+                                    )),
+                                    (this.__position += 1)),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.peek = function(index) {
+                            var val = null
+                            return (
+                                (index = index || 0),
+                                (index += this.__position) >= 0 &&
+                                    index < this.__input_length &&
+                                    (val = this.__input.charAt(index)),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.__match = function(
+                            pattern,
+                            index
+                        ) {
+                            pattern.lastIndex = index
+                            var pattern_match = pattern.exec(this.__input)
+                            return (
+                                !pattern_match ||
+                                    (regexp_has_sticky && pattern.sticky) ||
+                                    (pattern_match.index !== index &&
+                                        (pattern_match = null)),
+                                pattern_match
+                            )
+                        }),
+                        (InputScanner.prototype.test = function(
+                            pattern,
+                            index
+                        ) {
+                            return (
+                                (index = index || 0),
+                                (index += this.__position) >= 0 &&
+                                    index < this.__input_length &&
+                                    !!this.__match(pattern, index)
+                            )
+                        }),
+                        (InputScanner.prototype.testChar = function(
+                            pattern,
+                            index
+                        ) {
+                            var val = this.peek(index)
+                            return (
+                                (pattern.lastIndex = 0),
+                                null !== val && pattern.test(val)
+                            )
+                        }),
+                        (InputScanner.prototype.match = function(pattern) {
+                            var pattern_match = this.__match(
+                                pattern,
+                                this.__position
+                            )
+                            return (
+                                pattern_match
+                                    ? (this.__position +=
+                                          pattern_match[0].length)
+                                    : (pattern_match = null),
+                                pattern_match
+                            )
+                        }),
+                        (InputScanner.prototype.read = function(
+                            starting_pattern,
+                            until_pattern,
+                            until_after
+                        ) {
+                            var match,
+                                val = ''
+                            return (
+                                starting_pattern &&
+                                    (match = this.match(starting_pattern)) &&
+                                    (val += match[0]),
+                                !until_pattern ||
+                                    (!match && starting_pattern) ||
+                                    (val += this.readUntil(
+                                        until_pattern,
+                                        until_after
+                                    )),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.readUntil = function(
+                            pattern,
+                            until_after
+                        ) {
+                            var val,
+                                match_index = this.__position
+                            pattern.lastIndex = this.__position
+                            var pattern_match = pattern.exec(this.__input)
+                            return (
+                                pattern_match
+                                    ? ((match_index = pattern_match.index),
+                                      until_after &&
+                                          (match_index +=
+                                              pattern_match[0].length))
+                                    : (match_index = this.__input_length),
+                                (val = this.__input.substring(
+                                    this.__position,
+                                    match_index
+                                )),
+                                (this.__position = match_index),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.readUntilAfter = function(
+                            pattern
+                        ) {
+                            return this.readUntil(pattern, !0)
+                        }),
+                        (InputScanner.prototype.get_regexp = function(
+                            pattern,
+                            match_from
+                        ) {
+                            var result = null,
+                                flags = 'g'
+                            return (
+                                match_from &&
+                                    regexp_has_sticky &&
+                                    (flags = 'y'),
+                                'string' == typeof pattern && '' !== pattern
+                                    ? (result = new RegExp(pattern, flags))
+                                    : pattern &&
+                                      (result = new RegExp(
+                                          pattern.source,
+                                          flags
+                                      )),
+                                result
+                            )
+                        }),
+                        (InputScanner.prototype.get_literal_regexp = function(
+                            literal_string
+                        ) {
+                            return RegExp(
+                                literal_string.replace(
+                                    /[-\/\\^$*+?.()|[\]{}]/g,
+                                    '\\$&'
+                                )
+                            )
+                        }),
+                        (InputScanner.prototype.peekUntilAfter = function(
+                            pattern
+                        ) {
+                            var start = this.__position,
+                                val = this.readUntilAfter(pattern)
+                            return (this.__position = start), val
+                        }),
+                        (InputScanner.prototype.lookBack = function(testVal) {
+                            var start = this.__position - 1
+                            return (
+                                start >= testVal.length &&
+                                this.__input
+                                    .substring(start - testVal.length, start)
+                                    .toLowerCase() === testVal
+                            )
+                        }),
+                        (module.exports.InputScanner = InputScanner)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var InputScanner = __webpack_require__(8).InputScanner,
+                        Token = __webpack_require__(3).Token,
+                        TokenStream = __webpack_require__(10).TokenStream,
+                        WhitespacePattern = __webpack_require__(11)
+                            .WhitespacePattern,
+                        TOKEN = {
+                            START: 'TK_START',
+                            RAW: 'TK_RAW',
+                            EOF: 'TK_EOF',
+                        },
+                        Tokenizer = function(input_string, options) {
+                            ;(this._input = new InputScanner(input_string)),
+                                (this._options = options || {}),
+                                (this.__tokens = null),
+                                (this._patterns = {}),
+                                (this._patterns.whitespace = new WhitespacePattern(
+                                    this._input
+                                ))
+                        }
+                    ;(Tokenizer.prototype.tokenize = function() {
+                        var current
+                        this._input.restart(),
+                            (this.__tokens = new TokenStream()),
+                            this._reset()
+                        for (
+                            var previous = new Token(TOKEN.START, ''),
+                                open_token = null,
+                                open_stack = [],
+                                comments = new TokenStream();
+                            previous.type !== TOKEN.EOF;
+
+                        ) {
+                            for (
+                                current = this._get_next_token(
+                                    previous,
+                                    open_token
+                                );
+                                this._is_comment(current);
+
+                            )
+                                comments.add(current),
+                                    (current = this._get_next_token(
+                                        previous,
+                                        open_token
+                                    ))
+                            comments.isEmpty() ||
+                                ((current.comments_before = comments),
+                                (comments = new TokenStream())),
+                                (current.parent = open_token),
+                                this._is_opening(current)
+                                    ? (open_stack.push(open_token),
+                                      (open_token = current))
+                                    : open_token &&
+                                      this._is_closing(current, open_token) &&
+                                      ((current.opened = open_token),
+                                      (open_token.closed = current),
+                                      (open_token = open_stack.pop()),
+                                      (current.parent = open_token)),
+                                (current.previous = previous),
+                                (previous.next = current),
+                                this.__tokens.add(current),
+                                (previous = current)
+                        }
+                        return this.__tokens
+                    }),
+                        (Tokenizer.prototype._is_first_token = function() {
+                            return this.__tokens.isEmpty()
+                        }),
+                        (Tokenizer.prototype._reset = function() {}),
+                        (Tokenizer.prototype._get_next_token = function(
+                            previous_token,
+                            open_token
+                        ) {
+                            this._readWhitespace()
+                            var resulting_string = this._input.read(/.+/g)
+                            return resulting_string
+                                ? this._create_token(
+                                      TOKEN.RAW,
+                                      resulting_string
+                                  )
+                                : this._create_token(TOKEN.EOF, '')
+                        }),
+                        (Tokenizer.prototype._is_comment = function(
+                            current_token
+                        ) {
+                            return !1
+                        }),
+                        (Tokenizer.prototype._is_opening = function(
+                            current_token
+                        ) {
+                            return !1
+                        }),
+                        (Tokenizer.prototype._is_closing = function(
+                            current_token,
+                            open_token
+                        ) {
+                            return !1
+                        }),
+                        (Tokenizer.prototype._create_token = function(
+                            type,
+                            text
+                        ) {
+                            return new Token(
+                                type,
+                                text,
+                                this._patterns.whitespace.newline_count,
+                                this._patterns.whitespace.whitespace_before_token
+                            )
+                        }),
+                        (Tokenizer.prototype._readWhitespace = function() {
+                            return this._patterns.whitespace.read()
+                        }),
+                        (module.exports.Tokenizer = Tokenizer),
+                        (module.exports.TOKEN = TOKEN)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function TokenStream(parent_token) {
+                        ;(this.__tokens = []),
+                            (this.__tokens_length = this.__tokens.length),
+                            (this.__position = 0),
+                            (this.__parent_token = parent_token)
+                    }
+                    ;(TokenStream.prototype.restart = function() {
+                        this.__position = 0
+                    }),
+                        (TokenStream.prototype.isEmpty = function() {
+                            return 0 === this.__tokens_length
+                        }),
+                        (TokenStream.prototype.hasNext = function() {
+                            return this.__position < this.__tokens_length
+                        }),
+                        (TokenStream.prototype.next = function() {
+                            var val = null
+                            return (
+                                this.hasNext() &&
+                                    ((val = this.__tokens[this.__position]),
+                                    (this.__position += 1)),
+                                val
+                            )
+                        }),
+                        (TokenStream.prototype.peek = function(index) {
+                            var val = null
+                            return (
+                                (index = index || 0),
+                                (index += this.__position) >= 0 &&
+                                    index < this.__tokens_length &&
+                                    (val = this.__tokens[index]),
+                                val
+                            )
+                        }),
+                        (TokenStream.prototype.add = function(token) {
+                            this.__parent_token &&
+                                (token.parent = this.__parent_token),
+                                this.__tokens.push(token),
+                                (this.__tokens_length += 1)
+                        }),
+                        (module.exports.TokenStream = TokenStream)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var Pattern = __webpack_require__(12).Pattern
+                    function WhitespacePattern(input_scanner, parent) {
+                        Pattern.call(this, input_scanner, parent),
+                            parent
+                                ? (this._line_regexp = this._input.get_regexp(
+                                      parent._line_regexp
+                                  ))
+                                : this.__set_whitespace_patterns('', ''),
+                            (this.newline_count = 0),
+                            (this.whitespace_before_token = '')
+                    }
+                    ;(WhitespacePattern.prototype = new Pattern()),
+                        (WhitespacePattern.prototype.__set_whitespace_patterns = function(
+                            whitespace_chars,
+                            newline_chars
+                        ) {
+                            ;(whitespace_chars += '\\t '),
+                                (newline_chars += '\\n\\r'),
+                                (this._match_pattern = this._input.get_regexp(
+                                    '[' +
+                                        whitespace_chars +
+                                        newline_chars +
+                                        ']+',
+                                    !0
+                                )),
+                                (this._newline_regexp = this._input.get_regexp(
+                                    '\\r\\n|[' + newline_chars + ']'
+                                ))
+                        }),
+                        (WhitespacePattern.prototype.read = function() {
+                            ;(this.newline_count = 0),
+                                (this.whitespace_before_token = '')
+                            var resulting_string = this._input.read(
+                                this._match_pattern
+                            )
+                            if (' ' === resulting_string)
+                                this.whitespace_before_token = ' '
+                            else if (resulting_string) {
+                                var matches = this.__split(
+                                    this._newline_regexp,
+                                    resulting_string
+                                )
+                                ;(this.newline_count = matches.length - 1),
+                                    (this.whitespace_before_token =
+                                        matches[this.newline_count])
+                            }
+                            return resulting_string
+                        }),
+                        (WhitespacePattern.prototype.matching = function(
+                            whitespace_chars,
+                            newline_chars
+                        ) {
+                            var result = this._create()
+                            return (
+                                result.__set_whitespace_patterns(
+                                    whitespace_chars,
+                                    newline_chars
+                                ),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (WhitespacePattern.prototype._create = function() {
+                            return new WhitespacePattern(this._input, this)
+                        }),
+                        (WhitespacePattern.prototype.__split = function(
+                            regexp,
+                            input_string
+                        ) {
+                            regexp.lastIndex = 0
+                            for (
+                                var start_index = 0,
+                                    result = [],
+                                    next_match = regexp.exec(input_string);
+                                next_match;
+
+                            )
+                                result.push(
+                                    input_string.substring(
+                                        start_index,
+                                        next_match.index
+                                    )
+                                ),
+                                    (start_index =
+                                        next_match.index +
+                                        next_match[0].length),
+                                    (next_match = regexp.exec(input_string))
+                            return (
+                                start_index < input_string.length
+                                    ? result.push(
+                                          input_string.substring(
+                                              start_index,
+                                              input_string.length
+                                          )
+                                      )
+                                    : result.push(''),
+                                result
+                            )
+                        }),
+                        (module.exports.WhitespacePattern = WhitespacePattern)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function Pattern(input_scanner, parent) {
+                        ;(this._input = input_scanner),
+                            (this._starting_pattern = null),
+                            (this._match_pattern = null),
+                            (this._until_pattern = null),
+                            (this._until_after = !1),
+                            parent &&
+                                ((this._starting_pattern = this._input.get_regexp(
+                                    parent._starting_pattern,
+                                    !0
+                                )),
+                                (this._match_pattern = this._input.get_regexp(
+                                    parent._match_pattern,
+                                    !0
+                                )),
+                                (this._until_pattern = this._input.get_regexp(
+                                    parent._until_pattern
+                                )),
+                                (this._until_after = parent._until_after))
+                    }
+                    ;(Pattern.prototype.read = function() {
+                        var result = this._input.read(this._starting_pattern)
+                        return (
+                            (this._starting_pattern && !result) ||
+                                (result += this._input.read(
+                                    this._match_pattern,
+                                    this._until_pattern,
+                                    this._until_after
+                                )),
+                            result
+                        )
+                    }),
+                        (Pattern.prototype.read_match = function() {
+                            return this._input.match(this._match_pattern)
+                        }),
+                        (Pattern.prototype.until_after = function(pattern) {
+                            var result = this._create()
+                            return (
+                                (result._until_after = !0),
+                                (result._until_pattern = this._input.get_regexp(
+                                    pattern
+                                )),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (Pattern.prototype.until = function(pattern) {
+                            var result = this._create()
+                            return (
+                                (result._until_after = !1),
+                                (result._until_pattern = this._input.get_regexp(
+                                    pattern
+                                )),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (Pattern.prototype.starting_with = function(pattern) {
+                            var result = this._create()
+                            return (
+                                (result._starting_pattern = this._input.get_regexp(
+                                    pattern,
+                                    !0
+                                )),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (Pattern.prototype.matching = function(pattern) {
+                            var result = this._create()
+                            return (
+                                (result._match_pattern = this._input.get_regexp(
+                                    pattern,
+                                    !0
+                                )),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (Pattern.prototype._create = function() {
+                            return new Pattern(this._input, this)
+                        }),
+                        (Pattern.prototype._update = function() {}),
+                        (module.exports.Pattern = Pattern)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function Directives(
+                        start_block_pattern,
+                        end_block_pattern
+                    ) {
+                        ;(start_block_pattern =
+                            'string' == typeof start_block_pattern
+                                ? start_block_pattern
+                                : start_block_pattern.source),
+                            (end_block_pattern =
+                                'string' == typeof end_block_pattern
+                                    ? end_block_pattern
+                                    : end_block_pattern.source),
+                            (this.__directives_block_pattern = new RegExp(
+                                start_block_pattern +
+                                    / beautify( \w+[:]\w+)+ /.source +
+                                    end_block_pattern,
+                                'g'
+                            )),
+                            (this.__directive_pattern = / (\w+)[:](\w+)/g),
+                            (this.__directives_end_ignore_pattern = new RegExp(
+                                start_block_pattern +
+                                    /\sbeautify\signore:end\s/.source +
+                                    end_block_pattern,
+                                'g'
+                            ))
+                    }
+                    ;(Directives.prototype.get_directives = function(text) {
+                        if (!text.match(this.__directives_block_pattern))
+                            return null
+                        var directives = {}
+                        this.__directive_pattern.lastIndex = 0
+                        for (
+                            var directive_match = this.__directive_pattern.exec(
+                                text
+                            );
+                            directive_match;
+
+                        )
+                            (directives[directive_match[1]] =
+                                directive_match[2]),
+                                (directive_match = this.__directive_pattern.exec(
+                                    text
+                                ))
+                        return directives
+                    }),
+                        (Directives.prototype.readIgnored = function(input) {
+                            return input.readUntilAfter(
+                                this.__directives_end_ignore_pattern
+                            )
+                        }),
+                        (module.exports.Directives = Directives)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var Pattern = __webpack_require__(12).Pattern,
+                        template_names = {
+                            django: !1,
+                            erb: !1,
+                            handlebars: !1,
+                            php: !1,
+                        }
+                    function TemplatablePattern(input_scanner, parent) {
+                        Pattern.call(this, input_scanner, parent),
+                            (this.__template_pattern = null),
+                            (this._disabled = Object.assign(
+                                {},
+                                template_names
+                            )),
+                            (this._excluded = Object.assign(
+                                {},
+                                template_names
+                            )),
+                            parent &&
+                                ((this.__template_pattern = this._input.get_regexp(
+                                    parent.__template_pattern
+                                )),
+                                (this._excluded = Object.assign(
+                                    this._excluded,
+                                    parent._excluded
+                                )),
+                                (this._disabled = Object.assign(
+                                    this._disabled,
+                                    parent._disabled
+                                )))
+                        var pattern = new Pattern(input_scanner)
+                        this.__patterns = {
+                            handlebars_comment: pattern
+                                .starting_with(/{{!--/)
+                                .until_after(/--}}/),
+                            handlebars: pattern
+                                .starting_with(/{{/)
+                                .until_after(/}}/),
+                            php: pattern
+                                .starting_with(/<\?(?:[=]|php)/)
+                                .until_after(/\?>/),
+                            erb: pattern
+                                .starting_with(/<%[^%]/)
+                                .until_after(/[^%]%>/),
+                            django: pattern
+                                .starting_with(/{%/)
+                                .until_after(/%}/),
+                            django_value: pattern
+                                .starting_with(/{{/)
+                                .until_after(/}}/),
+                            django_comment: pattern
+                                .starting_with(/{#/)
+                                .until_after(/#}/),
+                        }
+                    }
+                    ;(TemplatablePattern.prototype = new Pattern()),
+                        (TemplatablePattern.prototype._create = function() {
+                            return new TemplatablePattern(this._input, this)
+                        }),
+                        (TemplatablePattern.prototype._update = function() {
+                            this.__set_templated_pattern()
+                        }),
+                        (TemplatablePattern.prototype.disable = function(
+                            language
+                        ) {
+                            var result = this._create()
+                            return (
+                                (result._disabled[language] = !0),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (TemplatablePattern.prototype.exclude = function(
+                            language
+                        ) {
+                            var result = this._create()
+                            return (
+                                (result._excluded[language] = !0),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (TemplatablePattern.prototype.read = function() {
+                            var result = ''
+                            result = this._match_pattern
+                                ? this._input.read(this._starting_pattern)
+                                : this._input.read(
+                                      this._starting_pattern,
+                                      this.__template_pattern
+                                  )
+                            for (var next = this._read_template(); next; )
+                                this._match_pattern
+                                    ? (next += this._input.read(
+                                          this._match_pattern
+                                      ))
+                                    : (next += this._input.readUntil(
+                                          this.__template_pattern
+                                      )),
+                                    (result += next),
+                                    (next = this._read_template())
+                            return (
+                                this._until_after &&
+                                    (result += this._input.readUntilAfter(
+                                        this._until_pattern
+                                    )),
+                                result
+                            )
+                        }),
+                        (TemplatablePattern.prototype.__set_templated_pattern = function() {
+                            var items = []
+                            this._disabled.php ||
+                                items.push(
+                                    this.__patterns.php._starting_pattern.source
+                                ),
+                                this._disabled.handlebars ||
+                                    items.push(
+                                        this.__patterns.handlebars
+                                            ._starting_pattern.source
+                                    ),
+                                this._disabled.erb ||
+                                    items.push(
+                                        this.__patterns.erb._starting_pattern
+                                            .source
+                                    ),
+                                this._disabled.django ||
+                                    (items.push(
+                                        this.__patterns.django._starting_pattern
+                                            .source
+                                    ),
+                                    items.push(
+                                        this.__patterns.django_value
+                                            ._starting_pattern.source
+                                    ),
+                                    items.push(
+                                        this.__patterns.django_comment
+                                            ._starting_pattern.source
+                                    )),
+                                this._until_pattern &&
+                                    items.push(this._until_pattern.source),
+                                (this.__template_pattern = this._input.get_regexp(
+                                    '(?:' + items.join('|') + ')'
+                                ))
+                        }),
+                        (TemplatablePattern.prototype._read_template = function() {
+                            var resulting_string = '',
+                                c = this._input.peek()
+                            if ('<' === c) {
+                                var peek1 = this._input.peek(1)
+                                this._disabled.php ||
+                                    this._excluded.php ||
+                                    '?' !== peek1 ||
+                                    (resulting_string =
+                                        resulting_string ||
+                                        this.__patterns.php.read()),
+                                    this._disabled.erb ||
+                                        this._excluded.erb ||
+                                        '%' !== peek1 ||
+                                        (resulting_string =
+                                            resulting_string ||
+                                            this.__patterns.erb.read())
+                            } else
+                                '{' === c &&
+                                    (this._disabled.handlebars ||
+                                        this._excluded.handlebars ||
+                                        (resulting_string =
+                                            (resulting_string =
+                                                resulting_string ||
+                                                this.__patterns.handlebars_comment.read()) ||
+                                            this.__patterns.handlebars.read()),
+                                    this._disabled.django ||
+                                        (this._excluded.django ||
+                                            this._excluded.handlebars ||
+                                            (resulting_string =
+                                                resulting_string ||
+                                                this.__patterns.django_value.read()),
+                                        this._excluded.django ||
+                                            (resulting_string =
+                                                (resulting_string =
+                                                    resulting_string ||
+                                                    this.__patterns.django_comment.read()) ||
+                                                this.__patterns.django.read())))
+                            return resulting_string
+                        }),
+                        (module.exports.TemplatablePattern = TemplatablePattern)
+                },
+            ])),
+                void 0 ===
+                    (__WEBPACK_AMD_DEFINE_RESULT__ = function() {
+                        return { js_beautify: js_beautify }
+                    }.apply(exports, [])) ||
+                    (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)
+        },
+        function(module, exports, __webpack_require__) {
+            var __WEBPACK_AMD_DEFINE_RESULT__, css_beautify
+            ;(css_beautify = (function(modules) {
+                var installedModules = {}
+                function __webpack_require__(moduleId) {
+                    if (installedModules[moduleId])
+                        return installedModules[moduleId].exports
+                    var module = (installedModules[moduleId] = {
+                        i: moduleId,
+                        l: !1,
+                        exports: {},
+                    })
+                    return (
+                        modules[moduleId].call(
+                            module.exports,
+                            module,
+                            module.exports,
+                            __webpack_require__
+                        ),
+                        (module.l = !0),
+                        module.exports
+                    )
+                }
+                return (
+                    (__webpack_require__.m = modules),
+                    (__webpack_require__.c = installedModules),
+                    (__webpack_require__.d = function(exports, name, getter) {
+                        __webpack_require__.o(exports, name) ||
+                            Object.defineProperty(exports, name, {
+                                enumerable: !0,
+                                get: getter,
+                            })
+                    }),
+                    (__webpack_require__.r = function(exports) {
+                        'undefined' != typeof Symbol &&
+                            Symbol.toStringTag &&
+                            Object.defineProperty(exports, Symbol.toStringTag, {
+                                value: 'Module',
+                            }),
+                            Object.defineProperty(exports, '__esModule', {
+                                value: !0,
+                            })
+                    }),
+                    (__webpack_require__.t = function(value, mode) {
+                        if (
+                            (1 & mode && (value = __webpack_require__(value)),
+                            8 & mode)
+                        )
+                            return value
+                        if (
+                            4 & mode &&
+                            'object' == typeof value &&
+                            value &&
+                            value.__esModule
+                        )
+                            return value
+                        var ns = Object.create(null)
+                        if (
+                            (__webpack_require__.r(ns),
+                            Object.defineProperty(ns, 'default', {
+                                enumerable: !0,
+                                value: value,
+                            }),
+                            2 & mode && 'string' != typeof value)
+                        )
+                            for (var key in value)
+                                __webpack_require__.d(
+                                    ns,
+                                    key,
+                                    function(key) {
+                                        return value[key]
+                                    }.bind(null, key)
+                                )
+                        return ns
+                    }),
+                    (__webpack_require__.n = function(module) {
+                        var getter =
+                            module && module.__esModule
+                                ? function getDefault() {
+                                      return module.default
+                                  }
+                                : function getModuleExports() {
+                                      return module
+                                  }
+                        return (
+                            __webpack_require__.d(getter, 'a', getter), getter
+                        )
+                    }),
+                    (__webpack_require__.o = function(object, property) {
+                        return Object.prototype.hasOwnProperty.call(
+                            object,
+                            property
+                        )
+                    }),
+                    (__webpack_require__.p = ''),
+                    __webpack_require__((__webpack_require__.s = 15))
+                )
+            })([
+                ,
+                ,
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function OutputLine(parent) {
+                        ;(this.__parent = parent),
+                            (this.__character_count = 0),
+                            (this.__indent_count = -1),
+                            (this.__alignment_count = 0),
+                            (this.__wrap_point_index = 0),
+                            (this.__wrap_point_character_count = 0),
+                            (this.__wrap_point_indent_count = -1),
+                            (this.__wrap_point_alignment_count = 0),
+                            (this.__items = [])
+                    }
+                    function IndentStringCache(options, baseIndentString) {
+                        ;(this.__cache = ['']),
+                            (this.__indent_size = options.indent_size),
+                            (this.__indent_string = options.indent_char),
+                            options.indent_with_tabs ||
+                                (this.__indent_string = new Array(
+                                    options.indent_size + 1
+                                ).join(options.indent_char)),
+                            (baseIndentString = baseIndentString || ''),
+                            options.indent_level > 0 &&
+                                (baseIndentString = new Array(
+                                    options.indent_level + 1
+                                ).join(this.__indent_string)),
+                            (this.__base_string = baseIndentString),
+                            (this.__base_string_length =
+                                baseIndentString.length)
+                    }
+                    function Output(options, baseIndentString) {
+                        ;(this.__indent_cache = new IndentStringCache(
+                            options,
+                            baseIndentString
+                        )),
+                            (this.raw = !1),
+                            (this._end_with_newline = options.end_with_newline),
+                            (this.indent_size = options.indent_size),
+                            (this.wrap_line_length = options.wrap_line_length),
+                            (this.__lines = []),
+                            (this.previous_line = null),
+                            (this.current_line = null),
+                            (this.next_line = new OutputLine(this)),
+                            (this.space_before_token = !1),
+                            (this.non_breaking_space = !1),
+                            (this.previous_token_wrapped = !1),
+                            this.__add_outputline()
+                    }
+                    ;(OutputLine.prototype.clone_empty = function() {
+                        var line = new OutputLine(this.__parent)
+                        return (
+                            line.set_indent(
+                                this.__indent_count,
+                                this.__alignment_count
+                            ),
+                            line
+                        )
+                    }),
+                        (OutputLine.prototype.item = function(index) {
+                            return index < 0
+                                ? this.__items[this.__items.length + index]
+                                : this.__items[index]
+                        }),
+                        (OutputLine.prototype.has_match = function(pattern) {
+                            for (
+                                var lastCheckedOutput = this.__items.length - 1;
+                                lastCheckedOutput >= 0;
+                                lastCheckedOutput--
+                            )
+                                if (
+                                    this.__items[lastCheckedOutput].match(
+                                        pattern
+                                    )
+                                )
+                                    return !0
+                            return !1
+                        }),
+                        (OutputLine.prototype.set_indent = function(
+                            indent,
+                            alignment
+                        ) {
+                            this.is_empty() &&
+                                ((this.__indent_count = indent || 0),
+                                (this.__alignment_count = alignment || 0),
+                                (this.__character_count = this.__parent.get_indent_size(
+                                    this.__indent_count,
+                                    this.__alignment_count
+                                )))
+                        }),
+                        (OutputLine.prototype._set_wrap_point = function() {
+                            this.__parent.wrap_line_length &&
+                                ((this.__wrap_point_index = this.__items.length),
+                                (this.__wrap_point_character_count = this.__character_count),
+                                (this.__wrap_point_indent_count = this.__parent.next_line.__indent_count),
+                                (this.__wrap_point_alignment_count = this.__parent.next_line.__alignment_count))
+                        }),
+                        (OutputLine.prototype._should_wrap = function() {
+                            return (
+                                this.__wrap_point_index &&
+                                this.__character_count >
+                                    this.__parent.wrap_line_length &&
+                                this.__wrap_point_character_count >
+                                    this.__parent.next_line.__character_count
+                            )
+                        }),
+                        (OutputLine.prototype._allow_wrap = function() {
+                            if (this._should_wrap()) {
+                                this.__parent.add_new_line()
+                                var next = this.__parent.current_line
+                                return (
+                                    next.set_indent(
+                                        this.__wrap_point_indent_count,
+                                        this.__wrap_point_alignment_count
+                                    ),
+                                    (next.__items = this.__items.slice(
+                                        this.__wrap_point_index
+                                    )),
+                                    (this.__items = this.__items.slice(
+                                        0,
+                                        this.__wrap_point_index
+                                    )),
+                                    (next.__character_count +=
+                                        this.__character_count -
+                                        this.__wrap_point_character_count),
+                                    (this.__character_count = this.__wrap_point_character_count),
+                                    ' ' === next.__items[0] &&
+                                        (next.__items.splice(0, 1),
+                                        (next.__character_count -= 1)),
+                                    !0
+                                )
+                            }
+                            return !1
+                        }),
+                        (OutputLine.prototype.is_empty = function() {
+                            return 0 === this.__items.length
+                        }),
+                        (OutputLine.prototype.last = function() {
+                            return this.is_empty()
+                                ? null
+                                : this.__items[this.__items.length - 1]
+                        }),
+                        (OutputLine.prototype.push = function(item) {
+                            this.__items.push(item)
+                            var last_newline_index = item.lastIndexOf('\n')
+                            ;-1 !== last_newline_index
+                                ? (this.__character_count =
+                                      item.length - last_newline_index)
+                                : (this.__character_count += item.length)
+                        }),
+                        (OutputLine.prototype.pop = function() {
+                            var item = null
+                            return (
+                                this.is_empty() ||
+                                    ((item = this.__items.pop()),
+                                    (this.__character_count -= item.length)),
+                                item
+                            )
+                        }),
+                        (OutputLine.prototype._remove_indent = function() {
+                            this.__indent_count > 0 &&
+                                ((this.__indent_count -= 1),
+                                (this.__character_count -= this.__parent.indent_size))
+                        }),
+                        (OutputLine.prototype._remove_wrap_indent = function() {
+                            this.__wrap_point_indent_count > 0 &&
+                                (this.__wrap_point_indent_count -= 1)
+                        }),
+                        (OutputLine.prototype.trim = function() {
+                            for (; ' ' === this.last(); )
+                                this.__items.pop(),
+                                    (this.__character_count -= 1)
+                        }),
+                        (OutputLine.prototype.toString = function() {
+                            var result = ''
+                            return (
+                                this.is_empty() ||
+                                    ((result = this.__parent.get_indent_string(
+                                        this.__indent_count,
+                                        this.__alignment_count
+                                    )),
+                                    (result += this.__items.join(''))),
+                                result
+                            )
+                        }),
+                        (IndentStringCache.prototype.get_indent_size = function(
+                            indent,
+                            column
+                        ) {
+                            var result = this.__base_string_length
+                            return (
+                                (column = column || 0),
+                                indent < 0 && (result = 0),
+                                (result += indent * this.__indent_size),
+                                (result += column)
+                            )
+                        }),
+                        (IndentStringCache.prototype.get_indent_string = function(
+                            indent_level,
+                            column
+                        ) {
+                            var result = this.__base_string
+                            return (
+                                (column = column || 0),
+                                indent_level < 0 &&
+                                    ((indent_level = 0), (result = '')),
+                                (column += indent_level * this.__indent_size),
+                                this.__ensure_cache(column),
+                                (result += this.__cache[column])
+                            )
+                        }),
+                        (IndentStringCache.prototype.__ensure_cache = function(
+                            column
+                        ) {
+                            for (; column >= this.__cache.length; )
+                                this.__add_column()
+                        }),
+                        (IndentStringCache.prototype.__add_column = function() {
+                            var column = this.__cache.length,
+                                indent = 0,
+                                result = ''
+                            this.__indent_size &&
+                                column >= this.__indent_size &&
+                                ((column -=
+                                    (indent = Math.floor(
+                                        column / this.__indent_size
+                                    )) * this.__indent_size),
+                                (result = new Array(indent + 1).join(
+                                    this.__indent_string
+                                ))),
+                                column &&
+                                    (result += new Array(column + 1).join(' ')),
+                                this.__cache.push(result)
+                        }),
+                        (Output.prototype.__add_outputline = function() {
+                            ;(this.previous_line = this.current_line),
+                                (this.current_line = this.next_line.clone_empty()),
+                                this.__lines.push(this.current_line)
+                        }),
+                        (Output.prototype.get_line_number = function() {
+                            return this.__lines.length
+                        }),
+                        (Output.prototype.get_indent_string = function(
+                            indent,
+                            column
+                        ) {
+                            return this.__indent_cache.get_indent_string(
+                                indent,
+                                column
+                            )
+                        }),
+                        (Output.prototype.get_indent_size = function(
+                            indent,
+                            column
+                        ) {
+                            return this.__indent_cache.get_indent_size(
+                                indent,
+                                column
+                            )
+                        }),
+                        (Output.prototype.is_empty = function() {
+                            return (
+                                !this.previous_line &&
+                                this.current_line.is_empty()
+                            )
+                        }),
+                        (Output.prototype.add_new_line = function(
+                            force_newline
+                        ) {
+                            return (
+                                !(
+                                    this.is_empty() ||
+                                    (!force_newline &&
+                                        this.just_added_newline())
+                                ) && (this.raw || this.__add_outputline(), !0)
+                            )
+                        }),
+                        (Output.prototype.get_code = function(eol) {
+                            this.trim(!0)
+                            var last_item = this.current_line.pop()
+                            last_item &&
+                                ('\n' === last_item[last_item.length - 1] &&
+                                    (last_item = last_item.replace(
+                                        /\n+$/g,
+                                        ''
+                                    )),
+                                this.current_line.push(last_item)),
+                                this._end_with_newline &&
+                                    this.__add_outputline()
+                            var sweet_code = this.__lines.join('\n')
+                            return (
+                                '\n' !== eol &&
+                                    (sweet_code = sweet_code.replace(
+                                        /[\n]/g,
+                                        eol
+                                    )),
+                                sweet_code
+                            )
+                        }),
+                        (Output.prototype.set_wrap_point = function() {
+                            this.current_line._set_wrap_point()
+                        }),
+                        (Output.prototype.set_indent = function(
+                            indent,
+                            alignment
+                        ) {
+                            return (
+                                (indent = indent || 0),
+                                (alignment = alignment || 0),
+                                this.next_line.set_indent(indent, alignment),
+                                this.__lines.length > 1
+                                    ? (this.current_line.set_indent(
+                                          indent,
+                                          alignment
+                                      ),
+                                      !0)
+                                    : (this.current_line.set_indent(), !1)
+                            )
+                        }),
+                        (Output.prototype.add_raw_token = function(token) {
+                            for (var x = 0; x < token.newlines; x++)
+                                this.__add_outputline()
+                            this.current_line.set_indent(-1),
+                                this.current_line.push(token.whitespace_before),
+                                this.current_line.push(token.text),
+                                (this.space_before_token = !1),
+                                (this.non_breaking_space = !1),
+                                (this.previous_token_wrapped = !1)
+                        }),
+                        (Output.prototype.add_token = function(
+                            printable_token
+                        ) {
+                            this.__add_space_before_token(),
+                                this.current_line.push(printable_token),
+                                (this.space_before_token = !1),
+                                (this.non_breaking_space = !1),
+                                (this.previous_token_wrapped = this.current_line._allow_wrap())
+                        }),
+                        (Output.prototype.__add_space_before_token = function() {
+                            this.space_before_token &&
+                                !this.just_added_newline() &&
+                                (this.non_breaking_space ||
+                                    this.set_wrap_point(),
+                                this.current_line.push(' '))
+                        }),
+                        (Output.prototype.remove_indent = function(index) {
+                            for (
+                                var output_length = this.__lines.length;
+                                index < output_length;
+
+                            )
+                                this.__lines[index]._remove_indent(), index++
+                            this.current_line._remove_wrap_indent()
+                        }),
+                        (Output.prototype.trim = function(eat_newlines) {
+                            for (
+                                eat_newlines =
+                                    void 0 !== eat_newlines && eat_newlines,
+                                    this.current_line.trim();
+                                eat_newlines &&
+                                this.__lines.length > 1 &&
+                                this.current_line.is_empty();
+
+                            )
+                                this.__lines.pop(),
+                                    (this.current_line = this.__lines[
+                                        this.__lines.length - 1
+                                    ]),
+                                    this.current_line.trim()
+                            this.previous_line =
+                                this.__lines.length > 1
+                                    ? this.__lines[this.__lines.length - 2]
+                                    : null
+                        }),
+                        (Output.prototype.just_added_newline = function() {
+                            return this.current_line.is_empty()
+                        }),
+                        (Output.prototype.just_added_blankline = function() {
+                            return (
+                                this.is_empty() ||
+                                (this.current_line.is_empty() &&
+                                    this.previous_line.is_empty())
+                            )
+                        }),
+                        (Output.prototype.ensure_empty_line_above = function(
+                            starts_with,
+                            ends_with
+                        ) {
+                            for (
+                                var index = this.__lines.length - 2;
+                                index >= 0;
+
+                            ) {
+                                var potentialEmptyLine = this.__lines[index]
+                                if (potentialEmptyLine.is_empty()) break
+                                if (
+                                    0 !==
+                                        potentialEmptyLine
+                                            .item(0)
+                                            .indexOf(starts_with) &&
+                                    potentialEmptyLine.item(-1) !== ends_with
+                                ) {
+                                    this.__lines.splice(
+                                        index + 1,
+                                        0,
+                                        new OutputLine(this)
+                                    ),
+                                        (this.previous_line = this.__lines[
+                                            this.__lines.length - 2
+                                        ])
+                                    break
+                                }
+                                index--
+                            }
+                        }),
+                        (module.exports.Output = Output)
+                },
+                ,
+                ,
+                ,
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function Options(options, merge_child_field) {
+                        ;(this.raw_options = _mergeOpts(
+                            options,
+                            merge_child_field
+                        )),
+                            (this.disabled = this._get_boolean('disabled')),
+                            (this.eol = this._get_characters('eol', 'auto')),
+                            (this.end_with_newline = this._get_boolean(
+                                'end_with_newline'
+                            )),
+                            (this.indent_size = this._get_number(
+                                'indent_size',
+                                4
+                            )),
+                            (this.indent_char = this._get_characters(
+                                'indent_char',
+                                ' '
+                            )),
+                            (this.indent_level = this._get_number(
+                                'indent_level'
+                            )),
+                            (this.preserve_newlines = this._get_boolean(
+                                'preserve_newlines',
+                                !0
+                            )),
+                            (this.max_preserve_newlines = this._get_number(
+                                'max_preserve_newlines',
+                                32786
+                            )),
+                            this.preserve_newlines ||
+                                (this.max_preserve_newlines = 0),
+                            (this.indent_with_tabs = this._get_boolean(
+                                'indent_with_tabs',
+                                '\t' === this.indent_char
+                            )),
+                            this.indent_with_tabs &&
+                                ((this.indent_char = '\t'),
+                                1 === this.indent_size &&
+                                    (this.indent_size = 4)),
+                            (this.wrap_line_length = this._get_number(
+                                'wrap_line_length',
+                                this._get_number('max_char')
+                            ))
+                    }
+                    function _mergeOpts(allOptions, childFieldName) {
+                        var name,
+                            finalOpts = {}
+                        for (name in (allOptions = _normalizeOpts(allOptions)))
+                            name !== childFieldName &&
+                                (finalOpts[name] = allOptions[name])
+                        if (childFieldName && allOptions[childFieldName])
+                            for (name in allOptions[childFieldName])
+                                finalOpts[name] =
+                                    allOptions[childFieldName][name]
+                        return finalOpts
+                    }
+                    function _normalizeOpts(options) {
+                        var key,
+                            convertedOpts = {}
+                        for (key in options) {
+                            convertedOpts[key.replace(/-/g, '_')] = options[key]
+                        }
+                        return convertedOpts
+                    }
+                    ;(Options.prototype._get_array = function(
+                        name,
+                        default_value
+                    ) {
+                        var option_value = this.raw_options[name],
+                            result = default_value || []
+                        return (
+                            'object' == typeof option_value
+                                ? null !== option_value &&
+                                  'function' == typeof option_value.concat &&
+                                  (result = option_value.concat())
+                                : 'string' == typeof option_value &&
+                                  (result = option_value.split(
+                                      /[^a-zA-Z0-9_\/\-]+/
+                                  )),
+                            result
+                        )
+                    }),
+                        (Options.prototype._get_boolean = function(
+                            name,
+                            default_value
+                        ) {
+                            var option_value = this.raw_options[name]
+                            return void 0 === option_value
+                                ? !!default_value
+                                : !!option_value
+                        }),
+                        (Options.prototype._get_characters = function(
+                            name,
+                            default_value
+                        ) {
+                            var option_value = this.raw_options[name],
+                                result = default_value || ''
+                            return (
+                                'string' == typeof option_value &&
+                                    (result = option_value
+                                        .replace(/\\r/, '\r')
+                                        .replace(/\\n/, '\n')
+                                        .replace(/\\t/, '\t')),
+                                result
+                            )
+                        }),
+                        (Options.prototype._get_number = function(
+                            name,
+                            default_value
+                        ) {
+                            var option_value = this.raw_options[name]
+                            ;(default_value = parseInt(default_value, 10)),
+                                isNaN(default_value) && (default_value = 0)
+                            var result = parseInt(option_value, 10)
+                            return (
+                                isNaN(result) && (result = default_value),
+                                result
+                            )
+                        }),
+                        (Options.prototype._get_selection = function(
+                            name,
+                            selection_list,
+                            default_value
+                        ) {
+                            var result = this._get_selection_list(
+                                name,
+                                selection_list,
+                                default_value
+                            )
+                            if (1 !== result.length)
+                                throw new Error(
+                                    "Invalid Option Value: The option '" +
+                                        name +
+                                        "' can only be one of the following values:\n" +
+                                        selection_list +
+                                        "\nYou passed in: '" +
+                                        this.raw_options[name] +
+                                        "'"
+                                )
+                            return result[0]
+                        }),
+                        (Options.prototype._get_selection_list = function(
+                            name,
+                            selection_list,
+                            default_value
+                        ) {
+                            if (!selection_list || 0 === selection_list.length)
+                                throw new Error(
+                                    'Selection list cannot be empty.'
+                                )
+                            if (
+                                ((default_value = default_value || [
+                                    selection_list[0],
+                                ]),
+                                !this._is_valid_selection(
+                                    default_value,
+                                    selection_list
+                                ))
+                            )
+                                throw new Error('Invalid Default Value!')
+                            var result = this._get_array(name, default_value)
+                            if (
+                                !this._is_valid_selection(
+                                    result,
+                                    selection_list
+                                )
+                            )
+                                throw new Error(
+                                    "Invalid Option Value: The option '" +
+                                        name +
+                                        "' can contain only the following values:\n" +
+                                        selection_list +
+                                        "\nYou passed in: '" +
+                                        this.raw_options[name] +
+                                        "'"
+                                )
+                            return result
+                        }),
+                        (Options.prototype._is_valid_selection = function(
+                            result,
+                            selection_list
+                        ) {
+                            return (
+                                result.length &&
+                                selection_list.length &&
+                                !result.some(function(item) {
+                                    return -1 === selection_list.indexOf(item)
+                                })
+                            )
+                        }),
+                        (module.exports.Options = Options),
+                        (module.exports.normalizeOpts = _normalizeOpts),
+                        (module.exports.mergeOpts = _mergeOpts)
+                },
+                ,
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var regexp_has_sticky = RegExp.prototype.hasOwnProperty(
+                        'sticky'
+                    )
+                    function InputScanner(input_string) {
+                        ;(this.__input = input_string || ''),
+                            (this.__input_length = this.__input.length),
+                            (this.__position = 0)
+                    }
+                    ;(InputScanner.prototype.restart = function() {
+                        this.__position = 0
+                    }),
+                        (InputScanner.prototype.back = function() {
+                            this.__position > 0 && (this.__position -= 1)
+                        }),
+                        (InputScanner.prototype.hasNext = function() {
+                            return this.__position < this.__input_length
+                        }),
+                        (InputScanner.prototype.next = function() {
+                            var val = null
+                            return (
+                                this.hasNext() &&
+                                    ((val = this.__input.charAt(
+                                        this.__position
+                                    )),
+                                    (this.__position += 1)),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.peek = function(index) {
+                            var val = null
+                            return (
+                                (index = index || 0),
+                                (index += this.__position) >= 0 &&
+                                    index < this.__input_length &&
+                                    (val = this.__input.charAt(index)),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.__match = function(
+                            pattern,
+                            index
+                        ) {
+                            pattern.lastIndex = index
+                            var pattern_match = pattern.exec(this.__input)
+                            return (
+                                !pattern_match ||
+                                    (regexp_has_sticky && pattern.sticky) ||
+                                    (pattern_match.index !== index &&
+                                        (pattern_match = null)),
+                                pattern_match
+                            )
+                        }),
+                        (InputScanner.prototype.test = function(
+                            pattern,
+                            index
+                        ) {
+                            return (
+                                (index = index || 0),
+                                (index += this.__position) >= 0 &&
+                                    index < this.__input_length &&
+                                    !!this.__match(pattern, index)
+                            )
+                        }),
+                        (InputScanner.prototype.testChar = function(
+                            pattern,
+                            index
+                        ) {
+                            var val = this.peek(index)
+                            return (
+                                (pattern.lastIndex = 0),
+                                null !== val && pattern.test(val)
+                            )
+                        }),
+                        (InputScanner.prototype.match = function(pattern) {
+                            var pattern_match = this.__match(
+                                pattern,
+                                this.__position
+                            )
+                            return (
+                                pattern_match
+                                    ? (this.__position +=
+                                          pattern_match[0].length)
+                                    : (pattern_match = null),
+                                pattern_match
+                            )
+                        }),
+                        (InputScanner.prototype.read = function(
+                            starting_pattern,
+                            until_pattern,
+                            until_after
+                        ) {
+                            var match,
+                                val = ''
+                            return (
+                                starting_pattern &&
+                                    (match = this.match(starting_pattern)) &&
+                                    (val += match[0]),
+                                !until_pattern ||
+                                    (!match && starting_pattern) ||
+                                    (val += this.readUntil(
+                                        until_pattern,
+                                        until_after
+                                    )),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.readUntil = function(
+                            pattern,
+                            until_after
+                        ) {
+                            var val,
+                                match_index = this.__position
+                            pattern.lastIndex = this.__position
+                            var pattern_match = pattern.exec(this.__input)
+                            return (
+                                pattern_match
+                                    ? ((match_index = pattern_match.index),
+                                      until_after &&
+                                          (match_index +=
+                                              pattern_match[0].length))
+                                    : (match_index = this.__input_length),
+                                (val = this.__input.substring(
+                                    this.__position,
+                                    match_index
+                                )),
+                                (this.__position = match_index),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.readUntilAfter = function(
+                            pattern
+                        ) {
+                            return this.readUntil(pattern, !0)
+                        }),
+                        (InputScanner.prototype.get_regexp = function(
+                            pattern,
+                            match_from
+                        ) {
+                            var result = null,
+                                flags = 'g'
+                            return (
+                                match_from &&
+                                    regexp_has_sticky &&
+                                    (flags = 'y'),
+                                'string' == typeof pattern && '' !== pattern
+                                    ? (result = new RegExp(pattern, flags))
+                                    : pattern &&
+                                      (result = new RegExp(
+                                          pattern.source,
+                                          flags
+                                      )),
+                                result
+                            )
+                        }),
+                        (InputScanner.prototype.get_literal_regexp = function(
+                            literal_string
+                        ) {
+                            return RegExp(
+                                literal_string.replace(
+                                    /[-\/\\^$*+?.()|[\]{}]/g,
+                                    '\\$&'
+                                )
+                            )
+                        }),
+                        (InputScanner.prototype.peekUntilAfter = function(
+                            pattern
+                        ) {
+                            var start = this.__position,
+                                val = this.readUntilAfter(pattern)
+                            return (this.__position = start), val
+                        }),
+                        (InputScanner.prototype.lookBack = function(testVal) {
+                            var start = this.__position - 1
+                            return (
+                                start >= testVal.length &&
+                                this.__input
+                                    .substring(start - testVal.length, start)
+                                    .toLowerCase() === testVal
+                            )
+                        }),
+                        (module.exports.InputScanner = InputScanner)
+                },
+                ,
+                ,
+                ,
+                ,
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function Directives(
+                        start_block_pattern,
+                        end_block_pattern
+                    ) {
+                        ;(start_block_pattern =
+                            'string' == typeof start_block_pattern
+                                ? start_block_pattern
+                                : start_block_pattern.source),
+                            (end_block_pattern =
+                                'string' == typeof end_block_pattern
+                                    ? end_block_pattern
+                                    : end_block_pattern.source),
+                            (this.__directives_block_pattern = new RegExp(
+                                start_block_pattern +
+                                    / beautify( \w+[:]\w+)+ /.source +
+                                    end_block_pattern,
+                                'g'
+                            )),
+                            (this.__directive_pattern = / (\w+)[:](\w+)/g),
+                            (this.__directives_end_ignore_pattern = new RegExp(
+                                start_block_pattern +
+                                    /\sbeautify\signore:end\s/.source +
+                                    end_block_pattern,
+                                'g'
+                            ))
+                    }
+                    ;(Directives.prototype.get_directives = function(text) {
+                        if (!text.match(this.__directives_block_pattern))
+                            return null
+                        var directives = {}
+                        this.__directive_pattern.lastIndex = 0
+                        for (
+                            var directive_match = this.__directive_pattern.exec(
+                                text
+                            );
+                            directive_match;
+
+                        )
+                            (directives[directive_match[1]] =
+                                directive_match[2]),
+                                (directive_match = this.__directive_pattern.exec(
+                                    text
+                                ))
+                        return directives
+                    }),
+                        (Directives.prototype.readIgnored = function(input) {
+                            return input.readUntilAfter(
+                                this.__directives_end_ignore_pattern
+                            )
+                        }),
+                        (module.exports.Directives = Directives)
+                },
+                ,
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var Beautifier = __webpack_require__(16).Beautifier,
+                        Options = __webpack_require__(17).Options
+                    ;(module.exports = function css_beautify(
+                        source_text,
+                        options
+                    ) {
+                        return new Beautifier(source_text, options).beautify()
+                    }),
+                        (module.exports.defaultOptions = function() {
+                            return new Options()
+                        })
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var Options = __webpack_require__(17).Options,
+                        Output = __webpack_require__(2).Output,
+                        InputScanner = __webpack_require__(8).InputScanner,
+                        directives_core = new (0,
+                        __webpack_require__(13).Directives)(/\/\*/, /\*\//),
+                        lineBreak = /\r\n|[\r\n]/,
+                        allLineBreaks = /\r\n|[\r\n]/g,
+                        whitespaceChar = /\s/,
+                        whitespacePattern = /(?:\s|\n)+/g,
+                        block_comment_pattern = /\/\*(?:[\s\S]*?)((?:\*\/)|$)/g,
+                        comment_pattern = /\/\/(?:[^\n\r\u2028\u2029]*)/g
+                    function Beautifier(source_text, options) {
+                        ;(this._source_text = source_text || ''),
+                            (this._options = new Options(options)),
+                            (this._ch = null),
+                            (this._input = null),
+                            (this.NESTED_AT_RULE = {
+                                '@page': !0,
+                                '@font-face': !0,
+                                '@keyframes': !0,
+                                '@media': !0,
+                                '@supports': !0,
+                                '@document': !0,
+                            }),
+                            (this.CONDITIONAL_GROUP_RULE = {
+                                '@media': !0,
+                                '@supports': !0,
+                                '@document': !0,
+                            })
+                    }
+                    ;(Beautifier.prototype.eatString = function(endChars) {
+                        var result = ''
+                        for (this._ch = this._input.next(); this._ch; ) {
+                            if (((result += this._ch), '\\' === this._ch))
+                                result += this._input.next()
+                            else if (
+                                -1 !== endChars.indexOf(this._ch) ||
+                                '\n' === this._ch
+                            )
+                                break
+                            this._ch = this._input.next()
+                        }
+                        return result
+                    }),
+                        (Beautifier.prototype.eatWhitespace = function(
+                            allowAtLeastOneNewLine
+                        ) {
+                            for (
+                                var result = whitespaceChar.test(
+                                        this._input.peek()
+                                    ),
+                                    isFirstNewLine = !0;
+                                whitespaceChar.test(this._input.peek());
+
+                            )
+                                (this._ch = this._input.next()),
+                                    allowAtLeastOneNewLine &&
+                                        '\n' === this._ch &&
+                                        (this._options.preserve_newlines ||
+                                            isFirstNewLine) &&
+                                        ((isFirstNewLine = !1),
+                                        this._output.add_new_line(!0))
+                            return result
+                        }),
+                        (Beautifier.prototype.foundNestedPseudoClass = function() {
+                            for (
+                                var openParen = 0,
+                                    i = 1,
+                                    ch = this._input.peek(i);
+                                ch;
+
+                            ) {
+                                if ('{' === ch) return !0
+                                if ('(' === ch) openParen += 1
+                                else if (')' === ch) {
+                                    if (0 === openParen) return !1
+                                    openParen -= 1
+                                } else if (';' === ch || '}' === ch) return !1
+                                i++, (ch = this._input.peek(i))
+                            }
+                            return !1
+                        }),
+                        (Beautifier.prototype.print_string = function(
+                            output_string
+                        ) {
+                            this._output.set_indent(this._indentLevel),
+                                (this._output.non_breaking_space = !0),
+                                this._output.add_token(output_string)
+                        }),
+                        (Beautifier.prototype.preserveSingleSpace = function(
+                            isAfterSpace
+                        ) {
+                            isAfterSpace &&
+                                (this._output.space_before_token = !0)
+                        }),
+                        (Beautifier.prototype.indent = function() {
+                            this._indentLevel++
+                        }),
+                        (Beautifier.prototype.outdent = function() {
+                            this._indentLevel > 0 && this._indentLevel--
+                        }),
+                        (Beautifier.prototype.beautify = function() {
+                            if (this._options.disabled) return this._source_text
+                            var source_text = this._source_text,
+                                eol = this._options.eol
+                            'auto' === eol &&
+                                ((eol = '\n'),
+                                source_text &&
+                                    lineBreak.test(source_text || '') &&
+                                    (eol = source_text.match(lineBreak)[0]))
+                            var baseIndentString = (source_text = source_text.replace(
+                                allLineBreaks,
+                                '\n'
+                            )).match(/^[\t ]*/)[0]
+                            ;(this._output = new Output(
+                                this._options,
+                                baseIndentString
+                            )),
+                                (this._input = new InputScanner(source_text)),
+                                (this._indentLevel = 0),
+                                (this._nestedLevel = 0),
+                                (this._ch = null)
+                            for (
+                                var isAfterSpace,
+                                    previous_ch,
+                                    parenLevel = 0,
+                                    insideRule = !1,
+                                    insidePropertyValue = !1,
+                                    enteringConditionalGroup = !1,
+                                    insideAtExtend = !1,
+                                    insideAtImport = !1,
+                                    topCharacter = this._ch;
+                                (isAfterSpace =
+                                    '' !== this._input.read(whitespacePattern)),
+                                    (previous_ch = topCharacter),
+                                    (this._ch = this._input.next()),
+                                    (topCharacter = this._ch),
+                                    this._ch;
+
+                            )
+                                if (
+                                    '/' === this._ch &&
+                                    '*' === this._input.peek()
+                                ) {
+                                    this._output.add_new_line(),
+                                        this._input.back()
+                                    var comment = this._input.read(
+                                            block_comment_pattern
+                                        ),
+                                        directives = directives_core.get_directives(
+                                            comment
+                                        )
+                                    directives &&
+                                        'start' === directives.ignore &&
+                                        (comment += directives_core.readIgnored(
+                                            this._input
+                                        )),
+                                        this.print_string(comment),
+                                        this.eatWhitespace(!0),
+                                        this._output.add_new_line()
+                                } else if (
+                                    '/' === this._ch &&
+                                    '/' === this._input.peek()
+                                )
+                                    (this._output.space_before_token = !0),
+                                        this._input.back(),
+                                        this.print_string(
+                                            this._input.read(comment_pattern)
+                                        ),
+                                        this.eatWhitespace(!0)
+                                else if ('@' === this._ch)
+                                    if (
+                                        (this.preserveSingleSpace(isAfterSpace),
+                                        '{' === this._input.peek())
+                                    )
+                                        this.print_string(
+                                            this._ch + this.eatString('}')
+                                        )
+                                    else {
+                                        this.print_string(this._ch)
+                                        var variableOrRule = this._input.peekUntilAfter(
+                                            /[: ,;{}()[\]\/='"]/g
+                                        )
+                                        variableOrRule.match(/[ :]$/) &&
+                                            ((variableOrRule = this.eatString(
+                                                ': '
+                                            ).replace(/\s$/, '')),
+                                            this.print_string(variableOrRule),
+                                            (this._output.space_before_token = !0)),
+                                            'extend' ===
+                                            (variableOrRule = variableOrRule.replace(
+                                                /\s$/,
+                                                ''
+                                            ))
+                                                ? (insideAtExtend = !0)
+                                                : 'import' === variableOrRule &&
+                                                  (insideAtImport = !0),
+                                            variableOrRule in
+                                            this.NESTED_AT_RULE
+                                                ? ((this._nestedLevel += 1),
+                                                  variableOrRule in
+                                                      this
+                                                          .CONDITIONAL_GROUP_RULE &&
+                                                      (enteringConditionalGroup = !0))
+                                                : insideRule ||
+                                                  0 !== parenLevel ||
+                                                  -1 ===
+                                                      variableOrRule.indexOf(
+                                                          ':'
+                                                      ) ||
+                                                  ((insidePropertyValue = !0),
+                                                  this.indent())
+                                    }
+                                else
+                                    '#' === this._ch &&
+                                    '{' === this._input.peek()
+                                        ? (this.preserveSingleSpace(
+                                              isAfterSpace
+                                          ),
+                                          this.print_string(
+                                              this._ch + this.eatString('}')
+                                          ))
+                                        : '{' === this._ch
+                                        ? (insidePropertyValue &&
+                                              ((insidePropertyValue = !1),
+                                              this.outdent()),
+                                          this.indent(),
+                                          (this._output.space_before_token = !0),
+                                          this.print_string(this._ch),
+                                          enteringConditionalGroup
+                                              ? ((enteringConditionalGroup = !1),
+                                                (insideRule =
+                                                    this._indentLevel >
+                                                    this._nestedLevel))
+                                              : (insideRule =
+                                                    this._indentLevel >=
+                                                    this._nestedLevel),
+                                          this._options.newline_between_rules &&
+                                              insideRule &&
+                                              this._output.previous_line &&
+                                              '{' !==
+                                                  this._output.previous_line.item(
+                                                      -1
+                                                  ) &&
+                                              this._output.ensure_empty_line_above(
+                                                  '/',
+                                                  ','
+                                              ),
+                                          this.eatWhitespace(!0),
+                                          this._output.add_new_line())
+                                        : '}' === this._ch
+                                        ? (this.outdent(),
+                                          this._output.add_new_line(),
+                                          '{' === previous_ch &&
+                                              this._output.trim(!0),
+                                          (insideAtImport = !1),
+                                          (insideAtExtend = !1),
+                                          insidePropertyValue &&
+                                              (this.outdent(),
+                                              (insidePropertyValue = !1)),
+                                          this.print_string(this._ch),
+                                          (insideRule = !1),
+                                          this._nestedLevel &&
+                                              this._nestedLevel--,
+                                          this.eatWhitespace(!0),
+                                          this._output.add_new_line(),
+                                          this._options.newline_between_rules &&
+                                              !this._output.just_added_blankline() &&
+                                              '}' !== this._input.peek() &&
+                                              this._output.add_new_line(!0))
+                                        : ':' === this._ch
+                                        ? (!insideRule &&
+                                              !enteringConditionalGroup) ||
+                                          this._input.lookBack('&') ||
+                                          this.foundNestedPseudoClass() ||
+                                          this._input.lookBack('(') ||
+                                          insideAtExtend
+                                            ? (this._input.lookBack(' ') &&
+                                                  (this._output.space_before_token = !0),
+                                              ':' === this._input.peek()
+                                                  ? ((this._ch = this._input.next()),
+                                                    this.print_string('::'))
+                                                  : this.print_string(':'))
+                                            : (this.print_string(':'),
+                                              insidePropertyValue ||
+                                                  ((insidePropertyValue = !0),
+                                                  (this._output.space_before_token = !0),
+                                                  this.eatWhitespace(!0),
+                                                  this.indent()))
+                                        : '"' === this._ch || "'" === this._ch
+                                        ? (this.preserveSingleSpace(
+                                              isAfterSpace
+                                          ),
+                                          this.print_string(
+                                              this._ch +
+                                                  this.eatString(this._ch)
+                                          ),
+                                          this.eatWhitespace(!0))
+                                        : ';' === this._ch
+                                        ? (insidePropertyValue &&
+                                              (this.outdent(),
+                                              (insidePropertyValue = !1)),
+                                          (insideAtExtend = !1),
+                                          (insideAtImport = !1),
+                                          this.print_string(this._ch),
+                                          this.eatWhitespace(!0),
+                                          '/' !== this._input.peek() &&
+                                              this._output.add_new_line())
+                                        : '(' === this._ch
+                                        ? this._input.lookBack('url')
+                                            ? (this.print_string(this._ch),
+                                              this.eatWhitespace(),
+                                              (this._ch = this._input.next()),
+                                              ')' === this._ch ||
+                                              '"' === this._ch ||
+                                              "'" === this._ch
+                                                  ? (this._input.back(),
+                                                    parenLevel++)
+                                                  : this._ch &&
+                                                    this.print_string(
+                                                        this._ch +
+                                                            this.eatString(')')
+                                                    ))
+                                            : (parenLevel++,
+                                              this.preserveSingleSpace(
+                                                  isAfterSpace
+                                              ),
+                                              this.print_string(this._ch),
+                                              this.eatWhitespace())
+                                        : ')' === this._ch
+                                        ? (this.print_string(this._ch),
+                                          parenLevel--)
+                                        : ',' === this._ch
+                                        ? (this.print_string(this._ch),
+                                          this.eatWhitespace(!0),
+                                          this._options
+                                              .selector_separator_newline &&
+                                          !insidePropertyValue &&
+                                          parenLevel < 1 &&
+                                          !insideAtImport
+                                              ? this._output.add_new_line()
+                                              : (this._output.space_before_token = !0))
+                                        : ('>' === this._ch ||
+                                              '+' === this._ch ||
+                                              '~' === this._ch) &&
+                                          !insidePropertyValue &&
+                                          parenLevel < 1
+                                        ? this._options.space_around_combinator
+                                            ? ((this._output.space_before_token = !0),
+                                              this.print_string(this._ch),
+                                              (this._output.space_before_token = !0))
+                                            : (this.print_string(this._ch),
+                                              this.eatWhitespace(),
+                                              this._ch &&
+                                                  whitespaceChar.test(
+                                                      this._ch
+                                                  ) &&
+                                                  (this._ch = ''))
+                                        : ']' === this._ch
+                                        ? this.print_string(this._ch)
+                                        : '[' === this._ch
+                                        ? (this.preserveSingleSpace(
+                                              isAfterSpace
+                                          ),
+                                          this.print_string(this._ch))
+                                        : '=' === this._ch
+                                        ? (this.eatWhitespace(),
+                                          this.print_string('='),
+                                          whitespaceChar.test(this._ch) &&
+                                              (this._ch = ''))
+                                        : '!' === this._ch
+                                        ? (this.print_string(' '),
+                                          this.print_string(this._ch))
+                                        : (this.preserveSingleSpace(
+                                              isAfterSpace
+                                          ),
+                                          this.print_string(this._ch))
+                            return this._output.get_code(eol)
+                        }),
+                        (module.exports.Beautifier = Beautifier)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var BaseOptions = __webpack_require__(6).Options
+                    function Options(options) {
+                        BaseOptions.call(this, options, 'css'),
+                            (this.selector_separator_newline = this._get_boolean(
+                                'selector_separator_newline',
+                                !0
+                            )),
+                            (this.newline_between_rules = this._get_boolean(
+                                'newline_between_rules',
+                                !0
+                            ))
+                        var space_around_selector_separator = this._get_boolean(
+                            'space_around_selector_separator'
+                        )
+                        this.space_around_combinator =
+                            this._get_boolean('space_around_combinator') ||
+                            space_around_selector_separator
+                    }
+                    ;(Options.prototype = new BaseOptions()),
+                        (module.exports.Options = Options)
+                },
+            ])),
+                void 0 ===
+                    (__WEBPACK_AMD_DEFINE_RESULT__ = function() {
+                        return { css_beautify: css_beautify }
+                    }.apply(exports, [])) ||
+                    (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)
         },
         ,
         ,
@@ -3785,7 +9443,7 @@
         function(module, exports, __webpack_require__) {
             'use strict'
             var toStr = Object.prototype.toString
-            if (__webpack_require__(28)()) {
+            if (__webpack_require__(32)()) {
                 var symToStr = Symbol.prototype.toString,
                     symStringRegex = /^Symbol\(.*\)$/
                 module.exports = function isSymbol(value) {
@@ -3809,10 +9467,10 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var GetIntrinsic = __webpack_require__(34),
+            var GetIntrinsic = __webpack_require__(39),
                 $TypeError = GetIntrinsic('%TypeError%'),
                 $SyntaxError = GetIntrinsic('%SyntaxError%'),
-                has = __webpack_require__(20),
+                has = __webpack_require__(24),
                 predicates = {
                     'Property Descriptor': function isPropertyDescriptor(
                         ES,
@@ -3892,18 +9550,18 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var GetIntrinsic = __webpack_require__(34),
+            var GetIntrinsic = __webpack_require__(39),
                 $Object = GetIntrinsic('%Object%'),
                 $TypeError = GetIntrinsic('%TypeError%'),
                 $String = GetIntrinsic('%String%'),
-                assertRecord = __webpack_require__(101),
-                $isNaN = __webpack_require__(102),
-                $isFinite = __webpack_require__(103),
-                sign = __webpack_require__(104),
-                mod = __webpack_require__(105),
-                IsCallable = __webpack_require__(33),
-                toPrimitive = __webpack_require__(70),
-                has = __webpack_require__(20),
+                assertRecord = __webpack_require__(106),
+                $isNaN = __webpack_require__(107),
+                $isFinite = __webpack_require__(108),
+                sign = __webpack_require__(109),
+                mod = __webpack_require__(110),
+                IsCallable = __webpack_require__(38),
+                toPrimitive = __webpack_require__(72),
+                has = __webpack_require__(24),
                 ES5 = {
                     ToPrimitive: toPrimitive,
                     ToBoolean: function ToBoolean(value) {
@@ -4399,7 +10057,7 @@
                 }
         },
         function(module, exports, __webpack_require__) {
-            var has = __webpack_require__(8).call(
+            var has = __webpack_require__(10).call(
                     Function.call,
                     Object.prototype.hasOwnProperty
                 ),
@@ -4707,7 +10365,7 @@
                 }
         },
         function(module, exports, __webpack_require__) {
-            var has = __webpack_require__(8).call(
+            var has = __webpack_require__(10).call(
                     Function.call,
                     Object.prototype.hasOwnProperty
                 ),
@@ -4750,9 +10408,9 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES = __webpack_require__(73),
-                flagsGetter = __webpack_require__(248),
-                RegExpStringIterator = __webpack_require__(250),
+            var ES = __webpack_require__(75),
+                flagsGetter = __webpack_require__(251),
+                RegExpStringIterator = __webpack_require__(253),
                 OrigRegExp = RegExp,
                 regexMatchAll = function SymbolMatchAll(string) {
                     var R = this
@@ -4847,8 +10505,8 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(122),
-                supportsDescriptors = __webpack_require__(4)
+            var implementation = __webpack_require__(127),
+                supportsDescriptors = __webpack_require__(5)
                     .supportsDescriptors,
                 gOPD = Object.getOwnPropertyDescriptor,
                 TypeErr = TypeError
@@ -4871,12 +10529,12 @@
         },
         function(module, exports, __webpack_require__) {
             module.exports =
-                !__webpack_require__(10) &&
-                !__webpack_require__(11)(function() {
+                !__webpack_require__(14) &&
+                !__webpack_require__(15)(function() {
                     return (
                         7 !=
                         Object.defineProperty(
-                            __webpack_require__(125)('div'),
+                            __webpack_require__(130)('div'),
                             'a',
                             {
                                 get: function() {
@@ -4888,21 +10546,21 @@
                 })
         },
         function(module, exports, __webpack_require__) {
-            var isObject = __webpack_require__(18),
-                document = __webpack_require__(17).document,
+            var isObject = __webpack_require__(21),
+                document = __webpack_require__(20).document,
                 is = isObject(document) && isObject(document.createElement)
             module.exports = function(it) {
                 return is ? document.createElement(it) : {}
             }
         },
         function(module, exports, __webpack_require__) {
-            exports.f = __webpack_require__(5)
+            exports.f = __webpack_require__(6)
         },
         function(module, exports, __webpack_require__) {
-            var has = __webpack_require__(25),
-                toIObject = __webpack_require__(31),
-                arrayIndexOf = __webpack_require__(128)(!1),
-                IE_PROTO = __webpack_require__(75)('IE_PROTO')
+            var has = __webpack_require__(29),
+                toIObject = __webpack_require__(35),
+                arrayIndexOf = __webpack_require__(133)(!1),
+                IE_PROTO = __webpack_require__(77)('IE_PROTO')
             module.exports = function(object, names) {
                 var key,
                     O = toIObject(object),
@@ -4917,9 +10575,9 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var toIObject = __webpack_require__(31),
-                toLength = __webpack_require__(22),
-                toAbsoluteIndex = __webpack_require__(129)
+            var toIObject = __webpack_require__(35),
+                toLength = __webpack_require__(25),
+                toAbsoluteIndex = __webpack_require__(134)
             module.exports = function(IS_INCLUDES) {
                 return function($this, el, fromIndex) {
                     var value,
@@ -4938,7 +10596,7 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var toInteger = __webpack_require__(60),
+            var toInteger = __webpack_require__(62),
                 max = Math.max,
                 min = Math.min
             module.exports = function(index, length) {
@@ -4948,10 +10606,10 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var dP = __webpack_require__(14),
-                anObject = __webpack_require__(12),
-                getKeys = __webpack_require__(30)
-            module.exports = __webpack_require__(10)
+            var dP = __webpack_require__(18),
+                anObject = __webpack_require__(16),
+                getKeys = __webpack_require__(34)
+            module.exports = __webpack_require__(14)
                 ? Object.defineProperties
                 : function defineProperties(O, Properties) {
                       anObject(O)
@@ -4967,69 +10625,14 @@
                       return O
                   }
         },
-        function(module, exports, __webpack_require__) {
-            'use strict'
-            ;(function(module) {
-                __webpack_require__(16),
-                    Object.defineProperty(exports, '__esModule', { value: !0 }),
-                    Object.defineProperty(exports, 'storiesOf', {
-                        enumerable: !0,
-                        get: function get() {
-                            return _preview.storiesOf
-                        },
-                    }),
-                    Object.defineProperty(exports, 'setAddon', {
-                        enumerable: !0,
-                        get: function get() {
-                            return _preview.setAddon
-                        },
-                    }),
-                    Object.defineProperty(exports, 'addDecorator', {
-                        enumerable: !0,
-                        get: function get() {
-                            return _preview.addDecorator
-                        },
-                    }),
-                    Object.defineProperty(exports, 'addParameters', {
-                        enumerable: !0,
-                        get: function get() {
-                            return _preview.addParameters
-                        },
-                    }),
-                    Object.defineProperty(exports, 'configure', {
-                        enumerable: !0,
-                        get: function get() {
-                            return _preview.configure
-                        },
-                    }),
-                    Object.defineProperty(exports, 'getStorybook', {
-                        enumerable: !0,
-                        get: function get() {
-                            return _preview.getStorybook
-                        },
-                    }),
-                    Object.defineProperty(exports, 'raw', {
-                        enumerable: !0,
-                        get: function get() {
-                            return _preview.raw
-                        },
-                    }),
-                    Object.defineProperty(exports, 'forceReRender', {
-                        enumerable: !0,
-                        get: function get() {
-                            return _preview.forceReRender
-                        },
-                    })
-                var _preview = __webpack_require__(265)
-                module &&
-                    module.hot &&
-                    module.hot.decline &&
-                    module.hot.decline()
-            }.call(this, __webpack_require__(48)(module)))
+        function(module, exports) {
+            module.exports = function(done, value) {
+                return { value: value, done: !!done }
+            }
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(16),
+            __webpack_require__(19),
                 Object.defineProperty(exports, '__esModule', { value: !0 }),
                 Object.defineProperty(exports, 'ClientApi', {
                     enumerable: !0,
@@ -5073,15 +10676,15 @@
                         return _pathToId.default
                     },
                 })
-            var _client_api = _interopRequireWildcard(__webpack_require__(269)),
+            var _client_api = _interopRequireWildcard(__webpack_require__(274)),
                 _story_store = _interopRequireWildcard(
-                    __webpack_require__(298)
+                    __webpack_require__(301)
                 ),
-                _config_api = _interopRequireDefault(__webpack_require__(314)),
+                _config_api = _interopRequireDefault(__webpack_require__(317)),
                 _subscriptions_store = _interopRequireDefault(
-                    __webpack_require__(151)
+                    __webpack_require__(154)
                 ),
-                _pathToId = _interopRequireDefault(__webpack_require__(164))
+                _pathToId = _interopRequireDefault(__webpack_require__(167))
             function _interopRequireDefault(obj) {
                 return obj && obj.__esModule ? obj : { default: obj }
             }
@@ -5105,8 +10708,8 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var $at = __webpack_require__(134)(!0)
-            __webpack_require__(82)(
+            var $at = __webpack_require__(139)(!0)
+            __webpack_require__(85)(
                 String,
                 'String',
                 function(iterated) {
@@ -5125,8 +10728,8 @@
             )
         },
         function(module, exports, __webpack_require__) {
-            var toInteger = __webpack_require__(60),
-                defined = __webpack_require__(45)
+            var toInteger = __webpack_require__(62),
+                defined = __webpack_require__(48)
             module.exports = function(TO_STRING) {
                 return function(that, pos) {
                     var a,
@@ -5153,7 +10756,7 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var anObject = __webpack_require__(12)
+            var anObject = __webpack_require__(16)
             module.exports = function(iterator, fn, value, entries) {
                 try {
                     return entries
@@ -5166,8 +10769,8 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var Iterators = __webpack_require__(49),
-                ITERATOR = __webpack_require__(5)('iterator'),
+            var Iterators = __webpack_require__(51),
+                ITERATOR = __webpack_require__(6)('iterator'),
                 ArrayProto = Array.prototype
             module.exports = function(it) {
                 return (
@@ -5177,11 +10780,11 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var classof = __webpack_require__(81),
-                ITERATOR = __webpack_require__(5)('iterator'),
-                Iterators = __webpack_require__(49)
+            var classof = __webpack_require__(83),
+                ITERATOR = __webpack_require__(6)('iterator'),
+                Iterators = __webpack_require__(51)
             module.exports = __webpack_require__(
-                29
+                33
             ).getIteratorMethod = function(it) {
                 if (null != it)
                     return (
@@ -5192,7 +10795,7 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var ITERATOR = __webpack_require__(5)('iterator'),
+            var ITERATOR = __webpack_require__(6)('iterator'),
                 SAFE_CLOSING = !1
             try {
                 var riter = [7][ITERATOR]()
@@ -5222,7 +10825,7 @@
         },
         function(module, exports, __webpack_require__) {
             var $export = __webpack_require__(1),
-                $entries = __webpack_require__(140)(!0)
+                $entries = __webpack_require__(145)(!0)
             $export($export.S, 'Object', {
                 entries: function entries(it) {
                     return $entries(it)
@@ -5230,9 +10833,9 @@
             })
         },
         function(module, exports, __webpack_require__) {
-            var getKeys = __webpack_require__(30),
-                toIObject = __webpack_require__(31),
-                isEnum = __webpack_require__(46).f
+            var getKeys = __webpack_require__(34),
+                toIObject = __webpack_require__(35),
+                isEnum = __webpack_require__(49).f
             module.exports = function(isEntries) {
                 return function(it) {
                     for (
@@ -5251,15 +10854,10 @@
                 }
             }
         },
-        function(module, exports) {
-            module.exports = function(done, value) {
-                return { value: value, done: !!done }
-            }
-        },
         function(module, exports, __webpack_require__) {
             var $export = __webpack_require__(1),
-                core = __webpack_require__(29),
-                fails = __webpack_require__(11)
+                core = __webpack_require__(33),
+                fails = __webpack_require__(15)
             module.exports = function(KEY, exec) {
                 var fn = (core.Object || {})[KEY] || Object[KEY],
                     exp = {}
@@ -5278,9 +10876,9 @@
         function(module, exports, __webpack_require__) {
             'use strict'
             var $export = __webpack_require__(1),
-                $reduce = __webpack_require__(280)
+                $reduce = __webpack_require__(283)
             $export(
-                $export.P + $export.F * !__webpack_require__(36)([].reduce, !0),
+                $export.P + $export.F * !__webpack_require__(41)([].reduce, !0),
                 'Array',
                 {
                     reduce: function reduce(callbackfn) {
@@ -5311,19 +10909,6 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            'use strict'
-            function __export(m) {
-                for (var p in m)
-                    exports.hasOwnProperty(p) || (exports[p] = m[p])
-            }
-            Object.defineProperty(exports, '__esModule', { value: !0 }),
-                __export(__webpack_require__(283)),
-                __export(__webpack_require__(147)),
-                __export(__webpack_require__(285))
-            var _1 = __webpack_require__(147)
-            exports.default = _1.addons
-        },
-        function(module, exports, __webpack_require__) {
             ;(function(global) {
                 function config(name) {
                     try {
@@ -5348,7 +10933,7 @@
                         return fn.apply(this, arguments)
                     }
                 }
-            }.call(this, __webpack_require__(9)))
+            }.call(this, __webpack_require__(12)))
         },
         function(module, exports, __webpack_require__) {
             'use strict'
@@ -5377,9 +10962,9 @@
                         return mod && mod.__esModule ? mod : { default: mod }
                     }
             Object.defineProperty(exports, '__esModule', { value: !0 })
-            var global_1 = __importDefault(__webpack_require__(23)),
-                client_logger_1 = __importDefault(__webpack_require__(39)),
-                types_1 = __webpack_require__(284)
+            var global_1 = __importDefault(__webpack_require__(26)),
+                client_logger_1 = __importDefault(__webpack_require__(42)),
+                types_1 = __webpack_require__(287)
             ;(exports.types = types_1.types),
                 (exports.isSupportedType = types_1.isSupportedType)
             var AddonStore = (function() {
@@ -5609,7 +11194,7 @@
                         )
                     })()
                 ;(exports.Channel = Channel), (exports.default = Channel)
-            }.call(this, __webpack_require__(286).setImmediate))
+            }.call(this, __webpack_require__(289).setImmediate))
         },
         function(module, exports, __webpack_require__) {
             'use strict'
@@ -5839,14 +11424,14 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(16),
+            __webpack_require__(19),
                 Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = exports.createSubscriptionsStore = void 0),
-                __webpack_require__(86),
-                __webpack_require__(38),
+                __webpack_require__(88),
                 __webpack_require__(37),
-                __webpack_require__(133),
-                __webpack_require__(294)
+                __webpack_require__(36),
+                __webpack_require__(138),
+                __webpack_require__(297)
             var createSubscriptionsStore = function createSubscriptionsStore() {
                 var subscripions = new Map()
                 return {
@@ -5876,7 +11461,7 @@
             exports.default = _default
         },
         function(module, exports, __webpack_require__) {
-            var redefine = __webpack_require__(19)
+            var redefine = __webpack_require__(22)
             module.exports = function(target, src, safe) {
                 for (var key in src) redefine(target, key, src[key], safe)
                 return target
@@ -5893,12 +11478,12 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var ctx = __webpack_require__(35),
-                call = __webpack_require__(135),
-                isArrayIter = __webpack_require__(136),
-                anObject = __webpack_require__(12),
-                toLength = __webpack_require__(22),
-                getIterFn = __webpack_require__(137),
+            var ctx = __webpack_require__(40),
+                call = __webpack_require__(140),
+                isArrayIter = __webpack_require__(141),
+                anObject = __webpack_require__(16),
+                toLength = __webpack_require__(25),
+                getIterFn = __webpack_require__(142),
                 BREAK = {},
                 RETURN = {}
             ;((exports = module.exports = function(
@@ -5957,7 +11542,7 @@
                 (exports.RETURN = RETURN)
         },
         function(module, exports, __webpack_require__) {
-            var isObject = __webpack_require__(18)
+            var isObject = __webpack_require__(21)
             module.exports = function(it, TYPE) {
                 if (!isObject(it) || it._t !== TYPE)
                     throw TypeError(
@@ -5967,8 +11552,8 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var isObject = __webpack_require__(18),
-                setPrototypeOf = __webpack_require__(157).set
+            var isObject = __webpack_require__(21),
+                setPrototypeOf = __webpack_require__(160).set
             module.exports = function(that, target, C) {
                 var P,
                     S = target.constructor
@@ -5984,8 +11569,8 @@
             }
         },
         function(module, exports, __webpack_require__) {
-            var isObject = __webpack_require__(18),
-                anObject = __webpack_require__(12),
+            var isObject = __webpack_require__(21),
+                anObject = __webpack_require__(16),
                 check = function(O, proto) {
                     if ((anObject(O), !isObject(proto) && null !== proto))
                         throw TypeError(proto + ": can't set as prototype!")
@@ -5996,9 +11581,9 @@
                     ('__proto__' in {}
                         ? (function(test, buggy, set) {
                               try {
-                                  ;(set = __webpack_require__(35)(
+                                  ;(set = __webpack_require__(40)(
                                       Function.call,
-                                      __webpack_require__(80).f(
+                                      __webpack_require__(82).f(
                                           Object.prototype,
                                           '__proto__'
                                       ).set,
@@ -6025,15 +11610,15 @@
         function(module, exports, __webpack_require__) {
             var $export = __webpack_require__(1)
             $export(
-                $export.S + $export.F * !__webpack_require__(10),
+                $export.S + $export.F * !__webpack_require__(14),
                 'Object',
-                { defineProperties: __webpack_require__(130) }
+                { defineProperties: __webpack_require__(135) }
             )
         },
         function(module, exports, __webpack_require__) {
-            var isObject = __webpack_require__(18),
-                meta = __webpack_require__(57).onFreeze
-            __webpack_require__(142)('freeze', function($freeze) {
+            var isObject = __webpack_require__(21),
+                meta = __webpack_require__(59).onFreeze
+            __webpack_require__(146)('freeze', function($freeze) {
                 return function freeze(it) {
                     return $freeze && isObject(it) ? $freeze(meta(it)) : it
                 }
@@ -6042,13 +11627,13 @@
         function(module, exports, __webpack_require__) {
             'use strict'
             var $export = __webpack_require__(1),
-                $indexOf = __webpack_require__(128)(!1),
+                $indexOf = __webpack_require__(133)(!1),
                 $native = [].indexOf,
                 NEGATIVE_ZERO = !!$native && 1 / [1].indexOf(1, -0) < 0
             $export(
                 $export.P +
                     $export.F *
-                        (NEGATIVE_ZERO || !__webpack_require__(36)($native)),
+                        (NEGATIVE_ZERO || !__webpack_require__(41)($native)),
                 'Array',
                 {
                     indexOf: function indexOf(searchElement) {
@@ -6062,9 +11647,9 @@
         function(module, exports, __webpack_require__) {
             'use strict'
             var $export = __webpack_require__(1),
-                $filter = __webpack_require__(61)(2)
+                $filter = __webpack_require__(63)(2)
             $export(
-                $export.P + $export.F * !__webpack_require__(36)([].filter, !0),
+                $export.P + $export.F * !__webpack_require__(41)([].filter, !0),
                 'Array',
                 {
                     filter: function filter(callbackfn) {
@@ -6301,7 +11886,7 @@
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(16),
+            __webpack_require__(19),
                 Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = function pathToId(path) {
                     var match = (path || '').match(/^\/story\/(.+)/)
@@ -6314,7 +11899,7 @@
                         )
                     return match[1]
                 }),
-                __webpack_require__(313)
+                __webpack_require__(316)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
@@ -7099,9 +12684,9 @@ object-assign
         ,
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(178),
-                __webpack_require__(179),
-                __webpack_require__(256)
+            __webpack_require__(181),
+                __webpack_require__(182),
+                __webpack_require__(259)
         },
         function(module, exports) {
             !(function(global) {
@@ -7695,13 +13280,13 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(180)
+            __webpack_require__(183)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(181),
-                __webpack_require__(182),
-                __webpack_require__(183)
+            __webpack_require__(184),
+                __webpack_require__(185),
+                __webpack_require__(186)
         },
         function(module, exports, __webpack_require__) {
             var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__
@@ -10948,9 +16533,9 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(184),
-                __webpack_require__(185)(),
-                __webpack_require__(190)
+            __webpack_require__(187),
+                __webpack_require__(188)(),
+                __webpack_require__(193)
         },
         function(module, exports, __webpack_require__) {
             ;(function(global, process) {
@@ -17036,14 +22621,14 @@ object-assign
                               )
                             : __WEBPACK_AMD_DEFINE_FACTORY__) ||
                     (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)
-            }.call(this, __webpack_require__(9), __webpack_require__(97)))
+            }.call(this, __webpack_require__(12), __webpack_require__(102)))
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var supportsDescriptors = __webpack_require__(4)
+            var supportsDescriptors = __webpack_require__(5)
                     .supportsDescriptors,
-                functionsHaveNames = __webpack_require__(98),
-                getPolyfill = __webpack_require__(187),
+                functionsHaveNames = __webpack_require__(103),
+                getPolyfill = __webpack_require__(190),
                 defineProperty = Object.defineProperty,
                 TypeErr = TypeError
             module.exports = function shimName() {
@@ -17097,16 +22682,16 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(188)
+            var implementation = __webpack_require__(191)
             module.exports = function getPolyfill() {
                 return implementation
             }
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var isCallable = __webpack_require__(33),
-                functionsHaveNames = __webpack_require__(98),
-                bind = __webpack_require__(8),
+            var isCallable = __webpack_require__(38),
+                functionsHaveNames = __webpack_require__(103),
+                bind = __webpack_require__(10),
                 functionToString = bind.call(
                     Function.call,
                     Function.prototype.toString
@@ -17195,12 +22780,12 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(191)(), __webpack_require__(199)
+            __webpack_require__(194)(), __webpack_require__(202)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var define = __webpack_require__(4),
-                getPolyfill = __webpack_require__(192)
+            var define = __webpack_require__(5),
+                getPolyfill = __webpack_require__(195)
             module.exports = function shimArrayPrototypeIncludes() {
                 var polyfill = getPolyfill()
                 return (
@@ -17215,7 +22800,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(193)
+            var implementation = __webpack_require__(196)
             module.exports = function getPolyfill() {
                 return Array.prototype.includes || implementation
             }
@@ -17223,7 +22808,7 @@ object-assign
         function(module, exports, __webpack_require__) {
             'use strict'
             ;(function(global) {
-                var ES = __webpack_require__(194),
+                var ES = __webpack_require__(197),
                     $isNaN =
                         Number.isNaN ||
                         function isNaN(a) {
@@ -17261,21 +22846,21 @@ object-assign
                     }
                     return !1
                 }
-            }.call(this, __webpack_require__(9)))
+            }.call(this, __webpack_require__(12)))
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            module.exports = __webpack_require__(68)
+            module.exports = __webpack_require__(70)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
             var hasSymbols =
                     'function' == typeof Symbol &&
                     'symbol' == typeof Symbol.iterator,
-                isPrimitive = __webpack_require__(99),
-                isCallable = __webpack_require__(33),
-                isDate = __webpack_require__(196),
-                isSymbol = __webpack_require__(100)
+                isPrimitive = __webpack_require__(104),
+                isCallable = __webpack_require__(38),
+                isDate = __webpack_require__(199),
+                isSymbol = __webpack_require__(105)
             module.exports = function ToPrimitive(input) {
                 if (isPrimitive(input)) return input
                 var exoticToPrim,
@@ -17421,17 +23006,17 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(200)(),
-                __webpack_require__(208)(),
+            __webpack_require__(203)(),
                 __webpack_require__(211)(),
                 __webpack_require__(214)(),
                 __webpack_require__(217)(),
-                __webpack_require__(225)
+                __webpack_require__(220)(),
+                __webpack_require__(228)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var getPolyfill = __webpack_require__(201),
-                define = __webpack_require__(4)
+            var getPolyfill = __webpack_require__(204),
+                define = __webpack_require__(5)
             module.exports = function shimValues() {
                 var polyfill = getPolyfill()
                 return (
@@ -17446,7 +23031,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(202)
+            var implementation = __webpack_require__(205)
             module.exports = function getPolyfill() {
                 return 'function' == typeof Object.values
                     ? Object.values
@@ -17455,9 +23040,9 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES = __webpack_require__(203),
-                has = __webpack_require__(20),
-                isEnumerable = __webpack_require__(8).call(
+            var ES = __webpack_require__(206),
+                has = __webpack_require__(24),
+                isEnumerable = __webpack_require__(10).call(
                     Function.call,
                     Object.prototype.propertyIsEnumerable
                 )
@@ -17473,12 +23058,12 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            module.exports = __webpack_require__(204)
+            module.exports = __webpack_require__(207)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES2015 = __webpack_require__(205),
-                assign = __webpack_require__(110),
+            var ES2015 = __webpack_require__(208),
+                assign = __webpack_require__(115),
                 ES2016 = assign(assign({}, ES2015), {
                     SameValueNonNumber: function SameValueNonNumber(x, y) {
                         if ('number' == typeof x || typeof x != typeof y)
@@ -17492,9 +23077,9 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var has = __webpack_require__(20),
-                toPrimitive = __webpack_require__(69),
-                GetIntrinsic = __webpack_require__(107),
+            var has = __webpack_require__(24),
+                toPrimitive = __webpack_require__(71),
+                GetIntrinsic = __webpack_require__(112),
                 $TypeError = GetIntrinsic('%TypeError%'),
                 $SyntaxError = GetIntrinsic('%SyntaxError%'),
                 $Array = GetIntrinsic('%Array%'),
@@ -17504,16 +23089,16 @@ object-assign
                 $Symbol = GetIntrinsic('%Symbol%', !0),
                 $RegExp = GetIntrinsic('%RegExp%'),
                 hasSymbols = !!$Symbol,
-                $isNaN = __webpack_require__(108),
-                $isFinite = __webpack_require__(109),
+                $isNaN = __webpack_require__(113),
+                $isFinite = __webpack_require__(114),
                 MAX_SAFE_INTEGER =
                     $Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1,
-                assign = __webpack_require__(110),
-                sign = __webpack_require__(111),
-                mod = __webpack_require__(112),
-                isPrimitive = __webpack_require__(206),
+                assign = __webpack_require__(115),
+                sign = __webpack_require__(116),
+                mod = __webpack_require__(117),
+                isPrimitive = __webpack_require__(209),
                 parseInteger = parseInt,
-                bind = __webpack_require__(8),
+                bind = __webpack_require__(10),
                 arraySlice = bind.call(Function.call, $Array.prototype.slice),
                 strSlice = bind.call(Function.call, $String.prototype.slice),
                 isBinary = bind.call(
@@ -17561,8 +23146,8 @@ object-assign
                     'g'
                 ),
                 replace = bind.call(Function.call, $String.prototype.replace),
-                ES5 = __webpack_require__(207),
-                hasRegExpMatcher = __webpack_require__(51),
+                ES5 = __webpack_require__(210),
+                hasRegExpMatcher = __webpack_require__(53),
                 ES6 = assign(assign({}, ES5), {
                     Call: function Call(F, V) {
                         var args = arguments.length > 2 ? arguments[2] : []
@@ -18091,17 +23676,17 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var GetIntrinsic = __webpack_require__(107),
+            var GetIntrinsic = __webpack_require__(112),
                 $Object = GetIntrinsic('%Object%'),
                 $TypeError = GetIntrinsic('%TypeError%'),
                 $String = GetIntrinsic('%String%'),
-                $isNaN = __webpack_require__(108),
-                $isFinite = __webpack_require__(109),
-                sign = __webpack_require__(111),
-                mod = __webpack_require__(112),
-                IsCallable = __webpack_require__(33),
-                toPrimitive = __webpack_require__(70),
-                has = __webpack_require__(20),
+                $isNaN = __webpack_require__(113),
+                $isFinite = __webpack_require__(114),
+                sign = __webpack_require__(116),
+                mod = __webpack_require__(117),
+                IsCallable = __webpack_require__(38),
+                toPrimitive = __webpack_require__(72),
+                has = __webpack_require__(24),
                 ES5 = {
                     ToPrimitive: toPrimitive,
                     ToBoolean: function ToBoolean(value) {
@@ -18300,8 +23885,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var getPolyfill = __webpack_require__(209),
-                define = __webpack_require__(4)
+            var getPolyfill = __webpack_require__(212),
+                define = __webpack_require__(5)
             module.exports = function shimEntries() {
                 var polyfill = getPolyfill()
                 return (
@@ -18316,7 +23901,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(210)
+            var implementation = __webpack_require__(213)
             module.exports = function getPolyfill() {
                 return 'function' == typeof Object.entries
                     ? Object.entries
@@ -18325,9 +23910,9 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES = __webpack_require__(52),
-                has = __webpack_require__(20),
-                isEnumerable = __webpack_require__(8).call(
+            var ES = __webpack_require__(54),
+                has = __webpack_require__(24),
+                isEnumerable = __webpack_require__(10).call(
                     Function.call,
                     Object.prototype.propertyIsEnumerable
                 )
@@ -18343,8 +23928,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var getPolyfill = __webpack_require__(212),
-                define = __webpack_require__(4)
+            var getPolyfill = __webpack_require__(215),
+                define = __webpack_require__(5)
             module.exports = function shimPadStart() {
                 var polyfill = getPolyfill()
                 return (
@@ -18359,7 +23944,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(213)
+            var implementation = __webpack_require__(216)
             module.exports = function getPolyfill() {
                 return 'function' == typeof String.prototype.padStart
                     ? String.prototype.padStart
@@ -18368,8 +23953,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var bind = __webpack_require__(8),
-                ES = __webpack_require__(52),
+            var bind = __webpack_require__(10),
+                ES = __webpack_require__(54),
                 slice = bind.call(Function.call, String.prototype.slice)
             module.exports = function padStart(maxLength) {
                 var fillString,
@@ -18403,8 +23988,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var getPolyfill = __webpack_require__(215),
-                define = __webpack_require__(4)
+            var getPolyfill = __webpack_require__(218),
+                define = __webpack_require__(5)
             module.exports = function shimPadEnd() {
                 var polyfill = getPolyfill()
                 return (
@@ -18419,7 +24004,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(216)
+            var implementation = __webpack_require__(219)
             module.exports = function getPolyfill() {
                 return 'function' == typeof String.prototype.padEnd
                     ? String.prototype.padEnd
@@ -18428,8 +24013,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var bind = __webpack_require__(8),
-                ES = __webpack_require__(52),
+            var bind = __webpack_require__(10),
+                ES = __webpack_require__(54),
                 slice = bind.call(Function.call, String.prototype.slice)
             module.exports = function padEnd(maxLength) {
                 var fillString,
@@ -18464,8 +24049,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var getPolyfill = __webpack_require__(218),
-                define = __webpack_require__(4)
+            var getPolyfill = __webpack_require__(221),
+                define = __webpack_require__(5)
             module.exports = function shimGetOwnPropertyDescriptors() {
                 var polyfill = getPolyfill()
                 return (
@@ -18480,7 +24065,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(219)
+            var implementation = __webpack_require__(222)
             module.exports = function getPolyfill() {
                 return 'function' == typeof Object.getOwnPropertyDescriptors
                     ? Object.getOwnPropertyDescriptors
@@ -18489,7 +24074,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES = __webpack_require__(220),
+            var ES = __webpack_require__(223),
                 defineProperty = Object.defineProperty,
                 getDescriptor = Object.getOwnPropertyDescriptor,
                 getOwnNames = Object.getOwnPropertyNames,
@@ -18534,12 +24119,12 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            module.exports = __webpack_require__(221)
+            module.exports = __webpack_require__(224)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES2015 = __webpack_require__(222),
-                assign = __webpack_require__(116),
+            var ES2015 = __webpack_require__(225),
+                assign = __webpack_require__(121),
                 ES2016 = assign(assign({}, ES2015), {
                     SameValueNonNumber: function SameValueNonNumber(x, y) {
                         if ('number' == typeof x || typeof x != typeof y)
@@ -18553,9 +24138,9 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var has = __webpack_require__(20),
-                toPrimitive = __webpack_require__(69),
-                GetIntrinsic = __webpack_require__(113),
+            var has = __webpack_require__(24),
+                toPrimitive = __webpack_require__(71),
+                GetIntrinsic = __webpack_require__(118),
                 $TypeError = GetIntrinsic('%TypeError%'),
                 $SyntaxError = GetIntrinsic('%SyntaxError%'),
                 $Array = GetIntrinsic('%Array%'),
@@ -18565,16 +24150,16 @@ object-assign
                 $Symbol = GetIntrinsic('%Symbol%', !0),
                 $RegExp = GetIntrinsic('%RegExp%'),
                 hasSymbols = !!$Symbol,
-                $isNaN = __webpack_require__(114),
-                $isFinite = __webpack_require__(115),
+                $isNaN = __webpack_require__(119),
+                $isFinite = __webpack_require__(120),
                 MAX_SAFE_INTEGER =
                     $Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1,
-                assign = __webpack_require__(116),
-                sign = __webpack_require__(117),
-                mod = __webpack_require__(118),
-                isPrimitive = __webpack_require__(223),
+                assign = __webpack_require__(121),
+                sign = __webpack_require__(122),
+                mod = __webpack_require__(123),
+                isPrimitive = __webpack_require__(226),
                 parseInteger = parseInt,
-                bind = __webpack_require__(8),
+                bind = __webpack_require__(10),
                 arraySlice = bind.call(Function.call, $Array.prototype.slice),
                 strSlice = bind.call(Function.call, $String.prototype.slice),
                 isBinary = bind.call(
@@ -18622,8 +24207,8 @@ object-assign
                     'g'
                 ),
                 replace = bind.call(Function.call, $String.prototype.replace),
-                ES5 = __webpack_require__(224),
-                hasRegExpMatcher = __webpack_require__(51),
+                ES5 = __webpack_require__(227),
+                hasRegExpMatcher = __webpack_require__(53),
                 ES6 = assign(assign({}, ES5), {
                     Call: function Call(F, V) {
                         var args = arguments.length > 2 ? arguments[2] : []
@@ -19152,17 +24737,17 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var GetIntrinsic = __webpack_require__(113),
+            var GetIntrinsic = __webpack_require__(118),
                 $Object = GetIntrinsic('%Object%'),
                 $TypeError = GetIntrinsic('%TypeError%'),
                 $String = GetIntrinsic('%String%'),
-                $isNaN = __webpack_require__(114),
-                $isFinite = __webpack_require__(115),
-                sign = __webpack_require__(117),
-                mod = __webpack_require__(118),
-                IsCallable = __webpack_require__(33),
-                toPrimitive = __webpack_require__(70),
-                has = __webpack_require__(20),
+                $isNaN = __webpack_require__(119),
+                $isFinite = __webpack_require__(120),
+                sign = __webpack_require__(122),
+                mod = __webpack_require__(123),
+                IsCallable = __webpack_require__(38),
+                toPrimitive = __webpack_require__(72),
+                has = __webpack_require__(24),
                 ES5 = {
                     ToPrimitive: toPrimitive,
                     ToBoolean: function ToBoolean(value) {
@@ -19361,18 +24946,18 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            'function' == typeof Promise && __webpack_require__(226),
-                __webpack_require__(230)
+            'function' == typeof Promise && __webpack_require__(229),
+                __webpack_require__(233)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(227)()
+            __webpack_require__(230)()
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var requirePromise = __webpack_require__(72),
-                getPolyfill = __webpack_require__(228),
-                define = __webpack_require__(4)
+            var requirePromise = __webpack_require__(74),
+                getPolyfill = __webpack_require__(231),
+                define = __webpack_require__(5)
             module.exports = function shimPromiseFinally() {
                 requirePromise()
                 var polyfill = getPolyfill()
@@ -19388,8 +24973,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var requirePromise = __webpack_require__(72),
-                implementation = __webpack_require__(229)
+            var requirePromise = __webpack_require__(74),
+                implementation = __webpack_require__(232)
             module.exports = function getPolyfill() {
                 return (
                     requirePromise(),
@@ -19401,9 +24986,9 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(72)()
-            var ES = __webpack_require__(52),
-                bind = __webpack_require__(8),
+            __webpack_require__(74)()
+            var ES = __webpack_require__(54),
+                bind = __webpack_require__(10),
                 promiseResolve = function PromiseResolve(C, value) {
                     return new C(function(resolve) {
                         resolve(value)
@@ -19463,20 +25048,20 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(231),
-                __webpack_require__(235),
-                __webpack_require__(239),
-                __webpack_require__(243),
-                __webpack_require__(252)
+            __webpack_require__(234),
+                __webpack_require__(238),
+                __webpack_require__(242),
+                __webpack_require__(246),
+                __webpack_require__(255)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(232)()
+            __webpack_require__(235)()
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var define = __webpack_require__(4),
-                getPolyfill = __webpack_require__(233)
+            var define = __webpack_require__(5),
+                getPolyfill = __webpack_require__(236)
             module.exports = function shimFlat() {
                 var polyfill = getPolyfill()
                 return (
@@ -19491,14 +25076,14 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(234)
+            var implementation = __webpack_require__(237)
             module.exports = function getPolyfill() {
                 return Array.prototype.flat || implementation
             }
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES = __webpack_require__(41),
+            var ES = __webpack_require__(44),
                 MAX_SAFE_INTEGER =
                     Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1
             module.exports = function flat() {
@@ -19559,12 +25144,12 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(236)()
+            __webpack_require__(239)()
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var define = __webpack_require__(4),
-                getPolyfill = __webpack_require__(237)
+            var define = __webpack_require__(5),
+                getPolyfill = __webpack_require__(240)
             module.exports = function shimFlatMap() {
                 var polyfill = getPolyfill()
                 return (
@@ -19579,14 +25164,14 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(238)
+            var implementation = __webpack_require__(241)
             module.exports = function getPolyfill() {
                 return Array.prototype.flatMap || implementation
             }
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES = __webpack_require__(41),
+            var ES = __webpack_require__(44),
                 MAX_SAFE_INTEGER =
                     Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1
             module.exports = function flatMap(callbackfn) {
@@ -19662,13 +25247,13 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(240)()
+            __webpack_require__(243)()
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var hasSymbols = __webpack_require__(28)(),
-                polyfill = __webpack_require__(241),
-                getInferredName = __webpack_require__(120),
+            var hasSymbols = __webpack_require__(32)(),
+                polyfill = __webpack_require__(244),
+                getInferredName = __webpack_require__(125),
                 gOPD = Object.getOwnPropertyDescriptor,
                 dP = Object.defineProperty,
                 setProto = Object.setPrototypeOf,
@@ -19723,8 +25308,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var hasSymbols = __webpack_require__(28)(),
-                implementation = __webpack_require__(242),
+            var hasSymbols = __webpack_require__(32)(),
+                implementation = __webpack_require__(245),
                 gOPD = Object.getOwnPropertyDescriptor
             module.exports = function descriptionPolyfill() {
                 if (!hasSymbols || 'function' != typeof gOPD) return null
@@ -19740,10 +25325,10 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var symToStr = __webpack_require__(28)()
+            var symToStr = __webpack_require__(32)()
                     ? Function.call.bind(Symbol.prototype.toString)
                     : null,
-                getInferredName = __webpack_require__(120)
+                getInferredName = __webpack_require__(125)
             module.exports = function description() {
                 var str = symToStr(this)
                 if (getInferredName) {
@@ -19757,14 +25342,14 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(244)()
+            __webpack_require__(247)()
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var define = __webpack_require__(4),
-                hasSymbols = __webpack_require__(28)(),
-                getPolyfill = __webpack_require__(245),
-                regexMatchAll = __webpack_require__(121),
+            var define = __webpack_require__(5),
+                hasSymbols = __webpack_require__(32)(),
+                getPolyfill = __webpack_require__(248),
+                regexMatchAll = __webpack_require__(126),
                 defineP = Object.defineProperty,
                 gOPD = Object.getOwnPropertyDescriptor
             module.exports = function shimMatchAll() {
@@ -19812,16 +25397,16 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(246)
+            var implementation = __webpack_require__(249)
             module.exports = function getPolyfill() {
                 return String.prototype.matchAll || implementation
             }
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES = __webpack_require__(73),
-                hasSymbols = __webpack_require__(28)(),
-                regexMatchAll = __webpack_require__(121)
+            var ES = __webpack_require__(75),
+                hasSymbols = __webpack_require__(32)(),
+                regexMatchAll = __webpack_require__(126)
             module.exports = function matchAll(regexp) {
                 var matcher,
                     O = ES.RequireObjectCoercible(this)
@@ -19842,12 +25427,12 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var bind = __webpack_require__(8),
-                keys = __webpack_require__(67),
-                ES2017 = __webpack_require__(41),
-                assign = __webpack_require__(40),
-                forEach = __webpack_require__(119),
-                GetIntrinsic = __webpack_require__(34),
+            var bind = __webpack_require__(10),
+                keys = __webpack_require__(69),
+                ES2017 = __webpack_require__(44),
+                assign = __webpack_require__(43),
+                forEach = __webpack_require__(124),
+                GetIntrinsic = __webpack_require__(39),
                 $String = GetIntrinsic('%String%'),
                 $Object = GetIntrinsic('%Object%'),
                 $SymbolProto = GetIntrinsic('%SymbolPrototype%', !0),
@@ -19969,10 +25554,10 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var define = __webpack_require__(4),
-                implementation = __webpack_require__(122),
-                getPolyfill = __webpack_require__(123),
-                shim = __webpack_require__(249),
+            var define = __webpack_require__(5),
+                implementation = __webpack_require__(127),
+                getPolyfill = __webpack_require__(128),
+                shim = __webpack_require__(252),
                 flagsBound = Function.call.bind(implementation)
             define(flagsBound, {
                 getPolyfill: getPolyfill,
@@ -19983,9 +25568,9 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var supportsDescriptors = __webpack_require__(4)
+            var supportsDescriptors = __webpack_require__(5)
                     .supportsDescriptors,
-                getPolyfill = __webpack_require__(123),
+                getPolyfill = __webpack_require__(128),
                 gOPD = Object.getOwnPropertyDescriptor,
                 defineProperty = Object.defineProperty,
                 TypeErr = TypeError,
@@ -20012,11 +25597,11 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var define = __webpack_require__(4),
-                ES = __webpack_require__(73),
-                GetIntrinsic = __webpack_require__(34),
-                hasSymbols = __webpack_require__(28)(),
-                hidden = __webpack_require__(251)(),
+            var define = __webpack_require__(5),
+                ES = __webpack_require__(75),
+                GetIntrinsic = __webpack_require__(39),
+                hasSymbols = __webpack_require__(32)(),
+                hidden = __webpack_require__(254)(),
                 RegExpStringIterator = function RegExpStringIterator(
                     R,
                     S,
@@ -20132,7 +25717,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var define = __webpack_require__(4)
+            var define = __webpack_require__(5)
             module.exports = function getHiddenKeyManager() {
                 var symbolCache = {},
                     makeKey = function key(prop) {
@@ -20166,12 +25751,12 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(253)()
+            __webpack_require__(256)()
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var getPolyfill = __webpack_require__(254),
-                define = __webpack_require__(4)
+            var getPolyfill = __webpack_require__(257),
+                define = __webpack_require__(5)
             module.exports = function shimEntries() {
                 var polyfill = getPolyfill()
                 return (
@@ -20186,7 +25771,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var implementation = __webpack_require__(255)
+            var implementation = __webpack_require__(258)
             module.exports = function getPolyfill() {
                 return 'function' == typeof Object.fromEntries
                     ? Object.fromEntries
@@ -20195,7 +25780,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ES = __webpack_require__(41),
+            var ES = __webpack_require__(44),
                 ThrowCompletion = function Throw(error) {
                     throw error
                 },
@@ -20253,21 +25838,21 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             __webpack_require__(13),
-                __webpack_require__(261),
-                __webpack_require__(15),
-                __webpack_require__(262),
-                (module.exports = __webpack_require__(29).Symbol)
+                __webpack_require__(264),
+                __webpack_require__(17),
+                __webpack_require__(265),
+                (module.exports = __webpack_require__(33).Symbol)
         },
         function(module, exports, __webpack_require__) {
-            module.exports = __webpack_require__(54)(
+            module.exports = __webpack_require__(56)(
                 'native-function-to-string',
                 Function.toString
             )
         },
         function(module, exports, __webpack_require__) {
-            var getKeys = __webpack_require__(30),
-                gOPS = __webpack_require__(77),
-                pIE = __webpack_require__(46)
+            var getKeys = __webpack_require__(34),
+                gOPS = __webpack_require__(79),
+                pIE = __webpack_require__(49)
             module.exports = function(it) {
                 var result = getKeys(it),
                     getSymbols = gOPS.f
@@ -20286,12 +25871,12 @@ object-assign
             }
         },
         function(module, exports, __webpack_require__) {
-            var document = __webpack_require__(17).document
+            var document = __webpack_require__(20).document
             module.exports = document && document.documentElement
         },
         function(module, exports, __webpack_require__) {
-            var toIObject = __webpack_require__(31),
-                gOPN = __webpack_require__(79).f,
+            var toIObject = __webpack_require__(35),
+                gOPN = __webpack_require__(81).f,
                 toString = {}.toString,
                 windowNames =
                     'object' == typeof window &&
@@ -20313,11 +25898,11 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var classof = __webpack_require__(81),
+            var classof = __webpack_require__(83),
                 test = {}
-            ;(test[__webpack_require__(5)('toStringTag')] = 'z'),
+            ;(test[__webpack_require__(6)('toStringTag')] = 'z'),
                 test + '' != '[object z]' &&
-                    __webpack_require__(19)(
+                    __webpack_require__(22)(
                         Object.prototype,
                         'toString',
                         function toString() {
@@ -20327,23 +25912,64 @@ object-assign
                     )
         },
         function(module, exports, __webpack_require__) {
-            __webpack_require__(74)('observable')
+            __webpack_require__(76)('observable')
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(23).window.STORYBOOK_REACT_CLASSES = {}
+            __webpack_require__(26).window.STORYBOOK_REACT_CLASSES = {}
         },
         ,
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(16),
+            var create = __webpack_require__(50),
+                descriptor = __webpack_require__(45),
+                setToStringTag = __webpack_require__(60),
+                IteratorPrototype = {}
+            __webpack_require__(30)(
+                IteratorPrototype,
+                __webpack_require__(6)('iterator'),
+                function() {
+                    return this
+                }
+            ),
+                (module.exports = function(Constructor, NAME, next) {
+                    ;(Constructor.prototype = create(IteratorPrototype, {
+                        next: descriptor(1, next),
+                    })),
+                        setToStringTag(Constructor, NAME + ' Iterator')
+                })
+        },
+        function(module, exports, __webpack_require__) {
+            var has = __webpack_require__(29),
+                toObject = __webpack_require__(27),
+                IE_PROTO = __webpack_require__(77)('IE_PROTO'),
+                ObjectProto = Object.prototype
+            module.exports =
+                Object.getPrototypeOf ||
+                function(O) {
+                    return (
+                        (O = toObject(O)),
+                        has(O, IE_PROTO)
+                            ? O[IE_PROTO]
+                            : 'function' == typeof O.constructor &&
+                              O instanceof O.constructor
+                            ? O.constructor.prototype
+                            : O instanceof Object
+                            ? ObjectProto
+                            : null
+                    )
+                }
+        },
+        function(module, exports, __webpack_require__) {
+            'use strict'
+            __webpack_require__(19),
                 Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.forceReRender = exports.configure = exports.raw = exports.getStorybook = exports.clearDecorators = exports.addParameters = exports.addDecorator = exports.setAddon = exports.storiesOf = void 0)
-            var _client = __webpack_require__(266)
-            __webpack_require__(320)
+            var _client = __webpack_require__(271)
+            __webpack_require__(323)
             var _render = (function _interopRequireDefault(obj) {
                 return obj && obj.__esModule ? obj : { default: obj }
-            })(__webpack_require__(321))
+            })(__webpack_require__(324))
             var _start = (0, _client.start)(_render.default),
                 clientApi = _start.clientApi,
                 configApi = _start.configApi,
@@ -20367,29 +25993,29 @@ object-assign
             exports.configure = configure
         },
         function(module, exports, __webpack_require__) {
-            module.exports = __webpack_require__(267).default
+            module.exports = __webpack_require__(272).default
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(16),
+            __webpack_require__(19),
                 Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = void 0)
             var _default = (function _interopRequireDefault(obj) {
                 return obj && obj.__esModule ? obj : { default: obj }
-            })(__webpack_require__(268)).default
+            })(__webpack_require__(273)).default
             exports.default = _default
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(16),
+            __webpack_require__(19),
                 Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = void 0)
-            var _clientApi = __webpack_require__(132),
-                _utils = __webpack_require__(64)
+            var _clientApi = __webpack_require__(137),
+                _utils = __webpack_require__(66)
             var _default = {
                 start: (function _interopRequireDefault(obj) {
                     return obj && obj.__esModule ? obj : { default: obj }
-                })(__webpack_require__(315)).default,
+                })(__webpack_require__(318)).default,
                 toId: _utils.toId,
                 ClientApi: _clientApi.ClientApi,
                 ConfigApi: _clientApi.ConfigApi,
@@ -20399,37 +26025,37 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(16),
+            __webpack_require__(19),
                 Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = exports.defaultDecorateStory = void 0),
-                __webpack_require__(133),
-                __webpack_require__(272),
-                __webpack_require__(274),
-                __webpack_require__(276),
-                __webpack_require__(15),
+                __webpack_require__(138),
+                __webpack_require__(275),
+                __webpack_require__(277),
+                __webpack_require__(279),
+                __webpack_require__(17),
                 __webpack_require__(13),
-                __webpack_require__(84),
-                __webpack_require__(139),
-                __webpack_require__(27),
+                __webpack_require__(87),
+                __webpack_require__(144),
+                __webpack_require__(28),
+                __webpack_require__(36),
+                __webpack_require__(64),
+                __webpack_require__(31),
+                __webpack_require__(147),
+                __webpack_require__(284),
                 __webpack_require__(37),
-                __webpack_require__(62),
-                __webpack_require__(32),
-                __webpack_require__(143),
-                __webpack_require__(281),
-                __webpack_require__(38),
-                __webpack_require__(86),
-                __webpack_require__(87)
+                __webpack_require__(88),
+                __webpack_require__(89)
             var _isPlainObject = _interopRequireDefault(
-                    __webpack_require__(282)
+                    __webpack_require__(285)
                 ),
-                _clientLogger = __webpack_require__(39),
-                _addons = _interopRequireDefault(__webpack_require__(145)),
-                _coreEvents = _interopRequireDefault(__webpack_require__(63)),
-                _utils = __webpack_require__(64),
-                _lodash = _interopRequireDefault(__webpack_require__(292)),
-                _lodash2 = _interopRequireDefault(__webpack_require__(293)),
+                _clientLogger = __webpack_require__(42),
+                _addons = _interopRequireDefault(__webpack_require__(90)),
+                _coreEvents = _interopRequireDefault(__webpack_require__(65)),
+                _utils = __webpack_require__(66),
+                _lodash = _interopRequireDefault(__webpack_require__(295)),
+                _lodash2 = _interopRequireDefault(__webpack_require__(296)),
                 _subscriptions_store = _interopRequireDefault(
-                    __webpack_require__(151)
+                    __webpack_require__(154)
                 )
             function _interopRequireDefault(obj) {
                 return obj && obj.__esModule ? obj : { default: obj }
@@ -20885,59 +26511,18 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var create = __webpack_require__(47),
-                descriptor = __webpack_require__(42),
-                setToStringTag = __webpack_require__(58),
-                IteratorPrototype = {}
-            __webpack_require__(26)(
-                IteratorPrototype,
-                __webpack_require__(5)('iterator'),
-                function() {
-                    return this
-                }
-            ),
-                (module.exports = function(Constructor, NAME, next) {
-                    ;(Constructor.prototype = create(IteratorPrototype, {
-                        next: descriptor(1, next),
-                    })),
-                        setToStringTag(Constructor, NAME + ' Iterator')
-                })
-        },
-        function(module, exports, __webpack_require__) {
-            var has = __webpack_require__(25),
-                toObject = __webpack_require__(24),
-                IE_PROTO = __webpack_require__(75)('IE_PROTO'),
-                ObjectProto = Object.prototype
-            module.exports =
-                Object.getPrototypeOf ||
-                function(O) {
-                    return (
-                        (O = toObject(O)),
-                        has(O, IE_PROTO)
-                            ? O[IE_PROTO]
-                            : 'function' == typeof O.constructor &&
-                              O instanceof O.constructor
-                            ? O.constructor.prototype
-                            : O instanceof Object
-                            ? ObjectProto
-                            : null
-                    )
-                }
-        },
-        function(module, exports, __webpack_require__) {
-            'use strict'
-            var ctx = __webpack_require__(35),
+            var ctx = __webpack_require__(40),
                 $export = __webpack_require__(1),
-                toObject = __webpack_require__(24),
-                call = __webpack_require__(135),
-                isArrayIter = __webpack_require__(136),
-                toLength = __webpack_require__(22),
-                createProperty = __webpack_require__(273),
-                getIterFn = __webpack_require__(137)
+                toObject = __webpack_require__(27),
+                call = __webpack_require__(140),
+                isArrayIter = __webpack_require__(141),
+                toLength = __webpack_require__(25),
+                createProperty = __webpack_require__(276),
+                getIterFn = __webpack_require__(142)
             $export(
                 $export.S +
                     $export.F *
-                        !__webpack_require__(138)(function(iter) {
+                        !__webpack_require__(143)(function(iter) {
                             Array.from(iter)
                         }),
                 'Array',
@@ -20999,8 +26584,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var $defineProperty = __webpack_require__(14),
-                createDesc = __webpack_require__(42)
+            var $defineProperty = __webpack_require__(18),
+                createDesc = __webpack_require__(45)
             module.exports = function(object, index, value) {
                 index in object
                     ? $defineProperty.f(object, index, createDesc(0, value))
@@ -21009,20 +26594,20 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(275)
-            var anObject = __webpack_require__(12),
-                $flags = __webpack_require__(83),
-                DESCRIPTORS = __webpack_require__(10),
+            __webpack_require__(278)
+            var anObject = __webpack_require__(16),
+                $flags = __webpack_require__(86),
+                DESCRIPTORS = __webpack_require__(14),
                 $toString = /./.toString,
                 define = function(fn) {
-                    __webpack_require__(19)(
+                    __webpack_require__(22)(
                         RegExp.prototype,
                         'toString',
                         fn,
                         !0
                     )
                 }
-            __webpack_require__(11)(function() {
+            __webpack_require__(15)(function() {
                 return '/a/b' != $toString.call({ source: 'a', flags: 'b' })
             })
                 ? define(function toString() {
@@ -21043,11 +26628,11 @@ object-assign
                   })
         },
         function(module, exports, __webpack_require__) {
-            __webpack_require__(10) &&
+            __webpack_require__(14) &&
                 'g' != /./g.flags &&
-                __webpack_require__(14).f(RegExp.prototype, 'flags', {
+                __webpack_require__(18).f(RegExp.prototype, 'flags', {
                     configurable: !0,
-                    get: __webpack_require__(83),
+                    get: __webpack_require__(86),
                 })
         },
         function(module, exports, __webpack_require__) {
@@ -21055,7 +26640,7 @@ object-assign
                 $toString = DateProto.toString,
                 getTime = DateProto.getTime
             new Date(NaN) + '' != 'Invalid Date' &&
-                __webpack_require__(19)(
+                __webpack_require__(22)(
                     DateProto,
                     'toString',
                     function toString() {
@@ -21067,15 +26652,15 @@ object-assign
                 )
         },
         function(module, exports, __webpack_require__) {
-            var speciesConstructor = __webpack_require__(278)
+            var speciesConstructor = __webpack_require__(281)
             module.exports = function(original, length) {
                 return new (speciesConstructor(original))(length)
             }
         },
         function(module, exports, __webpack_require__) {
-            var isObject = __webpack_require__(18),
-                isArray = __webpack_require__(78),
-                SPECIES = __webpack_require__(5)('species')
+            var isObject = __webpack_require__(21),
+                isArray = __webpack_require__(80),
+                SPECIES = __webpack_require__(6)('species')
             module.exports = function(original) {
                 var C
                 return (
@@ -21092,15 +26677,15 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var getKeys = __webpack_require__(30),
-                gOPS = __webpack_require__(77),
-                pIE = __webpack_require__(46),
-                toObject = __webpack_require__(24),
-                IObject = __webpack_require__(59),
+            var getKeys = __webpack_require__(34),
+                gOPS = __webpack_require__(79),
+                pIE = __webpack_require__(49),
+                toObject = __webpack_require__(27),
+                IObject = __webpack_require__(61),
                 $assign = Object.assign
             module.exports =
                 !$assign ||
-                __webpack_require__(11)(function() {
+                __webpack_require__(15)(function() {
                     var A = {},
                         B = {},
                         S = Symbol(),
@@ -21142,10 +26727,10 @@ object-assign
                     : $assign
         },
         function(module, exports, __webpack_require__) {
-            var aFunction = __webpack_require__(56),
-                toObject = __webpack_require__(24),
-                IObject = __webpack_require__(59),
-                toLength = __webpack_require__(22)
+            var aFunction = __webpack_require__(58),
+                toObject = __webpack_require__(27),
+                IObject = __webpack_require__(61),
+                toLength = __webpack_require__(25)
             module.exports = function(that, callbackfn, aLen, memo, isRight) {
                 aFunction(callbackfn)
                 var O = toObject(that),
@@ -21176,7 +26761,7 @@ object-assign
         function(module, exports, __webpack_require__) {
             'use strict'
             var $export = __webpack_require__(1),
-                $find = __webpack_require__(61)(5),
+                $find = __webpack_require__(63)(5),
                 forced = !0
             'find' in [] &&
                 Array(1).find(function() {
@@ -21191,7 +26776,7 @@ object-assign
                         )
                     },
                 }),
-                __webpack_require__(85)('find')
+                __webpack_require__(84)('find')
         },
         function(module, exports, __webpack_require__) {
             'use strict'
@@ -21200,7 +26785,7 @@ object-assign
              *
              * Copyright (c) 2014-2017, Jon Schlinkert.
              * Released under the MIT License.
-             */ var isObject = __webpack_require__(144)
+             */ var isObject = __webpack_require__(148)
             function isObjectObject(o) {
                 return (
                     !0 === isObject(o) &&
@@ -21225,7 +26810,7 @@ object-assign
                     return mod && mod.__esModule ? mod : { default: mod }
                 }
             Object.defineProperty(exports, '__esModule', { value: !0 })
-            var util_deprecate_1 = __importDefault(__webpack_require__(146))
+            var util_deprecate_1 = __importDefault(__webpack_require__(149))
             exports.makeDecorator = function(_a) {
                 var name = _a.name,
                     parameterName = _a.parameterName,
@@ -21315,7 +26900,7 @@ object-assign
                     return mod && mod.__esModule ? mod : { default: mod }
                 }
             Object.defineProperty(exports, '__esModule', { value: !0 })
-            var channels_1 = __importDefault(__webpack_require__(148))
+            var channels_1 = __importDefault(__webpack_require__(151))
             exports.mockChannel = function mockChannel() {
                 return new channels_1.default({
                     transport: {
@@ -21375,7 +26960,7 @@ object-assign
                                 msecs
                             ))
                     }),
-                    __webpack_require__(287),
+                    __webpack_require__(290),
                     (exports.setImmediate =
                         ('undefined' != typeof self && self.setImmediate) ||
                         (void 0 !== global && global.setImmediate) ||
@@ -21384,7 +26969,7 @@ object-assign
                         ('undefined' != typeof self && self.clearImmediate) ||
                         (void 0 !== global && global.clearImmediate) ||
                         (this && this.clearImmediate))
-            }.call(this, __webpack_require__(9)))
+            }.call(this, __webpack_require__(12)))
         },
         function(module, exports, __webpack_require__) {
             ;(function(global, process) {
@@ -21580,7 +27165,7 @@ object-assign
                             : global
                         : self
                 )
-            }.call(this, __webpack_require__(9), __webpack_require__(97)))
+            }.call(this, __webpack_require__(12), __webpack_require__(102)))
         },
         function(module, exports, __webpack_require__) {
             'use strict'
@@ -21590,8 +27175,8 @@ object-assign
                     return mod && mod.__esModule ? mod : { default: mod }
                 }
             Object.defineProperty(exports, '__esModule', { value: !0 })
-            var qs_1 = __importDefault(__webpack_require__(289)),
-                memoizerific_1 = __importDefault(__webpack_require__(88)),
+            var qs_1 = __importDefault(__webpack_require__(292)),
+                memoizerific_1 = __importDefault(__webpack_require__(91)),
                 knownViewModesRegex = /(story|info)/,
                 splitPath = /\/([^\/]+)\/([^\/]+)?/
             exports.sanitize = function(string) {
@@ -21677,9 +27262,9 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var stringify = __webpack_require__(290),
-                parse = __webpack_require__(291),
-                formats = __webpack_require__(150)
+            var stringify = __webpack_require__(293),
+                parse = __webpack_require__(294),
+                formats = __webpack_require__(153)
             module.exports = {
                 formats: formats,
                 parse: parse,
@@ -21688,8 +27273,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var utils = __webpack_require__(149),
-                formats = __webpack_require__(150),
+            var utils = __webpack_require__(152),
+                formats = __webpack_require__(153),
                 arrayPrefixGenerators = {
                     brackets: function brackets(prefix) {
                         return prefix + '[]'
@@ -21952,7 +27537,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var utils = __webpack_require__(149),
+            var utils = __webpack_require__(152),
                 has = Object.prototype.hasOwnProperty,
                 defaults = {
                     allowDots: !1,
@@ -23245,8 +28830,8 @@ object-assign
                 module.exports = mergeWith
             }.call(
                 this,
-                __webpack_require__(9),
-                __webpack_require__(48)(module)
+                __webpack_require__(12),
+                __webpack_require__(2)(module)
             ))
         },
         function(module, exports, __webpack_require__) {
@@ -24320,15 +29905,15 @@ object-assign
                 }
             }.call(
                 this,
-                __webpack_require__(9),
-                __webpack_require__(48)(module)
+                __webpack_require__(12),
+                __webpack_require__(2)(module)
             ))
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var strong = __webpack_require__(295),
-                validate = __webpack_require__(155)
-            module.exports = __webpack_require__(297)(
+            var strong = __webpack_require__(298),
+                validate = __webpack_require__(158)
+            module.exports = __webpack_require__(300)(
                 'Map',
                 function(get) {
                     return function Map() {
@@ -24357,18 +29942,18 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var dP = __webpack_require__(14).f,
-                create = __webpack_require__(47),
-                redefineAll = __webpack_require__(152),
-                ctx = __webpack_require__(35),
-                anInstance = __webpack_require__(153),
-                forOf = __webpack_require__(154),
-                $iterDefine = __webpack_require__(82),
-                step = __webpack_require__(141),
-                setSpecies = __webpack_require__(296),
-                DESCRIPTORS = __webpack_require__(10),
-                fastKey = __webpack_require__(57).fastKey,
-                validate = __webpack_require__(155),
+            var dP = __webpack_require__(18).f,
+                create = __webpack_require__(50),
+                redefineAll = __webpack_require__(155),
+                ctx = __webpack_require__(40),
+                anInstance = __webpack_require__(156),
+                forOf = __webpack_require__(157),
+                $iterDefine = __webpack_require__(85),
+                step = __webpack_require__(136),
+                setSpecies = __webpack_require__(299),
+                DESCRIPTORS = __webpack_require__(14),
+                fastKey = __webpack_require__(59).fastKey,
+                validate = __webpack_require__(158),
                 SIZE = DESCRIPTORS ? '_s' : 'size',
                 getEntry = function(that, key) {
                     var entry,
@@ -24516,10 +30101,10 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var global = __webpack_require__(17),
-                dP = __webpack_require__(14),
-                DESCRIPTORS = __webpack_require__(10),
-                SPECIES = __webpack_require__(5)('species')
+            var global = __webpack_require__(20),
+                dP = __webpack_require__(18),
+                DESCRIPTORS = __webpack_require__(14),
+                SPECIES = __webpack_require__(6)('species')
             module.exports = function(KEY) {
                 var C = global[KEY]
                 DESCRIPTORS &&
@@ -24535,18 +30120,18 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var global = __webpack_require__(17),
+            var global = __webpack_require__(20),
                 $export = __webpack_require__(1),
-                redefine = __webpack_require__(19),
-                redefineAll = __webpack_require__(152),
-                meta = __webpack_require__(57),
-                forOf = __webpack_require__(154),
-                anInstance = __webpack_require__(153),
-                isObject = __webpack_require__(18),
-                fails = __webpack_require__(11),
-                $iterDetect = __webpack_require__(138),
-                setToStringTag = __webpack_require__(58),
-                inheritIfRequired = __webpack_require__(156)
+                redefine = __webpack_require__(22),
+                redefineAll = __webpack_require__(155),
+                meta = __webpack_require__(59),
+                forOf = __webpack_require__(157),
+                anInstance = __webpack_require__(156),
+                isObject = __webpack_require__(21),
+                fails = __webpack_require__(15),
+                $iterDetect = __webpack_require__(143),
+                setToStringTag = __webpack_require__(60),
+                inheritIfRequired = __webpack_require__(159)
             module.exports = function(
                 NAME,
                 wrapper,
@@ -24661,42 +30246,42 @@ object-assign
             'use strict'
             Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = exports.splitPath = void 0),
-                __webpack_require__(15),
+                __webpack_require__(17),
                 __webpack_require__(13),
-                __webpack_require__(158),
-                __webpack_require__(159),
-                __webpack_require__(160),
-                __webpack_require__(16),
-                __webpack_require__(299),
-                __webpack_require__(21),
-                __webpack_require__(86),
-                __webpack_require__(62),
-                __webpack_require__(27),
-                __webpack_require__(300),
-                __webpack_require__(84),
-                __webpack_require__(301),
-                __webpack_require__(304),
-                __webpack_require__(87),
-                __webpack_require__(38),
-                __webpack_require__(37),
-                __webpack_require__(139),
-                __webpack_require__(143),
                 __webpack_require__(161),
-                __webpack_require__(90),
-                __webpack_require__(32),
-                __webpack_require__(307)
-            var _global = __webpack_require__(23),
+                __webpack_require__(162),
+                __webpack_require__(163),
+                __webpack_require__(19),
+                __webpack_require__(302),
+                __webpack_require__(23),
+                __webpack_require__(88),
+                __webpack_require__(64),
+                __webpack_require__(28),
+                __webpack_require__(303),
+                __webpack_require__(87),
+                __webpack_require__(304),
+                __webpack_require__(307),
+                __webpack_require__(89),
+                __webpack_require__(37),
+                __webpack_require__(36),
+                __webpack_require__(144),
+                __webpack_require__(147),
+                __webpack_require__(164),
+                __webpack_require__(93),
+                __webpack_require__(31),
+                __webpack_require__(310)
+            var _global = __webpack_require__(26),
                 _eventemitter = _interopRequireDefault(
-                    __webpack_require__(308)
+                    __webpack_require__(311)
                 ),
-                _qs = _interopRequireDefault(__webpack_require__(309)),
-                _memoizerific = _interopRequireDefault(__webpack_require__(88)),
-                _lodash = _interopRequireDefault(__webpack_require__(312)),
-                _commonTags = __webpack_require__(175),
-                _coreEvents = _interopRequireDefault(__webpack_require__(63)),
-                _clientLogger = __webpack_require__(39),
-                _utils = __webpack_require__(64),
-                _pathToId = _interopRequireDefault(__webpack_require__(164))
+                _qs = _interopRequireDefault(__webpack_require__(312)),
+                _memoizerific = _interopRequireDefault(__webpack_require__(91)),
+                _lodash = _interopRequireDefault(__webpack_require__(315)),
+                _commonTags = __webpack_require__(178),
+                _coreEvents = _interopRequireDefault(__webpack_require__(65)),
+                _clientLogger = __webpack_require__(42),
+                _utils = __webpack_require__(66),
+                _pathToId = _interopRequireDefault(__webpack_require__(167))
             function _interopRequireDefault(obj) {
                 return obj && obj.__esModule ? obj : { default: obj }
             }
@@ -25423,11 +31008,11 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             var $export = __webpack_require__(1)
-            $export($export.S, 'Object', { create: __webpack_require__(47) })
+            $export($export.S, 'Object', { create: __webpack_require__(50) })
         },
         function(module, exports, __webpack_require__) {
             var $export = __webpack_require__(1),
-                $values = __webpack_require__(140)(!1)
+                $values = __webpack_require__(145)(!1)
             $export($export.S, 'Object', {
                 values: function values(it) {
                     return $values(it)
@@ -25436,10 +31021,10 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var anObject = __webpack_require__(12),
-                sameValue = __webpack_require__(302),
-                regExpExec = __webpack_require__(65)
-            __webpack_require__(66)('search', 1, function(
+            var anObject = __webpack_require__(16),
+                sameValue = __webpack_require__(305),
+                regExpExec = __webpack_require__(67)
+            __webpack_require__(68)('search', 1, function(
                 defined,
                 SEARCH,
                 $search,
@@ -25481,7 +31066,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var regexpExec = __webpack_require__(89)
+            var regexpExec = __webpack_require__(92)
             __webpack_require__(1)(
                 {
                     target: 'RegExp',
@@ -25494,9 +31079,9 @@ object-assign
         function(module, exports, __webpack_require__) {
             'use strict'
             var $export = __webpack_require__(1),
-                aFunction = __webpack_require__(56),
-                toObject = __webpack_require__(24),
-                fails = __webpack_require__(11),
+                aFunction = __webpack_require__(58),
+                toObject = __webpack_require__(27),
+                fails = __webpack_require__(15),
                 $sort = [].sort,
                 test = [1, 2, 3]
             $export(
@@ -25508,7 +31093,7 @@ object-assign
                             !fails(function() {
                                 test.sort(null)
                             }) ||
-                            !__webpack_require__(36)($sort)),
+                            !__webpack_require__(41)($sort)),
                 'Array',
                 {
                     sort: function sort(comparefn) {
@@ -25520,9 +31105,9 @@ object-assign
             )
         },
         function(module, exports, __webpack_require__) {
-            var isObject = __webpack_require__(18),
-                cof = __webpack_require__(44),
-                MATCH = __webpack_require__(5)('match')
+            var isObject = __webpack_require__(21),
+                cof = __webpack_require__(47),
+                MATCH = __webpack_require__(6)('match')
             module.exports = function(it) {
                 var isRegExp
                 return (
@@ -25534,9 +31119,9 @@ object-assign
             }
         },
         function(module, exports, __webpack_require__) {
-            var anObject = __webpack_require__(12),
-                aFunction = __webpack_require__(56),
-                SPECIES = __webpack_require__(5)('species')
+            var anObject = __webpack_require__(16),
+                aFunction = __webpack_require__(58),
+                SPECIES = __webpack_require__(6)('species')
             module.exports = function(O, D) {
                 var S,
                     C = anObject(O).constructor
@@ -25547,18 +31132,18 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var anObject = __webpack_require__(12),
-                toObject = __webpack_require__(24),
-                toLength = __webpack_require__(22),
-                toInteger = __webpack_require__(60),
-                advanceStringIndex = __webpack_require__(91),
-                regExpExec = __webpack_require__(65),
+            var anObject = __webpack_require__(16),
+                toObject = __webpack_require__(27),
+                toLength = __webpack_require__(25),
+                toInteger = __webpack_require__(62),
+                advanceStringIndex = __webpack_require__(94),
+                regExpExec = __webpack_require__(67),
                 max = Math.max,
                 min = Math.min,
                 floor = Math.floor,
                 SUBSTITUTION_SYMBOLS = /\$([$&`']|\d\d?|<[^>]*>)/g,
                 SUBSTITUTION_SYMBOLS_NO_NAMED = /\$([$&`']|\d\d?)/g
-            __webpack_require__(66)('replace', 2, function(
+            __webpack_require__(68)('replace', 2, function(
                 defined,
                 REPLACE,
                 $replace,
@@ -25986,9 +31571,9 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var stringify = __webpack_require__(310),
-                parse = __webpack_require__(311),
-                formats = __webpack_require__(163)
+            var stringify = __webpack_require__(313),
+                parse = __webpack_require__(314),
+                formats = __webpack_require__(166)
             module.exports = {
                 formats: formats,
                 parse: parse,
@@ -25997,8 +31582,8 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var utils = __webpack_require__(162),
-                formats = __webpack_require__(163),
+            var utils = __webpack_require__(165),
+                formats = __webpack_require__(166),
                 arrayPrefixGenerators = {
                     brackets: function brackets(prefix) {
                         return prefix + '[]'
@@ -26261,7 +31846,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var utils = __webpack_require__(162),
+            var utils = __webpack_require__(165),
                 has = Object.prototype.hasOwnProperty,
                 defaults = {
                     allowDots: !1,
@@ -26702,15 +32287,15 @@ object-assign
                         debounced
                     )
                 }
-            }.call(this, __webpack_require__(9)))
+            }.call(this, __webpack_require__(12)))
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var anObject = __webpack_require__(12),
-                toLength = __webpack_require__(22),
-                advanceStringIndex = __webpack_require__(91),
-                regExpExec = __webpack_require__(65)
-            __webpack_require__(66)('match', 1, function(
+            var anObject = __webpack_require__(16),
+                toLength = __webpack_require__(25),
+                advanceStringIndex = __webpack_require__(94),
+                regExpExec = __webpack_require__(67)
+            __webpack_require__(68)('match', 1, function(
                 defined,
                 MATCH,
                 $match,
@@ -26756,12 +32341,12 @@ object-assign
             'use strict'
             Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = void 0),
-                __webpack_require__(16)
-            var _global = __webpack_require__(23),
+                __webpack_require__(19)
+            var _global = __webpack_require__(26),
                 _coreEvents = (function _interopRequireDefault(obj) {
                     return obj && obj.__esModule ? obj : { default: obj }
-                })(__webpack_require__(63)),
-                _clientLogger = __webpack_require__(39)
+                })(__webpack_require__(65)),
+                _clientLogger = __webpack_require__(42)
             function _defineProperties(target, props) {
                 for (var i = 0; i < props.length; i++) {
                     var descriptor = props[i]
@@ -26878,7 +32463,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(16),
+            __webpack_require__(19),
                 Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = function start(render) {
                     var decorateStory = (arguments.length > 1 &&
@@ -27050,20 +32635,20 @@ object-assign
                     }
                 }),
                 (exports.getContext = void 0),
-                __webpack_require__(32),
-                __webpack_require__(27),
-                __webpack_require__(160)
-            var _addons = _interopRequireDefault(__webpack_require__(145)),
-                _global = __webpack_require__(23),
+                __webpack_require__(31),
+                __webpack_require__(28),
+                __webpack_require__(163)
+            var _addons = _interopRequireDefault(__webpack_require__(90)),
+                _global = __webpack_require__(26),
                 _channelPostmessage = _interopRequireDefault(
-                    __webpack_require__(316)
+                    __webpack_require__(319)
                 ),
-                _clientApi = __webpack_require__(132),
-                _utils = __webpack_require__(64),
-                _clientLogger = __webpack_require__(39),
-                _coreEvents = _interopRequireDefault(__webpack_require__(63)),
+                _clientApi = __webpack_require__(137),
+                _utils = __webpack_require__(66),
+                _clientLogger = __webpack_require__(42),
+                _coreEvents = _interopRequireDefault(__webpack_require__(65)),
                 _utilDeprecate = _interopRequireDefault(
-                    __webpack_require__(146)
+                    __webpack_require__(149)
                 )
             function _interopRequireDefault(obj) {
                 return obj && obj.__esModule ? obj : { default: obj }
@@ -27159,10 +32744,10 @@ object-assign
                     return mod && mod.__esModule ? mod : { default: mod }
                 }
             Object.defineProperty(exports, '__esModule', { value: !0 })
-            var global_1 = __webpack_require__(23),
-                channels_1 = __importDefault(__webpack_require__(148)),
-                client_logger_1 = __webpack_require__(39),
-                telejson_1 = __webpack_require__(317)
+            var global_1 = __webpack_require__(26),
+                channels_1 = __importDefault(__webpack_require__(151)),
+                client_logger_1 = __webpack_require__(42),
+                telejson_1 = __webpack_require__(320)
             exports.KEY = 'storybook-channel'
             var PostmsgTransport = (function() {
                 function PostmsgTransport(config) {
@@ -27274,13 +32859,13 @@ object-assign
             'use strict'
             Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.parse = exports.stringify = exports.isJSON = exports.reviver = exports.replacer = void 0)
-            var _global = __webpack_require__(23),
-                _isRegex = _interopRequireDefault(__webpack_require__(51)),
-                _isFunction = _interopRequireDefault(__webpack_require__(318)),
-                _isSymbol = _interopRequireDefault(__webpack_require__(100)),
-                _isobject = _interopRequireDefault(__webpack_require__(144)),
-                _lodash = _interopRequireDefault(__webpack_require__(319)),
-                _memoizerific = _interopRequireDefault(__webpack_require__(88))
+            var _global = __webpack_require__(26),
+                _isRegex = _interopRequireDefault(__webpack_require__(53)),
+                _isFunction = _interopRequireDefault(__webpack_require__(321)),
+                _isSymbol = _interopRequireDefault(__webpack_require__(105)),
+                _isobject = _interopRequireDefault(__webpack_require__(148)),
+                _lodash = _interopRequireDefault(__webpack_require__(322)),
+                _memoizerific = _interopRequireDefault(__webpack_require__(91))
             function _interopRequireDefault(obj) {
                 return obj && obj.__esModule ? obj : { default: obj }
             }
@@ -27951,11 +33536,11 @@ object-assign
                     var result = null == object ? void 0 : baseGet(object, path)
                     return void 0 === result ? defaultValue : result
                 }
-            }.call(this, __webpack_require__(9)))
+            }.call(this, __webpack_require__(12)))
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var _global = __webpack_require__(23)
+            var _global = __webpack_require__(26)
             if (_global.window && _global.window.parent !== _global.window)
                 try {
                     _global.window.__REACT_DEVTOOLS_GLOBAL_HOOK__ =
@@ -27965,7 +33550,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(16),
+            __webpack_require__(19),
                 Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = function renderMain(_ref) {
                     var storyFn = _ref.storyFn,
@@ -28013,14 +33598,14 @@ object-assign
                             )
                         })(element, rootEl)
                 }),
-                __webpack_require__(158),
-                __webpack_require__(159)
-            var _global = __webpack_require__(23),
+                __webpack_require__(161),
+                __webpack_require__(162)
+            var _global = __webpack_require__(26),
                 _react = _interopRequireDefault(__webpack_require__(0)),
-                _reactDom = _interopRequireDefault(__webpack_require__(323)),
-                _commonTags = __webpack_require__(175),
+                _reactDom = _interopRequireDefault(__webpack_require__(326)),
+                _commonTags = __webpack_require__(178),
                 _element_check = _interopRequireDefault(
-                    __webpack_require__(327)
+                    __webpack_require__(330)
                 )
             function _interopRequireDefault(obj) {
                 return obj && obj.__esModule ? obj : { default: obj }
@@ -28070,7 +33655,7 @@ object-assign
              *
              * This source code is licensed under the MIT license found in the
              * LICENSE file in the root directory of this source tree.
-             */ var k = __webpack_require__(165),
+             */ var k = __webpack_require__(168),
                 n = 'function' == typeof Symbol && Symbol.for,
                 p = n ? Symbol.for('react.element') : 60103,
                 q = n ? Symbol.for('react.portal') : 60106,
@@ -28515,7 +34100,7 @@ object-assign
                         console.error(err)
                     }
             })(),
-                (module.exports = __webpack_require__(324))
+                (module.exports = __webpack_require__(327))
         },
         function(module, exports, __webpack_require__) {
             'use strict'
@@ -28527,8 +34112,8 @@ object-assign
              * This source code is licensed under the MIT license found in the
              * LICENSE file in the root directory of this source tree.
              */ var aa = __webpack_require__(0),
-                n = __webpack_require__(165),
-                r = __webpack_require__(325)
+                n = __webpack_require__(168),
+                r = __webpack_require__(328)
             function x(a) {
                 for (
                     var b = arguments.length - 1,
@@ -35781,7 +41366,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            module.exports = __webpack_require__(326)
+            module.exports = __webpack_require__(329)
         },
         function(module, exports, __webpack_require__) {
             'use strict'
@@ -36168,23 +41753,23 @@ object-assign
                     (exports.unstable_getFirstCallbackNode = function() {
                         return d
                     })
-            }.call(this, __webpack_require__(9)))
+            }.call(this, __webpack_require__(12)))
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            __webpack_require__(16),
+            __webpack_require__(19),
                 Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = exports.isPriorToFiber = exports.isValidFiberElement = void 0),
-                __webpack_require__(15),
+                __webpack_require__(17),
                 __webpack_require__(13),
-                __webpack_require__(38),
-                __webpack_require__(161),
-                __webpack_require__(84),
+                __webpack_require__(37),
+                __webpack_require__(164),
                 __webpack_require__(87),
-                __webpack_require__(328),
-                __webpack_require__(90)
+                __webpack_require__(89),
+                __webpack_require__(331),
+                __webpack_require__(93)
             var _react = _interopRequireDefault(__webpack_require__(0)),
-                _flattenDeep = _interopRequireDefault(__webpack_require__(331))
+                _flattenDeep = _interopRequireDefault(__webpack_require__(334))
             function _interopRequireDefault(obj) {
                 return obj && obj.__esModule ? obj : { default: obj }
             }
@@ -36251,20 +41836,20 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var global = __webpack_require__(17),
-                has = __webpack_require__(25),
-                cof = __webpack_require__(44),
-                inheritIfRequired = __webpack_require__(156),
-                toPrimitive = __webpack_require__(53),
-                fails = __webpack_require__(11),
-                gOPN = __webpack_require__(79).f,
-                gOPD = __webpack_require__(80).f,
-                dP = __webpack_require__(14).f,
-                $trim = __webpack_require__(329).trim,
+            var global = __webpack_require__(20),
+                has = __webpack_require__(29),
+                cof = __webpack_require__(47),
+                inheritIfRequired = __webpack_require__(159),
+                toPrimitive = __webpack_require__(55),
+                fails = __webpack_require__(15),
+                gOPN = __webpack_require__(81).f,
+                gOPD = __webpack_require__(82).f,
+                dP = __webpack_require__(18).f,
+                $trim = __webpack_require__(332).trim,
                 $Number = global.Number,
                 Base = $Number,
                 proto = $Number.prototype,
-                BROKEN_COF = 'Number' == cof(__webpack_require__(47)(proto)),
+                BROKEN_COF = 'Number' == cof(__webpack_require__(50)(proto)),
                 TRIM = 'trim' in String.prototype,
                 toNumber = function(argument) {
                     var it = toPrimitive(argument, !1)
@@ -36331,7 +41916,7 @@ object-assign
                 }
                 for (
                     var key,
-                        keys = __webpack_require__(10)
+                        keys = __webpack_require__(14)
                             ? gOPN(Base)
                             : 'MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger'.split(
                                   ','
@@ -36345,14 +41930,14 @@ object-assign
                         dP($Number, key, gOPD(Base, key))
                 ;($Number.prototype = proto),
                     (proto.constructor = $Number),
-                    __webpack_require__(19)(global, 'Number', $Number)
+                    __webpack_require__(22)(global, 'Number', $Number)
             }
         },
         function(module, exports, __webpack_require__) {
             var $export = __webpack_require__(1),
-                defined = __webpack_require__(45),
-                fails = __webpack_require__(11),
-                spaces = __webpack_require__(330),
+                defined = __webpack_require__(48),
+                fails = __webpack_require__(15),
+                spaces = __webpack_require__(333),
                 space = '[' + spaces + ']',
                 ltrim = RegExp('^' + space + space + '*'),
                 rtrim = RegExp(space + space + '*$'),
@@ -36379,7 +41964,7 @@ object-assign
             module.exports = '\t\n\v\f\r   ᠎             　\u2028\u2029\ufeff'
         },
         function(module, exports, __webpack_require__) {
-            var baseFlatten = __webpack_require__(332),
+            var baseFlatten = __webpack_require__(335),
                 INFINITY = 1 / 0
             module.exports = function flattenDeep(array) {
                 return null != array && array.length
@@ -36388,8 +41973,8 @@ object-assign
             }
         },
         function(module, exports, __webpack_require__) {
-            var arrayPush = __webpack_require__(333),
-                isFlattenable = __webpack_require__(334)
+            var arrayPush = __webpack_require__(336),
+                isFlattenable = __webpack_require__(337)
             module.exports = function baseFlatten(
                 array,
                 depth,
@@ -36435,9 +42020,9 @@ object-assign
             }
         },
         function(module, exports, __webpack_require__) {
-            var Symbol = __webpack_require__(92),
-                isArguments = __webpack_require__(337),
-                isArray = __webpack_require__(342),
+            var Symbol = __webpack_require__(95),
+                isArguments = __webpack_require__(340),
+                isArray = __webpack_require__(345),
                 spreadableSymbol = Symbol ? Symbol.isConcatSpreadable : void 0
             module.exports = function isFlattenable(value) {
                 return (
@@ -36448,7 +42033,7 @@ object-assign
             }
         },
         function(module, exports, __webpack_require__) {
-            var freeGlobal = __webpack_require__(336),
+            var freeGlobal = __webpack_require__(339),
                 freeSelf =
                     'object' == typeof self &&
                     self &&
@@ -36465,11 +42050,11 @@ object-assign
                     global.Object === Object &&
                     global
                 module.exports = freeGlobal
-            }.call(this, __webpack_require__(9)))
+            }.call(this, __webpack_require__(12)))
         },
         function(module, exports, __webpack_require__) {
-            var baseIsArguments = __webpack_require__(338),
-                isObjectLike = __webpack_require__(166),
+            var baseIsArguments = __webpack_require__(341),
+                isObjectLike = __webpack_require__(169),
                 objectProto = Object.prototype,
                 hasOwnProperty = objectProto.hasOwnProperty,
                 propertyIsEnumerable = objectProto.propertyIsEnumerable,
@@ -36489,17 +42074,17 @@ object-assign
             module.exports = isArguments
         },
         function(module, exports, __webpack_require__) {
-            var baseGetTag = __webpack_require__(339),
-                isObjectLike = __webpack_require__(166),
+            var baseGetTag = __webpack_require__(342),
+                isObjectLike = __webpack_require__(169),
                 argsTag = '[object Arguments]'
             module.exports = function baseIsArguments(value) {
                 return isObjectLike(value) && baseGetTag(value) == argsTag
             }
         },
         function(module, exports, __webpack_require__) {
-            var Symbol = __webpack_require__(92),
-                getRawTag = __webpack_require__(340),
-                objectToString = __webpack_require__(341),
+            var Symbol = __webpack_require__(95),
+                getRawTag = __webpack_require__(343),
+                objectToString = __webpack_require__(344),
                 nullTag = '[object Null]',
                 undefinedTag = '[object Undefined]',
                 symToStringTag = Symbol ? Symbol.toStringTag : void 0
@@ -36514,7 +42099,7 @@ object-assign
             }
         },
         function(module, exports, __webpack_require__) {
-            var Symbol = __webpack_require__(92),
+            var Symbol = __webpack_require__(95),
                 objectProto = Object.prototype,
                 hasOwnProperty = objectProto.hasOwnProperty,
                 nativeObjectToString = objectProto.toString,
@@ -36545,6 +42130,4211 @@ object-assign
         function(module, exports) {
             var isArray = Array.isArray
             module.exports = isArray
+        },
+        function(module, exports, __webpack_require__) {
+            'use strict'
+            Object.defineProperty(exports, '__esModule', { value: !0 }),
+                (exports.default = exports.jsxDecorator = void 0)
+            var _react = _interopRequireDefault(__webpack_require__(0)),
+                _addons = __webpack_require__(90),
+                _reactElementToJsxString = _interopRequireDefault(
+                    __webpack_require__(347)
+                ),
+                _jsBeautify = __webpack_require__(348),
+                _constants = __webpack_require__(350)
+            function _interopRequireDefault(obj) {
+                return obj && obj.__esModule ? obj : { default: obj }
+            }
+            function _objectSpread(target) {
+                for (var i = 1; i < arguments.length; i++) {
+                    var source = null != arguments[i] ? arguments[i] : {},
+                        ownKeys = Object.keys(source)
+                    'function' == typeof Object.getOwnPropertySymbols &&
+                        (ownKeys = ownKeys.concat(
+                            Object.getOwnPropertySymbols(source).filter(
+                                function(sym) {
+                                    return Object.getOwnPropertyDescriptor(
+                                        source,
+                                        sym
+                                    ).enumerable
+                                }
+                            )
+                        )),
+                        ownKeys.forEach(function(key) {
+                            _defineProperty(target, key, source[key])
+                        })
+                }
+                return target
+            }
+            function _defineProperty(obj, key, value) {
+                return (
+                    key in obj
+                        ? Object.defineProperty(obj, key, {
+                              value: value,
+                              enumerable: !0,
+                              configurable: !0,
+                              writable: !0,
+                          })
+                        : (obj[key] = value),
+                    obj
+                )
+            }
+            var jsxDecorator = function jsxDecorator(storyFn, parameters) {
+                var options = _objectSpread(
+                        {},
+                        { skip: 0, showFunctions: !0, enableBeautify: !0 },
+                        (parameters.parameters && parameters.parameters.jsx) ||
+                            {}
+                    ),
+                    channel = _addons.addons.getChannel(),
+                    story = storyFn(),
+                    jsx = ''
+                if (story.template)
+                    jsx = options.enableBeautify
+                        ? (0, _jsBeautify.html)(story.template, options)
+                        : story.template
+                else {
+                    var rendered = (function renderJsx(code, options) {
+                        for (var i = 0; i < options.skip; i++) {
+                            if (void 0 === code)
+                                return void console.warn(
+                                    'Cannot skip undefined element'
+                                )
+                            if (_react.default.Children.count(code) > 1)
+                                return void console.warn(
+                                    'Trying to skip an array of elements'
+                                )
+                            void 0 === code.props.children
+                                ? (console.warn(
+                                      'Not enough children to skip elements.'
+                                  ),
+                                  'function' == typeof code.type &&
+                                      '' === code.type.name &&
+                                      (code = code.type(code.props)))
+                                : (code =
+                                      'function' == typeof code.props.children
+                                          ? code.props.children()
+                                          : code.props.children)
+                        }
+                        if (void 0 === code)
+                            return console.warn(
+                                'Too many skip or undefined component'
+                            )
+                        for (
+                            ;
+                            'function' == typeof code.type &&
+                            '' === code.type.name;
+
+                        )
+                            code = code.type(code.props)
+                        var ooo =
+                            'string' == typeof options.displayName
+                                ? _objectSpread({}, options, {
+                                      showFunctions: !0,
+                                      displayName: function displayName() {
+                                          return options.displayName
+                                      },
+                                  })
+                                : options
+                        return _react.default.Children.map(code, function(c) {
+                            return (function applyBeforeRender(
+                                domString,
+                                options
+                            ) {
+                                return 'function' !=
+                                    typeof options.onBeforeRender
+                                    ? domString
+                                    : options.onBeforeRender(domString)
+                            })(
+                                (0, _reactElementToJsxString.default)(c, ooo),
+                                options
+                            )
+                        }).join('\n')
+                    })(story, options)
+                    rendered && (jsx = rendered)
+                }
+                return (
+                    channel.emit(_constants.EVENTS.ADD_JSX, parameters.id, jsx),
+                    story
+                )
+            }
+            exports.jsxDecorator = jsxDecorator
+            var _default = {
+                addWithJSX: function addWithJSX(kind, storyFn) {
+                    return this.add(kind, function(context) {
+                        return jsxDecorator(storyFn, context)
+                    })
+                },
+            }
+            exports.default = _default
+        },
+        function(module, exports, __webpack_require__) {
+            'use strict'
+            var React = __webpack_require__(0),
+                React__default = (function _interopDefault(ex) {
+                    return ex && 'object' == typeof ex && 'default' in ex
+                        ? ex.default
+                        : ex
+                })(React),
+                spacer = function(times, tabStop) {
+                    return 0 === times
+                        ? ''
+                        : new Array(times * tabStop).fill(' ').join('')
+                },
+                isobject = function isObject(val) {
+                    return (
+                        null != val &&
+                        'object' == typeof val &&
+                        !1 === Array.isArray(val)
+                    )
+                }
+            function isObjectObject(o) {
+                return (
+                    !0 === isobject(o) &&
+                    '[object Object]' === Object.prototype.toString.call(o)
+                )
+            }
+            var lib = (function createCommonjsModule(fn, module) {
+                return (
+                    fn((module = { exports: {} }), module.exports),
+                    module.exports
+                )
+            })(function(module, exports) {
+                Object.defineProperty(exports, '__esModule', { value: !0 }),
+                    (exports.default = function(object) {
+                        return Object.getOwnPropertySymbols(object).filter(
+                            function(keySymbol) {
+                                return object.propertyIsEnumerable(keySymbol)
+                            }
+                        )
+                    })
+            })
+            !(function unwrapExports(x) {
+                return x &&
+                    x.__esModule &&
+                    Object.prototype.hasOwnProperty.call(x, 'default')
+                    ? x.default
+                    : x
+            })(lib)
+            var _typeof =
+                    'function' == typeof Symbol &&
+                    'symbol' == typeof Symbol.iterator
+                        ? function(obj) {
+                              return typeof obj
+                          }
+                        : function(obj) {
+                              return obj &&
+                                  'function' == typeof Symbol &&
+                                  obj.constructor === Symbol &&
+                                  obj !== Symbol.prototype
+                                  ? 'symbol'
+                                  : typeof obj
+                          },
+                getOwnEnumPropSymbols = lib.default,
+                stringifyObject = function(val, opts, pad) {
+                    var seen = []
+                    return (function stringify(val, opts, pad) {
+                        ;((opts = opts || {}).indent = opts.indent || '\t'),
+                            (pad = pad || '')
+                        var tokens = void 0
+                        tokens =
+                            void 0 === opts.inlineCharacterLimit
+                                ? {
+                                      newLine: '\n',
+                                      newLineOrSpace: '\n',
+                                      pad: pad,
+                                      indent: pad + opts.indent,
+                                  }
+                                : {
+                                      newLine:
+                                          '@@__STRINGIFY_OBJECT_NEW_LINE__@@',
+                                      newLineOrSpace:
+                                          '@@__STRINGIFY_OBJECT_NEW_LINE_OR_SPACE__@@',
+                                      pad: '@@__STRINGIFY_OBJECT_PAD__@@',
+                                      indent: '@@__STRINGIFY_OBJECT_INDENT__@@',
+                                  }
+                        var re,
+                            x,
+                            type,
+                            expandWhiteSpace = function expandWhiteSpace(
+                                string
+                            ) {
+                                if (void 0 === opts.inlineCharacterLimit)
+                                    return string
+                                var oneLined = string
+                                    .replace(
+                                        new RegExp(tokens.newLine, 'g'),
+                                        ''
+                                    )
+                                    .replace(
+                                        new RegExp(tokens.newLineOrSpace, 'g'),
+                                        ' '
+                                    )
+                                    .replace(
+                                        new RegExp(
+                                            tokens.pad + '|' + tokens.indent,
+                                            'g'
+                                        ),
+                                        ''
+                                    )
+                                return oneLined.length <=
+                                    opts.inlineCharacterLimit
+                                    ? oneLined
+                                    : string
+                                          .replace(
+                                              new RegExp(
+                                                  tokens.newLine +
+                                                      '|' +
+                                                      tokens.newLineOrSpace,
+                                                  'g'
+                                              ),
+                                              '\n'
+                                          )
+                                          .replace(
+                                              new RegExp(tokens.pad, 'g'),
+                                              pad
+                                          )
+                                          .replace(
+                                              new RegExp(tokens.indent, 'g'),
+                                              pad + opts.indent
+                                          )
+                            }
+                        if (-1 !== seen.indexOf(val)) return '"[Circular]"'
+                        if (
+                            null == val ||
+                            'number' == typeof val ||
+                            'boolean' == typeof val ||
+                            'function' == typeof val ||
+                            'symbol' ===
+                                (void 0 === val ? 'undefined' : _typeof(val)) ||
+                            ((re = val),
+                            '[object RegExp]' ===
+                                Object.prototype.toString.call(re))
+                        )
+                            return String(val)
+                        if (val instanceof Date)
+                            return "new Date('" + val.toISOString() + "')"
+                        if (Array.isArray(val)) {
+                            if (0 === val.length) return '[]'
+                            seen.push(val)
+                            var ret =
+                                '[' +
+                                tokens.newLine +
+                                val
+                                    .map(function(el, i) {
+                                        var eol =
+                                                val.length - 1 === i
+                                                    ? tokens.newLine
+                                                    : ',' +
+                                                      tokens.newLineOrSpace,
+                                            value = stringify(
+                                                el,
+                                                opts,
+                                                pad + opts.indent
+                                            )
+                                        return (
+                                            opts.transform &&
+                                                (value = opts.transform(
+                                                    val,
+                                                    i,
+                                                    value
+                                                )),
+                                            tokens.indent + value + eol
+                                        )
+                                    })
+                                    .join('') +
+                                tokens.pad +
+                                ']'
+                            return seen.pop(val), expandWhiteSpace(ret)
+                        }
+                        if (
+                            ((type = typeof (x = val)),
+                            null !== x &&
+                                ('object' === type || 'function' === type))
+                        ) {
+                            var objKeys = Object.keys(val).concat(
+                                getOwnEnumPropSymbols(val)
+                            )
+                            if (
+                                (opts.filter &&
+                                    (objKeys = objKeys.filter(function(el) {
+                                        return opts.filter(val, el)
+                                    })),
+                                0 === objKeys.length)
+                            )
+                                return '{}'
+                            seen.push(val)
+                            var _ret =
+                                '{' +
+                                tokens.newLine +
+                                objKeys
+                                    .map(function(el, i) {
+                                        var eol =
+                                                objKeys.length - 1 === i
+                                                    ? tokens.newLine
+                                                    : ',' +
+                                                      tokens.newLineOrSpace,
+                                            isSymbol =
+                                                'symbol' ===
+                                                (void 0 === el
+                                                    ? 'undefined'
+                                                    : _typeof(el)),
+                                            isClassic =
+                                                !isSymbol &&
+                                                /^[a-z$_][a-z$_0-9]*$/i.test(
+                                                    el
+                                                ),
+                                            key =
+                                                isSymbol || isClassic
+                                                    ? el
+                                                    : stringify(el, opts),
+                                            value = stringify(
+                                                val[el],
+                                                opts,
+                                                pad + opts.indent
+                                            )
+                                        return (
+                                            opts.transform &&
+                                                (value = opts.transform(
+                                                    val,
+                                                    el,
+                                                    value
+                                                )),
+                                            tokens.indent +
+                                                String(key) +
+                                                ': ' +
+                                                value +
+                                                eol
+                                        )
+                                    })
+                                    .join('') +
+                                tokens.pad +
+                                '}'
+                            return seen.pop(val), expandWhiteSpace(_ret)
+                        }
+                        return (
+                            (val = String(val).replace(/[\r\n]/g, function(x) {
+                                return '\n' === x ? '\\n' : '\\r'
+                            })),
+                            !1 === opts.singleQuotes
+                                ? '"' + (val = val.replace(/"/g, '\\"')) + '"'
+                                : "'" +
+                                  (val = val.replace(/\\?'/g, "\\'")) +
+                                  "'"
+                        )
+                    })(val, opts, pad)
+                },
+                _typeof$1 =
+                    'function' == typeof Symbol &&
+                    'symbol' == typeof Symbol.iterator
+                        ? function(obj) {
+                              return typeof obj
+                          }
+                        : function(obj) {
+                              return obj &&
+                                  'function' == typeof Symbol &&
+                                  obj.constructor === Symbol &&
+                                  obj !== Symbol.prototype
+                                  ? 'symbol'
+                                  : typeof obj
+                          }
+            function sortObject(value) {
+                return null === value ||
+                    'object' !==
+                        (void 0 === value ? 'undefined' : _typeof$1(value))
+                    ? value
+                    : value instanceof Date || value instanceof RegExp
+                    ? value
+                    : Array.isArray(value)
+                    ? value.map(sortObject)
+                    : Object.keys(value)
+                          .sort()
+                          .reduce(function(result, key) {
+                              return '_owner' === key
+                                  ? result
+                                  : ((result[key] = sortObject(value[key])),
+                                    result)
+                          }, {})
+            }
+            var createStringTreeNode = function createStringTreeNode(value) {
+                    return { type: 'string', value: value }
+                },
+                _typeof$2 =
+                    'function' == typeof Symbol &&
+                    'symbol' == typeof Symbol.iterator
+                        ? function(obj) {
+                              return typeof obj
+                          }
+                        : function(obj) {
+                              return obj &&
+                                  'function' == typeof Symbol &&
+                                  obj.constructor === Symbol &&
+                                  obj !== Symbol.prototype
+                                  ? 'symbol'
+                                  : typeof obj
+                          },
+                supportFragment = Boolean(React.Fragment),
+                getReactElementDisplayName = function getReactElementDisplayName(
+                    element
+                ) {
+                    return (
+                        element.type.displayName ||
+                        element.type.name ||
+                        ('function' == typeof element.type
+                            ? 'No Display Name'
+                            : element.type)
+                    )
+                },
+                noChildren = function noChildren(propsValue, propName) {
+                    return 'children' !== propName
+                },
+                onlyMeaningfulChildren = function onlyMeaningfulChildren(
+                    children
+                ) {
+                    return (
+                        !0 !== children &&
+                        !1 !== children &&
+                        null !== children &&
+                        '' !== children
+                    )
+                },
+                filterProps = function filterProps(originalProps, cb) {
+                    var filteredProps = {}
+                    return (
+                        Object.keys(originalProps)
+                            .filter(function(key) {
+                                return cb(originalProps[key], key)
+                            })
+                            .forEach(function(key) {
+                                return (filteredProps[key] = originalProps[key])
+                            }),
+                        filteredProps
+                    )
+                },
+                parseReactElement = function parseReactElement(
+                    element,
+                    options
+                ) {
+                    var _options$displayName = options.displayName,
+                        displayNameFn =
+                            void 0 === _options$displayName
+                                ? getReactElementDisplayName
+                                : _options$displayName
+                    if ('string' == typeof element)
+                        return createStringTreeNode(element)
+                    if ('number' == typeof element)
+                        return (function createNumberTreeNode(value) {
+                            return { type: 'number', value: value }
+                        })(element)
+                    if (!React__default.isValidElement(element))
+                        throw new Error(
+                            'react-element-to-jsx-string: Expected a React.Element, got `' +
+                                (void 0 === element
+                                    ? 'undefined'
+                                    : _typeof$2(element)) +
+                                '`'
+                        )
+                    var displayName = displayNameFn(element),
+                        props = filterProps(element.props, noChildren)
+                    null !== element.ref && (props.ref = element.ref)
+                    var key = element.key
+                    'string' == typeof key &&
+                        key.search(/^\./) &&
+                        (props.key = key)
+                    var defaultProps = filterProps(
+                            element.type.defaultProps || {},
+                            noChildren
+                        ),
+                        childrens = React__default.Children.toArray(
+                            element.props.children
+                        )
+                            .filter(onlyMeaningfulChildren)
+                            .map(function(child) {
+                                return parseReactElement(child, options)
+                            })
+                    return supportFragment && element.type === React.Fragment
+                        ? (function createReactFragmentTreeNode(
+                              key,
+                              childrens
+                          ) {
+                              return {
+                                  type: 'ReactFragment',
+                                  key: key,
+                                  childrens: childrens,
+                              }
+                          })(key, childrens)
+                        : (function createReactElementTreeNode(
+                              displayName,
+                              props,
+                              defaultProps,
+                              childrens
+                          ) {
+                              return {
+                                  type: 'ReactElement',
+                                  displayName: displayName,
+                                  props: props,
+                                  defaultProps: defaultProps,
+                                  childrens: childrens,
+                              }
+                          })(displayName, props, defaultProps, childrens)
+                }
+            function noRefCheck() {}
+            var defaultFunctionValue = function defaultFunctionValue(fn) {
+                    return fn.toString()
+                },
+                formatFunction = function(fn, options) {
+                    var _options$functionValu = options.functionValue,
+                        functionValue =
+                            void 0 === _options$functionValu
+                                ? defaultFunctionValue
+                                : _options$functionValu
+                    return functionValue(
+                        options.showFunctions ||
+                            functionValue !== defaultFunctionValue
+                            ? fn
+                            : noRefCheck
+                    )
+                },
+                _typeof$3 =
+                    'function' == typeof Symbol &&
+                    'symbol' == typeof Symbol.iterator
+                        ? function(obj) {
+                              return typeof obj
+                          }
+                        : function(obj) {
+                              return obj &&
+                                  'function' == typeof Symbol &&
+                                  obj.constructor === Symbol &&
+                                  obj !== Symbol.prototype
+                                  ? 'symbol'
+                                  : typeof obj
+                          },
+                formatPropValue = function formatPropValue(
+                    propValue,
+                    inline,
+                    lvl,
+                    options
+                ) {
+                    if ('number' == typeof propValue)
+                        return '{' + String(propValue) + '}'
+                    if ('string' == typeof propValue)
+                        return (
+                            '"' +
+                            (function escape(s) {
+                                return s.replace(/"/g, '&quot;')
+                            })(propValue) +
+                            '"'
+                        )
+                    if (
+                        'symbol' ===
+                        (void 0 === propValue
+                            ? 'undefined'
+                            : _typeof$3(propValue))
+                    ) {
+                        var symbolDescription = propValue
+                            .valueOf()
+                            .toString()
+                            .replace(/Symbol\((.*)\)/, '$1')
+                        return symbolDescription
+                            ? "{Symbol('" + symbolDescription + "')}"
+                            : '{Symbol()}'
+                    }
+                    return 'function' == typeof propValue
+                        ? '{' + formatFunction(propValue, options) + '}'
+                        : React.isValidElement(propValue)
+                        ? '{' +
+                          formatTreeNode(
+                              parseReactElement(propValue, options),
+                              !0,
+                              lvl,
+                              options
+                          ) +
+                          '}'
+                        : propValue instanceof Date
+                        ? '{new Date("' + propValue.toISOString() + '")}'
+                        : (function isPlainObject(o) {
+                              var ctor, prot
+                              return (
+                                  !1 !== isObjectObject(o) &&
+                                  'function' == typeof (ctor = o.constructor) &&
+                                  !1 !==
+                                      isObjectObject((prot = ctor.prototype)) &&
+                                  !1 !== prot.hasOwnProperty('isPrototypeOf')
+                              )
+                          })(propValue) || Array.isArray(propValue)
+                        ? '{' +
+                          (function(value, inline, lvl, options) {
+                              var normalizedValue = sortObject(value),
+                                  stringifiedValue = stringifyObject(
+                                      normalizedValue,
+                                      {
+                                          transform: function transform(
+                                              currentObj,
+                                              prop,
+                                              originalResult
+                                          ) {
+                                              var currentValue =
+                                                  currentObj[prop]
+                                              return currentValue &&
+                                                  React.isValidElement(
+                                                      currentValue
+                                                  )
+                                                  ? formatTreeNode(
+                                                        parseReactElement(
+                                                            currentValue,
+                                                            options
+                                                        ),
+                                                        !0,
+                                                        lvl,
+                                                        options
+                                                    )
+                                                  : 'function' ==
+                                                    typeof currentValue
+                                                  ? formatFunction(
+                                                        currentValue,
+                                                        options
+                                                    )
+                                                  : originalResult
+                                          },
+                                      }
+                                  )
+                              return inline
+                                  ? stringifiedValue
+                                        .replace(/\s+/g, ' ')
+                                        .replace(/{ /g, '{')
+                                        .replace(/ }/g, '}')
+                                        .replace(/\[ /g, '[')
+                                        .replace(/ ]/g, ']')
+                                  : stringifiedValue
+                                        .replace(
+                                            /\t/g,
+                                            spacer(1, options.tabStop)
+                                        )
+                                        .replace(
+                                            /\n([^$])/g,
+                                            '\n' +
+                                                spacer(
+                                                    lvl + 1,
+                                                    options.tabStop
+                                                ) +
+                                                '$1'
+                                        )
+                          })(propValue, inline, lvl, options) +
+                          '}'
+                        : '{' + String(propValue) + '}'
+                },
+                mergeSiblingPlainStringChildrenReducer = function(
+                    previousNodes,
+                    currentNode
+                ) {
+                    var nodes = previousNodes.slice(
+                            0,
+                            previousNodes.length > 0
+                                ? previousNodes.length - 1
+                                : 0
+                        ),
+                        previousNode = previousNodes[previousNodes.length - 1]
+                    return (
+                        !previousNode ||
+                        ('string' !== currentNode.type &&
+                            'number' !== currentNode.type) ||
+                        ('string' !== previousNode.type &&
+                            'number' !== previousNode.type)
+                            ? (previousNode && nodes.push(previousNode),
+                              nodes.push(currentNode))
+                            : nodes.push(
+                                  createStringTreeNode(
+                                      String(previousNode.value) +
+                                          String(currentNode.value)
+                                  )
+                              ),
+                        nodes
+                    )
+                },
+                formatOneChildren = function formatOneChildren(
+                    inline,
+                    lvl,
+                    options
+                ) {
+                    return function(element) {
+                        return (function compensateMultilineStringElementIndentation(
+                            element,
+                            formattedElement,
+                            inline,
+                            lvl,
+                            options
+                        ) {
+                            var tabStop = options.tabStop
+                            return 'string' === element.type
+                                ? formattedElement
+                                      .split('\n')
+                                      .map(function(line, offset) {
+                                          return 0 === offset
+                                              ? line
+                                              : '' + spacer(lvl, tabStop) + line
+                                      })
+                                      .join('\n')
+                                : formattedElement
+                        })(
+                            element,
+                            formatTreeNode(element, inline, lvl, options),
+                            0,
+                            lvl,
+                            options
+                        )
+                    }
+                },
+                isInlineAttributeTooLong = function isInlineAttributeTooLong(
+                    attributes,
+                    inlineAttributeString,
+                    lvl,
+                    tabStop,
+                    maxInlineAttributesLineLength
+                ) {
+                    return maxInlineAttributesLineLength
+                        ? spacer(lvl, tabStop).length +
+                              inlineAttributeString.length >
+                              maxInlineAttributesLineLength
+                        : attributes.length > 1
+                },
+                formatReactElementNode = function(node, inline, lvl, options) {
+                    var type = node.type,
+                        _node$displayName = node.displayName,
+                        displayName =
+                            void 0 === _node$displayName
+                                ? ''
+                                : _node$displayName,
+                        childrens = node.childrens,
+                        _node$props = node.props,
+                        props = void 0 === _node$props ? {} : _node$props,
+                        _node$defaultProps = node.defaultProps,
+                        defaultProps =
+                            void 0 === _node$defaultProps
+                                ? {}
+                                : _node$defaultProps
+                    if ('ReactElement' !== type)
+                        throw new Error(
+                            'The "formatReactElementNode" function could only format node of type "ReactElement". Given:  ' +
+                                type
+                        )
+                    var filterProps = options.filterProps,
+                        maxInlineAttributesLineLength =
+                            options.maxInlineAttributesLineLength,
+                        showDefaultProps = options.showDefaultProps,
+                        sortProps = options.sortProps,
+                        tabStop = options.tabStop,
+                        out = '<' + displayName,
+                        outInlineAttr = out,
+                        outMultilineAttr = out,
+                        containsMultilineAttr = !1,
+                        visibleAttributeNames = []
+                    Object.keys(props)
+                        .filter(function(propName) {
+                            return -1 === filterProps.indexOf(propName)
+                        })
+                        .filter(
+                            (function onlyPropsWithOriginalValue(
+                                defaultProps,
+                                props
+                            ) {
+                                return function(propName) {
+                                    var haveDefaultValue = Object.keys(
+                                        defaultProps
+                                    ).includes(propName)
+                                    return (
+                                        !haveDefaultValue ||
+                                        (haveDefaultValue &&
+                                            defaultProps[propName] !==
+                                                props[propName])
+                                    )
+                                }
+                            })(defaultProps, props)
+                        )
+                        .forEach(function(propName) {
+                            return visibleAttributeNames.push(propName)
+                        }),
+                        Object.keys(defaultProps)
+                            .filter(function(defaultPropName) {
+                                return (
+                                    -1 === filterProps.indexOf(defaultPropName)
+                                )
+                            })
+                            .filter(function() {
+                                return showDefaultProps
+                            })
+                            .filter(function(defaultPropName) {
+                                return !visibleAttributeNames.includes(
+                                    defaultPropName
+                                )
+                            })
+                            .forEach(function(defaultPropName) {
+                                return visibleAttributeNames.push(
+                                    defaultPropName
+                                )
+                            })
+                    var attributes = visibleAttributeNames.sort(
+                        (function(sortProps) {
+                            return function(a, b) {
+                                return a === b
+                                    ? 0
+                                    : ['key', 'ref'].includes(a)
+                                    ? -1
+                                    : ['key', 'ref'].includes(b)
+                                    ? 1
+                                    : sortProps
+                                    ? a < b
+                                        ? -1
+                                        : 1
+                                    : 0
+                            }
+                        })(sortProps)
+                    )
+                    if (
+                        (attributes.forEach(function(attributeName) {
+                            var _formatProp = (function(
+                                    name,
+                                    hasValue,
+                                    value,
+                                    hasDefaultValue,
+                                    defaultValue,
+                                    inline,
+                                    lvl,
+                                    options
+                                ) {
+                                    if (!hasValue && !hasDefaultValue)
+                                        throw new Error(
+                                            'The prop "' +
+                                                name +
+                                                '" has no value and no default: could not be formatted'
+                                        )
+                                    var usedValue = hasValue
+                                            ? value
+                                            : defaultValue,
+                                        useBooleanShorthandSyntax =
+                                            options.useBooleanShorthandSyntax,
+                                        tabStop = options.tabStop,
+                                        formattedPropValue = formatPropValue(
+                                            usedValue,
+                                            inline,
+                                            lvl,
+                                            options
+                                        ),
+                                        attributeFormattedInline = ' ',
+                                        attributeFormattedMultiline =
+                                            '\n' + spacer(lvl + 1, tabStop),
+                                        isMultilineAttribute = formattedPropValue.includes(
+                                            '\n'
+                                        )
+                                    return (
+                                        useBooleanShorthandSyntax &&
+                                        '{false}' === formattedPropValue &&
+                                        !hasDefaultValue
+                                            ? ((attributeFormattedInline = ''),
+                                              (attributeFormattedMultiline =
+                                                  ''))
+                                            : useBooleanShorthandSyntax &&
+                                              '{true}' === formattedPropValue
+                                            ? ((attributeFormattedInline +=
+                                                  '' + name),
+                                              (attributeFormattedMultiline +=
+                                                  '' + name))
+                                            : ((attributeFormattedInline +=
+                                                  name +
+                                                  '=' +
+                                                  formattedPropValue),
+                                              (attributeFormattedMultiline +=
+                                                  name +
+                                                  '=' +
+                                                  formattedPropValue)),
+                                        {
+                                            attributeFormattedInline: attributeFormattedInline,
+                                            attributeFormattedMultiline: attributeFormattedMultiline,
+                                            isMultilineAttribute: isMultilineAttribute,
+                                        }
+                                    )
+                                })(
+                                    attributeName,
+                                    Object.keys(props).includes(attributeName),
+                                    props[attributeName],
+                                    Object.keys(defaultProps).includes(
+                                        attributeName
+                                    ),
+                                    defaultProps[attributeName],
+                                    inline,
+                                    lvl,
+                                    options
+                                ),
+                                attributeFormattedInline =
+                                    _formatProp.attributeFormattedInline,
+                                attributeFormattedMultiline =
+                                    _formatProp.attributeFormattedMultiline
+                            _formatProp.isMultilineAttribute &&
+                                (containsMultilineAttr = !0),
+                                (outInlineAttr += attributeFormattedInline),
+                                (outMultilineAttr += attributeFormattedMultiline)
+                        }),
+                        (outMultilineAttr += '\n' + spacer(lvl, tabStop)),
+                        (out = (function shouldRenderMultilineAttr(
+                            attributes,
+                            inlineAttributeString,
+                            containsMultilineAttr,
+                            inline,
+                            lvl,
+                            tabStop,
+                            maxInlineAttributesLineLength
+                        ) {
+                            return (
+                                (isInlineAttributeTooLong(
+                                    attributes,
+                                    inlineAttributeString,
+                                    lvl,
+                                    tabStop,
+                                    maxInlineAttributesLineLength
+                                ) ||
+                                    containsMultilineAttr) &&
+                                !inline
+                            )
+                        })(
+                            attributes,
+                            outInlineAttr,
+                            containsMultilineAttr,
+                            inline,
+                            lvl,
+                            tabStop,
+                            maxInlineAttributesLineLength
+                        )
+                            ? outMultilineAttr
+                            : outInlineAttr),
+                        childrens && childrens.length > 0)
+                    ) {
+                        var newLvl = lvl + 1
+                        ;(out += '>'),
+                            inline ||
+                                ((out += '\n'),
+                                (out += spacer(newLvl, tabStop))),
+                            (out += childrens
+                                .reduce(
+                                    mergeSiblingPlainStringChildrenReducer,
+                                    []
+                                )
+                                .map(formatOneChildren(inline, newLvl, options))
+                                .join(
+                                    inline ? '' : '\n' + spacer(newLvl, tabStop)
+                                )),
+                            inline ||
+                                ((out += '\n'),
+                                (out += spacer(newLvl - 1, tabStop))),
+                            (out += '</' + displayName + '>')
+                    } else
+                        isInlineAttributeTooLong(
+                            attributes,
+                            outInlineAttr,
+                            lvl,
+                            tabStop,
+                            maxInlineAttributesLineLength
+                        ) || (out += ' '),
+                            (out += '/>')
+                    return out
+                },
+                formatReactFragmentNode = function(node, inline, lvl, options) {
+                    var type = node.type,
+                        key = node.key,
+                        childrens = node.childrens
+                    if ('ReactFragment' !== type)
+                        throw new Error(
+                            'The "formatReactFragmentNode" function could only format node of type "ReactFragment". Given: ' +
+                                type
+                        )
+                    var displayName = void 0
+                    return (
+                        (displayName = options.useFragmentShortSyntax
+                            ? (function hasNoChildren(_ref2) {
+                                  return 0 === _ref2.childrens.length
+                              })(node) ||
+                              (function isKeyedFragment(_ref) {
+                                  var key = _ref.key
+                                  return Boolean(key)
+                              })(node)
+                                ? 'React.Fragment'
+                                : ''
+                            : 'React.Fragment'),
+                        formatReactElementNode(
+                            (function toReactElementTreeNode(
+                                displayName,
+                                key,
+                                childrens
+                            ) {
+                                var props = {}
+                                return (
+                                    key && (props = { key: key }),
+                                    {
+                                        type: 'ReactElement',
+                                        displayName: displayName,
+                                        props: props,
+                                        defaultProps: {},
+                                        childrens: childrens,
+                                    }
+                                )
+                            })(displayName, key, childrens),
+                            inline,
+                            lvl,
+                            options
+                        )
+                    )
+                },
+                jsxStopChars = ['<', '>', '{', '}'],
+                escape$1 = function escape(s) {
+                    return (function shouldBeEscaped(s) {
+                        return jsxStopChars.some(function(jsxStopChar) {
+                            return s.includes(jsxStopChar)
+                        })
+                    })(s)
+                        ? '{`' + s + '`}'
+                        : s
+                },
+                formatTreeNode = function(node, inline, lvl, options) {
+                    if ('number' === node.type) return String(node.value)
+                    if ('string' === node.type)
+                        return node.value
+                            ? '' +
+                                  (function preserveTrailingSpace(s) {
+                                      var result = s
+                                      return (
+                                          result.endsWith(' ') &&
+                                              (result = result.replace(
+                                                  /^(\S*)(\s*)$/,
+                                                  "$1{'$2'}"
+                                              )),
+                                          result.startsWith(' ') &&
+                                              (result = result.replace(
+                                                  /^(\s*)(\S*)$/,
+                                                  "{'$1'}$2"
+                                              )),
+                                          result
+                                      )
+                                  })(escape$1(String(node.value)))
+                            : ''
+                    if ('ReactElement' === node.type)
+                        return formatReactElementNode(
+                            node,
+                            inline,
+                            lvl,
+                            options
+                        )
+                    if ('ReactFragment' === node.type)
+                        return formatReactFragmentNode(
+                            node,
+                            inline,
+                            lvl,
+                            options
+                        )
+                    throw new TypeError(
+                        'Unknow format type "' + node.type + '"'
+                    )
+                }
+            module.exports = function reactElementToJsxString(element) {
+                var _ref =
+                        arguments.length > 1 && void 0 !== arguments[1]
+                            ? arguments[1]
+                            : {},
+                    _ref$filterProps = _ref.filterProps,
+                    filterProps =
+                        void 0 === _ref$filterProps ? [] : _ref$filterProps,
+                    _ref$showDefaultProps = _ref.showDefaultProps,
+                    showDefaultProps =
+                        void 0 === _ref$showDefaultProps ||
+                        _ref$showDefaultProps,
+                    _ref$showFunctions = _ref.showFunctions,
+                    showFunctions =
+                        void 0 !== _ref$showFunctions && _ref$showFunctions,
+                    functionValue = _ref.functionValue,
+                    _ref$tabStop = _ref.tabStop,
+                    tabStop = void 0 === _ref$tabStop ? 2 : _ref$tabStop,
+                    _ref$useBooleanShorth = _ref.useBooleanShorthandSyntax,
+                    useBooleanShorthandSyntax =
+                        void 0 === _ref$useBooleanShorth ||
+                        _ref$useBooleanShorth,
+                    _ref$useFragmentShort = _ref.useFragmentShortSyntax,
+                    useFragmentShortSyntax =
+                        void 0 === _ref$useFragmentShort ||
+                        _ref$useFragmentShort,
+                    _ref$sortProps = _ref.sortProps,
+                    sortProps = void 0 === _ref$sortProps || _ref$sortProps,
+                    maxInlineAttributesLineLength =
+                        _ref.maxInlineAttributesLineLength,
+                    displayName = _ref.displayName
+                if (!element)
+                    throw new Error(
+                        'react-element-to-jsx-string: Expected a ReactElement'
+                    )
+                var options = {
+                    filterProps: filterProps,
+                    showDefaultProps: showDefaultProps,
+                    showFunctions: showFunctions,
+                    functionValue: functionValue,
+                    tabStop: tabStop,
+                    useBooleanShorthandSyntax: useBooleanShorthandSyntax,
+                    useFragmentShortSyntax: useFragmentShortSyntax,
+                    sortProps: sortProps,
+                    maxInlineAttributesLineLength: maxInlineAttributesLineLength,
+                    displayName: displayName,
+                }
+                return (function(node, options) {
+                    return formatTreeNode(node, !1, 0, options)
+                })(parseReactElement(element, options), options)
+            }
+        },
+        function(module, exports, __webpack_require__) {
+            'use strict'
+            var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__
+            ;(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+                __webpack_require__(96),
+                __webpack_require__(97),
+                __webpack_require__(349),
+            ]),
+                void 0 ===
+                    (__WEBPACK_AMD_DEFINE_RESULT__ = function(
+                        js_beautify,
+                        css_beautify,
+                        html_beautify
+                    ) {
+                        return (function get_beautify(
+                            js_beautify,
+                            css_beautify,
+                            html_beautify
+                        ) {
+                            var beautify = function(src, config) {
+                                return js_beautify.js_beautify(src, config)
+                            }
+                            return (
+                                (beautify.js = js_beautify.js_beautify),
+                                (beautify.css = css_beautify.css_beautify),
+                                (beautify.html = html_beautify.html_beautify),
+                                (beautify.js_beautify =
+                                    js_beautify.js_beautify),
+                                (beautify.css_beautify =
+                                    css_beautify.css_beautify),
+                                (beautify.html_beautify =
+                                    html_beautify.html_beautify),
+                                beautify
+                            )
+                        })(js_beautify, css_beautify, html_beautify)
+                    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) ||
+                    (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)
+        },
+        function(module, exports, __webpack_require__) {
+            var __WEBPACK_AMD_DEFINE_ARRAY__,
+                __WEBPACK_AMD_DEFINE_RESULT__,
+                style_html
+            ;(style_html = (function(modules) {
+                var installedModules = {}
+                function __webpack_require__(moduleId) {
+                    if (installedModules[moduleId])
+                        return installedModules[moduleId].exports
+                    var module = (installedModules[moduleId] = {
+                        i: moduleId,
+                        l: !1,
+                        exports: {},
+                    })
+                    return (
+                        modules[moduleId].call(
+                            module.exports,
+                            module,
+                            module.exports,
+                            __webpack_require__
+                        ),
+                        (module.l = !0),
+                        module.exports
+                    )
+                }
+                return (
+                    (__webpack_require__.m = modules),
+                    (__webpack_require__.c = installedModules),
+                    (__webpack_require__.d = function(exports, name, getter) {
+                        __webpack_require__.o(exports, name) ||
+                            Object.defineProperty(exports, name, {
+                                enumerable: !0,
+                                get: getter,
+                            })
+                    }),
+                    (__webpack_require__.r = function(exports) {
+                        'undefined' != typeof Symbol &&
+                            Symbol.toStringTag &&
+                            Object.defineProperty(exports, Symbol.toStringTag, {
+                                value: 'Module',
+                            }),
+                            Object.defineProperty(exports, '__esModule', {
+                                value: !0,
+                            })
+                    }),
+                    (__webpack_require__.t = function(value, mode) {
+                        if (
+                            (1 & mode && (value = __webpack_require__(value)),
+                            8 & mode)
+                        )
+                            return value
+                        if (
+                            4 & mode &&
+                            'object' == typeof value &&
+                            value &&
+                            value.__esModule
+                        )
+                            return value
+                        var ns = Object.create(null)
+                        if (
+                            (__webpack_require__.r(ns),
+                            Object.defineProperty(ns, 'default', {
+                                enumerable: !0,
+                                value: value,
+                            }),
+                            2 & mode && 'string' != typeof value)
+                        )
+                            for (var key in value)
+                                __webpack_require__.d(
+                                    ns,
+                                    key,
+                                    function(key) {
+                                        return value[key]
+                                    }.bind(null, key)
+                                )
+                        return ns
+                    }),
+                    (__webpack_require__.n = function(module) {
+                        var getter =
+                            module && module.__esModule
+                                ? function getDefault() {
+                                      return module.default
+                                  }
+                                : function getModuleExports() {
+                                      return module
+                                  }
+                        return (
+                            __webpack_require__.d(getter, 'a', getter), getter
+                        )
+                    }),
+                    (__webpack_require__.o = function(object, property) {
+                        return Object.prototype.hasOwnProperty.call(
+                            object,
+                            property
+                        )
+                    }),
+                    (__webpack_require__.p = ''),
+                    __webpack_require__((__webpack_require__.s = 18))
+                )
+            })([
+                ,
+                ,
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function OutputLine(parent) {
+                        ;(this.__parent = parent),
+                            (this.__character_count = 0),
+                            (this.__indent_count = -1),
+                            (this.__alignment_count = 0),
+                            (this.__wrap_point_index = 0),
+                            (this.__wrap_point_character_count = 0),
+                            (this.__wrap_point_indent_count = -1),
+                            (this.__wrap_point_alignment_count = 0),
+                            (this.__items = [])
+                    }
+                    function IndentStringCache(options, baseIndentString) {
+                        ;(this.__cache = ['']),
+                            (this.__indent_size = options.indent_size),
+                            (this.__indent_string = options.indent_char),
+                            options.indent_with_tabs ||
+                                (this.__indent_string = new Array(
+                                    options.indent_size + 1
+                                ).join(options.indent_char)),
+                            (baseIndentString = baseIndentString || ''),
+                            options.indent_level > 0 &&
+                                (baseIndentString = new Array(
+                                    options.indent_level + 1
+                                ).join(this.__indent_string)),
+                            (this.__base_string = baseIndentString),
+                            (this.__base_string_length =
+                                baseIndentString.length)
+                    }
+                    function Output(options, baseIndentString) {
+                        ;(this.__indent_cache = new IndentStringCache(
+                            options,
+                            baseIndentString
+                        )),
+                            (this.raw = !1),
+                            (this._end_with_newline = options.end_with_newline),
+                            (this.indent_size = options.indent_size),
+                            (this.wrap_line_length = options.wrap_line_length),
+                            (this.__lines = []),
+                            (this.previous_line = null),
+                            (this.current_line = null),
+                            (this.next_line = new OutputLine(this)),
+                            (this.space_before_token = !1),
+                            (this.non_breaking_space = !1),
+                            (this.previous_token_wrapped = !1),
+                            this.__add_outputline()
+                    }
+                    ;(OutputLine.prototype.clone_empty = function() {
+                        var line = new OutputLine(this.__parent)
+                        return (
+                            line.set_indent(
+                                this.__indent_count,
+                                this.__alignment_count
+                            ),
+                            line
+                        )
+                    }),
+                        (OutputLine.prototype.item = function(index) {
+                            return index < 0
+                                ? this.__items[this.__items.length + index]
+                                : this.__items[index]
+                        }),
+                        (OutputLine.prototype.has_match = function(pattern) {
+                            for (
+                                var lastCheckedOutput = this.__items.length - 1;
+                                lastCheckedOutput >= 0;
+                                lastCheckedOutput--
+                            )
+                                if (
+                                    this.__items[lastCheckedOutput].match(
+                                        pattern
+                                    )
+                                )
+                                    return !0
+                            return !1
+                        }),
+                        (OutputLine.prototype.set_indent = function(
+                            indent,
+                            alignment
+                        ) {
+                            this.is_empty() &&
+                                ((this.__indent_count = indent || 0),
+                                (this.__alignment_count = alignment || 0),
+                                (this.__character_count = this.__parent.get_indent_size(
+                                    this.__indent_count,
+                                    this.__alignment_count
+                                )))
+                        }),
+                        (OutputLine.prototype._set_wrap_point = function() {
+                            this.__parent.wrap_line_length &&
+                                ((this.__wrap_point_index = this.__items.length),
+                                (this.__wrap_point_character_count = this.__character_count),
+                                (this.__wrap_point_indent_count = this.__parent.next_line.__indent_count),
+                                (this.__wrap_point_alignment_count = this.__parent.next_line.__alignment_count))
+                        }),
+                        (OutputLine.prototype._should_wrap = function() {
+                            return (
+                                this.__wrap_point_index &&
+                                this.__character_count >
+                                    this.__parent.wrap_line_length &&
+                                this.__wrap_point_character_count >
+                                    this.__parent.next_line.__character_count
+                            )
+                        }),
+                        (OutputLine.prototype._allow_wrap = function() {
+                            if (this._should_wrap()) {
+                                this.__parent.add_new_line()
+                                var next = this.__parent.current_line
+                                return (
+                                    next.set_indent(
+                                        this.__wrap_point_indent_count,
+                                        this.__wrap_point_alignment_count
+                                    ),
+                                    (next.__items = this.__items.slice(
+                                        this.__wrap_point_index
+                                    )),
+                                    (this.__items = this.__items.slice(
+                                        0,
+                                        this.__wrap_point_index
+                                    )),
+                                    (next.__character_count +=
+                                        this.__character_count -
+                                        this.__wrap_point_character_count),
+                                    (this.__character_count = this.__wrap_point_character_count),
+                                    ' ' === next.__items[0] &&
+                                        (next.__items.splice(0, 1),
+                                        (next.__character_count -= 1)),
+                                    !0
+                                )
+                            }
+                            return !1
+                        }),
+                        (OutputLine.prototype.is_empty = function() {
+                            return 0 === this.__items.length
+                        }),
+                        (OutputLine.prototype.last = function() {
+                            return this.is_empty()
+                                ? null
+                                : this.__items[this.__items.length - 1]
+                        }),
+                        (OutputLine.prototype.push = function(item) {
+                            this.__items.push(item)
+                            var last_newline_index = item.lastIndexOf('\n')
+                            ;-1 !== last_newline_index
+                                ? (this.__character_count =
+                                      item.length - last_newline_index)
+                                : (this.__character_count += item.length)
+                        }),
+                        (OutputLine.prototype.pop = function() {
+                            var item = null
+                            return (
+                                this.is_empty() ||
+                                    ((item = this.__items.pop()),
+                                    (this.__character_count -= item.length)),
+                                item
+                            )
+                        }),
+                        (OutputLine.prototype._remove_indent = function() {
+                            this.__indent_count > 0 &&
+                                ((this.__indent_count -= 1),
+                                (this.__character_count -= this.__parent.indent_size))
+                        }),
+                        (OutputLine.prototype._remove_wrap_indent = function() {
+                            this.__wrap_point_indent_count > 0 &&
+                                (this.__wrap_point_indent_count -= 1)
+                        }),
+                        (OutputLine.prototype.trim = function() {
+                            for (; ' ' === this.last(); )
+                                this.__items.pop(),
+                                    (this.__character_count -= 1)
+                        }),
+                        (OutputLine.prototype.toString = function() {
+                            var result = ''
+                            return (
+                                this.is_empty() ||
+                                    ((result = this.__parent.get_indent_string(
+                                        this.__indent_count,
+                                        this.__alignment_count
+                                    )),
+                                    (result += this.__items.join(''))),
+                                result
+                            )
+                        }),
+                        (IndentStringCache.prototype.get_indent_size = function(
+                            indent,
+                            column
+                        ) {
+                            var result = this.__base_string_length
+                            return (
+                                (column = column || 0),
+                                indent < 0 && (result = 0),
+                                (result += indent * this.__indent_size),
+                                (result += column)
+                            )
+                        }),
+                        (IndentStringCache.prototype.get_indent_string = function(
+                            indent_level,
+                            column
+                        ) {
+                            var result = this.__base_string
+                            return (
+                                (column = column || 0),
+                                indent_level < 0 &&
+                                    ((indent_level = 0), (result = '')),
+                                (column += indent_level * this.__indent_size),
+                                this.__ensure_cache(column),
+                                (result += this.__cache[column])
+                            )
+                        }),
+                        (IndentStringCache.prototype.__ensure_cache = function(
+                            column
+                        ) {
+                            for (; column >= this.__cache.length; )
+                                this.__add_column()
+                        }),
+                        (IndentStringCache.prototype.__add_column = function() {
+                            var column = this.__cache.length,
+                                indent = 0,
+                                result = ''
+                            this.__indent_size &&
+                                column >= this.__indent_size &&
+                                ((column -=
+                                    (indent = Math.floor(
+                                        column / this.__indent_size
+                                    )) * this.__indent_size),
+                                (result = new Array(indent + 1).join(
+                                    this.__indent_string
+                                ))),
+                                column &&
+                                    (result += new Array(column + 1).join(' ')),
+                                this.__cache.push(result)
+                        }),
+                        (Output.prototype.__add_outputline = function() {
+                            ;(this.previous_line = this.current_line),
+                                (this.current_line = this.next_line.clone_empty()),
+                                this.__lines.push(this.current_line)
+                        }),
+                        (Output.prototype.get_line_number = function() {
+                            return this.__lines.length
+                        }),
+                        (Output.prototype.get_indent_string = function(
+                            indent,
+                            column
+                        ) {
+                            return this.__indent_cache.get_indent_string(
+                                indent,
+                                column
+                            )
+                        }),
+                        (Output.prototype.get_indent_size = function(
+                            indent,
+                            column
+                        ) {
+                            return this.__indent_cache.get_indent_size(
+                                indent,
+                                column
+                            )
+                        }),
+                        (Output.prototype.is_empty = function() {
+                            return (
+                                !this.previous_line &&
+                                this.current_line.is_empty()
+                            )
+                        }),
+                        (Output.prototype.add_new_line = function(
+                            force_newline
+                        ) {
+                            return (
+                                !(
+                                    this.is_empty() ||
+                                    (!force_newline &&
+                                        this.just_added_newline())
+                                ) && (this.raw || this.__add_outputline(), !0)
+                            )
+                        }),
+                        (Output.prototype.get_code = function(eol) {
+                            this.trim(!0)
+                            var last_item = this.current_line.pop()
+                            last_item &&
+                                ('\n' === last_item[last_item.length - 1] &&
+                                    (last_item = last_item.replace(
+                                        /\n+$/g,
+                                        ''
+                                    )),
+                                this.current_line.push(last_item)),
+                                this._end_with_newline &&
+                                    this.__add_outputline()
+                            var sweet_code = this.__lines.join('\n')
+                            return (
+                                '\n' !== eol &&
+                                    (sweet_code = sweet_code.replace(
+                                        /[\n]/g,
+                                        eol
+                                    )),
+                                sweet_code
+                            )
+                        }),
+                        (Output.prototype.set_wrap_point = function() {
+                            this.current_line._set_wrap_point()
+                        }),
+                        (Output.prototype.set_indent = function(
+                            indent,
+                            alignment
+                        ) {
+                            return (
+                                (indent = indent || 0),
+                                (alignment = alignment || 0),
+                                this.next_line.set_indent(indent, alignment),
+                                this.__lines.length > 1
+                                    ? (this.current_line.set_indent(
+                                          indent,
+                                          alignment
+                                      ),
+                                      !0)
+                                    : (this.current_line.set_indent(), !1)
+                            )
+                        }),
+                        (Output.prototype.add_raw_token = function(token) {
+                            for (var x = 0; x < token.newlines; x++)
+                                this.__add_outputline()
+                            this.current_line.set_indent(-1),
+                                this.current_line.push(token.whitespace_before),
+                                this.current_line.push(token.text),
+                                (this.space_before_token = !1),
+                                (this.non_breaking_space = !1),
+                                (this.previous_token_wrapped = !1)
+                        }),
+                        (Output.prototype.add_token = function(
+                            printable_token
+                        ) {
+                            this.__add_space_before_token(),
+                                this.current_line.push(printable_token),
+                                (this.space_before_token = !1),
+                                (this.non_breaking_space = !1),
+                                (this.previous_token_wrapped = this.current_line._allow_wrap())
+                        }),
+                        (Output.prototype.__add_space_before_token = function() {
+                            this.space_before_token &&
+                                !this.just_added_newline() &&
+                                (this.non_breaking_space ||
+                                    this.set_wrap_point(),
+                                this.current_line.push(' '))
+                        }),
+                        (Output.prototype.remove_indent = function(index) {
+                            for (
+                                var output_length = this.__lines.length;
+                                index < output_length;
+
+                            )
+                                this.__lines[index]._remove_indent(), index++
+                            this.current_line._remove_wrap_indent()
+                        }),
+                        (Output.prototype.trim = function(eat_newlines) {
+                            for (
+                                eat_newlines =
+                                    void 0 !== eat_newlines && eat_newlines,
+                                    this.current_line.trim();
+                                eat_newlines &&
+                                this.__lines.length > 1 &&
+                                this.current_line.is_empty();
+
+                            )
+                                this.__lines.pop(),
+                                    (this.current_line = this.__lines[
+                                        this.__lines.length - 1
+                                    ]),
+                                    this.current_line.trim()
+                            this.previous_line =
+                                this.__lines.length > 1
+                                    ? this.__lines[this.__lines.length - 2]
+                                    : null
+                        }),
+                        (Output.prototype.just_added_newline = function() {
+                            return this.current_line.is_empty()
+                        }),
+                        (Output.prototype.just_added_blankline = function() {
+                            return (
+                                this.is_empty() ||
+                                (this.current_line.is_empty() &&
+                                    this.previous_line.is_empty())
+                            )
+                        }),
+                        (Output.prototype.ensure_empty_line_above = function(
+                            starts_with,
+                            ends_with
+                        ) {
+                            for (
+                                var index = this.__lines.length - 2;
+                                index >= 0;
+
+                            ) {
+                                var potentialEmptyLine = this.__lines[index]
+                                if (potentialEmptyLine.is_empty()) break
+                                if (
+                                    0 !==
+                                        potentialEmptyLine
+                                            .item(0)
+                                            .indexOf(starts_with) &&
+                                    potentialEmptyLine.item(-1) !== ends_with
+                                ) {
+                                    this.__lines.splice(
+                                        index + 1,
+                                        0,
+                                        new OutputLine(this)
+                                    ),
+                                        (this.previous_line = this.__lines[
+                                            this.__lines.length - 2
+                                        ])
+                                    break
+                                }
+                                index--
+                            }
+                        }),
+                        (module.exports.Output = Output)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    module.exports.Token = function Token(
+                        type,
+                        text,
+                        newlines,
+                        whitespace_before
+                    ) {
+                        ;(this.type = type),
+                            (this.text = text),
+                            (this.comments_before = null),
+                            (this.newlines = newlines || 0),
+                            (this.whitespace_before = whitespace_before || ''),
+                            (this.parent = null),
+                            (this.next = null),
+                            (this.previous = null),
+                            (this.opened = null),
+                            (this.closed = null),
+                            (this.directives = null)
+                    }
+                },
+                ,
+                ,
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function Options(options, merge_child_field) {
+                        ;(this.raw_options = _mergeOpts(
+                            options,
+                            merge_child_field
+                        )),
+                            (this.disabled = this._get_boolean('disabled')),
+                            (this.eol = this._get_characters('eol', 'auto')),
+                            (this.end_with_newline = this._get_boolean(
+                                'end_with_newline'
+                            )),
+                            (this.indent_size = this._get_number(
+                                'indent_size',
+                                4
+                            )),
+                            (this.indent_char = this._get_characters(
+                                'indent_char',
+                                ' '
+                            )),
+                            (this.indent_level = this._get_number(
+                                'indent_level'
+                            )),
+                            (this.preserve_newlines = this._get_boolean(
+                                'preserve_newlines',
+                                !0
+                            )),
+                            (this.max_preserve_newlines = this._get_number(
+                                'max_preserve_newlines',
+                                32786
+                            )),
+                            this.preserve_newlines ||
+                                (this.max_preserve_newlines = 0),
+                            (this.indent_with_tabs = this._get_boolean(
+                                'indent_with_tabs',
+                                '\t' === this.indent_char
+                            )),
+                            this.indent_with_tabs &&
+                                ((this.indent_char = '\t'),
+                                1 === this.indent_size &&
+                                    (this.indent_size = 4)),
+                            (this.wrap_line_length = this._get_number(
+                                'wrap_line_length',
+                                this._get_number('max_char')
+                            ))
+                    }
+                    function _mergeOpts(allOptions, childFieldName) {
+                        var name,
+                            finalOpts = {}
+                        for (name in (allOptions = _normalizeOpts(allOptions)))
+                            name !== childFieldName &&
+                                (finalOpts[name] = allOptions[name])
+                        if (childFieldName && allOptions[childFieldName])
+                            for (name in allOptions[childFieldName])
+                                finalOpts[name] =
+                                    allOptions[childFieldName][name]
+                        return finalOpts
+                    }
+                    function _normalizeOpts(options) {
+                        var key,
+                            convertedOpts = {}
+                        for (key in options) {
+                            convertedOpts[key.replace(/-/g, '_')] = options[key]
+                        }
+                        return convertedOpts
+                    }
+                    ;(Options.prototype._get_array = function(
+                        name,
+                        default_value
+                    ) {
+                        var option_value = this.raw_options[name],
+                            result = default_value || []
+                        return (
+                            'object' == typeof option_value
+                                ? null !== option_value &&
+                                  'function' == typeof option_value.concat &&
+                                  (result = option_value.concat())
+                                : 'string' == typeof option_value &&
+                                  (result = option_value.split(
+                                      /[^a-zA-Z0-9_\/\-]+/
+                                  )),
+                            result
+                        )
+                    }),
+                        (Options.prototype._get_boolean = function(
+                            name,
+                            default_value
+                        ) {
+                            var option_value = this.raw_options[name]
+                            return void 0 === option_value
+                                ? !!default_value
+                                : !!option_value
+                        }),
+                        (Options.prototype._get_characters = function(
+                            name,
+                            default_value
+                        ) {
+                            var option_value = this.raw_options[name],
+                                result = default_value || ''
+                            return (
+                                'string' == typeof option_value &&
+                                    (result = option_value
+                                        .replace(/\\r/, '\r')
+                                        .replace(/\\n/, '\n')
+                                        .replace(/\\t/, '\t')),
+                                result
+                            )
+                        }),
+                        (Options.prototype._get_number = function(
+                            name,
+                            default_value
+                        ) {
+                            var option_value = this.raw_options[name]
+                            ;(default_value = parseInt(default_value, 10)),
+                                isNaN(default_value) && (default_value = 0)
+                            var result = parseInt(option_value, 10)
+                            return (
+                                isNaN(result) && (result = default_value),
+                                result
+                            )
+                        }),
+                        (Options.prototype._get_selection = function(
+                            name,
+                            selection_list,
+                            default_value
+                        ) {
+                            var result = this._get_selection_list(
+                                name,
+                                selection_list,
+                                default_value
+                            )
+                            if (1 !== result.length)
+                                throw new Error(
+                                    "Invalid Option Value: The option '" +
+                                        name +
+                                        "' can only be one of the following values:\n" +
+                                        selection_list +
+                                        "\nYou passed in: '" +
+                                        this.raw_options[name] +
+                                        "'"
+                                )
+                            return result[0]
+                        }),
+                        (Options.prototype._get_selection_list = function(
+                            name,
+                            selection_list,
+                            default_value
+                        ) {
+                            if (!selection_list || 0 === selection_list.length)
+                                throw new Error(
+                                    'Selection list cannot be empty.'
+                                )
+                            if (
+                                ((default_value = default_value || [
+                                    selection_list[0],
+                                ]),
+                                !this._is_valid_selection(
+                                    default_value,
+                                    selection_list
+                                ))
+                            )
+                                throw new Error('Invalid Default Value!')
+                            var result = this._get_array(name, default_value)
+                            if (
+                                !this._is_valid_selection(
+                                    result,
+                                    selection_list
+                                )
+                            )
+                                throw new Error(
+                                    "Invalid Option Value: The option '" +
+                                        name +
+                                        "' can contain only the following values:\n" +
+                                        selection_list +
+                                        "\nYou passed in: '" +
+                                        this.raw_options[name] +
+                                        "'"
+                                )
+                            return result
+                        }),
+                        (Options.prototype._is_valid_selection = function(
+                            result,
+                            selection_list
+                        ) {
+                            return (
+                                result.length &&
+                                selection_list.length &&
+                                !result.some(function(item) {
+                                    return -1 === selection_list.indexOf(item)
+                                })
+                            )
+                        }),
+                        (module.exports.Options = Options),
+                        (module.exports.normalizeOpts = _normalizeOpts),
+                        (module.exports.mergeOpts = _mergeOpts)
+                },
+                ,
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var regexp_has_sticky = RegExp.prototype.hasOwnProperty(
+                        'sticky'
+                    )
+                    function InputScanner(input_string) {
+                        ;(this.__input = input_string || ''),
+                            (this.__input_length = this.__input.length),
+                            (this.__position = 0)
+                    }
+                    ;(InputScanner.prototype.restart = function() {
+                        this.__position = 0
+                    }),
+                        (InputScanner.prototype.back = function() {
+                            this.__position > 0 && (this.__position -= 1)
+                        }),
+                        (InputScanner.prototype.hasNext = function() {
+                            return this.__position < this.__input_length
+                        }),
+                        (InputScanner.prototype.next = function() {
+                            var val = null
+                            return (
+                                this.hasNext() &&
+                                    ((val = this.__input.charAt(
+                                        this.__position
+                                    )),
+                                    (this.__position += 1)),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.peek = function(index) {
+                            var val = null
+                            return (
+                                (index = index || 0),
+                                (index += this.__position) >= 0 &&
+                                    index < this.__input_length &&
+                                    (val = this.__input.charAt(index)),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.__match = function(
+                            pattern,
+                            index
+                        ) {
+                            pattern.lastIndex = index
+                            var pattern_match = pattern.exec(this.__input)
+                            return (
+                                !pattern_match ||
+                                    (regexp_has_sticky && pattern.sticky) ||
+                                    (pattern_match.index !== index &&
+                                        (pattern_match = null)),
+                                pattern_match
+                            )
+                        }),
+                        (InputScanner.prototype.test = function(
+                            pattern,
+                            index
+                        ) {
+                            return (
+                                (index = index || 0),
+                                (index += this.__position) >= 0 &&
+                                    index < this.__input_length &&
+                                    !!this.__match(pattern, index)
+                            )
+                        }),
+                        (InputScanner.prototype.testChar = function(
+                            pattern,
+                            index
+                        ) {
+                            var val = this.peek(index)
+                            return (
+                                (pattern.lastIndex = 0),
+                                null !== val && pattern.test(val)
+                            )
+                        }),
+                        (InputScanner.prototype.match = function(pattern) {
+                            var pattern_match = this.__match(
+                                pattern,
+                                this.__position
+                            )
+                            return (
+                                pattern_match
+                                    ? (this.__position +=
+                                          pattern_match[0].length)
+                                    : (pattern_match = null),
+                                pattern_match
+                            )
+                        }),
+                        (InputScanner.prototype.read = function(
+                            starting_pattern,
+                            until_pattern,
+                            until_after
+                        ) {
+                            var match,
+                                val = ''
+                            return (
+                                starting_pattern &&
+                                    (match = this.match(starting_pattern)) &&
+                                    (val += match[0]),
+                                !until_pattern ||
+                                    (!match && starting_pattern) ||
+                                    (val += this.readUntil(
+                                        until_pattern,
+                                        until_after
+                                    )),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.readUntil = function(
+                            pattern,
+                            until_after
+                        ) {
+                            var val,
+                                match_index = this.__position
+                            pattern.lastIndex = this.__position
+                            var pattern_match = pattern.exec(this.__input)
+                            return (
+                                pattern_match
+                                    ? ((match_index = pattern_match.index),
+                                      until_after &&
+                                          (match_index +=
+                                              pattern_match[0].length))
+                                    : (match_index = this.__input_length),
+                                (val = this.__input.substring(
+                                    this.__position,
+                                    match_index
+                                )),
+                                (this.__position = match_index),
+                                val
+                            )
+                        }),
+                        (InputScanner.prototype.readUntilAfter = function(
+                            pattern
+                        ) {
+                            return this.readUntil(pattern, !0)
+                        }),
+                        (InputScanner.prototype.get_regexp = function(
+                            pattern,
+                            match_from
+                        ) {
+                            var result = null,
+                                flags = 'g'
+                            return (
+                                match_from &&
+                                    regexp_has_sticky &&
+                                    (flags = 'y'),
+                                'string' == typeof pattern && '' !== pattern
+                                    ? (result = new RegExp(pattern, flags))
+                                    : pattern &&
+                                      (result = new RegExp(
+                                          pattern.source,
+                                          flags
+                                      )),
+                                result
+                            )
+                        }),
+                        (InputScanner.prototype.get_literal_regexp = function(
+                            literal_string
+                        ) {
+                            return RegExp(
+                                literal_string.replace(
+                                    /[-\/\\^$*+?.()|[\]{}]/g,
+                                    '\\$&'
+                                )
+                            )
+                        }),
+                        (InputScanner.prototype.peekUntilAfter = function(
+                            pattern
+                        ) {
+                            var start = this.__position,
+                                val = this.readUntilAfter(pattern)
+                            return (this.__position = start), val
+                        }),
+                        (InputScanner.prototype.lookBack = function(testVal) {
+                            var start = this.__position - 1
+                            return (
+                                start >= testVal.length &&
+                                this.__input
+                                    .substring(start - testVal.length, start)
+                                    .toLowerCase() === testVal
+                            )
+                        }),
+                        (module.exports.InputScanner = InputScanner)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var InputScanner = __webpack_require__(8).InputScanner,
+                        Token = __webpack_require__(3).Token,
+                        TokenStream = __webpack_require__(10).TokenStream,
+                        WhitespacePattern = __webpack_require__(11)
+                            .WhitespacePattern,
+                        TOKEN = {
+                            START: 'TK_START',
+                            RAW: 'TK_RAW',
+                            EOF: 'TK_EOF',
+                        },
+                        Tokenizer = function(input_string, options) {
+                            ;(this._input = new InputScanner(input_string)),
+                                (this._options = options || {}),
+                                (this.__tokens = null),
+                                (this._patterns = {}),
+                                (this._patterns.whitespace = new WhitespacePattern(
+                                    this._input
+                                ))
+                        }
+                    ;(Tokenizer.prototype.tokenize = function() {
+                        var current
+                        this._input.restart(),
+                            (this.__tokens = new TokenStream()),
+                            this._reset()
+                        for (
+                            var previous = new Token(TOKEN.START, ''),
+                                open_token = null,
+                                open_stack = [],
+                                comments = new TokenStream();
+                            previous.type !== TOKEN.EOF;
+
+                        ) {
+                            for (
+                                current = this._get_next_token(
+                                    previous,
+                                    open_token
+                                );
+                                this._is_comment(current);
+
+                            )
+                                comments.add(current),
+                                    (current = this._get_next_token(
+                                        previous,
+                                        open_token
+                                    ))
+                            comments.isEmpty() ||
+                                ((current.comments_before = comments),
+                                (comments = new TokenStream())),
+                                (current.parent = open_token),
+                                this._is_opening(current)
+                                    ? (open_stack.push(open_token),
+                                      (open_token = current))
+                                    : open_token &&
+                                      this._is_closing(current, open_token) &&
+                                      ((current.opened = open_token),
+                                      (open_token.closed = current),
+                                      (open_token = open_stack.pop()),
+                                      (current.parent = open_token)),
+                                (current.previous = previous),
+                                (previous.next = current),
+                                this.__tokens.add(current),
+                                (previous = current)
+                        }
+                        return this.__tokens
+                    }),
+                        (Tokenizer.prototype._is_first_token = function() {
+                            return this.__tokens.isEmpty()
+                        }),
+                        (Tokenizer.prototype._reset = function() {}),
+                        (Tokenizer.prototype._get_next_token = function(
+                            previous_token,
+                            open_token
+                        ) {
+                            this._readWhitespace()
+                            var resulting_string = this._input.read(/.+/g)
+                            return resulting_string
+                                ? this._create_token(
+                                      TOKEN.RAW,
+                                      resulting_string
+                                  )
+                                : this._create_token(TOKEN.EOF, '')
+                        }),
+                        (Tokenizer.prototype._is_comment = function(
+                            current_token
+                        ) {
+                            return !1
+                        }),
+                        (Tokenizer.prototype._is_opening = function(
+                            current_token
+                        ) {
+                            return !1
+                        }),
+                        (Tokenizer.prototype._is_closing = function(
+                            current_token,
+                            open_token
+                        ) {
+                            return !1
+                        }),
+                        (Tokenizer.prototype._create_token = function(
+                            type,
+                            text
+                        ) {
+                            return new Token(
+                                type,
+                                text,
+                                this._patterns.whitespace.newline_count,
+                                this._patterns.whitespace.whitespace_before_token
+                            )
+                        }),
+                        (Tokenizer.prototype._readWhitespace = function() {
+                            return this._patterns.whitespace.read()
+                        }),
+                        (module.exports.Tokenizer = Tokenizer),
+                        (module.exports.TOKEN = TOKEN)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function TokenStream(parent_token) {
+                        ;(this.__tokens = []),
+                            (this.__tokens_length = this.__tokens.length),
+                            (this.__position = 0),
+                            (this.__parent_token = parent_token)
+                    }
+                    ;(TokenStream.prototype.restart = function() {
+                        this.__position = 0
+                    }),
+                        (TokenStream.prototype.isEmpty = function() {
+                            return 0 === this.__tokens_length
+                        }),
+                        (TokenStream.prototype.hasNext = function() {
+                            return this.__position < this.__tokens_length
+                        }),
+                        (TokenStream.prototype.next = function() {
+                            var val = null
+                            return (
+                                this.hasNext() &&
+                                    ((val = this.__tokens[this.__position]),
+                                    (this.__position += 1)),
+                                val
+                            )
+                        }),
+                        (TokenStream.prototype.peek = function(index) {
+                            var val = null
+                            return (
+                                (index = index || 0),
+                                (index += this.__position) >= 0 &&
+                                    index < this.__tokens_length &&
+                                    (val = this.__tokens[index]),
+                                val
+                            )
+                        }),
+                        (TokenStream.prototype.add = function(token) {
+                            this.__parent_token &&
+                                (token.parent = this.__parent_token),
+                                this.__tokens.push(token),
+                                (this.__tokens_length += 1)
+                        }),
+                        (module.exports.TokenStream = TokenStream)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var Pattern = __webpack_require__(12).Pattern
+                    function WhitespacePattern(input_scanner, parent) {
+                        Pattern.call(this, input_scanner, parent),
+                            parent
+                                ? (this._line_regexp = this._input.get_regexp(
+                                      parent._line_regexp
+                                  ))
+                                : this.__set_whitespace_patterns('', ''),
+                            (this.newline_count = 0),
+                            (this.whitespace_before_token = '')
+                    }
+                    ;(WhitespacePattern.prototype = new Pattern()),
+                        (WhitespacePattern.prototype.__set_whitespace_patterns = function(
+                            whitespace_chars,
+                            newline_chars
+                        ) {
+                            ;(whitespace_chars += '\\t '),
+                                (newline_chars += '\\n\\r'),
+                                (this._match_pattern = this._input.get_regexp(
+                                    '[' +
+                                        whitespace_chars +
+                                        newline_chars +
+                                        ']+',
+                                    !0
+                                )),
+                                (this._newline_regexp = this._input.get_regexp(
+                                    '\\r\\n|[' + newline_chars + ']'
+                                ))
+                        }),
+                        (WhitespacePattern.prototype.read = function() {
+                            ;(this.newline_count = 0),
+                                (this.whitespace_before_token = '')
+                            var resulting_string = this._input.read(
+                                this._match_pattern
+                            )
+                            if (' ' === resulting_string)
+                                this.whitespace_before_token = ' '
+                            else if (resulting_string) {
+                                var matches = this.__split(
+                                    this._newline_regexp,
+                                    resulting_string
+                                )
+                                ;(this.newline_count = matches.length - 1),
+                                    (this.whitespace_before_token =
+                                        matches[this.newline_count])
+                            }
+                            return resulting_string
+                        }),
+                        (WhitespacePattern.prototype.matching = function(
+                            whitespace_chars,
+                            newline_chars
+                        ) {
+                            var result = this._create()
+                            return (
+                                result.__set_whitespace_patterns(
+                                    whitespace_chars,
+                                    newline_chars
+                                ),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (WhitespacePattern.prototype._create = function() {
+                            return new WhitespacePattern(this._input, this)
+                        }),
+                        (WhitespacePattern.prototype.__split = function(
+                            regexp,
+                            input_string
+                        ) {
+                            regexp.lastIndex = 0
+                            for (
+                                var start_index = 0,
+                                    result = [],
+                                    next_match = regexp.exec(input_string);
+                                next_match;
+
+                            )
+                                result.push(
+                                    input_string.substring(
+                                        start_index,
+                                        next_match.index
+                                    )
+                                ),
+                                    (start_index =
+                                        next_match.index +
+                                        next_match[0].length),
+                                    (next_match = regexp.exec(input_string))
+                            return (
+                                start_index < input_string.length
+                                    ? result.push(
+                                          input_string.substring(
+                                              start_index,
+                                              input_string.length
+                                          )
+                                      )
+                                    : result.push(''),
+                                result
+                            )
+                        }),
+                        (module.exports.WhitespacePattern = WhitespacePattern)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function Pattern(input_scanner, parent) {
+                        ;(this._input = input_scanner),
+                            (this._starting_pattern = null),
+                            (this._match_pattern = null),
+                            (this._until_pattern = null),
+                            (this._until_after = !1),
+                            parent &&
+                                ((this._starting_pattern = this._input.get_regexp(
+                                    parent._starting_pattern,
+                                    !0
+                                )),
+                                (this._match_pattern = this._input.get_regexp(
+                                    parent._match_pattern,
+                                    !0
+                                )),
+                                (this._until_pattern = this._input.get_regexp(
+                                    parent._until_pattern
+                                )),
+                                (this._until_after = parent._until_after))
+                    }
+                    ;(Pattern.prototype.read = function() {
+                        var result = this._input.read(this._starting_pattern)
+                        return (
+                            (this._starting_pattern && !result) ||
+                                (result += this._input.read(
+                                    this._match_pattern,
+                                    this._until_pattern,
+                                    this._until_after
+                                )),
+                            result
+                        )
+                    }),
+                        (Pattern.prototype.read_match = function() {
+                            return this._input.match(this._match_pattern)
+                        }),
+                        (Pattern.prototype.until_after = function(pattern) {
+                            var result = this._create()
+                            return (
+                                (result._until_after = !0),
+                                (result._until_pattern = this._input.get_regexp(
+                                    pattern
+                                )),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (Pattern.prototype.until = function(pattern) {
+                            var result = this._create()
+                            return (
+                                (result._until_after = !1),
+                                (result._until_pattern = this._input.get_regexp(
+                                    pattern
+                                )),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (Pattern.prototype.starting_with = function(pattern) {
+                            var result = this._create()
+                            return (
+                                (result._starting_pattern = this._input.get_regexp(
+                                    pattern,
+                                    !0
+                                )),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (Pattern.prototype.matching = function(pattern) {
+                            var result = this._create()
+                            return (
+                                (result._match_pattern = this._input.get_regexp(
+                                    pattern,
+                                    !0
+                                )),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (Pattern.prototype._create = function() {
+                            return new Pattern(this._input, this)
+                        }),
+                        (Pattern.prototype._update = function() {}),
+                        (module.exports.Pattern = Pattern)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    function Directives(
+                        start_block_pattern,
+                        end_block_pattern
+                    ) {
+                        ;(start_block_pattern =
+                            'string' == typeof start_block_pattern
+                                ? start_block_pattern
+                                : start_block_pattern.source),
+                            (end_block_pattern =
+                                'string' == typeof end_block_pattern
+                                    ? end_block_pattern
+                                    : end_block_pattern.source),
+                            (this.__directives_block_pattern = new RegExp(
+                                start_block_pattern +
+                                    / beautify( \w+[:]\w+)+ /.source +
+                                    end_block_pattern,
+                                'g'
+                            )),
+                            (this.__directive_pattern = / (\w+)[:](\w+)/g),
+                            (this.__directives_end_ignore_pattern = new RegExp(
+                                start_block_pattern +
+                                    /\sbeautify\signore:end\s/.source +
+                                    end_block_pattern,
+                                'g'
+                            ))
+                    }
+                    ;(Directives.prototype.get_directives = function(text) {
+                        if (!text.match(this.__directives_block_pattern))
+                            return null
+                        var directives = {}
+                        this.__directive_pattern.lastIndex = 0
+                        for (
+                            var directive_match = this.__directive_pattern.exec(
+                                text
+                            );
+                            directive_match;
+
+                        )
+                            (directives[directive_match[1]] =
+                                directive_match[2]),
+                                (directive_match = this.__directive_pattern.exec(
+                                    text
+                                ))
+                        return directives
+                    }),
+                        (Directives.prototype.readIgnored = function(input) {
+                            return input.readUntilAfter(
+                                this.__directives_end_ignore_pattern
+                            )
+                        }),
+                        (module.exports.Directives = Directives)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var Pattern = __webpack_require__(12).Pattern,
+                        template_names = {
+                            django: !1,
+                            erb: !1,
+                            handlebars: !1,
+                            php: !1,
+                        }
+                    function TemplatablePattern(input_scanner, parent) {
+                        Pattern.call(this, input_scanner, parent),
+                            (this.__template_pattern = null),
+                            (this._disabled = Object.assign(
+                                {},
+                                template_names
+                            )),
+                            (this._excluded = Object.assign(
+                                {},
+                                template_names
+                            )),
+                            parent &&
+                                ((this.__template_pattern = this._input.get_regexp(
+                                    parent.__template_pattern
+                                )),
+                                (this._excluded = Object.assign(
+                                    this._excluded,
+                                    parent._excluded
+                                )),
+                                (this._disabled = Object.assign(
+                                    this._disabled,
+                                    parent._disabled
+                                )))
+                        var pattern = new Pattern(input_scanner)
+                        this.__patterns = {
+                            handlebars_comment: pattern
+                                .starting_with(/{{!--/)
+                                .until_after(/--}}/),
+                            handlebars: pattern
+                                .starting_with(/{{/)
+                                .until_after(/}}/),
+                            php: pattern
+                                .starting_with(/<\?(?:[=]|php)/)
+                                .until_after(/\?>/),
+                            erb: pattern
+                                .starting_with(/<%[^%]/)
+                                .until_after(/[^%]%>/),
+                            django: pattern
+                                .starting_with(/{%/)
+                                .until_after(/%}/),
+                            django_value: pattern
+                                .starting_with(/{{/)
+                                .until_after(/}}/),
+                            django_comment: pattern
+                                .starting_with(/{#/)
+                                .until_after(/#}/),
+                        }
+                    }
+                    ;(TemplatablePattern.prototype = new Pattern()),
+                        (TemplatablePattern.prototype._create = function() {
+                            return new TemplatablePattern(this._input, this)
+                        }),
+                        (TemplatablePattern.prototype._update = function() {
+                            this.__set_templated_pattern()
+                        }),
+                        (TemplatablePattern.prototype.disable = function(
+                            language
+                        ) {
+                            var result = this._create()
+                            return (
+                                (result._disabled[language] = !0),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (TemplatablePattern.prototype.exclude = function(
+                            language
+                        ) {
+                            var result = this._create()
+                            return (
+                                (result._excluded[language] = !0),
+                                result._update(),
+                                result
+                            )
+                        }),
+                        (TemplatablePattern.prototype.read = function() {
+                            var result = ''
+                            result = this._match_pattern
+                                ? this._input.read(this._starting_pattern)
+                                : this._input.read(
+                                      this._starting_pattern,
+                                      this.__template_pattern
+                                  )
+                            for (var next = this._read_template(); next; )
+                                this._match_pattern
+                                    ? (next += this._input.read(
+                                          this._match_pattern
+                                      ))
+                                    : (next += this._input.readUntil(
+                                          this.__template_pattern
+                                      )),
+                                    (result += next),
+                                    (next = this._read_template())
+                            return (
+                                this._until_after &&
+                                    (result += this._input.readUntilAfter(
+                                        this._until_pattern
+                                    )),
+                                result
+                            )
+                        }),
+                        (TemplatablePattern.prototype.__set_templated_pattern = function() {
+                            var items = []
+                            this._disabled.php ||
+                                items.push(
+                                    this.__patterns.php._starting_pattern.source
+                                ),
+                                this._disabled.handlebars ||
+                                    items.push(
+                                        this.__patterns.handlebars
+                                            ._starting_pattern.source
+                                    ),
+                                this._disabled.erb ||
+                                    items.push(
+                                        this.__patterns.erb._starting_pattern
+                                            .source
+                                    ),
+                                this._disabled.django ||
+                                    (items.push(
+                                        this.__patterns.django._starting_pattern
+                                            .source
+                                    ),
+                                    items.push(
+                                        this.__patterns.django_value
+                                            ._starting_pattern.source
+                                    ),
+                                    items.push(
+                                        this.__patterns.django_comment
+                                            ._starting_pattern.source
+                                    )),
+                                this._until_pattern &&
+                                    items.push(this._until_pattern.source),
+                                (this.__template_pattern = this._input.get_regexp(
+                                    '(?:' + items.join('|') + ')'
+                                ))
+                        }),
+                        (TemplatablePattern.prototype._read_template = function() {
+                            var resulting_string = '',
+                                c = this._input.peek()
+                            if ('<' === c) {
+                                var peek1 = this._input.peek(1)
+                                this._disabled.php ||
+                                    this._excluded.php ||
+                                    '?' !== peek1 ||
+                                    (resulting_string =
+                                        resulting_string ||
+                                        this.__patterns.php.read()),
+                                    this._disabled.erb ||
+                                        this._excluded.erb ||
+                                        '%' !== peek1 ||
+                                        (resulting_string =
+                                            resulting_string ||
+                                            this.__patterns.erb.read())
+                            } else
+                                '{' === c &&
+                                    (this._disabled.handlebars ||
+                                        this._excluded.handlebars ||
+                                        (resulting_string =
+                                            (resulting_string =
+                                                resulting_string ||
+                                                this.__patterns.handlebars_comment.read()) ||
+                                            this.__patterns.handlebars.read()),
+                                    this._disabled.django ||
+                                        (this._excluded.django ||
+                                            this._excluded.handlebars ||
+                                            (resulting_string =
+                                                resulting_string ||
+                                                this.__patterns.django_value.read()),
+                                        this._excluded.django ||
+                                            (resulting_string =
+                                                (resulting_string =
+                                                    resulting_string ||
+                                                    this.__patterns.django_comment.read()) ||
+                                                this.__patterns.django.read())))
+                            return resulting_string
+                        }),
+                        (module.exports.TemplatablePattern = TemplatablePattern)
+                },
+                ,
+                ,
+                ,
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var Beautifier = __webpack_require__(19).Beautifier,
+                        Options = __webpack_require__(20).Options
+                    ;(module.exports = function style_html(
+                        html_source,
+                        options,
+                        js_beautify,
+                        css_beautify
+                    ) {
+                        return new Beautifier(
+                            html_source,
+                            options,
+                            js_beautify,
+                            css_beautify
+                        ).beautify()
+                    }),
+                        (module.exports.defaultOptions = function() {
+                            return new Options()
+                        })
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var Options = __webpack_require__(20).Options,
+                        Output = __webpack_require__(2).Output,
+                        Tokenizer = __webpack_require__(21).Tokenizer,
+                        TOKEN = __webpack_require__(21).TOKEN,
+                        lineBreak = /\r\n|[\r\n]/,
+                        allLineBreaks = /\r\n|[\r\n]/g,
+                        Printer = function(options, base_indent_string) {
+                            ;(this.indent_level = 0),
+                                (this.alignment_size = 0),
+                                (this.max_preserve_newlines =
+                                    options.max_preserve_newlines),
+                                (this.preserve_newlines =
+                                    options.preserve_newlines),
+                                (this._output = new Output(
+                                    options,
+                                    base_indent_string
+                                ))
+                        }
+                    ;(Printer.prototype.current_line_has_match = function(
+                        pattern
+                    ) {
+                        return this._output.current_line.has_match(pattern)
+                    }),
+                        (Printer.prototype.set_space_before_token = function(
+                            value,
+                            non_breaking
+                        ) {
+                            ;(this._output.space_before_token = value),
+                                (this._output.non_breaking_space = non_breaking)
+                        }),
+                        (Printer.prototype.set_wrap_point = function() {
+                            this._output.set_indent(
+                                this.indent_level,
+                                this.alignment_size
+                            ),
+                                this._output.set_wrap_point()
+                        }),
+                        (Printer.prototype.add_raw_token = function(token) {
+                            this._output.add_raw_token(token)
+                        }),
+                        (Printer.prototype.print_preserved_newlines = function(
+                            raw_token
+                        ) {
+                            var newlines = 0
+                            raw_token.type !== TOKEN.TEXT &&
+                                raw_token.previous.type !== TOKEN.TEXT &&
+                                (newlines = raw_token.newlines ? 1 : 0),
+                                this.preserve_newlines &&
+                                    (newlines =
+                                        raw_token.newlines <
+                                        this.max_preserve_newlines + 1
+                                            ? raw_token.newlines
+                                            : this.max_preserve_newlines + 1)
+                            for (var n = 0; n < newlines; n++)
+                                this.print_newline(n > 0)
+                            return 0 !== newlines
+                        }),
+                        (Printer.prototype.traverse_whitespace = function(
+                            raw_token
+                        ) {
+                            return (
+                                !(
+                                    !raw_token.whitespace_before &&
+                                    !raw_token.newlines
+                                ) &&
+                                (this.print_preserved_newlines(raw_token) ||
+                                    (this._output.space_before_token = !0),
+                                !0)
+                            )
+                        }),
+                        (Printer.prototype.previous_token_wrapped = function() {
+                            return this._output.previous_token_wrapped
+                        }),
+                        (Printer.prototype.print_newline = function(force) {
+                            this._output.add_new_line(force)
+                        }),
+                        (Printer.prototype.print_token = function(token) {
+                            token.text &&
+                                (this._output.set_indent(
+                                    this.indent_level,
+                                    this.alignment_size
+                                ),
+                                this._output.add_token(token.text))
+                        }),
+                        (Printer.prototype.indent = function() {
+                            this.indent_level++
+                        }),
+                        (Printer.prototype.get_full_indent = function(level) {
+                            return (level = this.indent_level + (level || 0)) <
+                                1
+                                ? ''
+                                : this._output.get_indent_string(level)
+                        })
+                    var get_custom_beautifier_name = function(
+                        tag_check,
+                        raw_token
+                    ) {
+                        var typeAttribute = null,
+                            result = null
+                        return raw_token.closed
+                            ? ('script' === tag_check
+                                  ? (typeAttribute = 'text/javascript')
+                                  : 'style' === tag_check &&
+                                    (typeAttribute = 'text/css'),
+                              (typeAttribute =
+                                  (function(start_token) {
+                                      for (
+                                          var result = null,
+                                              raw_token = start_token.next;
+                                          raw_token.type !== TOKEN.EOF &&
+                                          start_token.closed !== raw_token;
+
+                                      ) {
+                                          if (
+                                              raw_token.type ===
+                                                  TOKEN.ATTRIBUTE &&
+                                              'type' === raw_token.text
+                                          ) {
+                                              raw_token.next &&
+                                                  raw_token.next.type ===
+                                                      TOKEN.EQUALS &&
+                                                  raw_token.next.next &&
+                                                  raw_token.next.next.type ===
+                                                      TOKEN.VALUE &&
+                                                  (result =
+                                                      raw_token.next.next.text)
+                                              break
+                                          }
+                                          raw_token = raw_token.next
+                                      }
+                                      return result
+                                  })(raw_token) || typeAttribute).search(
+                                  'text/css'
+                              ) > -1
+                                  ? (result = 'css')
+                                  : typeAttribute.search(
+                                        /(text|application|dojo)\/(x-)?(javascript|ecmascript|jscript|livescript|(ld\+)?json|method|aspect)/
+                                    ) > -1
+                                  ? (result = 'javascript')
+                                  : typeAttribute.search(
+                                        /(text|application|dojo)\/(x-)?(html)/
+                                    ) > -1
+                                  ? (result = 'html')
+                                  : typeAttribute.search(/test\/null/) > -1 &&
+                                    (result = 'null'),
+                              result)
+                            : null
+                    }
+                    function in_array(what, arr) {
+                        return -1 !== arr.indexOf(what)
+                    }
+                    function TagFrame(parent, parser_token, indent_level) {
+                        ;(this.parent = parent || null),
+                            (this.tag = parser_token
+                                ? parser_token.tag_name
+                                : ''),
+                            (this.indent_level = indent_level || 0),
+                            (this.parser_token = parser_token || null)
+                    }
+                    function TagStack(printer) {
+                        ;(this._printer = printer), (this._current_frame = null)
+                    }
+                    function Beautifier(
+                        source_text,
+                        options,
+                        js_beautify,
+                        css_beautify
+                    ) {
+                        ;(this._source_text = source_text || ''),
+                            (options = options || {}),
+                            (this._js_beautify = js_beautify),
+                            (this._css_beautify = css_beautify),
+                            (this._tag_stack = null)
+                        var optionHtml = new Options(options, 'html')
+                        ;(this._options = optionHtml),
+                            (this._is_wrap_attributes_force =
+                                'force' ===
+                                this._options.wrap_attributes.substr(
+                                    0,
+                                    'force'.length
+                                )),
+                            (this._is_wrap_attributes_force_expand_multiline =
+                                'force-expand-multiline' ===
+                                this._options.wrap_attributes),
+                            (this._is_wrap_attributes_force_aligned =
+                                'force-aligned' ===
+                                this._options.wrap_attributes),
+                            (this._is_wrap_attributes_aligned_multiple =
+                                'aligned-multiple' ===
+                                this._options.wrap_attributes),
+                            (this._is_wrap_attributes_preserve =
+                                'preserve' ===
+                                this._options.wrap_attributes.substr(
+                                    0,
+                                    'preserve'.length
+                                )),
+                            (this._is_wrap_attributes_preserve_aligned =
+                                'preserve-aligned' ===
+                                this._options.wrap_attributes)
+                    }
+                    ;(TagStack.prototype.get_parser_token = function() {
+                        return this._current_frame
+                            ? this._current_frame.parser_token
+                            : null
+                    }),
+                        (TagStack.prototype.record_tag = function(
+                            parser_token
+                        ) {
+                            var new_frame = new TagFrame(
+                                this._current_frame,
+                                parser_token,
+                                this._printer.indent_level
+                            )
+                            this._current_frame = new_frame
+                        }),
+                        (TagStack.prototype._try_pop_frame = function(frame) {
+                            var parser_token = null
+                            return (
+                                frame &&
+                                    ((parser_token = frame.parser_token),
+                                    (this._printer.indent_level =
+                                        frame.indent_level),
+                                    (this._current_frame = frame.parent)),
+                                parser_token
+                            )
+                        }),
+                        (TagStack.prototype._get_frame = function(
+                            tag_list,
+                            stop_list
+                        ) {
+                            for (
+                                var frame = this._current_frame;
+                                frame && -1 === tag_list.indexOf(frame.tag);
+
+                            ) {
+                                if (
+                                    stop_list &&
+                                    -1 !== stop_list.indexOf(frame.tag)
+                                ) {
+                                    frame = null
+                                    break
+                                }
+                                frame = frame.parent
+                            }
+                            return frame
+                        }),
+                        (TagStack.prototype.try_pop = function(tag, stop_list) {
+                            var frame = this._get_frame([tag], stop_list)
+                            return this._try_pop_frame(frame)
+                        }),
+                        (TagStack.prototype.indent_to_tag = function(tag_list) {
+                            var frame = this._get_frame(tag_list)
+                            frame &&
+                                (this._printer.indent_level =
+                                    frame.indent_level)
+                        }),
+                        (Beautifier.prototype.beautify = function() {
+                            if (this._options.disabled) return this._source_text
+                            var source_text = this._source_text,
+                                eol = this._options.eol
+                            'auto' === this._options.eol &&
+                                ((eol = '\n'),
+                                source_text &&
+                                    lineBreak.test(source_text) &&
+                                    (eol = source_text.match(lineBreak)[0]))
+                            var baseIndentString = (source_text = source_text.replace(
+                                    allLineBreaks,
+                                    '\n'
+                                )).match(/^[\t ]*/)[0],
+                                last_token = { text: '', type: '' },
+                                last_tag_token = new TagOpenParserToken(),
+                                printer = new Printer(
+                                    this._options,
+                                    baseIndentString
+                                ),
+                                tokens = new Tokenizer(
+                                    source_text,
+                                    this._options
+                                ).tokenize()
+                            this._tag_stack = new TagStack(printer)
+                            for (
+                                var parser_token = null,
+                                    raw_token = tokens.next();
+                                raw_token.type !== TOKEN.EOF;
+
+                            )
+                                raw_token.type === TOKEN.TAG_OPEN ||
+                                raw_token.type === TOKEN.COMMENT
+                                    ? (last_tag_token = parser_token = this._handle_tag_open(
+                                          printer,
+                                          raw_token,
+                                          last_tag_token,
+                                          last_token
+                                      ))
+                                    : raw_token.type === TOKEN.ATTRIBUTE ||
+                                      raw_token.type === TOKEN.EQUALS ||
+                                      raw_token.type === TOKEN.VALUE ||
+                                      (raw_token.type === TOKEN.TEXT &&
+                                          !last_tag_token.tag_complete)
+                                    ? (parser_token = this._handle_inside_tag(
+                                          printer,
+                                          raw_token,
+                                          last_tag_token,
+                                          tokens
+                                      ))
+                                    : raw_token.type === TOKEN.TAG_CLOSE
+                                    ? (parser_token = this._handle_tag_close(
+                                          printer,
+                                          raw_token,
+                                          last_tag_token
+                                      ))
+                                    : raw_token.type === TOKEN.TEXT
+                                    ? (parser_token = this._handle_text(
+                                          printer,
+                                          raw_token,
+                                          last_tag_token
+                                      ))
+                                    : printer.add_raw_token(raw_token),
+                                    (last_token = parser_token),
+                                    (raw_token = tokens.next())
+                            return printer._output.get_code(eol)
+                        }),
+                        (Beautifier.prototype._handle_tag_close = function(
+                            printer,
+                            raw_token,
+                            last_tag_token
+                        ) {
+                            var parser_token = {
+                                text: raw_token.text,
+                                type: raw_token.type,
+                            }
+                            return (
+                                (printer.alignment_size = 0),
+                                (last_tag_token.tag_complete = !0),
+                                printer.set_space_before_token(
+                                    raw_token.newlines ||
+                                        '' !== raw_token.whitespace_before,
+                                    !0
+                                ),
+                                last_tag_token.is_unformatted
+                                    ? printer.add_raw_token(raw_token)
+                                    : ('<' === last_tag_token.tag_start_char &&
+                                          (printer.set_space_before_token(
+                                              '/' === raw_token.text[0],
+                                              !0
+                                          ),
+                                          this
+                                              ._is_wrap_attributes_force_expand_multiline &&
+                                              last_tag_token.has_wrapped_attrs &&
+                                              printer.print_newline(!1)),
+                                      printer.print_token(raw_token)),
+                                !last_tag_token.indent_content ||
+                                    last_tag_token.is_unformatted ||
+                                    last_tag_token.is_content_unformatted ||
+                                    (printer.indent(),
+                                    (last_tag_token.indent_content = !1)),
+                                last_tag_token.is_inline_element ||
+                                    last_tag_token.is_unformatted ||
+                                    last_tag_token.is_content_unformatted ||
+                                    printer.set_wrap_point(),
+                                parser_token
+                            )
+                        }),
+                        (Beautifier.prototype._handle_inside_tag = function(
+                            printer,
+                            raw_token,
+                            last_tag_token,
+                            tokens
+                        ) {
+                            var wrapped = last_tag_token.has_wrapped_attrs,
+                                parser_token = {
+                                    text: raw_token.text,
+                                    type: raw_token.type,
+                                }
+                            if (
+                                (printer.set_space_before_token(
+                                    raw_token.newlines ||
+                                        '' !== raw_token.whitespace_before,
+                                    !0
+                                ),
+                                last_tag_token.is_unformatted)
+                            )
+                                printer.add_raw_token(raw_token)
+                            else if (
+                                '{' === last_tag_token.tag_start_char &&
+                                raw_token.type === TOKEN.TEXT
+                            )
+                                printer.print_preserved_newlines(raw_token)
+                                    ? ((raw_token.newlines = 0),
+                                      printer.add_raw_token(raw_token))
+                                    : printer.print_token(raw_token)
+                            else {
+                                if (
+                                    (raw_token.type === TOKEN.ATTRIBUTE
+                                        ? (printer.set_space_before_token(!0),
+                                          (last_tag_token.attr_count += 1))
+                                        : raw_token.type === TOKEN.EQUALS
+                                        ? printer.set_space_before_token(!1)
+                                        : raw_token.type === TOKEN.VALUE &&
+                                          raw_token.previous.type ===
+                                              TOKEN.EQUALS &&
+                                          printer.set_space_before_token(!1),
+                                    raw_token.type === TOKEN.ATTRIBUTE &&
+                                        '<' === last_tag_token.tag_start_char &&
+                                        ((this._is_wrap_attributes_preserve ||
+                                            this
+                                                ._is_wrap_attributes_preserve_aligned) &&
+                                            (printer.traverse_whitespace(
+                                                raw_token
+                                            ),
+                                            (wrapped =
+                                                wrapped ||
+                                                0 !== raw_token.newlines)),
+                                        this._is_wrap_attributes_force))
+                                ) {
+                                    var force_attr_wrap =
+                                        last_tag_token.attr_count > 1
+                                    if (
+                                        this
+                                            ._is_wrap_attributes_force_expand_multiline &&
+                                        1 === last_tag_token.attr_count
+                                    ) {
+                                        var peek_token,
+                                            is_only_attribute = !0,
+                                            peek_index = 0
+                                        do {
+                                            if (
+                                                (peek_token = tokens.peek(
+                                                    peek_index
+                                                )).type === TOKEN.ATTRIBUTE
+                                            ) {
+                                                is_only_attribute = !1
+                                                break
+                                            }
+                                            peek_index += 1
+                                        } while (
+                                            peek_index < 4 &&
+                                            peek_token.type !== TOKEN.EOF &&
+                                            peek_token.type !== TOKEN.TAG_CLOSE
+                                        )
+                                        force_attr_wrap = !is_only_attribute
+                                    }
+                                    force_attr_wrap &&
+                                        (printer.print_newline(!1),
+                                        (wrapped = !0))
+                                }
+                                printer.print_token(raw_token),
+                                    (wrapped =
+                                        wrapped ||
+                                        printer.previous_token_wrapped()),
+                                    (last_tag_token.has_wrapped_attrs = wrapped)
+                            }
+                            return parser_token
+                        }),
+                        (Beautifier.prototype._handle_text = function(
+                            printer,
+                            raw_token,
+                            last_tag_token
+                        ) {
+                            var parser_token = {
+                                text: raw_token.text,
+                                type: 'TK_CONTENT',
+                            }
+                            return (
+                                last_tag_token.custom_beautifier_name
+                                    ? this._print_custom_beatifier_text(
+                                          printer,
+                                          raw_token,
+                                          last_tag_token
+                                      )
+                                    : last_tag_token.is_unformatted ||
+                                      last_tag_token.is_content_unformatted
+                                    ? printer.add_raw_token(raw_token)
+                                    : (printer.traverse_whitespace(raw_token),
+                                      printer.print_token(raw_token)),
+                                parser_token
+                            )
+                        }),
+                        (Beautifier.prototype._print_custom_beatifier_text = function(
+                            printer,
+                            raw_token,
+                            last_tag_token
+                        ) {
+                            var local = this
+                            if ('' !== raw_token.text) {
+                                printer.print_newline(!1)
+                                var _beautifier,
+                                    text = raw_token.text,
+                                    script_indent_level = 1
+                                'javascript' ===
+                                    last_tag_token.custom_beautifier_name &&
+                                'function' == typeof this._js_beautify
+                                    ? (_beautifier = this._js_beautify)
+                                    : 'css' ===
+                                          last_tag_token.custom_beautifier_name &&
+                                      'function' == typeof this._css_beautify
+                                    ? (_beautifier = this._css_beautify)
+                                    : 'html' ===
+                                          last_tag_token.custom_beautifier_name &&
+                                      (_beautifier = function(
+                                          html_source,
+                                          options
+                                      ) {
+                                          return new Beautifier(
+                                              html_source,
+                                              options,
+                                              local._js_beautify,
+                                              local._css_beautify
+                                          ).beautify()
+                                      }),
+                                    'keep' === this._options.indent_scripts
+                                        ? (script_indent_level = 0)
+                                        : 'separate' ===
+                                              this._options.indent_scripts &&
+                                          (script_indent_level = -printer.indent_level)
+                                var indentation = printer.get_full_indent(
+                                    script_indent_level
+                                )
+                                if (
+                                    ((text = text.replace(/\n[ \t]*$/, '')),
+                                    _beautifier)
+                                ) {
+                                    var Child_options = function() {
+                                        this.eol = '\n'
+                                    }
+                                    ;(Child_options.prototype = this._options.raw_options),
+                                        (text = _beautifier(
+                                            indentation + text,
+                                            new Child_options()
+                                        ))
+                                } else {
+                                    var white = raw_token.whitespace_before
+                                    white &&
+                                        (text = text.replace(
+                                            new RegExp(
+                                                '\n(' + white + ')?',
+                                                'g'
+                                            ),
+                                            '\n'
+                                        )),
+                                        (text =
+                                            indentation +
+                                            text.replace(
+                                                /\n/g,
+                                                '\n' + indentation
+                                            ))
+                                }
+                                text &&
+                                    ((raw_token.text = text),
+                                    (raw_token.whitespace_before = ''),
+                                    (raw_token.newlines = 0),
+                                    printer.add_raw_token(raw_token),
+                                    printer.print_newline(!0))
+                            }
+                        }),
+                        (Beautifier.prototype._handle_tag_open = function(
+                            printer,
+                            raw_token,
+                            last_tag_token,
+                            last_token
+                        ) {
+                            var parser_token = this._get_tag_open_token(
+                                raw_token
+                            )
+                            return (
+                                (last_tag_token.is_unformatted ||
+                                    last_tag_token.is_content_unformatted) &&
+                                raw_token.type === TOKEN.TAG_OPEN &&
+                                0 === raw_token.text.indexOf('</')
+                                    ? printer.add_raw_token(raw_token)
+                                    : (printer.traverse_whitespace(raw_token),
+                                      this._set_tag_position(
+                                          printer,
+                                          raw_token,
+                                          parser_token,
+                                          last_tag_token,
+                                          last_token
+                                      ),
+                                      parser_token.is_inline_element ||
+                                          printer.set_wrap_point(),
+                                      printer.print_token(raw_token)),
+                                (this._is_wrap_attributes_force_aligned ||
+                                    this._is_wrap_attributes_aligned_multiple ||
+                                    this
+                                        ._is_wrap_attributes_preserve_aligned) &&
+                                    (parser_token.alignment_size =
+                                        raw_token.text.length + 1),
+                                parser_token.tag_complete ||
+                                    parser_token.is_unformatted ||
+                                    (printer.alignment_size =
+                                        parser_token.alignment_size),
+                                parser_token
+                            )
+                        })
+                    var TagOpenParserToken = function(parent, raw_token) {
+                        var tag_check_match
+                        ;((this.parent = parent || null),
+                        (this.text = ''),
+                        (this.type = 'TK_TAG_OPEN'),
+                        (this.tag_name = ''),
+                        (this.is_inline_element = !1),
+                        (this.is_unformatted = !1),
+                        (this.is_content_unformatted = !1),
+                        (this.is_empty_element = !1),
+                        (this.is_start_tag = !1),
+                        (this.is_end_tag = !1),
+                        (this.indent_content = !1),
+                        (this.multiline_content = !1),
+                        (this.custom_beautifier_name = null),
+                        (this.start_tag_token = null),
+                        (this.attr_count = 0),
+                        (this.has_wrapped_attrs = !1),
+                        (this.alignment_size = 0),
+                        (this.tag_complete = !1),
+                        (this.tag_start_char = ''),
+                        (this.tag_check = ''),
+                        raw_token)
+                            ? ((this.tag_start_char = raw_token.text[0]),
+                              (this.text = raw_token.text),
+                              '<' === this.tag_start_char
+                                  ? ((tag_check_match = raw_token.text.match(
+                                        /^<([^\s>]*)/
+                                    )),
+                                    (this.tag_check = tag_check_match
+                                        ? tag_check_match[1]
+                                        : ''))
+                                  : ((tag_check_match = raw_token.text.match(
+                                        /^{{[#\^]?([^\s}]+)/
+                                    )),
+                                    (this.tag_check = tag_check_match
+                                        ? tag_check_match[1]
+                                        : '')),
+                              (this.tag_check = this.tag_check.toLowerCase()),
+                              raw_token.type === TOKEN.COMMENT &&
+                                  (this.tag_complete = !0),
+                              (this.is_start_tag =
+                                  '/' !== this.tag_check.charAt(0)),
+                              (this.tag_name = this.is_start_tag
+                                  ? this.tag_check
+                                  : this.tag_check.substr(1)),
+                              (this.is_end_tag =
+                                  !this.is_start_tag ||
+                                  (raw_token.closed &&
+                                      '/>' === raw_token.closed.text)),
+                              (this.is_end_tag =
+                                  this.is_end_tag ||
+                                  ('{' === this.tag_start_char &&
+                                      (this.text.length < 3 ||
+                                          /[^#\^]/.test(this.text.charAt(2))))))
+                            : (this.tag_complete = !0)
+                    }
+                    ;(Beautifier.prototype._get_tag_open_token = function(
+                        raw_token
+                    ) {
+                        var parser_token = new TagOpenParserToken(
+                            this._tag_stack.get_parser_token(),
+                            raw_token
+                        )
+                        return (
+                            (parser_token.alignment_size = this._options.wrap_attributes_indent_size),
+                            (parser_token.is_end_tag =
+                                parser_token.is_end_tag ||
+                                in_array(
+                                    parser_token.tag_check,
+                                    this._options.void_elements
+                                )),
+                            (parser_token.is_empty_element =
+                                parser_token.tag_complete ||
+                                (parser_token.is_start_tag &&
+                                    parser_token.is_end_tag)),
+                            (parser_token.is_unformatted =
+                                !parser_token.tag_complete &&
+                                in_array(
+                                    parser_token.tag_check,
+                                    this._options.unformatted
+                                )),
+                            (parser_token.is_content_unformatted =
+                                !parser_token.is_empty_element &&
+                                in_array(
+                                    parser_token.tag_check,
+                                    this._options.content_unformatted
+                                )),
+                            (parser_token.is_inline_element =
+                                in_array(
+                                    parser_token.tag_name,
+                                    this._options.inline
+                                ) || '{' === parser_token.tag_start_char),
+                            parser_token
+                        )
+                    }),
+                        (Beautifier.prototype._set_tag_position = function(
+                            printer,
+                            raw_token,
+                            parser_token,
+                            last_tag_token,
+                            last_token
+                        ) {
+                            if (
+                                (parser_token.is_empty_element ||
+                                    (parser_token.is_end_tag
+                                        ? (parser_token.start_tag_token = this._tag_stack.try_pop(
+                                              parser_token.tag_name
+                                          ))
+                                        : (this._do_optional_end_element(
+                                              parser_token
+                                          ) &&
+                                              (parser_token.is_inline_element ||
+                                                  (parser_token.parent &&
+                                                      (parser_token.parent.multiline_content = !0),
+                                                  printer.print_newline(!1))),
+                                          this._tag_stack.record_tag(
+                                              parser_token
+                                          ),
+                                          ('script' !== parser_token.tag_name &&
+                                              'style' !==
+                                                  parser_token.tag_name) ||
+                                              parser_token.is_unformatted ||
+                                              parser_token.is_content_unformatted ||
+                                              (parser_token.custom_beautifier_name = get_custom_beautifier_name(
+                                                  parser_token.tag_check,
+                                                  raw_token
+                                              )))),
+                                in_array(
+                                    parser_token.tag_check,
+                                    this._options.extra_liners
+                                ) &&
+                                    (printer.print_newline(!1),
+                                    printer._output.just_added_blankline() ||
+                                        printer.print_newline(!0)),
+                                parser_token.is_empty_element)
+                            ) {
+                                if (
+                                    '{' === parser_token.tag_start_char &&
+                                    'else' === parser_token.tag_check
+                                )
+                                    this._tag_stack.indent_to_tag([
+                                        'if',
+                                        'unless',
+                                        'each',
+                                    ]),
+                                        (parser_token.indent_content = !0),
+                                        printer.current_line_has_match(
+                                            /{{#if/
+                                        ) || printer.print_newline(!1)
+                                ;('!--' === parser_token.tag_name &&
+                                    last_token.type === TOKEN.TAG_CLOSE &&
+                                    last_tag_token.is_end_tag &&
+                                    -1 === parser_token.text.indexOf('\n')) ||
+                                    parser_token.is_inline_element ||
+                                    parser_token.is_unformatted ||
+                                    printer.print_newline(!1)
+                            } else
+                                parser_token.is_unformatted ||
+                                parser_token.is_content_unformatted
+                                    ? parser_token.is_inline_element ||
+                                      parser_token.is_unformatted ||
+                                      printer.print_newline(!1)
+                                    : parser_token.is_end_tag
+                                    ? ((parser_token.start_tag_token &&
+                                          parser_token.start_tag_token
+                                              .multiline_content) ||
+                                          !(
+                                              parser_token.is_inline_element ||
+                                              last_tag_token.is_inline_element ||
+                                              (last_token.type ===
+                                                  TOKEN.TAG_CLOSE &&
+                                                  parser_token.start_tag_token ===
+                                                      last_tag_token) ||
+                                              'TK_CONTENT' === last_token.type
+                                          )) &&
+                                      printer.print_newline(!1)
+                                    : ((parser_token.indent_content = !parser_token.custom_beautifier_name),
+                                      '<' === parser_token.tag_start_char &&
+                                          ('html' === parser_token.tag_name
+                                              ? (parser_token.indent_content = this._options.indent_inner_html)
+                                              : 'head' === parser_token.tag_name
+                                              ? (parser_token.indent_content = this._options.indent_head_inner_html)
+                                              : 'body' ===
+                                                    parser_token.tag_name &&
+                                                (parser_token.indent_content = this._options.indent_body_inner_html)),
+                                      parser_token.is_inline_element ||
+                                          'TK_CONTENT' === last_token.type ||
+                                          (parser_token.parent &&
+                                              (parser_token.parent.multiline_content = !0),
+                                          printer.print_newline(!1)))
+                        }),
+                        (Beautifier.prototype._do_optional_end_element = function(
+                            parser_token
+                        ) {
+                            var result = null
+                            if (
+                                !parser_token.is_empty_element &&
+                                parser_token.is_start_tag &&
+                                parser_token.parent
+                            )
+                                return (
+                                    'body' === parser_token.tag_name
+                                        ? (result =
+                                              result ||
+                                              this._tag_stack.try_pop('head'))
+                                        : 'li' === parser_token.tag_name
+                                        ? (result =
+                                              result ||
+                                              this._tag_stack.try_pop('li', [
+                                                  'ol',
+                                                  'ul',
+                                              ]))
+                                        : 'dd' === parser_token.tag_name ||
+                                          'dt' === parser_token.tag_name
+                                        ? (result =
+                                              (result =
+                                                  result ||
+                                                  this._tag_stack.try_pop(
+                                                      'dt',
+                                                      ['dl']
+                                                  )) ||
+                                              this._tag_stack.try_pop('dd', [
+                                                  'dl',
+                                              ]))
+                                        : 'rp' === parser_token.tag_name ||
+                                          'rt' === parser_token.tag_name
+                                        ? (result =
+                                              (result =
+                                                  result ||
+                                                  this._tag_stack.try_pop(
+                                                      'rt',
+                                                      ['ruby', 'rtc']
+                                                  )) ||
+                                              this._tag_stack.try_pop('rp', [
+                                                  'ruby',
+                                                  'rtc',
+                                              ]))
+                                        : 'optgroup' === parser_token.tag_name
+                                        ? (result =
+                                              result ||
+                                              this._tag_stack.try_pop(
+                                                  'optgroup',
+                                                  ['select']
+                                              ))
+                                        : 'option' === parser_token.tag_name
+                                        ? (result =
+                                              result ||
+                                              this._tag_stack.try_pop(
+                                                  'option',
+                                                  [
+                                                      'select',
+                                                      'datalist',
+                                                      'optgroup',
+                                                  ]
+                                              ))
+                                        : 'colgroup' === parser_token.tag_name
+                                        ? (result =
+                                              result ||
+                                              this._tag_stack.try_pop(
+                                                  'caption',
+                                                  ['table']
+                                              ))
+                                        : 'thead' === parser_token.tag_name
+                                        ? (result =
+                                              (result =
+                                                  result ||
+                                                  this._tag_stack.try_pop(
+                                                      'caption',
+                                                      ['table']
+                                                  )) ||
+                                              this._tag_stack.try_pop(
+                                                  'colgroup',
+                                                  ['table']
+                                              ))
+                                        : 'tbody' === parser_token.tag_name ||
+                                          'tfoot' === parser_token.tag_name
+                                        ? (result =
+                                              (result =
+                                                  (result =
+                                                      (result =
+                                                          result ||
+                                                          this._tag_stack.try_pop(
+                                                              'caption',
+                                                              ['table']
+                                                          )) ||
+                                                      this._tag_stack.try_pop(
+                                                          'colgroup',
+                                                          ['table']
+                                                      )) ||
+                                                  this._tag_stack.try_pop(
+                                                      'thead',
+                                                      ['table']
+                                                  )) ||
+                                              this._tag_stack.try_pop('tbody', [
+                                                  'table',
+                                              ]))
+                                        : 'tr' === parser_token.tag_name
+                                        ? (result =
+                                              (result =
+                                                  (result =
+                                                      result ||
+                                                      this._tag_stack.try_pop(
+                                                          'caption',
+                                                          ['table']
+                                                      )) ||
+                                                  this._tag_stack.try_pop(
+                                                      'colgroup',
+                                                      ['table']
+                                                  )) ||
+                                              this._tag_stack.try_pop('tr', [
+                                                  'table',
+                                                  'thead',
+                                                  'tbody',
+                                                  'tfoot',
+                                              ]))
+                                        : ('th' !== parser_token.tag_name &&
+                                              'td' !== parser_token.tag_name) ||
+                                          (result =
+                                              (result =
+                                                  result ||
+                                                  this._tag_stack.try_pop(
+                                                      'td',
+                                                      ['tr']
+                                                  )) ||
+                                              this._tag_stack.try_pop('th', [
+                                                  'tr',
+                                              ])),
+                                    (parser_token.parent = this._tag_stack.get_parser_token()),
+                                    result
+                                )
+                        }),
+                        (module.exports.Beautifier = Beautifier)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var BaseOptions = __webpack_require__(6).Options
+                    function Options(options) {
+                        BaseOptions.call(this, options, 'html'),
+                            (this.indent_inner_html = this._get_boolean(
+                                'indent_inner_html'
+                            )),
+                            (this.indent_body_inner_html = this._get_boolean(
+                                'indent_body_inner_html',
+                                !0
+                            )),
+                            (this.indent_head_inner_html = this._get_boolean(
+                                'indent_head_inner_html',
+                                !0
+                            )),
+                            (this.indent_handlebars = this._get_boolean(
+                                'indent_handlebars',
+                                !0
+                            )),
+                            (this.wrap_attributes = this._get_selection(
+                                'wrap_attributes',
+                                [
+                                    'auto',
+                                    'force',
+                                    'force-aligned',
+                                    'force-expand-multiline',
+                                    'aligned-multiple',
+                                    'preserve',
+                                    'preserve-aligned',
+                                ]
+                            )),
+                            (this.wrap_attributes_indent_size = this._get_number(
+                                'wrap_attributes_indent_size',
+                                this.indent_size
+                            )),
+                            (this.extra_liners = this._get_array(
+                                'extra_liners',
+                                ['head', 'body', '/html']
+                            )),
+                            (this.inline = this._get_array('inline', [
+                                'a',
+                                'abbr',
+                                'area',
+                                'audio',
+                                'b',
+                                'bdi',
+                                'bdo',
+                                'br',
+                                'button',
+                                'canvas',
+                                'cite',
+                                'code',
+                                'data',
+                                'datalist',
+                                'del',
+                                'dfn',
+                                'em',
+                                'embed',
+                                'i',
+                                'iframe',
+                                'img',
+                                'input',
+                                'ins',
+                                'kbd',
+                                'keygen',
+                                'label',
+                                'map',
+                                'mark',
+                                'math',
+                                'meter',
+                                'noscript',
+                                'object',
+                                'output',
+                                'progress',
+                                'q',
+                                'ruby',
+                                's',
+                                'samp',
+                                'select',
+                                'small',
+                                'span',
+                                'strong',
+                                'sub',
+                                'sup',
+                                'svg',
+                                'template',
+                                'textarea',
+                                'time',
+                                'u',
+                                'var',
+                                'video',
+                                'wbr',
+                                'text',
+                                'acronym',
+                                'big',
+                                'strike',
+                                'tt',
+                            ])),
+                            (this.void_elements = this._get_array(
+                                'void_elements',
+                                [
+                                    'area',
+                                    'base',
+                                    'br',
+                                    'col',
+                                    'embed',
+                                    'hr',
+                                    'img',
+                                    'input',
+                                    'keygen',
+                                    'link',
+                                    'menuitem',
+                                    'meta',
+                                    'param',
+                                    'source',
+                                    'track',
+                                    'wbr',
+                                    '!doctype',
+                                    '?xml',
+                                    'basefont',
+                                    'isindex',
+                                ]
+                            )),
+                            (this.unformatted = this._get_array(
+                                'unformatted',
+                                []
+                            )),
+                            (this.content_unformatted = this._get_array(
+                                'content_unformatted',
+                                ['pre', 'textarea']
+                            )),
+                            (this.unformatted_content_delimiter = this._get_characters(
+                                'unformatted_content_delimiter'
+                            )),
+                            (this.indent_scripts = this._get_selection(
+                                'indent_scripts',
+                                ['normal', 'keep', 'separate']
+                            ))
+                    }
+                    ;(Options.prototype = new BaseOptions()),
+                        (module.exports.Options = Options)
+                },
+                function(module, exports, __webpack_require__) {
+                    'use strict'
+                    var BaseTokenizer = __webpack_require__(9).Tokenizer,
+                        BASETOKEN = __webpack_require__(9).TOKEN,
+                        Directives = __webpack_require__(13).Directives,
+                        TemplatablePattern = __webpack_require__(14)
+                            .TemplatablePattern,
+                        Pattern = __webpack_require__(12).Pattern,
+                        TOKEN = {
+                            TAG_OPEN: 'TK_TAG_OPEN',
+                            TAG_CLOSE: 'TK_TAG_CLOSE',
+                            ATTRIBUTE: 'TK_ATTRIBUTE',
+                            EQUALS: 'TK_EQUALS',
+                            VALUE: 'TK_VALUE',
+                            COMMENT: 'TK_COMMENT',
+                            TEXT: 'TK_TEXT',
+                            UNKNOWN: 'TK_UNKNOWN',
+                            START: BASETOKEN.START,
+                            RAW: BASETOKEN.RAW,
+                            EOF: BASETOKEN.EOF,
+                        },
+                        directives_core = new Directives(/<\!--/, /-->/),
+                        Tokenizer = function(input_string, options) {
+                            BaseTokenizer.call(this, input_string, options),
+                                (this._current_tag_name = '')
+                            var templatable_reader = new TemplatablePattern(
+                                    this._input
+                                ),
+                                pattern_reader = new Pattern(this._input)
+                            if (
+                                ((this.__patterns = {
+                                    word: templatable_reader.until(
+                                        /[\n\r\t <]/
+                                    ),
+                                    single_quote: templatable_reader.until_after(
+                                        /'/
+                                    ),
+                                    double_quote: templatable_reader.until_after(
+                                        /"/
+                                    ),
+                                    attribute: templatable_reader.until(
+                                        /[\n\r\t =\/>]/
+                                    ),
+                                    element_name: templatable_reader.until(
+                                        /[\n\r\t >\/]/
+                                    ),
+                                    handlebars_comment: pattern_reader
+                                        .starting_with(/{{!--/)
+                                        .until_after(/--}}/),
+                                    handlebars: pattern_reader
+                                        .starting_with(/{{/)
+                                        .until_after(/}}/),
+                                    handlebars_open: pattern_reader.until(
+                                        /[\n\r\t }]/
+                                    ),
+                                    handlebars_raw_close: pattern_reader.until(
+                                        /}}/
+                                    ),
+                                    comment: pattern_reader
+                                        .starting_with(/<!--/)
+                                        .until_after(/-->/),
+                                    cdata: pattern_reader
+                                        .starting_with(/<!\[cdata\[/)
+                                        .until_after(/]]>/),
+                                    conditional_comment: pattern_reader
+                                        .starting_with(/<!\[/)
+                                        .until_after(/]>/),
+                                    processing: pattern_reader
+                                        .starting_with(/<\?/)
+                                        .until_after(/\?>/),
+                                }),
+                                this._options.indent_handlebars &&
+                                    (this.__patterns.word = this.__patterns.word.exclude(
+                                        'handlebars'
+                                    )),
+                                (this._unformatted_content_delimiter = null),
+                                this._options.unformatted_content_delimiter)
+                            ) {
+                                var literal_regexp = this._input.get_literal_regexp(
+                                    this._options.unformatted_content_delimiter
+                                )
+                                this.__patterns.unformatted_content_delimiter = pattern_reader
+                                    .matching(literal_regexp)
+                                    .until_after(literal_regexp)
+                            }
+                        }
+                    ;((Tokenizer.prototype = new BaseTokenizer())._is_comment = function(
+                        current_token
+                    ) {
+                        return !1
+                    }),
+                        (Tokenizer.prototype._is_opening = function(
+                            current_token
+                        ) {
+                            return current_token.type === TOKEN.TAG_OPEN
+                        }),
+                        (Tokenizer.prototype._is_closing = function(
+                            current_token,
+                            open_token
+                        ) {
+                            return (
+                                current_token.type === TOKEN.TAG_CLOSE &&
+                                open_token &&
+                                ((('>' === current_token.text ||
+                                    '/>' === current_token.text) &&
+                                    '<' === open_token.text[0]) ||
+                                    ('}}' === current_token.text &&
+                                        '{' === open_token.text[0] &&
+                                        '{' === open_token.text[1]))
+                            )
+                        }),
+                        (Tokenizer.prototype._reset = function() {
+                            this._current_tag_name = ''
+                        }),
+                        (Tokenizer.prototype._get_next_token = function(
+                            previous_token,
+                            open_token
+                        ) {
+                            var token = null
+                            this._readWhitespace()
+                            var c = this._input.peek()
+                            return null === c
+                                ? this._create_token(TOKEN.EOF, '')
+                                : (token =
+                                      (token =
+                                          (token =
+                                              (token =
+                                                  (token =
+                                                      (token =
+                                                          (token =
+                                                              (token =
+                                                                  token ||
+                                                                  this._read_open_handlebars(
+                                                                      c,
+                                                                      open_token
+                                                                  )) ||
+                                                              this._read_attribute(
+                                                                  c,
+                                                                  previous_token,
+                                                                  open_token
+                                                              )) ||
+                                                          this._read_raw_content(
+                                                              previous_token,
+                                                              open_token
+                                                          )) ||
+                                                      this._read_close(
+                                                          c,
+                                                          open_token
+                                                      )) ||
+                                                  this._read_content_word(c)) ||
+                                              this._read_comment(c)) ||
+                                          this._read_open(c, open_token)) ||
+                                      this._create_token(
+                                          TOKEN.UNKNOWN,
+                                          this._input.next()
+                                      ))
+                        }),
+                        (Tokenizer.prototype._read_comment = function(c) {
+                            var token = null,
+                                resulting_string = null,
+                                directives = null
+                            if ('<' === c) {
+                                var peek1 = this._input.peek(1)
+                                '<' !== c ||
+                                    ('!' !== peek1 && '?' !== peek1) ||
+                                    ((resulting_string = this.__patterns.comment.read())
+                                        ? (directives = directives_core.get_directives(
+                                              resulting_string
+                                          )) &&
+                                          'start' === directives.ignore &&
+                                          (resulting_string += directives_core.readIgnored(
+                                              this._input
+                                          ))
+                                        : (resulting_string =
+                                              (resulting_string =
+                                                  (resulting_string = this.__patterns.cdata.read()) ||
+                                                  this.__patterns.conditional_comment.read()) ||
+                                              this.__patterns.processing.read())),
+                                    resulting_string &&
+                                        ((token = this._create_token(
+                                            TOKEN.COMMENT,
+                                            resulting_string
+                                        )).directives = directives)
+                            }
+                            return token
+                        }),
+                        (Tokenizer.prototype._read_open = function(
+                            c,
+                            open_token
+                        ) {
+                            var resulting_string = null,
+                                token = null
+                            return (
+                                open_token ||
+                                    ('<' === c &&
+                                        ((resulting_string = this._input.next()),
+                                        '/' === this._input.peek() &&
+                                            (resulting_string += this._input.next()),
+                                        (resulting_string += this.__patterns.element_name.read()),
+                                        (token = this._create_token(
+                                            TOKEN.TAG_OPEN,
+                                            resulting_string
+                                        )))),
+                                token
+                            )
+                        }),
+                        (Tokenizer.prototype._read_open_handlebars = function(
+                            c,
+                            open_token
+                        ) {
+                            var resulting_string = null,
+                                token = null
+                            return (
+                                open_token ||
+                                    (this._options.indent_handlebars &&
+                                        '{' === c &&
+                                        '{' === this._input.peek(1) &&
+                                        ('!' === this._input.peek(2)
+                                            ? ((resulting_string =
+                                                  (resulting_string = this.__patterns.handlebars_comment.read()) ||
+                                                  this.__patterns.handlebars.read()),
+                                              (token = this._create_token(
+                                                  TOKEN.COMMENT,
+                                                  resulting_string
+                                              )))
+                                            : ((resulting_string = this.__patterns.handlebars_open.read()),
+                                              (token = this._create_token(
+                                                  TOKEN.TAG_OPEN,
+                                                  resulting_string
+                                              ))))),
+                                token
+                            )
+                        }),
+                        (Tokenizer.prototype._read_close = function(
+                            c,
+                            open_token
+                        ) {
+                            var resulting_string = null,
+                                token = null
+                            return (
+                                open_token &&
+                                    ('<' === open_token.text[0] &&
+                                    ('>' === c ||
+                                        ('/' === c &&
+                                            '>' === this._input.peek(1)))
+                                        ? ((resulting_string = this._input.next()),
+                                          '/' === c &&
+                                              (resulting_string += this._input.next()),
+                                          (token = this._create_token(
+                                              TOKEN.TAG_CLOSE,
+                                              resulting_string
+                                          )))
+                                        : '{' === open_token.text[0] &&
+                                          '}' === c &&
+                                          '}' === this._input.peek(1) &&
+                                          (this._input.next(),
+                                          this._input.next(),
+                                          (token = this._create_token(
+                                              TOKEN.TAG_CLOSE,
+                                              '}}'
+                                          )))),
+                                token
+                            )
+                        }),
+                        (Tokenizer.prototype._read_attribute = function(
+                            c,
+                            previous_token,
+                            open_token
+                        ) {
+                            var token = null,
+                                resulting_string = ''
+                            if (open_token && '<' === open_token.text[0])
+                                if ('=' === c)
+                                    token = this._create_token(
+                                        TOKEN.EQUALS,
+                                        this._input.next()
+                                    )
+                                else if ('"' === c || "'" === c) {
+                                    var content = this._input.next()
+                                    ;(content +=
+                                        '"' === c
+                                            ? this.__patterns.double_quote.read()
+                                            : this.__patterns.single_quote.read()),
+                                        (token = this._create_token(
+                                            TOKEN.VALUE,
+                                            content
+                                        ))
+                                } else
+                                    (resulting_string = this.__patterns.attribute.read()) &&
+                                        (token =
+                                            previous_token.type === TOKEN.EQUALS
+                                                ? this._create_token(
+                                                      TOKEN.VALUE,
+                                                      resulting_string
+                                                  )
+                                                : this._create_token(
+                                                      TOKEN.ATTRIBUTE,
+                                                      resulting_string
+                                                  ))
+                            return token
+                        }),
+                        (Tokenizer.prototype._is_content_unformatted = function(
+                            tag_name
+                        ) {
+                            return (
+                                -1 ===
+                                    this._options.void_elements.indexOf(
+                                        tag_name
+                                    ) &&
+                                ('script' === tag_name ||
+                                    'style' === tag_name ||
+                                    -1 !==
+                                        this._options.content_unformatted.indexOf(
+                                            tag_name
+                                        ) ||
+                                    -1 !==
+                                        this._options.unformatted.indexOf(
+                                            tag_name
+                                        ))
+                            )
+                        }),
+                        (Tokenizer.prototype._read_raw_content = function(
+                            previous_token,
+                            open_token
+                        ) {
+                            var resulting_string = ''
+                            if (open_token && '{' === open_token.text[0])
+                                resulting_string = this.__patterns.handlebars_raw_close.read()
+                            else if (
+                                previous_token.type === TOKEN.TAG_CLOSE &&
+                                '<' === previous_token.opened.text[0]
+                            ) {
+                                var tag_name = previous_token.opened.text
+                                    .substr(1)
+                                    .toLowerCase()
+                                this._is_content_unformatted(tag_name) &&
+                                    (resulting_string = this._input.readUntil(
+                                        new RegExp(
+                                            '</' + tag_name + '[\\n\\r\\t ]*?>',
+                                            'ig'
+                                        )
+                                    ))
+                            }
+                            return resulting_string
+                                ? this._create_token(
+                                      TOKEN.TEXT,
+                                      resulting_string
+                                  )
+                                : null
+                        }),
+                        (Tokenizer.prototype._read_content_word = function(c) {
+                            var resulting_string = ''
+                            if (
+                                (this._options.unformatted_content_delimiter &&
+                                    c ===
+                                        this._options
+                                            .unformatted_content_delimiter[0] &&
+                                    (resulting_string = this.__patterns.unformatted_content_delimiter.read()),
+                                resulting_string ||
+                                    (resulting_string = this.__patterns.word.read()),
+                                resulting_string)
+                            )
+                                return this._create_token(
+                                    TOKEN.TEXT,
+                                    resulting_string
+                                )
+                        }),
+                        (module.exports.Tokenizer = Tokenizer),
+                        (module.exports.TOKEN = TOKEN)
+                },
+            ])),
+                (__WEBPACK_AMD_DEFINE_ARRAY__ = [
+                    __webpack_require__,
+                    __webpack_require__(96),
+                    __webpack_require__(97),
+                ]),
+                void 0 ===
+                    (__WEBPACK_AMD_DEFINE_RESULT__ = function(requireamd) {
+                        var js_beautify = __webpack_require__(96),
+                            css_beautify = __webpack_require__(97)
+                        return {
+                            html_beautify: function(html_source, options) {
+                                return style_html(
+                                    html_source,
+                                    options,
+                                    js_beautify.js_beautify,
+                                    css_beautify.css_beautify
+                                )
+                            },
+                        }
+                    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) ||
+                    (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)
+        },
+        function(module, exports, __webpack_require__) {
+            'use strict'
+            Object.defineProperty(exports, '__esModule', { value: !0 }),
+                (exports.EVENTS = exports.ADDON_PANEL = exports.ADDON_ID = void 0)
+            exports.ADDON_ID = 'kadira/jsx'
+            var ADDON_PANEL = ''.concat('kadira/jsx', '/panel')
+            exports.ADDON_PANEL = ADDON_PANEL
+            var EVENTS = { ADD_JSX: ''.concat('kadira/jsx', '/add_jsx') }
+            exports.EVENTS = EVENTS
         },
         ,
         ,
@@ -36616,7 +46406,7 @@ object-assign
                     obj
                 ) {
                     return obj && obj.__esModule ? obj : { default: obj }
-                })(__webpack_require__(346))).default(),
+                })(__webpack_require__(354))).default(),
                 JSXStyle = (function(_Component) {
                     function JSXStyle(props) {
                         var _this
@@ -36739,8 +46529,8 @@ object-assign
             'use strict'
             Object.defineProperty(exports, '__esModule', { value: !0 }),
                 (exports.default = void 0)
-            var _stringHash = _interopRequireDefault(__webpack_require__(347)),
-                _stylesheet = _interopRequireDefault(__webpack_require__(348))
+            var _stringHash = _interopRequireDefault(__webpack_require__(355)),
+                _stylesheet = _interopRequireDefault(__webpack_require__(356))
             function _interopRequireDefault(obj) {
                 return obj && obj.__esModule ? obj : { default: obj }
             }
@@ -37498,7 +47288,7 @@ object-assign
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var ReactPropTypesSecret = __webpack_require__(350)
+            var ReactPropTypesSecret = __webpack_require__(358)
             function emptyFunction() {}
             function emptyFunctionWithReset() {}
             ;(emptyFunctionWithReset.resetWarningCache = emptyFunction),
@@ -37623,14 +47413,14 @@ object-assign
         ,
         function(module, exports, __webpack_require__) {
             var $export = __webpack_require__(1)
-            $export($export.P, 'Array', { fill: __webpack_require__(377) }),
-                __webpack_require__(85)('fill')
+            $export($export.P, 'Array', { fill: __webpack_require__(385) }),
+                __webpack_require__(84)('fill')
         },
         function(module, exports, __webpack_require__) {
             'use strict'
-            var toObject = __webpack_require__(24),
-                toAbsoluteIndex = __webpack_require__(129),
-                toLength = __webpack_require__(22)
+            var toObject = __webpack_require__(27),
+                toAbsoluteIndex = __webpack_require__(134),
+                toLength = __webpack_require__(25)
             module.exports = function fill(value) {
                 for (
                     var O = toObject(this),
@@ -37654,4 +47444,4 @@ object-assign
         },
     ],
 ])
-//# sourceMappingURL=vendors~main.651f7f24ff5906ad5d12.bundle.js.map
+//# sourceMappingURL=vendors~main.69f8dd7d175757e7b79d.bundle.js.map

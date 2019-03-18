@@ -1,6 +1,8 @@
 import { configure, addDecorator } from '@storybook/react'
 import { jsxDecorator } from 'storybook-addon-jsx'
 
+import 'typeface-roboto'
+
 addDecorator(jsxDecorator)
 
 function loadStories() {
