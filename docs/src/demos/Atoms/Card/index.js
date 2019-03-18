@@ -1,5 +1,7 @@
 import React from 'react'
-import Card from 'core/Card'
+
+import { Card } from '@dhis2/ui-core'
+
 import { Col, Divider } from '../../../helpers'
 
 export class CardDemo extends React.Component {

@@ -1,5 +1,6 @@
 import React from 'react'
-import Menu from 'core/Menu'
+import { Menu } from '@dhis2/ui-core'
+
 import Icon from '../../../Icon'
 
 import { Text, Col, Divider, Spacer } from '../../../helpers'

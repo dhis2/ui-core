@@ -14,7 +14,6 @@ async function main() {
     const root = process.cwd()
 
     const JS = '.js'
-    const CSS = '.css'
 
     const src = path.join(root, 'src')
     const dest = path.join(root, 'build')
@@ -95,16 +94,6 @@ async function main() {
 
     watcher.on('change', fileChange)
     watcher.on('add', fileAdd)
-
-    try {
-        console.info('Copying package.json to build/')
-        fs.copy(
-            path.join(root, 'package.json'),
-            path.join(dest, 'package.json')
-        )
-    } catch (err) {
-        console.error('... File copy failed.\n', err)
-    }
 
     console.log('The watch has begun...')
 }

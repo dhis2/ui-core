@@ -1,5 +1,5 @@
 import React from 'react'
-import Switch from 'core/Switch'
+import { Switch } from '@dhis2/ui-core'
 
 import { Text, Row, Col, Divider } from '../../../../helpers'
 

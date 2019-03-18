@@ -1,5 +1,5 @@
 import React from 'react'
-import SelectField from 'core/SelectField'
+import { SelectField } from '@dhis2/ui-core'
 import { Col, Row, Text } from '../../../helpers'
 
 import Icon from '../../../Icon.js'

@@ -1,5 +1,7 @@
 import React from 'react'
-import Logo, { LogoIcon, LogoWhite, LogoIconWhite } from 'core/Logo'
+
+import { Logo, LogoIcon, LogoWhite, LogoIconWhite } from '@dhis2/ui-core'
+
 import { Heading, Col, Divider, Spacer } from '../../../helpers'
 
 export class LogoDemo extends React.Component {
