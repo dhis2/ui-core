@@ -28,63 +28,21 @@ need to polyfill the following:
 -   es6.symbol
 -   es7.symbol.async-iterator
 
-## Style
-
--   CSS: https://github.com/necolas/idiomatic-css
--   JS: https://github.com/dhis2/code-style
-
 ### Review
 
 Make a PR from the component branch. Add a team member who can review
 the code and example for both **LTR** and **RTL** modes.
 
-## Kitchen Sink
-
--   [Sidebar](https://github.com/dhis2/ui/blob/master/docs/src/Sidebar/index.js)
-    `export const list` determines all site content. [id:
-    'identifier'](https://github.com/dhis2/ui/blob/master/docs/src/Sidebar/index.js#L18)
-    in list is referenced in content view on the right side.
-
--   [View](https://github.com/dhis2/ui/blob/master/docs/src/View/index.js)
-    loads all demos
-
--   [demos](https://github.com/dhis2/ui/blob/master/docs/src/demos/index.js)
-    accumulates all demos. Code structure for demos are organized same
-    as Menu structure in Sidebar e.g.
-    [structure](https://github.com/dhis2/ui/tree/master/docs/src/demos)
-
--   We export a demo by name.
-    [HeaderBarDemo](https://github.com/dhis2/ui/blob/master/docs/src/demos/Organisms/HeaderBar/index.js).
-    Attach a static class variable `static id = 'headerbar'` which will
-    connect _HeaderBarDemo_ to link in the _Sidebar_.
-
 ## Development
 
-### Run the demo while actively developing
-
-First install dependencies for both the ui components (in root_dir) and the demo (in docs folder):
+We use [Storybook](https://storybook.js.org) which is excellent for testing components while developing them.
 
 ```
-cd [root_dir]
 yarn install
-
-cd [root_dir]/docs
-yarn install
-```
-
-Then run the demo while watching the source files:
-
-```
-cd [root_dir]
-yarn link
-yarn start
-
-cd [root_dir]/docs
-yarn link @dhis2/ui-core
 yarn start
 ```
 
-The demo runs on localhost:5000.
+The Storybook runs on localhost:5000.
 
 ### Apply the code style
 
@@ -92,14 +50,6 @@ This library follows the [dhis2 code-style](https://github.com/dhis2/cli-style).
 
 ```
 yarn format
-```
-
-### Check bundle size
-
-The build will fail if the size of the built bundle exceeds the value set in [.size-limit.js](./.size-limit.js). To check the size of the current bundle, run:
-
-```
-yarn size
 ```
 
 ### Commit messages
