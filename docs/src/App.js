@@ -3,7 +3,7 @@ import React from 'react'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
-import 'typeface-roboto/index.css'
+import 'typeface-roboto'
 
 import { CssReset } from '@dhis2/ui-core'
 
