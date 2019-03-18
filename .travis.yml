@@ -7,6 +7,14 @@ script:
 
 jobs:
   include:
+    - stage: deploy
+      node_js: lts/*
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx --package @dhis2/deploy-build deploy-build
+
     - stage: release
       node_js: lts/*
       # Advanced: optionally overwrite your default `script` step to skip the tests
