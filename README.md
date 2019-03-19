@@ -46,7 +46,10 @@ The Storybook runs on localhost:5000.
 
 ### Apply the code style
 
-This library follows the [dhis2 code-style](https://github.com/dhis2/cli-style). There is a commit hook that will apply the code style to staged files, but if you want to do this manually during development, run:
+This library follows the [dhis2
+code-style](https://github.com/dhis2/cli-style). There is a commit hook
+that will apply the code style to staged files, but if you want to do
+this manually during development, run:
 
 ```
 yarn format
