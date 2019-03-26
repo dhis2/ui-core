@@ -1,72 +1,23 @@
-import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import React, { Fragment } from 'react'
+import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { Default, Error, Valid, Warning } from '../icons/Status.js'
+import { createIcon } from '../icons/helpers'
+import { colors } from '../theme.js'
 import Help from '../Help'
-
-import { Valid, Warning, Error } from '../icons/Status.js'
-
-import css from 'styled-jsx/css'
 import styles from './styles.js'
 
-import { colors } from '../theme.js'
-
 const statusToIcon = {
-    valid: <Valid />,
-    warning: <Warning />,
-    error: <Error />,
+    valid: Valid,
+    warning: Warning,
+    error: Error,
 }
 
-const icons = {
-    default: css.resolve`
-		svg {
-			fill: ${colors.grey700};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-    valid: css.resolve`
-		svg {
-			fill: ${colors.blue600};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-    warning: css.resolve`
-		svg {
-			fill: ${colors.yellow500};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-    error: css.resolve`
-		svg {
-			fill: ${colors.red500};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-}
-
-function icon(Icon, action = null, extra = 'default') {
-    if (Icon) {
-        return (
-            <span>
-                <Icon.type {...Icon.props} className={icons[extra].className} />
-                {icons[extra].styles}
-            </span>
-        )
-    }
-    return null
-}
-
-function trailIcon(status, trail, fn) {
+function createTrailIcon(status, trail, fn) {
     if (status !== 'default') {
-        return icon(statusToIcon[status], fn, status)
+        return createIcon(statusToIcon[status], { action: fn })
     } else {
         return trail
     }
@@ -177,7 +128,7 @@ class InputField extends React.Component {
                         </fieldset>
                     )}
 
-                    {icon(this.props.icon)}
+                    {createIcon(this.props.icon)}
 
                     <input
                         className={cx({
@@ -193,7 +144,7 @@ class InputField extends React.Component {
                         onChange={this.onChange}
                     />
 
-                    {trailIcon(this.props.status, this.props.trailIcon)}
+                    {createTrailIcon(this.props.status, this.props.trailIcon)}
                 </div>
 
                 {this.props.help && (

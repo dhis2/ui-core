@@ -1,4 +1,5 @@
-import css from 'styled-jsx/css'
+import css, { resolve } from 'styled-jsx/css'
+import React from 'react'
 
 import { colors, theme } from '../theme.js'
 
@@ -330,7 +331,7 @@ export default css`
     }
 `
 
-const arrowIcon = css.resolve`
+export const arrowIcon = resolve`
     svg {
         fill: inherit;
         height: 24px;
@@ -340,39 +341,13 @@ const arrowIcon = css.resolve`
     }
 `
 
-const menuOverride = css.resolve`
+export const menuOverride = resolve`
     max-height: 300px;
     overflow-y: auto;
 `
 
-const iconStyleDefault = css.resolve`
+export const selectIconStyles = resolve`
     svg {
-        fill: ${colors.grey700};
-        height: 24px;
-        width: 24px;
-    }
-`
-
-const iconStyleValid = css.resolve`
-    svg {
-        fill: ${colors.blue600};
-        height: 24px;
-        width: 24px;
-    }
-`
-
-const iconStyleWarning = css.resolve`
-    svg {
-        fill: ${colors.yellow500};
-        height: 24px;
-        width: 24px;
-    }
-`
-
-const iconStyleError = css.resolve`
-    svg {
-        fill: ${colors.red500};
-        height: 24px;
-        width: 24px;
+        margin: 0;
     }
 `

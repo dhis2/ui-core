@@ -6,24 +6,12 @@ import cx from 'classnames'
 import { isPointInRect } from '../utils/math'
 import { Valid, Warning, Error } from '../icons/Status.js'
 import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
+import { createIcon } from '../icons/helpers'
+import { iconStatuses, iconStatusPropType } from '../icons/constants'
 import { colors, fonts } from '../theme.js'
 import Menu from '../Menu'
 import Help from '../Help'
-import styles, {
-    arrowIcon,
-    menuOverride,
-    iconStyleDefault,
-    iconStyleValid,
-    iconStyleWarning,
-    iconStyleError,
-} from './styles.js'
-
-const statuses = {
-    DEFAULT: 'default',
-    VALID: 'valid',
-    WARNING: 'warning',
-    ERROR: 'error',
-}
+import styles, { arrowIcon, menuOverride, selectIconStyles } from './styles.js'
 
 const sizes = {
     DEFAULT: 'default',
@@ -36,39 +24,19 @@ const kinds = {
 }
 
 const statusToIcon = {
-    [statuses.VALID]: <Valid />,
-    [statuses.WARNING]: <Warning />,
-    [statuses.ERROR]: <Error />,
+    [iconStatuses.VALID]: Valid,
+    [iconStatuses.WARNING]: Warning,
+    [iconStatuses.ERROR]: Error,
 }
 
-const icons = {
-    [statuses.DEFAULT]: iconStyleDefault,
-    [statuses.VALID]: iconStyleValid,
-    [statuses.WARNING]: iconStyleWarning,
-    [statuses.ERROR]: iconStyleError,
-}
-
-function icon(Icon, action = null, status = statuses.DEFAULT) {
-    if (!Icon) {
-        return null
+function createTrailIcon(status, trail, fn) {
+    const icon = status !== iconStatuses.DEFAULT ? statusToIcon[status] : trail
+    const options = {
+        action: fn,
+        className: selectIconStyles.className,
     }
 
-    return (
-        <Fragment>
-            <Icon.type
-                {...Icon.props}
-                onClick={action}
-                className={icons[status].className}
-            />
-            {icons[status].styles}
-        </Fragment>
-    )
-}
-
-function trailIcon(status, trail, fn) {
-    return status !== statuses.DEFAULT
-        ? icon(statusToIcon[status], fn, status)
-        : icon(trail, fn)
+    return createIcon(icon, options)
 }
 
 function markActive(list, value) {
@@ -246,8 +214,8 @@ class SelectField extends React.Component {
                     </div>
 
                     <div className="trail-icon-field">
-                        {this.props.status !== statuses.DEFAULT &&
-                            trailIcon(this.props.status)}
+                        {this.props.status !== iconStatuses.DEFAULT &&
+                            createTrailIcon(this.props.status)}
                     </div>
 
                     <div
@@ -274,9 +242,10 @@ class SelectField extends React.Component {
                     </div>
                 )}
 
-                {menuOverride.styles}
-                {arrowIcon.styles}
+                <style>{menuOverride.styles}</style>
+                <style>{arrowIcon.styles}</style>
                 <style jsx>{styles}</style>
+                <style>{selectIconStyles.styles}</style>
             </div>
         )
     }
@@ -285,7 +254,7 @@ class SelectField extends React.Component {
 SelectField.defaultProps = {
     size: sizes.DEFAULT,
     kind: kinds.FILLED,
-    status: statuses.DEFAULT,
+    status: iconStatuses.DEFAULT,
     help: '',
     className: '',
     disabled: false,
@@ -312,13 +281,8 @@ SelectField.propTypes = {
     icon: PropTypes.element,
     size: PropTypes.oneOf([sizes.DEFAULT, sizes.DENSE]),
     kind: PropTypes.oneOf([kinds.FILLED, kinds.OUTLINED]),
-    status: PropTypes.oneOf([
-        statuses.DEFAULT,
-        statuses.VALID,
-        statuses.WARNING,
-        statuses.ERROR,
-    ]),
+    status: iconStatusPropType,
 }
 
-export { SelectField, statuses, sizes, kinds }
+export { SelectField, sizes, kinds }
 export default SelectField
