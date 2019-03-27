@@ -273,5 +273,5 @@ SelectField.propTypes = {
     status: iconStatusPropType,
 }
 
-export { SelectField, sizes, kinds }
+export { SelectField }
 export default SelectField
