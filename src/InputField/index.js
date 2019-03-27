@@ -168,9 +168,17 @@ class InputField extends React.Component {
                             disabled: this.props.disabled,
                             focused: this.isFocused(),
                             shrink: this.shrink(),
-                            [this.props.classes.label ||
-                            'classes.label']: !!this.props.classes.label,
+                            [typeof this.props.styles.label === 'string'
+                                ? this.props.styles.label
+                                : 'styles.label']:
+                                typeof this.props.styles.label === 'string' &&
+                                !!this.props.styles.label,
                         })}
+                        style={
+                            this.props.styles.label instanceof Object
+                                ? this.props.styles.label
+                                : {}
+                        }
                     >
                         {this.props.label}
                     </label>
@@ -212,7 +220,7 @@ InputField.defaultProps = {
     focus: false,
     disabled: false,
     required: false,
-    classes: {},
+    styles: {},
 }
 
 InputField.propTypes = {
@@ -232,8 +240,8 @@ InputField.propTypes = {
     focus: PropTypes.bool,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
-    classes: PropTypes.shape({
-        label: PropTypes.string,
+    styles: PropTypes.shape({
+        label: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
     }),
 }
 
