@@ -146,6 +146,17 @@ class InputField extends React.Component {
                         disabled: this.props.disabled,
                     })}
                 >
+                    {this.props.kind === 'outlined' && (
+                        <fieldset
+                            className={cx('flatline', {
+                                [`${this.props.status}`]: true,
+                                focused: this.isFocused(),
+                                idle: !this.isFocused(),
+                                filled: this.props.value,
+                            })}
+                        />
+                    )}
+
                     <label
                         ref={this.labelRef}
                         className={cx('label', {
@@ -157,25 +168,12 @@ class InputField extends React.Component {
                             disabled: this.props.disabled,
                             focused: this.isFocused(),
                             shrink: this.shrink(),
+                            [this.props.classes.label ||
+                            'classes.label']: !!this.props.classes.label,
                         })}
                     >
                         {this.props.label}
                     </label>
-
-                    {this.props.kind === 'outlined' && (
-                        <fieldset
-                            className={cx('flatline', {
-                                [`${this.props.status}`]: true,
-                                focused: this.isFocused(),
-                                idle: !this.isFocused(),
-                                filled: this.props.value,
-                            })}
-                        >
-                            <legend className="legend" style={legendWidth}>
-                                <span>&#8203;</span>
-                            </legend>
-                        </fieldset>
-                    )}
 
                     {icon(this.props.icon)}
 
@@ -214,6 +212,7 @@ InputField.defaultProps = {
     focus: false,
     disabled: false,
     required: false,
+    classes: {},
 }
 
 InputField.propTypes = {
@@ -233,6 +232,9 @@ InputField.propTypes = {
     focus: PropTypes.bool,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
+    classes: PropTypes.shape({
+        label: PropTypes.string,
+    }),
 }
 
 export { InputField }

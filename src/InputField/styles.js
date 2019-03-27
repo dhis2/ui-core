@@ -2,6 +2,8 @@ import css from 'styled-jsx/css'
 
 import { theme, colors } from '../theme.js'
 
+const inputFontSize = '16px'
+
 export default css`
     .base {
         display: inline-block;
@@ -15,7 +17,7 @@ export default css`
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding-left: 8px;
+        padding-left: 12px;
     }
 
     /* we have disabled the pointer-events for the fieldset so we can click
@@ -32,11 +34,16 @@ export default css`
     }
 
     input {
-        width: 100%;
-        height: 100%;
-        user-select: text;
         background-color: transparent;
         border: 0;
+        box-sizing: border-box;
+        font-size: ${inputFontSize};
+        height: 100%;
+        line-height: 19px;
+        outline: 0;
+        padding: 18.5px 0;
+        user-select: text;
+        width: 100%;
     }
 
     /*
@@ -44,23 +51,17 @@ export default css`
  *
  */
     .flatline {
-        display: block;
-        position: absolute;
-
-        top: -8px;
-        right: 0;
         bottom: 0;
-        left: 0;
-        padding-left: 8px;
-
         border: 1px solid ${colors.grey500};
         border-radius: 5px;
-
-        pointer-events: none;
-    }
-
-    .legend {
+        box-sizing: border-box;
         display: block;
+        height: 100%;
+        left: 0;
+        padding-left: 8px;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
     }
 
     .flatline.idle.filled {
@@ -97,15 +98,17 @@ export default css`
  */
 
     .label {
-        display: block;
-        position: absolute;
-        transform: translate(14px, 0px) scale(1);
-        transform-origin: top left;
+        background: white;
         color: ${colors.grey700};
-        white-space: nowrap;
+        display: block;
+        font-size: ${inputFontSize};
+        padding: 0 10px 0 2px;
         pointer-events: none;
-
+        position: absolute;
+        transform-origin: top left;
+        transform: translate(-2px, 0) scale(1);
         transition: all 0.1s;
+        white-space: nowrap;
     }
 
     .label.required::after {
@@ -117,11 +120,11 @@ export default css`
     }
 
     .label.filled.shrink {
-        transform: translate(8px, -12px) scale(0.75);
+        transform: translate(-2px, -12px) scale(0.75);
     }
 
     .label.filled.dense.shrink {
-        transform: translate(8px, -8px) scale(0.75);
+        transform: translate(-2px, -8px) scale(0.75);
     }
 
     .label.filled.has-icon {
@@ -137,11 +140,11 @@ export default css`
     }
 
     .label.outlined.shrink {
-        transform: translate(8px, -24px) scale(0.75);
+        transform: translate(-2px, -24px) scale(0.75);
     }
 
     .label.outlined.shrink.dense {
-        transform: translate(8px, -18px) scale(0.75);
+        transform: translate(-2px, -18px) scale(0.75);
     }
 
     .label.outlined.has-icon {
@@ -252,24 +255,24 @@ export default css`
 
     _:-ms-input-placeholder,
     :root .label {
-        transform: translate(14px, -8px) scale(1);
+        transform: translate(-2px, -8px) scale(1);
     }
 
     _:-ms-input-placeholder,
     :root .label.filled.shrink {
-        transform: translate(8px, -20px) scale(0.75);
+        transform: translate(-2px, -20px) scale(0.75);
     }
     _:-ms-input-placeholder,
     :root .label.filled.dense.shrink {
-        transform: translate(8px, -18px) scale(0.75);
+        transform: translate(-2px, -18px) scale(0.75);
     }
     _:-ms-input-placeholder,
     :root .label.outlined.shrink {
-        transform: translate(8px, -32px) scale(0.75);
+        transform: translate(-2px, -32px) scale(0.75);
     }
 
     _:-ms-input-placeholder,
     :root .label.outlined.shrink.dense {
-        transform: translate(8px, -26px) scale(0.75);
+        transform: translate(-2px, -26px) scale(0.75);
     }
 `
