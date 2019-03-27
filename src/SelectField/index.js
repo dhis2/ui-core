@@ -1,33 +1,22 @@
-import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { isPointInRect } from '../utils/math'
-import { Valid, Warning, Error } from '../icons/Status.js'
-import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
+import { ArrowUp, ArrowDown } from '../icons/Arrow'
+import { Valid, Warning, Error } from '../icons/Status'
+import { colors, fonts } from '../theme'
 import { createIcon } from '../icons/helpers'
-import { iconStatuses, iconStatusPropType } from '../icons/constants'
-import { colors, fonts } from '../theme.js'
-import Menu from '../Menu'
+import {
+    iconStatusPropType,
+    iconStatuses,
+    statusToIcon,
+} from '../icons/constants'
+import { inputKinds, inputSizes } from '../forms/constants'
+import { isPointInRect } from '../utils/math'
 import Help from '../Help'
-import styles, { arrowIcon, menuOverride, selectIconStyles } from './styles.js'
-
-const sizes = {
-    DEFAULT: 'default',
-    DENSE: 'dense',
-}
-
-const kinds = {
-    FILLED: 'filled',
-    OUTLINED: 'outlined',
-}
-
-const statusToIcon = {
-    [iconStatuses.VALID]: Valid,
-    [iconStatuses.WARNING]: Warning,
-    [iconStatuses.ERROR]: Error,
-}
+import Menu from '../Menu'
+import styles, { arrowIcon, menuOverride, selectIconStyles } from './styles'
 
 function createTrailIcon(status, trail, fn) {
     const icon = status !== iconStatuses.DEFAULT ? statusToIcon[status] : trail
@@ -252,8 +241,8 @@ class SelectField extends React.Component {
 }
 
 SelectField.defaultProps = {
-    size: sizes.DEFAULT,
-    kind: kinds.FILLED,
+    size: inputSizes.DEFAULT,
+    kind: inputKinds.FILLED,
     status: iconStatuses.DEFAULT,
     help: '',
     className: '',
@@ -279,8 +268,8 @@ SelectField.propTypes = {
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     icon: PropTypes.element,
-    size: PropTypes.oneOf([sizes.DEFAULT, sizes.DENSE]),
-    kind: PropTypes.oneOf([kinds.FILLED, kinds.OUTLINED]),
+    size: PropTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
+    kind: PropTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
     status: iconStatusPropType,
 }
 

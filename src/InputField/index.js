@@ -4,23 +4,17 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { Default, Error, Valid, Warning } from '../icons/Status.js'
-import { createIcon } from '../icons/helpers'
 import { colors } from '../theme.js'
+import { createIcon } from '../icons/helpers'
+import { inputKinds, inputSizes } from '../forms/constants'
+import { iconStatusPropType, statusToIcon } from '../icons/constants'
 import Help from '../Help'
 import styles from './styles.js'
 
-const statusToIcon = {
-    valid: Valid,
-    warning: Warning,
-    error: Error,
-}
-
 function createTrailIcon(status, trail, fn) {
-    if (status !== 'default') {
-        return createIcon(statusToIcon[status], { action: fn })
-    } else {
-        return trail
-    }
+    return status !== 'default'
+        ? createIcon(statusToIcon[status], { action: fn })
+        : trail
 }
 
 class InputField extends React.Component {
@@ -159,7 +153,7 @@ class InputField extends React.Component {
 
 InputField.defaultProps = {
     status: 'default',
-    size: 'default',
+    size: inputSizes.DEFAULT,
     kind: 'filled',
     type: 'text',
     focus: false,
@@ -177,8 +171,8 @@ InputField.propTypes = {
     help: PropTypes.string,
     icon: PropTypes.element,
     trailIcon: PropTypes.element,
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
-    size: PropTypes.oneOf(['default', 'dense']),
+    status: iconStatusPropType,
+    size: PropTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
     kind: PropTypes.oneOf(['filled', 'outlined']),
     type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
     focus: PropTypes.bool,

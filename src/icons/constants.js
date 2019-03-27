@@ -1,3 +1,4 @@
+import { Valid, Warning, Error } from './Status'
 import PropTypes from 'prop-types'
 
 export const iconStatuses = {
@@ -5,6 +6,12 @@ export const iconStatuses = {
     VALID: 'valid',
     WARNING: 'warning',
     ERROR: 'error',
+}
+
+export const statusToIcon = {
+    [iconStatuses.VALID]: Valid,
+    [iconStatuses.WARNING]: Warning,
+    [iconStatuses.ERROR]: Error,
 }
 
 export const iconStatusPropType = PropTypes.oneOf([
