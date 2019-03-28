@@ -39,6 +39,7 @@
     "@storybook/addon-notes": "^5.0.3",
     "@storybook/react": "^5.0.3",
     "babel-loader": "^8.0.5",
+    "chai-colors": "^1.0.1",
     "conventional-changelog-cli": "^2.0.5",
     "cypress": "^3.2.0",
     "fs-extra": "^7.0.0",

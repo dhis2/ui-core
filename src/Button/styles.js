@@ -61,12 +61,12 @@ export default css`
     }
 
     .kind-basic {
-        border: 1px solid #c4c9cc;
-        background-color: #f9fafb;
+        border: 1px solid ${colors.grey400};
+        background-color: ${colors.grey100};
     }
 
     .kind-basic:hover {
-        border: 1px solid #c4c9cc;
+        border: 1px solid ${colors.grey400};
         background-color: #f3f4f5;
     }
 
@@ -79,13 +79,13 @@ export default css`
 
     .kind-basic:focus {
         border: 1px solid ${theme.primary600};
-        background-color: #f9fafb;
+        background-color: ${colors.grey100};
         box-shadow: 0 0 0 1px ${theme.primary600};
     }
 
     .kind-basic:disabled {
-        border: 1px solid #c4c9cc;
-        background-color: #f9fafb;
+        border: 1px solid ${colors.grey400};
+        background-color: ${colors.grey100};
         box-shadow: none;
         color: ${colors.grey500};
         fill: ${colors.grey500};
@@ -94,7 +94,7 @@ export default css`
     .kind-primary {
         border: 1px solid ${theme.primary800};
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
-        background-color: #2b61b3;
+        background-color: ${theme.primary500};
         color: ${colors.white};
         fill: ${colors.white};
     }
