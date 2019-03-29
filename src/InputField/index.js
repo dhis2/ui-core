@@ -70,13 +70,8 @@ function icon(Icon, extra = 'default') {
     return null
 }
 
-function TrailIcon({ status, trail }) {
-    if (status !== 'default') {
-        return icon(statusToIcon[status], status)
-    } else {
-        return trail
-    }
-}
+const TrailIcon = ({ status, trail }) =>
+    status !== 'default' ? icon(statusToIcon[status], status) : trail
 
 TrailIcon.propTypes = {
     status: PropTypes.string,
@@ -102,7 +97,7 @@ class InputField extends React.Component {
         return this.state.focused
     }
 
-    shrink() {
+    shouldShrink() {
         return !!(
             this.isFocused() ||
             this.props.value ||
@@ -162,7 +157,7 @@ class InputField extends React.Component {
                         status={this.props.status}
                         size={this.props.size}
                         kind={this.props.kind}
-                        isShrinked={this.shrink()}
+                        isShrinked={this.shouldShrink()}
                         isFocused={this.isFocused()}
                         isDisabled={this.props.disabled}
                         isRequired={this.props.required}
