@@ -13,6 +13,7 @@ import {
 import { Input } from './InputField/Input'
 import { Label } from './InputField/Label'
 import { Fieldset } from './InputField/Fieldset'
+import { Field } from './InputField/Field'
 import Help from '../Help'
 import styles from './styles.js'
 
@@ -141,15 +142,14 @@ class InputField extends React.Component {
                     }
                 `}</style>
 
-                <div
-                    className={cx('field', {
-                        [`size-${this.props.size}`]: true,
-                        [`status-${this.props.status}`]: true,
-                        [`kind-${this.props.kind}`]: true,
-                        focused: this.isFocused(),
-                        filled: this.props.value,
-                        disabled: this.props.disabled,
-                    })}
+                <Field
+                    value={this.props.value}
+                    size={this.props.size}
+                    status={this.props.status}
+                    kind={this.props.kind}
+                    isFocused={this.isFocused()}
+                    isFilled={this.props.kind === 'filled'}
+                    isDisabled={this.props.disabled}
                 >
                     <Fieldset
                         kind={this.props.kind}
@@ -190,7 +190,7 @@ class InputField extends React.Component {
                         status={this.props.status}
                         trail={this.props.trailIcon}
                     />
-                </div>
+                </Field>
 
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />

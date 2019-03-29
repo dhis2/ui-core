@@ -44,6 +44,7 @@ storiesOf('InputField: Outlined', module)
         notes,
     })
     .add('Status: Error', () => <OutlinedWrapper status="error" />, { notes })
+    .add('Disabled', () => <OutlinedWrapper disabled={true} />, { notes })
 
     .add(
         'Label background with inline styles',
@@ -89,3 +90,4 @@ storiesOf('InputField: Filled', module)
     .add('Status: Valid', () => <FilledWrapper status="valid" />, { notes })
     .add('Status: Warning', () => <FilledWrapper status="warning" />, { notes })
     .add('Status: Error', () => <FilledWrapper status="error" />, { notes })
+    .add('Disabled', () => <FilledWrapper disabled={true} />, { notes })
