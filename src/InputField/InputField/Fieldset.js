@@ -21,6 +21,17 @@ const styles = css`
         right: 0;
     }
 
+    :global(.field.status-default:hover) .flatline,
+    :global(.field.status-default:hover) .flatline.idle.filled,
+    :global(.field.status-default:hover) .flatline.focused {
+        border: 1px solid ${colors.grey700};
+    }
+
+    :global(.field.status-default.disabled) .flatline,
+    :global(.field.status-default.disabled:hover) .flatline {
+        border: 1px solid rgba(196, 196, 196, 0.2);
+    }
+
     .flatline.idle.filled {
         border: 1.5px solid ${colors.grey500};
     }
