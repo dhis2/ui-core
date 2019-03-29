@@ -1,15 +1,20 @@
-import React, { Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import Help from '../Help'
-
 import { Valid, Warning, Error } from '../icons/Status.js'
-
-import css from 'styled-jsx/css'
-import styles from './styles.js'
-
 import { colors } from '../theme.js'
+import {
+    inputFontSizeValue,
+    heightDefault,
+    heightDense,
+} from '../forms/constants'
+import { Input } from './InputField/Input'
+import { Label } from './InputField/Label'
+import { Fieldset } from './InputField/Fieldset'
+import Help from '../Help'
+import styles from './styles.js'
 
 const statusToIcon = {
     valid: <Valid />,
@@ -52,7 +57,7 @@ const icons = {
 	`,
 }
 
-function icon(Icon, action = null, extra = 'default') {
+function icon(Icon, extra = 'default') {
     if (Icon) {
         return (
             <Fragment>
@@ -64,36 +69,32 @@ function icon(Icon, action = null, extra = 'default') {
     return null
 }
 
-function trailIcon(status, trail, fn) {
+function TrailIcon({ status, trail }) {
     if (status !== 'default') {
-        return icon(statusToIcon[status], fn, status)
+        return icon(statusToIcon[status], status)
     } else {
         return trail
     }
 }
 
+TrailIcon.propTypes = {
+    status: PropTypes.string,
+    fn: PropTypes.func,
+}
+
+TrailIcon.defaultProps = {
+    trail: '',
+}
+
 class InputField extends React.Component {
     state = {
         focused: false,
-        labelWidth: 0,
-    }
-
-    constructor(props) {
-        super(props)
-
-        this.labelRef = React.createRef()
-        this.inputRef = React.createRef()
     }
 
     componentDidMount() {
         this.setState({
-            labelWidth: this.labelRef.current.offsetWidth,
             focused: this.props.focus,
         })
-
-        if (this.props.focus) {
-            this.inputRef.current.focus()
-        }
     }
 
     isFocused() {
@@ -125,10 +126,6 @@ class InputField extends React.Component {
     }
 
     render() {
-        const legendWidth = this.shrink()
-            ? { width: `${this.state.labelWidth}px` }
-            : { width: '0.01px' }
-
         return (
             <div
                 className={cx('base', this.props.className, {
@@ -136,6 +133,14 @@ class InputField extends React.Component {
                     disabled: this.props.disabled,
                 })}
             >
+                <style jsx>{`
+                    div global(.disabled),
+                    div global(.disabled::placeholder) {
+                        color: ${colors.grey500};
+                        cursor: not-allowed;
+                    }
+                `}</style>
+
                 <div
                     className={cx('field', {
                         [`size-${this.props.size}`]: true,
@@ -146,60 +151,45 @@ class InputField extends React.Component {
                         disabled: this.props.disabled,
                     })}
                 >
-                    {this.props.kind === 'outlined' && (
-                        <fieldset
-                            className={cx('flatline', {
-                                [`${this.props.status}`]: true,
-                                focused: this.isFocused(),
-                                idle: !this.isFocused(),
-                                filled: this.props.value,
-                            })}
-                        />
-                    )}
+                    <Fieldset
+                        kind={this.props.kind}
+                        status={this.props.status}
+                        isFocused={this.isFocused()}
+                        hasValue={!!this.props.value}
+                    />
 
-                    <label
-                        ref={this.labelRef}
-                        className={cx('label', {
-                            [`${this.props.status}`]: true,
-                            [`${this.props.size}`]: true,
-                            [`${this.props.kind}`]: true,
-                            'has-icon': !!this.props.icon,
-                            required: this.props.required,
-                            disabled: this.props.disabled,
-                            focused: this.isFocused(),
-                            shrink: this.shrink(),
-                            [typeof this.props.styles.label === 'string'
-                                ? this.props.styles.label
-                                : 'styles.label']:
-                                typeof this.props.styles.label === 'string' &&
-                                !!this.props.styles.label,
-                        })}
-                        style={
-                            this.props.styles.label instanceof Object
-                                ? this.props.styles.label
-                                : {}
-                        }
-                    >
-                        {this.props.label}
-                    </label>
+                    <Label
+                        status={this.props.status}
+                        size={this.props.size}
+                        kind={this.props.kind}
+                        isShrinked={this.shrink()}
+                        isFocused={this.isFocused()}
+                        isDisabled={this.props.disabled}
+                        isRequired={this.props.required}
+                        hasIcon={!!this.props.icon}
+                        className={this.props.styles.label}
+                        styles={this.props.styles.label}
+                        label={this.props.label}
+                    />
 
                     {icon(this.props.icon)}
 
-                    <input
-                        className={cx({
-                            disabled: this.props.disabled,
-                        })}
-                        ref={this.inputRef}
+                    <Input
                         type={this.props.type}
-                        placeholder={this.props.placeholder}
-                        disabled={this.props.disabled}
                         value={this.props.value}
+                        placeholder={this.props.placeholder}
+                        isFocused={this.props.focus}
+                        disabled={this.props.disabled}
+                        filled={this.props.kind === 'filled'}
                         onFocus={this.onFocus}
                         onBlur={this.onBlur}
                         onChange={this.onChange}
                     />
 
-                    {trailIcon(this.props.status, this.props.trailIcon)}
+                    <TrailIcon
+                        status={this.props.status}
+                        trail={this.props.trailIcon}
+                    />
                 </div>
 
                 {this.props.help && (
