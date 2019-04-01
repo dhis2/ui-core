@@ -130,8 +130,8 @@ class InputField extends React.Component {
                 })}
             >
                 <style jsx>{`
-                    div global(.disabled),
-                    div global(.disabled::placeholder) {
+                    div :global(.disabled),
+                    div :global(.disabled::placeholder) {
                         color: ${colors.grey500};
                         cursor: not-allowed;
                     }
