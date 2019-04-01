@@ -71,7 +71,21 @@ export const Fieldset = props => {
 
     return (
         <fieldset className={className}>
+            <Legend>{props.children}</Legend>
             <style jsx>{styles}</style>
         </fieldset>
     )
 }
+
+const Legend = props => (
+    <legend>
+        <span>&nbsp;</span>
+        {props.children}
+        <style jsx>{`
+            span {
+                display: inline-block;
+                width: 0;
+            }
+        `}</style>
+    </legend>
+)

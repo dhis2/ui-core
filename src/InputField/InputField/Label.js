@@ -9,19 +9,27 @@ import { colors, theme } from '../../theme'
 const styles = css`
     .label {
         color: ${colors.grey700};
-        display: block;
+        display: inline-block;
         font-size: ${inputFontSizeValue};
         padding: 0 10px 0 2px;
         pointer-events: none;
-        position: absolute;
-        transform-origin: top left;
-        transform: translate(-2px, 0) scale(1);
         transition: all 0.1s;
         white-space: nowrap;
+        line-height: 19px;
+
+        transform: translate(-2px, 22px);
+        position: absolute;
     }
 
-    .label.outlined {
-        background: white;
+    .label.dense {
+        transform: translate(-2px, 18px);
+    }
+
+    .label.focused,
+    .label.has-value {
+        font-size: 12px;
+        position: static;
+        transform: translate(0, 0);
     }
 
     .label.required::after {
@@ -30,14 +38,6 @@ const styles = css`
 
     .label.filled.focused {
         color: ${theme.secondary600};
-    }
-
-    .label.filled.shrink {
-        transform: translate(-2px, -12px) scale(0.75);
-    }
-
-    .label.filled.dense.shrink {
-        transform: translate(-2px, -8px) scale(0.75);
     }
 
     .label.filled.has-icon {
@@ -50,14 +50,6 @@ const styles = css`
 
     .label.outlined.focused {
         color: ${theme.secondary600};
-    }
-
-    .label.outlined.shrink {
-        transform: translate(-2px, -24px) scale(0.75);
-    }
-
-    .label.outlined.shrink.dense {
-        transform: translate(-2px, -18px) scale(0.75);
     }
 
     .label.outlined.has-icon {
@@ -100,6 +92,7 @@ const createClassName = props =>
         [props.size]: true,
         [props.kind]: true,
         'has-icon': props.hasIcon,
+        'has-value': props.hasValue,
 
         [typeof className === 'string' ? props.className : '']:
             typeof className === 'string' && !!props.className,

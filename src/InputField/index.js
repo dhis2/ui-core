@@ -151,31 +151,32 @@ class InputField extends React.Component {
                         status={this.props.status}
                         isFocused={this.isFocused()}
                         hasValue={!!this.props.value}
-                    />
-
-                    <Label
-                        status={this.props.status}
-                        size={this.props.size}
-                        kind={this.props.kind}
-                        isShrinked={this.shouldShrink()}
-                        isFocused={this.isFocused()}
-                        isDisabled={this.props.disabled}
-                        isRequired={this.props.required}
-                        hasIcon={!!this.props.icon}
-                        className={this.props.styles.label}
-                        styles={this.props.styles.label}
-                        label={this.props.label}
-                    />
+                    >
+                        <Label
+                            status={this.props.status}
+                            size={this.props.size}
+                            kind={this.props.kind}
+                            isShrinked={this.shouldShrink()}
+                            isFocused={this.isFocused()}
+                            isDisabled={this.props.disabled}
+                            isRequired={this.props.required}
+                            hasValue={!!this.props.value}
+                            hasIcon={!!this.props.icon}
+                            className={this.props.styles.label}
+                            styles={this.props.styles.label}
+                            label={this.props.label || this.props.placeholder}
+                        />
+                    </Fieldset>
 
                     {icon(this.props.icon)}
 
                     <Input
                         type={this.props.type}
                         value={this.props.value}
-                        placeholder={this.props.placeholder}
                         isFocused={this.props.focus}
                         disabled={this.props.disabled}
-                        filled={this.props.kind === 'filled'}
+                        isFilled={this.props.kind === 'filled'}
+                        isDense={this.props.size === 'dense'}
                         onFocus={this.onFocus}
                         onBlur={this.onBlur}
                         onChange={this.onChange}

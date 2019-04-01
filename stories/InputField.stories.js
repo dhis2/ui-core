@@ -14,7 +14,7 @@ class InputFieldWrapper extends React.Component {
     render() {
         return (
             <InputField
-                name="Default"
+                name={this.props.name}
                 label="Default label"
                 help="Default help text"
                 value={this.state[this.props.name]}
@@ -23,6 +23,10 @@ class InputFieldWrapper extends React.Component {
             />
         )
     }
+}
+
+InputFieldWrapper.defaultProps = {
+    name: 'Default',
 }
 
 const OutlinedWrapper = props => (
@@ -35,7 +39,7 @@ storiesOf('InputField: Outlined', module)
     .add('Default', () => <OutlinedWrapper kind="outlined" />, { notes })
     .add(
         'Placeholder',
-        () => <OutlinedWrapper placeholder="Hold the place" />,
+        () => <OutlinedWrapper label="" placeholder="Hold the place" />,
         { notes }
     )
     .add('Dense', () => <OutlinedWrapper size="dense" />, { notes })
