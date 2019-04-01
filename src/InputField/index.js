@@ -1,15 +1,16 @@
-import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { Valid, Warning, Error } from '../icons/Status.js'
 import { colors } from '../theme.js'
+import { createIcon } from '../icons/helpers'
 import {
-    inputFontSizeValue,
-    heightDefault,
-    heightDense,
-} from '../forms/constants'
+    iconStatusPropType,
+    iconStatuses,
+    statusToIcon,
+} from '../icons/constants'
+import { inputKinds, inputSizes } from '../forms/constants'
 import { Input } from './InputField/Input'
 import { Label } from './InputField/Label'
 import { Fieldset } from './InputField/Fieldset'
@@ -17,61 +18,16 @@ import { Field } from './InputField/Field'
 import Help from '../Help'
 import styles from './styles.js'
 
-const statusToIcon = {
-    valid: <Valid />,
-    warning: <Warning />,
-    error: <Error />,
-}
-
-const icons = {
-    default: css.resolve`
-		svg {
-			fill: ${colors.grey700};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-    valid: css.resolve`
-		svg {
-			fill: ${colors.blue600};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-    warning: css.resolve`
-		svg {
-			fill: ${colors.yellow500};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-    error: css.resolve`
-		svg {
-			fill: ${colors.red500};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-}
-
-function icon(Icon, extra = 'default') {
-    if (Icon) {
-        return (
-            <Fragment>
-                <Icon.type {...Icon.props} className={icons[extra].className} />
-                {icons[extra].styles}
-            </Fragment>
-        )
-    }
-    return null
+const types = {
+    TEXT: 'text',
+    EMAIL: 'email',
+    NUMBER: 'number',
+    PASSWORD: 'password',
+    URL: 'url',
 }
 
 const TrailIcon = ({ status, trail }) =>
-    status !== 'default' ? icon(statusToIcon[status], status) : trail
+    status !== 'default' ? createIcon(statusToIcon[status], status) : trail
 
 TrailIcon.propTypes = {
     status: PropTypes.string,
@@ -168,7 +124,7 @@ class InputField extends React.Component {
                         />
                     </Fieldset>
 
-                    {icon(this.props.icon)}
+                    {createIcon(this.props.icon)}
 
                     <Input
                         type={this.props.type}
@@ -199,10 +155,10 @@ class InputField extends React.Component {
 }
 
 InputField.defaultProps = {
-    status: 'default',
-    size: 'default',
-    kind: 'filled',
-    type: 'text',
+    status: iconStatuses.DEFAULT,
+    size: inputSizes.DEFAULT,
+    kind: inputKinds.FILLED,
+    type: types.TEXT,
     focus: false,
     disabled: false,
     required: false,
@@ -219,10 +175,16 @@ InputField.propTypes = {
     help: PropTypes.string,
     icon: PropTypes.element,
     trailIcon: PropTypes.element,
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
-    size: PropTypes.oneOf(['default', 'dense']),
-    kind: PropTypes.oneOf(['filled', 'outlined']),
-    type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
+    status: iconStatusPropType,
+    size: PropTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
+    kind: PropTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
+    type: PropTypes.oneOf([
+        types.TEXT,
+        types.EMAIL,
+        types.NUMBER,
+        types.PASSWORD,
+        types.URL,
+    ]),
     focus: PropTypes.bool,
     disabled: PropTypes.bool,
     required: PropTypes.bool,

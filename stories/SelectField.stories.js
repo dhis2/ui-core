@@ -12,8 +12,8 @@ const options = [
 const createSelectField = override => (
     <div style={{ width: '200px' }}>
         <SelectField
-            name="without-options"
-            label="Without options"
+            name="select-field"
+            label="Label text"
             onChange={noop}
             list={[]}
             {...override}
@@ -22,7 +22,11 @@ const createSelectField = override => (
 )
 
 storiesOf('SelectField', module)
-    .add('With no options', () => createSelectField())
+    .add('With no options', () =>
+        createSelectField({
+            label: 'Without value',
+        })
+    )
     .add('With options', () =>
         createSelectField({
             list: options,

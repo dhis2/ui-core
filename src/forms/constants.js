@@ -1,4 +1,18 @@
 /**
+ * Variants
+ * ========
+ */
+export const inputKinds = {
+    FILLED: 'filled',
+    OUTLINED: 'outlined',
+}
+
+export const inputSizes = {
+    DEFAULT: 'default',
+    DENSE: 'dense',
+}
+
+/**
  * Box model values
  * ================
  */
