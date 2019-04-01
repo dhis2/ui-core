@@ -15,6 +15,7 @@ import { Input } from './InputField/Input'
 import { Label } from './InputField/Label'
 import { Fieldset } from './InputField/Fieldset'
 import { Field } from './InputField/Field'
+import { TrailIcon } from './InputField/TrailIcon'
 import Help from '../Help'
 import styles from './styles.js'
 
@@ -24,18 +25,6 @@ const types = {
     NUMBER: 'number',
     PASSWORD: 'password',
     URL: 'url',
-}
-
-const TrailIcon = ({ status, trail }) =>
-    status !== 'default' ? createIcon(statusToIcon[status], status) : trail
-
-TrailIcon.propTypes = {
-    status: PropTypes.string,
-    fn: PropTypes.func,
-}
-
-TrailIcon.defaultProps = {
-    trail: '',
 }
 
 class InputField extends React.Component {
@@ -78,6 +67,9 @@ class InputField extends React.Component {
     }
 
     render() {
+        const isFilled = this.props.kind === inputKinds.FILLED
+        const isDense = this.props.size === inputSizes.DENSE
+
         return (
             <div
                 className={cx('base', this.props.className, {
@@ -99,30 +91,25 @@ class InputField extends React.Component {
                     status={this.props.status}
                     kind={this.props.kind}
                     isFocused={this.isFocused()}
-                    isFilled={this.props.kind === 'filled'}
+                    isFilled={isFilled}
                     isDisabled={this.props.disabled}
                 >
-                    <Fieldset
-                        kind={this.props.kind}
+                    <Label
                         status={this.props.status}
+                        size={this.props.size}
+                        kind={this.props.kind}
+                        isShrinked={this.shouldShrink()}
                         isFocused={this.isFocused()}
+                        isDisabled={this.props.disabled}
+                        isRequired={this.props.required}
                         hasValue={!!this.props.value}
-                    >
-                        <Label
-                            status={this.props.status}
-                            size={this.props.size}
-                            kind={this.props.kind}
-                            isShrinked={this.shouldShrink()}
-                            isFocused={this.isFocused()}
-                            isDisabled={this.props.disabled}
-                            isRequired={this.props.required}
-                            hasValue={!!this.props.value}
-                            hasIcon={!!this.props.icon}
-                            className={this.props.styles.label}
-                            styles={this.props.styles.label}
-                            label={this.props.label || this.props.placeholder}
-                        />
-                    </Fieldset>
+                        hasIcon={!!this.props.icon}
+                        className={this.props.styles.label}
+                        styles={this.props.styles.label}
+                        label={this.props.label || this.props.placeholder}
+                        hasValue={!!this.props.value}
+                        isFilled={isFilled}
+                    />
 
                     {createIcon(this.props.icon)}
 
@@ -131,8 +118,8 @@ class InputField extends React.Component {
                         value={this.props.value}
                         isFocused={this.props.focus}
                         disabled={this.props.disabled}
-                        isFilled={this.props.kind === 'filled'}
-                        isDense={this.props.size === 'dense'}
+                        isFilled={isFilled}
+                        isDense={isDense}
                         onFocus={this.onFocus}
                         onBlur={this.onBlur}
                         onChange={this.onChange}

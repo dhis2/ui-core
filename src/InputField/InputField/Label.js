@@ -5,6 +5,7 @@ import cx from 'classnames'
 
 import { inputFontSizeValue } from '../../forms/constants'
 import { colors, theme } from '../../theme'
+import { Fieldset } from './Fieldset'
 
 const styles = css`
     .label {
@@ -99,7 +100,7 @@ const createClassName = props =>
     })
 
 export const Label = props => {
-    return (
+    const renderedLabel = (
         <label
             className={createClassName(props)}
             style={props.styles instanceof Object ? props.styles : {}}
@@ -108,6 +109,21 @@ export const Label = props => {
             <style jsx>{styles}</style>
         </label>
     )
+
+    if (!!props.isFilled) {
+        return (
+            <Fieldset
+                kind={props.kind}
+                status={props.status}
+                isFocused={props.isFocused}
+                hasValue={props.hasValue}
+            >
+                {renderedLabel}
+            </Fieldset>
+        )
+    }
+
+    return renderedLabel
 }
 
 Label.propTypes = {
@@ -116,9 +132,12 @@ Label.propTypes = {
     size: PropTypes.string.isRequired,
     kind: PropTypes.string.isRequired,
     isShrinked: PropTypes.bool.isRequired,
+    isFilled: PropTypes.bool.isRequired,
     isFocused: PropTypes.bool.isRequired,
     isDisabled: PropTypes.bool.isRequired,
     isRequired: PropTypes.bool.isRequired,
+    isOutlined: PropTypes.bool.isRequired,
+    hasValue: PropTypes.bool.isRequired,
     hasIcon: PropTypes.bool.isRequired,
     className: PropTypes.string,
     styles: PropTypes.object,
