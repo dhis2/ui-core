@@ -1,75 +1,32 @@
-import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import React, { Fragment } from 'react'
+import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { Error, Valid, Warning } from '../icons/Status.js'
+import { colors } from '../theme.js'
+import { createIcon } from '../icons/helpers'
+import {
+    iconStatusPropType,
+    iconStatuses,
+    statusToIcon,
+} from '../icons/constants'
+import { inputKinds, inputSizes } from '../forms/constants'
 import Help from '../Help'
-
-import { Valid, Warning, Error } from '../icons/Status.js'
-
-import css from 'styled-jsx/css'
 import styles from './styles.js'
 
-import { colors } from '../theme.js'
-
-const statusToIcon = {
-    valid: <Valid />,
-    warning: <Warning />,
-    error: <Error />,
+const types = {
+    TEXT: 'text',
+    EMAIL: 'email',
+    NUMBER: 'number',
+    PASSWORD: 'password',
+    URL: 'url',
 }
 
-const icons = {
-    default: css.resolve`
-		svg {
-			fill: ${colors.grey700};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-    valid: css.resolve`
-		svg {
-			fill: ${colors.blue600};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-    warning: css.resolve`
-		svg {
-			fill: ${colors.yellow500};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-    error: css.resolve`
-		svg {
-			fill: ${colors.red500};
-			height: 24px;
-			width: 24px;
-			margin-right: 8px;
-		}
-	`,
-}
-
-function icon(Icon, action = null, extra = 'default') {
-    if (Icon) {
-        return (
-            <span>
-                <Icon.type {...Icon.props} className={icons[extra].className} />
-                {icons[extra].styles}
-            </span>
-        )
-    }
-    return null
-}
-
-function trailIcon(status, trail, fn) {
-    if (status !== 'default') {
-        return icon(statusToIcon[status], fn, status)
-    } else {
-        return trail
-    }
+function createTrailIcon(status, trail, fn) {
+    return status !== 'default'
+        ? createIcon(statusToIcon[status], { action: fn })
+        : trail
 }
 
 class InputField extends React.Component {
@@ -177,7 +134,7 @@ class InputField extends React.Component {
                         </fieldset>
                     )}
 
-                    {icon(this.props.icon)}
+                    {createIcon(this.props.icon)}
 
                     <input
                         className={cx({
@@ -193,7 +150,7 @@ class InputField extends React.Component {
                         onChange={this.onChange}
                     />
 
-                    {trailIcon(this.props.status, this.props.trailIcon)}
+                    {createTrailIcon(this.props.status, this.props.trailIcon)}
                 </div>
 
                 {this.props.help && (
@@ -207,10 +164,10 @@ class InputField extends React.Component {
 }
 
 InputField.defaultProps = {
-    status: 'default',
-    size: 'default',
-    kind: 'filled',
-    type: 'text',
+    status: iconStatuses.DEFAULT,
+    size: inputSizes.DEFAULT,
+    kind: inputKinds.FILLED,
+    type: types.TEXT,
     focus: false,
     disabled: false,
     required: false,
@@ -226,10 +183,16 @@ InputField.propTypes = {
     help: PropTypes.string,
     icon: PropTypes.element,
     trailIcon: PropTypes.element,
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
-    size: PropTypes.oneOf(['default', 'dense']),
-    kind: PropTypes.oneOf(['filled', 'outlined']),
-    type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
+    status: iconStatusPropType,
+    size: PropTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
+    kind: PropTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
+    type: PropTypes.oneOf([
+        types.TEXT,
+        types.EMAIL,
+        types.NUMBER,
+        types.PASSWORD,
+        types.URL,
+    ]),
     focus: PropTypes.bool,
     disabled: PropTypes.bool,
     required: PropTypes.bool,

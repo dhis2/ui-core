@@ -1,4 +1,5 @@
-import css from 'styled-jsx/css'
+import css, { resolve } from 'styled-jsx/css'
+import React from 'react'
 
 import { colors, theme } from '../theme.js'
 
@@ -327,5 +328,26 @@ export default css`
     _:-ms-input-placeholder,
     :root .label.outlined.shrink.dense {
         transform: translate(8px, -26px) scale(0.75);
+    }
+`
+
+export const arrowIcon = resolve`
+    svg {
+        fill: inherit;
+        height: 24px;
+        width: 24px;
+        vertical-align: middle;
+        pointer-events: none;
+    }
+`
+
+export const menuOverride = resolve`
+    max-height: 300px;
+    overflow-y: auto;
+`
+
+export const selectIconStyles = resolve`
+    svg {
+        margin: 0;
     }
 `

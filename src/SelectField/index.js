@@ -1,91 +1,31 @@
-import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Menu from '../Menu'
-import Help from '../Help'
-import { isPointInRect } from '../utils/math'
-
+import React, { Fragment } from 'react'
+import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import styles from './styles.js'
-import css from 'styled-jsx/css'
-import { colors } from '../theme.js'
+import { ArrowUp, ArrowDown } from '../icons/Arrow'
+import { Valid, Warning, Error } from '../icons/Status'
+import { colors, fonts } from '../theme'
+import { createIcon } from '../icons/helpers'
+import {
+    iconStatusPropType,
+    iconStatuses,
+    statusToIcon,
+} from '../icons/constants'
+import { inputKinds, inputSizes } from '../forms/constants'
+import { isPointInRect } from '../utils/math'
+import Help from '../Help'
+import Menu from '../Menu'
+import styles, { arrowIcon, menuOverride, selectIconStyles } from './styles'
 
-import { Valid, Warning, Error } from '../icons/Status.js'
-import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
-
-const arrowIcon = css.resolve`
-    svg {
-        fill: inherit;
-        height: 24px;
-        width: 24px;
-        vertical-align: middle;
-        pointer-events: none;
+function createTrailIcon(status, trail, fn) {
+    const icon = status !== iconStatuses.DEFAULT ? statusToIcon[status] : trail
+    const options = {
+        action: fn,
+        className: selectIconStyles.className,
     }
-`
 
-const menuOverride = css.resolve`
-    max-height: 300px;
-    overflow-y: auto;
-`
-
-const statusToIcon = {
-    valid: <Valid />,
-    warning: <Warning />,
-    error: <Error />,
-}
-
-const icons = {
-    default: css.resolve`
-		svg {
-			fill: ${colors.grey700};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    valid: css.resolve`
-		svg {
-			fill: ${colors.blue600};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    warning: css.resolve`
-		svg {
-			fill: ${colors.yellow500};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    error: css.resolve`
-		svg {
-			fill: ${colors.red500};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-}
-function icon(Icon, action = null, extra = 'default') {
-    if (Icon) {
-        return (
-            <Fragment>
-                <Icon.type
-                    {...Icon.props}
-                    onClick={action}
-                    className={icons[extra].className}
-                />
-                {icons[extra].styles}
-            </Fragment>
-        )
-    }
-    return null
-}
-
-function trailIcon(status, trail, fn) {
-    if (status !== 'default') {
-        return icon(statusToIcon[status], fn, status)
-    } else {
-        return icon(trail, fn)
-    }
+    return createIcon(icon, options)
 }
 
 function markActive(list, value) {
@@ -165,6 +105,7 @@ class SelectField extends React.Component {
         const selected = this.props.list.filter(
             ({ value }) => this.props.value === value
         )
+
         return selected.length > 0 ? selected[0]['label'] : null
     }
 
@@ -181,19 +122,18 @@ class SelectField extends React.Component {
     }
 
     render() {
+        const { open } = this.state
+        const selected = this.getLabel()
+        const list = markActive(this.props.list, this.props.value)
+
         const legendWidth = this.shrink()
             ? { width: `${this.state.labelWidth}px` }
             : { width: '0.01px' }
 
-        const { open } = this.state
-
-        let width = 'inherit'
-        if (open && this.elSelect) {
-            width = `${this.elSelect.getBoundingClientRect().width}px`
-        }
-
-        const selected = this.getLabel()
-        const list = markActive(this.props.list, this.props.value)
+        const width =
+            open && this.elSelect
+                ? `${this.elSelect.getBoundingClientRect().width}px`
+                : 'inherit'
 
         const Arrow = open ? (
             <ArrowUp className={arrowIcon.className} />
@@ -234,6 +174,7 @@ class SelectField extends React.Component {
                     >
                         {this.props.label}
                     </label>
+
                     {this.props.kind === 'outlined' && (
                         <fieldset
                             className={cx('flatline', {
@@ -262,8 +203,8 @@ class SelectField extends React.Component {
                     </div>
 
                     <div className="trail-icon-field">
-                        {this.props.status !== 'default' &&
-                            trailIcon(this.props.status)}
+                        {this.props.status !== iconStatuses.DEFAULT &&
+                            createTrailIcon(this.props.status)}
                     </div>
 
                     <div
@@ -274,9 +215,11 @@ class SelectField extends React.Component {
                         {Arrow}
                     </div>
                 </div>
+
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />
                 )}
+
                 {open && (
                     <div className="menu" ref={c => (this.elMenu = c)}>
                         <Menu
@@ -287,24 +230,27 @@ class SelectField extends React.Component {
                         />
                     </div>
                 )}
-                {menuOverride.styles}
-                {arrowIcon.styles}
+
+                <style>{menuOverride.styles}</style>
+                <style>{arrowIcon.styles}</style>
                 <style jsx>{styles}</style>
+                <style>{selectIconStyles.styles}</style>
             </div>
         )
     }
 }
 
 SelectField.defaultProps = {
-    size: 'default',
-    kind: 'filled',
-    status: 'default',
+    size: inputSizes.DEFAULT,
+    kind: inputKinds.FILLED,
+    status: iconStatuses.DEFAULT,
+    help: '',
+    className: '',
     disabled: false,
     required: false,
 }
 
 SelectField.propTypes = {
-    className: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
@@ -316,15 +262,15 @@ SelectField.propTypes = {
         })
     ).isRequired,
 
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    icon: PropTypes.element,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     help: PropTypes.string,
-    size: PropTypes.oneOf(['default', 'dense']),
-    kind: PropTypes.oneOf(['filled', 'outlined']),
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
-
+    className: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
+    icon: PropTypes.element,
+    size: PropTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
+    kind: PropTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
+    status: iconStatusPropType,
 }
 
 export { SelectField }
