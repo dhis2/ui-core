@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { Default, Error, Valid, Warning } from '../icons/Status.js'
+import { Error, Valid, Warning } from '../icons/Status.js'
 import { colors } from '../theme.js'
 import { createIcon } from '../icons/helpers'
 import {
