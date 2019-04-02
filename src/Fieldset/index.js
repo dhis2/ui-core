@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { Content } from './Fieldset/Content'
 import { Label } from './Fieldset/Label'
 import { borderRadius, inputHeight, inputHeightDense } from './constants'
 import { children } from '../utils/react'
@@ -38,17 +39,6 @@ const styles = css`
         width: 100%;
     }
 
-    .content {
-        height: ${inputHeight + 2}px;
-        line-height: ${inputHeight + 2}px;
-        padding: 0 0 0 ${innerSpacingSides};
-        position: relative;
-        top: -2px;
-        width: calc(100% - 1px);
-        box-sizing: border-box;
-        left: 1px;
-    }
-
     .fieldset.valid:before {
         border-color: ${statusColors[iconStatuses.VALID]};
     }
@@ -64,11 +54,6 @@ const styles = css`
     .fieldset.dense {
         height: 34px;
     }
-
-    .fieldset.dense .content {
-        height: ${inputHeightDense + 2}px;
-        line-height: ${inputHeightDense + 2}px;
-    }
 `
 
 const createFieldsetClassName = props =>
@@ -78,8 +63,6 @@ const createFieldsetClassName = props =>
         valid: props.status === iconStatuses.VALID,
         warning: props.status === iconStatuses.WARNING,
         error: props.status === iconStatuses.ERROR,
-        'has-no-value': !props.hasValue,
-        'has-value': props.hasValue,
     })
 
 export const Fieldset = props => {
@@ -93,7 +76,7 @@ export const Fieldset = props => {
                 htmlFor={props.htmlFor}
             />
 
-            <div className="content">{props.children}</div>
+            <Content size={props.size}>{props.children}</Content>
 
             <style jsx>{styles}</style>
         </div>
