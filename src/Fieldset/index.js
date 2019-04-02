@@ -3,6 +3,8 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { Label } from './Fieldset/Label'
+import { borderRadius, inputHeight, inputHeightDense } from './constants'
 import { children } from '../utils/react'
 import { colors } from '../theme'
 import {
@@ -12,14 +14,9 @@ import {
 } from '../icons/constants'
 import {
     innerSpacingSides,
-    inputFontSizeValue,
     inputSizes,
+    inputSizesPropTypes,
 } from '../forms/constants'
-
-const shrinkedLabelFontSize = '12px'
-const borderRadius = '4px'
-const inputHeight = 56
-const inputHeightDense = 34
 
 const styles = css`
     .fieldset {
@@ -41,62 +38,6 @@ const styles = css`
         width: 100%;
     }
 
-    .legend {
-        box-sizing: border-box;
-        display: flex;
-        left: 0;
-        padding-left: ${innerSpacingSides};
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
-
-    .legend-label {
-        font-size: ${inputFontSizeValue};
-        height: ${inputHeight + 2}px;
-        left: ${innerSpacingSides};
-        line-height: ${inputHeight + 2}px;
-        padding: 0 10px 0 2px;
-        position: absolute;
-        top: 7px;
-    }
-
-    .has-placeholder .legend-label,
-    .has-value .legend-label {
-        font-size: ${shrinkedLabelFontSize};
-        height: auto;
-        left: auto;
-        line-height: inherit;
-        position: relative;
-        top: auto;
-    }
-
-    .legend:before {
-        border: 1px solid ${statusColors[iconStatuses.DEFAULT]};
-        border-bottom: 0;
-        border-right: 0;
-        border-radius: ${borderRadius} 0 0 0;
-        content: '';
-        height: ${inputHeight * 0.75}px;
-        left: 0;
-        position: absolute;
-        top: 7px;
-        width: 14px;
-    }
-
-    .legend:after {
-        border: 1px solid ${statusColors[iconStatuses.DEFAULT]};
-        border-bottom: 0;
-        border-left: 0;
-        border-radius: 0 ${borderRadius} 0 0;
-        content: '';
-        flex-grow: 1;
-        height: ${inputHeight * 0.75}px;
-        left: 0;
-        position: relative;
-        top: 7px;
-    }
-
     .content {
         height: ${inputHeight + 2}px;
         line-height: ${inputHeight + 2}px;
@@ -108,52 +49,25 @@ const styles = css`
         left: 1px;
     }
 
-    .fieldset.valid:before,
-    .fieldset.valid .legend:before,
-    .fieldset.valid .legend:before,
-    .fieldset.valid .legend:after {
+    .fieldset.valid:before {
         border-color: ${statusColors[iconStatuses.VALID]};
     }
 
-    .fieldset.valid .legend-label {
-        color: ${statusColors[iconStatuses.VALID]};
-    }
-
-    .fieldset.warning:before,
-    .fieldset.warning .legend:before,
-    .fieldset.warning .legend:before,
-    .fieldset.warning .legend:after {
+    .fieldset.warning:before {
         border-color: ${statusColors[iconStatuses.WARNING]};
     }
 
-    .fieldset.warning .legend-label {
-        color: ${statusColors[iconStatuses.WARNING]};
-    }
-
-    .fieldset.error:before,
-    .fieldset.error .legend:before,
-    .fieldset.error .legend:before,
-    .fieldset.error .legend:after {
+    .fieldset.error:before {
         border-color: ${statusColors[iconStatuses.ERROR]};
-    }
-
-    .fieldset.error .legend-label {
-        color: ${statusColors[iconStatuses.ERROR]};
     }
 
     .fieldset.dense {
         height: 34px;
     }
 
-    .fieldset.dense .content,
-    .fieldset.dense.has-no-value .legend-label {
+    .fieldset.dense .content {
         height: ${inputHeightDense + 2}px;
         line-height: ${inputHeightDense + 2}px;
-    }
-
-    .fieldset.dense .legend:before,
-    .fieldset.dense .legend:after {
-        height: ${inputHeightDense * 0.75}px;
     }
 `
 
@@ -166,17 +80,18 @@ const createFieldsetClassName = props =>
         error: props.status === iconStatuses.ERROR,
         'has-no-value': !props.hasValue,
         'has-value': props.hasValue,
-        'has-placeholder': props.hasPlaceholder,
     })
 
 export const Fieldset = props => {
-    const htmlFor = props.htmlFor ? { htmlFor: props.htmlFor } : {}
-
     return (
         <div className={createFieldsetClassName(props)}>
-            <label {...htmlFor} className="legend">
-                <span className="legend-label">{props.label}</span>
-            </label>
+            <Label
+                size={props.size}
+                status={props.status}
+                hasValue={props.hasValue}
+                label={props.label}
+                htmlFor={props.htmlFor}
+            />
 
             <div className="content">{props.children}</div>
 
@@ -188,12 +103,16 @@ export const Fieldset = props => {
 Fieldset.propTypes = {
     label: PropTypes.string.isRequired,
     children: children.isRequired,
+    hasValue: PropTypes.bool.isRequired,
+
     status: iconStatusPropType,
+    size: inputSizesPropTypes,
     htmlFor: PropTypes.string,
 }
 
 Fieldset.defaultProps = {
-    status: '',
+    status: iconStatuses.DEFAULT,
+    size: inputSizes.DEFAULT,
     htmlFor: '',
 }
 
