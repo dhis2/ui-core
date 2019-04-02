@@ -3,9 +3,13 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { Content } from './Fieldset/Content'
-import { Label } from './Fieldset/Label'
-import { borderRadius, inputHeight, inputHeightDense } from './constants'
+import { Content } from './LabelOutlined/Content'
+import { Label } from './LabelOutlined/Label'
+import {
+    borderRadius,
+    inputHeight,
+    inputHeightDense,
+} from './LabelOutlined/constants'
 import { children } from '../utils/react'
 import { colors } from '../theme'
 import {
@@ -13,11 +17,7 @@ import {
     iconStatuses,
     statusColors,
 } from '../icons/constants'
-import {
-    innerSpacingSides,
-    inputSizes,
-    inputSizesPropTypes,
-} from '../forms/constants'
+import { innerSpacingSides, inputSizes, inputSizesPropTypes } from './constants'
 
 const styles = css`
     .fieldset {
@@ -56,7 +56,7 @@ const styles = css`
     }
 `
 
-const createFieldsetClassName = props =>
+const createLabelOutlinedClassName = props =>
     cx('fieldset', {
         focused: props.isFocused,
         dense: props.size === inputSizes.DENSE,
@@ -65,9 +65,9 @@ const createFieldsetClassName = props =>
         error: props.status === iconStatuses.ERROR,
     })
 
-export const Fieldset = props => {
+export const LabelOutlined = props => {
     return (
-        <div className={createFieldsetClassName(props)}>
+        <div className={createLabelOutlinedClassName(props)}>
             <Label
                 size={props.size}
                 status={props.status}
@@ -83,7 +83,7 @@ export const Fieldset = props => {
     )
 }
 
-Fieldset.propTypes = {
+LabelOutlined.propTypes = {
     label: PropTypes.string.isRequired,
     children: children.isRequired,
     hasValue: PropTypes.bool.isRequired,
@@ -93,10 +93,10 @@ Fieldset.propTypes = {
     htmlFor: PropTypes.string,
 }
 
-Fieldset.defaultProps = {
+LabelOutlined.defaultProps = {
     status: iconStatuses.DEFAULT,
     size: inputSizes.DEFAULT,
     htmlFor: '',
 }
 
-export default Fieldset
+export default LabelOutlined

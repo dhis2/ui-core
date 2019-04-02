@@ -6,7 +6,6 @@ export { default as CircularProgress } from './CircularProgress'
 export { default as Divider } from './Divider'
 export { default as DropdownButton } from './DropdownButton'
 export { default as Help } from './Help'
-export { default as Fieldset } from './Fieldset'
 export { default as InputField } from './InputField'
 export { default as LinearProgress } from './LinearProgress'
 

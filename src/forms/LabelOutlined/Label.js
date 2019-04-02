@@ -8,7 +8,7 @@ import {
     inputHeight,
     inputHeightDense,
     shrinkedLabelFontSize,
-} from '../constants'
+} from './constants'
 import {
     iconStatusPropType,
     iconStatuses,

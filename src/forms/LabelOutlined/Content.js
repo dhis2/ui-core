@@ -9,7 +9,7 @@ import {
     inputSizes,
     inputSizesPropTypes,
 } from '../../forms/constants'
-import { inputHeight, inputHeightDense } from '../constants'
+import { inputHeight, inputHeightDense } from './constants'
 
 const styles = css`
     .content {
