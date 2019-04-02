@@ -1,34 +1,62 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { inputFontSizeValue } from '../../forms/constants'
-import { colors, theme } from '../../theme'
 import { Fieldset } from './Fieldset'
+import { colors, theme } from '../../theme'
+import { innerSpacingSides, inputFontSizeValue } from '../../forms/constants'
 
 const styles = css`
     .label {
         color: ${colors.grey700};
         display: inline-block;
         font-size: ${inputFontSizeValue};
-        padding: 0 10px 0 2px;
+        line-height: 19px;
         pointer-events: none;
+        position: absolute;
         transition: all 0.1s;
         white-space: nowrap;
-        line-height: 19px;
-
-        transform: translate(-2px, 22px);
-        position: absolute;
     }
 
-    .label.dense {
+    .label.outlined {
+        transform: translate(-2px, 22px);
+        padding: 0 10px 0 2px;
+    }
+
+    .label.outlined.dense {
         transform: translate(-2px, 18px);
+    }
+
+    .label.filled {
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: translate(${innerSpacingSides}, 20px);
+    }
+
+    .label.filled.dense {
+        transform: translate(${innerSpacingSides}, 14px);
     }
 
     .label.focused,
     .label.has-value {
         font-size: 12px;
+    }
+
+    .label.filled.focused,
+    .label.filled.has-value {
+        transform: translate(${innerSpacingSides}, 8px);
+    }
+
+    .label.filled.dense.focused,
+    .label.filled.dense.has-value {
+        transform: translate(${innerSpacingSides}, 6px);
+    }
+
+    .label.outlined.focused,
+    .label.outlined.has-value {
         position: static;
         transform: translate(0, 0);
     }
@@ -110,7 +138,7 @@ export const Label = props => {
         </label>
     )
 
-    if (!!props.isFilled) {
+    if (!props.isFilled) {
         return (
             <Fieldset
                 kind={props.kind}

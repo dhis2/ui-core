@@ -22,22 +22,23 @@ const styles = css`
 
     .input.outlined {
         height: calc(100% - 12px);
-        margin-top: 12px;
+        padding-top: 12px;
     }
 
     .input.outlined.dense {
         height: calc(100% - 12px);
-        margin-top: 12px;
+        padding-top: 12px;
     }
 
     .input.filled {
-        height: calc(100% - 12px);
-        margin-top: 12px;
+        height: calc(100% - 20px);
+        padding-top: 20px;
     }
 
     .input.filled.dense {
-        height: calc(100% - 8px);
-        margin-top: 8px;
+        height: calc(100% - 18px);
+        padding-top: 18px;
+        font-size: 14px;
     }
 `
 

@@ -18,6 +18,7 @@ export const inputSizes = {
  */
 export const heightDefault = '56px'
 export const heightDense = '44px'
+export const innerSpacingSides = '16px'
 
 /**
  * Font sizes

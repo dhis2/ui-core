@@ -1,10 +1,14 @@
-import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { colors, theme } from '../../theme'
-import { heightDefault, heightDense } from '../../forms/constants'
+import {
+    heightDefault,
+    heightDense,
+    innerSpacingSides,
+} from '../../forms/constants'
 
 const styles = css`
     .size-default {
@@ -21,7 +25,7 @@ const styles = css`
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding-left: 12px;
+        padding-left: ${innerSpacingSides};
     }
 
     /**
