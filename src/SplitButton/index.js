@@ -12,16 +12,6 @@ import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
 import cx from 'classnames'
 import styles from './styles'
 
-const ArrowIcon = css.resolve`
-    svg {
-        fill: inherit;
-        height: 24px;
-        width: 24px;
-        vertical-align: middle;
-        pointer-events: none;
-    }
-`
-
 class SplitButton extends Component {
     state = {
         open: false,
@@ -61,11 +51,7 @@ class SplitButton extends Component {
                 : 'inherit'
         }
 
-        const icon = open ? (
-            <ArrowUp className={ArrowIcon.className} />
-        ) : (
-            <ArrowDown className={ArrowIcon.className} />
-        )
+        const icon = open ? <ArrowUp /> : <ArrowDown />
 
         return (
             <div ref={c => (this.elContainer = c)}>

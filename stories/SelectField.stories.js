@@ -73,6 +73,30 @@ storiesOf('SelectField', module)
             status: 'error',
         })
     )
+    .add('With valid status: Outlines', () =>
+        createSelectField({
+            value: '0',
+            list: options,
+            status: 'valid',
+            kind: 'outlined',
+        })
+    )
+    .add('With warning: Outlines', () =>
+        createSelectField({
+            value: '0',
+            list: options,
+            status: 'warning',
+            kind: 'outlined',
+        })
+    )
+    .add('With error: Outlines', () =>
+        createSelectField({
+            value: '0',
+            list: options,
+            status: 'error',
+            kind: 'outlined',
+        })
+    )
     .add('With disable true', () =>
         createSelectField({
             value: '0',

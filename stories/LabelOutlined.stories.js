@@ -11,6 +11,11 @@ const LabelOutlinedWrapper = props => (
 )
 
 storiesOf('Label: outlined', module)
+    .add('No value', () => (
+        <LabelOutlinedWrapper hasValue={false} status={iconStatuses.DEFAULT}>
+            {' '}
+        </LabelOutlinedWrapper>
+    ))
     .add('Default', () => (
         <LabelOutlinedWrapper hasValue={true} status={iconStatuses.DEFAULT}>
             Test
@@ -29,6 +34,11 @@ storiesOf('Label: outlined', module)
     .add('Error', () => (
         <LabelOutlinedWrapper hasValue={true} status={iconStatuses.ERROR}>
             Test
+        </LabelOutlinedWrapper>
+    ))
+    .add('Dense: No value', () => (
+        <LabelOutlinedWrapper hasValue={false} size={inputSizes.DENSE}>
+            {' '}
         </LabelOutlinedWrapper>
     ))
     .add('Dense', () => (

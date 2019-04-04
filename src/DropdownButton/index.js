@@ -13,16 +13,6 @@ import styles from './styles.js'
 
 import css from 'styled-jsx/css'
 
-const ArrowIcon = css.resolve`
-    svg {
-        fill: inherit;
-        height: 24px;
-        width: 24px;
-        vertical-align: middle;
-        pointer-events: none;
-    }
-`
-
 class DropdownButton extends Component {
     state = {
         open: false,
@@ -63,11 +53,7 @@ class DropdownButton extends Component {
                 : 'inherit'
         }
 
-        const icon = open ? (
-            <ArrowUp className={ArrowIcon.className} />
-        ) : (
-            <ArrowDown className={ArrowIcon.className} />
-        )
+        const icon = open ? <ArrowUp /> : <ArrowDown />
 
         return (
             <div ref={c => (this.elContainer = c)}>

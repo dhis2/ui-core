@@ -3,14 +3,9 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { InputContainer } from './LabelOutlined/InputContainer'
-import { Label } from './LabelOutlined/Label'
+import { InputContainer } from './LabelFilled/InputContainer'
+import { Label } from './LabelFilled/Label'
 import { StatusIconNoDefault } from '../icons/Status'
-import {
-    borderRadius,
-    inputHeight,
-    inputHeightDense,
-} from './LabelOutlined/constants'
 import { children } from '../utils/react'
 import { colors } from '../theme'
 import {
@@ -21,37 +16,40 @@ import {
 import { innerSpacingSides, inputSizes, inputSizesPropTypes } from './constants'
 
 const styles = css`
-    .label-outlined {
-        height: ${inputHeight + 10}px;
+    .label-filled {
+        align-items: center;
+        background-color: rgba(0, 0, 10, 0.05);
+        border-bottom: 2px solid transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        height: 56px;
+        padding-left: ${innerSpacingSides};
         position: relative;
     }
 
-    .label-outlined.dense {
-        height: ${inputHeightDense + 10}px;
+    .label-filled.dense {
+        height: 44px;
     }
 
-    .label-outlined:before {
-        border: 1px solid ${statusColors[iconStatuses.DEFAULT]};
-        border-top: 0;
-        border-radius: 0 0 ${borderRadius} ${borderRadius};
-        box-sizing: border-box;
-        bottom: 0;
-        content: '';
-        height: 75%;
-        left: 0;
-        position: absolute;
-        width: 100%;
+    .label-filled:hover {
+        background-color: rgba(0, 0, 10, 0.08);
     }
 
-    .label-outlined.valid:before {
+    .label-filled.focused {
+        border-color: ${colors.teal600};
+    }
+
+    .label-filled.valid {
         border-color: ${statusColors[iconStatuses.VALID]};
     }
 
-    .label-outlined.warning:before {
+    .label-filled.warning {
         border-color: ${statusColors[iconStatuses.WARNING]};
     }
 
-    .label-outlined.error:before {
+    .label-filled.error {
         border-color: ${statusColors[iconStatuses.ERROR]};
     }
 
@@ -59,29 +57,30 @@ const styles = css`
         align-items: center;
         box-sizing: border-box;
         display: flex;
-        height: 54px;
-        left: 1px;
+        height: 100%;
         position: relative;
-        top: 11px;
-        width: calc(100% - 1px);
+        width: 100%;
+        z-index: -1;
     }
 
-    .dense .content {
-        height: 42px;
+    .focused .content,
+    .has-value .content {
+        z-index: 2;
     }
 `
 
-const createLabelOutlinedClassName = props =>
-    cx('label-outlined', {
+const createLabelFilledClassName = props =>
+    cx('label-filled', {
         focused: props.isFocused,
         dense: props.size === inputSizes.DENSE,
         valid: props.status === iconStatuses.VALID,
         warning: props.status === iconStatuses.WARNING,
         error: props.status === iconStatuses.ERROR,
+        'has-value': props.hasValue,
     })
 
-export const LabelOutlined = ({ tailIcon: TailIcon, ...props }) => (
-    <div className={createLabelOutlinedClassName(props)}>
+export const LabelFilled = ({ tailIcon: TailIcon, ...props }) => (
+    <div className={createLabelFilledClassName(props)}>
         <Label
             size={props.size}
             status={props.status}
@@ -91,7 +90,14 @@ export const LabelOutlined = ({ tailIcon: TailIcon, ...props }) => (
         />
 
         <div className="content">
-            <InputContainer size={props.size}>{props.children}</InputContainer>
+            <InputContainer
+                size={props.size}
+                isFocused={props.isFocused}
+                hasValue={props.hasValue}
+                size={props.size}
+            >
+                {props.children}
+            </InputContainer>
             <StatusIconNoDefault status={props.status} />
             <TailIcon />
         </div>
@@ -100,7 +106,7 @@ export const LabelOutlined = ({ tailIcon: TailIcon, ...props }) => (
     </div>
 )
 
-LabelOutlined.propTypes = {
+LabelFilled.propTypes = {
     label: PropTypes.string.isRequired,
     children: children.isRequired,
     hasValue: PropTypes.bool.isRequired,
@@ -112,11 +118,9 @@ LabelOutlined.propTypes = {
     size: inputSizesPropTypes,
 }
 
-LabelOutlined.defaultProps = {
+LabelFilled.defaultProps = {
+    required: false,
     status: iconStatuses.DEFAULT,
     size: inputSizes.DEFAULT,
-    htmlFor: '',
     tailIcon: () => null,
 }
-
-export default LabelOutlined

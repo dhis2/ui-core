@@ -331,16 +331,6 @@ export default css`
     }
 `
 
-export const arrowIcon = resolve`
-    svg {
-        fill: inherit;
-        height: 24px;
-        width: 24px;
-        vertical-align: middle;
-        pointer-events: none;
-    }
-`
-
 export const menuOverride = resolve`
     max-height: 300px;
     overflow-y: auto;

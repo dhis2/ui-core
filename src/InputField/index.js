@@ -3,19 +3,17 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors } from '../theme.js'
-import { createIcon } from '../icons/helpers'
-import {
-    iconStatusPropType,
-    iconStatuses,
-    statusToIcon,
-} from '../icons/constants'
-import { inputKinds, inputSizes } from '../forms/constants'
+import { Field } from './InputField/Field'
+import { Fieldset } from './InputField/Fieldset'
 import { Input } from './InputField/Input'
 import { Label } from './InputField/Label'
-import { Fieldset } from './InputField/Fieldset'
-import { Field } from './InputField/Field'
+import { LabelFilled } from '../forms/LabelFilled'
+import { LabelOutlined } from '../forms/LabelOutlined'
 import { TrailIcon } from './InputField/TrailIcon'
+import { colors } from '../theme.js'
+import { createIcon } from '../icons/helpers'
+import { iconStatusPropType, iconStatuses } from '../icons/constants'
+import { inputKinds, inputSizes } from '../forms/constants'
 import Help from '../Help'
 import styles from './styles.js'
 
@@ -42,14 +40,6 @@ class InputField extends React.Component {
         return this.state.focused
     }
 
-    shouldShrink() {
-        return !!(
-            this.isFocused() ||
-            this.props.value ||
-            this.props.placeholder
-        )
-    }
-
     onFocus = evt => {
         this.setState({ focused: true })
     }
@@ -69,6 +59,8 @@ class InputField extends React.Component {
     render() {
         const isFilled = this.props.kind === inputKinds.FILLED
         const isDense = this.props.size === inputSizes.DENSE
+        const Container =
+            this.props.kind === inputKinds.FILLED ? LabelFilled : LabelOutlined
 
         return (
             <div
@@ -76,47 +68,23 @@ class InputField extends React.Component {
                     focused: this.isFocused(),
                     disabled: this.props.disabled,
                 })}
+                onClick={this.onFocus}
             >
-                <style jsx>{`
-                    div :global(.disabled),
-                    div :global(.disabled::placeholder) {
-                        color: ${colors.grey500};
-                        cursor: not-allowed;
-                    }
-                `}</style>
-
-                <Field
-                    value={this.props.value}
-                    size={this.props.size}
+                <Container
+                    label={this.props.label || this.props.placeholder}
+                    isFocused={this.state.focused}
+                    hasValue={!!this.props.value || this.props.placeholder}
+                    htmlFor={this.props.name}
+                    required={this.props.required}
                     status={this.props.status}
-                    kind={this.props.kind}
-                    isFocused={this.isFocused()}
-                    isFilled={isFilled}
-                    isDisabled={this.props.disabled}
+                    size={this.props.size}
                 >
-                    <Label
-                        status={this.props.status}
-                        size={this.props.size}
-                        kind={this.props.kind}
-                        isShrinked={this.shouldShrink()}
-                        isFocused={this.isFocused()}
-                        isDisabled={this.props.disabled}
-                        isRequired={this.props.required}
-                        hasValue={!!this.props.value}
-                        hasIcon={!!this.props.icon}
-                        className={this.props.styles.label}
-                        styles={this.props.styles.label}
-                        label={this.props.label || this.props.placeholder}
-                        hasValue={!!this.props.value}
-                        isFilled={isFilled}
-                    />
-
-                    {createIcon(this.props.icon)}
-
                     <Input
+                        name={this.props.name}
                         type={this.props.type}
                         value={this.props.value}
-                        isFocused={this.props.focus}
+                        placeholder={this.props.placeholder}
+                        isFocused={this.state.focused}
                         disabled={this.props.disabled}
                         isFilled={isFilled}
                         isDense={isDense}
@@ -124,16 +92,19 @@ class InputField extends React.Component {
                         onBlur={this.onBlur}
                         onChange={this.onChange}
                     />
-
-                    <TrailIcon
-                        status={this.props.status}
-                        trail={this.props.trailIcon}
-                    />
-                </Field>
+                </Container>
 
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />
                 )}
+
+                <style jsx>{`
+                    div :global(.disabled),
+                    div :global(.disabled::placeholder) {
+                        color: ${colors.grey500};
+                        cursor: not-allowed;
+                    }
+                `}</style>
 
                 <style jsx>{styles}</style>
             </div>
@@ -150,6 +121,7 @@ InputField.defaultProps = {
     disabled: false,
     required: false,
     styles: {},
+    placeholder: '',
 }
 
 InputField.propTypes = {

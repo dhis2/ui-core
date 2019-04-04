@@ -7,11 +7,22 @@ import notes from '../docs/InputField.md'
 import { colors } from '../src/theme'
 
 class InputFieldWrapper extends React.Component {
-    state = {}
+    constructor(props) {
+        super(props)
 
-    onChange = (target, value) => this.setState({ [target]: value })
+        this.state = {
+            [props.name]: props.value,
+        }
+    }
+
+    onChange = (target, value) => {
+        this.setState({ [target]: value })
+    }
 
     render() {
+        const { value, ...cProps } = this.props
+        console.log(cProps)
+
         return (
             <InputField
                 name={this.props.name}
@@ -19,7 +30,7 @@ class InputFieldWrapper extends React.Component {
                 help="Default help text"
                 value={this.state[this.props.name]}
                 onChange={(name, v) => this.onChange(name, v)}
-                {...this.props}
+                {...cProps}
             />
         )
     }
@@ -27,71 +38,94 @@ class InputFieldWrapper extends React.Component {
 
 InputFieldWrapper.defaultProps = {
     name: 'Default',
+    value: '',
 }
 
 const OutlinedWrapper = props => (
     <InputFieldWrapper {...props} kind="outlined" />
 )
-
 const FilledWrapper = props => <InputFieldWrapper {...props} kind="filled" />
 
 storiesOf('InputField: Outlined', module)
     .add('Default', () => <OutlinedWrapper kind="outlined" />, { notes })
+
     .add(
         'Placeholder',
         () => <OutlinedWrapper label="" placeholder="Hold the place" />,
         { notes }
     )
-    .add('Dense', () => <OutlinedWrapper size="dense" />, { notes })
-    .add('Status: Valid', () => <OutlinedWrapper status="valid" />, { notes })
-    .add('Status: Warning', () => <OutlinedWrapper status="warning" />, {
-        notes,
-    })
-    .add('Status: Error', () => <OutlinedWrapper status="error" />, { notes })
-    .add('Disabled', () => <OutlinedWrapper disabled={true} />, { notes })
+
+    .add('Dense, no value', () => <OutlinedWrapper size="dense" />, { notes })
 
     .add(
-        'Label background with inline styles',
+        'Dense, has value',
+        () => <OutlinedWrapper size="dense" value="Input value" />,
+        { notes }
+    )
+
+    .add(
+        'Status: Valid',
+        () => <OutlinedWrapper status="valid" value="This value is valid" />,
+        { notes }
+    )
+
+    .add(
+        'Status: Warning',
         () => (
-            <div style={{ background: colors.grey100, padding: '30px' }}>
-                <OutlinedWrapper
-                    styles={{ label: { background: colors.grey100 } }}
-                />
-            </div>
+            <OutlinedWrapper
+                status="warning"
+                value="This value produces a warning"
+            />
+        ),
+        {
+            notes,
+        }
+    )
+
+    .add(
+        'Status: Error',
+        () => <OutlinedWrapper status="error" value="This value is wrong" />,
+        { notes }
+    )
+
+    .add('Disabled', () => <OutlinedWrapper disabled={true} />, { notes })
+
+storiesOf('InputField: Filled', module)
+    .add('Default', () => <FilledWrapper />, { notes })
+
+    .add('Placeholder', () => <FilledWrapper placeholder="Hold the place" />, {
+        notes,
+    })
+
+    .add('Dense, no value', () => <FilledWrapper size="dense" />, { notes })
+
+    .add(
+        'Dense, has value',
+        () => <FilledWrapper size="dense" value="Label value" />,
+        { notes }
+    )
+
+    .add(
+        'Status: Valid',
+        () => <FilledWrapper status="valid" value="This is a valid value" />,
+        { notes }
+    )
+
+    .add(
+        'Status: Warning',
+        () => (
+            <FilledWrapper
+                status="warning"
+                value="This value produces a warning"
+            />
         ),
         { notes }
     )
 
     .add(
-        'Label background with styled-jsx',
-        () => {
-            const labelStyles = resolve`.label { background: ${
-                colors.grey100
-            }; }`
-            const wrapperStyle = {
-                background: colors.grey100,
-                padding: '30px',
-            }
-
-            return (
-                <div style={wrapperStyle}>
-                    <OutlinedWrapper
-                        styles={{ label: labelStyles.className }}
-                    />
-                    <style>{labelStyles.styles}</style>
-                </div>
-            )
-        },
+        'Status: Error',
+        () => <FilledWrapper status="error" value="This value is wrong" />,
         { notes }
     )
 
-storiesOf('InputField: Filled', module)
-    .add('Default', () => <FilledWrapper />, { notes })
-    .add('Placeholder', () => <FilledWrapper placeholder="Hold the place" />, {
-        notes,
-    })
-    .add('Dense', () => <FilledWrapper size="dense" />, { notes })
-    .add('Status: Valid', () => <FilledWrapper status="valid" />, { notes })
-    .add('Status: Warning', () => <FilledWrapper status="warning" />, { notes })
-    .add('Status: Error', () => <FilledWrapper status="error" />, { notes })
     .add('Disabled', () => <FilledWrapper disabled={true} />, { notes })

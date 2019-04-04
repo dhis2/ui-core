@@ -12,34 +12,29 @@ import {
 import { inputHeight, inputHeightDense } from './constants'
 
 const styles = css`
-    .content {
-        height: ${inputHeight + 2}px;
-        line-height: ${inputHeight + 2}px;
+    .input-container {
+        height: 100%;
+        line-height: ${inputHeight}px;
         padding: 0 0 0 ${innerSpacingSides};
-        position: relative;
-        top: -2px;
-        width: calc(100% - 1px);
-        box-sizing: border-box;
-        left: 1px;
+        width: 100%;
     }
 
-    .content.dense {
-        height: ${inputHeightDense + 2}px;
-        line-height: ${inputHeightDense + 2}px;
+    .input-container.dense {
+        line-height: ${inputHeightDense}px;
     }
 `
 
-const createContentClassName = props =>
-    cx('content', { dense: props.size === inputSizes.DENSE })
+const createInputContainerClassName = props =>
+    cx('input-container', { dense: props.size === inputSizes.DENSE })
 
-export const Content = props => (
-    <div className={createContentClassName(props)}>
+export const InputContainer = props => (
+    <div className={createInputContainerClassName(props)}>
         {props.children}
         <style jsx>{styles}</style>
     </div>
 )
 
-Content.propTypes = {
+InputContainer.propTypes = {
     size: inputSizesPropTypes.isRequired,
     children: children.isRequired,
 }

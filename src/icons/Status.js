@@ -1,7 +1,20 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import css from 'styled-jsx/css'
-import { colors } from '../theme.js'
+
+import { colors } from '../theme'
+import { iconStatusPropType, iconStatuses } from './constants'
+
+export const statusToIcon = {
+    [iconStatuses.VALID]: Valid,
+    [iconStatuses.WARNING]: Warning,
+    [iconStatuses.ERROR]: Error,
+}
+
+/**
+ * Icon: Valid
+ * =============
+ */
 
 const iconStyleValid = css`
     svg {
@@ -12,23 +25,6 @@ const iconStyleValid = css`
     }
 `
 
-const iconStyleWarning = css`
-    svg {
-        fill: ${colors.yellow500};
-        width: 24px;
-        height: 24px;
-        margin-right: 8px;
-    }
-`
-
-const iconStyleError = css`
-    svg {
-        fill: ${colors.red500};
-        width: 24px;
-        height: 24px;
-        margin-right: 8px;
-    }
-`
 /**
  * @param {Object} props
  * @param {string} props.className
@@ -53,6 +49,20 @@ export function Valid({ className }) {
 Valid.propTypes = {
     className: PropTypes.string.isRequired,
 }
+
+/**
+ * Icon: Warning
+ * =============
+ */
+
+const iconStyleWarning = css`
+    svg {
+        fill: ${colors.yellow500};
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+`
 
 /**
  * @param {Object} props
@@ -80,6 +90,20 @@ Warning.propTypes = {
 }
 
 /**
+ * Icon: Error
+ * =============
+ */
+
+const iconStyleError = css`
+    svg {
+        fill: ${colors.red500};
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+`
+
+/**
  * @param {Object} props
  * @param {string} props.className
  * @returns {ReactNode}
@@ -102,4 +126,28 @@ export function Error({ className }) {
 
 Error.propTypes = {
     className: PropTypes.string.isRequired,
+}
+
+/**
+ * @param {Object} props
+ * @param {string} props.status
+ * @param {string} props.className
+ * @returns {ReactNode}
+ */
+export const StatusIconNoDefault = ({ status, className }) =>
+    status === iconStatuses.VALID ? (
+        <Valid className={className} />
+    ) : status === iconStatuses.WARNING ? (
+        <Warning className={className} />
+    ) : status === iconStatuses.ERROR ? (
+        <Error className={className} />
+    ) : null
+
+StatusIconNoDefault.propTypes = {
+    status: iconStatusPropType,
+    className: PropTypes.string,
+}
+
+StatusIconNoDefault.defaultProps = {
+    className: '',
 }

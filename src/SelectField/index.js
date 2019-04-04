@@ -4,19 +4,15 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { ArrowUp, ArrowDown } from '../icons/Arrow'
-import { Valid, Warning, Error } from '../icons/Status'
+import { Error, Valid, Warning, statusToIcon } from '../icons/Status'
 import { colors, fonts } from '../theme'
 import { createIcon } from '../icons/helpers'
-import {
-    iconStatusPropType,
-    iconStatuses,
-    statusToIcon,
-} from '../icons/constants'
+import { iconStatusPropType, iconStatuses } from '../icons/constants'
 import { inputKinds, inputSizes } from '../forms/constants'
 import { isPointInRect } from '../utils/math'
 import Help from '../Help'
 import Menu from '../Menu'
-import styles, { arrowIcon, menuOverride, selectIconStyles } from './styles'
+import styles, { menuOverride, selectIconStyles } from './styles'
 
 function createTrailIcon(status, trail, fn) {
     const icon = status !== iconStatuses.DEFAULT ? statusToIcon[status] : trail
@@ -135,11 +131,7 @@ class SelectField extends React.Component {
                 ? `${this.elSelect.getBoundingClientRect().width}px`
                 : 'inherit'
 
-        const Arrow = open ? (
-            <ArrowUp className={arrowIcon.className} />
-        ) : (
-            <ArrowDown className={arrowIcon.className} />
-        )
+        const Arrow = open ? <ArrowUp /> : <ArrowDown />
 
         return (
             <div

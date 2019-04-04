@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
@@ -15,29 +15,13 @@ const styles = css`
         font-size: ${inputFontSizeValue};
         height: 100%;
         line-height: 19px;
+        padding: 0;
         outline: 0;
         user-select: text;
         width: 100%;
     }
 
-    .input.outlined {
-        height: calc(100% - 12px);
-        padding-top: 12px;
-    }
-
-    .input.outlined.dense {
-        height: calc(100% - 12px);
-        padding-top: 12px;
-    }
-
-    .input.filled {
-        height: calc(100% - 20px);
-        padding-top: 20px;
-    }
-
     .input.filled.dense {
-        height: calc(100% - 18px);
-        padding-top: 18px;
         font-size: 14px;
     }
 `
@@ -63,7 +47,10 @@ export class Input extends Component {
         return (
             <Fragment>
                 <input
+                    id={this.props.name}
+                    name={this.props.name}
                     className={className}
+                    placeholder={this.props.placeholder}
                     ref={this.inputRef}
                     type={this.props.type}
                     disabled={this.props.disabled}
@@ -79,6 +66,7 @@ export class Input extends Component {
 }
 
 Input.propTypes = {
+    name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     disabled: PropTypes.bool.isRequired,
@@ -86,4 +74,5 @@ Input.propTypes = {
     onFocus: PropTypes.func.isRequired,
     onBlur: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
+    placeholder: PropTypes.string.isRequired,
 }

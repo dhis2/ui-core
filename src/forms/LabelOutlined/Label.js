@@ -24,12 +24,17 @@ import {
 const styles = css`
     .legend {
         box-sizing: border-box;
-        display: flex;
+        height: 20px;
         left: 0;
+        line-height: 20px;
         padding-left: ${innerSpacingSides};
         position: absolute;
         top: 0;
         width: 100%;
+    }
+
+    .legend.has-value {
+        display: flex;
     }
 
     .legend:before {
@@ -41,8 +46,8 @@ const styles = css`
         height: ${inputHeight * 0.75}px;
         left: 0;
         position: absolute;
-        top: 7px;
-        width: 14px;
+        top: 10px;
+        width: 12px;
     }
 
     .legend:after {
@@ -53,28 +58,31 @@ const styles = css`
         content: '';
         flex-grow: 1;
         height: ${inputHeight * 0.75}px;
-        left: 0;
+        right: 0;
+        position: absolute;
+        top: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .legend.has-value:after {
+        width: auto;
         position: relative;
-        top: 7px;
     }
 
     .legend-label {
+        display: inline-block;
         font-size: ${inputFontSizeValue};
-        height: ${inputHeight + 2}px;
-        left: ${innerSpacingSides};
-        line-height: ${inputHeight + 2}px;
-        padding: 0 10px 0 2px;
-        position: absolute;
-        top: 7px;
+        padding: 0 10px 0 0;
+        position: relative;
+        transform: translate(0px, 29px);
+        transition: transform 0.05s ease-in;
     }
 
     .has-value .legend-label {
         font-size: ${shrinkedLabelFontSize};
         height: auto;
-        left: auto;
         line-height: inherit;
-        position: relative;
-        top: auto;
+        transform: translate(0px, 0px);
     }
 
     .valid:before,
@@ -105,8 +113,9 @@ const styles = css`
     }
 
     .dense.has-no-value .legend-label {
-        height: ${inputHeightDense + 2}px;
-        line-height: ${inputHeightDense + 2}px;
+        height: ${inputHeightDense}px;
+        line-height: ${inputHeightDense}px;
+        transform: translate(0px, 10px);
     }
 
     .legend.dense:before,
