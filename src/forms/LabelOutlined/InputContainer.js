@@ -15,7 +15,10 @@ const styles = css`
     .input-container {
         height: 100%;
         line-height: ${inputHeight}px;
-        padding: 0 0 0 ${innerSpacingSides};
+        min-width: 0;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
         width: 100%;
     }
 

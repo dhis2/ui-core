@@ -69,6 +69,12 @@ const styles = css`
     .dense .content {
         height: 42px;
     }
+
+    .status-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+    }
 `
 
 const createLabelOutlinedClassName = props =>
@@ -92,7 +98,9 @@ export const LabelOutlined = ({ tailIcon: TailIcon, ...props }) => (
 
         <div className="content">
             <InputContainer size={props.size}>{props.children}</InputContainer>
-            <StatusIconNoDefault status={props.status} />
+            <div className="status-icon">
+                <StatusIconNoDefault status={props.status} />
+            </div>
             <TailIcon />
         </div>
 

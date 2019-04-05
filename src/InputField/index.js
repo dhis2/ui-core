@@ -82,6 +82,7 @@ class InputField extends React.Component {
                     <Input
                         name={this.props.name}
                         type={this.props.type}
+                        kind={this.props.kind}
                         value={this.props.value}
                         placeholder={this.props.placeholder}
                         isFocused={this.state.focused}

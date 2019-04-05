@@ -5,10 +5,14 @@ import cx from 'classnames'
 
 import { ArrowUp, ArrowDown } from '../icons/Arrow'
 import { Error, Valid, Warning, statusToIcon } from '../icons/Status'
+import { Input } from '../InputField/InputField/Input'
+import { LabelFilled } from '../forms/LabelFilled'
+import { LabelOutlined } from '../forms/LabelOutlined'
+import { Select } from './SelectField/Select'
 import { colors, fonts } from '../theme'
 import { createIcon } from '../icons/helpers'
 import { iconStatusPropType, iconStatuses } from '../icons/constants'
-import { inputKinds, inputSizes } from '../forms/constants'
+import { innerSpacingSides, inputKinds, inputSizes } from '../forms/constants'
 import { isPointInRect } from '../utils/math'
 import Help from '../Help'
 import Menu from '../Menu'
@@ -24,37 +28,16 @@ function createTrailIcon(status, trail, fn) {
     return createIcon(icon, options)
 }
 
-function markActive(list, value) {
-    if (!value) {
-        return list
-    }
-
-    return list.slice(0).map(item => {
-        item.active = item.value && item.value === value
-
-        if (Array.isArray(item.list)) {
-            item.list = markActive(item.list, value)
-        }
-
-        return item
-    })
-}
-
 class SelectField extends React.Component {
-    state = {
-        open: false,
-        labelWidth: 0,
-    }
+    elContainer = React.createRef()
 
-    constructor(props) {
-        super(props)
-        this.labelRef = React.createRef()
+    state = {
+        focused: false,
+        open: false,
     }
 
     componentDidMount() {
         document.addEventListener('click', this.onDocClick)
-
-        this.setState({ labelWidth: this.labelRef.current.offsetWidth })
     }
 
     componentWillUnmount() {
@@ -62,47 +45,37 @@ class SelectField extends React.Component {
     }
 
     onDocClick = evt => {
-        if (this.elContainer && this.elMenu) {
+        if (this.focused && this.elContainer) {
             const target = { x: evt.clientX, y: evt.clientY }
-            const menu = this.elMenu.getBoundingClientRect()
             const container = this.elContainer.getBoundingClientRect()
 
-            if (
-                !isPointInRect(target, menu) &&
-                !isPointInRect(target, container)
-            ) {
-                this.setState({ open: false })
+            if (!isPointInRect(target, container)) {
+                this.setState({ focused: false, open: false })
             }
         }
     }
 
-    onToggle = () => {
-        if (this.props.disabled) {
-            return false
+    onChange = event => {
+        if (!this.props.disabled) {
+            const { value } = event.target
+            this.props.onChange(this.props.name, value)
         }
-
-        this.setState({ open: !this.state.open })
     }
 
-    onClick = value => {
-        if (this.props.disabled) {
-            return false
-        }
+    onFocus = e => {
+        this.setState({ focused: true })
 
-        this.setState({ open: false })
-        this.props.onChange(this.props.name, value)
+        if (this.props.onFocus) {
+            this.props.onFocus(e)
+        }
     }
 
-    getLabel() {
-        if (!this.props.value) {
-            return false
+    onBlur = e => {
+        this.setState({ focused: false })
+
+        if (this.props.onBlur) {
+            this.props.onBlur(e)
         }
-
-        const selected = this.props.list.filter(
-            ({ value }) => this.props.value === value
-        )
-
-        return selected.length > 0 ? selected[0]['label'] : null
     }
 
     isFocused() {
@@ -110,28 +83,17 @@ class SelectField extends React.Component {
     }
 
     shrink() {
-        return !!(
-            this.isFocused() ||
-            this.props.value ||
-            this.props.placeholder
-        )
+        return !!(this.isFocused() || this.props.value)
     }
 
     render() {
         const { open } = this.state
-        const selected = this.getLabel()
-        const list = markActive(this.props.list, this.props.value)
+        const Arrow = open ? ArrowUp : ArrowDown
 
-        const legendWidth = this.shrink()
-            ? { width: `${this.state.labelWidth}px` }
-            : { width: '0.01px' }
-
-        const width =
-            open && this.elSelect
-                ? `${this.elSelect.getBoundingClientRect().width}px`
-                : 'inherit'
-
-        const Arrow = open ? <ArrowUp /> : <ArrowDown />
+        const isFilled = this.props.kind === inputKinds.FILLED
+        const isDense = this.props.size === inputSizes.DENSE
+        const Container =
+            this.props.kind === inputKinds.FILLED ? LabelFilled : LabelOutlined
 
         return (
             <div
@@ -142,91 +104,45 @@ class SelectField extends React.Component {
                     [`size-${this.props.size}`]: true,
                 })}
             >
-                <div
-                    ref={c => (this.elSelect = c)}
-                    className={cx('select', {
-                        [`kind-${this.props.kind}`]: true,
-                        [`status-${this.props.status}`]: true,
-                        disabled: this.props.disabled,
-                    })}
-                    onClick={this.onToggle}
+                <Container
+                    label={this.props.label}
+                    isFocused={this.state.focused}
+                    hasValue={true}
+                    htmlFor={this.props.name}
+                    required={this.props.required}
+                    status={this.props.status}
+                    size={this.props.size}
+                    tailIcon={Arrow}
+                    onClick={this.onFocus}
                 >
-                    <label
-                        ref={this.labelRef}
-                        className={cx('label', {
-                            [`${this.props.status}`]: true,
-                            [`${this.props.size}`]: true,
-                            [`${this.props.kind}`]: true,
-                            'has-icon': !!this.props.icon,
-                            required: this.props.required,
-                            disabled: this.props.disabled,
-                            focused: this.isFocused(),
-                            shrink: !!selected,
-                        })}
-                    >
-                        {this.props.label}
-                    </label>
-
-                    {this.props.kind === 'outlined' && (
-                        <fieldset
-                            className={cx('flatline', {
-                                [`${this.props.status}`]: true,
-                                focused: this.isFocused(),
-                                idle: !this.isFocused(),
-                                filled: this.state.text,
-                            })}
-                        >
-                            <legend className="legend" style={legendWidth}>
-                                <span>&#8203;</span>
-                            </legend>
-                        </fieldset>
-                    )}
-
-                    {this.props.icon && (
-                        <div className="lead-icon-field">{this.props.icon}</div>
-                    )}
-
-                    <div
-                        className={cx('input-field', {
-                            disabled: this.props.disabled,
-                        })}
-                    >
-                        <div className="value">{selected}</div>
-                    </div>
-
-                    <div className="trail-icon-field">
-                        {this.props.status !== iconStatuses.DEFAULT &&
-                            createTrailIcon(this.props.status)}
-                    </div>
-
-                    <div
-                        className={cx('trail-icon-field', {
-                            disabled: this.props.disabled,
-                        })}
-                    >
-                        {Arrow}
-                    </div>
-                </div>
+                    <Select
+                        value={this.props.value}
+                        disabled={this.props.disabled}
+                        list={this.props.list}
+                        kind={this.props.kind}
+                        size={this.props.size}
+                        onChange={this.onChange}
+                        onFocus={this.onFocus}
+                        onBlur={this.onBlur}
+                    />
+                </Container>
 
                 {this.props.help && (
                     <Help text={this.props.help} status={this.props.status} />
                 )}
 
-                {open && (
-                    <div className="menu" ref={c => (this.elMenu = c)}>
-                        <Menu
-                            list={list}
-                            size={this.props.size}
-                            onClick={this.onClick}
-                            className={menuOverride.className}
-                        />
-                    </div>
-                )}
-
                 <style>{menuOverride.styles}</style>
-                <style>{arrowIcon.styles}</style>
                 <style jsx>{styles}</style>
                 <style>{selectIconStyles.styles}</style>
+                <style jsx>{`
+                    .select-value {
+                        display: block;
+                        overflow: hidden;
+                        padding-right: 10px;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                `}</style>
             </div>
         )
     }
@@ -240,21 +156,17 @@ SelectField.defaultProps = {
     className: '',
     disabled: false,
     required: false,
+    onFocus: null,
+    onBlur: null,
 }
 
 SelectField.propTypes = {
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    list: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-                .isRequired,
-        })
-    ).isRequired,
+    list: Select.propTypes.list,
 
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    value: PropTypes.string.isRequired,
     help: PropTypes.string,
     className: PropTypes.string,
     disabled: PropTypes.bool,
@@ -263,6 +175,9 @@ SelectField.propTypes = {
     size: PropTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
     kind: PropTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
     status: iconStatusPropType,
+
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
 }
 
 export { SelectField }

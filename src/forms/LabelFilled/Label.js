@@ -31,22 +31,22 @@ const styles = css`
         display: inline-block;
         font-size: 12px;
         height: auto;
-        line-height: 19px;
+        line-height: 14px;
         transform: translate(0, 8px);
         width: auto;
     }
 
     .label.dense {
         height: ${inputHeightDense}px;
-        line-height: ${inputHeightDense}px;
+        line-height: 47px;
         transform: translate(0, 0);
     }
 
     .label.dense.focused,
     .label.dense.has-value {
         height: auto;
-        line-height: 19px;
-        transform: translate(0, 0);
+        line-height: 12px;
+        transform: translate(0, 7px);
     }
 
     .label.required::after {

@@ -3,22 +3,33 @@ import React, { Component, Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { inputFontSizeValue } from '../../forms/constants'
+import {
+    innerSpacingSides,
+    inputFontSizeValue,
+    inputKinds,
+} from '../../forms/constants'
 
 const calculatePaddingTop = props => (props.filled ? '14px' : '18.5px')
 
 const styles = css`
     .input {
+        color: black;
         background-color: transparent;
         border: 0;
         box-sizing: border-box;
         font-size: ${inputFontSizeValue};
         height: 100%;
-        line-height: 19px;
-        padding: 0;
+        line-height: 16px;
+        ${/** 15px => 16px inner spacing - 1px of space in the select text **/ ''}
+        padding: 3px 0 10px 15px;
         outline: 0;
         user-select: text;
         width: 100%;
+    }
+
+    ${/** 14px => 16px inner spacing - 1px of space in the select text and 1px for border**/ ''}
+    .input.outlined {
+        padding-left: 14px;
     }
 
     .input.filled.dense {
@@ -39,8 +50,7 @@ export class Input extends Component {
         const paddingTop = calculatePaddingTop(this.props)
         const className = cx('input', {
             dense: this.props.isDense,
-            filled: this.props.isFilled,
-            outlined: !this.props.isFilled,
+            outlined: this.props.kind === inputKinds.OUTLINED,
             disabled: this.props.disabled,
         })
 
@@ -75,4 +85,6 @@ Input.propTypes = {
     onBlur: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     placeholder: PropTypes.string.isRequired,
+    kind: PropTypes.arrayOf([inputKinds.FILLED, inputKinds.OUTLINED])
+        .isRequired,
 }

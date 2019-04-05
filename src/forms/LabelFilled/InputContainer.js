@@ -12,8 +12,10 @@ const styles = css`
         box-sizing: border-box;
         flex-grow: 1;
         height: 100%;
+        min-width: 0;
         padding-top: 27px;
         visibility: hidden;
+        position: relative;
     }
 
     .content.dense {

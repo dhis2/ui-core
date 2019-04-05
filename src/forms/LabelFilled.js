@@ -25,7 +25,6 @@ const styles = css`
         display: flex;
         flex-direction: row;
         height: 56px;
-        padding-left: ${innerSpacingSides};
         position: relative;
     }
 
@@ -67,6 +66,12 @@ const styles = css`
     .has-value .content {
         z-index: 2;
     }
+
+    .status-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+    }
 `
 
 const createLabelFilledClassName = props =>
@@ -80,7 +85,7 @@ const createLabelFilledClassName = props =>
     })
 
 export const LabelFilled = ({ tailIcon: TailIcon, ...props }) => (
-    <div className={createLabelFilledClassName(props)}>
+    <div className={createLabelFilledClassName(props)} onClick={props.onClick}>
         <Label
             size={props.size}
             status={props.status}
@@ -98,7 +103,9 @@ export const LabelFilled = ({ tailIcon: TailIcon, ...props }) => (
             >
                 {props.children}
             </InputContainer>
-            <StatusIconNoDefault status={props.status} />
+            <div className="status-icon">
+                <StatusIconNoDefault status={props.status} />
+            </div>
             <TailIcon />
         </div>
 
@@ -116,6 +123,7 @@ LabelFilled.propTypes = {
     required: PropTypes.bool,
     status: iconStatusPropType,
     size: inputSizesPropTypes,
+    onClick: PropTypes.func,
 }
 
 LabelFilled.defaultProps = {
@@ -123,4 +131,5 @@ LabelFilled.defaultProps = {
     status: iconStatuses.DEFAULT,
     size: inputSizes.DEFAULT,
     tailIcon: () => null,
+    onClick: null,
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { storiesOf } from '@storybook/react'
 import { SelectField } from '../src'
 
@@ -9,17 +9,39 @@ const options = [
     { value: '2', label: 'Beware the power of option 2' },
 ]
 
-const createSelectField = override => (
-    <div style={{ width: '200px' }}>
-        <SelectField
-            name="select-field"
-            label="Label text"
-            onChange={noop}
-            list={[]}
-            {...override}
-        />
-    </div>
-)
+class Wrapper extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            value: this.props.value,
+        }
+    }
+
+    onChange = (name, value) => {
+        console.log('onChange', name, value)
+        this.setState({ value })
+    }
+
+    render() {
+        const { value, ...props } = this.props
+
+        return (
+            <div style={{ width: '200px' }}>
+                <SelectField
+                    name="select-field"
+                    value={this.state.value}
+                    label="Label text"
+                    onChange={this.onChange}
+                    list={options}
+                    {...props}
+                />
+            </div>
+        )
+    }
+}
+
+const createSelectField = override => <Wrapper {...override} />
 
 storiesOf('SelectField', module)
     .add('With no options', () =>
@@ -61,14 +83,14 @@ storiesOf('SelectField', module)
     )
     .add('With warning', () =>
         createSelectField({
-            value: '0',
+            value: '1',
             list: options,
             status: 'warning',
         })
     )
     .add('With error', () =>
         createSelectField({
-            value: '0',
+            value: '2',
             list: options,
             status: 'error',
         })
