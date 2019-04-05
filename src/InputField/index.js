@@ -30,6 +30,14 @@ class InputField extends React.Component {
         focused: false,
     }
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            focused: props.focus,
+        }
+    }
+
     componentDidMount() {
         this.setState({
             focused: this.props.focus,
@@ -121,20 +129,17 @@ InputField.defaultProps = {
     focus: false,
     disabled: false,
     required: false,
-    styles: {},
     placeholder: '',
 }
 
 InputField.propTypes = {
-    className: PropTypes.string,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    className: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     label: PropTypes.string,
     placeholder: PropTypes.string,
     help: PropTypes.string,
-    icon: PropTypes.element,
-    trailIcon: PropTypes.element,
     status: iconStatusPropType,
     size: PropTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
     kind: PropTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
@@ -148,9 +153,6 @@ InputField.propTypes = {
     focus: PropTypes.bool,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
-    styles: PropTypes.shape({
-        label: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
-    }),
 }
 
 export { InputField }

@@ -105,4 +105,23 @@ function createStory(name, wrapperCreator) {
                 list: options,
             })
         )
+
+        .add('With optgroups', () =>
+            wrapperCreator({
+                value: '4',
+                list: [
+                    { value: '0', label: 'This is a label' },
+                    { value: '1', label: 'While this is another one' },
+                    {
+                        value: '2',
+                        label: 'Beware the power of option 2',
+                        list: [
+                            { value: '3', label: 'Group option No 1' },
+                            { value: '4', label: 'Group option No 2' },
+                        ],
+                    },
+                    { value: '5', label: 'Beware the power of option 2' },
+                ],
+            })
+        )
 }

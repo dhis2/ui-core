@@ -161,15 +161,15 @@ SelectField.defaultProps = {
 SelectField.propTypes = {
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
+
     label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
     list: Select.propTypes.list,
 
-    value: PropTypes.string.isRequired,
     help: PropTypes.string,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
-    icon: PropTypes.element,
     size: PropTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
     kind: PropTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
     status: iconStatusPropType,

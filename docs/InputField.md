@@ -3,58 +3,22 @@
 This is a rich input field, allowing to show errors,
 hint texts and well as validity states like valid, warning and error.
 
-# Gotchas
+## API
 
-There are some things that might require some tweaking,
-here is a list of possible gotchas.
+This is a list of supported prop types:
 
-## Label background
-
-In order to match the background of the container the `InputField` is placed in,
-you can overwrite the background color of the label by providing a className 
-or inline style object via the `styles.label` prop.
-
-### Example with styled-jsx
-
-~~~jsx
-import React, { Fragment } from 'react'
-import { resolve } from 'styled-jsx/css'
-
-const customLabelStyles = resolve`
-  .label {
-    background: red;
-  }
-`
-
-const NewLabel = () => (
-  <Fragment>
-    <Input {...inputProps} styles={{ label: customLabelStyles.className }} />
-    <style>customLabelStyles.styles</style>
-  </Fragment>
-)
-~~~
-
-### Example with inline-styles
-
-Alternatively you can simply pass a styled object instead of a className,
-which will add inline styles to the component
-
-~~~jsx
-import React, { Fragment } from 'react'
-import { resolve } from 'styled-jsx/css'
-
-const customLabelStyles = {
-  background: 'red',
-}
-
-const NewLabel = () => (
-  <Fragment>
-    <Input {...inputProps} styles={{ label: customLabelStyles }} />
-  </Fragment>
-)
-~~~
-
-### Limits of styling
-
-The input does not support changing text color, so make sure
-to use a background that will work with the default colors
+| Property    | Required | Default value | Possibl values |
+|-------------|----------|---------------|--------------- |
+| disabled    | No       | false         | Boolean |
+| help        | No       | ''            | String |
+| focus       | No       | false         | Boolean |
+| kind        | No       | 'default'     | [Input Kinds](./constants.md#input-kinds) |
+| label       | No       | ''            | String |
+| name        | Yes      | n/a           | String |
+| onChange    | Yes      | n/a           | Function |
+| placeholder | No       | ''            | String |
+| required    | No       | false         | Boolean |
+| size        | No       | 'default'     | [Input Sizes](./constants.md#input-sizes) |
+| status      | No       | 'default'     | [Statuses](./constants.md#statuses) |
+| type        | No       | 'text'        | [Input types](./constants.md#input-types) |
+| value       | No       | ''            | string |
