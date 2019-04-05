@@ -41,91 +41,66 @@ InputFieldWrapper.defaultProps = {
     value: '',
 }
 
-const OutlinedWrapper = props => (
-    <InputFieldWrapper {...props} kind="outlined" />
+const createWrapperOutlined = override => () => (
+    <InputFieldWrapper {...override} kind="outlined" />
 )
-const FilledWrapper = props => <InputFieldWrapper {...props} kind="filled" />
+const createWrapperOutlinedDense = override => () => (
+    <InputFieldWrapper {...override} kind="outlined" size="dense" />
+)
+const createWrapperFilled = override => () => (
+    <InputFieldWrapper {...override} kind="outlined" />
+)
+const createWrapperFilledDense = override => () => (
+    <InputFieldWrapper {...override} kind="outlined" size="dense" />
+)
 
-storiesOf('InputField: Outlined', module)
-    .add('Default', () => <OutlinedWrapper kind="outlined" />, { notes })
+createStory('InputField (Outlined)', createWrapperOutlined)
+createStory('InputField (Outlined and dense)', createWrapperOutlinedDense)
+createStory('InputField (Filled)', createWrapperFilled)
+createStory('InputField (Filled and dense)', createWrapperFilledDense)
 
-    .add(
-        'Placeholder',
-        () => <OutlinedWrapper label="" placeholder="Hold the place" />,
-        { notes }
-    )
+function createStory(name, wrapperCreator) {
+    storiesOf(name, module)
+        .add('No placeholder, no value', wrapperCreator(), { notes })
 
-    .add('Dense, no value', () => <OutlinedWrapper size="dense" />, { notes })
+        .add(
+            'Placeholder, no value',
+            wrapperCreator({ placeholder: 'Hold the place' }),
+            { notes }
+        )
 
-    .add(
-        'Dense, has value',
-        () => <OutlinedWrapper size="dense" value="Input value" />,
-        { notes }
-    )
+        .add('With value', wrapperCreator({ value: 'Input value' }), { notes })
 
-    .add(
-        'Status: Valid',
-        () => <OutlinedWrapper status="valid" value="This value is valid" />,
-        { notes }
-    )
+        .add(
+            'Status: Valid',
+            wrapperCreator({ status: 'valid', value: 'This value is valid' }),
+            { notes }
+        )
 
-    .add(
-        'Status: Warning',
-        () => (
-            <OutlinedWrapper
-                status="warning"
-                value="This value produces a warning"
-            />
-        ),
-        {
-            notes,
-        }
-    )
+        .add(
+            'Status: Warning',
+            wrapperCreator({
+                status: 'warning',
+                value: 'This value produces a warning',
+            }),
+            { notes }
+        )
 
-    .add(
-        'Status: Error',
-        () => <OutlinedWrapper status="error" value="This value is wrong" />,
-        { notes }
-    )
+        .add(
+            'Status: Error',
+            wrapperCreator({
+                status: 'error',
+                value: 'This value produces a error',
+            }),
+            { notes }
+        )
 
-    .add('Disabled', () => <OutlinedWrapper disabled={true} />, { notes })
-
-storiesOf('InputField: Filled', module)
-    .add('Default', () => <FilledWrapper />, { notes })
-
-    .add('Placeholder', () => <FilledWrapper placeholder="Hold the place" />, {
-        notes,
-    })
-
-    .add('Dense, no value', () => <FilledWrapper size="dense" />, { notes })
-
-    .add(
-        'Dense, has value',
-        () => <FilledWrapper size="dense" value="Label value" />,
-        { notes }
-    )
-
-    .add(
-        'Status: Valid',
-        () => <FilledWrapper status="valid" value="This is a valid value" />,
-        { notes }
-    )
-
-    .add(
-        'Status: Warning',
-        () => (
-            <FilledWrapper
-                status="warning"
-                value="This value produces a warning"
-            />
-        ),
-        { notes }
-    )
-
-    .add(
-        'Status: Error',
-        () => <FilledWrapper status="error" value="This value is wrong" />,
-        { notes }
-    )
-
-    .add('Disabled', () => <FilledWrapper disabled={true} />, { notes })
+        .add(
+            'Disabled',
+            wrapperCreator({
+                disabled: true,
+                placeholder: 'This one is disabled',
+            }),
+            { notes }
+        )
+}

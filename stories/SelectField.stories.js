@@ -14,12 +14,11 @@ class Wrapper extends Component {
         super(props)
 
         this.state = {
-            value: this.props.value,
+            value: this.props.value || '',
         }
     }
 
     onChange = (name, value) => {
-        console.log('onChange', name, value)
         this.setState({ value })
     }
 
@@ -34,6 +33,7 @@ class Wrapper extends Component {
                     label="Label text"
                     onChange={this.onChange}
                     list={options}
+                    help="This is a help text"
                     {...props}
                 />
             </div>
@@ -41,94 +41,68 @@ class Wrapper extends Component {
     }
 }
 
-const createSelectField = override => <Wrapper {...override} />
+const createSelectFieldFilled = override => (
+    <Wrapper {...override} kind="filled" />
+)
+const createSelectFieldFilledDense = override => (
+    <Wrapper {...override} kind="filled" size="dense" />
+)
+const createSelectFieldOutlined = override => (
+    <Wrapper {...override} kind="outlined" />
+)
+const createSelectFieldOutlinedDense = override => (
+    <Wrapper {...override} kind="outlined" size="dense" />
+)
 
-storiesOf('SelectField', module)
-    .add('With no options', () =>
-        createSelectField({
-            label: 'Without value',
-        })
-    )
-    .add('With options', () =>
-        createSelectField({
-            list: options,
-        })
-    )
-    .add('With value', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-        })
-    )
-    .add('With help text', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            help: 'This is a help text',
-        })
-    )
-    .add('With size dense', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            size: 'dense',
-        })
-    )
-    .add('With valid status', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            status: 'valid',
-        })
-    )
-    .add('With warning', () =>
-        createSelectField({
-            value: '1',
-            list: options,
-            status: 'warning',
-        })
-    )
-    .add('With error', () =>
-        createSelectField({
-            value: '2',
-            list: options,
-            status: 'error',
-        })
-    )
-    .add('With valid status: Outlines', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            status: 'valid',
-            kind: 'outlined',
-        })
-    )
-    .add('With warning: Outlines', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            status: 'warning',
-            kind: 'outlined',
-        })
-    )
-    .add('With error: Outlines', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            status: 'error',
-            kind: 'outlined',
-        })
-    )
-    .add('With disable true', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            disabled: true,
-        })
-    )
-    .add('With text too long to display it', () =>
-        createSelectField({
-            value: '2',
-            list: options,
-        })
-    )
+createStory('SelectField (Outlined)', createSelectFieldOutlined)
+createStory('SelectField (Outlined, Dense)', createSelectFieldOutlinedDense)
+createStory('SelectField (Filled)', createSelectFieldFilled)
+createStory('SelectField (Filled, Dense)', createSelectFieldFilledDense)
+
+function createStory(name, wrapperCreator) {
+    storiesOf(name, module)
+        .add('No initial value', () => wrapperCreator())
+
+        .add('With initial value', () =>
+            wrapperCreator({
+                value: '1',
+            })
+        )
+
+        .add('With valid status', () =>
+            wrapperCreator({
+                value: '0',
+                list: options,
+                status: 'valid',
+            })
+        )
+
+        .add('With warning status', () =>
+            wrapperCreator({
+                value: '1',
+                list: options,
+                status: 'warning',
+            })
+        )
+
+        .add('With error status', () =>
+            wrapperCreator({
+                value: '2',
+                list: options,
+                status: 'error',
+            })
+        )
+
+        .add('Disabled', () =>
+            wrapperCreator({
+                disabled: true,
+            })
+        )
+
+        .add('With text too long to display it', () =>
+            wrapperCreator({
+                value: '2',
+                list: options,
+            })
+        )
+}
