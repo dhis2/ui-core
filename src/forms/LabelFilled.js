@@ -44,12 +44,24 @@ const styles = css`
         border-color: ${statusColors[iconStatuses.VALID]};
     }
 
+    .label-filled.valid.focused {
+        border-color: ${colors.blue700};
+    }
+
     .label-filled.warning {
         border-color: ${statusColors[iconStatuses.WARNING]};
     }
 
+    .label-filled.warning.focused {
+        border-color: ${colors.yellow700};
+    }
+
     .label-filled.error {
         border-color: ${statusColors[iconStatuses.ERROR]};
+    }
+
+    .label-filled.error.focused {
+        border-color: ${colors.red700};
     }
 
     .content {
@@ -92,6 +104,7 @@ const createLabelFilledClassName = props =>
 export const LabelFilled = ({ tailIcon: TailIcon, ...props }) => (
     <div className={createLabelFilledClassName(props)} onClick={props.onClick}>
         <Label
+            isFocused={props.isFocused}
             size={props.size}
             status={props.status}
             hasValue={props.isFocused || props.hasValue}

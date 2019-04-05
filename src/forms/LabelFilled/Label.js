@@ -61,12 +61,24 @@ const styles = css`
         color: ${statusColors[iconStatuses.VALID]};
     }
 
+    .label.valid.focused {
+        color: ${colors.blue700};
+    }
+
     .label.warning {
         color: ${statusColors[iconStatuses.WARNING]};
     }
 
+    .label.warning.focused {
+        color: ${colors.yellow700};
+    }
+
     .label.error {
         color: ${statusColors[iconStatuses.ERROR]};
+    }
+
+    .label.error.focused {
+        color: ${colors.red700};
     }
 `
 

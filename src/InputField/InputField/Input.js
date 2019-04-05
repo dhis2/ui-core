@@ -20,16 +20,15 @@ const styles = css`
         font-size: ${inputFontSizeValue};
         height: 100%;
         line-height: 16px;
-        ${/** 15px => 16px inner spacing - 1px of space in the select text **/ ''}
-        padding: 3px 0 10px 15px;
+        padding: 3px 0 10px 16px;
         outline: 0;
         user-select: text;
         width: 100%;
     }
 
-    ${/** 14px => 16px inner spacing - 1px of space in the select text and 1px for border**/ ''}
+    ${/** 15px => 16px inner spacing - 1px for border**/ ''}
     .input.outlined {
-        padding-left: 14px;
+        padding-left: 15px;
     }
 
     .input.filled.dense {

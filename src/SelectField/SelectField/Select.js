@@ -19,8 +19,7 @@ const styles = css`
         height: 100%;
         left: 0;
         outline: 0;
-        ${/** 15px => 16px inner spacing - 1px of space in the select text **/ ''}
-        padding: 0 12px 0 15px;
+        padding: 0 12px 0 16px;
         position: absolute;
         top: 0;
         width: 100%;
@@ -33,8 +32,8 @@ const styles = css`
     }
 
     select.outlined {
-        ${/** 14px => 16px inner spacing - 1px of space in the select text and 1px of the bordr**/ ''}
-        padding-left: 14px;
+        ${/** 15px => 16px inner spacing - 1px of the border**/ ''}
+        padding-left: 15px;
     }
 
     select.filled {
