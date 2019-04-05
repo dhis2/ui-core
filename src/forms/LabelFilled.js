@@ -71,6 +71,11 @@ const styles = css`
         flex-shrink: 0;
         width: 24px;
         height: 24px;
+        margin-right: 4px;
+    }
+
+    .status-icon:last-child {
+        margin-right: 10px;
     }
 `
 

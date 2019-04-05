@@ -21,7 +21,7 @@ const iconStyleValid = css`
         fill: ${colors.blue600};
         width: 24px;
         height: 24px;
-        margin-right: 8px;
+        margin-right: 4px;
     }
 `
 
@@ -60,7 +60,7 @@ const iconStyleWarning = css`
         fill: ${colors.yellow500};
         width: 24px;
         height: 24px;
-        margin-right: 8px;
+        margin-right: 4px;
     }
 `
 
@@ -99,7 +99,7 @@ const iconStyleError = css`
         fill: ${colors.red500};
         width: 24px;
         height: 24px;
-        margin-right: 8px;
+        margin-right: 4px;
     }
 `
 

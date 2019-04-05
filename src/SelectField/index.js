@@ -3,12 +3,12 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { ArrowUp, ArrowDown } from '../icons/Arrow'
 import { Error, Valid, Warning, statusToIcon } from '../icons/Status'
 import { Input } from '../InputField/InputField/Input'
 import { LabelFilled } from '../forms/LabelFilled'
 import { LabelOutlined } from '../forms/LabelOutlined'
 import { Select } from './SelectField/Select'
+import { Arrow } from './SelectField/Arrow'
 import { colors, fonts } from '../theme'
 import { createIcon } from '../icons/helpers'
 import { iconStatusPropType, iconStatuses } from '../icons/constants'
@@ -88,8 +88,6 @@ class SelectField extends React.Component {
 
     render() {
         const { open } = this.state
-        const Arrow = open ? ArrowUp : ArrowDown
-
         const isFilled = this.props.kind === inputKinds.FILLED
         const isDense = this.props.size === inputSizes.DENSE
         const Container =
@@ -112,7 +110,7 @@ class SelectField extends React.Component {
                     required={this.props.required}
                     status={this.props.status}
                     size={this.props.size}
-                    tailIcon={Arrow}
+                    tailIcon={() => <Arrow open={this.state.open} />}
                     onClick={this.onFocus}
                 >
                     <Select
