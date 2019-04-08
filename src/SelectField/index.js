@@ -31,9 +31,13 @@ function createTrailIcon(status, trail, fn) {
 class SelectField extends React.Component {
     elContainer = React.createRef()
 
-    state = {
-        focused: false,
-        open: false,
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            focused: props.focused,
+            open: false,
+        }
     }
 
     componentDidMount() {
@@ -159,9 +163,8 @@ SelectField.defaultProps = {
 }
 
 SelectField.propTypes = {
-    onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
-
+    onChange: PropTypes.func.isRequired,
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     list: Select.propTypes.list,
@@ -170,6 +173,7 @@ SelectField.propTypes = {
     className: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
+    focus: PropTypes.bool,
     size: PropTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
     kind: PropTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
     status: iconStatusPropType,
