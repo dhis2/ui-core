@@ -16,7 +16,8 @@ export { default as LinearProgress } from './LinearProgress'
 export { default as Logo } from './Logo'
 export { LogoIcon, LogoIconWhite, LogoWhite } from './Logo'
 
-export { default as Menu, MenuItem } from './Menu'
+export { default as Menu } from './Menu'
+export { default as MenuItem } from './MenuItem'
 
 export { default as Radio } from './Radio'
 export { default as SelectField } from './SelectField'

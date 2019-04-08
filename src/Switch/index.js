@@ -10,7 +10,7 @@ class Switch extends React.Component {
             return
         }
 
-        this.props.onChange(this.props.name, !this.props.checked)
+        this.props.onChange(!this.props.checked)
     }
 
     render() {
@@ -44,9 +44,8 @@ Switch.defaultProps = {
 }
 
 Switch.propTypes = {
-    className: PropTypes.string,
     onChange: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
+    className: PropTypes.string,
     checked: PropTypes.bool,
     label: PropTypes.string,
     disabled: PropTypes.bool,

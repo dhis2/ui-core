@@ -14,7 +14,6 @@ export default css`
         font-weight: 400;
         letter-spacing: 0.5px;
         text-decoration: none;
-        text-transform: capitalize;
         cursor: pointer;
         transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
         user-select: none;
