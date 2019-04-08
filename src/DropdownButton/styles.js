@@ -11,14 +11,7 @@ export default css`
     .menu {
         z-index: 1000;
         position: absolute;
-        top: 36px;
+        top: 38px;
         left: 0;
-    }
-
-    .menu-label {
-        margin: 0 10px 0 0;
-        background: transparent;
-        color: inherit;
-        text-transform: capitalize;
     }
 `
