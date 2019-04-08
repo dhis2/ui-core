@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Menu from './index'
 import cx from 'classnames'
 import styles from './styles'
 
+import Menu from '../Menu'
 import { ChevronRight } from '../icons/Chevron.js'
 
 import css from 'styled-jsx/css'
@@ -18,51 +18,72 @@ const subChevron = css.resolve`
     }
 `
 
-function SubMenu({ size, list, onClick, className }) {
-    return (
-        <div className={cx('sub-menu', className)}>
-            <Menu size={size} list={list} onClick={onClick} />
-            <style jsx>{styles}</style>
-        </div>
-    )
+const subMenu = css.resolve`
+    div {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        white-space: nowrap;
+    }
+
+    .item:hover > div {
+        display: block;
+    }
+`
+
+function SubMenu({ size, children, onClick, className }) {
+    return <div className={className}>{children}</div>
 }
 
 export default function MenuItem({
     label,
-    value,
     icon,
-    list,
+    children,
     active,
     disabled,
     size,
     onClick,
     className,
 }) {
-    const hasMenu = list.length > 0
+    const hasMenu = !!children
     return (
         <li
-            className={cx('item', className, { disabled, active })}
+            className={cx('item', className, subMenu.className, {
+                disabled,
+                active,
+            })}
             onClick={evt => {
                 if (onClick) {
                     evt.preventDefault()
                     evt.stopPropagation()
-                    onClick(value)
+                    onClick()
                 }
             }}
         >
             {icon}
             <div className="label">{label}</div>
-            {hasMenu && <ChevronRight className={subChevron.className} />}
-            {hasMenu && <SubMenu size={size} list={list} onClick={onClick} />}
 
+            {hasMenu && <ChevronRight className={subChevron.className} />}
             {subChevron.styles}
+
+            {hasMenu && (
+                <SubMenu
+                    size={size}
+                    onClick={onClick}
+                    className={subMenu.className}
+                >
+                    {children}
+                </SubMenu>
+            )}
+            {subMenu.styles}
+
             <style jsx>{styles}</style>
         </li>
     )
 }
 
 MenuItem.defaultProps = {
-    list: [],
     size: 'default',
     active: false,
     disabled: false,
@@ -70,10 +91,9 @@ MenuItem.defaultProps = {
 
 MenuItem.propTypes = {
     className: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    label: PropTypes.oneOf([PropTypes.string, PropTypes.element]).isRequired,
     icon: PropTypes.element,
-    list: PropTypes.array,
+    children: PropTypes.instanceOf(Menu),
     active: PropTypes.bool,
     disabled: PropTypes.bool,
     size: PropTypes.string,

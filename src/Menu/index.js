@@ -1,42 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Card from '../Card'
-import MenuItem from './MenuItem'
+import MenuItem from '../MenuItem'
 import Divider from '../Divider'
 import cx from 'classnames'
 
 import styles from './styles'
 
-export function Menu({ size, width, list, onClick, className }) {
+export function Menu({ size, width, children, className }) {
     return (
         <Card>
-            <ul className={cx('base', size, className)}>
-                {list.map(
-                    (
-                        { label, value, icon, list, active, type, disabled },
-                        i
-                    ) => {
-                        if (type === 'divider') {
-                            return <Divider key={`mid-${i}`} />
-                        }
-
-                        return (
-                            <MenuItem
-                                key={`mi-${value}`}
-                                label={label}
-                                value={value}
-                                icon={icon}
-                                list={list}
-                                type={type}
-                                size={size}
-                                disabled={disabled}
-                                active={active}
-                                onClick={onClick}
-                            />
-                        )
-                    }
-                )}
-            </ul>
+            <ul className={cx('base', size, className)}>{children}</ul>
             <style jsx>{styles}</style>
         </Card>
     )
@@ -48,18 +22,12 @@ Menu.defaultProps = {
 
 Menu.propTypes = {
     className: PropTypes.string,
-    list: PropTypes.arrayOf(
-        PropTypes.shape({
-            type: PropTypes.oneOf(['divider']),
-            label: PropTypes.string,
-            value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-            list: PropTypes.array,
-            icon: PropTypes.element,
-            active: PropTypes.bool,
-            disabled: PropTypes.bool,
-        })
+    children: PropTypes.arrayOf(
+        PropTypes.oneOf([
+            PropTypes.instanceOf(MenuItem),
+            PropTypes.instanceOf(Divider),
+        ])
     ).isRequired,
-    onClick: PropTypes.func.isRequired,
     size: PropTypes.oneOf(['default', 'dense']),
 }
 
