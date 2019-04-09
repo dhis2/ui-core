@@ -7,7 +7,7 @@ import {
     innerSpacingSides,
     inputFontSizeValue,
     inputKinds,
-} from '../../forms/constants'
+} from '../forms/constants'
 
 const calculatePaddingTop = props => (props.filled ? '14px' : '18.5px')
 

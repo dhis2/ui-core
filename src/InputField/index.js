@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { Input } from './InputField/Input'
+import { Input } from './Input'
 import { LabelFilled } from '../forms/LabelFilled'
 import { LabelOutlined } from '../forms/LabelOutlined'
 import { colors } from '../theme'
