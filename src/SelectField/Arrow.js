@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
-import { ArrowUp, ArrowDown } from '../../icons/Arrow'
+import { ArrowUp, ArrowDown } from '../icons/Arrow'
 
 const styles = css`
     div {
