@@ -23,8 +23,8 @@ const componentMenu = (
         <MenuItem
             label="Three"
             value="three"
-            onClick={() => {
-                alert('this is no.3')
+            onClick={val => {
+                alert(`this is ${val}`)
             }}
         />
     </Menu>
@@ -41,8 +41,8 @@ const menu = (
                                 <MenuItem
                                     label="Sub One-One-One"
                                     value="suboneoneone"
-                                    onClick={() => {
-                                        alert('you went deep!')
+                                    onClick={val => {
+                                        alert(`this is ${val}`)
                                     }}
                                 />
                             </Menu>
@@ -56,15 +56,15 @@ const menu = (
         <MenuItem
             label="Two"
             value="two"
-            onClick={() => {
-                alert('this is no.2')
+            onClick={val => {
+                alert(`this is ${val}`)
             }}
         />
         <MenuItem
             label="Three"
             value="three"
-            onClick={() => {
-                alert('this is no.3')
+            onClick={val => {
+                alert(`this is ${val}`)
             }}
         />
     </Menu>

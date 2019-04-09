@@ -36,6 +36,7 @@ function SubMenu({ size, children, onClick, className }) {
 }
 
 export default function MenuItem({
+    value,
     label,
     icon,
     children,
@@ -56,7 +57,7 @@ export default function MenuItem({
                 if (onClick) {
                     evt.preventDefault()
                     evt.stopPropagation()
-                    onClick()
+                    onClick(value)
                 }
             }}
         >
@@ -67,11 +68,7 @@ export default function MenuItem({
             {subChevron.styles}
 
             {hasMenu && (
-                <SubMenu
-                    size={size}
-                    onClick={onClick}
-                    className={subMenu.className}
-                >
+                <SubMenu size={size} className={subMenu.className}>
                     {children}
                 </SubMenu>
             )}
@@ -89,8 +86,9 @@ MenuItem.defaultProps = {
 }
 
 MenuItem.propTypes = {
-    className: PropTypes.string,
     label: PropTypes.oneOf([PropTypes.string, PropTypes.element]).isRequired,
+    value: PropTypes.any.isRequired,
+    className: PropTypes.string,
     icon: PropTypes.element,
     children: PropTypes.element,
     active: PropTypes.bool,
