@@ -20,6 +20,7 @@ class Switch extends React.Component {
                 <input
                     type="checkbox"
                     disabled={disabled}
+                    name={this.props.name}
                     checked={this.props.checked}
                     onChange={this.onChange}
                 />
@@ -44,6 +45,7 @@ Switch.defaultProps = {
 }
 
 Switch.propTypes = {
+    name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     className: PropTypes.string,
     checked: PropTypes.bool,
