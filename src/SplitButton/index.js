@@ -99,7 +99,7 @@ class SplitButton extends Component {
                         />
                     </div>
                 )}
-                {ArrowIcon.styles}
+
                 <style jsx>{buttons}</style>
                 <style jsx>{styles}</style>
             </div>
