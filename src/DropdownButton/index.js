@@ -64,11 +64,7 @@ class DropdownButton extends Component {
                     {icon}
                 </button>
 
-                {open && (
-                    <div className="menu">
-                        {this.props.component && this.props.component}
-                    </div>
-                )}
+                {open && <div className="menu">{this.props.component}</div>}
 
                 <style jsx>{buttons}</style>
                 <style jsx>{styles}</style>
