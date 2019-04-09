@@ -202,4 +202,3 @@ function CssReset() {
 }
 
 export { CssReset }
-export default CssReset

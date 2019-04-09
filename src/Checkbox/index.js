@@ -120,4 +120,3 @@ Checkbox.propTypes = {
 }
 
 export { Checkbox }
-export default Checkbox

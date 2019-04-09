@@ -105,4 +105,3 @@ Radio.propTypes = {
 }
 
 export { Radio }
-export default Radio

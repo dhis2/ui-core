@@ -28,5 +28,3 @@ Divider.propTypes = {
     className: propTypes.string,
     margin: propTypes.string,
 }
-
-export default Divider

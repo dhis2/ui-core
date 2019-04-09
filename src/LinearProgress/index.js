@@ -28,4 +28,3 @@ LinearProgress.propTypes = {
 }
 
 export { LinearProgress }
-export default LinearProgress
