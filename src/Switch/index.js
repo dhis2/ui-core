@@ -55,4 +55,3 @@ Switch.propTypes = {
 }
 
 export { Switch }
-export default Switch

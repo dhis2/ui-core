@@ -3,12 +3,12 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { Input } from './Input'
+import { Input } from '../Input'
 import { LabelFilled, LabelOutlined } from '../FieldLabel'
 import { colors } from '../theme'
 import { iconStatusPropType, iconStatuses } from '../icons/constants'
 import { inputKinds, inputSizes } from '../forms/constants'
-import Help from '../Help'
+import { Help } from '../Help'
 
 const styles = css`
     .base {
@@ -163,4 +163,3 @@ InputField.propTypes = {
 }
 
 export { InputField }
-export default InputField

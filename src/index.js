@@ -1,28 +1,28 @@
-export { default as Button } from './Button'
-export { default as Card } from './Card'
-export { default as Checkbox } from './Checkbox'
-export { default as Chip } from './Chip'
-export { default as CircularProgress } from './CircularProgress'
-export { default as Divider } from './Divider'
-export { default as DropdownButton } from './DropdownButton'
+export { Button } from './Button'
+export { Card } from './Card'
+export { Checkbox } from './Checkbox'
+export { Chip } from './Chip'
+export { CircularProgress } from './CircularProgress'
+export { Divider } from './Divider'
+export { DropdownButton } from './DropdownButton'
 
 // These will be exposed at some point, but are kept internal for now until the API stabilizes
+// export { Input } from './Input'
 // export { LabelFilled, LabelOutlined } from './FieldLabel'
 
-export { default as Help } from './Help'
-export { default as InputField } from './InputField'
-export { default as LinearProgress } from './LinearProgress'
+export { Help } from './Help'
+export { InputField } from './InputField'
+export { LinearProgress } from './LinearProgress'
 
-export { default as Logo } from './Logo'
-export { LogoIcon, LogoIconWhite, LogoWhite } from './Logo'
+export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from './Logo'
 
-export { default as Menu } from './Menu'
-export { default as MenuItem } from './MenuItem'
+export { Menu } from './Menu'
+export { MenuItem } from './MenuItem'
 
-export { default as Radio } from './Radio'
-export { default as SelectField } from './SelectField'
-export { default as SplitButton } from './SplitButton'
-export { default as Switch } from './Switch'
+export { Radio } from './Radio'
+export { SelectField } from './SelectField'
+export { SplitButton } from './SplitButton'
+export { Switch } from './Switch'
 
 export { CssReset } from './CssReset'
 

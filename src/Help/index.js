@@ -55,4 +55,3 @@ Help.propTypes = {
 }
 
 export { Help }
-export default Help

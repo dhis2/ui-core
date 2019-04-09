@@ -35,7 +35,7 @@ function SubMenu({ size, children, onClick, className }) {
     return <div className={className}>{children}</div>
 }
 
-export default function MenuItem({
+function MenuItem({
     value,
     label,
     icon,
@@ -96,3 +96,5 @@ MenuItem.propTypes = {
     size: propTypes.string,
     onClick: propTypes.func,
 }
+
+export { MenuItem }

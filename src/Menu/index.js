@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import styles from './styles'
 
-export function Menu({ size, width, children, className }) {
+function Menu({ size, width, children, className }) {
     return (
         <Card>
             <ul className={cx('base', size, className)}>{children}</ul>
@@ -24,4 +24,4 @@ Menu.propTypes = {
     size: propTypes.oneOf(['default', 'dense']),
 }
 
-export default Menu
+export { Menu }

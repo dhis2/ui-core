@@ -56,4 +56,3 @@ CircularProgress.propTypes = {
 }
 
 export { CircularProgress }
-export default CircularProgress

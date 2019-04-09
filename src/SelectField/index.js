@@ -168,4 +168,3 @@ SelectField.propTypes = {
 }
 
 export { SelectField }
-export default SelectField

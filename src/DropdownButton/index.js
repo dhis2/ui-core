@@ -94,4 +94,3 @@ DropdownButton.propTypes = {
 }
 
 export { DropdownButton }
-export default DropdownButton

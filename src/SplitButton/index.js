@@ -106,4 +106,3 @@ SplitButton.propTypes = {
 }
 
 export { SplitButton }
-export default SplitButton
