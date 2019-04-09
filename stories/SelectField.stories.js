@@ -27,17 +27,15 @@ class Wrapper extends Component {
         const { value, ...props } = this.props
 
         return (
-            <div style={{ width: '200px' }}>
-                <SelectField
-                    name="select-field"
-                    value={this.state.value}
-                    label="Label text"
-                    onChange={this.onChange}
-                    list={options}
-                    help="This is a help text"
-                    {...props}
-                />
-            </div>
+            <SelectField
+                name="select-field"
+                value={this.state.value}
+                label="Label text"
+                onChange={this.onChange}
+                list={options}
+                help="This is a help text"
+                {...props}
+            />
         )
     }
 }
