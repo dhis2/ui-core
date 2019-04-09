@@ -9,7 +9,6 @@ import { Select } from './Select'
 import { colors } from '../theme'
 import { iconStatusPropType, iconStatuses } from '../icons/constants'
 import { inputKinds, inputSizes } from '../forms/constants'
-import { isPointInRect } from '../utils/math'
 import Help from '../Help'
 
 const styles = css`
@@ -50,13 +49,8 @@ class SelectField extends React.Component {
     }
 
     onDocClick = evt => {
-        if (this.focused && this.elContainer) {
-            const target = { x: evt.clientX, y: evt.clientY }
-            const container = this.elContainer.getBoundingClientRect()
-
-            if (!isPointInRect(target, container)) {
-                this.setState({ focused: false, open: false })
-            }
+        if (this.elContainer && !this.elContainer.contains(evt.target)) {
+            this.setState({ focused:false, show: false })
         }
     }
 

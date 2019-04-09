@@ -5468,6 +5468,7 @@ globby@8.0.2:
     pify "^3.0.0"
     slash "^1.0.0"
 
+<<<<<<< HEAD
 globby@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/globby/-/globby-6.1.0.tgz#f5a6d70e8395e21c858fb0489d64df02424d506c"
@@ -5479,6 +5480,8 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
+=======
+>>>>>>> feat: refactor components to be simpler and more flexible (#182)
 globby@^9.2.0:
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/globby/-/globby-9.2.0.tgz#fd029a706c703d29bdd170f4b6db3a3f7a7cb63d"
@@ -9791,9 +9794,15 @@ simple-swizzle@^0.2.2:
     is-arrayish "^0.3.1"
 
 size-limit@^1.0.0:
+<<<<<<< HEAD
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-1.1.2.tgz#86f19bcb5d759b1de9509adb14c3a70d99e3e8ea"
   integrity sha512-cDLXhv1tQqe+4UNmC7Gx/RLHaJgoy4lyDo/TUxi+QzYO6OhyMZiyZEWbGhKJdxdZsHCrxxSRwUxssNuKxmkqgg==
+=======
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-1.0.1.tgz#42c6ef9fe68adcab3627191396852e37f1df8593"
+  integrity sha512-E5pzKguJesgTTp5pen2W1TDFC95AoovRQNJ1CB4LVF3SBcyvCYUk4pQN67xUO3cItfphNrrXXgCBmzrbArZaHg==
+>>>>>>> feat: refactor components to be simpler and more flexible (#182)
   dependencies:
     bytes "^3.1.0"
     chalk "^2.4.2"
@@ -9806,14 +9815,24 @@ size-limit@^1.0.0:
     estimo "^0.1.9"
     file-loader "^3.0.1"
     globby "^9.2.0"
+<<<<<<< HEAD
     gzip-size "^5.1.0"
     make-dir "^3.0.0"
+=======
+    gzip-size "^5.0.0"
+    memory-fs "^0.4.1"
+>>>>>>> feat: refactor components to be simpler and more flexible (#182)
     optimize-css-assets-webpack-plugin "^5.0.1"
     react "16.8.6"
     read-pkg-up "^5.0.0"
     style-loader "^0.23.1"
+<<<<<<< HEAD
     webpack "^4.30.0"
     webpack-bundle-analyzer "^3.3.2"
+=======
+    webpack "^4.29.6"
+    webpack-bundle-analyzer "^3.2.0"
+>>>>>>> feat: refactor components to be simpler and more flexible (#182)
     yargs "^13.2.2"
 
 slash@^1.0.0:
@@ -10947,10 +10966,17 @@ web-namespaces@^1.1.2:
   resolved "https://registry.yarnpkg.com/web-namespaces/-/web-namespaces-1.1.2.tgz#c8dc267ab639505276bae19e129dbd6ae72b22b4"
   integrity sha512-II+n2ms4mPxK+RnIxRPOw3zwF2jRscdJIUE9BfkKHm4FYEg9+biIoTMnaZF5MpemE3T+VhMLrhbyD4ilkPCSbg==
 
+<<<<<<< HEAD
 webpack-bundle-analyzer@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.3.2.tgz#3da733a900f515914e729fcebcd4c40dde71fc6f"
   integrity sha512-7qvJLPKB4rRWZGjVp5U1KEjwutbDHSKboAl0IfafnrdXMrgC0tOtZbQD6Rw0u4cmpgRN4O02Fc0t8eAT+FgGzA==
+=======
+webpack-bundle-analyzer@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.2.0.tgz#0630d298e88511d036d7c823705d7b852593d5c4"
+  integrity sha512-F6bwrg5TBb9HsHZCltH1L5F091ELQ+/i67MEH7jWkYRvVp53eONNneGaIXSdOQUiXUyd3RnkITWRfWvSVQGnZQ==
+>>>>>>> feat: refactor components to be simpler and more flexible (#182)
   dependencies:
     acorn "^6.0.7"
     acorn-walk "^6.1.1"

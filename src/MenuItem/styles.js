@@ -51,6 +51,7 @@ export default css`
         margin-right: 18px;
         color: #404040;
         font-size: 24px;
+        pointer-events: none;
         user-select: none;
     }
 
@@ -71,18 +72,5 @@ export default css`
     .item.disabled .icon,
     .item.disabled .label {
         color: rgba(0, 0, 0, 0.3);
-    }
-
-    /* SUB-MENU */
-    .sub-menu {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 100%;
-        white-space: nowrap;
-    }
-
-    .item:hover .sub-menu {
-        display: block;
     }
 `
