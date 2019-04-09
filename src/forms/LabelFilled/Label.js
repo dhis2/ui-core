@@ -26,6 +26,10 @@ const styles = css`
         width: 100%;
     }
 
+    .label.disabled {
+        color: ${colors.grey500};
+    }
+
     .label.focused,
     .label.has-value {
         display: inline-block;
@@ -90,6 +94,7 @@ const createLabelClassName = props =>
         warning: props.status === iconStatuses.WARNING,
         error: props.status === iconStatuses.ERROR,
         dense: props.size === inputSizes.DENSE,
+        disabled: props.disabled,
         'has-value': props.hasValue,
     })
 

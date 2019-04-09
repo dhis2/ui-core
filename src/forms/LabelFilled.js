@@ -28,11 +28,15 @@ const styles = css`
         position: relative;
     }
 
+    .label-filled.disabled {
+        cursor: not-allowed;
+    }
+
     .label-filled.dense {
         height: 44px;
     }
 
-    .label-filled:hover {
+    .label-filled:not(.disabled):hover {
         background-color: rgba(0, 0, 10, 0.08);
     }
 
@@ -93,6 +97,7 @@ const styles = css`
 
 const createLabelFilledClassName = props =>
     cx('label-filled', {
+        disabled: props.disabled,
         focused: props.isFocused,
         dense: props.size === inputSizes.DENSE,
         valid: props.status === iconStatuses.VALID,
@@ -110,6 +115,7 @@ export const LabelFilled = ({ tailIcon: TailIcon, ...props }) => (
             hasValue={props.isFocused || props.hasValue}
             label={props.label}
             htmlFor={props.htmlFor}
+            disabled={props.disabled}
         />
 
         <div className="content">
@@ -138,6 +144,7 @@ LabelFilled.propTypes = {
     htmlFor: PropTypes.string.isRequired,
 
     tailIcon: PropTypes.element,
+    disabled: PropTypes.bool,
     required: PropTypes.bool,
     status: iconStatusPropType,
     size: inputSizesPropTypes,
@@ -145,6 +152,7 @@ LabelFilled.propTypes = {
 }
 
 LabelFilled.defaultProps = {
+    disabled: false,
     required: false,
     status: iconStatuses.DEFAULT,
     size: inputSizes.DEFAULT,

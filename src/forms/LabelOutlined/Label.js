@@ -9,6 +9,7 @@ import {
     inputHeightDense,
     shrinkedLabelFontSize,
 } from './constants'
+import { colors } from '../../theme'
 import {
     iconStatusPropType,
     iconStatuses,
@@ -31,6 +32,10 @@ const styles = css`
         position: absolute;
         top: 0;
         width: 100%;
+    }
+
+    .legend.disabled {
+        cursor: not-allowed;
     }
 
     .legend.has-value {
@@ -76,6 +81,10 @@ const styles = css`
         position: relative;
         transform: translate(0px, 29px);
         transition: transform 0.05s ease-in;
+    }
+
+    .legend.disabled .legend-label {
+        color: ${colors.grey500};
     }
 
     .has-value .legend-label {
@@ -126,6 +135,7 @@ const styles = css`
 
 const createLabelClassName = props =>
     cx('legend', {
+        disabled: props.disabled,
         dense: props.size === inputSizes.DENSE,
         valid: props.status === iconStatuses.VALID,
         warning: props.status === iconStatuses.WARNING,
@@ -147,4 +157,9 @@ Label.propTypes = {
     status: iconStatusPropType.isRequired,
     size: inputSizesPropTypes.isRequired,
     htmlFor: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+}
+
+Label.defaultProps = {
+    disabled: false,
 }

@@ -3,6 +3,7 @@ import React, { Component, Fragment, createRef } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { colors } from '../../theme'
 import {
     innerSpacingSides,
     inputFontSizeValue,
@@ -25,6 +26,11 @@ const styles = css`
         width: 100%;
         -webkit-appearance: none;
         -moz-appearance: none;
+    }
+
+    select.disabled {
+        color: ${colors.grey500};
+        cursor: not-allowed;
     }
 
     select.dense {
@@ -68,6 +74,7 @@ export class Select extends Component {
             dense: this.props.size === inputSizes.DENSE,
             filled: this.props.kind === inputKinds.FILLED,
             outlined: this.props.kind === inputKinds.OUTLINED,
+            disabled: this.props.disabled,
         })
 
         return (

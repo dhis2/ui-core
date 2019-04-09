@@ -3,19 +3,21 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { Field } from './InputField/Field'
-import { Fieldset } from './InputField/Fieldset'
 import { Input } from './InputField/Input'
-import { Label } from './InputField/Label'
 import { LabelFilled } from '../forms/LabelFilled'
 import { LabelOutlined } from '../forms/LabelOutlined'
-import { TrailIcon } from './InputField/TrailIcon'
-import { colors } from '../theme.js'
-import { createIcon } from '../icons/helpers'
+import { colors } from '../theme'
 import { iconStatusPropType, iconStatuses } from '../icons/constants'
 import { inputKinds, inputSizes } from '../forms/constants'
 import Help from '../Help'
-import styles from './styles.js'
+
+const styles = css`
+    .base {
+        display: inline-block;
+        width: 100%;
+        color: ${colors.grey700};
+    }
+`
 
 const types = {
     TEXT: 'text',
@@ -75,7 +77,6 @@ class InputField extends React.Component {
         return (
             <div
                 className={cx('base', this.props.className, {
-                    focused: this.isFocused(),
                     disabled: this.props.disabled,
                 })}
                 onClick={this.onFocus}
@@ -86,6 +87,7 @@ class InputField extends React.Component {
                     hasValue={!!this.props.value || this.props.placeholder}
                     htmlFor={this.props.name}
                     required={this.props.required}
+                    disabled={this.props.disabled}
                     status={this.props.status}
                     size={this.props.size}
                 >

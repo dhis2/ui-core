@@ -26,6 +26,10 @@ const styles = css`
         position: relative;
     }
 
+    .label-outlined.disabled {
+        cursor: not-allowed;
+    }
+
     .label-outlined.dense {
         height: ${inputHeightDense + 10}px;
     }
@@ -84,6 +88,7 @@ const createLabelOutlinedClassName = props =>
         valid: props.status === iconStatuses.VALID,
         warning: props.status === iconStatuses.WARNING,
         error: props.status === iconStatuses.ERROR,
+        disabled: props.disabled,
     })
 
 export const LabelOutlined = ({ tailIcon: TailIcon, ...props }) => (
@@ -94,6 +99,7 @@ export const LabelOutlined = ({ tailIcon: TailIcon, ...props }) => (
             hasValue={props.isFocused || props.hasValue}
             label={props.label}
             htmlFor={props.htmlFor}
+            disabled={props.disabled}
         />
 
         <div className="content">

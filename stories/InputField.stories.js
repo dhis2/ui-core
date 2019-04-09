@@ -48,10 +48,10 @@ const createWrapperOutlinedDense = override => () => (
     <InputFieldWrapper {...override} kind="outlined" size="dense" />
 )
 const createWrapperFilled = override => () => (
-    <InputFieldWrapper {...override} kind="outlined" />
+    <InputFieldWrapper {...override} kind="filled" />
 )
 const createWrapperFilledDense = override => () => (
-    <InputFieldWrapper {...override} kind="outlined" size="dense" />
+    <InputFieldWrapper {...override} kind="filled" size="dense" />
 )
 
 createStory('InputField (Outlined)', createWrapperOutlined)

@@ -3,30 +3,32 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { Error, Valid, Warning, statusToIcon } from '../icons/Status'
-import { Input } from '../InputField/InputField/Input'
+import { Arrow } from './SelectField/Arrow'
 import { LabelFilled } from '../forms/LabelFilled'
 import { LabelOutlined } from '../forms/LabelOutlined'
 import { Select } from './SelectField/Select'
-import { Arrow } from './SelectField/Arrow'
-import { colors, fonts } from '../theme'
-import { createIcon } from '../icons/helpers'
+import { colors } from '../theme'
 import { iconStatusPropType, iconStatuses } from '../icons/constants'
-import { innerSpacingSides, inputKinds, inputSizes } from '../forms/constants'
+import { inputKinds, inputSizes } from '../forms/constants'
 import { isPointInRect } from '../utils/math'
 import Help from '../Help'
-import Menu from '../Menu'
-import styles, { menuOverride, selectIconStyles } from './styles'
 
-function createTrailIcon(status, trail, fn) {
-    const icon = status !== iconStatuses.DEFAULT ? statusToIcon[status] : trail
-    const options = {
-        action: fn,
-        className: selectIconStyles.className,
+const styles = css`
+    .base {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        background-color: inherit;
+        color: ${colors.grey700};
+        pointer-events: all;
+        user-select: none;
     }
 
-    return createIcon(icon, options)
-}
+    .disabled {
+        cursor: not-allowed;
+        opacity: 1;
+    }
+`
 
 class SelectField extends React.Component {
     elContainer = React.createRef()
@@ -112,6 +114,7 @@ class SelectField extends React.Component {
                     hasValue={true}
                     htmlFor={this.props.name}
                     required={this.props.required}
+                    disabled={this.props.disabled}
                     status={this.props.status}
                     size={this.props.size}
                     tailIcon={() => <Arrow open={this.state.open} />}
@@ -133,18 +136,7 @@ class SelectField extends React.Component {
                     <Help text={this.props.help} status={this.props.status} />
                 )}
 
-                <style>{menuOverride.styles}</style>
                 <style jsx>{styles}</style>
-                <style>{selectIconStyles.styles}</style>
-                <style jsx>{`
-                    .select-value {
-                        display: block;
-                        overflow: hidden;
-                        padding-right: 10px;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                    }
-                `}</style>
             </div>
         )
     }
