@@ -17,11 +17,10 @@ function Help({ text, status, className }) {
                 .base {
                     height: 12px;
                     padding-top: 8px;
-                    padding-left: 14px;
+                    padding-left: 12px;
                     font-size: 12px;
-
+                    margin: 0;
                     line-height: 12px;
-
                     cursor: help;
                 }
 
