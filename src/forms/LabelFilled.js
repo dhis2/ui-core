@@ -90,6 +90,10 @@ const styles = css`
         margin-right: 4px;
     }
 
+    .status-icon:empty {
+        display: none;
+    }
+
     .status-icon:last-child {
         margin-right: 10px;
     }

@@ -79,6 +79,14 @@ const styles = css`
         width: 24px;
         height: 24px;
     }
+
+    .status-icon:empty {
+        display: none;
+    }
+
+    .status-icon:last-child {
+        margin-right: 10px;
+    }
 `
 
 const createLabelOutlinedClassName = props =>
