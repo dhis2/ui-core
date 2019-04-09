@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
@@ -123,13 +123,13 @@ export const Outlined = ({ tailIcon: TailIcon, ...props }) => (
 )
 
 Outlined.propTypes = {
-    label: PropTypes.string.isRequired,
+    label: propTypes.string.isRequired,
     children: children.isRequired,
-    hasValue: PropTypes.bool.isRequired,
-    htmlFor: PropTypes.string.isRequired,
+    hasValue: propTypes.bool.isRequired,
+    htmlFor: propTypes.string.isRequired,
 
-    tailIcon: PropTypes.element,
-    required: PropTypes.bool,
+    tailIcon: propTypes.element,
+    required: propTypes.bool,
     status: iconStatusPropType,
     size: inputSizesPropTypes,
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
 
 import { colors } from '../theme.js'
@@ -94,14 +94,14 @@ Radio.defaultProps = {
 }
 
 Radio.propTypes = {
-    className: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    className: propTypes.string,
+    onChange: propTypes.func.isRequired,
+    name: propTypes.string.isRequired,
+    value: propTypes.string.isRequired,
+    label: propTypes.string,
+    checked: propTypes.bool,
+    disabled: propTypes.bool,
+    status: propTypes.oneOf(['default', 'valid', 'warning', 'error']),
 }
 
 export { Radio }

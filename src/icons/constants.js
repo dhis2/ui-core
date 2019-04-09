@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import { colors } from '../theme'
 
 export const iconStatuses = {
@@ -15,7 +15,7 @@ export const statusColors = {
     [iconStatuses.ERROR]: colors.red500,
 }
 
-export const iconStatusPropType = PropTypes.oneOf([
+export const iconStatusPropType = propTypes.oneOf([
     iconStatuses.DEFAULT,
     iconStatuses.VALID,
     iconStatuses.WARNING,

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 
 import cx from 'classnames'
 import { colors } from '../theme.js'
@@ -25,8 +25,8 @@ Divider.defaultProps = {
 }
 
 Divider.propTypes = {
-    className: PropTypes.string,
-    margin: PropTypes.string,
+    className: propTypes.string,
+    margin: propTypes.string,
 }
 
 export default Divider

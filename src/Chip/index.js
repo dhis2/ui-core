@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
 
 import { colors } from '../theme.js'
@@ -116,15 +116,15 @@ Chip.defaultProps = {
 }
 
 Chip.propTypes = {
-    className: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    icon: PropTypes.element,
-    selected: PropTypes.bool,
-    disabled: PropTypes.bool,
-    dragging: PropTypes.bool,
-    overflow: PropTypes.bool,
-    onClick: PropTypes.func,
-    onRemove: PropTypes.func,
+    className: propTypes.string,
+    label: propTypes.string.isRequired,
+    icon: propTypes.element,
+    selected: propTypes.bool,
+    disabled: propTypes.bool,
+    dragging: propTypes.bool,
+    overflow: propTypes.bool,
+    onClick: propTypes.func,
+    onRemove: propTypes.func,
 }
 
 export { Chip }

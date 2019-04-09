@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
 
 import Button from '../Button'
@@ -80,17 +80,17 @@ DropdownButton.defaultProps = {
 }
 
 DropdownButton.propTypes = {
-    className: PropTypes.string,
-    component: PropTypes.element.isRequired,
-    width: PropTypes.string,
-    icon: PropTypes.element,
-    label: PropTypes.string,
-    children: PropTypes.string,
-    kind: PropTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
-    type: PropTypes.oneOf(['submit', 'reset', 'button']),
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-    disabled: PropTypes.bool,
-    onClick: PropTypes.func,
+    className: propTypes.string,
+    component: propTypes.element.isRequired,
+    width: propTypes.string,
+    icon: propTypes.element,
+    label: propTypes.string,
+    children: propTypes.string,
+    kind: propTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
+    type: propTypes.oneOf(['submit', 'reset', 'button']),
+    size: propTypes.oneOf(['small', 'medium', 'large']),
+    disabled: propTypes.bool,
+    onClick: propTypes.func,
 }
 
 export { DropdownButton }

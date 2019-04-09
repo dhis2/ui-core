@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
@@ -145,17 +145,17 @@ export const Filled = ({ tailIcon: TailIcon, ...props }) => (
 )
 
 Filled.propTypes = {
-    label: PropTypes.string.isRequired,
+    label: propTypes.string.isRequired,
     children: children.isRequired,
-    hasValue: PropTypes.bool.isRequired,
-    htmlFor: PropTypes.string.isRequired,
+    hasValue: propTypes.bool.isRequired,
+    htmlFor: propTypes.string.isRequired,
 
-    tailIcon: PropTypes.element,
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
+    tailIcon: propTypes.element,
+    disabled: propTypes.bool,
+    required: propTypes.bool,
     status: iconStatusPropType,
     size: inputSizesPropTypes,
-    onClick: PropTypes.func,
+    onClick: propTypes.func,
 }
 
 Filled.defaultProps = {

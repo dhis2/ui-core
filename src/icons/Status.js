@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
@@ -47,7 +47,7 @@ export function Valid({ className }) {
 }
 
 Valid.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: propTypes.string.isRequired,
 }
 
 /**
@@ -86,7 +86,7 @@ export function Warning({ className }) {
 }
 
 Warning.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: propTypes.string.isRequired,
 }
 
 /**
@@ -125,7 +125,7 @@ export function Error({ className }) {
 }
 
 Error.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: propTypes.string.isRequired,
 }
 
 /**
@@ -145,7 +145,7 @@ export const StatusIconNoDefault = ({ status, className }) =>
 
 StatusIconNoDefault.propTypes = {
     status: iconStatusPropType,
-    className: PropTypes.string,
+    className: propTypes.string,
 }
 
 StatusIconNoDefault.defaultProps = {

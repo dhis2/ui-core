@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
@@ -135,25 +135,25 @@ InputField.defaultProps = {
 }
 
 InputField.propTypes = {
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    name: propTypes.string.isRequired,
+    onChange: propTypes.func.isRequired,
+    label: propTypes.string.isRequired,
+    value: propTypes.string.isRequired,
 
-    help: PropTypes.string,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
-    focus: PropTypes.bool,
+    help: propTypes.string,
+    className: propTypes.string,
+    disabled: propTypes.bool,
+    required: propTypes.bool,
+    focus: propTypes.bool,
     status: iconStatusPropType,
-    size: PropTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
-    kind: PropTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
+    size: propTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
+    kind: propTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
 
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
+    onFocus: propTypes.func,
+    onBlur: propTypes.func,
 
-    placeholder: PropTypes.string,
-    type: PropTypes.oneOf([
+    placeholder: propTypes.string,
+    type: propTypes.oneOf([
         types.TEXT,
         types.EMAIL,
         types.NUMBER,

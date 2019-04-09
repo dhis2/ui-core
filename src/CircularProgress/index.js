@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
 
 import styles from './styles.js'
@@ -50,9 +50,9 @@ CircularProgress.defaultProps = {
 }
 
 CircularProgress.propTypes = {
-    className: PropTypes.string,
-    overlay: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    className: propTypes.string,
+    overlay: propTypes.bool,
+    size: propTypes.oneOf(['small', 'medium', 'large']),
 }
 
 export { CircularProgress }
