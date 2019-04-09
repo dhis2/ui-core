@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Menu from '../Menu'
-import { isPointInRect } from '../utils'
 
 import css from 'styled-jsx/css'
 
@@ -26,17 +25,8 @@ class SplitButton extends Component {
     }
 
     onDocClick = evt => {
-        if (this.elContainer && this.elMenu) {
-            const target = { x: evt.clientX, y: evt.clientY }
-            const menu = this.elMenu.getBoundingClientRect()
-            const container = this.elContainer.getBoundingClientRect()
-
-            if (
-                !isPointInRect(target, menu) &&
-                !isPointInRect(target, container)
-            ) {
-                this.setState({ open: false })
-            }
+        if (this.elContainer && !this.elContainer.contains(evt.target)) {
+            this.setState({ open: false })
         }
     }
 
@@ -44,12 +34,6 @@ class SplitButton extends Component {
 
     render() {
         const { open } = this.state
-        let width = this.props.width
-        if (!width) {
-            width = this.elContainer
-                ? this.elContainer.getBoundingClientRect()['width']
-                : 'inherit'
-        }
 
         const icon = open ? <ArrowUp /> : <ArrowDown />
 
@@ -91,12 +75,8 @@ class SplitButton extends Component {
                 </button>
 
                 {open && (
-                    <div className="menu" ref={c => (this.elMenu = c)}>
-                        <Menu
-                            width={`${width}px`}
-                            list={this.props.list}
-                            onClick={this.props.onClick}
-                        />
+                    <div className="menu">
+                        {this.props.component && this.props.component}
                     </div>
                 )}
 
@@ -114,11 +94,11 @@ SplitButton.defaultProps = {
 }
 
 SplitButton.propTypes = {
-    className: PropTypes.string,
-    onClick: PropTypes.func.isRequired,
+    component: PropTypes.element.isRequired,
     label: PropTypes.string.isRequired,
-    list: PropTypes.array.isRequired,
-    width: PropTypes.string,
+    onClick: PropTypes.func.isRequired,
+
+    className: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary']),
     icon: PropTypes.element,
     disabled: PropTypes.bool,

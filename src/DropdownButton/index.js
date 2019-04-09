@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import Button from '../Button'
-import Menu from '../Menu'
-import { isPointInRect } from '../utils'
 
 import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
 
@@ -27,17 +25,8 @@ class DropdownButton extends Component {
     }
 
     onDocClick = evt => {
-        if (this.elContainer && this.elMenu) {
-            const target = { x: evt.clientX, y: evt.clientY }
-            const menu = this.elMenu.getBoundingClientRect()
-            const container = this.elContainer.getBoundingClientRect()
-
-            if (
-                !isPointInRect(target, menu) &&
-                !isPointInRect(target, container)
-            ) {
-                this.setState({ open: false })
-            }
+        if (this.elContainer && !this.elContainer.contains(evt.target)) {
+            this.setState({ open: false })
         }
     }
 
@@ -45,13 +34,6 @@ class DropdownButton extends Component {
 
     render() {
         const { open } = this.state
-
-        let width = this.props.width
-        if (!width) {
-            width = this.elContainer
-                ? this.elContainer.getBoundingClientRect()['width']
-                : 'inherit'
-        }
 
         const icon = open ? <ArrowUp /> : <ArrowDown />
 
@@ -78,18 +60,11 @@ class DropdownButton extends Component {
                         <span className="button-icon">{this.props.icon}</span>
                     )}
 
-                    <span className="menu-label">{this.props.label}</span>
+                    {this.props.label || this.props.children}
                     {icon}
                 </button>
 
-                {open && (
-                    <div className="menu" ref={c => (this.elMenu = c)}>
-                        <Menu
-                            list={this.props.list}
-                            onClick={this.props.onClick}
-                        />
-                    </div>
-                )}
+                {open && <div className="menu">{this.props.component}</div>}
 
                 <style jsx>{buttons}</style>
                 <style jsx>{styles}</style>
@@ -106,10 +81,11 @@ DropdownButton.defaultProps = {
 
 DropdownButton.propTypes = {
     className: PropTypes.string,
-    list: PropTypes.array.isRequired,
+    component: PropTypes.element.isRequired,
     width: PropTypes.string,
     icon: PropTypes.element,
     label: PropTypes.string,
+    children: PropTypes.string,
     kind: PropTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
     type: PropTypes.oneOf(['submit', 'reset', 'button']),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
