@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Card from '../Card'
-import MenuItem from '../MenuItem'
-import Divider from '../Divider'
 import cx from 'classnames'
 
 import styles from './styles'
@@ -22,14 +20,8 @@ Menu.defaultProps = {
 
 Menu.propTypes = {
     className: PropTypes.string,
-    children: PropTypes.arrayOf(
-        PropTypes.oneOf([
-            PropTypes.instanceOf(MenuItem),
-            PropTypes.instanceOf(Divider),
-        ])
-    ).isRequired,
+    children: PropTypes.arrayOf(PropTypes.element).isRequired,
     size: PropTypes.oneOf(['default', 'dense']),
 }
 
-export { MenuItem }
 export default Menu
