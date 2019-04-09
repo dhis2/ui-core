@@ -66,7 +66,7 @@ const styles = css`
         right: 0;
         position: absolute;
         top: 10px;
-        width: calc(100% - 20px);
+        width: calc(100% - 12px);
     }
 
     .legend.has-value:after {
