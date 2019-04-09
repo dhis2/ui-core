@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import { children } from '../../utils/react'
 import { iconStatusPropType, iconStatuses } from '../../icons/constants'
-import { inputSizes, inputSizesPropTypes } from '../constants'
+import { inputSizes, inputSizesPropTypes } from '../../forms/constants'
 
 const styles = css`
     .content {

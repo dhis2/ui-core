@@ -5,8 +5,12 @@ import cx from 'classnames'
 
 import { colors, theme } from '../../theme'
 import { iconStatuses, statusColors } from '../../icons/constants'
-import { innerSpacingSides, inputFontSizeValue, inputSizes } from '../constants'
-import { inputHeight, inputHeightDense } from '../LabelOutlined/constants'
+import {
+    innerSpacingSides,
+    inputFontSizeValue,
+    inputSizes,
+} from '../../forms/constants'
+import { inputHeight, inputHeightDense } from '../constants'
 
 const styles = css`
     .label {

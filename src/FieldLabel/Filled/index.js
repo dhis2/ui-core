@@ -3,17 +3,21 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { InputContainer } from './LabelFilled/InputContainer'
-import { Label } from './LabelFilled/Label'
-import { StatusIconNoDefault } from '../icons/Status'
-import { children } from '../utils/react'
-import { colors } from '../theme'
+import { InputContainer } from './InputContainer'
+import { Label } from './Label'
+import { StatusIconNoDefault } from '../../icons/Status'
+import { children } from '../../utils/react'
+import { colors } from '../../theme'
 import {
     iconStatusPropType,
     iconStatuses,
     statusColors,
-} from '../icons/constants'
-import { innerSpacingSides, inputSizes, inputSizesPropTypes } from './constants'
+} from '../../icons/constants'
+import {
+    innerSpacingSides,
+    inputSizes,
+    inputSizesPropTypes,
+} from '../../forms/constants'
 
 const styles = css`
     .label-filled {
@@ -110,7 +114,7 @@ const createLabelFilledClassName = props =>
         'has-value': props.hasValue,
     })
 
-export const LabelFilled = ({ tailIcon: TailIcon, ...props }) => (
+export const Filled = ({ tailIcon: TailIcon, ...props }) => (
     <div className={createLabelFilledClassName(props)} onClick={props.onClick}>
         <Label
             isFocused={props.isFocused}
@@ -141,7 +145,7 @@ export const LabelFilled = ({ tailIcon: TailIcon, ...props }) => (
     </div>
 )
 
-LabelFilled.propTypes = {
+Filled.propTypes = {
     label: PropTypes.string.isRequired,
     children: children.isRequired,
     hasValue: PropTypes.bool.isRequired,
@@ -155,7 +159,7 @@ LabelFilled.propTypes = {
     onClick: PropTypes.func,
 }
 
-LabelFilled.defaultProps = {
+Filled.defaultProps = {
     disabled: false,
     required: false,
     status: iconStatuses.DEFAULT,

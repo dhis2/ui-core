@@ -3,22 +3,22 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { InputContainer } from './LabelOutlined/InputContainer'
-import { Label } from './LabelOutlined/Label'
-import { StatusIconNoDefault } from '../icons/Status'
-import {
-    borderRadius,
-    inputHeight,
-    inputHeightDense,
-} from './LabelOutlined/constants'
-import { children } from '../utils/react'
-import { colors } from '../theme'
+import { InputContainer } from './InputContainer'
+import { Label } from './Label'
+import { StatusIconNoDefault } from '../../icons/Status'
+import { borderRadius, inputHeight, inputHeightDense } from '../constants'
+import { children } from '../../utils/react'
+import { colors } from '../../theme'
 import {
     iconStatusPropType,
     iconStatuses,
     statusColors,
-} from '../icons/constants'
-import { innerSpacingSides, inputSizes, inputSizesPropTypes } from './constants'
+} from '../../icons/constants'
+import {
+    innerSpacingSides,
+    inputSizes,
+    inputSizesPropTypes,
+} from '../../forms/constants'
 
 const styles = css`
     .label-outlined {
@@ -99,7 +99,7 @@ const createLabelOutlinedClassName = props =>
         disabled: props.disabled,
     })
 
-export const LabelOutlined = ({ tailIcon: TailIcon, ...props }) => (
+export const Outlined = ({ tailIcon: TailIcon, ...props }) => (
     <div className={createLabelOutlinedClassName(props)}>
         <Label
             size={props.size}
@@ -122,7 +122,7 @@ export const LabelOutlined = ({ tailIcon: TailIcon, ...props }) => (
     </div>
 )
 
-LabelOutlined.propTypes = {
+Outlined.propTypes = {
     label: PropTypes.string.isRequired,
     children: children.isRequired,
     hasValue: PropTypes.bool.isRequired,
@@ -134,11 +134,9 @@ LabelOutlined.propTypes = {
     size: inputSizesPropTypes,
 }
 
-LabelOutlined.defaultProps = {
+Outlined.defaultProps = {
     status: iconStatuses.DEFAULT,
     size: inputSizes.DEFAULT,
     htmlFor: '',
     tailIcon: () => null,
 }
-
-export default LabelOutlined
