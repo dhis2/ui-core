@@ -43,6 +43,10 @@ const styles = css`
     }
 
     select.filled {
+        padding-top: 24px;
+    }
+
+    select.filled.dense {
         padding-top: 20px;
     }
 

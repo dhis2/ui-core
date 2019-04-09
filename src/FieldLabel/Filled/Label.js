@@ -20,7 +20,7 @@ const styles = css`
         font-size: ${inputFontSizeValue};
         height: ${inputHeight}px;
         left: 0;
-        line-height: ${inputHeight}px;
+        line-height: ${inputHeight + 2}px;
         padding-left: ${innerSpacingSides};
         position: absolute;
         top: 0;
@@ -54,7 +54,7 @@ const styles = css`
     .label.dense.has-value {
         height: auto;
         line-height: 12px;
-        transform: translate(0, 7px);
+        transform: translate(0, 8px);
     }
 
     .label.required::after {

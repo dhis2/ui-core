@@ -13,13 +13,7 @@ const styles = css`
         flex-grow: 1;
         height: 100%;
         min-width: 0;
-        padding-top: 27px;
-        visibility: hidden;
         position: relative;
-    }
-
-    .content.dense {
-        padding-top: 22px;
     }
 
     .content.focused,

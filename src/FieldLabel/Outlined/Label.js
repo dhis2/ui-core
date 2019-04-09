@@ -124,7 +124,7 @@ const styles = css`
     .dense.has-no-value .legend-label {
         height: ${inputHeightDense}px;
         line-height: ${inputHeightDense}px;
-        transform: translate(0px, 10px);
+        transform: translate(0px, 11px);
     }
 
     .legend.dense:before,

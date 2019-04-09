@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { colors } from '../theme'
 import {
     innerSpacingSides,
     inputFontSizeValue,
@@ -20,10 +21,22 @@ const styles = css`
         font-size: ${inputFontSizeValue};
         height: 100%;
         line-height: 16px;
-        padding: 3px 0 10px 16px;
         outline: 0;
         user-select: text;
         width: 100%;
+    }
+
+    .input.filled {
+        padding: 32px 0 8px 16px;
+    }
+
+    .input.outlined {
+        padding: 18px 0 18px 16px;
+    }
+
+    .input.disabled {
+        color: ${colors.grey500};
+        cursor: not-allowed;
     }
 
     ${/** 15px => 16px inner spacing - 1px for border**/ ''}
@@ -33,6 +46,12 @@ const styles = css`
 
     .input.filled.dense {
         font-size: 14px;
+        padding: 25px 0 5px 16px;
+    }
+
+    .input.outlined.dense {
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
 `
 
@@ -49,6 +68,7 @@ export class Input extends Component {
         const paddingTop = calculatePaddingTop(this.props)
         const className = cx('input', {
             dense: this.props.isDense,
+            filled: this.props.kind === inputKinds.FILLED,
             outlined: this.props.kind === inputKinds.OUTLINED,
             disabled: this.props.disabled,
         })

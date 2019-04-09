@@ -79,7 +79,6 @@ const styles = css`
         height: 100%;
         position: relative;
         width: 100%;
-        z-index: -1;
     }
 
     .focused .content,

@@ -78,7 +78,6 @@ class InputField extends React.Component {
                 className={cx('base', this.props.className, {
                     disabled: this.props.disabled,
                 })}
-                onClick={this.onFocus}
             >
                 <Container
                     label={this.props.label}
