@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
@@ -152,12 +152,12 @@ export const Label = props => (
 )
 
 Label.propTypes = {
-    label: PropTypes.string.isRequired,
-    hasValue: PropTypes.bool.isRequired,
+    label: propTypes.string.isRequired,
+    hasValue: propTypes.bool.isRequired,
     status: iconStatusPropType.isRequired,
     size: inputSizesPropTypes.isRequired,
-    htmlFor: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
+    htmlFor: propTypes.string.isRequired,
+    disabled: propTypes.bool,
 }
 
 Label.defaultProps = {

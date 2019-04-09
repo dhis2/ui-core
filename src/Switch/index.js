@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
 
 import styles from './styles'
@@ -45,13 +45,13 @@ Switch.defaultProps = {
 }
 
 Switch.propTypes = {
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    className: PropTypes.string,
-    checked: PropTypes.bool,
-    label: PropTypes.string,
-    disabled: PropTypes.bool,
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    name: propTypes.string.isRequired,
+    onChange: propTypes.func.isRequired,
+    className: propTypes.string,
+    checked: propTypes.bool,
+    label: propTypes.string,
+    disabled: propTypes.bool,
+    status: propTypes.oneOf(['default', 'valid', 'warning', 'error']),
 }
 
 export { Switch }

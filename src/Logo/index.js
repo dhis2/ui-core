@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 
 export function LogoIcon({ fill, className }) {
     return (
@@ -30,8 +30,8 @@ LogoIcon.defaultProps = {
 }
 
 LogoIcon.propTypes = {
-    className: PropTypes.string,
-    fill: PropTypes.string,
+    className: propTypes.string,
+    fill: propTypes.string,
 }
 
 export const LogoIconWhite = ({ className }) => (
@@ -94,9 +94,9 @@ Logo.defaultProps = {
 }
 
 Logo.propTypes = {
-    className: PropTypes.string,
-    fill1: PropTypes.string,
-    fill2: PropTypes.string,
+    className: propTypes.string,
+    fill1: propTypes.string,
+    fill2: propTypes.string,
 }
 
 export const LogoWhite = () => <Logo fill1="#ffffff" fill2="#ffffff" />

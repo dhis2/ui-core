@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
@@ -95,15 +95,15 @@ export class Input extends Component {
 }
 
 Input.propTypes = {
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    disabled: PropTypes.bool.isRequired,
-    isFocused: PropTypes.bool.isRequired,
-    onFocus: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
-    placeholder: PropTypes.string.isRequired,
-    kind: PropTypes.arrayOf([inputKinds.FILLED, inputKinds.OUTLINED])
+    name: propTypes.string.isRequired,
+    type: propTypes.string.isRequired,
+    value: propTypes.string.isRequired,
+    disabled: propTypes.bool.isRequired,
+    isFocused: propTypes.bool.isRequired,
+    onFocus: propTypes.func.isRequired,
+    onBlur: propTypes.func.isRequired,
+    onChange: propTypes.func.isRequired,
+    placeholder: propTypes.string.isRequired,
+    kind: propTypes.arrayOf([inputKinds.FILLED, inputKinds.OUTLINED])
         .isRequired,
 }

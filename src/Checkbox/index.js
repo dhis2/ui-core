@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
 
 import { colors } from '../theme.js'
@@ -108,15 +108,15 @@ Checkbox.defaultProps = {
 }
 
 Checkbox.propTypes = {
-    className: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    checked: PropTypes.bool,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    indeterminate: PropTypes.bool,
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    className: propTypes.string,
+    onChange: propTypes.func.isRequired,
+    name: propTypes.string.isRequired,
+    label: propTypes.string,
+    checked: propTypes.bool,
+    required: propTypes.bool,
+    disabled: propTypes.bool,
+    indeterminate: propTypes.bool,
+    status: propTypes.oneOf(['default', 'valid', 'warning', 'error']),
 }
 
 export { Checkbox }

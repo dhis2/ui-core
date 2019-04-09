@@ -45,6 +45,7 @@
     "react-dev-utils": "^9.0.0",
     "size-limit": "^1.0.0",
     "storybook-addon-jsx": "^7.0.0",
+    "storybook-addon-react-docgen": "^1.2.1",
     "typeface-roboto": "^0.0.54"
   },
   "peerDependencies": {

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
 import styles from './styles'
 
@@ -86,13 +86,13 @@ MenuItem.defaultProps = {
 }
 
 MenuItem.propTypes = {
-    label: PropTypes.oneOf([PropTypes.string, PropTypes.element]).isRequired,
-    value: PropTypes.any.isRequired,
-    className: PropTypes.string,
-    icon: PropTypes.element,
-    children: PropTypes.element,
-    active: PropTypes.bool,
-    disabled: PropTypes.bool,
-    size: PropTypes.string,
-    onClick: PropTypes.func,
+    label: propTypes.oneOf([propTypes.string, propTypes.element]).isRequired,
+    value: propTypes.any.isRequired,
+    className: propTypes.string,
+    icon: propTypes.element,
+    children: propTypes.element,
+    active: propTypes.bool,
+    disabled: propTypes.bool,
+    size: propTypes.string,
+    onClick: propTypes.func,
 }

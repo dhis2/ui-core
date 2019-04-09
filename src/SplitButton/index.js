@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import Menu from '../Menu'
 
 import css from 'styled-jsx/css'
@@ -94,15 +94,15 @@ SplitButton.defaultProps = {
 }
 
 SplitButton.propTypes = {
-    component: PropTypes.element.isRequired,
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
+    component: propTypes.element.isRequired,
+    label: propTypes.string.isRequired,
+    onClick: propTypes.func.isRequired,
 
-    className: PropTypes.string,
-    kind: PropTypes.oneOf(['basic', 'primary']),
-    icon: PropTypes.element,
-    disabled: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    className: propTypes.string,
+    kind: propTypes.oneOf(['basic', 'primary']),
+    icon: propTypes.element,
+    disabled: propTypes.bool,
+    size: propTypes.oneOf(['small', 'medium', 'large']),
 }
 
 export { SplitButton }

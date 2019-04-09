@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 
 /**
  * Variants
@@ -9,7 +9,7 @@ export const inputKinds = {
     OUTLINED: 'outlined',
 }
 
-export const inputKindPropTypes = PropTypes.oneOf([
+export const inputKindPropTypes = propTypes.oneOf([
     inputKinds.FILLED,
     inputKinds.OUTLINED,
 ])
@@ -19,7 +19,7 @@ export const inputSizes = {
     DENSE: 'dense',
 }
 
-export const inputSizesPropTypes = PropTypes.oneOf([
+export const inputSizesPropTypes = propTypes.oneOf([
     inputSizes.DEFAULT,
     inputSizes.DENSE,
 ])
