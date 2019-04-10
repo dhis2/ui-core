@@ -9,7 +9,7 @@ import { Select } from './Select'
 import { colors } from '../theme'
 import { iconStatusPropType, iconStatuses } from '../icons/constants'
 import { inputKinds, inputSizes } from '../forms/constants'
-import Help from '../Help'
+import { Help } from '../Help'
 
 const styles = css`
     .base {
