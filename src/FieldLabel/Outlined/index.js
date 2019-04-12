@@ -78,6 +78,7 @@ const styles = css`
         flex-shrink: 0;
         width: 24px;
         height: 24px;
+        margin-right: 4px;
     }
 
     .status-icon:empty {
@@ -99,7 +100,7 @@ const createLabelOutlinedClassName = props =>
         disabled: props.disabled,
     })
 
-export const Outlined = ({ tailIcon: TailIcon, ...props }) => (
+export const Outlined = ({ ...props }) => (
     <div className={createLabelOutlinedClassName(props)}>
         <Label
             size={props.size}
@@ -115,7 +116,6 @@ export const Outlined = ({ tailIcon: TailIcon, ...props }) => (
             <div className="status-icon">
                 <StatusIconNoDefault status={props.status} />
             </div>
-            <TailIcon />
         </div>
 
         <style jsx>{styles}</style>
@@ -128,7 +128,6 @@ Outlined.propTypes = {
     hasValue: propTypes.bool.isRequired,
     htmlFor: propTypes.string.isRequired,
 
-    tailIcon: propTypes.element,
     required: propTypes.bool,
     status: iconStatusPropType,
     size: inputSizesPropTypes,
@@ -138,5 +137,4 @@ Outlined.defaultProps = {
     status: iconStatuses.DEFAULT,
     size: inputSizes.DEFAULT,
     htmlFor: '',
-    tailIcon: () => null,
 }

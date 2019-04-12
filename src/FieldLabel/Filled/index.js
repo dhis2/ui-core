@@ -113,7 +113,7 @@ const createLabelFilledClassName = props =>
         'has-value': props.hasValue,
     })
 
-export const Filled = ({ tailIcon: TailIcon, ...props }) => (
+export const Filled = ({ ...props }) => (
     <div className={createLabelFilledClassName(props)} onClick={props.onClick}>
         <Label
             isFocused={props.isFocused}
@@ -137,7 +137,6 @@ export const Filled = ({ tailIcon: TailIcon, ...props }) => (
             <div className="status-icon">
                 <StatusIconNoDefault status={props.status} />
             </div>
-            <TailIcon />
         </div>
 
         <style jsx>{styles}</style>
@@ -150,7 +149,6 @@ Filled.propTypes = {
     hasValue: propTypes.bool.isRequired,
     htmlFor: propTypes.string.isRequired,
 
-    tailIcon: propTypes.element,
     disabled: propTypes.bool,
     required: propTypes.bool,
     status: iconStatusPropType,
@@ -163,6 +161,5 @@ Filled.defaultProps = {
     required: false,
     status: iconStatuses.DEFAULT,
     size: inputSizes.DEFAULT,
-    tailIcon: () => null,
     onClick: null,
 }

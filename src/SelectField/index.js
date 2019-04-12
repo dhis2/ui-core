@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { Arrow } from './Arrow'
+import { ArrowDown } from '../icons/Arrow'
 import { LabelFilled, LabelOutlined } from '../FieldLabel'
 import { Select } from './Select'
 import { colors } from '../theme'
@@ -28,6 +28,19 @@ const styles = css`
     }
 `
 
+const TailIcon = () => (
+    <div>
+        <ArrowDown />
+        <style jsx>{`
+            div {
+                pointer-events: none;
+                position: absolute;
+                right: 4px;
+            }
+        `}</style>
+    </div>
+)
+
 class SelectField extends React.Component {
     elContainer = React.createRef()
 
@@ -36,7 +49,6 @@ class SelectField extends React.Component {
 
         this.state = {
             focused: props.focused,
-            open: false,
         }
     }
 
@@ -50,7 +62,7 @@ class SelectField extends React.Component {
 
     onDocClick = evt => {
         if (this.elContainer && !this.elContainer.contains(evt.target)) {
-            this.setState({ focused: false, show: false })
+            this.setState({ focused: false })
         }
     }
 
@@ -86,7 +98,6 @@ class SelectField extends React.Component {
     }
 
     render() {
-        const { open } = this.state
         const isFilled = this.props.kind === inputKinds.FILLED
         const isDense = this.props.size === inputSizes.DENSE
         const Container =
@@ -103,14 +114,13 @@ class SelectField extends React.Component {
             >
                 <Container
                     label={this.props.label}
-                    isFocused={this.state.focused}
+                    isFocused={this.isFocused()}
                     hasValue={true}
                     htmlFor={this.props.name}
                     required={this.props.required}
                     disabled={this.props.disabled}
                     status={this.props.status}
                     size={this.props.size}
-                    tailIcon={() => <Arrow open={this.state.open} />}
                     onClick={this.onFocus}
                 >
                     <Select
@@ -123,6 +133,8 @@ class SelectField extends React.Component {
                         onFocus={this.onFocus}
                         onBlur={this.onBlur}
                     />
+
+                    <TailIcon />
                 </Container>
 
                 {this.props.help && (
@@ -143,8 +155,6 @@ SelectField.defaultProps = {
     className: '',
     disabled: false,
     required: false,
-    onFocus: null,
-    onBlur: null,
 }
 
 SelectField.propTypes = {
