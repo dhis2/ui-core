@@ -78,9 +78,11 @@ storiesOf('DropdownButton', module)
     ))
 
     .add('With Menu', () => (
-        <DropdownButton label="Drop it with menu!" component={menu} />
+        <DropdownButton component={menu}>Drop it with menu!</DropdownButton>
     ))
 
     .add('With Radio component in menu', () => (
-        <DropdownButton label="Drop it with menu!" component={componentMenu} />
+        <DropdownButton component={componentMenu}>
+            Drop it with menu!
+        </DropdownButton>
     ))

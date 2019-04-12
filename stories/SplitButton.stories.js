@@ -72,16 +72,15 @@ const menu = (
 
 storiesOf('SplitButton', module)
     .add('Default', () => (
-        <SplitButton
-            label="Drop it!"
-            component={<span>Simplest thing!</span>}
-        />
+        <SplitButton component={<span>Simplest thing!</span>}>
+            Drop it with menu!
+        </SplitButton>
     ))
 
     .add('With Menu', () => (
-        <SplitButton label="Drop it with menu!" component={menu} />
+        <SplitButton component={menu}>Drop it with menu!</SplitButton>
     ))
 
     .add('With Radio component in menu', () => (
-        <SplitButton label="Drop it with menu!" component={componentMenu} />
+        <SplitButton component={componentMenu}>Drop it with menu!</SplitButton>
     ))
