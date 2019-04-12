@@ -96,6 +96,15 @@ function createStory(name, wrapperCreator) {
         )
 
         .add(
+            'Status: Loading',
+            wrapperCreator({
+                status: 'loading',
+                value: 'This value produces a loading state',
+            }),
+            { notes }
+        )
+
+        .add(
             'Disabled',
             wrapperCreator({
                 disabled: true,

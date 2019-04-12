@@ -6,6 +6,7 @@ export const iconStatuses = {
     VALID: 'valid',
     WARNING: 'warning',
     ERROR: 'error',
+    LOADING: 'loading',
 }
 
 export const statusColors = {
@@ -13,6 +14,7 @@ export const statusColors = {
     [iconStatuses.VALID]: colors.blue600,
     [iconStatuses.WARNING]: colors.yellow500,
     [iconStatuses.ERROR]: colors.red500,
+    [iconStatuses.LOADING]: colors.blue600,
 }
 
 export const iconStatusPropType = propTypes.oneOf([
@@ -20,4 +22,5 @@ export const iconStatusPropType = propTypes.oneOf([
     iconStatuses.VALID,
     iconStatuses.WARNING,
     iconStatuses.ERROR,
+    iconStatuses.LOADING,
 ])
