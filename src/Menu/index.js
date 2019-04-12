@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import styles from './styles'
 
-function Menu({ size, width, children, className }) {
+function Menu({ size, children, className }) {
     return (
         <Card>
             <ul className={cx('base', size, className)}>{children}</ul>
