@@ -5,12 +5,14 @@ import cx from 'classnames'
 import { children } from '../../utils/react'
 import { iconStatusPropType, iconStatuses } from '../../icons/constants'
 import { inputSizes, inputSizesPropTypes } from '../../forms/constants'
+import { inputHeight, inputHeightDense } from '../constants'
 
 const styles = css`
     .content {
         box-sizing: border-box;
         flex-grow: 1;
         height: 100%;
+        line-height: ${inputHeight}px;
         min-width: 0;
         position: relative;
     }
@@ -18,6 +20,10 @@ const styles = css`
     .content.focused,
     .content.has-value {
         visibility: visible;
+    }
+
+    .content.dense {
+        line-height: ${inputHeightDense}px;
     }
 `
 
