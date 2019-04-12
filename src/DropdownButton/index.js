@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
+import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import Button from '../Button'
-
 import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
+import { DropMenu } from '../DropMenu'
 
 import buttons from '../Button/styles.js'
-import styles from './styles.js'
-
-import css from 'styled-jsx/css'
 
 class DropdownButton extends Component {
     state = {
@@ -64,10 +61,17 @@ class DropdownButton extends Component {
                     {icon}
                 </button>
 
-                {open && <div className="menu">{this.props.component}</div>}
+                {open && <DropMenu component={this.props.component} />}
 
                 <style jsx>{buttons}</style>
-                <style jsx>{styles}</style>
+                <style jsx>{`
+                    div {
+                        display: inline-flex;
+                        position: relative;
+                        color: inherit;
+                        white-space: nowrap;
+                    }
+                `}</style>
             </div>
         )
     }

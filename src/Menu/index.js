@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import Card from '../Card'
+import { Card } from '../Card'
 import cx from 'classnames'
 
 import styles from './styles'
