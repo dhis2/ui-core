@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
-import Menu from '../Menu'
 
 import css from 'styled-jsx/css'
 
 import buttons from '../Button/styles.js'
 
 import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
+import { DropMenu } from '../DropMenu'
 
 import cx from 'classnames'
-import styles from './styles'
 
 class SplitButton extends Component {
     state = {
@@ -74,14 +73,28 @@ class SplitButton extends Component {
                     {icon}
                 </button>
 
-                {open && (
-                    <div className="menu">
-                        {this.props.component && this.props.component}
-                    </div>
-                )}
+                {open && <DropMenu component={this.props.component} />}
 
                 <style jsx>{buttons}</style>
-                <style jsx>{styles}</style>
+                <style jsx>{`
+                    div {
+                        display: inline-flex;
+                        position: relative;
+                        color: inherit;
+                        white-space: nowrap;
+                    }
+
+                    button:first-child {
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+                    }
+
+                    button:nth-child(2) {
+                        padding: 0 9px;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                    }
+                `}</style>
             </div>
         )
     }
