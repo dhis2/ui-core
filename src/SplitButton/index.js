@@ -39,6 +39,8 @@ class SplitButton extends Component {
         return (
             <div ref={c => (this.elContainer = c)}>
                 <button
+                    name={this.props.name}
+                    value={this.props.value}
                     disabled={this.props.disabled}
                     onClick={this.props.onClick}
                     className={cx(
@@ -48,9 +50,7 @@ class SplitButton extends Component {
                         this.props.className,
                         {
                             'icon-only':
-                                this.props.icon &&
-                                !this.props.label &&
-                                !this.props.children,
+                                this.props.icon && !this.props.children,
                             icon: this.props.icon,
                         }
                     )}
@@ -58,7 +58,7 @@ class SplitButton extends Component {
                     {this.props.icon && (
                         <span className="button-icon">{this.props.icon}</span>
                     )}
-                    {this.props.label || this.props.children}
+                    {this.props.children}
                 </button>
 
                 <button
@@ -108,9 +108,10 @@ SplitButton.defaultProps = {
 
 SplitButton.propTypes = {
     component: propTypes.element.isRequired,
-    label: propTypes.string.isRequired,
     onClick: propTypes.func.isRequired,
-
+    children: propTypes.string,
+    name: propTypes.string,
+    value: propTypes.string,
     className: propTypes.string,
     kind: propTypes.oneOf(['basic', 'primary']),
     icon: propTypes.element,

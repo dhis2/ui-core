@@ -32,7 +32,7 @@ class DropdownButton extends Component {
     render() {
         const { open } = this.state
 
-        const icon = open ? <ArrowUp /> : <ArrowDown />
+        const ArrowIcon = open ? <ArrowUp /> : <ArrowDown />
 
         return (
             <div ref={c => (this.elContainer = c)}>
@@ -46,9 +46,7 @@ class DropdownButton extends Component {
                         this.props.className,
                         {
                             'icon-only':
-                                this.props.icon &&
-                                !this.props.label &&
-                                !this.props.children,
+                                this.props.icon && !this.props.children,
                             icon: this.props.icon,
                         }
                     )}
@@ -57,8 +55,9 @@ class DropdownButton extends Component {
                         <span className="button-icon">{this.props.icon}</span>
                     )}
 
-                    {this.props.label || this.props.children}
-                    {icon}
+                    {this.props.children}
+
+                    {ArrowIcon}
                 </button>
 
                 {open && <DropMenu component={this.props.component} />}
@@ -88,7 +87,6 @@ DropdownButton.propTypes = {
     component: propTypes.element.isRequired,
     width: propTypes.string,
     icon: propTypes.element,
-    label: propTypes.string,
     children: propTypes.string,
     kind: propTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
     type: propTypes.oneOf(['submit', 'reset', 'button']),
