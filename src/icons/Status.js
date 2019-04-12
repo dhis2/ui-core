@@ -2,13 +2,14 @@ import propTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
-import { colors } from '../theme'
+import { theme, colors } from '../theme'
 import { iconStatusPropType, iconStatuses } from './constants'
 
 export const statusToIcon = {
     [iconStatuses.VALID]: Valid,
     [iconStatuses.WARNING]: Warning,
     [iconStatuses.ERROR]: Error,
+    [iconStatuses.LOADING]: Loading,
 }
 
 /**
@@ -129,6 +130,81 @@ Error.propTypes = {
 }
 
 /**
+ * Icon: Loading
+ * =============
+ */
+
+const iconStyleLoading = css`
+    svg {
+        fill: ${theme.primary600};
+        color: ${theme.primary600};
+        width: 24px;
+        height: 24px;
+        margin-right: 4px;
+        animation: anim-rotate 1.4s linear infinite;
+    }
+
+    .circle {
+        stroke: currentColor;
+        stroke-dasharray: 80px, 200px;
+        stroke-dashoffset: 0;
+        animation: anim-dash 1.4s ease-in-out infinite;
+    }
+
+    @keyframes anim-rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes anim-dash {
+        0% {
+            stroke-dasharray: 1px, 200px;
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dasharray: 100px, 200px;
+            stroke-dashoffset: -15px;
+        }
+        100% {
+            stroke-dasharray: 100px, 200px;
+            stroke-dashoffset: -120px;
+        }
+    }
+`
+
+/**
+ * @param {Object} props
+ * @param {string} props.className
+ * @returns {ReactNode}
+ */
+export function Loading({ className }) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="22 22 44 44"
+            className={className}
+        >
+            <circle
+                className="circle"
+                cx="44"
+                cy="44"
+                r="20.2"
+                fill="none"
+                strokeWidth="3.6"
+            />
+            <style jsx>{iconStyleLoading}</style>
+        </svg>
+    )
+}
+
+Loading.propTypes = {
+    className: propTypes.string.isRequired,
+}
+
+/**
  * @param {Object} props
  * @param {string} props.status
  * @param {string} props.className
@@ -141,6 +217,8 @@ export const StatusIconNoDefault = ({ status, className }) =>
         <Warning className={className} />
     ) : status === iconStatuses.ERROR ? (
         <Error className={className} />
+    ) : status === iconStatuses.LOADING ? (
+        <Loading className={className} />
     ) : null
 
 StatusIconNoDefault.propTypes = {
