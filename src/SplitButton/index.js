@@ -42,7 +42,10 @@ class SplitButton extends Component {
                     name={this.props.name}
                     value={this.props.value}
                     disabled={this.props.disabled}
-                    onClick={this.props.onClick}
+                    onClick={evt =>
+                        this.props.onClick &&
+                        this.props.onClick(this.props.name, this.props.value)
+                    }
                     className={cx(
                         'base',
                         `kind-${this.props.kind}`,
@@ -104,6 +107,8 @@ SplitButton.defaultProps = {
     size: 'medium',
     kind: 'basic',
     disabled: false,
+    name: '',
+    value: '',
 }
 
 SplitButton.propTypes = {

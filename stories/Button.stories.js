@@ -7,7 +7,15 @@ storiesOf('Button', module)
         notes: 'Yo!',
     })
 
-    .add('Default with label prop', () => <Button label="Label me!" />)
+    .add('Default with label prop', () => (
+        <Button
+            name="foo"
+            value="bar"
+            onClick={(n, v) => alert(`Clicked button ${n} with ${v}`)}
+        >
+            Label me!
+        </Button>
+    ))
 
     .add('Primary', () => <Button kind="primary">Label me!</Button>)
 

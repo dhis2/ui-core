@@ -20,7 +20,7 @@ function Button({
     return (
         <button
             disabled={disabled}
-            onClick={onClick}
+            onClick={evt => onClick && onClick(name, value)}
             className={cx('base', `kind-${kind}`, `size-${size}`, className, {
                 'icon-only': icon && !children,
                 icon,
@@ -38,6 +38,8 @@ function Button({
 }
 
 Button.defaultProps = {
+    name: '',
+    value: '',
     kind: 'basic',
     type: 'button',
     size: 'medium',

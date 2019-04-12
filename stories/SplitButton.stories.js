@@ -72,7 +72,12 @@ const menu = (
 
 storiesOf('SplitButton', module)
     .add('Default', () => (
-        <SplitButton component={<span>Simplest thing!</span>}>
+        <SplitButton
+            name="foo"
+            value="bar"
+            onClick={(n, v) => alert(`Clicked button ${n} with ${v}`)}
+            component={<span>Simplest thing!</span>}
+        >
             Drop it with menu!
         </SplitButton>
     ))
