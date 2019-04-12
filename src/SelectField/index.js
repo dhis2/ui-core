@@ -42,27 +42,11 @@ const TailIcon = () => (
 )
 
 class SelectField extends React.Component {
-    elContainer = React.createRef()
-
     constructor(props) {
         super(props)
 
         this.state = {
             focused: props.focused,
-        }
-    }
-
-    componentDidMount() {
-        document.addEventListener('click', this.onDocClick)
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('click', this.onDocClick)
-    }
-
-    onDocClick = evt => {
-        if (this.elContainer && !this.elContainer.contains(evt.target)) {
-            this.setState({ focused: false })
         }
     }
 
@@ -93,10 +77,6 @@ class SelectField extends React.Component {
         return this.state.focused
     }
 
-    shrink() {
-        return !!(this.isFocused() || this.props.value)
-    }
-
     render() {
         const isFilled = this.props.kind === inputKinds.FILLED
         const isDense = this.props.size === inputSizes.DENSE
@@ -105,7 +85,6 @@ class SelectField extends React.Component {
 
         return (
             <div
-                ref={c => (this.elContainer = c)}
                 className={cx('base', this.props.className, {
                     selected: !!this.props.value,
                     disabled: this.props.disabled,
