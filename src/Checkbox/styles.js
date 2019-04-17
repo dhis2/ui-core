@@ -24,7 +24,7 @@ export default css`
 
     .label {
         margin: 0 0 0 8px;
-        color: ${colors.grey700};
+        color: ${colors.grey900};
         cursor: pointer;
     }
 

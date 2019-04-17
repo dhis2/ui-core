@@ -12,7 +12,7 @@ import css from 'styled-jsx/css'
 const icons = {
     default: css.resolve`
 		svg {
-			fill: ${colors.grey700};
+			fill: ${colors.grey600};
 			height: 24px;
 			width: 24px;
 		}
