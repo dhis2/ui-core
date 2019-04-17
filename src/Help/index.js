@@ -33,11 +33,11 @@ function Help({ text, status, className }) {
                 }
 
                 .status-error {
-                    color: ${colors.red500};
+                    color: ${colors.red600};
                 }
 
                 .status-warning {
-                    color: ${colors.yellow500};
+                    color: ${colors.yellow800};
                 }
             `}</style>
         </p>

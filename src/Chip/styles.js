@@ -17,12 +17,13 @@ export default css`
     }
 
     .base:hover {
-        background-color: #e0f2f1;
+        background-color: ${colors.grey300};
     }
 
     .selected,
     .selected.static:hover {
         background-color: ${theme.secondary600};
+        font-weight: 500;
     }
 
     .selected:hover {
