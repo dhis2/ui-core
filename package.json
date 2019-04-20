@@ -15,7 +15,7 @@
     "prebuild": "rm -rf ./build/*",
     "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
     "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
-    "build": "yarn build:commonjs && yarn build:modules",
+    "build": "NODE_ENV=production yarn build:commonjs && yarn build:modules",
     "postbuild": "yarn build-storybook && size-limit",
     "build-storybook": "build-storybook -c .storybook -o ./build/docs",
     "start-storybook": "start-storybook --port 5000",
