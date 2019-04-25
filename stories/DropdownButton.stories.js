@@ -77,6 +77,12 @@ storiesOf('DropdownButton', module)
         </DropdownButton>
     ))
 
+    .add('Primary', () => (
+        <DropdownButton primary large component={<span>Simplest thing</span>}>
+            Default
+        </DropdownButton>
+    ))
+
     .add('With Menu', () => (
         <DropdownButton component={menu}>Drop it with menu!</DropdownButton>
     ))

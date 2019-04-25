@@ -4,9 +4,9 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
-import { DropMenu } from '../DropMenu'
 
-import buttons from '../Button/styles.js'
+import { DropMenu } from '../DropMenu'
+import { Button } from '../Button'
 
 class DropdownButton extends Component {
     state = {
@@ -36,33 +36,19 @@ class DropdownButton extends Component {
 
         return (
             <div ref={c => (this.elContainer = c)}>
-                <button
-                    disabled={this.props.disabled}
+                <Button
+                    {...this.props}
                     onClick={this.onToggle}
-                    className={cx(
-                        'base',
-                        `kind-${this.props.kind}`,
-                        `size-${this.props.size}`,
-                        this.props.className,
-                        {
-                            'icon-only':
-                                this.props.icon && !this.props.children,
-                            icon: this.props.icon,
-                        }
-                    )}
+                    className={this.props.className}
+                    icon={this.props.icon}
                 >
-                    {this.props.icon && (
-                        <span className="button-icon">{this.props.icon}</span>
-                    )}
-
                     {this.props.children}
 
                     {ArrowIcon}
-                </button>
+                </Button>
 
                 {open && <DropMenu component={this.props.component} />}
 
-                <style jsx>{buttons}</style>
                 <style jsx>{`
                     div {
                         display: inline-flex;
@@ -76,21 +62,18 @@ class DropdownButton extends Component {
     }
 }
 
-DropdownButton.defaultProps = {
-    size: 'medium',
-    kind: 'basic',
-    disabled: false,
-}
-
 DropdownButton.propTypes = {
     className: propTypes.string,
     component: propTypes.element.isRequired,
-    width: propTypes.string,
     icon: propTypes.element,
     children: propTypes.string,
-    kind: propTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
-    type: propTypes.oneOf(['submit', 'reset', 'button']),
-    size: propTypes.oneOf(['small', 'medium', 'large']),
+
+    small: propTypes.bool,
+    large: propTypes.bool,
+
+    primary: propTypes.bool,
+    secondary: propTypes.bool,
+    destructive: propTypes.bool,
     disabled: propTypes.bool,
     onClick: propTypes.func,
 }

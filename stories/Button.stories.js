@@ -80,6 +80,25 @@ storiesOf('Button', module)
         </>
     ))
 
+    .add('Secondary: Disabled', () => (
+        <>
+            Default:{' '}
+            <Button secondary disabled>
+                Label me!
+            </Button>
+            <Divider />
+            Small:{' '}
+            <Button secondary small disabled>
+                Label me!
+            </Button>
+            <Divider />
+            Large:{' '}
+            <Button secondary large disabled>
+                Label me!
+            </Button>
+        </>
+    ))
+
     .add('Destructive', () => (
         <>
             Default: <Button destructive>Label me!</Button>
@@ -91,6 +110,25 @@ storiesOf('Button', module)
             <Divider />
             Large:{' '}
             <Button destructive large>
+                Label me!
+            </Button>
+        </>
+    ))
+
+    .add('Destructive: Disabled', () => (
+        <>
+            Default:{' '}
+            <Button destructive disabled>
+                Label me!
+            </Button>
+            <Divider />
+            Small:{' '}
+            <Button destructive small disabled>
+                Label me!
+            </Button>
+            <Divider />
+            Large:{' '}
+            <Button destructive large disabled>
                 Label me!
             </Button>
         </>

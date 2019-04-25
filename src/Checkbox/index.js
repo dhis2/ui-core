@@ -2,50 +2,41 @@ import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors } from '../theme.js'
+import { colors, theme } from '../theme.js'
 import styles from './styles.js'
 
 import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox.js'
 
 import css from 'styled-jsx/css'
 
-const icons = {
-    default: css.resolve`
-		svg {
-			fill: ${colors.grey600};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    checked: css.resolve`
-		svg {
-			fill: ${colors.teal400};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    valid: css.resolve`
-		svg {
-			fill: ${colors.blue600};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    warning: css.resolve`
-		svg {
-			fill: ${colors.yellow500};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    error: css.resolve`
-		svg {
-			fill: ${colors.red500};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-}
+const icons = css.resolve`
+    svg {
+        height: 24px;
+        width: 24px;
+        fill: ${theme.default};
+    }
+
+    .checked {
+        fill: ${colors.teal400};
+    }
+
+    .disabled {
+        fill: ${colors.grey500};
+    }
+
+    .error {
+        fill: ${theme.error};
+    }
+
+    .valid {
+        fill: ${theme.valid};
+    }
+
+    .warning {
+        fill: ${theme.warning};
+
+    }
+`
 
 class Checkbox extends React.Component {
     state = {
@@ -61,15 +52,30 @@ class Checkbox extends React.Component {
     }
 
     render() {
-        const { required, status, checked, className } = this.props
-        const state = status === 'default' && checked ? 'checked' : status
+        const {
+            required,
+            checked,
+            className,
+            disabled,
+            valid,
+            error,
+            warning,
+        } = this.props
 
-        let icon = <Unchecked className={icons[state].className} />
+        const classes = cx(icons.className, {
+            checked: checked && !valid && !error && !warning,
+            disabled,
+            valid,
+            error,
+            warning,
+        })
+
+        let icon = <Unchecked className={classes} />
 
         if (this.state.indeterminate) {
-            icon = <Indeterminate className={icons[state].className} />
+            icon = <Indeterminate className={classes} />
         } else if (this.props.checked) {
-            icon = <Checked className={icons[state].className} />
+            icon = <Checked className={classes} />
         }
 
         return (
@@ -90,31 +96,27 @@ class Checkbox extends React.Component {
                     {this.props.label}
                 </span>
 
-                {icons[state].styles}
+                {icons.styles}
                 <style jsx>{styles}</style>
             </label>
         )
     }
 }
 
-Checkbox.defaultProps = {
-    checked: false,
-    required: false,
-    disabled: false,
-    indeterminate: false,
-    status: 'default',
-}
-
 Checkbox.propTypes = {
-    className: propTypes.string,
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
+
+    className: propTypes.string,
     label: propTypes.string,
-    checked: propTypes.bool,
-    required: propTypes.bool,
-    disabled: propTypes.bool,
+
     indeterminate: propTypes.bool,
-    status: propTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    required: propTypes.bool,
+    checked: propTypes.bool,
+    disabled: propTypes.bool,
+    valid: propTypes.bool,
+    warning: propTypes.bool,
+    error: propTypes.bool,
 }
 
 export { Checkbox }

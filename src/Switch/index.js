@@ -47,11 +47,16 @@ Switch.defaultProps = {
 Switch.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
+
     className: propTypes.string,
-    checked: propTypes.bool,
     label: propTypes.string,
+
+    required: propTypes.bool,
+    checked: propTypes.bool,
     disabled: propTypes.bool,
-    status: propTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    valid: propTypes.bool,
+    warning: propTypes.bool,
+    error: propTypes.bool,
 }
 
 export { Switch }

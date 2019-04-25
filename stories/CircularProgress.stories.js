@@ -14,4 +14,5 @@ storiesOf('CircularProgress', module)
     .add('Overlay page', () => <CircularProgress overlay />)
 
     .add('Small', () => <CircularProgress small />)
+
     .add('Large', () => <CircularProgress large />)

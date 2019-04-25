@@ -26,30 +26,30 @@ const styles = css`
         width: 100%;
     }
 
-    input.filled {
+    .filled {
         padding: 32px 0 8px 16px;
     }
 
-    input.outlined {
+    .outlined {
         padding: 18px 0 18px 16px;
     }
 
-    input.disabled {
+    .disabled {
         color: ${colors.grey500};
         cursor: not-allowed;
     }
 
     ${/** 15px => 16px inner spacing - 1px for border**/ ''}
-    input.outlined {
+    .outlined {
         padding-left: 15px;
     }
 
-    input.filled.dense {
+    .filled.dense {
         font-size: 14px;
         padding: 25px 0 5px 16px;
     }
 
-    input.outlined.dense {
+    .outlined.dense {
         padding-top: 12px;
         padding-bottom: 12px;
     }
@@ -66,6 +66,7 @@ export class Input extends Component {
 
     render() {
         const paddingTop = calculatePaddingTop(this.props)
+
         const className = cx({
             dense: this.props.isDense,
             filled: this.props.kind === inputKinds.FILLED,

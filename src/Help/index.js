@@ -4,10 +4,12 @@ import cx from 'classnames'
 
 import { theme } from '../theme.js'
 
-const Help = ({ children, status, className }) => (
+const Help = ({ children, valid, error, warning, className }) => (
     <p
         className={cx(className, {
-            [`status-${status}`]: true,
+            valid,
+            error,
+            warning,
         })}
     >
         {children}
@@ -24,33 +26,29 @@ const Help = ({ children, status, className }) => (
                 color: ${theme.default};
             }
 
-            .status-default {
-                color: ${theme.default};
-            }
-
-            .status-valid {
+            .valid {
                 color: ${theme.valid};
             }
 
-            .status-error {
+            .error {
                 color: ${theme.error};
             }
 
-            .status-warning {
+            .warning {
                 color: ${theme.warning};
             }
         `}</style>
     </p>
 )
 
-Help.defaultProps = {
-    status: 'default',
-}
+Help.defaultProps = {}
 
 Help.propTypes = {
     className: propTypes.string,
     children: propTypes.string.isRequired,
-    status: propTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    error: propTypes.bool,
+    valid: propTypes.bool,
+    warning: propTypes.bool,
 }
 
 export { Help }

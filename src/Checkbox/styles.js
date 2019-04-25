@@ -3,7 +3,7 @@ import css from 'styled-jsx/css'
 import { colors, theme } from '../theme.js'
 
 export default css`
-    .base {
+    label {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -13,7 +13,7 @@ export default css`
         user-select: none;
     }
 
-    .base input[type='checkbox'] {
+    label input[type='checkbox'] {
         display: none;
     }
 
@@ -37,28 +37,5 @@ export default css`
     .required:after {
         padding-left: 4px;
         content: '*';
-    }
-
-    .valid,
-    .valid-icon {
-        color: ${theme.valid};
-    }
-
-    .warning,
-    .warning-icon {
-        color: ${theme.warning};
-    }
-
-    .error,
-    .error-icon {
-        color: ${theme.error};
-    }
-
-    .default-icon {
-        color: ${colors.secondary300};
-    }
-
-    .disabled {
-        color: ${colors.grey300};
     }
 `

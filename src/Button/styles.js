@@ -36,6 +36,32 @@ export default css`
         outline: none;
     }
 
+    button:hover {
+        border: 1px solid #c4c9cc;
+        background-color: #f3f4f5;
+    }
+
+    button:active,
+    button:active:focus {
+        border: 1px solid #c5c9cc;
+        background-color: #f3f4f5;
+        box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.1) inset;
+    }
+
+    button:focus {
+        border: 1px solid ${theme.primary600};
+        background-color: #f9fafb;
+        box-shadow: 0 0 0 1px ${theme.primary600};
+    }
+
+    button:disabled {
+        border: 1px solid #c4c9cc;
+        background-color: #f9fafb;
+        box-shadow: none;
+        color: ${colors.grey500};
+        fill: ${colors.grey500};
+    }
+
     button.icon {
         padding-left: 10px;
     }
@@ -58,35 +84,6 @@ export default css`
     .icon-only i {
         margin-right: 0;
         margin-left: 0;
-    }
-
-    .basic {
-    }
-
-    .basic:hover {
-        border: 1px solid #c4c9cc;
-        background-color: #f3f4f5;
-    }
-
-    .basic:active,
-    .basic:active:focus {
-        border: 1px solid #c5c9cc;
-        background-color: #f3f4f5;
-        box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.1) inset;
-    }
-
-    .basic:focus {
-        border: 1px solid ${theme.primary600};
-        background-color: #f9fafb;
-        box-shadow: 0 0 0 1px ${theme.primary600};
-    }
-
-    .basic:disabled {
-        border: 1px solid #c4c9cc;
-        background-color: #f9fafb;
-        box-shadow: none;
-        color: ${colors.grey500};
-        fill: ${colors.grey500};
     }
 
     .primary {
