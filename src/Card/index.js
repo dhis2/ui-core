@@ -5,11 +5,11 @@ import cx from 'classnames'
 import { colors } from '../theme.js'
 
 const Card = ({ className, children }) => (
-    <div className={cx('base', className)}>
+    <div className={cx(className)}>
         {children}
 
         <style jsx>{`
-            .base {
+            div {
                 display: inline-block;
                 position: relative;
 
