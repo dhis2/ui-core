@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { theme } from '..'
+
 /*
  * Normalize CSS
  * - https://github.com/necolas/normalize.css
@@ -22,7 +24,7 @@ function CssReset() {
 
             body {
                 margin: 0;
-                font-family: Roboto, sans-serif;
+                font-family: ${theme.fonts};
             }
 
             main {
