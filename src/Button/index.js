@@ -46,10 +46,7 @@ const Button = ({
 )
 
 Button.defaultProps = {
-    name: '',
-    value: '',
     type: 'button',
-    disabled: false,
 }
 
 Button.propTypes = {

@@ -3,7 +3,7 @@ import css from 'styled-jsx/css'
 import { colors, theme } from '../theme.js'
 
 export default css`
-    .base {
+    div {
         display: inline-flex;
         align-items: center;
         height: 32px;
@@ -16,7 +16,7 @@ export default css`
         user-select: none;
     }
 
-    .base:hover {
+    div:hover {
         background-color: ${colors.grey300};
     }
 
@@ -64,13 +64,13 @@ export default css`
         font-size: 20px;
     }
 
-    .label {
+    span {
         margin: 0 12px;
         color: inherit;
         white-space: nowrap;
     }
 
-    .label.overflow {
+    span.overflow {
         max-width: 150px;
         overflow: hidden;
         text-overflow: ellipsis;

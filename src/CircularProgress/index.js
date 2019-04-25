@@ -25,12 +25,18 @@ const Overlay = ({ children }) => (
     </div>
 )
 
-function CircularProgress({ size, overlay, className }) {
+function CircularProgress({ small, large, overlay, className }) {
     const loader = (
-        <div role="progressbar" className={cx('base', size, className)}>
+        <div
+            role="progressbar"
+            className={cx(className, {
+                small,
+                large,
+            })}
+        >
             <svg viewBox="22 22 44 44">
                 <circle
-                    className={'circle'}
+                    className="circle"
                     cx="44"
                     cy="44"
                     r="20.2"
@@ -57,7 +63,8 @@ CircularProgress.defaultProps = {
 CircularProgress.propTypes = {
     className: propTypes.string,
     overlay: propTypes.bool,
-    size: propTypes.oneOf(['small', 'medium', 'large']),
+    small: propTypes.bool,
+    large: propTypes.bool,
 }
 
 export { CircularProgress }

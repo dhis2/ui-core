@@ -13,6 +13,22 @@ storiesOf('Button', module)
         </>
     ))
 
+    .add('Basic: Disabled', () => (
+        <>
+            Default: <Button disabled>Label me!</Button>
+            <Divider />
+            Small:{' '}
+            <Button small disabled>
+                Label me!
+            </Button>
+            <Divider />
+            Large:{' '}
+            <Button large disabled>
+                Label me!
+            </Button>
+        </>
+    ))
+
     .add('Primary', () => (
         <>
             Default: <Button primary>Label me!</Button>
@@ -24,6 +40,25 @@ storiesOf('Button', module)
             <Divider />
             Large:{' '}
             <Button primary large>
+                Label me!
+            </Button>
+        </>
+    ))
+
+    .add('Primary: Disabled', () => (
+        <>
+            Default:{' '}
+            <Button primary disabled>
+                Label me!
+            </Button>
+            <Divider />
+            Small:{' '}
+            <Button primary small disabled>
+                Label me!
+            </Button>
+            <Divider />
+            Large:{' '}
+            <Button primary large disabled>
                 Label me!
             </Button>
         </>
