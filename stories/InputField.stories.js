@@ -3,7 +3,6 @@ import { resolve } from 'styled-jsx/css'
 import React from 'react'
 
 import { InputField } from '../src'
-import notes from '../docs/InputField.md'
 import { colors } from '../src/theme'
 
 class InputFieldWrapper extends React.Component {
@@ -61,20 +60,18 @@ createStory('InputField (Filled and dense)', createWrapperFilledDense)
 
 function createStory(name, wrapperCreator) {
     storiesOf(name, module)
-        .add('No placeholder, no value', wrapperCreator(), { notes })
+        .add('No placeholder, no value', wrapperCreator())
 
         .add(
             'Placeholder, no value',
-            wrapperCreator({ placeholder: 'Hold the place' }),
-            { notes }
+            wrapperCreator({ placeholder: 'Hold the place' })
         )
 
-        .add('With value', wrapperCreator({ value: 'Input value' }), { notes })
+        .add('With value', wrapperCreator({ value: 'Input value' }))
 
         .add(
             'Status: Valid',
-            wrapperCreator({ status: 'valid', value: 'This value is valid' }),
-            { notes }
+            wrapperCreator({ status: 'valid', value: 'This value is valid' })
         )
 
         .add(
@@ -82,8 +79,7 @@ function createStory(name, wrapperCreator) {
             wrapperCreator({
                 status: 'warning',
                 value: 'This value produces a warning',
-            }),
-            { notes }
+            })
         )
 
         .add(
@@ -91,8 +87,7 @@ function createStory(name, wrapperCreator) {
             wrapperCreator({
                 status: 'error',
                 value: 'This value produces a error',
-            }),
-            { notes }
+            })
         )
 
         .add(
@@ -100,8 +95,7 @@ function createStory(name, wrapperCreator) {
             wrapperCreator({
                 status: 'loading',
                 value: 'This value produces a loading state',
-            }),
-            { notes }
+            })
         )
 
         .add(
@@ -109,7 +103,6 @@ function createStory(name, wrapperCreator) {
             wrapperCreator({
                 disabled: true,
                 placeholder: 'This one is disabled',
-            }),
-            { notes }
+            })
         )
 }
