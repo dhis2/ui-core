@@ -1,21 +1,22 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
-const DropMenu = ({ component, className }) => (
-    <div className={className}>
-        {component}
+const DropMenu = ({ component, className }) =>
+    ReactDOM.createPortal(
+        <div className={className}>
+            {component}
 
-        <style jsx>{`
-            div {
-                z-index: 1000;
-                position: absolute;
-                top: 38px;
-                left: 0;
-            }
-        `}</style>
-    </div>
-)
+            <style jsx>{`
+                div {
+                    z-index: 1000;
+                    position: absolute;
+                }
+            `}</style>
+        </div>,
+        document.body
+    )
 
 DropMenu.propTypes = {
     className: propTypes.string,
