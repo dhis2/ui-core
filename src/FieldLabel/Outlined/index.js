@@ -8,7 +8,7 @@ import { Label } from './Label'
 import { StatusIconNoDefault } from '../../icons/Status'
 import { borderRadius, inputHeight, inputHeightDense } from '../constants'
 import { children } from '../../utils/react'
-import { colors } from '../../theme'
+import { colors, theme } from '../../theme'
 import {
     iconStatusPropType,
     iconStatuses,
@@ -24,6 +24,7 @@ const styles = css`
     .label-outlined {
         height: ${inputHeight + 10}px;
         position: relative;
+        color: ${colors.grey700};
     }
 
     .label-outlined.disabled {
@@ -91,7 +92,7 @@ const styles = css`
 `
 
 const createLabelOutlinedClassName = props =>
-    cx('label-outlined', {
+    cx('label-outlined', props.className, {
         focused: props.isFocused,
         dense: props.size === inputSizes.DENSE,
         valid: props.status === iconStatuses.VALID,

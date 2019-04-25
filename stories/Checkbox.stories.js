@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Checkbox } from '../src'
+import { Checkbox, Help } from '../src'
 
 const noop = () => {}
 
@@ -10,12 +10,10 @@ storiesOf('Checkbox', module)
     ))
 
     .add('Default with help', () => (
-        <Checkbox
-            name="Ex"
-            label="Checkbox"
-            help="A lil' help text"
-            onChange={noop}
-        />
+        <div>
+            <Checkbox name="Ex" label="Checkbox" onChange={noop} />
+            <Help>A lil' help text</Help>
+        </div>
     ))
 
     .add('Default: Disabled', () => (

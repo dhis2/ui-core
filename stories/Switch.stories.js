@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
-import { Switch } from '../src'
+import { Switch, Help } from '../src'
 
 const noop = () => {}
 
@@ -8,12 +8,10 @@ storiesOf('Switch', module)
     .add('Default', () => <Switch name="Ex" label="Switch" onChange={noop} />)
 
     .add('Default with help', () => (
-        <Switch
-            name="Ex"
-            help="A helpful text"
-            label="Switch"
-            onChange={noop}
-        />
+        <>
+            <Switch name="Ex" label="Switch" onChange={noop} />
+            <Help>A helpful text</Help>
+        </>
     ))
 
     .add('Default: Disabled', () => (

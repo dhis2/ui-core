@@ -2,16 +2,16 @@ import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors } from '../theme.js'
+import { theme } from '../theme.js'
 
-function Help({ text, status, className }) {
+function Help({ children, status, className }) {
     return (
         <p
             className={cx('base', className, {
                 [`status-${status}`]: true,
             })}
         >
-            {text}
+            {children}
 
             <style jsx>{`
                 .base {
@@ -22,22 +22,23 @@ function Help({ text, status, className }) {
                     margin: 0;
                     line-height: 12px;
                     cursor: help;
+                    color: ${theme.default};
                 }
 
                 .status-default {
-                    color: ${colors.grey700};
+                    color: ${theme.default};
                 }
 
                 .status-valid {
-                    color: ${colors.blue600};
+                    color: ${theme.valid};
                 }
 
                 .status-error {
-                    color: ${colors.red600};
+                    color: ${theme.error};
                 }
 
                 .status-warning {
-                    color: ${colors.yellow800};
+                    color: ${theme.warning};
                 }
             `}</style>
         </p>
@@ -50,7 +51,7 @@ Help.defaultProps = {
 
 Help.propTypes = {
     className: propTypes.string,
-    text: propTypes.string.isRequired,
+    children: propTypes.string.isRequired,
     status: propTypes.oneOf(['default', 'valid', 'warning', 'error']),
 }
 

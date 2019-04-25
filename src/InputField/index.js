@@ -1,22 +1,12 @@
 import propTypes from 'prop-types'
 import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
-import cx from 'classnames'
 
 import { Input } from '../Input'
 import { LabelFilled, LabelOutlined } from '../FieldLabel'
 import { colors } from '../theme'
 import { iconStatusPropType, iconStatuses } from '../icons/constants'
 import { inputKinds, inputSizes } from '../forms/constants'
-import { Help } from '../Help'
-
-const styles = css`
-    .base {
-        display: inline-block;
-        width: 100%;
-        color: ${colors.grey700};
-    }
-`
 
 const types = {
     TEXT: 'text',
@@ -74,41 +64,30 @@ class InputField extends React.Component {
             this.props.kind === inputKinds.FILLED ? LabelFilled : LabelOutlined
 
         return (
-            <div
-                className={cx('base', this.props.className, {
-                    disabled: this.props.disabled,
-                })}
+            <Container
+                label={this.props.label}
+                isFocused={this.state.focused}
+                hasValue={!!this.props.value || this.props.placeholder}
+                htmlFor={this.props.name}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                status={this.props.status}
+                size={this.props.size}
             >
-                <Container
-                    label={this.props.label}
+                <Input
+                    name={this.props.name}
+                    type={this.props.type}
+                    kind={this.props.kind}
+                    value={this.props.value}
+                    placeholder={this.props.placeholder}
                     isFocused={this.state.focused}
-                    hasValue={!!this.props.value || this.props.placeholder}
-                    htmlFor={this.props.name}
-                    required={this.props.required}
                     disabled={this.props.disabled}
-                    status={this.props.status}
-                    size={this.props.size}
-                >
-                    <Input
-                        name={this.props.name}
-                        type={this.props.type}
-                        kind={this.props.kind}
-                        value={this.props.value}
-                        placeholder={this.props.placeholder}
-                        isFocused={this.state.focused}
-                        disabled={this.props.disabled}
-                        isFilled={isFilled}
-                        isDense={isDense}
-                        onFocus={this.onFocus}
-                        onBlur={this.onBlur}
-                        onChange={this.onChange}
-                    />
-                </Container>
-
-                {this.props.help && (
-                    <Help text={this.props.help} status={this.props.status} />
-                )}
-
+                    isFilled={isFilled}
+                    isDense={isDense}
+                    onFocus={this.onFocus}
+                    onBlur={this.onBlur}
+                    onChange={this.onChange}
+                />
                 <style jsx>{`
                     div :global(.disabled),
                     div :global(.disabled::placeholder) {
@@ -116,9 +95,7 @@ class InputField extends React.Component {
                         cursor: not-allowed;
                     }
                 `}</style>
-
-                <style jsx>{styles}</style>
-            </div>
+            </Container>
         )
     }
 }
@@ -140,7 +117,6 @@ InputField.propTypes = {
     label: propTypes.string.isRequired,
     value: propTypes.string.isRequired,
 
-    help: propTypes.string,
     className: propTypes.string,
     disabled: propTypes.bool,
     required: propTypes.bool,

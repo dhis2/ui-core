@@ -7,8 +7,6 @@ import styles from './styles.js'
 
 import { Checked, Unchecked } from '../icons/Radio.js'
 
-import { Help } from '..'
-
 import css from 'styled-jsx/css'
 
 const icons = {
@@ -63,34 +61,28 @@ class Radio extends React.Component {
         )
 
         return (
-            <div>
-                <label
-                    className={cx('base', className, {
-                        disabled: this.props.disabled,
-                    })}
-                >
-                    <input
-                        type="radio"
-                        name={this.props.name}
-                        value={this.props.value}
-                        checked={this.props.checked}
-                        disabled={this.props.disabled}
-                        onChange={this.onChange}
-                    />
-                    {icon}
+            <label
+                className={cx('base', className, {
+                    disabled: this.props.disabled,
+                })}
+            >
+                <input
+                    type="radio"
+                    name={this.props.name}
+                    value={this.props.value}
+                    checked={this.props.checked}
+                    disabled={this.props.disabled}
+                    onChange={this.onChange}
+                />
+                {icon}
 
-                    <span className={cx('label', { required })}>
-                        {this.props.label}
-                    </span>
+                <span className={cx('label', { required })}>
+                    {this.props.label}
+                </span>
 
-                    {icons[state].styles}
-                    <style jsx>{styles}</style>
-                </label>
-
-                {this.props.help && (
-                    <Help text={this.props.help} status={this.props.status} />
-                )}
-            </div>
+                {icons[state].styles}
+                <style jsx>{styles}</style>
+            </label>
         )
     }
 }
@@ -107,7 +99,6 @@ Radio.propTypes = {
     name: propTypes.string.isRequired,
     value: propTypes.string.isRequired,
     label: propTypes.string,
-    help: propTypes.string,
     checked: propTypes.bool,
     disabled: propTypes.bool,
     status: propTypes.oneOf(['default', 'valid', 'warning', 'error']),

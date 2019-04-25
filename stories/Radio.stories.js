@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Radio } from '../src'
+import { Radio, Help } from '../src'
 
 const noop = () => {}
 
@@ -8,7 +8,10 @@ storiesOf('Radio', module)
     .add('Default', () => <Radio name="Ex" label="Radio" onChange={noop} />)
 
     .add('Default with help', () => (
-        <Radio name="Ex" label="Radio" help="A helpful text" onChange={noop} />
+        <div>
+            <Radio name="Ex" label="Radio" onChange={noop} />
+            <Help>A lil' help text</Help>
+        </div>
     ))
 
     .add('Default: Disabled', () => (

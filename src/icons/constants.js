@@ -1,5 +1,5 @@
 import propTypes from 'prop-types'
-import { colors } from '../theme'
+import { colors, theme } from '../theme'
 
 export const iconStatuses = {
     DEFAULT: 'default',
@@ -11,9 +11,9 @@ export const iconStatuses = {
 
 export const statusColors = {
     [iconStatuses.DEFAULT]: colors.grey500,
-    [iconStatuses.VALID]: colors.blue600,
-    [iconStatuses.WARNING]: colors.yellow500,
-    [iconStatuses.ERROR]: colors.red500,
+    [iconStatuses.VALID]: theme.valid,
+    [iconStatuses.WARNING]: theme.warning,
+    [iconStatuses.ERROR]: theme.error,
     [iconStatuses.LOADING]: colors.blue600,
 }
 

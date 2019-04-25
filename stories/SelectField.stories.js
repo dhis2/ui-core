@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
-import { SelectField } from '../src'
+import { SelectField, Help } from '../src'
 
 const noop = () => undefined
 const options = [
@@ -26,15 +26,17 @@ class Wrapper extends Component {
         const { value, ...props } = this.props
 
         return (
-            <SelectField
-                name="select-field"
-                value={this.state.value}
-                label="Label text"
-                onChange={this.onChange}
-                list={options}
-                help="This is a help text"
-                {...props}
-            />
+            <>
+                <SelectField
+                    name="select-field"
+                    value={this.state.value}
+                    label="Label text"
+                    onChange={this.onChange}
+                    list={options}
+                    {...props}
+                />
+                <Help status={props.status}>This is a help text</Help>
+            </>
         )
     }
 }

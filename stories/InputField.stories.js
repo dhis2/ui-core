@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import { resolve } from 'styled-jsx/css'
-import React from 'react'
+import React, { Fragment } from 'react'
 
-import { InputField } from '../src'
+import { InputField, Help } from '../src'
 import { colors } from '../src/theme'
 
 class InputFieldWrapper extends React.Component {
@@ -23,14 +23,17 @@ class InputFieldWrapper extends React.Component {
         console.log(cProps)
 
         return (
-            <InputField
-                name={this.props.name}
-                label="Default label"
-                help="Default help text"
-                value={this.state[this.props.name]}
-                onChange={(name, v) => this.onChange(name, v)}
-                {...cProps}
-            />
+            <>
+                <InputField
+                    name={this.props.name}
+                    label="Default label"
+                    help="Default help text"
+                    value={this.state[this.props.name]}
+                    onChange={(name, v) => this.onChange(name, v)}
+                    {...cProps}
+                />
+                <Help status={cProps.status}>Default help text</Help>
+            </>
         )
     }
 }

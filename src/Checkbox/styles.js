@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-import { colors } from '../theme.js'
+import { colors, theme } from '../theme.js'
 
 export default css`
     .base {
@@ -41,17 +41,17 @@ export default css`
 
     .valid,
     .valid-icon {
-        color: ${colors.blue600};
+        color: ${theme.valid};
     }
 
     .warning,
     .warning-icon {
-        color: ${colors.yellow500};
+        color: ${theme.warning};
     }
 
     .error,
     .error-icon {
-        color: ${colors.red500};
+        color: ${theme.error};
     }
 
     .default-icon {
