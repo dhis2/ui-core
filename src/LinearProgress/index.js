@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import cx from 'classnames'
 import styles from './styles'
 
-function LinearProgress({ amount, margin, className }) {
+const LinearProgress = ({ amount, margin, className }) => {
     const type =
         typeof amount === 'undefined' ? cx('indeterminate') : cx('determinate')
     const style = amount ? { width: `${amount}%` } : null

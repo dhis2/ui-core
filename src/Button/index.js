@@ -5,7 +5,7 @@ import propTypes from 'prop-types'
 
 import styles from './styles.js'
 
-function Button({
+const Button = ({
     type,
     children,
     kind,
@@ -16,26 +16,24 @@ function Button({
     disabled,
     onClick,
     className,
-}) {
-    return (
-        <button
-            disabled={disabled}
-            onClick={evt => onClick && onClick(name, value)}
-            className={cx('base', `kind-${kind}`, `size-${size}`, className, {
-                'icon-only': icon && !children,
-                icon,
-            })}
-            type={type}
-            name={name}
-            value={value}
-        >
-            {icon && <span className="button-icon">{icon}</span>}
-            {children}
+}) => (
+    <button
+        disabled={disabled}
+        onClick={evt => onClick && onClick(name, value)}
+        className={cx('base', `kind-${kind}`, `size-${size}`, className, {
+            'icon-only': icon && !children,
+            icon,
+        })}
+        type={type}
+        name={name}
+        value={value}
+    >
+        {icon && <span className="button-icon">{icon}</span>}
+        {children}
 
-            <style jsx>{styles}</style>
-        </button>
-    )
-}
+        <style jsx>{styles}</style>
+    </button>
+)
 
 Button.defaultProps = {
     name: '',

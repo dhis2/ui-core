@@ -31,11 +31,11 @@ const subMenu = css.resolve`
     }
 `
 
-function SubMenu({ size, children, onClick, className }) {
-    return <div className={className}>{children}</div>
-}
+const SubMenu = ({ size, children, onClick, className }) => (
+    <div className={className}>{children}</div>
+)
 
-function MenuItem({
+const MenuItem = ({
     value,
     label,
     icon,
@@ -45,7 +45,7 @@ function MenuItem({
     size,
     onClick,
     className,
-}) {
+}) => {
     const hasMenu = !!children
     return (
         <li

@@ -5,14 +5,12 @@ import cx from 'classnames'
 
 import styles from './styles'
 
-function Menu({ size, children, className }) {
-    return (
-        <Card>
-            <ul className={cx('base', size, className)}>{children}</ul>
-            <style jsx>{styles}</style>
-        </Card>
-    )
-}
+const Menu = ({ size, children, className }) => (
+    <Card>
+        <ul className={cx('base', size, className)}>{children}</ul>
+        <style jsx>{styles}</style>
+    </Card>
+)
 
 Menu.defaultProps = {
     size: 'default',
