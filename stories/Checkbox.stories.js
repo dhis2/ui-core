@@ -9,6 +9,15 @@ storiesOf('Checkbox', module)
         <Checkbox name="Ex" label="Checkbox" onChange={noop} />
     ))
 
+    .add('Default with help', () => (
+        <Checkbox
+            name="Ex"
+            label="Checkbox"
+            help="A lil' help text"
+            onChange={noop}
+        />
+    ))
+
     .add('Default: Disabled', () => (
         <Checkbox name="Ex" label="Checkbox" disabled={true} onChange={noop} />
     ))

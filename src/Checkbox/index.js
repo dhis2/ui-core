@@ -7,6 +7,8 @@ import styles from './styles.js'
 
 import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox.js'
 
+import { Help } from '..'
+
 import css from 'styled-jsx/css'
 
 const icons = {
@@ -75,26 +77,32 @@ class Checkbox extends React.Component {
         console.log(icon)
 
         return (
-            <label
-                className={cx('base', className, {
-                    disabled: this.props.disabled,
-                })}
-            >
-                <input
-                    type="checkbox"
-                    onChange={this.onChange}
-                    checked={this.props.checked}
-                    disabled={this.props.disabled}
-                />
-                {icon}
+            <div>
+                <label
+                    className={cx('base', className, {
+                        disabled: this.props.disabled,
+                    })}
+                >
+                    <input
+                        type="checkbox"
+                        onChange={this.onChange}
+                        checked={this.props.checked}
+                        disabled={this.props.disabled}
+                    />
+                    {icon}
 
-                <span className={cx('label', { required })}>
-                    {this.props.label}
-                </span>
+                    <span className={cx('label', { required })}>
+                        {this.props.label}
+                    </span>
 
-                {icons[state].styles}
-                <style jsx>{styles}</style>
-            </label>
+                    {icons[state].styles}
+                    <style jsx>{styles}</style>
+                </label>
+
+                {this.props.help && (
+                    <Help text={this.props.help} status={this.props.status} />
+                )}
+            </div>
         )
     }
 }
@@ -112,6 +120,7 @@ Checkbox.propTypes = {
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
     label: propTypes.string,
+    help: propTypes.string,
     checked: propTypes.bool,
     required: propTypes.bool,
     disabled: propTypes.bool,

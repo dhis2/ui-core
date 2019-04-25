@@ -7,6 +7,15 @@ const noop = () => {}
 storiesOf('Switch', module)
     .add('Default', () => <Switch name="Ex" label="Switch" onChange={noop} />)
 
+    .add('Default with help', () => (
+        <Switch
+            name="Ex"
+            help="A helpful text"
+            label="Switch"
+            onChange={noop}
+        />
+    ))
+
     .add('Default: Disabled', () => (
         <Switch name="Ex" label="Switch" disabled={true} onChange={noop} />
     ))

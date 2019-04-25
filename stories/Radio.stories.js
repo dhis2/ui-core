@@ -7,6 +7,10 @@ const noop = () => {}
 storiesOf('Radio', module)
     .add('Default', () => <Radio name="Ex" label="Radio" onChange={noop} />)
 
+    .add('Default with help', () => (
+        <Radio name="Ex" label="Radio" help="A helpful text" onChange={noop} />
+    ))
+
     .add('Default: Disabled', () => (
         <Radio name="Ex" label="Radio" disabled={true} onChange={noop} />
     ))

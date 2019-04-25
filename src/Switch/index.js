@@ -4,6 +4,8 @@ import cx from 'classnames'
 
 import styles from './styles'
 
+import { Help } from '..'
+
 class Switch extends React.Component {
     onChange = () => {
         if (this.props.disabled) {
@@ -14,26 +16,32 @@ class Switch extends React.Component {
     }
 
     render() {
-        const { status, disabled, className } = this.props
+        const { status, help, disabled, className } = this.props
         return (
-            <label className={cx(status, className, { disabled })}>
-                <input
-                    type="checkbox"
-                    disabled={disabled}
-                    name={this.props.name}
-                    checked={this.props.checked}
-                    onChange={this.onChange}
-                />
-                <span
-                    className={cx('label', {
-                        [`status-${status}`]: true,
-                    })}
-                >
-                    {this.props.label}
-                </span>
-                {this.props.required && <span className="required" />}
-                <style jsx>{styles}</style>
-            </label>
+            <div>
+                <label className={cx(status, className, { disabled })}>
+                    <input
+                        type="checkbox"
+                        disabled={disabled}
+                        name={this.props.name}
+                        checked={this.props.checked}
+                        onChange={this.onChange}
+                    />
+                    <span
+                        className={cx('label', {
+                            [`status-${status}`]: true,
+                        })}
+                    >
+                        {this.props.label}
+                    </span>
+                    {this.props.required && <span className="required" />}
+                    <style jsx>{styles}</style>
+                </label>
+
+                {this.props.help && (
+                    <Help text={this.props.help} status={this.props.status} />
+                )}
+            </div>
         )
     }
 }
@@ -50,6 +58,7 @@ Switch.propTypes = {
     className: propTypes.string,
     checked: propTypes.bool,
     label: propTypes.string,
+    help: propTypes.string,
     disabled: propTypes.bool,
     status: propTypes.oneOf(['default', 'valid', 'warning', 'error']),
 }
