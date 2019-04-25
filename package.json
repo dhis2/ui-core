@@ -41,7 +41,7 @@
     "babel-loader": "^8.0.5",
     "conventional-changelog-cli": "^2.0.5",
     "fs-extra": "^7.0.0",
-    "husky": "^1.0.1",
+    "husky": "^2.0.0",
     "react-dev-utils": "^9.0.0",
     "size-limit": "^1.0.0",
     "storybook-addon-jsx": "^7.0.0",
