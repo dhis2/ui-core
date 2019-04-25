@@ -1,24 +1,62 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Button } from '../src'
+import { Button, Divider } from '../src'
 
 storiesOf('Button', module)
-    .add('Basic', () => <Button kind="basic">Label me!</Button>, {
-        notes: 'Yo!',
-    })
-
-    .add('Default with label prop', () => (
-        <Button
-            name="foo"
-            value="bar"
-            onClick={(n, v) => alert(`Clicked button ${n} with ${v}`)}
-        >
-            Label me!
-        </Button>
+    .add('Basic', () => (
+        <>
+            Default: <Button>Label me!</Button>
+            <Divider />
+            Small: <Button small>Label me!</Button>
+            <Divider />
+            Large: <Button large>Label me!</Button>
+        </>
     ))
 
-    .add('Primary', () => <Button kind="primary">Label me!</Button>)
+    .add('Primary', () => (
+        <>
+            Default: <Button primary>Label me!</Button>
+            <Divider />
+            Small:{' '}
+            <Button primary small>
+                Label me!
+            </Button>
+            <Divider />
+            Large:{' '}
+            <Button primary large>
+                Label me!
+            </Button>
+        </>
+    ))
 
-    .add('Secondary', () => <Button kind="secondary">Label me!</Button>)
+    .add('Secondary', () => (
+        <>
+            Default: <Button secondary>Label me!</Button>
+            <Divider />
+            Small:{' '}
+            <Button secondary small>
+                Label me!
+            </Button>
+            <Divider />
+            Large:{' '}
+            <Button secondary large>
+                Label me!
+            </Button>
+        </>
+    ))
 
-    .add('Destructive', () => <Button kind="destructive">Label me!</Button>)
+    .add('Destructive', () => (
+        <>
+            Default: <Button destructive>Label me!</Button>
+            <Divider />
+            Small:{' '}
+            <Button destructive small>
+                Label me!
+            </Button>
+            <Divider />
+            Large:{' '}
+            <Button destructive large>
+                Label me!
+            </Button>
+        </>
+    ))

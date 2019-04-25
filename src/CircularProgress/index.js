@@ -4,6 +4,27 @@ import cx from 'classnames'
 
 import styles from './styles.js'
 
+const Overlay = ({ children }) => (
+    <div>
+        {children}
+        <style jsx>{`
+            div {
+                display: flex;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.08);
+            }
+        `}</style>
+    </div>
+)
+
 function CircularProgress({ size, overlay, className }) {
     const loader = (
         <div role="progressbar" className={cx('base', size, className)}>
@@ -22,23 +43,7 @@ function CircularProgress({ size, overlay, className }) {
     )
 
     if (overlay) {
-        return (
-            <div>
-                {loader}
-                <style jsx>{`
-                    display: flex;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    left: 0;
-                    align-items: center;
-                    justify-content: center;
-                    width: 100%;
-                    height: 100%;
-                `}</style>
-            </div>
-        )
+        return <Overlay>{loader}</Overlay>
     }
 
     return loader

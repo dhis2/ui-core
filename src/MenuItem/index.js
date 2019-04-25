@@ -26,12 +26,12 @@ const subMenu = css.resolve`
         white-space: nowrap;
     }
 
-    .item:hover > div {
+    li:hover > div {
         display: block;
     }
 `
 
-const SubMenu = ({ size, children, onClick, className }) => (
+const SubMenu = ({ children, onClick, className }) => (
     <div className={className}>{children}</div>
 )
 
@@ -42,15 +42,16 @@ const MenuItem = ({
     children,
     active,
     disabled,
-    size,
+    dense,
     onClick,
     className,
 }) => {
     const hasMenu = !!children
     return (
         <li
-            className={cx('item', className, subMenu.className, {
+            className={cx(className, subMenu.className, {
                 disabled,
+                dense,
                 active,
             })}
             onClick={evt => {
@@ -68,9 +69,7 @@ const MenuItem = ({
             {subChevron.styles}
 
             {hasMenu && (
-                <SubMenu size={size} className={subMenu.className}>
-                    {children}
-                </SubMenu>
+                <SubMenu className={subMenu.className}>{children}</SubMenu>
             )}
             {subMenu.styles}
 
@@ -80,7 +79,6 @@ const MenuItem = ({
 }
 
 MenuItem.defaultProps = {
-    size: 'default',
     active: false,
     disabled: false,
 }
@@ -88,13 +86,12 @@ MenuItem.defaultProps = {
 MenuItem.propTypes = {
     label: propTypes.oneOf([propTypes.string, propTypes.element]).isRequired,
     value: propTypes.any.isRequired,
-
+    dense: propTypes.boolean,
     className: propTypes.string,
     icon: propTypes.element,
     children: propTypes.element,
     active: propTypes.bool,
     disabled: propTypes.bool,
-    size: propTypes.string,
     onClick: propTypes.func,
 }
 

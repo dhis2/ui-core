@@ -8,19 +8,29 @@ import styles from './styles.js'
 const Button = ({
     type,
     children,
-    kind,
-    size,
     icon,
     name,
     value,
     disabled,
     onClick,
     className,
+    basic,
+    primary,
+    secondary,
+    destructive,
+    small,
+    medium,
+    large,
 }) => (
     <button
         disabled={disabled}
         onClick={evt => onClick && onClick(name, value)}
-        className={cx('base', `kind-${kind}`, `size-${size}`, className, {
+        className={cx(className, {
+            primary,
+            secondary,
+            destructive,
+            small,
+            large,
             'icon-only': icon && !children,
             icon,
         })}
@@ -38,9 +48,7 @@ const Button = ({
 Button.defaultProps = {
     name: '',
     value: '',
-    kind: 'basic',
     type: 'button',
-    size: 'medium',
     disabled: false,
 }
 
@@ -50,9 +58,15 @@ Button.propTypes = {
     icon: propTypes.element,
     name: propTypes.string,
     value: propTypes.string,
-    kind: propTypes.oneOf(['basic', 'primary', 'secondary', 'destructive']),
     type: propTypes.oneOf(['submit', 'reset', 'button']),
-    size: propTypes.oneOf(['small', 'medium', 'large']),
+
+    small: propTypes.bool,
+    large: propTypes.bool,
+
+    primary: propTypes.bool,
+    secondary: propTypes.bool,
+    destructive: propTypes.bool,
+
     disabled: propTypes.bool,
     onClick: propTypes.func,
 }

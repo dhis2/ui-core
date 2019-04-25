@@ -1,25 +1,27 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { Card } from '../Card'
-import cx from 'classnames'
 
-import styles from './styles'
-
-const Menu = ({ size, children, className }) => (
+const Menu = ({ children, className }) => (
     <Card>
-        <ul className={cx('base', size, className)}>{children}</ul>
-        <style jsx>{styles}</style>
+        <ul className={className}>{children}</ul>
+        <style jsx>{`
+            ul {
+                display: block;
+                position: relative;
+                width: 100%;
+                margin: 0;
+
+                padding: 0;
+                user-select: none;
+            }
+        `}</style>
     </Card>
 )
-
-Menu.defaultProps = {
-    size: 'default',
-}
 
 Menu.propTypes = {
     className: propTypes.string,
     children: propTypes.arrayOf(propTypes.element).isRequired,
-    size: propTypes.oneOf(['default', 'dense']),
 }
 
 export { Menu }

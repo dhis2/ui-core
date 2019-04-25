@@ -5,6 +5,12 @@ import { CircularProgress } from '../src'
 storiesOf('CircularProgress', module)
     .add('Default', () => <CircularProgress />)
 
-    .add('Overlay', () => <CircularProgress overlay={true} />)
+    .add('Overlay component', () => (
+        <div style={{ width: '358px', height: '358px', position: 'relative' }}>
+            <CircularProgress overlay />
+        </div>
+    ))
+
+    .add('Overlay page', () => <CircularProgress overlay />)
 
     .add('Large', () => <CircularProgress size="large" />)

@@ -1,17 +1,7 @@
 import css from 'styled-jsx/css'
 
 export default css`
-    .base {
-        display: block;
-        position: relative;
-        width: 100%;
-        margin: 0;
-
-        padding: 8px 0;
-        user-select: none;
-    }
-
-    .item {
+    li {
         display: flex;
         position: relative;
         flex-direction: row;
@@ -21,17 +11,13 @@ export default css`
         cursor: pointer;
     }
 
-    .item div.label:not(:first-child) {
+    li div.label:not(:first-child) {
         margin-left: 8px;
     }
 
-    .item:hover,
-    .item.active {
+    li:hover,
+    li.active {
         background-color: #f7f7f7;
-    }
-
-    .base.dense .item {
-        height: 32px;
     }
 
     .label {
@@ -40,9 +26,6 @@ export default css`
         white-space: nowrap;
 
         user-select: none;
-    }
-    .base.dense .label {
-        font-size: 13px;
     }
 
     .icon {
@@ -55,22 +38,26 @@ export default css`
         user-select: none;
     }
 
-    .base.dense .icon {
+    .dense {
+        height: 32px;
+    }
+
+    .dense .label {
+        font-size: 13px;
+    }
+
+    .dense .icon {
         font-size: 20px;
     }
 
-    .base.dense .divider {
-        margin: 4px 0;
-    }
-
-    .item.disabled {
+    .disabled {
         cursor: not-allowed;
         pointer-events: none;
         user-select: none;
     }
 
-    .item.disabled .icon,
-    .item.disabled .label {
+    .disabled .icon,
+    .disabled .label {
         color: rgba(0, 0, 0, 0.3);
     }
 `

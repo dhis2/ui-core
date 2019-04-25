@@ -6,14 +6,14 @@ import { theme } from '../theme.js'
 
 const Help = ({ children, status, className }) => (
     <p
-        className={cx('base', className, {
+        className={cx(className, {
             [`status-${status}`]: true,
         })}
     >
         {children}
 
         <style jsx>{`
-            .base {
+            p {
                 height: 12px;
                 padding-top: 8px;
                 padding-left: 12px;

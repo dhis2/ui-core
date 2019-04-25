@@ -1,17 +1,21 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
-import cx from 'classnames'
 import { colors } from '../theme.js'
 
 const Divider = ({ margin, className }) => (
-    <div style={{ margin }} className={cx('base', className)}>
+    <div className={className}>
         <style jsx>{`
-            .base {
+            div {
                 display: inline-block;
                 width: 100%;
                 height: 1px;
                 background-color: ${colors.grey300};
+            }
+        `}</style>
+        <style jsx>{`
+            div {
+                margin: ${margin};
             }
         `}</style>
     </div>

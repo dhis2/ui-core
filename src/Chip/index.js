@@ -20,7 +20,7 @@ const removeIcon = css.resolve`
         pointer-events: all;
     }
 
-    svg hover {
+    svg:hover {
         opacity: 0.82;
     }
 `

@@ -13,7 +13,7 @@ import {
 const calculatePaddingTop = props => (props.filled ? '14px' : '18.5px')
 
 const styles = css`
-    .input {
+    input {
         color: black;
         background-color: transparent;
         border: 0;
@@ -26,30 +26,30 @@ const styles = css`
         width: 100%;
     }
 
-    .input.filled {
+    input.filled {
         padding: 32px 0 8px 16px;
     }
 
-    .input.outlined {
+    input.outlined {
         padding: 18px 0 18px 16px;
     }
 
-    .input.disabled {
+    input.disabled {
         color: ${colors.grey500};
         cursor: not-allowed;
     }
 
     ${/** 15px => 16px inner spacing - 1px for border**/ ''}
-    .input.outlined {
+    input.outlined {
         padding-left: 15px;
     }
 
-    .input.filled.dense {
+    input.filled.dense {
         font-size: 14px;
         padding: 25px 0 5px 16px;
     }
 
-    .input.outlined.dense {
+    input.outlined.dense {
         padding-top: 12px;
         padding-bottom: 12px;
     }
@@ -66,7 +66,7 @@ export class Input extends Component {
 
     render() {
         const paddingTop = calculatePaddingTop(this.props)
-        const className = cx('input', {
+        const className = cx({
             dense: this.props.isDense,
             filled: this.props.kind === inputKinds.FILLED,
             outlined: this.props.kind === inputKinds.OUTLINED,
