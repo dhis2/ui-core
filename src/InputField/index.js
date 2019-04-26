@@ -9,6 +9,7 @@ import { theme } from '../theme'
 class InputField extends React.Component {
     state = {
         focus: false,
+        value: '',
     }
 
     constructor(props) {
@@ -16,6 +17,7 @@ class InputField extends React.Component {
 
         this.state = {
             focus: props.focus,
+            value: props.value || '',
         }
     }
 
@@ -40,6 +42,7 @@ class InputField extends React.Component {
             return
         }
 
+        this.setState({ value: evt.target.value })
         this.props.onChange(this.props.name, evt.target.value)
     }
 
@@ -67,7 +70,7 @@ class InputField extends React.Component {
             <Container
                 focus={this.state.focus}
                 label={label}
-                value={!!value || placeholder}
+                value={!!this.state.value || !!placeholder}
                 htmlFor={name}
                 required={required}
                 disabled={disabled}
@@ -84,7 +87,7 @@ class InputField extends React.Component {
                     onChange={this.onChange}
                     name={name}
                     type={type}
-                    value={value}
+                    value={this.state.value}
                     placeholder={placeholder}
                     filled={filled}
                     disabled={disabled}
@@ -114,7 +117,7 @@ InputField.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     label: propTypes.string.isRequired,
-    value: propTypes.string.isRequired,
+    value: propTypes.string,
 
     className: propTypes.string,
 

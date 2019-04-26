@@ -84,12 +84,12 @@ export class Select extends Component {
             <select
                 className={className}
                 onChange={onChange}
-                value={value}
+                value={value || -1}
                 disabled={disabled}
                 onFocus={onFocus}
                 onBlur={onBlur}
             >
-                <option hidden disabled selected value />
+                <option hidden disabled value="-1" />
                 {this.props.list.map(({ value, label, list }) => (
                     <Fragment>
                         <option key={label} value={value}>
@@ -119,14 +119,16 @@ Select.propTypes = {
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 
-    list: propTypes.shape({
-        value: propTypes.string.isRequired,
-        label: propTypes.string.isRequired,
-        list: propTypes.shape({
+    list: propTypes.arrayOf(
+        propTypes.shape({
             value: propTypes.string.isRequired,
             label: propTypes.string.isRequired,
-        }),
-    }).isRequired,
+            list: propTypes.shape({
+                value: propTypes.string.isRequired,
+                label: propTypes.string.isRequired,
+            }),
+        })
+    ).isRequired,
 
     disabled: propTypes.bool,
     filled: propTypes.bool,

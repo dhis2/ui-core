@@ -80,7 +80,7 @@ const styles = css`
     }
 
     .error.focus {
-        color: ${colors.red700};
+        color: ${colors.red800};
     }
 `
 

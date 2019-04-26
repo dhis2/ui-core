@@ -5,107 +5,81 @@ import React, { Fragment } from 'react'
 import { InputField, Help } from '../src'
 import { colors } from '../src/theme'
 
-class InputFieldWrapper extends React.Component {
-    constructor(props) {
-        super(props)
+const logger = (name, value) => console.info(`${name}: ${value}`)
 
-        this.state = {
-            [props.name]: props.value,
-        }
-    }
-
-    onChange = (target, value) => {
-        this.setState({ [target]: value })
-    }
-
-    render() {
-        const { value, ...cProps } = this.props
-        console.log(cProps)
-
-        return (
-            <>
-                <InputField
-                    name={this.props.name}
-                    label="Default label"
-                    help="Default help text"
-                    value={this.state[this.props.name]}
-                    onChange={(name, v) => this.onChange(name, v)}
-                    {...cProps}
-                />
-                <Help {...cProps}>Default help text</Help>
-            </>
-        )
-    }
-}
-
-InputFieldWrapper.defaultProps = {
+createStory('InputField (Outlined)', InputField, {
     name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+})
+
+createStory('InputField (Outlined and dense)', InputField, {
     value: '',
-}
+    name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+    dense: true,
+})
 
-const createWrapperOutlined = override => () => (
-    <InputFieldWrapper {...override} />
-)
-const createWrapperOutlinedDense = override => () => (
-    <InputFieldWrapper {...override} dense />
-)
-const createWrapperFilled = override => () => (
-    <InputFieldWrapper {...override} filled />
-)
-const createWrapperFilledDense = override => () => (
-    <InputFieldWrapper {...override} filled dense />
-)
+createStory('InputField (Filled)', InputField, {
+    value: '',
+    name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+    filled: true,
+})
 
-createStory('InputField (Outlined)', createWrapperOutlined)
-createStory('InputField (Outlined and dense)', createWrapperOutlinedDense)
-createStory('InputField (Filled)', createWrapperFilled)
-createStory('InputField (Filled and dense)', createWrapperFilledDense)
+createStory('InputField (Filled and dense)', InputField, {
+    value: '',
+    name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+    filled: true,
+    dense: true,
+})
 
-function createStory(name, wrapperCreator) {
+function createStory(name, Component, props) {
     storiesOf(name, module)
-        .add('No placeholder, no value', wrapperCreator())
+        .add('No placeholder, no value', () => <Component {...props} />)
 
-        .add(
-            'Placeholder, no value',
-            wrapperCreator({ placeholder: 'Hold the place' })
-        )
+        .add('Placeholder, no value', () => (
+            <Component {...props} placeholder="Hold the place" />
+        ))
 
-        .add('With value', wrapperCreator({ value: 'Input value' }))
+        .add('With Help text', () => (
+            <>
+                <Component {...props} placeholder="Hold the place" />
+                <Help {...props}>A helpful text.</Help>
+            </>
+        ))
 
-        .add(
-            'Status: Valid',
-            wrapperCreator({ valid: true, value: 'This value is valid' })
-        )
+        .add('With value', () => <Component {...props} value="A value" />)
 
-        .add(
-            'Status: Warning',
-            wrapperCreator({
-                warning: true,
-                value: 'This value produces a warning',
-            })
-        )
+        .add('Status: Valid', () => (
+            <Component {...props} value="This value is valid" valid />
+        ))
 
-        .add(
-            'Status: Error',
-            wrapperCreator({
-                error: true,
-                value: 'This value produces a error',
-            })
-        )
+        .add('Status: Warning', () => (
+            <Component
+                {...props}
+                value="This value produces a warning"
+                warning
+            />
+        ))
 
-        .add(
-            'Status: Loading',
-            wrapperCreator({
-                loading: true,
-                value: 'This value produces a loading state',
-            })
-        )
+        .add('Status: Error', () => (
+            <Component {...props} value="This value produces an error" error />
+        ))
 
-        .add(
-            'Disabled',
-            wrapperCreator({
-                disabled: true,
-                placeholder: 'This one is disabled',
-            })
-        )
+        .add('Status: Loading', () => (
+            <Component
+                {...props}
+                value="This value produces a loading state"
+                loading
+            />
+        ))
+
+        .add('Disabled', () => (
+            <Component {...props} value="This field is disabled" disabled />
+        ))
 }

@@ -2,118 +2,86 @@ import React, { Component, Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { SelectField, Help } from '../src'
 
-const noop = () => undefined
+const logger = (name, value) => console.info(`${name}: ${value}`)
+
 const options = [
     { value: '0', label: 'This is a label' },
     { value: '1', label: 'While this is another one' },
     { value: '2', label: 'Beware the power of option 2' },
 ]
 
-class Wrapper extends Component {
-    constructor(props) {
-        super(props)
+createStory('SelectField (Outlined)', SelectField, {
+    name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+    list: options,
+})
 
-        this.state = {
-            value: this.props.value,
-        }
-    }
+createStory('SelectField (Outlined and dense)', SelectField, {
+    name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+    list: options,
+    dense: true,
+})
 
-    onChange = (name, value) => {
-        this.setState({ value })
-    }
+createStory('SelectField (Filled)', SelectField, {
+    name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+    list: options,
+    filled: true,
+})
 
-    render() {
-        const { value, ...props } = this.props
+createStory('SelectField (Filled and dense)', SelectField, {
+    name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+    list: options,
+    filled: true,
+    dense: true,
+})
 
-        return (
-            <>
-                <SelectField
-                    name="select-field"
-                    value={this.state.value}
-                    label="Label text"
-                    onChange={this.onChange}
-                    list={options}
-                    {...props}
-                />
-                <Help {...props}>This is a help text</Help>
-            </>
-        )
-    }
-}
-
-const createSelectFieldFilled = override => <Wrapper {...override} filled />
-const createSelectFieldFilledDense = override => (
-    <Wrapper {...override} filled dense />
-)
-const createSelectFieldOutlined = override => <Wrapper {...override} />
-const createSelectFieldOutlinedDense = override => (
-    <Wrapper {...override} dense />
-)
-
-createStory('SelectField (Outlined)', createSelectFieldOutlined)
-createStory('SelectField (Outlined, Dense)', createSelectFieldOutlinedDense)
-createStory('SelectField (Filled)', createSelectFieldFilled)
-createStory('SelectField (Filled, Dense)', createSelectFieldFilledDense)
-
-function createStory(name, wrapperCreator) {
+function createStory(name, Component, props) {
     storiesOf(name, module)
-        .add('No initial value', () => wrapperCreator())
+        .add('No initial value', () => <Component {...props} />)
 
-        .add('With initial value', () =>
-            wrapperCreator({
-                value: '1',
-            })
-        )
+        .add('With initial value', () => <Component {...props} value="1" />)
 
-        .add('With valid status', () =>
-            wrapperCreator({
-                value: '0',
-                list: options,
-                valid: true,
-            })
-        )
+        .add('With Help text', () => (
+            <>
+                <Component {...props} />
+                <Help {...props}>A helpful text.</Help>
+            </>
+        ))
 
-        .add('With warning status', () =>
-            wrapperCreator({
-                value: '1',
-                list: options,
-                warning: true,
-            })
-        )
+        .add('With valid status', () => (
+            <Component {...props} value="1" valid />
+        ))
 
-        .add('With error status', () =>
-            wrapperCreator({
-                value: '2',
-                list: options,
-                error: true,
-            })
-        )
+        .add('With warning status', () => (
+            <Component {...props} value="1" warning />
+        ))
 
-        .add('With loading status', () =>
-            wrapperCreator({
-                value: '2',
-                list: options,
-                loading: true,
-            })
-        )
+        .add('With error status', () => (
+            <Component {...props} value="2" error />
+        ))
 
-        .add('Disabled', () =>
-            wrapperCreator({
-                disabled: true,
-            })
-        )
+        .add('With loading status', () => (
+            <Component {...props} value="1" loading />
+        ))
 
-        .add('With text too long to display it', () =>
-            wrapperCreator({
-                value: '2',
-                list: options,
-            })
-        )
+        .add('Disabled', () => <Component {...props} disabled />)
 
-        .add('With optgroups', () =>
-            wrapperCreator({
-                value: '4',
-                list: [
+        .add('With text too long to display it', () => (
+            <Component {...props} value="2" />
+        ))
+
+        .add('With optgroups', () => (
+            <Component
+                {...props}
+                value="4"
+                list={[
                     { value: '0', label: 'This is a label' },
                     { value: '1', label: 'While this is another one' },
                     {
@@ -125,7 +93,7 @@ function createStory(name, wrapperCreator) {
                         ],
                     },
                     { value: '5', label: 'Beware the power of option 2' },
-                ],
-            })
-        )
+                ]}
+            />
+        ))
 }
