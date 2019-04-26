@@ -1,7 +1,7 @@
 import React from 'react'
-import { resolve } from 'styled-jsx/css'
+import css from 'styled-jsx/css'
 
-export const styles = resolve`
+export const styles = css`
     svg {
         fill: inherit;
         height: 24px;
@@ -18,11 +18,10 @@ export function ArrowDown() {
             width="48"
             height="48"
             viewBox="0 0 48 48"
-            className={styles.className}
         >
             <path d="M14 20l10 10 10-10z" />
             <path d="M0 0h48v48H0z" fill="none" />
-            <style>{styles.styles}</style>
+            <style jsx>{styles}</style>
         </svg>
     )
 }
@@ -34,11 +33,10 @@ export function ArrowUp() {
             width="48"
             height="48"
             viewBox="0 0 48 48"
-            className={styles.className}
         >
             <path d="M14 28l10-10 10 10z" />
             <path d="M0 0h48v48H0z" fill="none" />
-            <style>{styles.styles}</style>
+            <style jsx>{styles}</style>
         </svg>
     )
 }

@@ -14,7 +14,7 @@ export default css`
         color: ${colors.grey900};
     }
 
-    input[type='radio'] {
+    input {
         display: none;
     }
 

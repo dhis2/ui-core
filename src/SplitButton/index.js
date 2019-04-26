@@ -54,20 +54,19 @@ class SplitButton extends Component {
         return (
             <div ref={c => (this.elContainer = c)}>
                 <Button
+                    {...this.props}
                     onClick={evt =>
-                        this.props.onClick &&
                         this.props.onClick(this.props.name, this.props.value)
                     }
                     className={cx(this.props.className, leftButton.className)}
-                    {...this.props}
                 >
                     {this.props.children}
                 </Button>
 
                 <Button
-                    onClick={this.onToggle}
-                    className={cx(this.props.className, rightButton.className)}
                     {...this.props}
+                    className={cx(this.props.className, rightButton.className)}
+                    onClick={this.onToggle}
                 >
                     {icon}
                 </Button>
@@ -94,7 +93,6 @@ SplitButton.propTypes = {
     onClick: propTypes.func.isRequired,
 
     className: propTypes.string,
-    children: propTypes.string,
     name: propTypes.string,
     value: propTypes.string,
 

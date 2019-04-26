@@ -2,14 +2,25 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Button, Divider } from '../src'
 
+const logger = (name, value) => console.info(`${name}: ${value}`)
+
 storiesOf('Button', module)
     .add('Basic', () => (
         <>
-            Default: <Button>Label me!</Button>
+            Default:{' '}
+            <Button onClick={logger} name="default" value="default">
+                Label me!
+            </Button>
             <Divider />
-            Small: <Button small>Label me!</Button>
+            Small:{' '}
+            <Button small onClick={logger} name="default" value="small">
+                Label me!
+            </Button>
             <Divider />
-            Large: <Button large>Label me!</Button>
+            Large:{' '}
+            <Button large onClick={logger} name="default" value="large">
+                Label me!
+            </Button>
         </>
     ))
 

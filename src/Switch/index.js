@@ -9,12 +9,21 @@ import { SwitchIcon } from '../icons/Switch.js'
 import styles from './styles'
 
 class Switch extends React.Component {
+    state = {
+        checked: this.props.checked,
+    }
+
     onChange = () => {
         if (this.props.disabled) {
             return
         }
 
-        this.props.onChange(!this.props.checked)
+        const checked = !this.state.checked
+        this.setState({
+            checked,
+        })
+
+        this.props.onChange(this.props.name, checked)
     }
 
     render() {
@@ -39,12 +48,12 @@ class Switch extends React.Component {
                     type="checkbox"
                     disabled={disabled}
                     name={name}
-                    checked={checked}
+                    checked={this.state.checked}
                     onChange={this.onChange}
                 />
 
                 <SwitchIcon
-                    checked={checked}
+                    checked={this.state.checked}
                     disabled={disabled}
                     valid={valid}
                     warning={warning}

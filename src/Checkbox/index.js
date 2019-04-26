@@ -41,20 +41,24 @@ const icons = css.resolve`
 class Checkbox extends React.Component {
     state = {
         indeterminate: this.props.indeterminate,
+        checked: this.props.checked,
     }
 
-    onChange = () => {
-        this.props.onChange(this.props.name, !this.props.checked)
+    onChange = evt => {
+        const checked = !this.state.checked
+        const indeterminate = this.state.indeterminate ? false : null
 
-        if (this.state.indeterminate) {
-            this.setState({ indeterminate: false })
-        }
+        this.setState({
+            checked,
+            indeterminate,
+        })
+
+        this.props.onChange(this.props.name, evt.target.checked)
     }
 
     render() {
         const {
             required,
-            checked,
             className,
             disabled,
             valid,
@@ -63,7 +67,7 @@ class Checkbox extends React.Component {
         } = this.props
 
         const classes = cx(icons.className, {
-            checked: checked && !valid && !error && !warning,
+            checked: this.state.checked && !valid && !error && !warning,
             disabled,
             valid,
             error,
@@ -74,7 +78,7 @@ class Checkbox extends React.Component {
 
         if (this.state.indeterminate) {
             icon = <Indeterminate className={classes} />
-        } else if (this.props.checked) {
+        } else if (this.state.checked) {
             icon = <Checked className={classes} />
         }
 
@@ -87,7 +91,7 @@ class Checkbox extends React.Component {
                 <input
                     type="checkbox"
                     onChange={this.onChange}
-                    checked={this.props.checked}
+                    checked={this.state.checked}
                     disabled={this.props.disabled}
                 />
                 {icon}
