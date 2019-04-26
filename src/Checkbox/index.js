@@ -21,7 +21,7 @@ const icons = css.resolve`
     }
 
     .disabled {
-        fill: ${colors.grey500};
+        fill: ${theme.disabled};
     }
 
     .error {

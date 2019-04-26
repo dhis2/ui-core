@@ -3,24 +3,19 @@ import React, { Component, Fragment, createRef } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors } from '../theme'
-import {
-    innerSpacingSides,
-    inputFontSizeValue,
-    inputKinds,
-    inputSizes,
-} from '../forms/constants'
+import { theme } from '../theme'
 
 const styles = css`
     select {
         background: none;
         border: 0;
         color: black;
-        font-size: ${inputFontSizeValue};
+        font-size: 16px;
         height: 100%;
         left: 0;
         outline: 0;
-        padding: 0 12px 0 16px;
+        /** 15px => 16px inner spacing - 1px of the border**/
+        padding: 0 12px 0 15px;
         position: absolute;
         top: 0;
         width: 100%;
@@ -28,25 +23,21 @@ const styles = css`
         -moz-appearance: none;
     }
 
-    select.disabled {
-        color: ${colors.grey500};
+    .disabled {
+        color: ${theme.disabled};
         cursor: not-allowed;
     }
 
-    select.dense {
+    .dense {
         font-size: 14px;
     }
 
-    select.outlined {
-        ${/** 15px => 16px inner spacing - 1px of the border**/ ''}
-        padding-left: 15px;
-    }
-
-    select.filled {
+    .filled {
         padding-top: 24px;
+        padding-left: 16px;
     }
 
-    select.filled.dense {
+    .filled.dense {
         padding-top: 20px;
     }
 
@@ -74,22 +65,31 @@ export class Select extends Component {
     }
 
     render() {
+        const {
+            dense,
+            filled,
+            disabled,
+            onChange,
+            onFocus,
+            onBlur,
+            value,
+        } = this.props
         const className = cx({
-            dense: this.props.size === inputSizes.DENSE,
-            filled: this.props.kind === inputKinds.FILLED,
-            outlined: this.props.kind === inputKinds.OUTLINED,
-            disabled: this.props.disabled,
+            dense,
+            filled,
+            disabled,
         })
 
         return (
             <select
                 className={className}
-                onChange={this.props.onChange}
-                value={this.props.value}
-                disabled={this.props.disabled}
-                onFocus={this.props.onFocus}
-                onBlur={this.props.onBlur}
+                onChange={onChange}
+                value={value}
+                disabled={disabled}
+                onFocus={onFocus}
+                onBlur={onBlur}
             >
+                <option hidden disabled selected value />
                 {this.props.list.map(({ value, label, list }) => (
                     <Fragment>
                         <option key={label} value={value}>
@@ -113,11 +113,12 @@ export class Select extends Component {
 }
 
 Select.propTypes = {
-    value: propTypes.string.isRequired,
+    value: propTypes.string,
     onChange: propTypes.func.isRequired,
-    size: propTypes.arrayOf([inputSizes.DEFAULT, inputSizes.DENSE]).isRequired,
-    kind: propTypes.arrayOf([inputKinds.FILLED, inputKinds.OUTLINED])
-        .isRequired,
+
+    onFocus: propTypes.func,
+    onBlur: propTypes.func,
+
     list: propTypes.shape({
         value: propTypes.string.isRequired,
         label: propTypes.string.isRequired,
@@ -128,8 +129,8 @@ Select.propTypes = {
     }).isRequired,
 
     disabled: propTypes.bool,
-    onFocus: propTypes.func,
-    onBlur: propTypes.func,
+    filled: propTypes.bool,
+    dense: propTypes.bool,
 }
 
 Select.defaultProps = {

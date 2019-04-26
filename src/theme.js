@@ -111,4 +111,5 @@ export const theme = {
     error: colors.red500,
     valid: colors.blue600,
     warning: colors.yellow500,
+    disabled: colors.grey500,
 }

@@ -6,18 +6,7 @@ import cx from 'classnames'
 import { InputContainer } from './InputContainer'
 import { Label } from './Label'
 import { StatusIconNoDefault } from '../../icons/Status'
-import { children } from '../../utils/react'
-import { colors } from '../../theme'
-import {
-    iconStatusPropType,
-    iconStatuses,
-    statusColors,
-} from '../../icons/constants'
-import {
-    innerSpacingSides,
-    inputSizes,
-    inputSizesPropTypes,
-} from '../../forms/constants'
+import { colors, theme } from '../../theme'
 
 const styles = css`
     .label-filled {
@@ -32,43 +21,43 @@ const styles = css`
         position: relative;
     }
 
-    .label-filled.disabled {
-        cursor: not-allowed;
-    }
-
-    .label-filled.dense {
-        height: 44px;
-    }
-
     .label-filled:not(.disabled):hover {
         background-color: rgba(0, 0, 10, 0.08);
     }
 
-    .label-filled.focused {
+    .disabled {
+        cursor: not-allowed;
+    }
+
+    .dense {
+        height: 44px;
+    }
+
+    .focus {
         border-color: ${colors.teal600};
     }
 
-    .label-filled.valid {
-        border-color: ${statusColors[iconStatuses.VALID]};
+    .valid {
+        border-color: ${theme.valid};
     }
 
-    .label-filled.valid.focused {
+    .valid.focus {
         border-color: ${colors.blue700};
     }
 
-    .label-filled.warning {
-        border-color: ${statusColors[iconStatuses.WARNING]};
+    .warning {
+        border-color: ${theme.warning};
     }
 
-    .label-filled.warning.focused {
+    .warning.focus {
         border-color: ${colors.yellow700};
     }
 
-    .label-filled.error {
-        border-color: ${statusColors[iconStatuses.ERROR]};
+    .error {
+        border-color: ${theme.error};
     }
 
-    .label-filled.error.focused {
+    .error.focus {
         border-color: ${colors.red700};
     }
 
@@ -81,8 +70,8 @@ const styles = css`
         width: 100%;
     }
 
-    .focused .content,
-    .has-value .content {
+    .focus .content,
+    .value .content {
         z-index: 2;
     }
 
@@ -102,40 +91,58 @@ const styles = css`
     }
 `
 
-const createLabelFilledClassName = props =>
-    cx('label-filled', {
-        disabled: props.disabled,
-        focused: props.isFocused,
-        dense: props.size === inputSizes.DENSE,
-        valid: props.status === iconStatuses.VALID,
-        warning: props.status === iconStatuses.WARNING,
-        error: props.status === iconStatuses.ERROR,
-        'has-value': props.hasValue,
-    })
-
-export const Filled = ({ ...props }) => (
-    <div className={createLabelFilledClassName(props)} onClick={props.onClick}>
+export const Filled = ({
+    children,
+    disabled,
+    focus,
+    dense,
+    valid,
+    warning,
+    error,
+    onClick,
+    htmlFor,
+    value,
+    required,
+    label,
+    loading,
+}) => (
+    <div
+        className={cx('label-filled', {
+            disabled,
+            focus,
+            dense,
+            valid,
+            warning,
+            error,
+            value,
+        })}
+        onClick={onClick}
+    >
         <Label
-            isFocused={props.isFocused}
-            size={props.size}
-            status={props.status}
-            hasValue={props.isFocused || props.hasValue}
-            label={props.label}
-            htmlFor={props.htmlFor}
-            disabled={props.disabled}
+            focus={focus}
+            required={required}
+            valid={valid}
+            warning={warning}
+            error={error}
+            dense={dense}
+            disabled={disabled}
+            value={focus || value}
+            label={label}
+            htmlFor={htmlFor}
         />
 
         <div className="content">
-            <InputContainer
-                size={props.size}
-                isFocused={props.isFocused}
-                hasValue={props.hasValue}
-                size={props.size}
-            >
-                {props.children}
+            <InputContainer dense={dense} focus={focus} value={value}>
+                {children}
             </InputContainer>
+
             <div className="status-icon">
-                <StatusIconNoDefault status={props.status} />
+                <StatusIconNoDefault
+                    error={error}
+                    valid={valid}
+                    loading={loading}
+                    warning={warning}
+                />
             </div>
         </div>
 
@@ -145,21 +152,19 @@ export const Filled = ({ ...props }) => (
 
 Filled.propTypes = {
     label: propTypes.string.isRequired,
-    children: children.isRequired,
-    hasValue: propTypes.bool.isRequired,
     htmlFor: propTypes.string.isRequired,
 
+    onClick: propTypes.func,
+
+    focus: propTypes.bool,
+    value: propTypes.bool,
     disabled: propTypes.bool,
     required: propTypes.bool,
-    status: iconStatusPropType,
-    size: inputSizesPropTypes,
-    onClick: propTypes.func,
-}
 
-Filled.defaultProps = {
-    disabled: false,
-    required: false,
-    status: iconStatuses.DEFAULT,
-    size: inputSizes.DEFAULT,
-    onClick: null,
+    valid: propTypes.bool,
+    error: propTypes.bool,
+    warning: propTypes.bool,
+    loading: propTypes.bool,
+
+    dense: propTypes.bool,
 }

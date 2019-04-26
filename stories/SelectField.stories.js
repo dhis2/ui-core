@@ -14,7 +14,7 @@ class Wrapper extends Component {
         super(props)
 
         this.state = {
-            value: this.props.value || '',
+            value: this.props.value,
         }
     }
 
@@ -35,23 +35,19 @@ class Wrapper extends Component {
                     list={options}
                     {...props}
                 />
-                <Help status={props.status}>This is a help text</Help>
+                <Help {...props}>This is a help text</Help>
             </>
         )
     }
 }
 
-const createSelectFieldFilled = override => (
-    <Wrapper {...override} kind="filled" />
-)
+const createSelectFieldFilled = override => <Wrapper {...override} filled />
 const createSelectFieldFilledDense = override => (
-    <Wrapper {...override} kind="filled" size="dense" />
+    <Wrapper {...override} filled dense />
 )
-const createSelectFieldOutlined = override => (
-    <Wrapper {...override} kind="outlined" />
-)
+const createSelectFieldOutlined = override => <Wrapper {...override} />
 const createSelectFieldOutlinedDense = override => (
-    <Wrapper {...override} kind="outlined" size="dense" />
+    <Wrapper {...override} dense />
 )
 
 createStory('SelectField (Outlined)', createSelectFieldOutlined)
@@ -73,7 +69,7 @@ function createStory(name, wrapperCreator) {
             wrapperCreator({
                 value: '0',
                 list: options,
-                status: 'valid',
+                valid: true,
             })
         )
 
@@ -81,7 +77,7 @@ function createStory(name, wrapperCreator) {
             wrapperCreator({
                 value: '1',
                 list: options,
-                status: 'warning',
+                warning: true,
             })
         )
 
@@ -89,7 +85,7 @@ function createStory(name, wrapperCreator) {
             wrapperCreator({
                 value: '2',
                 list: options,
-                status: 'error',
+                error: true,
             })
         )
 
@@ -97,7 +93,7 @@ function createStory(name, wrapperCreator) {
             wrapperCreator({
                 value: '2',
                 list: options,
-                status: 'loading',
+                loading: true,
             })
         )
 

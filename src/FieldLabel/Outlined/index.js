@@ -7,18 +7,7 @@ import { InputContainer } from './InputContainer'
 import { Label } from './Label'
 import { StatusIconNoDefault } from '../../icons/Status'
 import { borderRadius, inputHeight, inputHeightDense } from '../constants'
-import { children } from '../../utils/react'
 import { colors, theme } from '../../theme'
-import {
-    iconStatusPropType,
-    iconStatuses,
-    statusColors,
-} from '../../icons/constants'
-import {
-    innerSpacingSides,
-    inputSizes,
-    inputSizesPropTypes,
-} from '../../forms/constants'
 
 const styles = css`
     .label-outlined {
@@ -27,16 +16,16 @@ const styles = css`
         color: ${colors.grey700};
     }
 
-    .label-outlined.disabled {
+    .disabled {
         cursor: not-allowed;
     }
 
-    .label-outlined.dense {
+    .dense {
         height: ${inputHeightDense + 10}px;
     }
 
     .label-outlined:before {
-        border: 1px solid ${statusColors[iconStatuses.DEFAULT]};
+        border: 1px solid ${theme.default};
         border-top: 0;
         border-radius: 0 0 ${borderRadius} ${borderRadius};
         box-sizing: border-box;
@@ -48,16 +37,24 @@ const styles = css`
         width: 100%;
     }
 
-    .label-outlined.valid:before {
-        border-color: ${statusColors[iconStatuses.VALID]};
+    .focus:before {
+        border-color: ${colors.teal400};
     }
 
-    .label-outlined.warning:before {
-        border-color: ${statusColors[iconStatuses.WARNING]};
+    .valid:before {
+        border-color: ${theme.valid};
     }
 
-    .label-outlined.error:before {
-        border-color: ${statusColors[iconStatuses.ERROR]};
+    .warning:before {
+        border-color: ${theme.warning};
+    }
+
+    .error:before {
+        border-color: ${theme.error};
+    }
+
+    .disabled:before {
+        border-color: ${theme.disabled};
     }
 
     .content {
@@ -91,31 +88,54 @@ const styles = css`
     }
 `
 
-const createLabelOutlinedClassName = props =>
-    cx('label-outlined', props.className, {
-        focused: props.isFocused,
-        dense: props.size === inputSizes.DENSE,
-        valid: props.status === iconStatuses.VALID,
-        warning: props.status === iconStatuses.WARNING,
-        error: props.status === iconStatuses.ERROR,
-        disabled: props.disabled,
-    })
-
-export const Outlined = ({ ...props }) => (
-    <div className={createLabelOutlinedClassName(props)}>
+export const Outlined = ({
+    children,
+    disabled,
+    focus,
+    dense,
+    valid,
+    warning,
+    error,
+    onClick,
+    htmlFor,
+    value,
+    required,
+    label,
+    loading,
+}) => (
+    <div
+        className={cx('label-outlined', {
+            disabled,
+            focus,
+            dense,
+            valid,
+            warning,
+            error,
+            value,
+        })}
+    >
         <Label
-            size={props.size}
-            status={props.status}
-            hasValue={props.isFocused || props.hasValue}
-            label={props.label}
-            htmlFor={props.htmlFor}
-            disabled={props.disabled}
+            focus={focus}
+            required={required}
+            valid={valid}
+            warning={warning}
+            error={error}
+            dense={dense}
+            disabled={disabled}
+            value={focus || value}
+            label={label}
+            htmlFor={htmlFor}
         />
 
         <div className="content">
-            <InputContainer size={props.size}>{props.children}</InputContainer>
+            <InputContainer dense={dense}>{children}</InputContainer>
             <div className="status-icon">
-                <StatusIconNoDefault status={props.status} />
+                <StatusIconNoDefault
+                    error={error}
+                    valid={valid}
+                    loading={loading}
+                    warning={warning}
+                />
             </div>
         </div>
 
@@ -125,17 +145,19 @@ export const Outlined = ({ ...props }) => (
 
 Outlined.propTypes = {
     label: propTypes.string.isRequired,
-    children: children.isRequired,
-    hasValue: propTypes.bool.isRequired,
     htmlFor: propTypes.string.isRequired,
 
-    required: propTypes.bool,
-    status: iconStatusPropType,
-    size: inputSizesPropTypes,
-}
+    onClick: propTypes.func,
 
-Outlined.defaultProps = {
-    status: iconStatuses.DEFAULT,
-    size: inputSizes.DEFAULT,
-    htmlFor: '',
+    focus: propTypes.bool,
+    value: propTypes.string,
+    disabled: propTypes.bool,
+    required: propTypes.bool,
+
+    valid: propTypes.bool,
+    error: propTypes.bool,
+    warning: propTypes.bool,
+    loading: propTypes.bool,
+
+    dense: propTypes.bool,
 }

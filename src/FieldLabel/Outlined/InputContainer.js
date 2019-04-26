@@ -3,16 +3,10 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { children } from '../../utils/react'
-import {
-    innerSpacingSides,
-    inputSizes,
-    inputSizesPropTypes,
-} from '../../forms/constants'
 import { inputHeight, inputHeightDense } from '../constants'
 
 const styles = css`
-    .input-container {
+    div {
         height: 100%;
         line-height: ${inputHeight}px;
         min-width: 0;
@@ -22,22 +16,18 @@ const styles = css`
         width: 100%;
     }
 
-    .input-container.dense {
+    .dense {
         line-height: ${inputHeightDense}px;
     }
 `
 
-const createInputContainerClassName = props =>
-    cx('input-container', { dense: props.size === inputSizes.DENSE })
-
-export const InputContainer = props => (
-    <div className={createInputContainerClassName(props)}>
-        {props.children}
+export const InputContainer = ({ dense, children }) => (
+    <div
+        className={cx({
+            dense,
+        })}
+    >
+        {children}
         <style jsx>{styles}</style>
     </div>
 )
-
-InputContainer.propTypes = {
-    size: inputSizesPropTypes.isRequired,
-    children: children.isRequired,
-}

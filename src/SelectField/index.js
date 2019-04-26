@@ -6,8 +6,6 @@ import { ArrowDown } from '../icons/Arrow'
 import { LabelFilled, LabelOutlined } from '../FieldLabel'
 import { Select } from './Select'
 import { colors } from '../theme'
-import { iconStatusPropType, iconStatuses } from '../icons/constants'
-import { inputKinds, inputSizes } from '../forms/constants'
 
 const TailIcon = () => (
     <div>
@@ -59,29 +57,47 @@ class SelectField extends React.Component {
     }
 
     render() {
-        const isFilled = this.props.kind === inputKinds.FILLED
-        const isDense = this.props.size === inputSizes.DENSE
-        const Container =
-            this.props.kind === inputKinds.FILLED ? LabelFilled : LabelOutlined
+        const {
+            type,
+            list,
+            filled,
+            focus,
+            dense,
+            required,
+            label,
+            disabled,
+            placeholder,
+            value,
+            name,
+            valid,
+            error,
+            warning,
+            loading,
+        } = this.props
+
+        const Container = filled ? LabelFilled : LabelOutlined
 
         return (
             <Container
-                label={this.props.label}
-                isFocused={this.isFocused()}
-                hasValue={true}
-                htmlFor={this.props.name}
-                required={this.props.required}
-                disabled={this.props.disabled}
-                status={this.props.status}
-                size={this.props.size}
                 onClick={this.onFocus}
+                focus={this.state.focus}
+                label={label}
+                value={!!value || placeholder}
+                htmlFor={name}
+                required={required}
+                disabled={disabled}
+                valid={valid}
+                warning={warning}
+                error={error}
+                loading={loading}
+                dense={dense}
             >
                 <Select
-                    value={this.props.value}
-                    disabled={this.props.disabled}
-                    list={this.props.list}
-                    kind={this.props.kind}
-                    size={this.props.size}
+                    value={value}
+                    disabled={disabled}
+                    list={list}
+                    filled={filled}
+                    dense={dense}
                     onChange={this.onChange}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
@@ -93,15 +109,6 @@ class SelectField extends React.Component {
     }
 }
 
-SelectField.defaultProps = {
-    size: inputSizes.DEFAULT,
-    kind: inputKinds.FILLED,
-    status: iconStatuses.DEFAULT,
-    className: '',
-    disabled: false,
-    required: false,
-}
-
 SelectField.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
@@ -110,12 +117,16 @@ SelectField.propTypes = {
     list: Select.propTypes.list,
 
     className: propTypes.string,
-    disabled: propTypes.bool,
+
     required: propTypes.bool,
+    disabled: propTypes.bool,
+    filled: propTypes.bool,
+    dense: propTypes.bool,
     focus: propTypes.bool,
-    size: propTypes.oneOf([inputSizes.DEFAULT, inputSizes.DENSE]),
-    kind: propTypes.oneOf([inputKinds.FILLED, inputKinds.OUTLINED]),
-    status: iconStatusPropType,
+    valid: propTypes.bool,
+    warning: propTypes.bool,
+    error: propTypes.bool,
+    loading: propTypes.bool,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,

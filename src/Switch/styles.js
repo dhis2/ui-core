@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { colors, theme } from '../theme.js'
+import { theme } from '../theme.js'
 
 export default css`
     input {
@@ -14,7 +14,7 @@ export default css`
 
     .disabled {
         cursor: not-allowed;
-        color: ${colors.grey500};
+        color: ${theme.disabled};
     }
 
     .required::after {

@@ -69,7 +69,7 @@ const common = css`
 
     .disabled {
         cursor: not-allowed;
-        color: ${colors.grey500};
+        color: ${theme.disabled};
     }
 
     .disabled .path {

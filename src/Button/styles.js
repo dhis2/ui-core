@@ -58,8 +58,8 @@ export default css`
         border: 1px solid #c4c9cc;
         background-color: #f9fafb;
         box-shadow: none;
-        color: ${colors.grey500};
-        fill: ${colors.grey500};
+        color: ${theme.disabled};
+        fill: ${theme.disabled};
     }
 
     button.icon {
@@ -153,8 +153,8 @@ export default css`
         border: 1px solid ${colors.grey400};
         background-color: transparent;
         box-shadow: none;
-        color: ${colors.grey500};
-        fill: ${colors.grey500};
+        color: ${theme.disabled};
+        fill: ${theme.disabled};
     }
 
     .destructive {

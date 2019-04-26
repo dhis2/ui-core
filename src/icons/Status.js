@@ -3,14 +3,6 @@ import React from 'react'
 import css from 'styled-jsx/css'
 
 import { theme, colors } from '../theme'
-import { iconStatusPropType, iconStatuses } from './constants'
-
-export const statusToIcon = {
-    [iconStatuses.VALID]: Valid,
-    [iconStatuses.WARNING]: Warning,
-    [iconStatuses.ERROR]: Error,
-    [iconStatuses.LOADING]: Loading,
-}
 
 /**
  * Icon: Valid
@@ -210,22 +202,27 @@ Loading.propTypes = {
  * @param {string} props.className
  * @returns {ReactNode}
  */
-export const StatusIconNoDefault = ({ status, className }) =>
-    status === iconStatuses.VALID ? (
+export const StatusIconNoDefault = ({
+    error,
+    warning,
+    valid,
+    loading,
+    className,
+}) =>
+    valid ? (
         <Valid className={className} />
-    ) : status === iconStatuses.WARNING ? (
+    ) : warning ? (
         <Warning className={className} />
-    ) : status === iconStatuses.ERROR ? (
+    ) : error ? (
         <Error className={className} />
-    ) : status === iconStatuses.LOADING ? (
+    ) : loading ? (
         <Loading className={className} />
     ) : null
 
 StatusIconNoDefault.propTypes = {
-    status: iconStatusPropType,
+    valid: propTypes.bool,
+    error: propTypes.bool,
+    warning: propTypes.bool,
+    loading: propTypes.bool,
     className: propTypes.string,
-}
-
-StatusIconNoDefault.defaultProps = {
-    className: '',
 }

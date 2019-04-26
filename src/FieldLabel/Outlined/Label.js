@@ -9,41 +9,31 @@ import {
     inputHeightDense,
     shrinkedLabelFontSize,
 } from '../constants'
-import { colors } from '../../theme'
-import {
-    iconStatusPropType,
-    iconStatuses,
-    statusColors,
-} from '../../icons/constants'
-import {
-    innerSpacingSides,
-    inputFontSizeValue,
-    inputSizes,
-    inputSizesPropTypes,
-} from '../../forms/constants'
+
+import { colors, theme } from '../../theme'
 
 const styles = css`
-    .legend {
+    label {
         box-sizing: border-box;
         height: 20px;
         left: 0;
         line-height: 20px;
-        padding-left: ${innerSpacingSides};
+        padding-left: 16px;
         position: absolute;
         top: 0;
         width: 100%;
     }
 
-    .legend.disabled {
+    .disabled {
         cursor: not-allowed;
     }
 
-    .legend.has-value {
+    .value {
         display: flex;
     }
 
-    .legend:before {
-        border: 1px solid ${statusColors[iconStatuses.DEFAULT]};
+    label:before {
+        border: 1px solid ${theme.default};
         border-bottom: 0;
         border-right: 0;
         border-radius: ${borderRadius} 0 0 0;
@@ -55,8 +45,8 @@ const styles = css`
         width: 12px;
     }
 
-    .legend:after {
-        border: 1px solid ${statusColors[iconStatuses.DEFAULT]};
+    label:after {
+        border: 1px solid ${theme.default};
         border-bottom: 0;
         border-left: 0;
         border-radius: 0 ${borderRadius} 0 0;
@@ -69,97 +59,105 @@ const styles = css`
         width: calc(100% - 12px);
     }
 
-    .legend.has-value:after {
+    .value:after {
         width: auto;
         position: relative;
     }
 
-    .legend-label {
+    span {
         display: inline-block;
-        font-size: ${inputFontSizeValue};
+        font-size: 16px;
         padding: 0 10px 0 0;
         position: relative;
         transform: translate(0px, 29px);
         transition: transform 0.05s ease-in;
     }
 
-    .legend.disabled .legend-label {
-        color: ${colors.grey500};
+    .disabled span {
+        color: ${theme.disabled};
+    }
+    .disabled:before,
+    .disabled:after {
+        border-color: ${theme.disabled};
     }
 
-    .has-value .legend-label {
+    .dense:before,
+    .dense:after {
+        height: ${inputHeightDense * 0.75}px;
+    }
+
+    .dense span {
+        height: ${inputHeightDense}px;
+        line-height: ${inputHeightDense}px;
+        transform: translate(0px, 11px);
+    }
+
+    .value span {
         font-size: ${shrinkedLabelFontSize};
         height: auto;
         line-height: inherit;
         transform: translate(0px, 0px);
     }
 
-    .valid:before,
-    .valid:after {
-        border-color: ${statusColors[iconStatuses.VALID]};
+    .focus:before,
+    .focus:after {
+        border-color: ${colors.teal400};
     }
 
-    .valid .legend-label {
-        color: ${statusColors[iconStatuses.VALID]};
+    .valid:before,
+    .valid:after {
+        border-color: ${theme.valid};
+    }
+
+    .valid span {
+        color: ${theme.valid};
     }
 
     .warning:before,
     .warning:after {
-        border-color: ${statusColors[iconStatuses.WARNING]};
+        border-color: ${theme.warning};
     }
 
-    .warning .legend-label {
-        color: ${statusColors[iconStatuses.WARNING]};
+    .warning span {
+        color: ${theme.warning};
     }
 
-    .legend.error:before,
-    .legend.error:after {
-        border-color: ${statusColors[iconStatuses.ERROR]};
+    .error:before,
+    .error:after {
+        border-color: ${theme.error};
     }
 
-    .error .legend-label {
-        color: ${statusColors[iconStatuses.ERROR]};
-    }
-
-    .dense.has-no-value .legend-label {
-        height: ${inputHeightDense}px;
-        line-height: ${inputHeightDense}px;
-        transform: translate(0px, 11px);
-    }
-
-    .legend.dense:before,
-    .legend.dense:after {
-        height: ${inputHeightDense * 0.75}px;
+    .error span {
+        color: ${theme.error};
     }
 `
 
-const createLabelClassName = props =>
-    cx('legend', {
-        disabled: props.disabled,
-        dense: props.size === inputSizes.DENSE,
-        valid: props.status === iconStatuses.VALID,
-        warning: props.status === iconStatuses.WARNING,
-        error: props.status === iconStatuses.ERROR,
-        'has-no-value': !props.hasValue,
-        'has-value': props.hasValue,
-    })
-
-export const Label = props => (
-    <label htmlFor={props.htmlFor} className={createLabelClassName(props)}>
-        <span className="legend-label">{props.label}</span>
+export const Label = ({
+    focus,
+    required,
+    valid,
+    warning,
+    error,
+    dense,
+    disabled,
+    value,
+    label,
+    htmlFor,
+}) => (
+    <label
+        htmlFor={htmlFor}
+        className={cx({
+            focus,
+            required,
+            valid,
+            warning,
+            error,
+            dense,
+            disabled,
+            value,
+        })}
+    >
+        <span>{label}</span>
         <style jsx>{styles}</style>
     </label>
 )
-
-Label.propTypes = {
-    label: propTypes.string.isRequired,
-    hasValue: propTypes.bool.isRequired,
-    status: iconStatusPropType.isRequired,
-    size: inputSizesPropTypes.isRequired,
-    htmlFor: propTypes.string.isRequired,
-    disabled: propTypes.bool,
-}
-
-Label.defaultProps = {
-    disabled: false,
-}

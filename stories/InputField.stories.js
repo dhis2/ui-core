@@ -32,7 +32,7 @@ class InputFieldWrapper extends React.Component {
                     onChange={(name, v) => this.onChange(name, v)}
                     {...cProps}
                 />
-                <Help status={cProps.status}>Default help text</Help>
+                <Help {...cProps}>Default help text</Help>
             </>
         )
     }
@@ -44,16 +44,16 @@ InputFieldWrapper.defaultProps = {
 }
 
 const createWrapperOutlined = override => () => (
-    <InputFieldWrapper {...override} kind="outlined" />
+    <InputFieldWrapper {...override} />
 )
 const createWrapperOutlinedDense = override => () => (
-    <InputFieldWrapper {...override} kind="outlined" size="dense" />
+    <InputFieldWrapper {...override} dense />
 )
 const createWrapperFilled = override => () => (
-    <InputFieldWrapper {...override} kind="filled" />
+    <InputFieldWrapper {...override} filled />
 )
 const createWrapperFilledDense = override => () => (
-    <InputFieldWrapper {...override} kind="filled" size="dense" />
+    <InputFieldWrapper {...override} filled dense />
 )
 
 createStory('InputField (Outlined)', createWrapperOutlined)
@@ -74,13 +74,13 @@ function createStory(name, wrapperCreator) {
 
         .add(
             'Status: Valid',
-            wrapperCreator({ status: 'valid', value: 'This value is valid' })
+            wrapperCreator({ valid: true, value: 'This value is valid' })
         )
 
         .add(
             'Status: Warning',
             wrapperCreator({
-                status: 'warning',
+                warning: true,
                 value: 'This value produces a warning',
             })
         )
@@ -88,7 +88,7 @@ function createStory(name, wrapperCreator) {
         .add(
             'Status: Error',
             wrapperCreator({
-                status: 'error',
+                error: true,
                 value: 'This value produces a error',
             })
         )
@@ -96,7 +96,7 @@ function createStory(name, wrapperCreator) {
         .add(
             'Status: Loading',
             wrapperCreator({
-                status: 'loading',
+                loading: true,
                 value: 'This value produces a loading state',
             })
         )
