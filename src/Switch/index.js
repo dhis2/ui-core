@@ -1,6 +1,10 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
+import css from 'styled-jsx/css'
+
+import { colors, theme } from '../theme.js'
+import { SwitchIcon } from '../icons/Switch.js'
 
 import styles from './styles'
 
@@ -14,34 +18,47 @@ class Switch extends React.Component {
     }
 
     render() {
-        const { status, disabled, className } = this.props
+        const {
+            required,
+            valid,
+            error,
+            warning,
+            checked,
+            className,
+            disabled,
+            name,
+        } = this.props
+
         return (
-            <label className={cx(status, className, { disabled })}>
+            <label
+                className={cx(className, {
+                    disabled,
+                })}
+            >
                 <input
                     type="checkbox"
                     disabled={disabled}
-                    name={this.props.name}
-                    checked={this.props.checked}
+                    name={name}
+                    checked={checked}
                     onChange={this.onChange}
                 />
-                <span
-                    className={cx('label', {
-                        [`status-${status}`]: true,
-                    })}
-                >
+
+                <SwitchIcon
+                    checked={checked}
+                    disabled={disabled}
+                    valid={valid}
+                    warning={warning}
+                    error={error}
+                />
+
+                <span className={cx({ required, disabled })}>
                     {this.props.label}
                 </span>
-                {this.props.required && <span className="required" />}
+
                 <style jsx>{styles}</style>
             </label>
         )
     }
-}
-
-Switch.defaultProps = {
-    checked: false,
-    disabled: false,
-    status: 'default',
 }
 
 Switch.propTypes = {

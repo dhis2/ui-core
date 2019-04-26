@@ -55,12 +55,9 @@ function CircularProgress({ small, large, overlay, className }) {
     return loader
 }
 
-CircularProgress.defaultProps = {
-    overlay: false,
-}
-
 CircularProgress.propTypes = {
     className: propTypes.string,
+
     overlay: propTypes.bool,
     small: propTypes.bool,
     large: propTypes.bool,

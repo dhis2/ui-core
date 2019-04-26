@@ -34,7 +34,6 @@ const icons = css.resolve`
 
     .warning {
         fill: ${theme.warning};
-
     }
 `
 

@@ -3,12 +3,27 @@ import propTypes from 'prop-types'
 
 import css from 'styled-jsx/css'
 
-import buttons from '../Button/styles.js'
-
 import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
+
 import { DropMenu } from '../DropMenu'
+import { Button } from '../Button'
 
 import cx from 'classnames'
+
+const leftButton = css.resolve`
+    button {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+`
+
+const rightButton = css.resolve`
+    button {
+        padding: 0 9px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+`
 
 class SplitButton extends Component {
     state = {
@@ -38,47 +53,29 @@ class SplitButton extends Component {
 
         return (
             <div ref={c => (this.elContainer = c)}>
-                <button
-                    name={this.props.name}
-                    value={this.props.value}
-                    disabled={this.props.disabled}
+                <Button
                     onClick={evt =>
                         this.props.onClick &&
                         this.props.onClick(this.props.name, this.props.value)
                     }
-                    className={cx(
-                        'base',
-                        `kind-${this.props.kind}`,
-                        `size-${this.props.size}`,
-                        this.props.className,
-                        {
-                            'icon-only':
-                                this.props.icon && !this.props.children,
-                            icon: this.props.icon,
-                        }
-                    )}
+                    className={cx(this.props.className, leftButton.className)}
+                    {...this.props}
                 >
-                    {this.props.icon && (
-                        <span className="button-icon">{this.props.icon}</span>
-                    )}
                     {this.props.children}
-                </button>
+                </Button>
 
-                <button
-                    disabled={this.props.disabled}
+                <Button
                     onClick={this.onToggle}
-                    className={cx(
-                        'base',
-                        `kind-${this.props.kind}`,
-                        `size-${this.props.size}`
-                    )}
+                    className={cx(this.props.className, rightButton.className)}
+                    {...this.props}
                 >
                     {icon}
-                </button>
+                </Button>
 
                 {open && <DropMenu component={this.props.component} />}
 
-                <style jsx>{buttons}</style>
+                {leftButton.styles}
+                {rightButton.styles}
                 <style jsx>{`
                     div {
                         display: inline-flex;
@@ -86,42 +83,30 @@ class SplitButton extends Component {
                         color: inherit;
                         white-space: nowrap;
                     }
-
-                    button:first-child {
-                        border-top-right-radius: 0;
-                        border-bottom-right-radius: 0;
-                    }
-
-                    button:nth-child(2) {
-                        padding: 0 9px;
-                        border-top-left-radius: 0;
-                        border-bottom-left-radius: 0;
-                    }
                 `}</style>
             </div>
         )
     }
 }
 
-SplitButton.defaultProps = {
-    size: 'medium',
-    kind: 'basic',
-    disabled: false,
-    name: '',
-    value: '',
-}
-
 SplitButton.propTypes = {
     component: propTypes.element.isRequired,
     onClick: propTypes.func.isRequired,
+
+    className: propTypes.string,
     children: propTypes.string,
     name: propTypes.string,
     value: propTypes.string,
-    className: propTypes.string,
-    kind: propTypes.oneOf(['basic', 'primary']),
+
     icon: propTypes.element,
+
+    small: propTypes.bool,
+    large: propTypes.bool,
+
+    primary: propTypes.bool,
+    secondary: propTypes.bool,
+    destructive: propTypes.bool,
     disabled: propTypes.bool,
-    size: propTypes.oneOf(['small', 'medium', 'large']),
 }
 
 export { SplitButton }

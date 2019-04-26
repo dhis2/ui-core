@@ -78,21 +78,19 @@ const MenuItem = ({
     )
 }
 
-MenuItem.defaultProps = {
-    active: false,
-    disabled: false,
-}
-
 MenuItem.propTypes = {
     label: propTypes.oneOf([propTypes.string, propTypes.element]).isRequired,
     value: propTypes.any.isRequired,
-    dense: propTypes.bool,
+
+    onClick: propTypes.func,
+
     className: propTypes.string,
-    icon: propTypes.element,
     children: propTypes.element,
+    icon: propTypes.element,
+
+    dense: propTypes.bool,
     active: propTypes.bool,
     disabled: propTypes.bool,
-    onClick: propTypes.func,
 }
 
 export { MenuItem }

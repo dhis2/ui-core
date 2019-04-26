@@ -36,12 +36,7 @@ class DropdownButton extends Component {
 
         return (
             <div ref={c => (this.elContainer = c)}>
-                <Button
-                    {...this.props}
-                    onClick={this.onToggle}
-                    className={this.props.className}
-                    icon={this.props.icon}
-                >
+                <Button onClick={this.onToggle} {...this.props}>
                     {this.props.children}
 
                     {ArrowIcon}
