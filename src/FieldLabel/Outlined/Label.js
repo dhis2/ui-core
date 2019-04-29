@@ -18,10 +18,10 @@ const styles = css`
         height: 20px;
         left: 0;
         line-height: 20px;
-        padding-left: 16px;
         position: absolute;
         top: 0;
         width: 100%;
+        padding-left: 4px;
     }
 
     .disabled {
@@ -67,7 +67,7 @@ const styles = css`
     span {
         display: inline-block;
         font-size: 16px;
-        padding: 0 10px 0 0;
+        padding: 0 10px 0 16px;
         position: relative;
         transform: translate(0px, 29px);
         transition: transform 0.05s ease-in;
@@ -157,7 +157,7 @@ export const Label = ({
             value,
         })}
     >
-        <span>{label}</span>
+        {label && <span>{label}</span>}
         <style jsx>{styles}</style>
     </label>
 )

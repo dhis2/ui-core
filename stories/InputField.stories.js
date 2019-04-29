@@ -9,7 +9,6 @@ const logger = (name, value) => console.info(`${name}: ${value}`)
 
 createStory('InputField (Outlined)', InputField, {
     name: 'Default',
-    label: 'Default label',
     onChange: logger,
 })
 
@@ -22,7 +21,6 @@ createStory('InputField (Outlined and dense)', InputField, {
 
 createStory('InputField (Filled)', InputField, {
     name: 'Default',
-    label: 'Default label',
     onChange: logger,
     filled: true,
 })
