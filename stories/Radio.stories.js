@@ -9,6 +9,16 @@ storiesOf('Radio', module)
         <Radio name="Ex" label="Radio" value="default" onChange={logger} />
     ))
 
+    .add('with default checked', () => (
+        <Radio
+            name="Ex"
+            label="Radio"
+            value="default"
+            defaultChecked
+            onChange={logger}
+        />
+    ))
+
     .add('Default with help', () => (
         <Radio name="Ex" label="Radio" value="with-help" onChange={logger} />
     ))

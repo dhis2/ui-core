@@ -39,20 +39,14 @@ const icons = css.resolve`
 
 class Radio extends React.Component {
     state = {
-        checked: this.props.checked,
+        checked: this.props.defaultChecked || false,
     }
 
-    onChange = () => {
-        if (this.props.disabled) {
-            return
-        }
+    onChange = evt => {
+        const { checked } = evt.target
 
-        const checked = !this.state.checked
-        this.setState({
-            checked,
-        })
-
-        this.props.onChange(this.props.name, this.props.value)
+        this.setState({ checked })
+        this.props.onChange(this.props.name, checked)
     }
 
     render() {
@@ -63,16 +57,17 @@ class Radio extends React.Component {
             warning,
             className,
             disabled,
+            checked = this.state.checked,
         } = this.props
         const classes = cx(icons.className, {
-            checked: this.state.checked && !valid && !error && !warning,
+            checked: checked && !valid && !error && !warning,
             disabled,
             valid,
             error,
             warning,
         })
 
-        const icon = this.state.checked ? (
+        const icon = checked ? (
             <Checked className={classes} />
         ) : (
             <Unchecked className={classes} />
@@ -88,7 +83,7 @@ class Radio extends React.Component {
                     type="radio"
                     name={this.props.name}
                     value={this.props.value}
-                    checked={this.state.checked}
+                    checked={checked}
                     disabled={this.props.disabled}
                     onChange={this.onChange}
                 />
@@ -113,6 +108,7 @@ Radio.propTypes = {
 
     required: propTypes.bool,
     checked: propTypes.bool,
+    defaultChecked: propTypes.bool,
     disabled: propTypes.bool,
     valid: propTypes.bool,
     warning: propTypes.bool,
