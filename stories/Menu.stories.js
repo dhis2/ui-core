@@ -14,10 +14,10 @@ storiesOf('Menu', module)
                 label={
                     <Switch
                         label="Yahoo"
-                        onChange={v => {
-                            alert('would need state, but would set to: ' + v)
+                        name="radio"
+                        onChange={(name, value) => {
+                            alert(`${name}: ${value}`)
                         }}
-                        checked={false}
                     />
                 }
             />

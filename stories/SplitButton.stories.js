@@ -12,10 +12,10 @@ const componentMenu = (
             label={
                 <Switch
                     label="Yahoo"
-                    onChange={v => {
-                        alert('would need state, but would set to: ' + v)
+                    name="radio"
+                    onChange={(name, value) => {
+                        alert(`${name}: ${value}`)
                     }}
-                    checked={false}
                 />
             }
         />
@@ -83,9 +83,19 @@ storiesOf('SplitButton', module)
     ))
 
     .add('With Menu', () => (
-        <SplitButton component={menu}>Drop it with menu!</SplitButton>
+        <SplitButton
+            onClick={(n, v) => alert(`Clicked button ${n} with ${v}`)}
+            component={menu}
+        >
+            Drop it with menu!
+        </SplitButton>
     ))
 
     .add('With Radio component in menu', () => (
-        <SplitButton component={componentMenu}>Drop it with menu!</SplitButton>
+        <SplitButton
+            onClick={(n, v) => alert(`Clicked button ${n} with ${v}`)}
+            component={componentMenu}
+        >
+            Drop it with menu!
+        </SplitButton>
     ))

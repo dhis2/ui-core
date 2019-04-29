@@ -53,7 +53,7 @@ class Checkbox extends React.Component {
             indeterminate,
         })
 
-        this.props.onChange(this.props.name, evt.target.checked)
+        this.props.onChange(this.props.name, checked)
     }
 
     render() {

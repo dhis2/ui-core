@@ -50,7 +50,6 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-    children: propTypes.string,
     className: propTypes.string,
     icon: propTypes.element,
     name: propTypes.string,

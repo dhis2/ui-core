@@ -32,7 +32,6 @@ class Switch extends React.Component {
             valid,
             error,
             warning,
-            checked,
             className,
             disabled,
             name,

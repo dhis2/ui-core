@@ -13,20 +13,6 @@ class DropdownButton extends Component {
         open: false,
     }
 
-    componentDidMount() {
-        document.addEventListener('click', this.onDocClick)
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('click', this.onDocClick)
-    }
-
-    onDocClick = evt => {
-        if (this.elContainer && !this.elContainer.contains(evt.target)) {
-            this.setState({ open: false })
-        }
-    }
-
     onToggle = () => this.setState({ open: !this.state.open })
 
     render() {
@@ -35,14 +21,19 @@ class DropdownButton extends Component {
         const ArrowIcon = open ? <ArrowUp /> : <ArrowDown />
 
         return (
-            <div ref={c => (this.elContainer = c)}>
+            <div>
                 <Button onClick={this.onToggle} {...this.props}>
                     {this.props.children}
 
                     {ArrowIcon}
                 </Button>
 
-                {open && <DropMenu component={this.props.component} />}
+                {open && (
+                    <DropMenu
+                        component={this.props.component}
+                        onClose={() => this.setState({ open: false })}
+                    />
+                )}
 
                 <style jsx>{`
                     div {
