@@ -9,11 +9,19 @@ storiesOf('Checkbox', module)
         <Checkbox name="Ex" label="Checkbox" onChange={logger} />
     ))
 
+    .add('Default with default checked', () => (
+        <Checkbox name="Ex" label="Checkbox" defaultChecked onChange={logger} />
+    ))
+
     .add('Default with help', () => (
         <div>
             <Checkbox name="Ex" label="Checkbox" onChange={logger} />
             <Help>A lil' help text</Help>
         </div>
+    ))
+
+    .add('Default: Indeterminate', () => (
+        <Checkbox name="Ex" label="Checkbox" onChange={logger} indeterminate />
     ))
 
     .add('Default: Disabled', () => (

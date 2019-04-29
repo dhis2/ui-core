@@ -41,11 +41,11 @@ const icons = css.resolve`
 class Checkbox extends React.Component {
     state = {
         indeterminate: this.props.indeterminate,
-        checked: this.props.checked,
+        checked: this.props.defaultChecked || false,
     }
 
     onChange = evt => {
-        const checked = !this.state.checked
+        const { checked } = evt.target
         const indeterminate = this.state.indeterminate ? false : null
 
         this.setState({
@@ -64,10 +64,11 @@ class Checkbox extends React.Component {
             valid,
             error,
             warning,
+            checked = this.state.checked,
         } = this.props
 
         const classes = cx(icons.className, {
-            checked: this.state.checked && !valid && !error && !warning,
+            checked: checked && !valid && !error && !warning,
             disabled,
             valid,
             error,
@@ -78,7 +79,7 @@ class Checkbox extends React.Component {
 
         if (this.state.indeterminate) {
             icon = <Indeterminate className={classes} />
-        } else if (this.state.checked) {
+        } else if (checked) {
             icon = <Checked className={classes} />
         }
 
@@ -91,7 +92,7 @@ class Checkbox extends React.Component {
                 <input
                     type="checkbox"
                     onChange={this.onChange}
-                    checked={this.state.checked}
+                    checked={checked}
                     disabled={this.props.disabled}
                 />
                 {icon}
@@ -108,7 +109,6 @@ class Checkbox extends React.Component {
 }
 
 Checkbox.propTypes = {
-    onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
 
     className: propTypes.string,
@@ -117,10 +117,13 @@ Checkbox.propTypes = {
     indeterminate: propTypes.bool,
     required: propTypes.bool,
     checked: propTypes.bool,
+    defaultChecked: propTypes.bool,
     disabled: propTypes.bool,
     valid: propTypes.bool,
     warning: propTypes.bool,
     error: propTypes.bool,
+
+    onChange: propTypes.func,
 }
 
 export { Checkbox }

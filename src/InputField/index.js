@@ -9,7 +9,7 @@ import { theme } from '../theme'
 class InputField extends React.Component {
     state = {
         focus: this.props.focus,
-        value: this.props.defaultValue,
+        value: this.props.defaultValue || '',
     }
 
     onFocus = evt => {

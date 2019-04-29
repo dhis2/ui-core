@@ -8,6 +8,7 @@ import { colors } from '../src/theme'
 const logger = (name, value) => console.info(`${name}: ${value}`)
 
 createStory('InputField (Outlined)', InputField, {
+    label: 'Default label',
     name: 'Default',
     onChange: logger,
 })

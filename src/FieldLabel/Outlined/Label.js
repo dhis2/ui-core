@@ -67,7 +67,7 @@ const styles = css`
     span {
         display: inline-block;
         font-size: 16px;
-        padding: 0 10px 0 16px;
+        padding: 0 10px 0 12px;
         position: relative;
         transform: translate(0px, 29px);
         transition: transform 0.05s ease-in;
