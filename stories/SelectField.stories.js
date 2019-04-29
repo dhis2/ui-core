@@ -44,9 +44,11 @@ createStory('SelectField (Filled and dense)', SelectField, {
 
 function createStory(name, Component, props) {
     storiesOf(name, module)
-        .add('No initial value', () => <Component {...props} />)
+        .add('No value', () => <Component {...props} />)
 
-        .add('With initial value', () => <Component {...props} value="1" />)
+        .add('With default value', () => (
+            <Component {...props} defaultValue="1" />
+        ))
 
         .add('With Help text', () => (
             <>
