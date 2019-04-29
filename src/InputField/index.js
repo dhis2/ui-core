@@ -8,33 +8,18 @@ import { theme } from '../theme'
 
 class InputField extends React.Component {
     state = {
-        focus: false,
-        value: '',
-    }
-
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            focus: props.focus,
-            value: props.value || '',
-        }
+        focus: this.props.focus,
+        value: this.props.defaultValue,
     }
 
     onFocus = evt => {
         this.setState({ focus: true })
-
-        if (this.props.onFocus) {
-            this.props.onFocus(evt)
-        }
+        this.props.onFocus(this.props.name, evt.target.value)
     }
 
     onBlur = evt => {
         this.setState({ focus: false })
-
-        if (this.props.onBlur) {
-            this.props.onBlur(evt)
-        }
+        this.props.onBlur(this.props.name, evt.target.value)
     }
 
     onChange = evt => {
@@ -56,12 +41,12 @@ class InputField extends React.Component {
             label,
             disabled,
             placeholder,
-            value,
             name,
             valid,
             error,
             warning,
             loading,
+            value = this.state.value,
         } = this.props
 
         const Container = filled ? LabelFilled : LabelOutlined
@@ -70,7 +55,7 @@ class InputField extends React.Component {
             <Container
                 focus={this.state.focus}
                 label={label}
-                value={!!this.state.value || !!placeholder}
+                value={!!value || !!placeholder}
                 htmlFor={name}
                 required={required}
                 disabled={disabled}
@@ -87,7 +72,7 @@ class InputField extends React.Component {
                     onChange={this.onChange}
                     name={name}
                     type={type}
-                    value={this.state.value}
+                    value={value}
                     placeholder={placeholder}
                     filled={filled}
                     disabled={disabled}
@@ -111,15 +96,21 @@ class InputField extends React.Component {
 
 InputField.defaultProps = {
     type: 'text',
+    onChange: () => {},
+    onBlur: () => {},
+    onFocus: () => {},
 }
 
 InputField.propTypes = {
     name: propTypes.string.isRequired,
-    onChange: propTypes.func.isRequired,
     label: propTypes.string.isRequired,
-    value: propTypes.string,
 
     className: propTypes.string,
+    placeholder: propTypes.string,
+
+    /** Controls the value from the outside, bypassing internal state. */
+    value: propTypes.string,
+    defaultValue: propTypes.string,
 
     required: propTypes.bool,
     disabled: propTypes.bool,
@@ -131,10 +122,13 @@ InputField.propTypes = {
     error: propTypes.bool,
     loading: propTypes.bool,
 
-    onFocus: propTypes.func,
+    /** Handler function which is called with arguments: name, value */
     onBlur: propTypes.func,
+    /** Handler function which is called with arguments: name, value */
+    onChange: propTypes.func,
+    /** Handler function which is called with arguments: name, value */
+    onFocus: propTypes.func,
 
-    placeholder: propTypes.string,
     type: propTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
 }
 

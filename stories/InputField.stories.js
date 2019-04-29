@@ -14,7 +14,6 @@ createStory('InputField (Outlined)', InputField, {
 })
 
 createStory('InputField (Outlined and dense)', InputField, {
-    value: '',
     name: 'Default',
     label: 'Default label',
     onChange: logger,
@@ -22,7 +21,6 @@ createStory('InputField (Outlined and dense)', InputField, {
 })
 
 createStory('InputField (Filled)', InputField, {
-    value: '',
     name: 'Default',
     label: 'Default label',
     onChange: logger,
@@ -30,7 +28,6 @@ createStory('InputField (Filled)', InputField, {
 })
 
 createStory('InputField (Filled and dense)', InputField, {
-    value: '',
     name: 'Default',
     label: 'Default label',
     onChange: logger,
@@ -53,7 +50,9 @@ function createStory(name, Component, props) {
             </>
         ))
 
-        .add('With value', () => <Component {...props} value="A value" />)
+        .add('With default value', () => (
+            <Component {...props} defaultValue="A default value" />
+        ))
 
         .add('Status: Valid', () => (
             <Component {...props} value="This value is valid" valid />
