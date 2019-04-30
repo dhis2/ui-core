@@ -35,7 +35,6 @@ class InputField extends React.Component {
         const {
             type,
             filled,
-            focus,
             dense,
             required,
             label,
@@ -46,6 +45,7 @@ class InputField extends React.Component {
             error,
             warning,
             loading,
+            focus = this.state.focus,
             value = this.state.value,
         } = this.props
 
