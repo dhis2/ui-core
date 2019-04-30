@@ -1,7 +1,5 @@
 # Missing components
 
-* [Chip](https://github.com/dhis2/d2-ui/tree/master/packages/core/src/chip)
-* [CheckBox](https://github.com/dhis2/d2-ui/tree/master/packages/core/src/form-fields/CheckBox.component.js)
 * [ControlBar](https://github.com/dhis2/d2-ui/tree/master/packages/core/src/control-bar)
   * Should be in `ui-widgets`
 * [DatePicker](https://github.com/dhis2/d2-ui/tree/master/packages/core/src/form-fields/DatePicker.component.js)
@@ -13,7 +11,6 @@
 * [ListSelect Components](https://github.com/dhis2/d2-ui/tree/master/packages/core/src/list-select)
   * Not needed in `ui-core`
   * The searchable list component could be of interest
-* [LoadingMask](https://github.com/dhis2/d2-ui/tree/master/packages/core/src/loading-mask)
 * [Message](https://github.com/dhis2/d2-ui/tree/master/packages/core/src/messages)
   * Could be used as the message for form input components as well
 * [MultiToggle](https://github.com/dhis2/d2-ui/tree/master/packages/core/src/form-fields/MultiToggle.js)
