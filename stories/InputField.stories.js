@@ -7,77 +7,85 @@ import { colors } from '../src/theme'
 
 const logger = (name, value) => console.info(`${name}: ${value}`)
 
-createStory('InputField (Outlined)', InputField, {
+createStory('InputField: Outlined', {
     label: 'Default label',
     name: 'Default',
     onChange: logger,
 })
 
-createStory('InputField (Outlined and dense)', InputField, {
-    name: 'Default',
-    label: 'Default label',
-    onChange: logger,
-    dense: true,
-})
-
-createStory('InputField (Filled)', InputField, {
-    name: 'Default',
-    onChange: logger,
-    filled: true,
-})
-
-createStory('InputField (Filled and dense)', InputField, {
+createStory('InputField: Filled', {
     name: 'Default',
     label: 'Default label',
     onChange: logger,
     filled: true,
-    dense: true,
 })
 
-function createStory(name, Component, props) {
+function createStory(name, props) {
     storiesOf(name, module)
-        .add('No placeholder, no value', () => <Component {...props} />)
+        .add('No placeholder, no value', () => <InputField {...props} />)
 
         .add('Placeholder, no value', () => (
-            <Component {...props} placeholder="Hold the place" />
+            <InputField {...props} placeholder="Hold the place" />
         ))
 
         .add('With Help text', () => (
             <>
-                <Component {...props} placeholder="Hold the place" />
+                <InputField {...props} placeholder="Hold the place" />
                 <Help {...props}>A helpful text.</Help>
             </>
         ))
 
         .add('With default value', () => (
-            <Component {...props} defaultValue="A default value" />
+            <InputField
+                {...props}
+                defaultValue="This is set through the defaultValue prop, which means the component is uncontrolled."
+            />
+        ))
+
+        .add('With value', () => (
+            <InputField
+                {...props}
+                value="This is set through the value prop, which means the component is controlled."
+            />
         ))
 
         .add('Status: Valid', () => (
-            <Component {...props} value="This value is valid" valid />
+            <InputField {...props} defaultValue="This value is valid" valid />
         ))
 
         .add('Status: Warning', () => (
-            <Component
+            <InputField
                 {...props}
-                value="This value produces a warning"
+                defaultValue="This value produces a warning"
                 warning
             />
         ))
 
         .add('Status: Error', () => (
-            <Component {...props} value="This value produces an error" error />
+            <InputField
+                {...props}
+                defaultValue="This value produces an error"
+                error
+            />
         ))
 
         .add('Status: Loading', () => (
-            <Component
+            <InputField
                 {...props}
-                value="This value produces a loading state"
+                defaultValue="This value produces a loading state"
                 loading
             />
         ))
 
         .add('Disabled', () => (
-            <Component {...props} value="This field is disabled" disabled />
+            <InputField
+                {...props}
+                defaultValue="This field is disabled"
+                disabled
+            />
+        ))
+
+        .add('Dense', () => (
+            <InputField {...props} defaultValue="This field is dense" dense />
         ))
 }

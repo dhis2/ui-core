@@ -9,41 +9,7 @@ storiesOf('Radio', module)
         <Radio name="Ex" label="Radio" value="default" onChange={logger} />
     ))
 
-    .add('with default checked', () => (
-        <Radio
-            name="Ex"
-            label="Radio"
-            value="default"
-            defaultChecked
-            onChange={logger}
-        />
-    ))
-
-    .add('Default with help', () => (
-        <Radio name="Ex" label="Radio" value="with-help" onChange={logger} />
-    ))
-
-    .add('Default: Disabled', () => (
-        <Radio
-            name="Ex"
-            label="Radio"
-            disabled
-            value="disabled"
-            onChange={logger}
-        />
-    ))
-
-    .add('Default: Required', () => (
-        <Radio
-            name="Ex"
-            required
-            label="Radio"
-            value="required"
-            onChange={logger}
-        />
-    ))
-
-    .add('Default: Checked', () => (
+    .add('Checked', () => (
         <Radio
             name="Ex"
             label="Radio"
@@ -53,35 +19,54 @@ storiesOf('Radio', module)
         />
     ))
 
-    .add('Status: Valid', () => (
+    .add('Default checked', () => (
         <Radio
             name="Ex"
             label="Radio"
-            checked
-            valid
-            value="valid"
+            value="default"
+            defaultChecked
             onChange={logger}
         />
     ))
 
-    .add('Status: Warning', () => (
+    .add('ith Help', () => (
+        <Radio name="Ex" label="Radio" value="with-help" onChange={logger} />
+    ))
+
+    .add('Disabled', () => (
         <Radio
             name="Ex"
             label="Radio"
-            checked
+            disabled
+            value="disabled"
+            onChange={logger}
+        />
+    ))
+
+    .add('Required', () => (
+        <Radio
+            name="Ex"
+            required
+            label="Radio"
+            value="required"
+            onChange={logger}
+        />
+    ))
+
+    .add('Valid', () => (
+        <Radio name="Ex" label="Radio" valid value="valid" onChange={logger} />
+    ))
+
+    .add('Warning', () => (
+        <Radio
+            name="Ex"
+            label="Radio"
             warning
             value="warning"
             onChange={logger}
         />
     ))
 
-    .add('Status: Error', () => (
-        <Radio
-            name="Ex"
-            label="Radio"
-            checked
-            error
-            value="error"
-            onChange={logger}
-        />
+    .add('Error', () => (
+        <Radio name="Ex" label="Radio" error value="error" onChange={logger} />
     ))
