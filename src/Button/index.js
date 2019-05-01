@@ -5,48 +5,42 @@ import propTypes from 'prop-types'
 
 import styles from './styles.js'
 
-const Button = React.forwardRef(
-    (
-        {
-            type,
-            children,
-            icon,
-            name,
-            value,
-            disabled,
-            onClick,
-            className,
+const Button = ({
+    type,
+    children,
+    icon,
+    name,
+    value,
+    disabled,
+    onClick,
+    className,
+    primary,
+    secondary,
+    destructive,
+    small,
+    large,
+}) => (
+    <button
+        disabled={disabled}
+        onClick={evt => onClick && onClick(name, value)}
+        className={cx(className, {
             primary,
             secondary,
             destructive,
             small,
             large,
-        },
-        ref
-    ) => (
-        <button
-            disabled={disabled}
-            onClick={evt => onClick && onClick(name, value)}
-            className={cx(className, {
-                primary,
-                secondary,
-                destructive,
-                small,
-                large,
-                'icon-only': icon && !children,
-                icon,
-            })}
-            type={type}
-            name={name}
-            value={value}
-            ref={ref}
-        >
-            {icon && <span className="button-icon">{icon}</span>}
-            {children}
+            'icon-only': icon && !children,
+            icon,
+        })}
+        type={type}
+        name={name}
+        value={value}
+    >
+        {icon && <span className="button-icon">{icon}</span>}
+        {children}
 
-            <style jsx>{styles}</style>
-        </button>
-    )
+        <style jsx>{styles}</style>
+    </button>
 )
 
 Button.defaultProps = {

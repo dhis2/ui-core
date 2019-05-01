@@ -22,12 +22,8 @@ class DropdownButton extends Component {
         const ArrowIcon = open ? <ArrowUp /> : <ArrowDown />
 
         return (
-            <div>
-                <Button
-                    ref={this.anchorRef}
-                    onClick={this.onToggle}
-                    {...this.props}
-                >
+            <div ref={this.anchorRef}>
+                <Button onClick={this.onToggle} {...this.props}>
                     {this.props.children}
 
                     {ArrowIcon}

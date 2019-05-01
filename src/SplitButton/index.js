@@ -39,14 +39,13 @@ class SplitButton extends Component {
         const icon = open ? <ArrowUp /> : <ArrowDown />
 
         return (
-            <div>
+            <div ref={this.anchorRef}>
                 <Button
                     {...this.props}
                     onClick={evt =>
                         this.props.onClick(this.props.name, this.props.value)
                     }
                     className={cx(this.props.className, leftButton.className)}
-                    ref={this.anchorRef}
                 >
                     {this.props.children}
                 </Button>
