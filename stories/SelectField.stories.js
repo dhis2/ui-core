@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { SelectField, Help } from '../src'
 
@@ -10,22 +10,14 @@ const options = [
     { value: '2', label: 'Beware the power of option 2' },
 ]
 
-createStory('SelectField (Outlined)', SelectField, {
+createStory('SelectField: Outlined', {
     name: 'Default',
     label: 'Default label',
     onChange: logger,
     list: options,
 })
 
-createStory('SelectField (Outlined and dense)', SelectField, {
-    name: 'Default',
-    label: 'Default label',
-    onChange: logger,
-    list: options,
-    dense: true,
-})
-
-createStory('SelectField (Filled)', SelectField, {
+createStory('SelectField: Filled', {
     name: 'Default',
     label: 'Default label',
     onChange: logger,
@@ -33,56 +25,51 @@ createStory('SelectField (Filled)', SelectField, {
     filled: true,
 })
 
-createStory('SelectField (Filled and dense)', SelectField, {
-    name: 'Default',
-    label: 'Default label',
-    onChange: logger,
-    list: options,
-    filled: true,
-    dense: true,
-})
-
-function createStory(name, Component, props) {
+function createStory(name, props) {
     storiesOf(name, module)
-        .add('No value', () => <Component {...props} />)
+        .add('No value', () => <SelectField {...props} />)
 
         .add('With default value', () => (
-            <Component {...props} defaultValue="1" />
+            <SelectField {...props} defaultValue="1" />
         ))
+
+        .add('With value', () => <SelectField {...props} value="1" />)
 
         .add('With Help text', () => (
             <>
-                <Component {...props} />
+                <SelectField {...props} />
                 <Help {...props}>A helpful text.</Help>
             </>
         ))
 
         .add('With valid status', () => (
-            <Component {...props} value="1" valid />
+            <SelectField {...props} defaultValue="1" valid />
         ))
 
         .add('With warning status', () => (
-            <Component {...props} value="1" warning />
+            <SelectField {...props} defaultValue="1" warning />
         ))
 
         .add('With error status', () => (
-            <Component {...props} value="2" error />
+            <SelectField {...props} defaultValue="2" error />
         ))
 
         .add('With loading status', () => (
-            <Component {...props} value="1" loading />
+            <SelectField {...props} defaultValue="1" loading />
         ))
 
-        .add('Disabled', () => <Component {...props} disabled />)
+        .add('Disabled', () => <SelectField {...props} disabled />)
+
+        .add('Dense', () => <SelectField {...props} dense />)
 
         .add('With text too long to display it', () => (
-            <Component {...props} value="2" />
+            <SelectField {...props} defaultValue="2" />
         ))
 
         .add('With optgroups', () => (
-            <Component
+            <SelectField
                 {...props}
-                value="4"
+                defaultValue="4"
                 list={[
                     { value: '0', label: 'This is a label' },
                     { value: '1', label: 'While this is another one' },

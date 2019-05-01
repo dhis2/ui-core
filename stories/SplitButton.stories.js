@@ -9,17 +9,7 @@ const options = []
 
 const componentMenu = (
     <Menu>
-        <MenuItem
-            label={
-                <Switch
-                    label="Yahoo"
-                    name="radio"
-                    onChange={(name, value) => {
-                        alert(`${name}: ${value}`)
-                    }}
-                />
-            }
-        />
+        <MenuItem label={<Switch label="Yahoo" name="radio" />} />
         <Divider />
         <MenuItem
             label="Three"
@@ -71,38 +61,74 @@ const menu = (
     </Menu>
 )
 
-storiesOf('SplitButton', module)
-    .addParameters({
-        notes: {
-            markdown,
-        },
-    })
+const Simple = <span>Simplest thing</span>
 
-    .add('Default', () => (
-        <SplitButton
-            name="foo"
-            value="bar"
-            onClick={(n, v) => alert(`Clicked button ${n} with ${v}`)}
-            component={<span>Simplest thing!</span>}
-        >
-            Drop it with menu!
-        </SplitButton>
-    ))
+createStory('SplitButton: Basic', {
+    name: 'Button',
+    value: 'default',
+    onClick: (n, v) => alert(`Clicked button ${n} with ${v}`),
+    component: Simple,
+})
 
-    .add('With Menu', () => (
-        <SplitButton
-            onClick={(n, v) => alert(`Clicked button ${n} with ${v}`)}
-            component={menu}
-        >
-            Drop it with menu!
-        </SplitButton>
-    ))
+createStory('SplitButton: Primary', {
+    name: 'Button',
+    value: 'default',
+    onClick: (n, v) => alert(`Clicked button ${n} with ${v}`),
+    primary: true,
+    component: Simple,
+})
 
-    .add('With Radio component in menu', () => (
-        <SplitButton
-            onClick={(n, v) => alert(`Clicked button ${n} with ${v}`)}
-            component={componentMenu}
-        >
-            Drop it with menu!
-        </SplitButton>
-    ))
+createStory('SplitButton: Secondary', {
+    name: 'Button',
+    value: 'default',
+    onClick: (n, v) => alert(`Clicked button ${n} with ${v}`),
+    secondary: true,
+    component: Simple,
+})
+
+createStory('SplitButton: Destructive', {
+    name: 'Button',
+    value: 'default',
+    onClick: (n, v) => alert(`Clicked button ${n} with ${v}`),
+    destructive: true,
+    component: Simple,
+})
+
+function createStory(name, props) {
+    storiesOf(name, module)
+        .addParameters({
+            notes: {
+                markdown,
+            },
+        })
+
+        .add('Default', () => <SplitButton {...props}>Label me!</SplitButton>)
+
+        .add('Disabled', () => (
+            <SplitButton {...props} disabled>
+                Label me!
+            </SplitButton>
+        ))
+
+        .add('Small', () => (
+            <SplitButton {...props} small>
+                Label me!
+            </SplitButton>
+        ))
+
+        .add('Large', () => (
+            <SplitButton {...props} large>
+                Label me!
+            </SplitButton>
+        ))
+
+        .add('With Menu', () => (
+            <SplitButton component={menu}>Drop it with menu!</SplitButton>
+        ))
+
+        .add('With Radio component in menu', () => (
+            <SplitButton component={componentMenu}>
+                Drop it with menu!
+            </SplitButton>
+        ))
+}

@@ -17,47 +17,51 @@ storiesOf('Checkbox', module)
         <Checkbox name="Ex" label="Checkbox" onChange={logger} />
     ))
 
-    .add('Default with default checked', () => (
-        <Checkbox name="Ex" label="Checkbox" defaultChecked onChange={logger} />
+    .add('Checked', () => (
+        <Checkbox
+            name="Ex"
+            label="Set with checked"
+            checked
+            onChange={logger}
+        />
     ))
 
-    .add('Default with help', () => (
+    .add('Default checked', () => (
+        <Checkbox
+            name="Ex"
+            label="Set with defaultChecked"
+            defaultChecked
+            onChange={logger}
+        />
+    ))
+
+    .add('With Help', () => (
         <div>
             <Checkbox name="Ex" label="Checkbox" onChange={logger} />
             <Help>A lil' help text</Help>
         </div>
     ))
 
-    .add('Default: Indeterminate', () => (
+    .add('Indeterminate', () => (
         <Checkbox name="Ex" label="Checkbox" onChange={logger} indeterminate />
     ))
 
-    .add('Default: Disabled', () => (
+    .add('Disabled', () => (
         <Checkbox name="Ex" label="Checkbox" disabled onChange={logger} />
     ))
 
-    .add('Default: Required', () => (
+    .add('Required', () => (
         <Checkbox name="Ex" required label="Checkbox" onChange={logger} />
     ))
 
-    .add('Default: Checked', () => (
-        <Checkbox name="Ex" label="Checkbox" checked onChange={logger} />
-    ))
-
     .add('Status: Valid', () => (
-        <Checkbox name="Ex" label="Checkbox" checked valid onChange={logger} />
+        <Checkbox name="Ex" label="Checkbox" valid onChange={logger} />
     ))
 
     .add('Status: Warning', () => (
-        <Checkbox
-            name="Ex"
-            label="Checkbox"
-            checked
-            warning
-            onChange={logger}
-        />
+        <Checkbox name="Ex" label="Checkbox" warning onChange={logger} />
     ))
 
     .add('Status: Error', () => (
-        <Checkbox name="Ex" label="Checkbox" error checked onChange={logger} />
+        <Checkbox name="Ex" label="Checkbox" error onChange={logger} />
     ))
