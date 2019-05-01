@@ -62,7 +62,7 @@ class SplitButton extends Component {
                     <DropMenu
                         component={this.props.component}
                         onClose={() => this.setState({ open: false })}
-                        anchorRef={this.anchorRef}
+                        anchorEl={this.anchorRef.current}
                     />
                 )}
 
