@@ -12,11 +12,17 @@ class DropMenu extends PureComponent {
 
     componentDidMount() {
         document.addEventListener('click', this.onDocClick)
-        this.setState(getPosition(this.props.anchorEl))
+        window.addEventListener('resize', this.updatePosition)
+        this.updatePosition()
     }
 
     componentWillUnmount() {
         document.removeEventListener('click', this.onDocClick)
+        window.removeEventListener('resize', this.updatePosition)
+    }
+
+    updatePosition = () => {
+        this.setState(getPosition(this.props.anchorEl))
     }
 
     onDocClick = evt => {
