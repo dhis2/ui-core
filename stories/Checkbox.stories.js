@@ -2,9 +2,17 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Checkbox, Help } from '../src'
 
+import markdown from './info/atoms/checkbox.md'
+
 const logger = (name, value) => console.info(`${name}: ${value}`)
 
 storiesOf('Checkbox', module)
+    .addParameters({
+        notes: {
+            markdown,
+        },
+    })
+
     .add('Default', () => (
         <Checkbox name="Ex" label="Checkbox" onChange={logger} />
     ))

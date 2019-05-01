@@ -17,8 +17,8 @@
     "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
     "build": "NODE_ENV=production yarn build:commonjs && yarn build:modules",
     "postbuild": "yarn build-storybook && size-limit",
-    "build-storybook": "build-storybook -c .storybook -o ./build/docs",
-    "start-storybook": "start-storybook --port 5000",
+    "build-storybook": "build-storybook -c .storybook -o ./build/docs && cp -r ./stories/info/images ./build/docs",
+    "start-storybook": "start-storybook --port 5000 -s ./stories/info",
     "start": "yarn start-storybook"
   },
   "husky": {

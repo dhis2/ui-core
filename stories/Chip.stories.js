@@ -2,7 +2,15 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Chip } from '../src'
 
+import markdown from './info/atoms/chip.md'
+
 storiesOf('Chip', module)
+    .addParameters({
+        notes: {
+            markdown,
+        },
+    })
+
     .add('Default', () => <Chip>Chippy</Chip>)
 
     .add('Selected', () => <Chip selected>Chipmunk</Chip>)

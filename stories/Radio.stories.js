@@ -2,9 +2,17 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Radio, Help } from '../src'
 
+import markdown from './info/atoms/radio.md'
+
 const logger = (name, value) => console.info(`${name}: ${value}`)
 
 storiesOf('Radio', module)
+    .addParameters({
+        notes: {
+            markdown,
+        },
+    })
+
     .add('Default', () => (
         <Radio name="Ex" label="Radio" value="default" onChange={logger} />
     ))

@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { DropdownButton } from '../src'
 
 import { Menu, MenuItem, Divider, Switch } from '../src'
+import markdown from './info/atoms/button.md'
 
 const options = []
 
@@ -71,6 +72,12 @@ const menu = (
 )
 
 storiesOf('DropdownButton', module)
+    .addParameters({
+        notes: {
+            markdown,
+        },
+    })
+
     .add('Default', () => (
         <DropdownButton component={<span>Simplest thing</span>}>
             Default

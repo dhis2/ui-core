@@ -2,9 +2,16 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Button, Divider } from '../src'
 
+import markdown from './info/atoms/button.md'
+
 const logger = (name, value) => console.info(`${name}: ${value}`)
 
 storiesOf('Button', module)
+    .addParameters({
+        notes: {
+            markdown,
+        },
+    })
     .add('Basic', () => (
         <>
             Default:{' '}
