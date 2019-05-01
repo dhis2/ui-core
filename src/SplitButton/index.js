@@ -29,6 +29,7 @@ class SplitButton extends Component {
     state = {
         open: false,
     }
+    anchorRef = React.createRef()
 
     onToggle = () => this.setState({ open: !this.state.open })
 
@@ -45,6 +46,7 @@ class SplitButton extends Component {
                         this.props.onClick(this.props.name, this.props.value)
                     }
                     className={cx(this.props.className, leftButton.className)}
+                    ref={this.anchorRef}
                 >
                     {this.props.children}
                 </Button>
@@ -61,6 +63,7 @@ class SplitButton extends Component {
                     <DropMenu
                         component={this.props.component}
                         onClose={() => this.setState({ open: false })}
+                        anchorRef={this.anchorRef}
                     />
                 )}
 
