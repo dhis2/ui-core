@@ -9,17 +9,7 @@ const options = []
 
 const componentMenu = (
     <Menu>
-        <MenuItem
-            label={
-                <Switch
-                    label="Yahoo"
-                    name="radio"
-                    onChange={(name, value) => {
-                        alert(`${name}: ${value}`)
-                    }}
-                />
-            }
-        />
+        <MenuItem label={<Switch label="Yahoo" name="radio" />} />
         <Divider />
         <MenuItem
             label="Three"
@@ -71,31 +61,72 @@ const menu = (
     </Menu>
 )
 
-storiesOf('DropdownButton', module)
-    .addParameters({
-        notes: {
-            markdown,
-        },
-    })
+const Simple = <span>Simplest thing</span>
 
-    .add('Default', () => (
-        <DropdownButton component={<span>Simplest thing</span>}>
-            Default
-        </DropdownButton>
-    ))
+createStory('DropdownButton: Basic', {
+    name: 'Button',
+    value: 'default',
+    component: Simple,
+})
 
-    .add('Primary', () => (
-        <DropdownButton primary large component={<span>Simplest thing</span>}>
-            Default
-        </DropdownButton>
-    ))
+createStory('DropdownButton: Primary', {
+    name: 'Button',
+    value: 'default',
+    primary: true,
+    component: Simple,
+})
 
-    .add('With Menu', () => (
-        <DropdownButton component={menu}>Drop it with menu!</DropdownButton>
-    ))
+createStory('DropdownButton: Secondary', {
+    name: 'Button',
+    value: 'default',
+    secondary: true,
+    component: Simple,
+})
 
-    .add('With Radio component in menu', () => (
-        <DropdownButton component={componentMenu}>
-            Drop it with menu!
-        </DropdownButton>
-    ))
+createStory('DropdownButton: Destructive', {
+    name: 'Button',
+    value: 'default',
+    destructive: true,
+    component: Simple,
+})
+
+function createStory(name, props) {
+    storiesOf(name, module)
+        .addParameters({
+            notes: {
+                markdown,
+            },
+        })
+
+        .add('Default', () => (
+            <DropdownButton {...props}>Label me!</DropdownButton>
+        ))
+
+        .add('Disabled', () => (
+            <DropdownButton {...props} disabled>
+                Label me!
+            </DropdownButton>
+        ))
+
+        .add('Small', () => (
+            <DropdownButton {...props} small>
+                Label me!
+            </DropdownButton>
+        ))
+
+        .add('Large', () => (
+            <DropdownButton {...props} large>
+                Label me!
+            </DropdownButton>
+        ))
+
+        .add('With Menu', () => (
+            <DropdownButton component={menu}>Drop it with menu!</DropdownButton>
+        ))
+
+        .add('With Radio component in menu', () => (
+            <DropdownButton component={componentMenu}>
+                Drop it with menu!
+            </DropdownButton>
+        ))
+}

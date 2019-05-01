@@ -7,33 +7,37 @@ const logger = (name, value) => console.info(`${name}: ${value}`)
 storiesOf('Switch', module)
     .add('Default', () => <Switch name="Ex" label="Switch" onChange={logger} />)
 
-    .add('Default with help', () => (
+    .add('with Help', () => (
         <>
             <Switch name="Ex" label="Switch" onChange={logger} />
             <Help>A helpful text</Help>
         </>
     ))
 
-    .add('Default: Disabled', () => (
+    .add('Disabled', () => (
         <Switch name="Ex" label="Switch" disabled onChange={logger} />
     ))
 
-    .add('Default: Required', () => (
+    .add('Required', () => (
         <Switch name="Ex" required label="Switch" onChange={logger} />
     ))
 
-    .add('Default: Checked', () => (
+    .add('Default checked', () => (
+        <Switch name="Ex" label="Switch" defaultChecked onChange={logger} />
+    ))
+
+    .add('Checked', () => (
         <Switch name="Ex" label="Switch" checked onChange={logger} />
     ))
 
-    .add('Status: Valid', () => (
-        <Switch name="Ex" label="Switch" checked valid onChange={logger} />
+    .add('Valid', () => (
+        <Switch name="Ex" label="Switch" valid onChange={logger} />
     ))
 
-    .add('Status: Warning', () => (
-        <Switch name="Ex" label="Switch" checked warning onChange={logger} />
+    .add('Warning', () => (
+        <Switch name="Ex" label="Switch" warning onChange={logger} />
     ))
 
-    .add('Status: Error', () => (
-        <Switch name="Ex" label="Switch" error checked onChange={logger} />
+    .add('Error', () => (
+        <Switch name="Ex" label="Switch" checked onChange={logger} />
     ))
