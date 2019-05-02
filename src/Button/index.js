@@ -14,12 +14,10 @@ const Button = ({
     disabled,
     onClick,
     className,
-    basic,
     primary,
     secondary,
     destructive,
     small,
-    medium,
     large,
 }) => (
     <button
