@@ -14,6 +14,7 @@ export default css`
         line-height: 16px;
         cursor: pointer;
         user-select: none;
+        color: ${colors.grey900};
     }
 
     div:hover {

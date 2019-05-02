@@ -15,6 +15,7 @@ export default css`
         cursor: pointer;
         transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
         user-select: none;
+        color: ${colors.grey900};
 
         /*medium*/
         height: 36px;
@@ -163,6 +164,7 @@ export default css`
         background-color: #b9242b;
         color: ${colors.white};
         fill: ${colors.white};
+        font-weight: 500;
     }
 
     .destructive:hover {

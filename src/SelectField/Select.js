@@ -3,13 +3,13 @@ import React, { Component, Fragment, createRef } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { theme } from '../theme'
+import { colors, theme } from '../theme'
 
 const styles = css`
     select {
         background: none;
         border: 0;
-        color: black;
+        color: ${colors.grey900};
         font-size: 16px;
         height: 100%;
         left: 0;

@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css'
+import { colors, theme } from '../theme'
 
 export default css`
     li {
@@ -21,7 +22,7 @@ export default css`
     }
 
     .label {
-        color: rgba(0, 0, 0, 0.87);
+        color: ${colors.grey900};
         font-size: 15px;
         white-space: nowrap;
 
