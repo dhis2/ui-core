@@ -81,9 +81,12 @@ class SplitButton extends Component {
     }
 }
 
+SplitButton.defaultProps = {
+    onClick: () => {},
+}
+
 SplitButton.propTypes = {
     component: propTypes.element.isRequired,
-    onClick: propTypes.func.isRequired,
 
     className: propTypes.string,
     name: propTypes.string,

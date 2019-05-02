@@ -79,9 +79,9 @@ const MenuItem = ({
 }
 
 MenuItem.propTypes = {
-    label: propTypes.string.isRequired,
-    value: propTypes.any.isRequired,
+    label: propTypes.oneOfType([propTypes.string, propTypes.object]).isRequired,
 
+    value: propTypes.any,
     onClick: propTypes.func,
 
     className: propTypes.string,

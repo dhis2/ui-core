@@ -74,6 +74,7 @@ storiesOf('Menu', module)
                 label={
                     <Switch
                         label="Yahoo"
+                        name="uhu"
                         onChange={v => {
                             alert('would need state, but would set to: ' + v)
                         }}

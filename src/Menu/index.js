@@ -21,7 +21,7 @@ const Menu = ({ children, className }) => (
 
 Menu.propTypes = {
     className: propTypes.string,
-    children: propTypes.arrayOf(propTypes.element).isRequired,
+    children: propTypes.any.isRequired,
 }
 
 export { Menu }

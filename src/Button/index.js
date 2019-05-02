@@ -22,7 +22,7 @@ const Button = ({
 }) => (
     <button
         disabled={disabled}
-        onClick={evt => onClick && onClick(name, value)}
+        onClick={evt => onClick(name, value)}
         className={cx(className, {
             primary,
             secondary,
@@ -45,6 +45,7 @@ const Button = ({
 
 Button.defaultProps = {
     type: 'button',
+    onClick: () => {},
 }
 
 Button.propTypes = {

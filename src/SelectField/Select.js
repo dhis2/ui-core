@@ -73,6 +73,7 @@ export class Select extends Component {
             onFocus,
             onBlur,
             value,
+            children,
         } = this.props
         const className = cx({
             dense,
@@ -89,23 +90,8 @@ export class Select extends Component {
                 onFocus={onFocus}
                 onBlur={onBlur}
             >
-                <option hidden disabled value="-1" />
-                {this.props.list.map(({ value, label, list }) => (
-                    <Fragment>
-                        <option key={label} value={value}>
-                            {label}
-                        </option>
-                        {list && list.length && (
-                            <optgroup label={label}>
-                                {list.map(({ value, label }) => (
-                                    <option key={label} value={value}>
-                                        {label}
-                                    </option>
-                                ))}
-                            </optgroup>
-                        )}
-                    </Fragment>
-                ))}
+                <option key="hidden-default-value" hidden disabled value="-1" />
+                {children}
                 <style jsx>{styles}</style>
             </select>
         )
@@ -119,22 +105,18 @@ Select.propTypes = {
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 
-    list: propTypes.arrayOf(
+    children: propTypes.oneOfType([
+        propTypes.arrayOf(
+            propTypes.shape({
+                tagName: propTypes.oneOf(['OPTION', 'OPTGROUP']),
+            })
+        ),
         propTypes.shape({
-            value: propTypes.string.isRequired,
-            label: propTypes.string.isRequired,
-            list: propTypes.shape({
-                value: propTypes.string.isRequired,
-                label: propTypes.string.isRequired,
-            }),
-        })
-    ).isRequired,
+            tagName: propTypes.oneOf(['OPTION', 'OPTGROUP']),
+        }),
+    ]),
 
     disabled: propTypes.bool,
     filled: propTypes.bool,
     dense: propTypes.bool,
-}
-
-Select.defaultProps = {
-    disabled: false,
 }

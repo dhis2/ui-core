@@ -57,7 +57,6 @@ class SelectField extends React.Component {
     render() {
         const {
             type,
-            list,
             filled,
             focus,
             dense,
@@ -69,6 +68,7 @@ class SelectField extends React.Component {
             error,
             warning,
             loading,
+            children,
             value = this.state.value,
         } = this.props
 
@@ -92,13 +92,14 @@ class SelectField extends React.Component {
                 <Select
                     value={value}
                     disabled={disabled}
-                    list={list}
                     filled={filled}
                     dense={dense}
                     onChange={this.onChange}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
-                />
+                >
+                    {children}
+                </Select>
 
                 <TailIcon />
             </Container>
@@ -112,9 +113,18 @@ SelectField.propTypes = {
     label: propTypes.string.isRequired,
     defaultValue: propTypes.string,
     value: propTypes.string,
-    list: Select.propTypes.list,
 
     className: propTypes.string,
+    children: propTypes.oneOfType([
+        propTypes.arrayOf(
+            propTypes.shape({
+                tagName: propTypes.oneOf(['OPTION', 'OPTGROUP']),
+            })
+        ),
+        propTypes.shape({
+            tagName: propTypes.oneOf(['OPTION', 'OPTGROUP']),
+        }),
+    ]),
 
     required: propTypes.bool,
     disabled: propTypes.bool,
