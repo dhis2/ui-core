@@ -9,7 +9,7 @@ const calculatePaddingTop = props => (props.filled ? '14px' : '18.5px')
 
 const styles = css`
     input {
-        color: black;
+        color: ${colors.grey900};
         background-color: transparent;
         border: 0;
         box-sizing: border-box;
