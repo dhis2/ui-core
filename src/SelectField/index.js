@@ -87,7 +87,7 @@ class SelectField extends React.Component {
                     disabled={disabled}
                     filled={filled}
                     dense={dense}
-                    onChange={e => onChange(e)}
+                    onChange={onChange}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
                 >

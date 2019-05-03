@@ -63,7 +63,6 @@ DropdownButton.propTypes = {
     secondary: propTypes.bool,
     destructive: propTypes.bool,
     disabled: propTypes.bool,
-    onClick: propTypes.func,
 }
 
 export { DropdownButton }

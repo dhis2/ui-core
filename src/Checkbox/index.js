@@ -29,7 +29,7 @@ const Checkbox = ({
     >
         <Input
             name={name}
-            onChange={e => onChange(e)}
+            onChange={onChange}
             checked={checked}
             disabled={disabled}
         />

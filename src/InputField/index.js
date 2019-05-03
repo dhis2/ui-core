@@ -60,7 +60,7 @@ class InputField extends React.Component {
                     focus={focus}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
-                    onChange={e => onChange(e)}
+                    onChange={onChange}
                     name={name}
                     type={type}
                     value={value || ''}

@@ -22,7 +22,7 @@ const Button = ({
 }) => (
     <button
         disabled={disabled}
-        onClick={e => onClick(e)}
+        onClick={onClick}
         className={cx(className, {
             primary,
             secondary,

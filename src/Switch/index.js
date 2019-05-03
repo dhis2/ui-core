@@ -30,7 +30,7 @@ const Switch = ({
             disabled={disabled}
             name={name}
             checked={checked}
-            onChange={e => onChange(e)}
+            onChange={onChange}
         />
 
         <SwitchIcon

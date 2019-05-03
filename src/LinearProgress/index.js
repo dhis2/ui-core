@@ -95,7 +95,7 @@ const Progress = ({ indeterminate, amount }) => {
     )
 }
 
-const LinearProgress = ({ amount, margin, className }) => {
+const LinearProgress = ({ amount, margin = '0px', className }) => {
     return (
         <div role="progressbar" className={className}>
             <Progress amount={amount} />
@@ -106,7 +106,6 @@ const LinearProgress = ({ amount, margin, className }) => {
 
                     width: 100%;
                     height: 4px;
-                    margin: 0;
                     overflow: hidden;
                     overflow-x: hidden;
                     overflow-y: hidden;
