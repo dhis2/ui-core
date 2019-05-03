@@ -31,7 +31,7 @@ const subMenu = css.resolve`
     }
 `
 
-const SubMenu = ({ children, onClick, className }) => (
+const SubMenu = ({ children, className }) => (
     <div className={className}>{children}</div>
 )
 
@@ -82,6 +82,7 @@ MenuItem.propTypes = {
     label: propTypes.oneOfType([propTypes.string, propTypes.object]).isRequired,
 
     value: propTypes.any,
+    /** handler function called with `value` as the sole argument */
     onClick: propTypes.func,
 
     className: propTypes.string,

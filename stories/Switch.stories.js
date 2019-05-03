@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { Switch, Help } from '../src'
 
-const logger = (name, value) => console.info(`${name}: ${value}`)
+const logger = ({ target }) => console.info(`${target.name}: ${target.checked}`)
 
 storiesOf('Switch', module)
     .add('Default', () => <Switch name="Ex" label="Switch" onChange={logger} />)
@@ -22,22 +22,18 @@ storiesOf('Switch', module)
         <Switch name="Ex" required label="Switch" onChange={logger} />
     ))
 
-    .add('Default checked', () => (
-        <Switch name="Ex" label="Switch" defaultChecked onChange={logger} />
-    ))
-
     .add('Checked', () => (
         <Switch name="Ex" label="Switch" checked onChange={logger} />
     ))
 
     .add('Valid', () => (
-        <Switch name="Ex" label="Switch" valid onChange={logger} />
+        <Switch name="Ex" label="Switch" checked valid onChange={logger} />
     ))
 
     .add('Warning', () => (
-        <Switch name="Ex" label="Switch" warning onChange={logger} />
+        <Switch name="Ex" label="Switch" checked warning onChange={logger} />
     ))
 
     .add('Error', () => (
-        <Switch name="Ex" label="Switch" checked onChange={logger} />
+        <Switch name="Ex" label="Switch" checked error onChange={logger} />
     ))

@@ -23,15 +23,6 @@ const TailIcon = () => (
 class SelectField extends React.Component {
     state = {
         focus: this.props.focused,
-        value: this.props.defaultValue,
-    }
-
-    onChange = event => {
-        if (!this.props.disabled) {
-            const { value } = event.target
-            this.setState({ value })
-            this.props.onChange(this.props.name, value)
-        }
     }
 
     onFocus = e => {
@@ -69,7 +60,8 @@ class SelectField extends React.Component {
             warning,
             loading,
             children,
-            value = this.state.value,
+            value,
+            onChange,
         } = this.props
 
         const Container = filled ? LabelFilled : LabelOutlined
@@ -90,11 +82,12 @@ class SelectField extends React.Component {
                 dense={dense}
             >
                 <Select
+                    name={name}
                     value={value}
                     disabled={disabled}
                     filled={filled}
                     dense={dense}
-                    onChange={this.onChange}
+                    onChange={e => onChange(e)}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
                 >
@@ -111,7 +104,6 @@ SelectField.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     label: propTypes.string.isRequired,
-    defaultValue: propTypes.string,
     value: propTypes.string,
 
     className: propTypes.string,

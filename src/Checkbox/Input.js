@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
-export const Input = ({ onChange, checked, disabled }) => (
+export const Input = ({ onChange, checked, disabled, name }) => (
     <Fragment>
         <input
             type="checkbox"
+            name={name}
             onChange={onChange}
             checked={checked}
             disabled={disabled}
@@ -20,7 +21,9 @@ export const Input = ({ onChange, checked, disabled }) => (
 )
 
 Input.propTypes = {
-    onChange: PropTypes.func.isRequired,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
+    onChange: propTypes.func.isRequired,
+    name: propTypes.string.isRequired,
+
+    checked: propTypes.bool,
+    disabled: propTypes.bool,
 }

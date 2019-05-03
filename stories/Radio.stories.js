@@ -4,7 +4,7 @@ import { Radio, Help } from '../src'
 
 import markdown from './info/atoms/radio.md'
 
-const logger = (name, value) => console.info(`${name}: ${value}`)
+const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
 storiesOf('Radio', module)
     .addParameters({
@@ -23,16 +23,6 @@ storiesOf('Radio', module)
             label="Radio"
             checked
             value="checked"
-            onChange={logger}
-        />
-    ))
-
-    .add('Default checked', () => (
-        <Radio
-            name="Ex"
-            label="Radio"
-            value="default"
-            defaultChecked
             onChange={logger}
         />
     ))
@@ -70,7 +60,14 @@ storiesOf('Radio', module)
     ))
 
     .add('Valid', () => (
-        <Radio name="Ex" label="Radio" valid value="valid" onChange={logger} />
+        <Radio
+            name="Ex"
+            label="Radio"
+            valid
+            checked
+            value="valid"
+            onChange={logger}
+        />
     ))
 
     .add('Warning', () => (
@@ -78,11 +75,19 @@ storiesOf('Radio', module)
             name="Ex"
             label="Radio"
             warning
+            checked
             value="warning"
             onChange={logger}
         />
     ))
 
     .add('Error', () => (
-        <Radio name="Ex" label="Radio" error value="error" onChange={logger} />
+        <Radio
+            name="Ex"
+            label="Radio"
+            error
+            checked
+            value="error"
+            onChange={logger}
+        />
     ))

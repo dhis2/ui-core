@@ -42,9 +42,6 @@ class SplitButton extends Component {
             <div ref={this.anchorRef}>
                 <Button
                     {...this.props}
-                    onClick={evt =>
-                        this.props.onClick(this.props.name, this.props.value)
-                    }
                     className={cx(this.props.className, leftButton.className)}
                 >
                     {this.props.children}
@@ -52,8 +49,8 @@ class SplitButton extends Component {
 
                 <Button
                     {...this.props}
-                    className={cx(this.props.className, rightButton.className)}
                     onClick={this.onToggle}
+                    className={cx(this.props.className, rightButton.className)}
                 >
                     {icon}
                 </Button>
@@ -81,11 +78,8 @@ class SplitButton extends Component {
     }
 }
 
-SplitButton.defaultProps = {
-    onClick: () => {},
-}
-
 SplitButton.propTypes = {
+    onClick: propTypes.func.isRequired,
     component: propTypes.element.isRequired,
 
     className: propTypes.string,

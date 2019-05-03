@@ -4,7 +4,7 @@ import { Button, Divider } from '../src'
 
 import markdown from './info/atoms/button.md'
 
-const logger = (name, value) => console.info(`${name}: ${value}`)
+const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
 createStory('Button: Basic', {
     onClick: logger,

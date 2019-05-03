@@ -8,78 +8,53 @@ import { SwitchIcon } from '../icons/Switch.js'
 
 import styles from './styles'
 
-class Switch extends React.Component {
-    state = {
-        checked: this.props.defaultChecked || false,
-    }
-
-    onChange = evt => {
-        const { checked } = evt.target
-
-        this.setState({
-            checked,
-        })
-
-        this.props.onChange(this.props.name, checked)
-    }
-
-    render() {
-        const {
-            required,
-            valid,
-            error,
-            warning,
-            className,
+const Switch = ({
+    onChange,
+    name,
+    className,
+    label,
+    required,
+    checked = false,
+    disabled,
+    valid,
+    warning,
+    error,
+}) => (
+    <label
+        className={cx(className, {
             disabled,
-            name,
-            checked = this.state.checked,
-        } = this.props
+        })}
+    >
+        <input
+            type="checkbox"
+            disabled={disabled}
+            name={name}
+            checked={checked}
+            onChange={e => onChange(e)}
+        />
 
-        return (
-            <label
-                className={cx(className, {
-                    disabled,
-                })}
-            >
-                <input
-                    type="checkbox"
-                    disabled={disabled}
-                    name={name}
-                    checked={checked}
-                    onChange={this.onChange}
-                />
+        <SwitchIcon
+            checked={checked}
+            disabled={disabled}
+            valid={valid}
+            warning={warning}
+            error={error}
+        />
 
-                <SwitchIcon
-                    checked={checked}
-                    disabled={disabled}
-                    valid={valid}
-                    warning={warning}
-                    error={error}
-                />
+        <span className={cx({ required, disabled })}>{label}</span>
 
-                <span className={cx({ required, disabled })}>
-                    {this.props.label}
-                </span>
-
-                <style jsx>{styles}</style>
-            </label>
-        )
-    }
-}
-
-Switch.defaultProps = {
-    onChange: () => {},
-}
+        <style jsx>{styles}</style>
+    </label>
+)
 
 Switch.propTypes = {
+    onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
 
-    onChange: propTypes.func,
     className: propTypes.string,
     label: propTypes.string,
 
     required: propTypes.bool,
-    defaultChecked: propTypes.bool,
     checked: propTypes.bool,
     disabled: propTypes.bool,
     valid: propTypes.bool,
