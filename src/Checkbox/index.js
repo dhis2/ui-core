@@ -6,6 +6,8 @@ import css from 'styled-jsx/css'
 import { colors, theme } from '../theme'
 import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox'
 import { Icon } from './Icon'
+import { Label } from './Label'
+import { Input } from './Input'
 import styles from './styles'
 
 class Checkbox extends React.Component {
@@ -43,8 +45,7 @@ class Checkbox extends React.Component {
                     disabled: this.props.disabled,
                 })}
             >
-                <input
-                    type="checkbox"
+                <Input
                     onChange={this.onChange}
                     checked={checked}
                     disabled={this.props.disabled}
@@ -59,9 +60,7 @@ class Checkbox extends React.Component {
                     indeterminate={this.state.indeterminate}
                 />
 
-                <span className={cx('label', { required })}>
-                    {this.props.label}
-                </span>
+                <Label required={required}>{this.props.label}</Label>
 
                 <style jsx>{styles}</style>
             </label>
