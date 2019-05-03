@@ -18,7 +18,7 @@ const Help = ({ children, valid, error, warning, className }) => (
             p {
                 height: 12px;
                 padding-top: 8px;
-                padding-left: 12px;
+                padding-left: 16px;
                 font-size: 12px;
                 margin: 0;
                 line-height: 12px;
