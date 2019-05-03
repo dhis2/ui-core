@@ -30,5 +30,4 @@ export { theme, colors } from './theme.js'
  */
 
 // export { DropMenu } from './DropMenu'
-// export { Input } from './Input'
 // export { LabelFilled, LabelOutlined } from './FieldLabel'
