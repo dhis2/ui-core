@@ -11,18 +11,13 @@ import { Input } from './Input'
 
 class Checkbox extends React.Component {
     state = {
-        indeterminate: this.props.indeterminate,
         checked: this.props.defaultChecked || false,
     }
 
     onChange = evt => {
         const { checked } = evt.target
-        const indeterminate = false
 
-        this.setState({
-            checked,
-            indeterminate,
-        })
+        this.setState({ checked })
 
         this.props.onChange(this.props.name, checked)
     }
@@ -35,6 +30,7 @@ class Checkbox extends React.Component {
             valid,
             error,
             warning,
+            indeterminate,
             checked = this.state.checked,
         } = this.props
 
@@ -56,7 +52,7 @@ class Checkbox extends React.Component {
                     valid={valid}
                     error={error}
                     warning={warning}
-                    indeterminate={this.state.indeterminate}
+                    indeterminate={indeterminate}
                 />
 
                 <Label required={required}>{this.props.label}</Label>
