@@ -37,8 +37,16 @@ storiesOf('Radio', module)
         />
     ))
 
-    .add('ith Help', () => (
-        <Radio name="Ex" label="Radio" value="with-help" onChange={logger} />
+    .add('With Help', () => (
+        <div>
+            <Radio
+                name="Ex"
+                label="Radio"
+                value="with-help"
+                onChange={logger}
+            />
+            <Help>A lil' help text</Help>
+        </div>
     ))
 
     .add('Disabled', () => (
