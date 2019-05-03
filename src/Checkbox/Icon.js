@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import css from 'styled-jsx/css'
+import { resolve } from 'styled-jsx/css'
 
 import { colors, theme } from '../theme'
 import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox'
 
-const icons = css.resolve`
+const icons = resolve`
     svg {
         height: 24px;
         width: 24px;
