@@ -5,7 +5,7 @@ import React, { Fragment } from 'react'
 import { InputField, Help } from '../src'
 import { colors } from '../src/theme'
 
-const logger = (name, value) => console.info(`${name}: ${value}`)
+const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
 createStory('InputField: Outlined', {
     label: 'Default label',

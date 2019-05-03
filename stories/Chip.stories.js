@@ -19,4 +19,11 @@ storiesOf('Chip', module)
         <Chip selected>A super long chip which should definitely truncate</Chip>
     ))
 
-    .add('Removable', () => <Chip onRemove={() => {}}>Chipmunk</Chip>)
+    .add('Removable', () => (
+        <Chip
+            onClick={e => console.log('click', e)}
+            onRemove={e => console.log('remove', e)}
+        >
+            Chipmunk
+        </Chip>
+    ))

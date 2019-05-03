@@ -26,15 +26,15 @@ const removeIcon = css.resolve`
 `
 
 class Chip extends React.PureComponent {
-    onClick = () => {
+    onClick = e => {
         if (!this.props.disabled && this.props.onClick) {
-            return this.props.onClick()
+            this.props.onClick(e)
         }
     }
 
-    onRemove = evt => {
-        evt.stopPropagation() // stop onRemove from triggering onClick on container
-        this.props.onRemove()
+    onRemove = e => {
+        e.stopPropagation() // stop onRemove from triggering onClick on container
+        this.props.onRemove(e)
     }
 
     showIcon() {
@@ -63,14 +63,11 @@ class Chip extends React.PureComponent {
     showRemove() {
         if (this.props.onRemove) {
             return (
-                <React.Fragment>
-                    <Cancel
-                        className={removeIcon.className}
-                        onClick={this.onRemove}
-                    />
+                <span onClick={this.onRemove}>
+                    <Cancel className={removeIcon.className} />
 
                     {removeIcon.styles}
-                </React.Fragment>
+                </span>
             )
         }
     }
@@ -91,7 +88,6 @@ class Chip extends React.PureComponent {
                     selected,
                     disabled,
                     dragging,
-                    static: !this.props.onClick,
                 })}
                 onClick={this.onClick}
             >

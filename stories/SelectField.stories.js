@@ -2,7 +2,8 @@ import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { SelectField, Help } from '../src'
 
-const logger = (name, value) => console.info(`${name}: ${value}`)
+const logger = ({ target }) =>
+    console.info(`${target.name}: ${target.value}`, target)
 
 const options = [
     <option value="0" key="0">

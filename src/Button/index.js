@@ -22,7 +22,7 @@ const Button = ({
 }) => (
     <button
         disabled={disabled}
-        onClick={evt => onClick(name, value)}
+        onClick={e => onClick(e)}
         className={cx(className, {
             primary,
             secondary,
@@ -45,10 +45,11 @@ const Button = ({
 
 Button.defaultProps = {
     type: 'button',
-    onClick: () => {},
 }
 
 Button.propTypes = {
+    onClick: propTypes.func.isRequired,
+
     className: propTypes.string,
     icon: propTypes.element,
     name: propTypes.string,
@@ -63,7 +64,6 @@ Button.propTypes = {
     destructive: propTypes.bool,
 
     disabled: propTypes.bool,
-    onClick: propTypes.func,
 }
 
 export { Button }

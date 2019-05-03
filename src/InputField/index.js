@@ -11,23 +11,19 @@ class InputField extends React.Component {
         focus: this.props.focus,
     }
 
-    onFocus = evt => {
+    onFocus = e => {
         this.setState({ focus: true })
-        this.props.onFocus(this.props.name, evt.target.value)
+        this.props.onFocus(e)
     }
 
-    onBlur = evt => {
+    onBlur = e => {
         this.setState({ focus: false })
-        this.props.onBlur(this.props.name, evt.target.value)
-    }
-
-    onChange = evt => {
-        this.setState({ value: evt.target.value })
-        this.props.onChange(this.props.name, evt.target.value)
+        this.props.onBlur(e)
     }
 
     render() {
         const {
+            onChange,
             type,
             filled,
             dense,
@@ -64,7 +60,7 @@ class InputField extends React.Component {
                     focus={focus}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
-                    onChange={this.onChange}
+                    onChange={e => onChange(e)}
                     name={name}
                     type={type}
                     value={value || ''}
@@ -96,7 +92,6 @@ InputField.defaultProps = {
 }
 
 InputField.propTypes = {
-    /** Handler function which is called with arguments: name, value */
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
@@ -116,9 +111,7 @@ InputField.propTypes = {
     error: propTypes.bool,
     loading: propTypes.bool,
 
-    /** Handler function which is called with arguments: name, value */
     onBlur: propTypes.func,
-    /** Handler function which is called with arguments: name, value */
     onFocus: propTypes.func,
 
     type: propTypes.oneOf(['text', 'email', 'number', 'password', 'url']),

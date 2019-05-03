@@ -21,8 +21,7 @@ export default css`
         background-color: ${colors.grey300};
     }
 
-    .selected,
-    .selected.static:hover {
+    .selected {
         background-color: ${theme.secondary600};
         font-weight: 500;
     }
@@ -35,14 +34,6 @@ export default css`
     .selected .icon,
     .selected .remove-icon {
         color: ${colors.white};
-    }
-
-    .static {
-        pointer-events: none;
-    }
-
-    .static:hover {
-        background-color: ${colors.grey200};
     }
 
     .disabled {

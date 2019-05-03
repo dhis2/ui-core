@@ -16,7 +16,7 @@ const Checkbox = ({
     className,
     indeterminate,
     required,
-    checked,
+    checked = false,
     disabled,
     valid,
     warning,
@@ -28,7 +28,8 @@ const Checkbox = ({
         })}
     >
         <Input
-            onChange={() => onChange(name, !checked)}
+            name={name}
+            onChange={e => onChange(e)}
             checked={checked}
             disabled={disabled}
         />

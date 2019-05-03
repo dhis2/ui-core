@@ -15,8 +15,8 @@ storiesOf('Menu', module)
                     <Switch
                         label="Yahoo"
                         name="radio"
-                        onChange={(name, value) => {
-                            alert(`${name}: ${value}`)
+                        onChange={evt => {
+                            alert(`${evt.target.name}: ${evt.target.value}`)
                         }}
                     />
                 }

@@ -74,6 +74,7 @@ export class Select extends Component {
             onBlur,
             value,
             children,
+            name,
         } = this.props
         const className = cx({
             dense,

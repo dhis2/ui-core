@@ -68,14 +68,16 @@ const Simple = <span>Simplest thing</span>
 createStory('SplitButton: Basic', {
     name: 'Button',
     value: 'default',
-    onClick: (n, v) => alert(`Clicked button ${n} with ${v}`),
+    onClick: e =>
+        alert(`Clicked button ${e.target.name} with ${e.target.value}`),
     component: Simple,
 })
 
 createStory('SplitButton: Primary', {
     name: 'Button',
     value: 'default',
-    onClick: (n, v) => alert(`Clicked button ${n} with ${v}`),
+    onClick: e =>
+        alert(`Clicked button ${e.target.name} with ${e.target.value}`),
     primary: true,
     component: Simple,
 })
@@ -83,7 +85,8 @@ createStory('SplitButton: Primary', {
 createStory('SplitButton: Secondary', {
     name: 'Button',
     value: 'default',
-    onClick: (n, v) => alert(`Clicked button ${n} with ${v}`),
+    onClick: e =>
+        alert(`Clicked button ${e.target.name} with ${e.target.value}`),
     secondary: true,
     component: Simple,
 })
@@ -91,7 +94,8 @@ createStory('SplitButton: Secondary', {
 createStory('SplitButton: Destructive', {
     name: 'Button',
     value: 'default',
-    onClick: (n, v) => alert(`Clicked button ${n} with ${v}`),
+    onClick: e =>
+        alert(`Clicked button ${e.target.name} with ${e.target.value}`),
     destructive: true,
     component: Simple,
 })
@@ -125,11 +129,13 @@ function createStory(name, props) {
         ))
 
         .add('With Menu', () => (
-            <SplitButton component={menu}>Drop it with menu!</SplitButton>
+            <SplitButton {...props} component={menu}>
+                Drop it with menu!
+            </SplitButton>
         ))
 
         .add('With Radio component in menu', () => (
-            <SplitButton component={componentMenu}>
+            <SplitButton {...props} component={componentMenu}>
                 Drop it with menu!
             </SplitButton>
         ))

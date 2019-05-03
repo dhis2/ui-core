@@ -44,7 +44,7 @@ const Radio = ({
     className,
     label,
     required,
-    checked,
+    checked = false,
     disabled,
     valid,
     warning,
@@ -76,7 +76,7 @@ const Radio = ({
                 value={value}
                 checked={checked}
                 disabled={disabled}
-                onChange={() => onChange(name, value)}
+                onChange={e => onChange(e)}
             />
             {icon}
 

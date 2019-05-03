@@ -14,7 +14,7 @@ const Switch = ({
     className,
     label,
     required,
-    checked,
+    checked = false,
     disabled,
     valid,
     warning,
@@ -30,7 +30,7 @@ const Switch = ({
             disabled={disabled}
             name={name}
             checked={checked}
-            onChange={() => onChange(name, !checked)}
+            onChange={e => onChange(e)}
         />
 
         <SwitchIcon

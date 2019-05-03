@@ -25,10 +25,6 @@ class SelectField extends React.Component {
         focus: this.props.focused,
     }
 
-    onChange = event => {
-        this.props.onChange(this.props.name, value)
-    }
-
     onFocus = e => {
         this.setState({ focused: true })
 
@@ -65,6 +61,7 @@ class SelectField extends React.Component {
             loading,
             children,
             value,
+            onChange,
         } = this.props
 
         const Container = filled ? LabelFilled : LabelOutlined
@@ -90,7 +87,7 @@ class SelectField extends React.Component {
                     disabled={disabled}
                     filled={filled}
                     dense={dense}
-                    onChange={() => onChange(name, value)}
+                    onChange={e => onChange(e)}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
                 >

@@ -4,7 +4,7 @@ import { Checkbox, Help } from '../src'
 
 import markdown from './info/atoms/checkbox.md'
 
-const logger = (name, value) => console.info(`${name}: ${value}`)
+const logger = ({ target }) => console.info(`${target.name}: ${target.checked}`)
 
 storiesOf('Checkbox', module)
     .addParameters({
@@ -14,7 +14,7 @@ storiesOf('Checkbox', module)
     })
 
     .add('Default', () => (
-        <Checkbox name="Ex" label="Checkbox" onChange={logger} />
+        <Checkbox name="Ex" name="ex" label="Checkbox" onChange={logger} />
     ))
 
     .add('Checked', () => (
