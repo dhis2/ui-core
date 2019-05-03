@@ -8,7 +8,6 @@ import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox'
 import { Icon } from './Icon'
 import { Label } from './Label'
 import { Input } from './Input'
-import styles from './styles'
 
 class Checkbox extends React.Component {
     state = {
@@ -62,7 +61,22 @@ class Checkbox extends React.Component {
 
                 <Label required={required}>{this.props.label}</Label>
 
-                <style jsx>{styles}</style>
+                <style jsx>{`
+                    label {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        cursor: pointer;
+                        pointer-events: all;
+                        user-select: none;
+                    }
+
+                    .disabled {
+                        cursor: not-allowed;
+                        color: ${theme.disabled};
+                    }
+                `}</style>
             </label>
         )
     }

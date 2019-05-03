@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors } from '../theme'
+import { colors, theme } from '../theme'
 
-export const Label = ({ required, children }) => {
-    const className = cx('label', { required })
+export const Label = ({ disabled, required, children }) => {
+    const className = cx('label', { disabled, required })
 
     return (
         <span className={className}>
@@ -22,6 +22,11 @@ export const Label = ({ required, children }) => {
                 .required:after {
                     padding-left: 4px;
                     content: '*';
+                }
+
+                .disabled {
+                    cursor: not-allowed;
+                    color: ${theme.disabled};
                 }
             `}</style>
         </span>
