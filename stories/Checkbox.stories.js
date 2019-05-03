@@ -26,15 +26,6 @@ storiesOf('Checkbox', module)
         />
     ))
 
-    .add('Default checked', () => (
-        <Checkbox
-            name="Ex"
-            label="Set with defaultChecked"
-            defaultChecked
-            onChange={logger}
-        />
-    ))
-
     .add('With Help', () => (
         <div>
             <Checkbox name="Ex" label="Checkbox" onChange={logger} />
@@ -55,13 +46,19 @@ storiesOf('Checkbox', module)
     ))
 
     .add('Status: Valid', () => (
-        <Checkbox name="Ex" label="Checkbox" valid onChange={logger} />
+        <Checkbox name="Ex" label="Checkbox" valid checked onChange={logger} />
     ))
 
     .add('Status: Warning', () => (
-        <Checkbox name="Ex" label="Checkbox" warning onChange={logger} />
+        <Checkbox
+            name="Ex"
+            label="Checkbox"
+            warning
+            checked
+            onChange={logger}
+        />
     ))
 
     .add('Status: Error', () => (
-        <Checkbox name="Ex" label="Checkbox" error onChange={logger} />
+        <Checkbox name="Ex" label="Checkbox" error checked onChange={logger} />
     ))

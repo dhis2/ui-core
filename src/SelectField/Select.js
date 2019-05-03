@@ -89,6 +89,7 @@ export class Select extends Component {
                 disabled={disabled}
                 onFocus={onFocus}
                 onBlur={onBlur}
+                name={name}
             >
                 <option key="hidden-default-value" hidden disabled value="-1" />
                 {children}
@@ -99,8 +100,9 @@ export class Select extends Component {
 }
 
 Select.propTypes = {
-    value: propTypes.string,
+    name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
+    value: propTypes.string,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,

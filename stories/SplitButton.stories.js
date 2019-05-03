@@ -9,7 +9,9 @@ const options = []
 
 const componentMenu = (
     <Menu>
-        <MenuItem label={<Switch label="Yahoo" name="radio" />} />
+        <MenuItem
+            label={<Switch label="Yahoo" name="radio" onChange={() => {}} />}
+        />
         <Divider />
         <MenuItem
             label="Three"

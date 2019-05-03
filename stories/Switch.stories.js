@@ -22,10 +22,6 @@ storiesOf('Switch', module)
         <Switch name="Ex" required label="Switch" onChange={logger} />
     ))
 
-    .add('Default checked', () => (
-        <Switch name="Ex" label="Switch" defaultChecked onChange={logger} />
-    ))
-
     .add('Checked', () => (
         <Switch name="Ex" label="Switch" checked onChange={logger} />
     ))
@@ -39,5 +35,5 @@ storiesOf('Switch', module)
     ))
 
     .add('Error', () => (
-        <Switch name="Ex" label="Switch" checked onChange={logger} />
+        <Switch name="Ex" label="Switch" error onChange={logger} />
     ))

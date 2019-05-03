@@ -35,13 +35,6 @@ function createStory(name, props) {
             </>
         ))
 
-        .add('With default value', () => (
-            <InputField
-                {...props}
-                defaultValue="This is set through the defaultValue prop, which means the component is uncontrolled."
-            />
-        ))
-
         .add('With value', () => (
             <InputField
                 {...props}
@@ -52,42 +45,34 @@ function createStory(name, props) {
         .add('Focus', () => <InputField {...props} focus />)
 
         .add('Status: Valid', () => (
-            <InputField {...props} defaultValue="This value is valid" valid />
+            <InputField {...props} value="This value is valid" valid />
         ))
 
         .add('Status: Warning', () => (
             <InputField
                 {...props}
-                defaultValue="This value produces a warning"
+                value="This value produces a warning"
                 warning
             />
         ))
 
         .add('Status: Error', () => (
-            <InputField
-                {...props}
-                defaultValue="This value produces an error"
-                error
-            />
+            <InputField {...props} value="This value produces an error" error />
         ))
 
         .add('Status: Loading', () => (
             <InputField
                 {...props}
-                defaultValue="This value produces a loading state"
+                value="This value produces a loading state"
                 loading
             />
         ))
 
         .add('Disabled', () => (
-            <InputField
-                {...props}
-                defaultValue="This field is disabled"
-                disabled
-            />
+            <InputField {...props} value="This field is disabled" disabled />
         ))
 
         .add('Dense', () => (
-            <InputField {...props} defaultValue="This field is dense" dense />
+            <InputField {...props} value="This field is dense" dense />
         ))
 }

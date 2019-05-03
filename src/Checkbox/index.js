@@ -9,91 +9,75 @@ import { Icon } from './Icon'
 import { Label } from './Label'
 import { Input } from './Input'
 
-class Checkbox extends React.Component {
-    state = {
-        checked: this.props.defaultChecked || false,
-    }
-
-    onChange = evt => {
-        const { checked } = evt.target
-
-        this.setState({ checked })
-
-        this.props.onChange(this.props.name, checked)
-    }
-
-    render() {
-        const {
-            required,
-            className,
+const Checkbox = ({
+    onChange,
+    name,
+    label,
+    className,
+    indeterminate,
+    required,
+    checked,
+    disabled,
+    valid,
+    warning,
+    error,
+}) => (
+    <label
+        className={cx('base', className, {
             disabled,
-            valid,
-            error,
-            warning,
-            indeterminate,
-            checked = this.state.checked,
-        } = this.props
+        })}
+    >
+        <Input
+            onChange={() => onChange(name, !checked)}
+            checked={checked}
+            disabled={disabled}
+        />
 
-        return (
-            <label
-                className={cx('base', className, {
-                    disabled: this.props.disabled,
-                })}
-            >
-                <Input
-                    onChange={this.onChange}
-                    checked={checked}
-                    disabled={this.props.disabled}
-                />
+        <Icon
+            checked={checked}
+            disabled={disabled}
+            valid={valid}
+            error={error}
+            warning={warning}
+            indeterminate={indeterminate}
+        />
 
-                <Icon
-                    checked={checked}
-                    disabled={disabled}
-                    valid={valid}
-                    error={error}
-                    warning={warning}
-                    indeterminate={indeterminate}
-                />
+        <Label required={required}>{label}</Label>
 
-                <Label required={required}>{this.props.label}</Label>
+        <style jsx>{`
+            label {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                cursor: pointer;
+                pointer-events: all;
+                user-select: none;
+            }
 
-                <style jsx>{`
-                    label {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: flex-start;
-                        cursor: pointer;
-                        pointer-events: all;
-                        user-select: none;
-                    }
-
-                    .disabled {
-                        cursor: not-allowed;
-                        color: ${theme.disabled};
-                    }
-                `}</style>
-            </label>
-        )
-    }
-}
+            .disabled {
+                cursor: not-allowed;
+                color: ${theme.disabled};
+            }
+        `}</style>
+    </label>
+)
 
 Checkbox.propTypes = {
+    onChange: propTypes.func.isRequired,
+
     name: propTypes.string.isRequired,
+    label: propTypes.string.isRequired,
 
     className: propTypes.string,
-    label: propTypes.string,
 
     indeterminate: propTypes.bool,
     required: propTypes.bool,
     checked: propTypes.bool,
-    defaultChecked: propTypes.bool,
     disabled: propTypes.bool,
     valid: propTypes.bool,
     warning: propTypes.bool,
     error: propTypes.bool,
-
-    onChange: propTypes.func,
 }
 
 export { Checkbox }
