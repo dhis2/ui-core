@@ -17,7 +17,7 @@ class Checkbox extends React.Component {
 
     onChange = evt => {
         const { checked } = evt.target
-        const indeterminate = this.state.indeterminate ? false : null
+        const indeterminate = false
 
         this.setState({
             checked,
