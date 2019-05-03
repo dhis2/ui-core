@@ -20,7 +20,7 @@ export const Input = ({ onChange, checked, disabled }) => (
 )
 
 Input.propTypes = {
-    checked: PropTypes.bool.isRequired,
-    disabled: PropTypes.bool.isRequired,
     onChange: PropTypes.func.isRequired,
+    checked: PropTypes.bool,
+    disabled: PropTypes.bool,
 }

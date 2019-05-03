@@ -66,10 +66,10 @@ export const Icon = ({
 }
 
 Icon.propTypes = {
-    checked: PropTypes.bool.isRequired,
-    disabled: PropTypes.bool.isRequired,
-    valid: PropTypes.bool.isRequired,
-    error: PropTypes.bool.isRequired,
-    warning: PropTypes.bool.isRequired,
-    indeterminate: PropTypes.bool.isRequired,
+    checked: PropTypes.bool,
+    disabled: PropTypes.bool,
+    valid: PropTypes.bool,
+    error: PropTypes.bool,
+    warning: PropTypes.bool,
+    indeterminate: PropTypes.bool,
 }

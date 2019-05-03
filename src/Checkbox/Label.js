@@ -34,5 +34,6 @@ export const Label = ({ disabled, required, children }) => {
 }
 
 Label.propTypes = {
-    required: PropTypes.bool.isRequired,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
 }
