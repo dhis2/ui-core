@@ -12,6 +12,7 @@
     "access": "public"
   },
   "scripts": {
+    "gen-docs": "node ./scripts/gen_docs.js",
     "prebuild": "rm -rf ./build/*",
     "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
     "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
