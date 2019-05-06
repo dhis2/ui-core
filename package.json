@@ -46,7 +46,8 @@
     "size-limit": "^1.0.0",
     "storybook-addon-jsx": "^7.0.0",
     "storybook-addon-react-docgen": "^1.2.1",
-    "typeface-roboto": "^0.0.54"
+    "typeface-roboto": "^0.0.54",
+    "styled-jsx": "^3.2.1"
   },
   "peerDependencies": {
     "prop-types": "^15.x.x",
