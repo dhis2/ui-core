@@ -23,6 +23,7 @@ class InputField extends React.Component {
 
     render() {
         const {
+            className,
             onChange,
             type,
             filled,
@@ -55,6 +56,7 @@ class InputField extends React.Component {
                 error={error}
                 loading={loading}
                 dense={dense}
+                className={className}
             >
                 <Input
                     focus={focus}

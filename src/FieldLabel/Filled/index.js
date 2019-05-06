@@ -105,9 +105,10 @@ export const Filled = ({
     required,
     label,
     loading,
+    className,
 }) => (
     <div
-        className={cx('label-filled', {
+        className={cx('label-filled', className, {
             disabled,
             focus,
             dense,
@@ -167,4 +168,6 @@ Filled.propTypes = {
     loading: propTypes.bool,
 
     dense: propTypes.bool,
+
+    className: propTypes.string,
 }
