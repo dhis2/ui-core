@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/dhis2/ui/compare/v2.0.1...v2.0.2) (2019-05-06)
+
+
+### Bug Fixes
+
+* ensure that both bundles are built using prod mode ([#203](https://github.com/dhis2/ui/issues/203)) ([b3145c9](https://github.com/dhis2/ui/commit/b3145c9))
+
 ## [2.0.1](https://github.com/dhis2/ui/compare/v2.0.0...v2.0.1) (2019-05-06)
 
 
