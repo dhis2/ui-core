@@ -102,9 +102,10 @@ export const Outlined = ({
     required,
     label,
     loading,
+    className,
 }) => (
     <div
-        className={cx('label-outlined', {
+        className={cx('label-outlined', className, {
             disabled,
             focus,
             dense,
@@ -160,4 +161,6 @@ Outlined.propTypes = {
     loading: propTypes.bool,
 
     dense: propTypes.bool,
+
+    className: propTypes.string,
 }
