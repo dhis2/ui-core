@@ -18,7 +18,7 @@ export default css`
 
     li:hover,
     li.active {
-        background-color: #f7f7f7;
+        background-color: ${colors.grey200};
     }
 
     .label {
@@ -41,10 +41,11 @@ export default css`
 
     .dense {
         height: 32px;
+        padding: 0 24px 0 12px;
     }
 
     .dense .label {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .dense .icon {
