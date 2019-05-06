@@ -12,7 +12,7 @@ const Menu = ({ children, className }) => (
                 width: 100%;
                 margin: 0;
 
-                padding: 0;
+                padding: 4px 0;
                 user-select: none;
             }
         `}</style>
