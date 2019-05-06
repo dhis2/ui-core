@@ -1,67 +1,27 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Card from '../Card'
-import MenuItem from './MenuItem'
-import Divider from '../Divider'
-import cx from 'classnames'
+import propTypes from 'prop-types'
+import { Card } from '../Card'
 
-import styles from './styles'
+const Menu = ({ children, className }) => (
+    <Card>
+        <ul className={className}>{children}</ul>
+        <style jsx>{`
+            ul {
+                display: block;
+                position: relative;
+                width: 100%;
+                margin: 0;
 
-export function Menu({ size, width, list, onClick, className }) {
-    return (
-        <Card>
-            <ul className={cx('base', size, className)}>
-                {list.map(
-                    (
-                        { label, value, icon, list, active, type, disabled },
-                        i
-                    ) => {
-                        if (type === 'divider') {
-                            return <Divider key={`mid-${i}`} />
-                        }
-
-                        return (
-                            <MenuItem
-                                key={`mi-${value}`}
-                                label={label}
-                                value={value}
-                                icon={icon}
-                                list={list}
-                                type={type}
-                                size={size}
-                                disabled={disabled}
-                                active={active}
-                                onClick={onClick}
-                            />
-                        )
-                    }
-                )}
-            </ul>
-            <style jsx>{styles}</style>
-        </Card>
-    )
-}
-
-Menu.defaultProps = {
-    size: 'default',
-}
+                padding: 4px 0;
+                user-select: none;
+            }
+        `}</style>
+    </Card>
+)
 
 Menu.propTypes = {
-    className: PropTypes.string,
-    list: PropTypes.arrayOf(
-        PropTypes.shape({
-            type: PropTypes.oneOf(['divider']),
-            label: PropTypes.string,
-            value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-            list: PropTypes.array,
-            icon: PropTypes.element,
-            active: PropTypes.bool,
-            disabled: PropTypes.bool,
-        })
-    ).isRequired,
-    onClick: PropTypes.func.isRequired,
-    size: PropTypes.oneOf(['default', 'dense']),
+    className: propTypes.string,
+    children: propTypes.any.isRequired,
 }
 
-export { MenuItem }
-export default Menu
+export { Menu }

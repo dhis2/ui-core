@@ -1,59 +1,54 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors } from '../theme.js'
+import { theme } from '../theme.js'
 
-function Help({ text, status, className }) {
-    return (
-        <p
-            className={cx('base', className, {
-                [`status-${status}`]: true,
-            })}
-        >
-            {text}
+const Help = ({ children, valid, error, warning, className }) => (
+    <p
+        className={cx(className, {
+            valid,
+            error,
+            warning,
+        })}
+    >
+        {children}
 
-            <style jsx>{`
-                .base {
-                    height: 12px;
-                    padding-top: 8px;
-                    padding-left: 14px;
-                    font-size: 12px;
+        <style jsx>{`
+            p {
+                height: 12px;
+                padding-top: 8px;
+                padding-left: 16px;
+                font-size: 12px;
+                margin: 0;
+                line-height: 12px;
+                cursor: help;
+                color: ${theme.default};
+            }
 
-                    line-height: 12px;
+            .valid {
+                color: ${theme.valid};
+            }
 
-                    cursor: help;
-                }
+            .error {
+                color: ${theme.error};
+            }
 
-                .status-default {
-                    color: ${colors.grey700};
-                }
+            .warning {
+                color: ${theme.warning};
+            }
+        `}</style>
+    </p>
+)
 
-                .status-valid {
-                    color: ${colors.blue600};
-                }
-
-                .status-error {
-                    color: ${colors.red500};
-                }
-
-                .status-warning {
-                    color: ${colors.yellow500};
-                }
-            `}</style>
-        </p>
-    )
-}
-
-Help.defaultProps = {
-    status: 'default',
-}
+Help.defaultProps = {}
 
 Help.propTypes = {
-    className: PropTypes.string,
-    text: PropTypes.string.isRequired,
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    className: propTypes.string,
+    children: propTypes.string.isRequired,
+    error: propTypes.bool,
+    valid: propTypes.bool,
+    warning: propTypes.bool,
 }
 
 export { Help }
-export default Help

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
 
 import { colors } from '../theme.js'
@@ -20,21 +20,21 @@ const removeIcon = css.resolve`
         pointer-events: all;
     }
 
-    svg hover {
+    svg:hover {
         opacity: 0.82;
     }
 `
 
 class Chip extends React.PureComponent {
-    onClick = () => {
+    onClick = e => {
         if (!this.props.disabled && this.props.onClick) {
-            return this.props.onClick()
+            this.props.onClick(e)
         }
     }
 
-    onRemove = evt => {
-        evt.stopPropagation() // stop onRemove from triggering onClick on container
-        this.props.onRemove()
+    onRemove = e => {
+        e.stopPropagation() // stop onRemove from triggering onClick on container
+        this.props.onRemove(e)
     }
 
     showIcon() {
@@ -63,21 +63,17 @@ class Chip extends React.PureComponent {
     showRemove() {
         if (this.props.onRemove) {
             return (
-                <React.Fragment>
-                    <Cancel
-                        className={removeIcon.className}
-                        onClick={this.onRemove}
-                    />
+                <span onClick={this.onRemove}>
+                    <Cancel className={removeIcon.className} />
 
                     {removeIcon.styles}
-                </React.Fragment>
+                </span>
             )
         }
     }
 
     render() {
         const {
-            label,
             selected,
             disabled,
             dragging,
@@ -88,18 +84,15 @@ class Chip extends React.PureComponent {
 
         return (
             <div
-                className={cx('base', className, {
+                className={cx(className, {
                     selected,
                     disabled,
                     dragging,
-                    static: !this.props.onClick,
                 })}
                 onClick={this.onClick}
             >
                 {this.showIcon()}
-                <span className={cx('label', { overflow })}>
-                    {label || children}
-                </span>
+                <span className={cx({ overflow })}>{children}</span>
                 {this.showRemove()}
 
                 <style jsx>{styles}</style>
@@ -108,24 +101,18 @@ class Chip extends React.PureComponent {
     }
 }
 
-Chip.defaultProps = {
-    selected: false,
-    disabled: false,
-    dragging: false,
-    overflow: true,
-}
-
 Chip.propTypes = {
-    className: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    icon: PropTypes.element,
-    selected: PropTypes.bool,
-    disabled: PropTypes.bool,
-    dragging: PropTypes.bool,
-    overflow: PropTypes.bool,
-    onClick: PropTypes.func,
-    onRemove: PropTypes.func,
+    children: propTypes.string.isRequired,
+    className: propTypes.string,
+    icon: propTypes.element,
+
+    onClick: propTypes.func,
+    onRemove: propTypes.func,
+
+    selected: propTypes.bool,
+    disabled: propTypes.bool,
+    dragging: propTypes.bool,
+    overflow: propTypes.bool,
 }
 
 export { Chip }
-export default Chip

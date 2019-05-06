@@ -1,50 +1,39 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
-import { Switch } from '../src'
+import { Switch, Help } from '../src'
 
-const noop = () => {}
+const logger = ({ target }) => console.info(`${target.name}: ${target.checked}`)
 
 storiesOf('Switch', module)
-    .add('Default', () => <Switch name="Ex" label="Switch" onChange={noop} />)
+    .add('Default', () => <Switch name="Ex" label="Switch" onChange={logger} />)
 
-    .add('Default: Disabled', () => (
-        <Switch name="Ex" label="Switch" disabled={true} onChange={noop} />
+    .add('with Help', () => (
+        <>
+            <Switch name="Ex" label="Switch" onChange={logger} />
+            <Help>A helpful text</Help>
+        </>
     ))
 
-    .add('Default: Required', () => (
-        <Switch name="Ex" required={true} label="Switch" onChange={noop} />
+    .add('Disabled', () => (
+        <Switch name="Ex" label="Switch" disabled onChange={logger} />
     ))
 
-    .add('Default: Checked', () => (
-        <Switch name="Ex" label="Switch" checked={true} onChange={noop} />
+    .add('Required', () => (
+        <Switch name="Ex" required label="Switch" onChange={logger} />
     ))
 
-    .add('Status: Valid', () => (
-        <Switch
-            name="Ex"
-            label="Switch"
-            checked={true}
-            status="valid"
-            onChange={noop}
-        />
+    .add('Checked', () => (
+        <Switch name="Ex" label="Switch" checked onChange={logger} />
     ))
 
-    .add('Status: Warning', () => (
-        <Switch
-            name="Ex"
-            label="Switch"
-            checked={true}
-            status="warning"
-            onChange={noop}
-        />
+    .add('Valid', () => (
+        <Switch name="Ex" label="Switch" checked valid onChange={logger} />
     ))
 
-    .add('Status: Error', () => (
-        <Switch
-            name="Ex"
-            label="Switch"
-            checked={true}
-            status="error"
-            onChange={noop}
-        />
+    .add('Warning', () => (
+        <Switch name="Ex" label="Switch" checked warning onChange={logger} />
+    ))
+
+    .add('Error', () => (
+        <Switch name="Ex" label="Switch" checked error onChange={logger} />
     ))

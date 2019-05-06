@@ -3,7 +3,7 @@ import css from 'styled-jsx/css'
 import { colors, theme } from '../theme.js'
 
 export default css`
-    .base {
+    div {
         display: inline-flex;
         align-items: center;
         height: 32px;
@@ -14,15 +14,16 @@ export default css`
         line-height: 16px;
         cursor: pointer;
         user-select: none;
+        color: ${colors.grey900};
     }
 
-    .base:hover {
-        background-color: #e0f2f1;
+    div:hover {
+        background-color: ${colors.grey300};
     }
 
-    .selected,
-    .selected.static:hover {
+    .selected {
         background-color: ${theme.secondary600};
+        font-weight: 500;
     }
 
     .selected:hover {
@@ -33,14 +34,6 @@ export default css`
     .selected .icon,
     .selected .remove-icon {
         color: ${colors.white};
-    }
-
-    .static {
-        pointer-events: none;
-    }
-
-    .static:hover {
-        background-color: ${colors.grey200};
     }
 
     .disabled {
@@ -63,13 +56,13 @@ export default css`
         font-size: 20px;
     }
 
-    .label {
+    span {
         margin: 0 12px;
         color: inherit;
         white-space: nowrap;
     }
 
-    .label.overflow {
+    span.overflow {
         max-width: 150px;
         overflow: hidden;
         text-overflow: ellipsis;

@@ -1,88 +1,103 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
-import { SelectField } from '../src'
+import { SelectField, Help } from '../src'
 
-const noop = () => undefined
+const logger = ({ target }) =>
+    console.info(`${target.name}: ${target.value}`, target)
+
 const options = [
-    { value: '0', label: 'This is a label' },
-    { value: '1', label: 'While this is another one' },
-    { value: '2', label: 'Beware the power of option 2' },
+    <option value="0" key="0">
+        This is a label
+    </option>,
+    <option value="1" key="1">
+        While this is another one
+    </option>,
+    <option value="2" key="2">
+        Beware the power of option 2
+    </option>,
 ]
 
-const createSelectField = override => (
-    <div style={{ width: '200px' }}>
-        <SelectField
-            name="select-field"
-            label="Label text"
-            onChange={noop}
-            list={[]}
-            {...override}
-        />
-    </div>
-)
+createStory('SelectField: Outlined', {
+    name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+})
 
-storiesOf('SelectField', module)
-    .add('With no options', () =>
-        createSelectField({
-            label: 'Without value',
-        })
-    )
-    .add('With options', () =>
-        createSelectField({
-            list: options,
-        })
-    )
-    .add('With value', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-        })
-    )
-    .add('With help text', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            help: 'This is a help text',
-        })
-    )
-    .add('With size dense', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            size: 'dense',
-        })
-    )
-    .add('With valid status', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            status: 'valid',
-        })
-    )
-    .add('With warning', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            status: 'warning',
-        })
-    )
-    .add('With error', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            status: 'error',
-        })
-    )
-    .add('With disable true', () =>
-        createSelectField({
-            value: '0',
-            list: options,
-            disabled: true,
-        })
-    )
-    .add('With text too long to display it', () =>
-        createSelectField({
-            value: '2',
-            list: options,
-        })
-    )
+createStory('SelectField: Filled', {
+    name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+    filled: true,
+})
+
+function createStory(name, props) {
+    storiesOf(name, module)
+        .add('No value', () => <SelectField {...props}>{options}</SelectField>)
+
+        .add('With value', () => (
+            <SelectField {...props} value="1">
+                {options}
+            </SelectField>
+        ))
+
+        .add('With Help text', () => (
+            <>
+                <SelectField {...props}>{options}</SelectField>
+                <Help {...props}>A helpful text.</Help>
+            </>
+        ))
+
+        .add('With valid status', () => (
+            <SelectField {...props} value="1" valid>
+                {options}
+            </SelectField>
+        ))
+
+        .add('With warning status', () => (
+            <SelectField {...props} value="1" warning>
+                {options}
+            </SelectField>
+        ))
+
+        .add('With error status', () => (
+            <SelectField {...props} value="2" error>
+                {options}
+            </SelectField>
+        ))
+
+        .add('With loading status', () => (
+            <SelectField {...props} value="1" loading>
+                {options}
+            </SelectField>
+        ))
+
+        .add('Disabled', () => (
+            <SelectField {...props} disabled>
+                {options}
+            </SelectField>
+        ))
+
+        .add('Dense', () => (
+            <SelectField {...props} dense>
+                {options}
+            </SelectField>
+        ))
+
+        .add('With text too long to display it', () => (
+            <SelectField {...props} value="2">
+                {options}
+            </SelectField>
+        ))
+
+        .add('With optgroups', () => (
+            <SelectField {...props} value="4">
+                <option value="0">Zero</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <optgroup label="Foobar">
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                </optgroup>
+            </SelectField>
+        ))
+}

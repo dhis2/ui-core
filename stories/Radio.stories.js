@@ -1,50 +1,93 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Radio } from '../src'
+import { Radio, Help } from '../src'
 
-const noop = () => {}
+import markdown from './info/atoms/radio.md'
+
+const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
 storiesOf('Radio', module)
-    .add('Default', () => <Radio name="Ex" label="Radio" onChange={noop} />)
+    .addParameters({
+        notes: {
+            markdown,
+        },
+    })
 
-    .add('Default: Disabled', () => (
-        <Radio name="Ex" label="Radio" disabled={true} onChange={noop} />
+    .add('Default', () => (
+        <Radio name="Ex" label="Radio" value="default" onChange={logger} />
     ))
 
-    .add('Default: Required', () => (
-        <Radio name="Ex" required={true} label="Radio" onChange={noop} />
-    ))
-
-    .add('Default: Checked', () => (
-        <Radio name="Ex" label="Radio" checked={true} onChange={noop} />
-    ))
-
-    .add('Status: Valid', () => (
+    .add('Checked', () => (
         <Radio
             name="Ex"
             label="Radio"
-            checked={true}
-            status="valid"
-            onChange={noop}
+            checked
+            value="checked"
+            onChange={logger}
         />
     ))
 
-    .add('Status: Warning', () => (
+    .add('With Help', () => (
+        <div>
+            <Radio
+                name="Ex"
+                label="Radio"
+                value="with-help"
+                onChange={logger}
+            />
+            <Help>A lil' help text</Help>
+        </div>
+    ))
+
+    .add('Disabled', () => (
         <Radio
             name="Ex"
             label="Radio"
-            checked={true}
-            status="warning"
-            onChange={noop}
+            disabled
+            value="disabled"
+            onChange={logger}
         />
     ))
 
-    .add('Status: Error', () => (
+    .add('Required', () => (
+        <Radio
+            name="Ex"
+            required
+            label="Radio"
+            value="required"
+            onChange={logger}
+        />
+    ))
+
+    .add('Valid', () => (
         <Radio
             name="Ex"
             label="Radio"
-            checked={true}
-            status="error"
-            onChange={noop}
+            valid
+            checked
+            value="valid"
+            onChange={logger}
+        />
+    ))
+
+    .add('Warning', () => (
+        <Radio
+            name="Ex"
+            label="Radio"
+            warning
+            checked
+            value="warning"
+            onChange={logger}
+        />
+    ))
+
+    .add('Error', () => (
+        <Radio
+            name="Ex"
+            label="Radio"
+            error
+            checked
+            value="error"
+            onChange={logger}
         />
     ))

@@ -1,139 +1,78 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { InputField } from '../src'
+import { resolve } from 'styled-jsx/css'
+import React, { Fragment } from 'react'
 
-class InputFieldWrapper extends React.Component {
-    state = {}
+import { InputField, Help } from '../src'
+import { colors } from '../src/theme'
 
-    onChange = (target, value) => this.setState({ [target]: value })
+const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
-    render() {
-        return (
+createStory('InputField: Outlined', {
+    label: 'Default label',
+    name: 'Default',
+    onChange: logger,
+})
+
+createStory('InputField: Filled', {
+    name: 'Default',
+    label: 'Default label',
+    onChange: logger,
+    filled: true,
+})
+
+function createStory(name, props) {
+    storiesOf(name, module)
+        .add('No placeholder, no value', () => <InputField {...props} />)
+
+        .add('Placeholder, no value', () => (
+            <InputField {...props} placeholder="Hold the place" />
+        ))
+
+        .add('With Help text', () => (
+            <>
+                <InputField {...props} placeholder="Hold the place" />
+                <Help {...props}>A helpful text.</Help>
+            </>
+        ))
+
+        .add('With value', () => (
             <InputField
-                value={this.state[this.props.name]}
-                onChange={(name, v) => this.onChange(name, v)}
-                {...this.props}
+                {...props}
+                value="This is set through the value prop, which means the component is controlled."
             />
-        )
-    }
+        ))
+
+        .add('Focus', () => <InputField {...props} focus />)
+
+        .add('Status: Valid', () => (
+            <InputField {...props} value="This value is valid" valid />
+        ))
+
+        .add('Status: Warning', () => (
+            <InputField
+                {...props}
+                value="This value produces a warning"
+                warning
+            />
+        ))
+
+        .add('Status: Error', () => (
+            <InputField {...props} value="This value produces an error" error />
+        ))
+
+        .add('Status: Loading', () => (
+            <InputField
+                {...props}
+                value="This value produces a loading state"
+                loading
+            />
+        ))
+
+        .add('Disabled', () => (
+            <InputField {...props} value="This field is disabled" disabled />
+        ))
+
+        .add('Dense', () => (
+            <InputField {...props} value="This field is dense" dense />
+        ))
 }
-
-storiesOf('InputField: Outlined', module)
-    .add('Default', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            kind="outlined"
-            help="Default help text"
-        />
-    ))
-
-    .add('Placeholder', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            placeholder="Hold the place"
-            kind="outlined"
-            help="Default help text"
-        />
-    ))
-
-    .add('Dense', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            kind="outlined"
-            help="Default help text"
-            size="dense"
-        />
-    ))
-
-    .add('Status: Valid', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            kind="outlined"
-            status="valid"
-            help="Default help text"
-        />
-    ))
-
-    .add('Status: Warning', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            kind="outlined"
-            status="warning"
-            help="Default help text"
-        />
-    ))
-
-    .add('Status: Error', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            kind="outlined"
-            status="error"
-            help="Default help text"
-        />
-    ))
-
-storiesOf('InputField: Filled', module)
-    .add('Default', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            kind="filled"
-            help="Default help text"
-        />
-    ))
-
-    .add('Placeholder', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            placeholder="Hold the place"
-            kind="filled"
-            help="Default help text"
-        />
-    ))
-
-    .add('Dense', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            kind="filled"
-            help="Default help text"
-            size="dense"
-        />
-    ))
-
-    .add('Status: Valid', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            kind="filled"
-            status="valid"
-            help="Default help text"
-        />
-    ))
-
-    .add('Status: Warning', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            kind="filled"
-            status="warning"
-            help="Default help text"
-        />
-    ))
-
-    .add('Status: Error', () => (
-        <InputFieldWrapper
-            name="Default"
-            label="Default label"
-            kind="filled"
-            status="error"
-            help="Default help text"
-        />
-    ))

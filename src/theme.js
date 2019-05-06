@@ -80,6 +80,7 @@ export const colors = {
 
 export const theme = {
     /* theme */
+    fonts: 'Roboto, sans-serif',
 
     /*primary*/
     primary900: colors.blue900,
@@ -104,4 +105,11 @@ export const theme = {
     secondary200: colors.teal200,
     secondary100: colors.teal100,
     secondary050: colors.teal050,
+
+    /*status*/
+    default: colors.grey700,
+    error: colors.red500,
+    valid: colors.blue600,
+    warning: colors.yellow500,
+    disabled: colors.grey500,
 }

@@ -1,57 +1,65 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
+import css from 'styled-jsx/css'
+
+import { colors, theme } from '../theme.js'
+import { SwitchIcon } from '../icons/Switch.js'
 
 import styles from './styles'
 
-class Switch extends React.Component {
-    onChange = () => {
-        if (this.props.disabled) {
-            return
-        }
+const Switch = ({
+    onChange,
+    name,
+    className,
+    label,
+    required,
+    checked = false,
+    disabled,
+    valid,
+    warning,
+    error,
+}) => (
+    <label
+        className={cx(className, {
+            disabled,
+        })}
+    >
+        <input
+            type="checkbox"
+            disabled={disabled}
+            name={name}
+            checked={checked}
+            onChange={onChange}
+        />
 
-        this.props.onChange(this.props.name, !this.props.checked)
-    }
+        <SwitchIcon
+            checked={checked}
+            disabled={disabled}
+            valid={valid}
+            warning={warning}
+            error={error}
+        />
 
-    render() {
-        const { status, disabled, className } = this.props
-        return (
-            <label className={cx(status, className, { disabled })}>
-                <input
-                    type="checkbox"
-                    disabled={disabled}
-                    checked={this.props.checked}
-                    onChange={this.onChange}
-                />
-                <span
-                    className={cx('label', {
-                        [`status-${status}`]: true,
-                    })}
-                >
-                    {this.props.label}
-                </span>
-                {this.props.required && <span className="required" />}
-                <style jsx>{styles}</style>
-            </label>
-        )
-    }
-}
+        <span className={cx({ required, disabled })}>{label}</span>
 
-Switch.defaultProps = {
-    checked: false,
-    disabled: false,
-    status: 'default',
-}
+        <style jsx>{styles}</style>
+    </label>
+)
 
 Switch.propTypes = {
-    className: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
-    checked: PropTypes.bool,
-    label: PropTypes.string,
-    disabled: PropTypes.bool,
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    onChange: propTypes.func.isRequired,
+    name: propTypes.string.isRequired,
+
+    className: propTypes.string,
+    label: propTypes.string,
+
+    required: propTypes.bool,
+    checked: propTypes.bool,
+    disabled: propTypes.bool,
+    valid: propTypes.bool,
+    warning: propTypes.bool,
+    error: propTypes.bool,
 }
 
 export { Switch }
-export default Switch

@@ -3,7 +3,7 @@ import css from 'styled-jsx/css'
 import { colors, theme } from '../theme.js'
 
 export default css`
-    .base {
+    label {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -11,9 +11,10 @@ export default css`
         cursor: pointer;
         pointer-events: all;
         user-select: none;
+        color: ${colors.grey900};
     }
 
-    input[type='radio'] {
+    input {
         display: none;
     }
 
@@ -22,46 +23,18 @@ export default css`
         user-select: none;
     }
 
-    .label {
+    span {
         margin: 0 0 0 8px;
         cursor: pointer;
     }
 
-    .disabled,
-    .disabled .label {
+    .disabled {
         cursor: not-allowed;
-        color: ${colors.grey500};
+        color: ${theme.disabled};
     }
 
     .required:after {
         padding-left: 4px;
         content: '*';
-    }
-
-    .default {
-        color: ${colors.grey700};
-    }
-
-    .valid,
-    .valid-icon {
-        color: ${colors.blue600};
-    }
-
-    .warning,
-    .warning-icon {
-        color: ${colors.yellow500};
-    }
-
-    .error,
-    .error-icon {
-        color: ${colors.red500};
-    }
-
-    .default-icon {
-        color: ${theme.secondary300};
-    }
-
-    .disabled {
-        color: ${colors.grey300};
     }
 `

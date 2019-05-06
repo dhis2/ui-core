@@ -1,108 +1,108 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import cx from 'classnames'
 
-import { colors } from '../theme.js'
+import { colors, theme } from '../theme.js'
 import styles from './styles.js'
 
 import { Checked, Unchecked } from '../icons/Radio.js'
 
 import css from 'styled-jsx/css'
 
-const icons = {
-    default: css.resolve`
-		svg {
-			fill: ${colors.grey700};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    checked: css.resolve`
-		svg {
-			fill: ${colors.teal400};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    valid: css.resolve`
-		svg {
-			fill: ${colors.blue600};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    warning: css.resolve`
-		svg {
-			fill: ${colors.yellow500};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-    error: css.resolve`
-		svg {
-			fill: ${colors.red500};
-			height: 24px;
-			width: 24px;
-		}
-	`,
-}
-
-class Radio extends React.Component {
-    onChange = () => this.props.onChange(this.props.name, this.props.value)
-
-    render() {
-        const { required, status, checked, className } = this.props
-
-        const state = status === 'default' && checked ? 'checked' : status
-        const icon = this.props.checked ? (
-            <Checked className={icons[state].className} />
-        ) : (
-            <Unchecked className={icons[state].className} />
-        )
-
-        return (
-            <label
-                className={cx('base', className, {
-                    disabled: this.props.disabled,
-                })}
-            >
-                <input
-                    type="radio"
-                    name={this.props.name}
-                    value={this.props.value}
-                    checked={this.props.checked}
-                    disabled={this.props.disabled}
-                    onChange={this.onChange}
-                />
-                {icon}
-
-                <span className={cx('label', { required })}>
-                    {this.props.label}
-                </span>
-
-                {icons[state].styles}
-                <style jsx>{styles}</style>
-            </label>
-        )
+const icons = css.resolve`
+    svg {
+        height: 24px;
+        width: 24px;
+        fill: ${theme.default};
     }
-}
 
-Radio.defaultProps = {
-    checked: false,
-    status: 'default',
-    disabled: false,
+    .checked {
+        fill: ${colors.teal400};
+    }
+
+    .disabled {
+        fill: ${theme.disabled};
+    }
+
+    .error {
+        fill: ${theme.error};
+    }
+
+    .valid {
+        fill: ${theme.valid};
+    }
+
+    .warning {
+        fill: ${theme.warning};
+    }
+`
+
+const Radio = ({
+    onChange,
+    name,
+    value,
+    className,
+    label,
+    required,
+    checked = false,
+    disabled,
+    valid,
+    warning,
+    error,
+}) => {
+    const classes = cx(icons.className, {
+        checked: checked && !valid && !error && !warning,
+        disabled,
+        valid,
+        error,
+        warning,
+    })
+
+    const icon = checked ? (
+        <Checked className={classes} />
+    ) : (
+        <Unchecked className={classes} />
+    )
+
+    return (
+        <label
+            className={cx(className, {
+                disabled,
+            })}
+        >
+            <input
+                type="radio"
+                name={name}
+                value={value}
+                checked={checked}
+                disabled={disabled}
+                onChange={onChange}
+            />
+            {icon}
+
+            <span className={cx({ required })}>{label}</span>
+
+            {icons.styles}
+            <style jsx>{styles}</style>
+        </label>
+    )
 }
 
 Radio.propTypes = {
-    className: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    status: PropTypes.oneOf(['default', 'valid', 'warning', 'error']),
+    onChange: propTypes.func.isRequired,
+
+    name: propTypes.string.isRequired,
+    value: propTypes.string.isRequired,
+
+    className: propTypes.string,
+    label: propTypes.string,
+
+    required: propTypes.bool,
+    checked: propTypes.bool,
+    disabled: propTypes.bool,
+    valid: propTypes.bool,
+    warning: propTypes.bool,
+    error: propTypes.bool,
 }
 
 export { Radio }
-export default Radio

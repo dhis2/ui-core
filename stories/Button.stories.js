@@ -1,16 +1,63 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Button } from '../src'
+import { Button, Divider } from '../src'
 
-storiesOf('Button', module)
-    .add('Basic', () => <Button kind="basic">Label me!</Button>, {
-        notes: 'Yo!',
-    })
+import markdown from './info/atoms/button.md'
 
-    .add('Default with label prop', () => <Button label="Label me!" />)
+const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
-    .add('Primary', () => <Button kind="primary">Label me!</Button>)
+createStory('Button: Basic', {
+    onClick: logger,
+    name: 'Button',
+    value: 'default',
+})
 
-    .add('Secondary', () => <Button kind="secondary">Label me!</Button>)
+createStory('Button: Primary', {
+    onClick: logger,
+    name: 'Button',
+    value: 'default',
+    primary: true,
+})
 
-    .add('Destructive', () => <Button kind="destructive">Label me!</Button>)
+createStory('Button: Secondary', {
+    onClick: logger,
+    name: 'Button',
+    value: 'default',
+    secondary: true,
+})
+
+createStory('Button: Destructive', {
+    onClick: logger,
+    name: 'Button',
+    value: 'default',
+    destructive: true,
+})
+
+function createStory(name, props) {
+    storiesOf(name, module)
+        .addParameters({
+            notes: {
+                markdown,
+            },
+        })
+
+        .add('Default', () => <Button {...props}>Label me!</Button>)
+
+        .add('Disabled', () => (
+            <Button {...props} disabled>
+                Label me!
+            </Button>
+        ))
+
+        .add('Small', () => (
+            <Button {...props} small>
+                Label me!
+            </Button>
+        ))
+
+        .add('Large', () => (
+            <Button {...props} large>
+                Label me!
+            </Button>
+        ))
+}
