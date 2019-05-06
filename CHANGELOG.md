@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/dhis2/ui/compare/v2.0.0...v2.0.1) (2019-05-06)
+
+
+### Bug Fixes
+
+* allow buttons to be used without onclick handlers ([#202](https://github.com/dhis2/ui/issues/202)) ([ec474bc](https://github.com/dhis2/ui/commit/ec474bc))
+
 # [2.0.0](https://github.com/dhis2/ui/compare/v1.1.3...v2.0.0) (2019-05-06)
 
 
