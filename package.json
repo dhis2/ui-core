@@ -49,13 +49,13 @@
     "typeface-roboto": "^0.0.54"
   },
   "peerDependencies": {
-    "prop-types": "^15",
-    "react": "^16.3",
-    "react-dom": "^16.3"
+    "prop-types": "^15.x.x",
+    "react": "^16.3.x",
+    "react-dom": "^16.3.x",
+    "styled-jsx": "^3.2.1"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
-    "styled-jsx": "^3.2.1"
+    "classnames": "^2.2.6"
   },
   "files": [
     "build"
