@@ -38,6 +38,7 @@ export const Modal = ({ children, onClose, size, scrollable }) => {
                     position: fixed;
                     top: 0;
                     width: 100%;
+                    z-index: 99999999;
                 }
             `}</style>
         </div>
