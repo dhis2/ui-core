@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { ScreenCover } from '../ScreenCover'
 import { Actions } from './Actions'
 import { Content } from './Content'
 import { ModalCard } from './ModalCard'
-import { ScreenCover } from './ScreenCover'
 import { Title } from './Title'
 
 const outerSpacing = 24
