@@ -8,7 +8,7 @@ export const Title = ({ children }) => (
         {children}
 
         <style jsx>{`
-            .title {
+            h1 {
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 24px;

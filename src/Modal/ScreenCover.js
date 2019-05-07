@@ -6,7 +6,7 @@ import cx from 'classnames'
 export const ScreenCover = ({ onClick }) => (
     <div className="screen-cover" onClick={onClick}>
         <style jsx>{`
-            .screen-cover {
+            div {
                 background: rgba(200, 200, 200, 0.6);
                 height: 100%;
                 left: 0;

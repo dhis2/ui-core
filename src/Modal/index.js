@@ -31,7 +31,7 @@ export const Modal = ({ children, onClose, small, large }) => {
             </ModalCard>
 
             <style jsx>{`
-                .modal {
+                div {
                     height: 100%;
                     left: 0;
                     position: fixed;
