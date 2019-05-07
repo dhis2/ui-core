@@ -14,8 +14,10 @@ export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from './Logo'
 
 export { Menu } from './Menu'
 export { MenuItem } from './MenuItem'
+export { Modal } from './Modal'
 
 export { Radio } from './Radio'
+export { ScreenCover } from './ScreenCover'
 export { SelectField } from './SelectField'
 export { SplitButton } from './SplitButton'
 export { Switch } from './Switch'
