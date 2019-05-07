@@ -21,12 +21,14 @@ const outerSpacing = 24
  * Model.Content (required)
  * Model.Actions (required)
  */
-export const Modal = ({ children, onClose, size }) => {
+export const Modal = ({ children, onClose, small, large }) => {
     return createPortal(
         <div className="modal">
             <ScreenCover onClick={onClose} />
 
-            <ModalCard size={size}>{children}</ModalCard>
+            <ModalCard small={small} large={large}>
+                {children}
+            </ModalCard>
 
             <style jsx>{`
                 .modal {
@@ -48,15 +50,12 @@ Modal.Content = Content
 Modal.Actions = Actions
 
 Modal.propTypes = {
-    // Can be Modal.Title; Must be Modal.Content and Modal.Actions
+    // Can contain Modal.Title; Must contain Modal.Content and Modal.Actions
     children: PropTypes.arrayOf(PropTypes.element).isRequired,
 
     // Callback used when clicking on the screen cover
     onClose: PropTypes.func,
 
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-}
-
-Modal.defaultProps = {
-    size: 'small',
+    small: PropTypes.bool,
+    large: PropTypes.bool,
 }
