@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
@@ -20,16 +21,12 @@ const outerSpacing = 24
  * Model.Content (required)
  * Model.Actions (required)
  */
-export const Modal = ({ children, onClose, size, scrollable }) => {
-    return (
+export const Modal = ({ children, onClose, size }) => {
+    return createPortal(
         <div className="modal">
             <ScreenCover onClick={onClose} />
 
-            <ModalCard size={size} scrollable={scrollable}>
-                {React.Children.map(children, child =>
-                    React.cloneElement(child, { scrollable })
-                )}
-            </ModalCard>
+            <ModalCard size={size}>{children}</ModalCard>
 
             <style jsx>{`
                 .modal {
@@ -41,7 +38,8 @@ export const Modal = ({ children, onClose, size, scrollable }) => {
                     z-index: 99999999;
                 }
             `}</style>
-        </div>
+        </div>,
+        document.body
     )
 }
 
@@ -57,9 +55,6 @@ Modal.propTypes = {
     onClose: PropTypes.func,
 
     size: PropTypes.oneOf(['small', 'medium', 'large']),
-
-    // Needs to b set in order to make the content scrollable!
-    scrollable: PropTypes.bool,
 }
 
 Modal.defaultProps = {

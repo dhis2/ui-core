@@ -13,7 +13,7 @@ export const Title = ({ children }) => (
                 font-weight: 500;
                 line-height: 24px;
                 padding: 20px 24px 0;
-                margin-bottom: 17px;
+                margin: 0 0 17px;
             }
         `}</style>
     </h1>

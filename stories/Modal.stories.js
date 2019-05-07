@@ -209,7 +209,7 @@ storiesOf('Modal', module)
             </Modal.Actions>
         </Modal>
     ))
-    .add('Modal (small) /w scrollable content', () => (
+    .add('Modal (small) /w too much content for the screen', () => (
         <Modal scrollable size="small" onClose={say('Clickable screen cover')}>
             <Modal.Title>This is a modal with scrollable content</Modal.Title>
 
@@ -263,34 +263,6 @@ storiesOf('Modal', module)
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
                 justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
                 takimata sanctus est Lorem ipsum dolor sit amet.
-            </Modal.Content>
-
-            <Modal.Actions>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
-
-                <span style={{ marginLeft: 16 }}>
-                    <Button
-                        primary
-                        destructive
-                        onClick={say('Button primary')}
-                        className="prim"
-                    >
-                        Primary action
-                    </Button>
-                </span>
-            </Modal.Actions>
-        </Modal>
-    ))
-    .add('Modal (small) /w scrollable but little content', () => (
-        <Modal scrollable size="small" onClose={say('Clickable screen cover')}>
-            <Modal.Title>This is a modal with scrollable content</Modal.Title>
-
-            <Modal.Content>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua.
             </Modal.Content>
 
             <Modal.Actions>

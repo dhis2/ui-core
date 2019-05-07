@@ -9,17 +9,15 @@ const outerSpacing = 24
 
 const cardBoxStyle = resolve`
     .modal-card {
+        display: flex;
         height: auto;
+        flex-direction: column;
         left: 50%;
         max-width: calc(100vw - ${2 * outerSpacing}px);
         max-height: calc(100vh - ${2 * outerSpacing}px);
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-    }
-
-    .modal-card.scrollable {
-        height: 100%;
     }
 
     .size-small { width: 400px; }
@@ -31,22 +29,9 @@ export const ModalCard = ({ children, scrollable, size }) => {
     console.log('scrollable', scrollable)
     return (
         <Card
-            className={cx(
-                cardBoxStyle.className,
-                'modal-card',
-                `size-${size}`,
-                { scrollable }
-            )}
+            className={cx(cardBoxStyle.className, 'modal-card', `size-${size}`)}
         >
-            <div
-                style={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                }}
-            >
-                {children}
-            </div>
+            {children}
             {cardBoxStyle.styles}
         </Card>
     )

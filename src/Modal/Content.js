@@ -11,15 +11,12 @@ export const Content = ({ children, scrollable }) => (
             .content {
                 flex-grow: 1;
                 margin-bottom: 35px;
+                overflow-y: auto;
                 padding: 0 24px;
             }
 
             .content:first-child {
                 padding-top: 20px;
-            }
-
-            .scrollable {
-                overflow-y: scroll;
             }
         `}</style>
     </div>
@@ -27,9 +24,4 @@ export const Content = ({ children, scrollable }) => (
 
 Content.propTypes = {
     children: PropTypes.node.isRequired,
-    scrollable: PropTypes.bool,
-}
-
-Content.defaultProps = {
-    scrollable: false,
 }
