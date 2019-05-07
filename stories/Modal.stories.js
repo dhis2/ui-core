@@ -3,9 +3,16 @@ import { storiesOf } from '@storybook/react'
 import { Modal } from '../src/Modal'
 import { Button } from '../src/Button'
 
+import markdown from './info/molecules/modal.md'
+
 const say = something => () => alert(something)
 
 storiesOf('Modal', module)
+    .addParameters({
+        notes: {
+            markdown,
+        },
+    })
     .add('Modal (small) /w Title, Content & Primary', () => (
         <Modal small>
             <Modal.Title>
