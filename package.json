@@ -44,18 +44,19 @@
     "husky": "^2.0.0",
     "react-dev-utils": "^9.0.0",
     "size-limit": "^1.0.0",
+    "styled-jsx": "^3.2.1",
     "storybook-addon-jsx": "^7.0.0",
     "storybook-addon-react-docgen": "^1.2.1",
     "typeface-roboto": "^0.0.54"
   },
   "peerDependencies": {
-    "prop-types": "^15",
+    "@dhis2/app-runtime": "^1.1.0",
     "react": "^16.3",
     "react-dom": "^16.3"
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "styled-jsx": "^3.2.1"
+    "prop-types": "^15"
   },
   "files": [
     "build"
