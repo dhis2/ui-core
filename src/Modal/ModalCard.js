@@ -41,7 +41,10 @@ export const ModalCard = ({ children, small, large }) => {
 
 ModalCard.propTypes = {
     // Can be Modal.Title; Must be Modal.Content and Modal.Actions
-    children: propTypes.arrayOf(propTypes.element).isRequired,
+    children: propTypes.oneOfType([
+        propTypes.element,
+        propTypes.arrayOf(propTypes.element),
+    ]).isRequired,
     small: propTypes.bool,
     large: propTypes.bool,
 }
