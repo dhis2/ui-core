@@ -6,11 +6,11 @@ import cx from 'classnames'
 import { Button } from '../index'
 
 export const Actions = ({ children }) => (
-    <div className={cx('actions')}>
+    <div>
         {children}
 
         <style jsx>{`
-            .actions {
+            div {
                 padding: 0 24px 20px;
                 display: flex;
                 justify-content: flex-end;
