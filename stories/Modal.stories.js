@@ -13,7 +13,7 @@ storiesOf('Modal', module)
             markdown,
         },
     })
-    .add('Modal (small) /w Title, Content & Primary', () => (
+    .add('Small: Title, Content, Action', () => (
         <Modal open small>
             <Modal.Title>
                 This is a small modal with title, content and primary action
@@ -49,7 +49,7 @@ storiesOf('Modal', module)
             </Modal.Actions>
         </Modal>
     ))
-    .add('Modal (medium) /w Title, Content & Primary', () => (
+    .add('Medium: Title, Content, Action', () => (
         <Modal open>
             <Modal.Title>
                 This is a medium modal with title, content and primary action
@@ -85,7 +85,7 @@ storiesOf('Modal', module)
             </Modal.Actions>
         </Modal>
     ))
-    .add('Modal (large) /w Title, Content & Primary', () => (
+    .add('Large: Title, Content, Primary', () => (
         <Modal open large>
             <Modal.Title>
                 This is a large modal with title, content and primary action
@@ -121,7 +121,7 @@ storiesOf('Modal', module)
             </Modal.Actions>
         </Modal>
     ))
-    .add('Modal (small) /w Content & Primary', () => (
+    .add('Small: Content & Primary', () => (
         <Modal open small>
             <Modal.Content>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
@@ -153,7 +153,7 @@ storiesOf('Modal', module)
             </Modal.Actions>
         </Modal>
     ))
-    .add('Modal (small) /w destructive Primary', () => (
+    .add('Small: Destructive Primary', () => (
         <Modal open small>
             <Modal.Content>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
@@ -186,7 +186,7 @@ storiesOf('Modal', module)
             </Modal.Actions>
         </Modal>
     ))
-    .add('Modal (small) /w clickable screen cover', () => (
+    .add('Small: Clickable screen cover', () => (
         <Modal open small onClose={say('Clickable screen cover')}>
             <Modal.Title>
                 This is a modal with clickable screen cover
@@ -216,7 +216,7 @@ storiesOf('Modal', module)
             </Modal.Actions>
         </Modal>
     ))
-    .add('Modal (small) /w too much content for the screen', () => (
+    .add('Small: scrollable', () => (
         <Modal open small onClose={say('Clickable screen cover')}>
             <Modal.Title>This is a modal with scrollable content</Modal.Title>
 
@@ -290,7 +290,7 @@ storiesOf('Modal', module)
             </Modal.Actions>
         </Modal>
     ))
-    .add('Modal (small) /w headline in 2 lines', () => (
+    .add('Small: Long title', () => (
         <Modal open small>
             <Modal.Title>
                 This headline should break into multiple lines because it's way
