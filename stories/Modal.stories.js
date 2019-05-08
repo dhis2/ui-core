@@ -290,3 +290,34 @@ storiesOf('Modal', module)
             </Modal.Actions>
         </Modal>
     ))
+    .add('Modal (small) /w headline in 2 lines', () => (
+        <Modal open small>
+            <Modal.Title>
+                This headline should break into multiple lines because it's way
+                too long for one!
+            </Modal.Title>
+
+            <Modal.Content>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                justo duo dolores et ea rebum.
+            </Modal.Content>
+
+            <Modal.Actions>
+                <Button onClick={say('Button secondary')} secondary>
+                    Secondary action
+                </Button>
+
+                <span style={{ marginLeft: 16 }}>
+                    <Button
+                        onClick={say('Button primary')}
+                        primary
+                        className="prim"
+                    >
+                        Primary action
+                    </Button>
+                </span>
+            </Modal.Actions>
+        </Modal>
+    ))
