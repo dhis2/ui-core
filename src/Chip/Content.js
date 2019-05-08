@@ -1,5 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import css from 'styled-jsx/css'
+import cx from 'classnames'
 
 export const Content = ({ children, overflow }) => (
     <span className={cx({ overflow })}>

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import propTypes from 'prop-types'
 
 export const Icon = ({ icon }) => {
-    if (!icon) return
+    if (!icon) return null
 
     return (
         <span>

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import propTypes from 'prop-types'
 import css, { resolve } from 'styled-jsx/css'
 
+import { Cancel } from '../icons/Cancel'
 import { colors } from '../theme'
 
 const removeIcon = resolve`
@@ -29,7 +30,7 @@ export class Remove extends PureComponent {
     render() {
         const onRemove = this.props.onRemove
 
-        if (!onRemove) return
+        if (!onRemove) return null
 
         return (
             <span onClick={this.onRemove}>
