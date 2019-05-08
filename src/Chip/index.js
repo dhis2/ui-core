@@ -87,12 +87,6 @@ class Chip extends PureComponent {
                             0 2px 2px 0 rgba(0, 0, 0, 0.14),
                             0 1px 5px 0 rgba(0, 0, 0, 0.12);
                     }
-
-                    .icon {
-                        margin-left: 5px;
-                        color: ${colors.grey700};
-                        font-size: 20px;
-                    }
                 `}</style>
             </div>
         )
