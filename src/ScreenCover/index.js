@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
@@ -19,5 +19,5 @@ export const ScreenCover = ({ onClick }) => (
 )
 
 ScreenCover.propTypes = {
-    onClick: PropTypes.func,
+    onClick: propTypes.func,
 }

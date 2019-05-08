@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { createPortal } from 'react-dom'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
@@ -51,11 +51,11 @@ Modal.Actions = Actions
 
 Modal.propTypes = {
     // Can contain Modal.Title; Must contain Modal.Content and Modal.Actions
-    children: PropTypes.arrayOf(PropTypes.element).isRequired,
+    children: propTypes.arrayOf(propTypes.element).isRequired,
 
     // Callback used when clicking on the screen cover
-    onClose: PropTypes.func,
+    onClose: propTypes.func,
 
-    small: PropTypes.bool,
-    large: PropTypes.bool,
+    small: propTypes.bool,
+    large: propTypes.bool,
 }

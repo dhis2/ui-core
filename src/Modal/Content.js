@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
@@ -23,5 +23,5 @@ export const Content = ({ children, scrollable }) => (
 )
 
 Content.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: propTypes.node.isRequired,
 }

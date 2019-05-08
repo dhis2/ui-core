@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import css, { resolve } from 'styled-jsx/css'
 import cx from 'classnames'
 
@@ -41,7 +41,7 @@ export const ModalCard = ({ children, small, large }) => {
 
 ModalCard.propTypes = {
     // Can be Modal.Title; Must be Modal.Content and Modal.Actions
-    children: PropTypes.arrayOf(PropTypes.element).isRequired,
-    small: PropTypes.bool,
-    large: PropTypes.bool,
+    children: propTypes.arrayOf(propTypes.element).isRequired,
+    small: propTypes.bool,
+    large: propTypes.bool,
 }
