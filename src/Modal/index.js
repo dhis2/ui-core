@@ -19,9 +19,9 @@ import { Title } from './Title'
  * Model.Content (required)
  * Model.Actions (required)
  */
-export const Modal = ({ children, onClose, small, large }) => {
+export const Modal = ({ children, onClose, small, large, open }) => {
     return createPortal(
-        <div className="modal">
+        <div className={cx({ open })}>
             <ScreenCover onClick={onClose} />
 
             <ModalCard small={small} large={large}>
@@ -30,12 +30,17 @@ export const Modal = ({ children, onClose, small, large }) => {
 
             <style jsx>{`
                 div {
+                    display: none;
                     height: 100%;
                     left: 0;
                     position: fixed;
                     top: 0;
                     width: 100%;
                     z-index: 99999999;
+                }
+
+                .open {
+                    display: block;
                 }
             `}</style>
         </div>,
@@ -54,6 +59,7 @@ Modal.propTypes = {
     // Callback used when clicking on the screen cover
     onClose: propTypes.func,
 
+    open: propTypes.bool,
     small: propTypes.bool,
     large: propTypes.bool,
 }
