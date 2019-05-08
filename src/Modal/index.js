@@ -21,7 +21,7 @@ import { Title } from './Title'
  */
 export const Modal = ({ children, onClose, small, large, open }) => {
     return createPortal(
-        <div className={cx({ open })}>
+        <aside className={cx({ open })}>
             <ScreenCover onClick={onClose} />
 
             <ModalCard small={small} large={large}>
@@ -29,7 +29,7 @@ export const Modal = ({ children, onClose, small, large, open }) => {
             </ModalCard>
 
             <style jsx>{`
-                div {
+                aside {
                     display: none;
                     height: 100%;
                     left: 0;
@@ -43,7 +43,7 @@ export const Modal = ({ children, onClose, small, large, open }) => {
                     display: block;
                 }
             `}</style>
-        </div>,
+        </aside>,
         document.body
     )
 }
