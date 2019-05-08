@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import { Card } from '../Card'
 
-const outerSpacing = 24
+const OUTER_SPACING = 24
 
 const cardBoxStyle = resolve`
     .modal-card {
@@ -13,8 +13,8 @@ const cardBoxStyle = resolve`
         height: auto;
         flex-direction: column;
         left: 50%;
-        max-width: calc(100vw - ${2 * outerSpacing}px);
-        max-height: calc(100vh - ${2 * outerSpacing}px);
+        max-width: calc(100vw - ${2 * OUTER_SPACING}px);
+        max-height: calc(100vh - ${2 * OUTER_SPACING}px);
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);

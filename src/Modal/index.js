@@ -10,8 +10,6 @@ import { Content } from './Content'
 import { ModalCard } from './ModalCard'
 import { Title } from './Title'
 
-const outerSpacing = 24
-
 /**
  * Modal provides a UI to prompt the user to respond to a question
  * or a note to the user.
