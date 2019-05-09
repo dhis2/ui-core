@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/dhis2/ui/compare/v2.0.2...v2.1.0) (2019-05-09)
+
+
+### Features
+
+* add modal component ([#205](https://github.com/dhis2/ui/issues/205)) ([23a41f0](https://github.com/dhis2/ui/commit/23a41f0))
+
 ## [2.0.2](https://github.com/dhis2/ui/compare/v2.0.1...v2.0.2) (2019-05-06)
 
 
