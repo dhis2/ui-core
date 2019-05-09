@@ -26,7 +26,7 @@ class Chip extends PureComponent {
         } = this.props
 
         return (
-            <div
+            <span
                 onClick={this.onClick}
                 className={cx(className, {
                     selected,
@@ -39,7 +39,7 @@ class Chip extends PureComponent {
                 <Remove onRemove={this.props.onRemove} />
 
                 <style jsx>{`
-                    div {
+                    span {
                         display: inline-flex;
                         align-items: center;
                         height: 32px;
@@ -53,7 +53,7 @@ class Chip extends PureComponent {
                         color: ${colors.grey900};
                     }
 
-                    div:hover {
+                    span:hover {
                         background-color: ${colors.grey300};
                     }
 
@@ -87,7 +87,7 @@ class Chip extends PureComponent {
                             0 1px 5px 0 rgba(0, 0, 0, 0.12);
                     }
                 `}</style>
-            </div>
+            </span>
         )
     }
 }
