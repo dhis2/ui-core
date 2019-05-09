@@ -1,74 +1,17 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import propTypes from 'prop-types'
+import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors } from '../theme.js'
-import styles from './styles.js'
+import { colors, theme } from '../theme'
+import { Content } from './Content'
+import { Icon } from './Icon'
+import { Remove } from './Remove'
 
-import css from 'styled-jsx/css'
-
-import { Cancel } from '../icons/Cancel.js'
-
-const removeIcon = css.resolve`
-    svg {
-        margin-right: 4px;
-        color: ${colors.grey700};
-		height: 18px;
-		width: 18px;
-        cursor: pointer;
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    svg:hover {
-        opacity: 0.82;
-    }
-`
-
-class Chip extends React.PureComponent {
+class Chip extends PureComponent {
     onClick = e => {
         if (!this.props.disabled && this.props.onClick) {
             this.props.onClick(e)
-        }
-    }
-
-    onRemove = e => {
-        e.stopPropagation() // stop onRemove from triggering onClick on container
-        this.props.onRemove(e)
-    }
-
-    showIcon() {
-        const { icon } = this.props
-        if (!icon) {
-            return
-        }
-
-        return (
-            <React.Fragment>
-                <span>{icon}</span>
-
-                <style jsx>{`
-                    span {
-                        width: 24px;
-                        height: 24px;
-                        margin-left: 4px;
-                        border-radius: 50%;
-                        overflow: hidden;
-                    }
-                `}</style>
-            </React.Fragment>
-        )
-    }
-
-    showRemove() {
-        if (this.props.onRemove) {
-            return (
-                <span onClick={this.onRemove}>
-                    <Cancel className={removeIcon.className} />
-
-                    {removeIcon.styles}
-                </span>
-            )
         }
     }
 
@@ -83,20 +26,68 @@ class Chip extends React.PureComponent {
         } = this.props
 
         return (
-            <div
+            <span
+                onClick={this.onClick}
                 className={cx(className, {
                     selected,
                     disabled,
                     dragging,
                 })}
-                onClick={this.onClick}
             >
-                {this.showIcon()}
-                <span className={cx({ overflow })}>{children}</span>
-                {this.showRemove()}
+                <Icon icon={this.props.icon} />
+                <Content overflow={overflow} children={children} />
+                <Remove onRemove={this.props.onRemove} />
 
-                <style jsx>{styles}</style>
-            </div>
+                <style jsx>{`
+                    span {
+                        display: inline-flex;
+                        align-items: center;
+                        height: 32px;
+                        margin: 4px;
+                        border-radius: 16px;
+                        background-color: ${colors.grey200};
+                        font-size: 14px;
+                        line-height: 16px;
+                        cursor: pointer;
+                        user-select: none;
+                        color: ${colors.grey900};
+                    }
+
+                    span:hover {
+                        background-color: ${colors.grey300};
+                    }
+
+                    .selected {
+                        background-color: ${theme.secondary600};
+                        font-weight: 500;
+                    }
+
+                    .selected:hover {
+                        background-color: #00695c;
+                    }
+
+                    .selected,
+                    .selected .icon,
+                    .selected .remove-icon {
+                        color: ${colors.white};
+                    }
+
+                    .disabled {
+                        cursor: not-allowed;
+                        opacity: 0.3;
+                    }
+
+                    .disabled .remove-icon {
+                        pointer-events: none;
+                    }
+
+                    .dragging {
+                        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                            0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                            0 1px 5px 0 rgba(0, 0, 0, 0.12);
+                    }
+                `}</style>
+            </span>
         )
     }
 }
