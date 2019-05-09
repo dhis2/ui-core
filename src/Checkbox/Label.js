@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
@@ -34,6 +34,6 @@ export const Label = ({ disabled, required, children }) => {
 }
 
 Label.propTypes = {
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
+    disabled: propTypes.bool,
+    required: propTypes.bool,
 }
