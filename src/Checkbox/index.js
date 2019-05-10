@@ -21,8 +21,9 @@ const Checkbox = ({
     valid,
     warning,
     error,
+    children,
 }) => (
-    <label
+    <div
         className={cx('base', className, {
             disabled,
         })}
@@ -43,17 +44,29 @@ const Checkbox = ({
             indeterminate={indeterminate}
         />
 
-        <Label required={required}>{label}</Label>
+        <span class={cx('label')}>
+            {children ? (
+                children
+            ) : (
+                <Label htmlFor={name} required={required} disabled={disabled}>
+                    {label}
+                </Label>
+            )}
+        </span>
 
         <style jsx>{`
-            label {
+            div {
                 display: flex;
                 flex-direction: row;
-                align-items: center;
+                align-items: top;
                 justify-content: flex-start;
-                cursor: pointer;
                 pointer-events: all;
                 user-select: none;
+            }
+
+            span {
+                padding-top: 3px;
+                margin: 0 0 0 8px;
             }
 
             .disabled {
@@ -61,15 +74,15 @@ const Checkbox = ({
                 color: ${theme.disabled};
             }
         `}</style>
-    </label>
+    </div>
 )
 
 Checkbox.propTypes = {
     onChange: propTypes.func.isRequired,
 
     name: propTypes.string.isRequired,
-    label: propTypes.string.isRequired,
 
+    label: propTypes.string,
     className: propTypes.string,
 
     indeterminate: propTypes.bool,
@@ -80,5 +93,7 @@ Checkbox.propTypes = {
     warning: propTypes.bool,
     error: propTypes.bool,
 }
+
+Checkbox.Label = Label
 
 export { Checkbox }

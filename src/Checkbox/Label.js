@@ -5,16 +5,15 @@ import cx from 'classnames'
 
 import { colors, theme } from '../theme'
 
-export const Label = ({ disabled, required, children }) => {
+export const Label = ({ htmlFor, disabled, required, children }) => {
     const className = cx('label', { disabled, required })
 
     return (
-        <span className={className}>
+        <label className={className}>
             {children}
 
             <style jsx>{`
                 .label {
-                    margin: 0 0 0 8px;
                     color: ${colors.grey900};
                     cursor: pointer;
                 }
@@ -29,11 +28,12 @@ export const Label = ({ disabled, required, children }) => {
                     color: ${theme.disabled};
                 }
             `}</style>
-        </span>
+        </label>
     )
 }
 
 Label.propTypes = {
+    htmlFor: propTypes.string.isRequired,
     disabled: propTypes.bool,
     required: propTypes.bool,
 }

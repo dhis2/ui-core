@@ -11,6 +11,7 @@ const icons = resolve`
         height: 24px;
         width: 24px;
         fill: ${theme.default};
+        cursor: pointer;
     }
 
     .checked {
@@ -19,6 +20,7 @@ const icons = resolve`
 
     .disabled {
         fill: ${theme.disabled};
+        cursor: not-allowed;
     }
 
     .error {

@@ -62,3 +62,14 @@ storiesOf('Checkbox', module)
     .add('Status: Error', () => (
         <Checkbox name="Ex" label="Checkbox" error checked onChange={logger} />
     ))
+
+    .add('With children', () => (
+        <Checkbox name="Ex" onChange={logger}>
+            <div>
+                <div>
+                    <Checkbox.Label>Checkbox label</Checkbox.Label>
+                </div>
+                <div>Some additional content</div>
+            </div>
+        </Checkbox>
+    ))
