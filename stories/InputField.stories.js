@@ -75,4 +75,6 @@ function createStory(name, props) {
         .add('Dense', () => (
             <InputField {...props} value="This field is dense" dense />
         ))
+
+        .add('Required', () => <InputField {...props} required />)
 }

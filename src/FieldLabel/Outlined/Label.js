@@ -64,6 +64,10 @@ const styles = css`
         position: relative;
     }
 
+    .required span::after {
+        content: '*';
+    }
+
     span {
         display: inline-block;
         font-size: 16px;
