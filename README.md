@@ -67,3 +67,70 @@ automatically starts.
 It is very important that the commit that lands on **master** follows
 the conventional commit format, since that is what is used to
 automatically determine the next version.
+
+## FAQ
+
+#### How to avoid a global style rule from affecting a ui-core component?
+
+The best practice is that each component has styles which are scoped to
+that component to avoid style rules that leak out from one component and
+bleeds into another component.
+
+Generally all the CSS-in-JS solutions grant this out of the box, and
+this is only a problem when using global stylesheets, e.g. by importing
+`index.css` in an application and adding global rules to it.
+
+`index.css`:
+```
+div {
+    padding: 20px;
+}
+
+.disabled {
+    opacity: 0.5;    
+}
+```
+
+These styles will bleed into all components that use `div` or
+`.disabled` and doesn't itself set those rules and win by specificity.
+
+It becomes a real problem if the rules above does something
+`!important`.
+
+`index.css`:
+```
+div {
+    padding: 20px !important;
+}
+
+.disabled {
+    opacity: 0.5 !important;    
+}
+```
+
+Now there is no way for specificity to win, and all components which use
+those classes or elements will inherit those rules.
+
+If you can control the CSS, _do not use `!important`_ and _do not allow
+your CSS rules to leak into the global scope_.
+
+If you cannot control the CSS which bleeds into `ui` components, then
+you need to define a class which counters the effects of the rule, and
+use the `className` prop to override the global rule.
+
+`index.css`:
+```
+.fix {
+    opacity: 1 !important;
+    padding: 10px !important;
+}
+```
+
+Pass that to the component through `className='fix'`, and it should
+negate the troublesome CSS. Once the global rules in the App has been
+removed, it is possible to remove the `className='fix'` as well.
+
+
+
+
+
