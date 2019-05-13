@@ -65,6 +65,7 @@ const styles = css`
     }
 
     .required span::after {
+        padding-left: 4px;
         content: '*';
     }
 
