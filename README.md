@@ -35,7 +35,8 @@ the code and example for both **LTR** and **RTL** modes.
 
 ## Development
 
-We use [Storybook](https://storybook.js.org) which is excellent for testing components while developing them.
+We use [Storybook](https://storybook.js.org) that is excellent for
+testing components while developing them.
 
 ```
 yarn install
@@ -68,11 +69,13 @@ It is very important that the commit that lands on **master** follows
 the conventional commit format, since that is what is used to
 automatically determine the next version.
 
+**Never push straight to master, always go through a PR!**
+
 ## FAQ
 
 #### How to avoid a global style rule from affecting a ui-core component?
 
-The best practice is that each component has styles which are scoped to
+The best practice is that each component has styles that are scoped to
 that component to avoid style rules that leak out from one component and
 bleeds into another component.
 
@@ -108,14 +111,14 @@ div {
 }
 ```
 
-Now there is no way for specificity to win, and all components which use
+Now there is no way for specificity to win, and all components that use
 those classes or elements will inherit those rules.
 
 If you can control the CSS, _do not use `!important`_ and _do not allow
 your CSS rules to leak into the global scope_.
 
-If you cannot control the CSS which bleeds into `ui` components, then
-you need to define a class which counters the effects of the rule, and
+If you cannot control the CSS that bleeds into `ui` components, then
+you need to define a class that counters the effects of the rule, and
 use the `className` prop to override the global rule.
 
 `index.css`:
