@@ -97,8 +97,12 @@ div {
 These styles will bleed into all components that use `div` or
 `.disabled` and doesn't itself set those rules and win by specificity.
 
-It becomes a real problem if the rules above does something
-`!important`.
+If a rule is not set by the component, the technique that overrides
+through the use of `className` still applies, it's just "softer" and
+does not require `!important` to counter the rules.
+
+If the rules do something `!important`, the only course of action is to
+counter it with another `!important` rule. Given the following CSS:
 
 `index.css`:
 ```
@@ -114,9 +118,6 @@ div {
 Now there is no way for specificity to win, and all components that use
 those classes or elements will inherit those rules.
 
-If you can control the CSS, _do not use `!important`_ and _do not allow
-your CSS rules to leak into the global scope_.
-
 If you cannot control the CSS that bleeds into `ui` components, then
 you need to define a class that counters the effects of the rule, and
 use the `className` prop to override the global rule.
@@ -131,8 +132,12 @@ use the `className` prop to override the global rule.
 
 Pass that to the component through `className='fix'`, and it should
 negate the troublesome CSS. Once the global rules in the App has been
-removed, it is possible to remove the `className='fix'` as well.
+removed, it is possible to remove the `className='fix'` as well. This
+should be considered a temporary measure.
 
+**Best practice suggestion**: If you can control the CSS, _do not use
+`!important`_ and _do not allow your CSS rules to leak into the global
+scope_.
 
 
 
