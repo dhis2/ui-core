@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import css from 'styled-jsx/css'
+import css, { resolve } from 'styled-jsx/css'
 
 import { ArrowDown } from '../icons/Arrow'
 
@@ -25,27 +25,53 @@ const Contents = ({ children, open }) => (
     </div>
 )
 
+const arrowStyle = resolve`
+    div > :global(svg){
+        fill: #e2e2e2;
+    }
+`
+
 const Arrow = ({ hasLeafes, open, onToggleOpen }) => {
     const arrowIcon = hasLeafes ? <ArrowDown /> : <span />
 
     return (
-        <div className={cx('arrow', { open, 'has-leafes': hasLeafes })}>
+        <div
+            className={cx('arrow', arrowStyle.className, {
+                open,
+                'has-leafes': hasLeafes,
+            })}
+        >
             <span onClick={onToggleOpen}>{arrowIcon}</span>
 
             <style jsx>{`
                 div {
                     width: 24px;
+                    position: relative;
+                }
+
+                div:after {
+                    content: '';
+                    background: #e2e2e2;
+                    height: calc(100% - 24px);
+                    left: 12px;
+                    position: absolute;
+                    top: 12px;
+                    width: 1px;
+                    z-index: 1;
                 }
 
                 span {
                     display: block;
+                    position: relative;
                     transform: rotate(-90deg);
+                    z-index: 2;
                 }
 
                 .open span {
                     transform: rotate(0);
                 }
             `}</style>
+            {arrowStyle.styles}
         </div>
     )
 }
