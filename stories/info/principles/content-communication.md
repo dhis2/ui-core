@@ -53,7 +53,7 @@ Practicially this means, but is not limited to:
 - not just informing the user of errors, but also successes: "Program stage saved." is a simple, effective piece of communication that helps the user feel at ease and trust DHIS2
 - informing the user of intention, but perhaps odd, behaviour. If application behaviour could be interpreted as an error, make sure to let the user know why. For example, when selecting a program some org. units might be filtered away. The user might not understand this link, so to them they are just missing org. units. A simple message: "Some org. units are not being shown for the selected program. Show all org. units" helps communicate that this is intentional behaviour and should be expected.
 
-![example ui communicating filtered state](../images/filtered-information.jpg)
+![example ui communicating filtered state](images/filtered-information.jpg)
 *Without a simple explanation text, how would the user know why all units wern't in the list?*
 
 ### Tone of voice

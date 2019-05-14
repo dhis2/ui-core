@@ -6,7 +6,7 @@ Similar to the typographic scale, it is useful to have a spacing scale. This ser
 
 The spacing scale is:  4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 640
 
-![example of spacing scale](../images/spacing-scale.jpg)
+![example of spacing scale](images/spacing-scale.jpg)
 
 The spacing scale can be used for spacing between elements, padding inside an element or pretty much anywhere where an amount of space is needed for division. Having these set values, like font sizes, removes some of the confusion when trying to decide if something looks better 1px up or down, simply choose a unit from the scale, if that is too little or too much then go to the next value on the scale. There is of course a small trade-off in flexibility using this system, but the payoffs in time saved and simplicity are worth it.
 
@@ -18,7 +18,7 @@ A good way to think of spacing is to see it as just another user interface eleme
 
 Thinking about a regular form, spacing can be used effectively to help the user understand the relationship between elements of the form. See the example below. Elements of the same section use 8px spacing. To indicate the end of a section and the start of another we can use 32px spacing. Without even reading the section headers the user is aware of the information architecture. Now the user can understand that the label belongs to the form field that it is closest to. Here we can see how we are actively using spacing to define relationships, we don't solely rely on vertical order to communicate which header belongs to which content.
 
-![example of how spacing affects elements](images/../spacing-example.jpg)
+![example of how spacing affects elements](images/spacing-example.jpg)
 *Adding more spacing in between separate elements than within the elements themselves is an easy way of communicating relationships*
 
 ## How much space to use?
