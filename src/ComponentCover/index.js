@@ -19,6 +19,7 @@ const ComponentCover = ({ children }) => (
                 height: 100%;
                 width: 100%;
 
+                z-index: 900;
                 background: rgba(200, 200, 200, 0.6);
             }
         `}</style>
