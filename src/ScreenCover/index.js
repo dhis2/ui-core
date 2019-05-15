@@ -15,7 +15,6 @@ class ScreenCover extends PureComponent {
     }
 
     onDocClick = evt => {
-        console.log(this.elContainer, evt)
         if (
             this.elContainer.current &&
             this.elContainer.current === evt.target
