@@ -80,6 +80,7 @@ const styles = css`
         width: 24px;
         height: 24px;
         margin-right: 4px;
+        margin-left: 10px;
     }
 
     .status-icon:empty {
