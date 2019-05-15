@@ -54,6 +54,7 @@ const styles = css`
     }
 
     .required::after {
+        padding-left: 4px;
         content: '*';
     }
 

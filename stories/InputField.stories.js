@@ -93,4 +93,6 @@ function createStory(name, props) {
                 warning
             />
         ))
+
+        .add('Required', () => <InputField {...props} required />)
 }

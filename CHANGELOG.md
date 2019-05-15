@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/dhis2/ui/compare/v2.1.0...v2.1.1) (2019-05-13)
+
+
+### Bug Fixes
+
+* required star ([#212](https://github.com/dhis2/ui/issues/212)) ([7a2b306](https://github.com/dhis2/ui/commit/7a2b306))
+
 # [2.1.0](https://github.com/dhis2/ui/compare/v2.0.2...v2.1.0) (2019-05-09)
 
 

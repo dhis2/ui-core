@@ -14,7 +14,7 @@ In general, the color principles used in dhis2 are:
 
 Color in DHIS2 uses a scale system. This gives us enough flexibility to handle any kind of interface or use case that comes up. Those with good memories may remember that v.01 of the color system used a 3 step scale, that proved to be not enough at all, so now we use a 10 step color scale. That should be enough for all eventualities.
 
-![example of color scale](../images/color-scale.jpg)
+![example of color scale](images/color-scale.jpg)
 
 ### Using the color scale
 
@@ -36,4 +36,4 @@ Contrast is important for creating an interface that all can use, regardless of 
 - Placeholder text does not technically need to pass contrast checks, but if it is important for the user to see and understand then it should be easily readable. Placeholder text should not be used for critical information, as it will disappear when content is entered.
 - If in doubt, check the contrast of background/foreground color using an [accessibility checker](http://accessible-colors.com/) that uses the WCAG2.0 standard. We want to achieve AAA rating for all essential elements.
 
-![example of acceptable and unacceptable contrast](../images/color-contrast.jpg) 
+![example of acceptable and unacceptable contrast](images/color-contrast.jpg) 

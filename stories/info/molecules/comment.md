@@ -20,7 +20,7 @@ There are several states a comment can be in:
 
 #### Composition
 
-![](../images/comment-empty.jpg)
+![](images/comment-empty.jpg)
 
 An empty comment is made up of multiple elements, some of which are optional:
 
@@ -42,7 +42,7 @@ Due to the flexible nature of this component the default placeholder text is gen
 
 #### Composition
 
-![](../images/comment-display.jpg)
+![](images/comment-display.jpg)
 
 A display comment is made up of multiple elements, some of which are optional:
 
@@ -60,7 +60,7 @@ Generic interaction with a comment is done using the included action icons. Cust
 
 ### Editing
 
-![](../images/comment-editing.jpg)
+![](images/comment-editing.jpg)
 
 An editing comment is made up of multiple elements, some of which are optional.
 

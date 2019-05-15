@@ -1,6 +1,6 @@
 {
   "name": "@dhis2/ui-core",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "main": "./build/cjs/index.js",
   "module": "./build/es/index.js",
   "sideEffects": false,
@@ -39,8 +39,6 @@
     "@storybook/addon-notes": "^5.0.3",
     "@storybook/react": "^5.0.3",
     "babel-loader": "^8.0.5",
-    "conventional-changelog-cli": "^2.0.5",
-    "fs-extra": "^7.0.0",
     "husky": "^2.0.0",
     "react-dev-utils": "^9.0.0",
     "size-limit": "^1.0.0",
