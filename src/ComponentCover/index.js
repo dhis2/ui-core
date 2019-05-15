@@ -3,8 +3,8 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-const ComponentCover = ({ onClick, children }) => (
-    <div className="component-cover" onClick={onClick}>
+const ComponentCover = ({ children }) => (
+    <div className="component-cover">
         {children}
         <style jsx>{`
             div {
@@ -26,7 +26,7 @@ const ComponentCover = ({ onClick, children }) => (
 )
 
 ComponentCover.propTypes = {
-    onClick: propTypes.func,
+    children: propTypes.node,
 }
 
 export { ComponentCover }
