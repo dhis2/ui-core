@@ -41,11 +41,8 @@ class ScreenCover extends PureComponent {
                         left: 0;
                         top: 0;
 
+                        z-index: 10000;
                         background: rgba(200, 200, 200, 0.6);
-                    }
-
-                    .children {
-                        z-index: 99999999;
                     }
                 `}</style>
             </div>
