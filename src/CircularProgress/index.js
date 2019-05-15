@@ -1,29 +1,35 @@
 import React from 'react'
+import { createPortal } from 'react-dom'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 
 import styles from './styles.js'
 
-const Overlay = ({ children }) => (
-    <div>
-        {children}
-        <style jsx>{`
-            div {
-                display: flex;
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.08);
-            }
-        `}</style>
-    </div>
-)
+import { ScreenCover } from '../ScreenCover'
+
+const Overlay = ({ children }) =>
+    createPortal(
+        <div>
+            <ScreenCover />
+
+            {children}
+            <style jsx>{`
+                div {
+                    display: flex;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                }
+            `}</style>
+        </div>,
+        document.body
+    )
 
 function CircularProgress({ small, large, overlay, className }) {
     const loader = (

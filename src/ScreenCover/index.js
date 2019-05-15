@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-export const ScreenCover = ({ onClick }) => (
+const ScreenCover = ({ onClick }) => (
     <div className="screen-cover" onClick={onClick}>
         <style jsx>{`
             div {
@@ -21,3 +21,5 @@ export const ScreenCover = ({ onClick }) => (
 ScreenCover.propTypes = {
     onClick: propTypes.func,
 }
+
+export { ScreenCover }
