@@ -4,8 +4,6 @@ import { Popover } from '../src/Popover'
 import { Menu } from '../src/Menu'
 import { MenuItem } from '../src/MenuItem'
 
-const ForwardedMenuItem = React.forwardRef(MenuItem)
-
 class T extends React.Component {
     ref = React.createRef()
     ref2 = React.createRef()
@@ -199,6 +197,26 @@ storiesOf('Popover', module)
         <Fragment>
             <span style={{ flexGrow: 1 }} />
             <T />
+
+            <style jsx>{`
+                :global(html),
+                :global(body) {
+                    height: 100%;
+                }
+
+                :global(#root) {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-content: flex-end;
+                }
+            `}</style>
+        </Fragment>
+    ))
+    .add('DX: test 3', () => (
+        <Fragment>
+            <span style={{ flexGrow: 1 }} />
+            <T styles={{ marginLeft: 'auto' }} />
 
             <style jsx>{`
                 :global(html),
