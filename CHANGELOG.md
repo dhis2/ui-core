@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/dhis2/ui/compare/v2.1.2...v2.2.0) (2019-05-16)
+
+
+### Features
+
+* use a portal to overlay the loader ([#223](https://github.com/dhis2/ui/issues/223)) ([61b5581](https://github.com/dhis2/ui/commit/61b5581))
+
 ## [2.1.2](https://github.com/dhis2/ui/compare/v2.1.1...v2.1.2) (2019-05-15)
 
 
