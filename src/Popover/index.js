@@ -56,7 +56,7 @@ class Popover extends Component {
 
     disableScroll() {
         this.extractBodyStyles()
-        disableScroll()
+        //disableScroll()
     }
 
     enableScroll() {
@@ -98,7 +98,7 @@ class Popover extends Component {
          * the calculated value is wrong, so it's set a style directly
          */
         return createPortal(
-            <div style={{ top: containerTop }}>
+            <div>
                 <ScreenCover withoutBackgroundColor onClick={onClose} />
 
                 {content}
@@ -107,8 +107,8 @@ class Popover extends Component {
                     div {
                         left: 0;
                         height: 100vh;
-                        position: absolute;
-                        top: ${containerTop};
+                        position: fixed;
+                        top: 0;
                         width: 100vw;
                         z-index: ${99999999 + this.props.level};
                     }

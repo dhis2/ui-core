@@ -12,7 +12,7 @@ export const Content = React.forwardRef(
                     box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
                     max-height: 100vh;
                     overflow-y: auto;
-                    position: absolute;
+                    position: fixed;
                     z-index: ${level + 99999999 || 1};
                 }
             `}</style>
@@ -49,6 +49,7 @@ export const getScrollAndClientOffset = () => {
 }
 
 export const getPosition = (anchor, popover, hasScreencover) => {
+    console.log('asdf', anchor, popover)
     if (!anchor || !popover) {
         return { left: 0, top: 0 }
     }

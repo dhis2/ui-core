@@ -234,10 +234,10 @@ storiesOf('Popover', module)
                 }
 
                 :global(#root) {
-                    height: 100%;
+                    align-content: flex-end;
                     display: flex;
                     flex-direction: column;
-                    align-content: flex-end;
+                    height: 100%;
                 }
             `}</style>
         </Fragment>
