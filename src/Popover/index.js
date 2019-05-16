@@ -5,7 +5,12 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { ScreenCover } from '../ScreenCover'
-import { Content, getPosition, getScrollAndClientOffset } from './helpers'
+import {
+    Content,
+    arePositionsEqual,
+    getPosition,
+    getScrollAndClientOffset,
+} from './helpers'
 
 /**
  * This popover is a content container that behaves like a context menu
@@ -14,34 +19,42 @@ import { Content, getPosition, getScrollAndClientOffset } from './helpers'
  * component.
  */
 class Popover extends Component {
-    ref = React.createRef()
+    ref = createRef()
+    state = { position: {} }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.open !== this.props.open) {
-            // Weird hack.. please help?
-            // needs to be done so this component can use it's own reference
-            this.forceUpdate()
+    componentDidMount() {
+        if (this.props.open) {
+            this.updatePosition()
+        }
+    }
+
+    componentDidUpdate() {
+        this.updatePosition()
+    }
+
+    updatePosition() {
+        if (this.ref.current) {
+            const position = getPosition(
+                this.props.anchorRef.current,
+                this.ref.current,
+                this.props.screencover
+            )
+
+            if (!arePositionsEqual(position, this.state.position)) {
+                this.setState({ position })
+            }
         }
     }
 
     render() {
-        const {
-            alwaysOpen,
-            anchorEl,
-            children,
-            onClose,
-            open,
-            screencover,
-        } = this.props
+        const { children, onClose, open, screencover } = this.props
 
-        if (!open && !alwaysOpen) return null
-
-        const position = getPosition(anchorEl, this.ref.current, screencover)
+        if (!open) return null
 
         const content = (
             <Content
                 ref={this.ref}
-                position={position}
+                position={this.state.position}
                 children={children}
                 level={this.props.level}
             />
@@ -74,13 +87,14 @@ class Popover extends Component {
 }
 
 Popover.propTypes = {
-    /* Element the popover should be positioned against */
-    anchorEl: propTypes.element.isRequired,
+    /* Needs to be created with `React.createRef()` */
+    anchorRef: propTypes.shape({
+        current: propTypes.element,
+    }).isRequired,
 
     screencover: propTypes.bool,
     level: propTypes.number,
     open: propTypes.bool,
-    alwaysOpen: propTypes.bool,
     onClose: propTypes.func,
 }
 

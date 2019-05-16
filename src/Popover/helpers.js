@@ -82,3 +82,8 @@ const getPositionHorizontal = (anchorRect, popoverRect, hasScreencover) => {
         bottom: 'auto',
     }
 }
+
+export const arePositionsEqual = (left, right) =>
+    left.left === right.left &&
+    left.top === right.top &&
+    left.bottom === right.bottom

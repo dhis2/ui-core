@@ -73,7 +73,7 @@ class T extends React.Component {
 
                 <Popover
                     screencover
-                    anchorEl={this.ref.current}
+                    anchorRef={this.ref}
                     open={this.state.open}
                     onClose={this.closeAll}
                 >
@@ -85,7 +85,7 @@ class T extends React.Component {
                                 onClick={this.toggleOpen2}
                             >
                                 <Popover
-                                    anchorEl={this.ref2.current}
+                                    anchorRef={this.ref2}
                                     open={this.state.open2}
                                     onClose={this.closeAll}
                                     level={2}
@@ -101,7 +101,7 @@ class T extends React.Component {
                                                 label="Click me!"
                                             >
                                                 <Popover
-                                                    anchorEl={this.ref4.current}
+                                                    anchorRef={this.ref4}
                                                     open={this.state.open4}
                                                     onClose={this.closeAll}
                                                     level={3}
@@ -149,7 +149,7 @@ class T extends React.Component {
                                 onClick={this.toggleOpen3}
                             >
                                 <Popover
-                                    anchorEl={this.ref3.current}
+                                    anchorRef={this.ref3}
                                     open={this.state.open3}
                                     onClose={this.closeAll}
                                     level={2}
