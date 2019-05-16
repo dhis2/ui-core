@@ -184,7 +184,24 @@ class T extends React.Component {
 }
 
 storiesOf('Popover', module)
-    .add('DX: test', () => <T />)
+    .add('DX: test', () => (
+        <Fragment>
+            <T />
+
+            <style jsx>{`
+                :global(html),
+                :global(body) {
+                    height: 100%;
+                }
+
+                :global(#root) {
+                    height: 1000px;
+                    width: 500px;
+                    margin: 0 auto;
+                }
+            `}</style>
+        </Fragment>
+    ))
     .add('DX: test 2', () => (
         <Fragment>
             <span style={{ flexGrow: 1 }} />
