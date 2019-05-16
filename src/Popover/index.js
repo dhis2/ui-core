@@ -114,27 +114,24 @@ class Popover extends Component {
 
         const { scrollTop, clientTop } = getScrollAndClientOffset()
         const containerTop = `${scrollTop || clientTop}px`
-        const containerHeight = '100vh'
-        const containerWidth = '100vw'
 
+        /**
+         * For whatever reason, when setting "top" with styled-jsx,
+         * the calculated value is wrong, so it's set a style directly
+         */
         return createPortal(
-            <div
-                style={{
-                    top: containerTop,
-                    height: containerHeight,
-                    width: containerWidth,
-                }}
-            >
-                {screencover && (
-                    <ScreenCover withoutBackgroundColor onClick={onClose} />
-                )}
+            <div style={{ top: containerTop }}>
+                <ScreenCover withoutBackgroundColor onClick={onClose} />
 
                 {content}
 
                 <style jsx>{`
                     div {
                         left: 0;
+                        height: 100vh;
                         position: absolute;
+                        top: ${containerTop};
+                        width: 100vw;
                         z-index: ${99999999 + this.props.level};
                     }
                 `}</style>

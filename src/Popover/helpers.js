@@ -10,7 +10,7 @@ export const disableScroll = () => {
     document.body.style.overflowY = 'hidden'
 }
 
-export const setBodyStyles = styes => {
+export const setBodyStyles = styles => {
     Object.assign(document.body.style, styles)
 }
 
