@@ -5,14 +5,7 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { ScreenCover } from '../ScreenCover'
-import {
-    Content,
-    disableScroll,
-    extractBodyStyles,
-    setBodyStyles,
-    getPosition,
-    getScrollAndClientOffset,
-} from './helpers'
+import { Content, getPosition, getScrollAndClientOffset } from './helpers'
 
 /**
  * This popover is a content container that behaves like a context menu
@@ -23,44 +16,12 @@ import {
 class Popover extends Component {
     ref = React.createRef()
 
-    componentDidMount() {
-        if (this.props.alwaysOpen || this.props.open) {
-            this.disableScroll()
-        }
-    }
-
-    componentWillUnmount() {
-        if (this.props.open || this.props.alwaysOpen) {
-            this.enableScroll()
-        }
-    }
-
     componentDidUpdate(prevProps) {
         if (prevProps.open !== this.props.open) {
-            this.handleScroll()
+            // Weird hack.. please help?
+            // needs to be done so this component can use it's own reference
+            this.forceUpdate()
         }
-    }
-
-    handleScroll() {
-        if (this.props.open) {
-            this.disableScroll()
-        } else {
-            this.enableScroll()
-        }
-    }
-
-    extractBodyStyles() {
-        const bodyStyles = extractBodyStyles()
-        this.setState({ bodyStyles })
-    }
-
-    disableScroll() {
-        this.extractBodyStyles()
-        //disableScroll()
-    }
-
-    enableScroll() {
-        setBodyStyles(this.state.bodyStyles)
     }
 
     render() {

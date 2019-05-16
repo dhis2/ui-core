@@ -20,22 +20,6 @@ export const Content = React.forwardRef(
     )
 )
 
-export const extractBodyStyles = () => ({
-    overflow: document.body.style.overflow,
-    overflowX: document.body.style.overflowX,
-    overflowY: document.body.style.overflowY,
-})
-
-export const disableScroll = () => {
-    document.body.style.overflow = 'hidden'
-    document.body.style.overflowX = 'hidden'
-    document.body.style.overflowY = 'hidden'
-}
-
-export const setBodyStyles = styles => {
-    Object.assign(document.body.style, styles)
-}
-
 export const getScrollAndClientOffset = () => {
     const body = document.body
     const docEl = document.documentElement
@@ -49,7 +33,6 @@ export const getScrollAndClientOffset = () => {
 }
 
 export const getPosition = (anchor, popover, hasScreencover) => {
-    console.log('asdf', anchor, popover)
     if (!anchor || !popover) {
         return { left: 0, top: 0 }
     }
