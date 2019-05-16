@@ -4,7 +4,7 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 const ComponentCover = ({ children, className }) => (
-    <div className={cx('component-cover', className)}>
+    <div className={className}>
         {children}
         <style jsx>{`
             div {

@@ -8,6 +8,9 @@ storiesOf('ComponentCover', module)
             <ComponentCover>
                 <CircularProgress />
             </ComponentCover>
+
+            <h1>Text behind the cover</h1>
+            <p>Lorem ipsum</p>
         </div>
     ))
 
