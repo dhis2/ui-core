@@ -17,6 +17,14 @@ class T extends React.Component {
         open4: false,
     }
 
+    constructor(props) {
+        super(props)
+
+        if (props.open) {
+            this.state.open = true
+        }
+    }
+
     closeAll = () =>
         this.setState({
             open: false,
@@ -187,6 +195,24 @@ storiesOf('Popover', module)
     .add('DX: test', () => (
         <Fragment>
             <T />
+
+            <style jsx>{`
+                :global(html),
+                :global(body) {
+                    height: 100%;
+                }
+
+                :global(#root) {
+                    height: 1000px;
+                    width: 500px;
+                    margin: 0 auto;
+                }
+            `}</style>
+        </Fragment>
+    ))
+    .add('DX: test open', () => (
+        <Fragment>
+            <T open={true} />
 
             <style jsx>{`
                 :global(html),
