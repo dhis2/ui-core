@@ -19,12 +19,13 @@ const ScreenCover = ({ children, onClick }) => (
                 top: 0;
 
                 z-index: 10000;
-                background: rgba(200, 200, 200, 0.6);
             }
 
             .backdrop {
                 height: 100%;
                 width: 100%;
+
+                background: rgba(200, 200, 200, 0.6);
             }
 
             .children {
