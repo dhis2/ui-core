@@ -1,54 +1,43 @@
-import React, { Fragment, PureComponent } from 'react'
+import React from 'react'
 import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-class ScreenCover extends PureComponent {
-    elContainer = React.createRef()
+const ScreenCover = ({ children, onClick }) => (
+    <div className="screen-cover">
+        <div className="backdrop" onClick={onClick} />
 
-    componentDidMount() {
-        document.addEventListener('click', this.onDocClick)
-    }
+        <div className="children">{children}</div>
 
-    componentWillUnmount() {
-        document.removeEventListener('click', this.onDocClick)
-    }
+        <style jsx>{`
+            .screen-cover {
+                position: fixed;
+                height: 100%;
+                width: 100%;
 
-    onDocClick = evt => {
-        if (
-            this.elContainer.current &&
-            this.elContainer.current === evt.target
-        ) {
-            this.props.onClick()
-        }
-    }
+                left: 0;
+                top: 0;
 
-    render() {
-        return (
-            <div className="screen-cover" ref={this.elContainer}>
-                <div className="children">{this.props.children}</div>
+                z-index: 10000;
+                background: rgba(200, 200, 200, 0.6);
+            }
 
-                <style jsx>{`
-                    .screen-cover {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
+            .backdrop {
+                height: 100%;
+                width: 100%;
+            }
 
-                        position: fixed;
-                        height: 100%;
-                        width: 100%;
-
-                        left: 0;
-                        top: 0;
-
-                        z-index: 10000;
-                        background: rgba(200, 200, 200, 0.6);
-                    }
-                `}</style>
-            </div>
-        )
-    }
-}
+            .children {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: auto;
+                height: auto;
+                transform-origin: -50% -50%;
+            }
+        `}</style>
+    </div>
+)
 
 ScreenCover.propTypes = {
     onClick: propTypes.func,
