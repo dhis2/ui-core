@@ -3,8 +3,8 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-const ComponentCover = ({ children }) => (
-    <div className="component-cover">
+const ComponentCover = ({ children, className }) => (
+    <div className={cx('component-cover', className)}>
         {children}
         <style jsx>{`
             div {
@@ -12,12 +12,10 @@ const ComponentCover = ({ children }) => (
                 align-items: center;
                 justify-content: center;
 
-                position: relative;
-                left: 0;
-                top: 0;
+                position: absolute;
 
-                height: 100%;
-                width: 100%;
+                height: inherit;
+                width: inherit;
 
                 z-index: 900;
                 background: rgba(200, 200, 200, 0.6);
@@ -28,6 +26,7 @@ const ComponentCover = ({ children }) => (
 
 ComponentCover.propTypes = {
     children: propTypes.node,
+    className: propTypes.string,
 }
 
 export { ComponentCover }

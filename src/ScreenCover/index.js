@@ -3,8 +3,8 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-const ScreenCover = ({ children, onClick }) => (
-    <div className="screen-cover">
+const ScreenCover = ({ children, onClick, className }) => (
+    <div className={cx('screen-cover', className)}>
         <div className="backdrop" onClick={onClick} />
 
         <div className="children">{children}</div>
@@ -34,7 +34,7 @@ const ScreenCover = ({ children, onClick }) => (
                 left: 50%;
                 width: auto;
                 height: auto;
-                transform: translate(-50% -50%);
+                transform: translate(-50%, -50%);
             }
         `}</style>
     </div>
@@ -42,6 +42,7 @@ const ScreenCover = ({ children, onClick }) => (
 
 ScreenCover.propTypes = {
     onClick: propTypes.func,
+    className: propTypes.string,
 }
 
 export { ScreenCover }
