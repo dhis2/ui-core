@@ -6,29 +6,13 @@ import cx from 'classnames'
 
 import { ScreenCover } from '../ScreenCover'
 import {
+    Content,
     disableScroll,
     extractBodyStyles,
     setBodyStyles,
     getPosition,
     getScrollAndClientOffset,
 } from './helpers'
-
-const Content = React.forwardRef(({ children, position, level }, ref) => (
-    <div ref={ref} style={position}>
-        {children}
-
-        <style jsx>{`
-            div {
-                background: white;
-                box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
-                max-height: 100vh;
-                overflow-y: auto;
-                position: absolute;
-                z-index: ${level + 99999999 || 1};
-            }
-        `}</style>
-    </div>
-))
 
 /**
  * This popover is a content container that behaves like a context menu
