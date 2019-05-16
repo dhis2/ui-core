@@ -33,7 +33,7 @@ const ScreenCover = ({ children, onClick }) => (
                 left: 50%;
                 width: auto;
                 height: auto;
-                transform-origin: -50% -50%;
+                transform: translate(-50% -50%);
             }
         `}</style>
     </div>
