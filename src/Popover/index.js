@@ -99,6 +99,12 @@ class Popover extends Component {
         }
     }
 
+    componentWillUnmount() {
+        if (this.props.open || this.props.alwaysOpen) {
+            this.enableScroll()
+        }
+    }
+
     componentDidUpdate(prevProps) {
         if (prevProps.open !== this.props.open) this.handleScroll()
     }
@@ -145,17 +151,12 @@ class Popover extends Component {
 
         if (!open && !alwaysOpen) return null
 
-        const { scrollTop, clientTop } = getScrollAndClientOffset()
         const position = getPosition(
             anchorElHorizontal,
             anchorElVertical,
             this.ref.current,
             screencover
         )
-
-        const containerTop = `${scrollTop || clientTop}px`
-        const containerHeight = '100vh'
-        const containerWidth = '100vw'
 
         if (!screencover) {
             return createPortal(
@@ -168,6 +169,11 @@ class Popover extends Component {
                 document.body
             )
         }
+
+        const { scrollTop, clientTop } = getScrollAndClientOffset()
+        const containerTop = `${scrollTop || clientTop}px`
+        const containerHeight = '100vh'
+        const containerWidth = '100vw'
 
         return createPortal(
             <div
