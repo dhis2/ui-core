@@ -73,8 +73,7 @@ class T extends React.Component {
 
                 <Popover
                     screencover
-                    anchorElHorizontal={this.ref.current}
-                    anchorElVertical={this.ref.current}
+                    anchorEl={this.ref.current}
                     open={this.state.open}
                     onClose={this.closeAll}
                 >
@@ -86,8 +85,7 @@ class T extends React.Component {
                                 onClick={this.toggleOpen2}
                             >
                                 <Popover
-                                    anchorElHorizontal={this.ref2.current}
-                                    anchorElVertical={this.ref2.current}
+                                    anchorEl={this.ref2.current}
                                     open={this.state.open2}
                                     onClose={this.closeAll}
                                     level={2}
@@ -103,12 +101,7 @@ class T extends React.Component {
                                                 label="Click me!"
                                             >
                                                 <Popover
-                                                    anchorElHorizontal={
-                                                        this.ref4.current
-                                                    }
-                                                    anchorElVertical={
-                                                        this.ref4.current
-                                                    }
+                                                    anchorEl={this.ref4.current}
                                                     open={this.state.open4}
                                                     onClose={this.closeAll}
                                                     level={3}
@@ -156,8 +149,7 @@ class T extends React.Component {
                                 onClick={this.toggleOpen3}
                             >
                                 <Popover
-                                    anchorElHorizontal={this.ref3.current}
-                                    anchorElVertical={this.ref3.current}
+                                    anchorEl={this.ref3.current}
                                     open={this.state.open3}
                                     onClose={this.closeAll}
                                     level={2}

@@ -66,8 +66,7 @@ class Popover extends Component {
     render() {
         const {
             alwaysOpen,
-            anchorElHorizontal,
-            anchorElVertical,
+            anchorEl,
             children,
             onClose,
             open,
@@ -76,12 +75,7 @@ class Popover extends Component {
 
         if (!open && !alwaysOpen) return null
 
-        const position = getPosition(
-            anchorElHorizontal,
-            anchorElVertical,
-            this.ref.current,
-            screencover
-        )
+        const position = getPosition(anchorEl, this.ref.current, screencover)
 
         const content = (
             <Content
@@ -127,8 +121,7 @@ class Popover extends Component {
 
 Popover.propTypes = {
     /* Element the popover should be positioned against */
-    anchorElHorizontal: propTypes.element.isRequired,
-    anchorElVertical: propTypes.element.isRequired,
+    anchorEl: propTypes.element.isRequired,
 
     screencover: propTypes.bool,
     level: propTypes.number,
