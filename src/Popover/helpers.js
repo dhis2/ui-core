@@ -41,14 +41,14 @@ export const getPosition = (anchor, popover, hasScreencover) => {
     const popoverRect = popover.getBoundingClientRect()
 
     return {
-        ...getPositionVertical(anchorRect, popoverRect),
-        ...getPositionHorizontal(anchorRect, popoverRect, hasScreencover),
+        ...getPositionHorizontal(anchorRect, popoverRect),
+        ...getPositionVertical(anchorRect, popoverRect, hasScreencover),
     }
 
     return styles
 }
 
-const getPositionVertical = (anchorRect, popoverRect) => {
+const getPositionHorizontal = (anchorRect, popoverRect) => {
     const viewportWidth = window.innerWidth
     const leftOffset = anchorRect.x + anchorRect.width
     const rightOffset = anchorRect.x - popoverRect.width
@@ -58,7 +58,7 @@ const getPositionVertical = (anchorRect, popoverRect) => {
     return { left }
 }
 
-const getPositionHorizontal = (anchorRect, popoverRect, hasScreencover) => {
+const getPositionVertical = (anchorRect, popoverRect, hasScreencover) => {
     const { scrollTop, clientTop } = getScrollAndClientOffset()
     const viewportHeight = window.innerHeight
     const fitsToTheTop = viewportHeight - anchorRect.y > popoverRect.height
