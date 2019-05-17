@@ -1,270 +1,287 @@
-import React, { Fragment } from 'react'
-import { storiesOf } from '@storybook/react'
+import React, { Component, Fragment, forwardRef } from 'react'
+import { storiesOf, addParameters } from '@storybook/react'
+
+import { Button } from '../src/Button'
 import { Popover } from '../src/Popover'
 import { Menu } from '../src/Menu'
 import { MenuItem } from '../src/MenuItem'
+import markdown from './info/molecules/popover.md'
 
-class T extends React.Component {
+addParameters({ notes: markdown })
+
+const Btn = forwardRef(({ styles = {}, ...props }, ref) => (
+    <button
+        ref={ref}
+        {...props}
+        style={{
+            display: 'block',
+            width: 150,
+            height: 50,
+            ...styles,
+        }}
+    />
+))
+
+/**
+ * ===========================
+ * Story with one level opened
+ * ===========================
+ */
+class OneLevel extends Component {
     ref = React.createRef()
-    ref2 = React.createRef()
-    ref3 = React.createRef()
-    ref4 = React.createRef()
-
-    state = {
-        open: false,
-        open2: false,
-        open3: false,
-        open4: false,
-    }
-
-    constructor(props) {
-        super(props)
-
-        if (props.open) {
-            this.state.open = true
-        }
-    }
-
-    closeAll = () =>
-        this.setState({
-            open: false,
-            open2: false,
-            open3: false,
-            open4: false,
-        })
-
-    toggleOpen = () =>
-        this.setState({
-            open: !this.state.open,
-        })
-
-    toggleOpen2 = () =>
-        this.setState({
-            open2: !this.state.open2,
-            open3: false,
-        })
-
-    toggleOpen3 = () =>
-        this.setState({
-            open2: false,
-            open3: !this.state.open3,
-            open4: false,
-        })
-
-    toggleOpen4 = () =>
-        this.setState({
-            open3: false,
-            open4: !this.state.open4,
-        })
-
-    componentDidMount() {
-        if (this.props.bodyHeight) {
-            document.body.style.height = this.props.bodyHeight
-        }
-    }
-
     render() {
         return (
-            <div>
-                <button
-                    onClick={this.toggleOpen}
-                    ref={this.ref}
-                    style={{
-                        display: 'block',
-                        height: 60,
-                        width: 200,
-                        ...(this.props.styles || {}),
-                    }}
-                >
-                    Button
-                </button>
-
-                <Popover
-                    screencover
-                    anchorRef={this.ref}
-                    open={this.state.open}
-                    onClose={this.closeAll}
-                >
-                    <Menu>
-                        <MenuItem label="Ignore me!" onClick={this.closeAll} />
-                        <span ref={this.ref2}>
-                            <MenuItem
-                                label="Click me!"
-                                onClick={this.toggleOpen2}
-                            >
-                                <Popover
-                                    anchorRef={this.ref2}
-                                    open={this.state.open2}
-                                    onClose={this.closeAll}
-                                    level={2}
-                                >
-                                    <Menu>
-                                        <MenuItem
-                                            label="This is the 2nd level 1"
-                                            onClick={this.closeAll}
-                                        />
-                                        <span ref={this.ref4}>
-                                            <MenuItem
-                                                onClick={this.toggleOpen4}
-                                                label="Click me!"
-                                            >
-                                                <Popover
-                                                    anchorRef={this.ref4}
-                                                    open={this.state.open4}
-                                                    onClose={this.closeAll}
-                                                    level={3}
-                                                >
-                                                    <Menu>
-                                                        <MenuItem
-                                                            label="This is the 3nd level"
-                                                            onClick={
-                                                                this.closeAll
-                                                            }
-                                                        />
-                                                        <MenuItem
-                                                            label="This is the 3nd level"
-                                                            onClick={
-                                                                this.closeAll
-                                                            }
-                                                        />
-                                                        <MenuItem
-                                                            label="This is the 3nd level"
-                                                            onClick={
-                                                                this.closeAll
-                                                            }
-                                                        />
-                                                    </Menu>
-                                                </Popover>
-                                            </MenuItem>
-                                        </span>
-                                        <MenuItem
-                                            label="This is the 2nd level"
-                                            onClick={this.closeAll}
-                                        />
-                                        <MenuItem
-                                            label="This is the 2nd level"
-                                            onClick={this.closeAll}
-                                        />
-                                    </Menu>
-                                </Popover>
-                            </MenuItem>
-                        </span>
-                        <MenuItem label="Ignore me!" onClick={this.closeAll} />
-                        <MenuItem label="Ignore me!" onClick={this.closeAll} />
-                        <span ref={this.ref3}>
-                            <MenuItem
-                                label="Click me!"
-                                onClick={this.toggleOpen3}
-                            >
-                                <Popover
-                                    anchorRef={this.ref3}
-                                    open={this.state.open3}
-                                    onClose={this.closeAll}
-                                    level={2}
-                                >
-                                    <Menu>
-                                        <MenuItem
-                                            onClick={this.closeAll}
-                                            label="2nd level"
-                                        />
-                                        <MenuItem
-                                            onClick={this.closeAll}
-                                            label="2nd level"
-                                        />
-                                        <MenuItem
-                                            onClick={this.closeAll}
-                                            label="2nd level"
-                                        />
-                                        <MenuItem
-                                            onClick={this.closeAll}
-                                            label="2nd level"
-                                        />
-                                    </Menu>
-                                </Popover>
-                            </MenuItem>
-                        </span>
-                        <MenuItem label="Ignore me!" />
-                    </Menu>
-                </Popover>
-            </div>
+            <Fragment>
+                <Btn ref={this.ref}>Anchor</Btn>
+                {React.Children.map(this.props.children, child =>
+                    React.cloneElement(child, { anchorRef: this.ref })
+                )}
+            </Fragment>
         )
     }
 }
 
 storiesOf('Popover', module)
-    .add('DX: test', () => (
-        <Fragment>
-            <T />
-
-            <style jsx>{`
-                :global(html),
-                :global(body) {
-                    height: 100%;
-                }
-
-                :global(#root) {
-                    height: 1000px;
-                    width: 500px;
-                    margin: 0 auto;
-                }
-            `}</style>
-        </Fragment>
+    .addDecorator(fn => <OneLevel>{fn()}</OneLevel>)
+    .add('Level one', () => (
+        <Popover
+            screencover
+            open={true}
+            onClose={() => null}
+            anchorRef={{ current: 'Overriden by story implementation' }}
+        >
+            <Menu>
+                <MenuItem label="First item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Second item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Third item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+            </Menu>
+        </Popover>
     ))
-    .add('DX: test open', () => (
-        <Fragment>
-            <T open={true} />
 
-            <style jsx>{`
-                :global(html),
-                :global(body) {
-                    height: 100%;
-                }
+/**
+ * ===========================
+ * Story with two levels opened
+ * ===========================
+ */
+class TwoLevels extends Component {
+    ref1 = React.createRef()
+    ref2 = React.createRef()
 
-                :global(#root) {
-                    height: 1000px;
-                    width: 500px;
-                    margin: 0 auto;
-                }
-            `}</style>
-        </Fragment>
+    render() {
+        return (
+            <Fragment>
+                <Btn ref={this.ref1}>Anchor</Btn>
+                <Popover
+                    screencover
+                    open={true}
+                    onClose={() => null}
+                    anchorRef={this.ref1}
+                >
+                    <Menu>
+                        <MenuItem label="First Item" onClick={() => null}>
+                            <span />
+                        </MenuItem>
+                        <MenuItem label="Second Item" onClick={() => null}>
+                            <span />
+                        </MenuItem>
+                        <span ref={this.ref2}>
+                            <MenuItem label="Anchor 2" onClick={() => null}>
+                                {React.Children.map(
+                                    this.props.children,
+                                    child =>
+                                        React.cloneElement(child, {
+                                            anchorRef: this.ref2,
+                                        })
+                                )}
+                            </MenuItem>
+                        </span>
+                    </Menu>
+                </Popover>
+            </Fragment>
+        )
+    }
+}
+
+storiesOf('Popover', module)
+    .addDecorator(fn => <TwoLevels>{fn()}</TwoLevels>)
+    .add('Level two', () => (
+        <Popover
+            level={1}
+            open={true}
+            onClose={() => null}
+            anchorRef={{ current: 'Overriden by story implementation' }}
+        >
+            <Menu>
+                <MenuItem label="Fourth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Fifth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Sixth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+            </Menu>
+        </Popover>
     ))
-    .add('DX: test 2', () => (
-        <Fragment>
-            <span style={{ flexGrow: 1 }} />
-            <T />
 
-            <style jsx>{`
-                :global(html),
-                :global(body) {
-                    height: 100%;
-                }
+/**
+ * =========================================
+ * Story with two levels opened on the right
+ * =========================================
+ */
+class TwoLevelsRight extends Component {
+    ref1 = React.createRef()
+    ref2 = React.createRef()
 
-                :global(#root) {
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    align-content: flex-end;
-                }
-            `}</style>
-        </Fragment>
+    render() {
+        return (
+            <Fragment>
+                <Btn
+                    ref={this.ref1}
+                    styles={{
+                        marginLeft: 'auto',
+                    }}
+                >
+                    Anchor
+                </Btn>
+                <Popover
+                    screencover
+                    open={true}
+                    onClose={() => null}
+                    anchorRef={this.ref1}
+                >
+                    <Menu>
+                        <MenuItem label="First Item" onClick={() => null}>
+                            <span />
+                        </MenuItem>
+                        <MenuItem label="Second Item" onClick={() => null}>
+                            <span />
+                        </MenuItem>
+                        <span ref={this.ref2}>
+                            <MenuItem label="Anchor 2" onClick={() => null}>
+                                {React.Children.map(
+                                    this.props.children,
+                                    child =>
+                                        React.cloneElement(child, {
+                                            anchorRef: this.ref2,
+                                        })
+                                )}
+                            </MenuItem>
+                        </span>
+                    </Menu>
+                </Popover>
+            </Fragment>
+        )
+    }
+}
+
+storiesOf('Popover', module)
+    .addDecorator(fn => <TwoLevelsRight>{fn()}</TwoLevelsRight>)
+    .add('On the right', () => (
+        <Popover
+            level={1}
+            open={true}
+            onClose={() => null}
+            anchorRef={{ current: 'Overriden by story implementation' }}
+        >
+            <Menu>
+                <MenuItem label="Fourth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Fifth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Sixth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+            </Menu>
+        </Popover>
     ))
-    .add('DX: test 3', () => (
-        <Fragment>
-            <span style={{ flexGrow: 1 }} />
-            <T styles={{ marginLeft: 'auto' }} />
 
-            <style jsx>{`
-                :global(html),
-                :global(body) {
-                    height: 100%;
-                }
+/**
+ * ================================================
+ * Story with two levels opened on the bottom right
+ * ================================================
+ */
+class OneLevelRightBottom extends Component {
+    ref1 = React.createRef()
 
-                :global(#root) {
-                    align-content: flex-end;
-                    display: flex;
-                    flex-direction: column;
-                    height: 100%;
-                }
-            `}</style>
-        </Fragment>
+    render() {
+        return (
+            <Fragment>
+                <div className="flex">
+                    <span />
+                    <div className="container">
+                        <Btn
+                            ref={this.ref1}
+                            styles={{
+                                marginLeft: 'auto',
+                            }}
+                        >
+                            Anchor
+                        </Btn>
+                        {React.Children.map(this.props.children, child =>
+                            React.cloneElement(child, { anchorRef: this.ref1 })
+                        )}
+                    </div>
+                </div>
+
+                <style jsx>{`
+                    :global(body) {
+                        margin: 0;
+                    }
+
+                    :global(html),
+                    :global(body),
+                    :global(#root),
+                    .flex {
+                        height: 100%;
+                    }
+
+                    .flex {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    span {
+                        flex-grow: 1;
+                    }
+
+                    .container {
+                        padding: 16px;
+                    }
+                `}</style>
+            </Fragment>
+        )
+    }
+}
+
+storiesOf('Popover', module)
+    .addDecorator(fn => <OneLevelRightBottom>{fn()}</OneLevelRightBottom>)
+    .add('On the bottom right', () => (
+        <Popover
+            screencover
+            open={true}
+            onClose={() => null}
+            anchorRef={{ current: 'Overriden by story implementation' }}
+        >
+            <Menu>
+                <MenuItem label="First Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Second Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Third Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+            </Menu>
+        </Popover>
     ))
