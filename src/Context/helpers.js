@@ -32,7 +32,7 @@ export const getScrollAndClientOffset = () => {
     }
 }
 
-export const getPosition = (anchor, popover, hasScreencover) => {
+export const getPosition = (anchor, popover, isNotRootLevel) => {
     if (!anchor || !popover) {
         return { left: 0, top: 0 }
     }
@@ -42,7 +42,7 @@ export const getPosition = (anchor, popover, hasScreencover) => {
 
     return {
         ...getPositionHorizontal(anchorRect, popoverRect),
-        ...getPositionVertical(anchorRect, popoverRect, hasScreencover),
+        ...getPositionVertical(anchorRect, popoverRect, isNotRootLevel),
     }
 
     return styles
@@ -58,7 +58,7 @@ const getPositionHorizontal = (anchorRect, popoverRect) => {
     return { left }
 }
 
-const getPositionVertical = (anchorRect, popoverRect, hasScreencover) => {
+const getPositionVertical = (anchorRect, popoverRect, isNotRootLevel) => {
     const { scrollTop, clientTop } = getScrollAndClientOffset()
     const viewportHeight = window.innerHeight
     const fitsToTheTop = viewportHeight - anchorRect.y > popoverRect.height
@@ -70,7 +70,7 @@ const getPositionVertical = (anchorRect, popoverRect, hasScreencover) => {
         }
     }
 
-    if (hasScreencover) {
+    if (isNotRootLevel) {
         return {
             top: (scrollTop || clientTop) + anchorRect.y + 'px',
             bottom: 'auto',

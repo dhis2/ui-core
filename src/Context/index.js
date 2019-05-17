@@ -36,7 +36,7 @@ class Context extends Component {
             const position = getPosition(
                 this.props.anchorRef.current,
                 this.ref.current,
-                this.props.screencover
+                !!this.props.level
             )
 
             if (!arePositionsEqual(position, this.state.position)) {
@@ -46,20 +46,21 @@ class Context extends Component {
     }
 
     render() {
-        const { children, onClose, open, screencover } = this.props
+        const { children, onClose, open, level } = this.props
+        const { position } = this.state
 
         if (!open) return null
 
         const content = (
             <Content
                 ref={this.ref}
-                position={this.state.position}
+                position={position}
                 children={children}
-                level={this.props.level}
+                level={level}
             />
         )
 
-        if (!screencover) {
+        if (!level) {
             return createPortal(content, document.body)
         }
 
@@ -76,7 +77,7 @@ class Context extends Component {
                         position: fixed;
                         top: 0;
                         width: 100vw;
-                        z-index: ${99999999 + this.props.level};
+                        z-index: ${99999999 + level};
                     }
                 `}</style>
             </div>,
@@ -90,9 +91,6 @@ Context.propTypes = {
     anchorRef: propTypes.shape({
         current: propTypes.element,
     }).isRequired,
-
-    /* Will add a screencover with the onClose as onClick callback in the backgroun */
-    screencover: propTypes.bool,
 
     /* Is required for Context components that are not the root level */
     level: propTypes.number,
