@@ -1,11 +1,12 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import styles from './styles'
 import { theme } from '../theme.js'
 
 const Progress = ({ indeterminate, amount }) => {
     const width = amount ? `width: ${amount}%;` : ''
+    const height = '4px'
+
     return (
         <div
             className={cx({
@@ -21,22 +22,22 @@ const Progress = ({ indeterminate, amount }) => {
             <style jsx>{`
                 div {
                     background-color: ${theme.primary600};
-
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
                     transition: width 0.3s linear;
+                    height: ${height};
                 }
 
                 .determinate {
                     position: absolute;
+                    top: 0;
+                    left: 0;
                 }
 
                 .indeterminate:before {
                     position: absolute;
+                    height: ${height};
                     top: 0;
-                    bottom: 0;
                     left: 0;
+
                     background-color: inherit;
                     animation: anim-indeterminate 2.1s
                         cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
@@ -46,9 +47,10 @@ const Progress = ({ indeterminate, amount }) => {
 
                 .indeterminate:after {
                     position: absolute;
+                    height: ${height};
                     top: 0;
-                    bottom: 0;
                     left: 0;
+
                     background-color: inherit;
                     animation: anim-indeterminate-short 2.1s
                         cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
@@ -95,17 +97,15 @@ const Progress = ({ indeterminate, amount }) => {
     )
 }
 
-const LinearProgress = ({ amount, margin = '0px', className }) => {
+const LinearProgress = ({ amount, margin = '10px', className }) => {
     return (
         <div role="progressbar" className={className}>
             <Progress amount={amount} />
+
             <style jsx>{`
                 div {
                     display: block;
-                    position: relative;
 
-                    width: 100%;
-                    height: 4px;
                     overflow: hidden;
                     overflow-x: hidden;
                     overflow-y: hidden;
