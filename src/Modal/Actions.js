@@ -15,6 +15,9 @@ export const Actions = ({ children }) => (
                 display: flex;
                 justify-content: flex-end;
             }
+            div > :global(*:not(:first-child)) {
+                margin-left: 16px;
+            }
         `}</style>
     </div>
 )
