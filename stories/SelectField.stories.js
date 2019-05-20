@@ -83,6 +83,12 @@ function createStory(name, props) {
             </SelectField>
         ))
 
+        .add('Required', () => (
+            <SelectField {...props} required>
+                {options}
+            </SelectField>
+        ))
+
         .add('With text too long to display it', () => (
             <SelectField {...props} value="2">
                 {options}

@@ -64,6 +64,11 @@ const styles = css`
         position: relative;
     }
 
+    .required span::after {
+        padding-left: 4px;
+        content: '*';
+    }
+
     span {
         display: inline-block;
         font-size: 16px;
@@ -71,6 +76,11 @@ const styles = css`
         position: relative;
         transform: translate(0px, 29px);
         transition: transform 0.05s ease-in;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: calc(100% - 52px);
     }
 
     .disabled span {

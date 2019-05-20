@@ -1,7 +1,7 @@
 # Tooltip
 A tooltip is a container for displaying information about an element, it is displayed when a user hovers over the element.
 
-![](../images/tooltip.jpg) 
+![](images/tooltip.jpg) 
 
 ## Usage
 Tooltips only display when a user hovers over an element. Therefore it is important not to use tooltips for critical or important information. Information provided in tooltips should be supplementary or provide helpful context. Icon buttons can use tooltips to inform the user of their action. Never put important information or actions inside a tooltip. 
@@ -16,15 +16,15 @@ Tooltips only display when a user hovers over an element. Therefore it is import
 By default the tooltip should display above the hovered element. Alternatively, a tooltip may be displayed underneath or to the side of an element if there is limited space.
 
 ## Examples in use
-![](../images/tooltip-example.jpg)
+![](images/tooltip-example.jpg)
 *Hovering over the selected period elements displays extra information, which period is selected.*
 
 ---
 
-![](../images/tooltip-example2.jpg)
+![](images/tooltip-example2.jpg)
 *This tooltip gives the user some more context for the upwards arrow inside the cell: the percentage positive growth and the previous value.*
 
 ---
 
-![](../images/tooltip-example3.jpg)
+![](images/tooltip-example3.jpg)
 *The tooltip gives extra information for new users about the action attributed to this icon used in an information dense environment.*

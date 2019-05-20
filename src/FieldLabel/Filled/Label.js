@@ -15,13 +15,15 @@ const styles = css`
         height: ${inputHeight}px;
         left: 0;
         line-height: ${inputHeight + 2}px;
+        overflow: hidden;
         padding-left: 16px;
         position: absolute;
+        text-overflow: ellipsis;
         top: 0;
         transform: translate(0, 0);
         transition: all 0.1s;
         white-space: nowrap;
-        width: 100%;
+        width: calc(100% - 44px);
     }
 
     .disabled {
@@ -52,6 +54,7 @@ const styles = css`
     }
 
     .required::after {
+        padding-left: 4px;
         content: '*';
     }
 

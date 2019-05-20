@@ -22,21 +22,15 @@ import { Title } from './Title'
 export const Modal = ({ children, onClose, small, large, open }) => {
     return createPortal(
         <aside className={cx({ open })}>
-            <ScreenCover onClick={onClose} />
-
-            <ModalCard small={small} large={large}>
-                {children}
-            </ModalCard>
+            <ScreenCover onClick={onClose}>
+                <ModalCard small={small} large={large}>
+                    {children}
+                </ModalCard>
+            </ScreenCover>
 
             <style jsx>{`
                 aside {
                     display: none;
-                    height: 100%;
-                    left: 0;
-                    position: fixed;
-                    top: 0;
-                    width: 100%;
-                    z-index: 99999999;
                 }
 
                 .open {
