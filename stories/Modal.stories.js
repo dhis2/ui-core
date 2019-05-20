@@ -37,11 +37,7 @@ storiesOf('Modal', module)
                     Secondary action
                 </Button>
 
-                <Button
-                    onClick={say('Button primary')}
-                    primary
-                    className="prim"
-                >
+                <Button onClick={say('Button primary')} primary>
                     Primary action
                 </Button>
             </Modal.Actions>
@@ -71,11 +67,7 @@ storiesOf('Modal', module)
                     Secondary action
                 </Button>
 
-                <Button
-                    onClick={say('Button primary')}
-                    primary
-                    className="prim"
-                >
+                <Button onClick={say('Button primary')} primary>
                     Primary action
                 </Button>
             </Modal.Actions>
@@ -105,11 +97,7 @@ storiesOf('Modal', module)
                     Secondary action
                 </Button>
 
-                <Button
-                    onClick={say('Button primary')}
-                    primary
-                    className="prim"
-                >
+                <Button onClick={say('Button primary')} primary>
                     Primary action
                 </Button>
             </Modal.Actions>
@@ -135,11 +123,7 @@ storiesOf('Modal', module)
                     Secondary action
                 </Button>
 
-                <Button
-                    onClick={say('Button primary')}
-                    primary
-                    className="prim"
-                >
+                <Button onClick={say('Button primary')} primary>
                     Primary action
                 </Button>
             </Modal.Actions>
@@ -165,12 +149,7 @@ storiesOf('Modal', module)
                     Secondary action
                 </Button>
 
-                <Button
-                    primary
-                    destructive
-                    onClick={say('Button primary')}
-                    className="prim"
-                >
+                <Button primary destructive onClick={say('Button primary')}>
                     Primary action
                 </Button>
             </Modal.Actions>
@@ -193,12 +172,7 @@ storiesOf('Modal', module)
                     Secondary action
                 </Button>
 
-                <Button
-                    primary
-                    destructive
-                    onClick={say('Button primary')}
-                    className="prim"
-                >
+                <Button primary destructive onClick={say('Button primary')}>
                     Primary action
                 </Button>
             </Modal.Actions>
@@ -265,12 +239,7 @@ storiesOf('Modal', module)
                     Secondary action
                 </Button>
 
-                <Button
-                    primary
-                    destructive
-                    onClick={say('Button primary')}
-                    className="prim"
-                >
+                <Button primary destructive onClick={say('Button primary')}>
                     Primary action
                 </Button>
             </Modal.Actions>
@@ -295,11 +264,7 @@ storiesOf('Modal', module)
                     Secondary action
                 </Button>
 
-                <Button
-                    onClick={say('Button primary')}
-                    primary
-                    className="prim"
-                >
+                <Button onClick={say('Button primary')} primary>
                     Primary action
                 </Button>
             </Modal.Actions>
