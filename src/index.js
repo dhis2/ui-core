@@ -20,6 +20,7 @@ export { Radio } from './Radio'
 export { SelectField } from './SelectField'
 export { SplitButton } from './SplitButton'
 export { Switch } from './Switch'
+export { Tree } from './Tree'
 
 export { CssReset } from './CssReset'
 
