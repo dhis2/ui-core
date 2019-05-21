@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/dhis2/ui/compare/v2.2.0...v2.2.1) (2019-05-21)
+
+
+### Bug Fixes
+
+* add font-family to everything ([#226](https://github.com/dhis2/ui/issues/226)) ([d177230](https://github.com/dhis2/ui/commit/d177230))
+
 # [2.2.0](https://github.com/dhis2/ui/compare/v2.1.2...v2.2.0) (2019-05-16)
 
 
