@@ -13,11 +13,11 @@ import {
 } from './helpers'
 
 /**
- * The Context component is a content container that behaves like a context menu
+ * The Pop component is a content container that behaves like a context menu
  * container. It can be used to create multi level context menus that won't be
- * displayed off-screen by wrapping each level with the Context component.
+ * displayed off-screen by wrapping each level with the Pop component.
  */
-class Context extends Component {
+class Pop extends Component {
     ref = createRef()
     state = { position: {} }
 
@@ -86,21 +86,21 @@ class Context extends Component {
     }
 }
 
-Context.propTypes = {
+Pop.propTypes = {
     /* Needs to be created with `React.createRef()` */
     anchorRef: propTypes.shape({
         current: propTypes.element,
     }).isRequired,
 
-    /* Is required for Context components that are not the root level */
+    /* Is required for Pop components that are not the root level */
     level: propTypes.number,
 
     open: propTypes.bool,
     onClose: propTypes.func,
 }
 
-Context.defaultProps = {
+Pop.defaultProps = {
     level: 0,
 }
 
-export { Context }
+export { Pop }

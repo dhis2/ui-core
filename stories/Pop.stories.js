@@ -2,10 +2,10 @@ import React, { Component, Fragment, forwardRef } from 'react'
 import { storiesOf, addParameters } from '@storybook/react'
 
 import { Button } from '../src/Button'
-import { Context } from '../src/Context'
+import { Pop } from '../src/Pop'
 import { Menu } from '../src/Menu'
 import { MenuItem } from '../src/MenuItem'
-import markdown from './info/molecules/context.md'
+import markdown from './info/molecules/pop.md'
 
 addParameters({ notes: markdown })
 
@@ -41,10 +41,10 @@ class OneLevel extends Component {
     }
 }
 
-storiesOf('Context', module)
+storiesOf('Pop', module)
     .addDecorator(fn => <OneLevel>{fn()}</OneLevel>)
     .add('Level one', () => (
-        <Context
+        <Pop
             screencover
             open={true}
             onClose={() => null}
@@ -61,7 +61,7 @@ storiesOf('Context', module)
                     <span />
                 </MenuItem>
             </Menu>
-        </Context>
+        </Pop>
     ))
 
 /**
@@ -77,7 +77,7 @@ class TwoLevels extends Component {
         return (
             <Fragment>
                 <Btn ref={this.ref1}>Anchor</Btn>
-                <Context
+                <Pop
                     screencover
                     open={true}
                     onClose={() => null}
@@ -102,16 +102,16 @@ class TwoLevels extends Component {
                             </MenuItem>
                         </span>
                     </Menu>
-                </Context>
+                </Pop>
             </Fragment>
         )
     }
 }
 
-storiesOf('Context', module)
+storiesOf('Pop', module)
     .addDecorator(fn => <TwoLevels>{fn()}</TwoLevels>)
     .add('Level two', () => (
-        <Context
+        <Pop
             level={1}
             open={true}
             onClose={() => null}
@@ -128,7 +128,7 @@ storiesOf('Context', module)
                     <span />
                 </MenuItem>
             </Menu>
-        </Context>
+        </Pop>
     ))
 
 /**
@@ -151,7 +151,7 @@ class TwoLevelsRight extends Component {
                 >
                     Anchor
                 </Btn>
-                <Context
+                <Pop
                     screencover
                     open={true}
                     onClose={() => null}
@@ -176,16 +176,16 @@ class TwoLevelsRight extends Component {
                             </MenuItem>
                         </span>
                     </Menu>
-                </Context>
+                </Pop>
             </Fragment>
         )
     }
 }
 
-storiesOf('Context', module)
+storiesOf('Pop', module)
     .addDecorator(fn => <TwoLevelsRight>{fn()}</TwoLevelsRight>)
     .add('On the right', () => (
-        <Context
+        <Pop
             level={1}
             open={true}
             onClose={() => null}
@@ -202,7 +202,7 @@ storiesOf('Context', module)
                     <span />
                 </MenuItem>
             </Menu>
-        </Context>
+        </Pop>
     ))
 
 /**
@@ -263,10 +263,10 @@ class OneLevelRightBottom extends Component {
     }
 }
 
-storiesOf('Context', module)
+storiesOf('Pop', module)
     .addDecorator(fn => <OneLevelRightBottom>{fn()}</OneLevelRightBottom>)
     .add('On the bottom right', () => (
-        <Context
+        <Pop
             screencover
             open={true}
             onClose={() => null}
@@ -283,5 +283,5 @@ storiesOf('Context', module)
                     <span />
                 </MenuItem>
             </Menu>
-        </Context>
+        </Pop>
     ))
