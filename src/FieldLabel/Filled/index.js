@@ -70,11 +70,6 @@ const styles = css`
         width: 100%;
     }
 
-    .focus .content,
-    .value .content {
-        z-index: 2;
-    }
-
     .status-icon {
         flex-shrink: 0;
         width: 24px;

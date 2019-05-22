@@ -3,6 +3,8 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { layers } from '../theme.js'
+
 const Backdrop = ({ onClick }) => (
     <div className="backdrop" onClick={onClick}>
         <style jsx>{`
@@ -46,7 +48,7 @@ const ScreenCover = ({ children, onClick, className }) => (
                 left: 0;
                 top: 0;
 
-                z-index: 10000;
+                z-index: ${layers.blocking};
             }
         `}</style>
     </div>
