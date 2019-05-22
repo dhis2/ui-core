@@ -22,11 +22,11 @@ const TailIcon = () => (
 
 class SelectField extends React.Component {
     state = {
-        focus: this.props.focused,
+        focus: this.props.focus,
     }
 
     onFocus = e => {
-        this.setState({ focused: true })
+        this.setState({ focus: true })
 
         if (this.props.onFocus) {
             this.props.onFocus(e)
@@ -34,7 +34,7 @@ class SelectField extends React.Component {
     }
 
     onBlur = e => {
-        this.setState({ focused: false })
+        this.setState({ focus: false })
 
         if (this.props.onBlur) {
             this.props.onBlur(e)
@@ -49,7 +49,6 @@ class SelectField extends React.Component {
         const {
             type,
             filled,
-            focus,
             dense,
             required,
             label,
@@ -62,14 +61,14 @@ class SelectField extends React.Component {
             children,
             value,
             onChange,
+            focus = this.state.focus,
         } = this.props
 
         const Container = filled ? LabelFilled : LabelOutlined
 
         return (
             <Container
-                onClick={this.onFocus}
-                focus={this.state.focus}
+                focus={focus}
                 label={label}
                 value={!!value}
                 htmlFor={name}

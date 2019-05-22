@@ -54,6 +54,12 @@ const styles = css`
 export class Select extends Component {
     selectRef = createRef()
 
+    componentDidMount() {
+        if (this.props.focus) {
+            this.selectRef.current.focus()
+        }
+    }
+
     componentDidUpdate(prevProps) {
         if (prevProps.focused !== this.props.focused) {
             if (this.props.focused) {
