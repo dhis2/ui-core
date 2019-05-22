@@ -11,6 +11,11 @@ class Form extends React.Component {
         allergies: [],
     }
 
+    onSubmit = e => {
+        e.preventDefault()
+        alert(JSON.stringify(this.state, null, 2))
+    }
+
     setTitle = event =>
         this.setState({
             title: event.target.value,
@@ -28,8 +33,6 @@ class Form extends React.Component {
 
     updateAllergies = event => {
         const { value, checked } = event.target
-        console.log('value', value)
-        console.log('checked', checked)
 
         if (checked && this.state.allergies.indexOf(value) === -1) {
             this.setState({ allergies: [...this.state.allergies, value] })
@@ -120,13 +123,10 @@ class Form extends React.Component {
                 </p>
 
                 <p>
-                    current values:
-                    <br />
+                    <Button primary type="submit">
+                        Submit
+                    </Button>
                 </p>
-
-                <pre>
-                    <code>{JSON.stringify(this.state, null, 2)}</code>
-                </pre>
             </form>
         )
     }
