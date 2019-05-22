@@ -10,8 +10,12 @@ import { Label } from './Label'
 import { Input } from './Input'
 
 class Checkbox extends Component {
-    state = {
-        focus: this.props.focus,
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            focus: props.focus,
+        }
     }
 
     onFocus = e => {

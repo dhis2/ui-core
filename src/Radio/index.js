@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component, createRef } from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -14,6 +14,11 @@ const icons = css.resolve`
         height: 24px;
         width: 24px;
         fill: ${theme.default};
+    }
+
+    .focus :global(path) {
+        stroke: #646464;
+        stroke-width: 2px;
     }
 
     .checked {
@@ -37,55 +42,98 @@ const icons = css.resolve`
     }
 `
 
-const Radio = ({
-    onChange,
-    name,
-    value,
-    className,
-    label,
-    required,
-    checked = false,
-    disabled,
-    valid,
-    warning,
-    error,
-}) => {
-    const classes = cx(icons.className, {
-        checked: checked && !valid && !error && !warning,
-        disabled,
-        valid,
-        error,
-        warning,
-    })
+class Radio extends Component {
+    ref = createRef()
 
-    const icon = checked ? (
-        <Checked className={classes} />
-    ) : (
-        <Unchecked className={classes} />
-    )
+    constructor(props) {
+        super(props)
 
-    return (
-        <label
-            className={cx(className, {
-                disabled,
-            })}
-        >
-            <input
-                type="radio"
-                name={name}
-                value={value}
-                checked={checked}
-                disabled={disabled}
-                onChange={onChange}
-            />
-            {icon}
+        this.state = {
+            focus: props.focus,
+        }
+    }
 
-            <span className={cx({ required })}>{label}</span>
+    componentDidMount() {
+        if (this.props.focus) {
+            this.ref.current.focus()
+        }
+    }
 
-            {icons.styles}
-            <style jsx>{styles}</style>
-        </label>
-    )
+    onFocus = e => {
+        this.setState({ focus: true })
+
+        if (this.props.onFocus) {
+            this.props.onFocus(e)
+        }
+    }
+
+    onBlur = e => {
+        this.setState({ focus: false })
+
+        if (this.props.onBlur) {
+            this.props.onBlur(e)
+        }
+    }
+
+    render() {
+        const {
+            onChange,
+            name,
+            value,
+            className,
+            label,
+            required,
+            checked = false,
+            disabled,
+            valid,
+            warning,
+            error,
+            focus = this.state.focus,
+        } = this.props
+
+        const classes = cx(icons.className, {
+            checked: checked && !valid && !error && !warning,
+            disabled,
+            valid,
+            error,
+            warning,
+            focus,
+        })
+
+        const icon = checked ? (
+            <Checked className={classes} />
+        ) : (
+            <Unchecked className={classes} />
+        )
+
+        return (
+            <label
+                className={cx(className, {
+                    disabled,
+                })}
+            >
+                <input
+                    tabIndex="0"
+                    ref={this.ref}
+                    type="radio"
+                    name={name}
+                    value={value}
+                    focus={focus}
+                    checked={checked}
+                    disabled={disabled}
+                    onChange={onChange}
+                    onFocus={this.onFocus}
+                    onBlur={this.onBlur}
+                />
+                {icon}
+
+                <span className={cx({ required })}>{label}</span>
+
+                {icons.styles}
+                <style jsx>{styles}</style>
+            </label>
+        )
+    }
 }
 
 Radio.propTypes = {
@@ -96,6 +144,9 @@ Radio.propTypes = {
 
     className: propTypes.string,
     label: propTypes.string,
+
+    onFocus: propTypes.func,
+    onBlur: propTypes.func,
 
     required: propTypes.bool,
     checked: propTypes.bool,
