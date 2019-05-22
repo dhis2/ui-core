@@ -10,6 +10,7 @@ import {
     arePositionsEqual,
     getPosition,
     getScrollAndClientOffset,
+    propPosition,
 } from './helpers'
 
 /**
@@ -33,11 +34,15 @@ class Pop extends Component {
 
     updatePosition() {
         if (this.ref.current) {
-            const position = getPosition(
-                this.props.anchorRef.current,
-                this.ref.current,
-                !!this.props.level
-            )
+            const { anchorRef, anchorPoint, popPoint } = this.props
+
+            const position = getPosition({
+                popPoint,
+                anchorPoint,
+                pop: this.ref.current,
+                anchor: anchorRef.current,
+                isNotRoot: !!this.props.level,
+            })
 
             if (!arePositionsEqual(position, this.state.position)) {
                 this.setState({ position })
@@ -92,6 +97,9 @@ Pop.propTypes = {
         current: propTypes.element,
     }).isRequired,
 
+    anchorPoint: propPosition,
+    popPoint: propPosition,
+
     /* Is required for Pop components that are not the root level */
     level: propTypes.number,
 
@@ -100,6 +108,8 @@ Pop.propTypes = {
 }
 
 Pop.defaultProps = {
+    anchorPoint: { vertical: 'top', horizontal: 'right' },
+    popPoint: { vertical: 'top', horizontal: 'left' },
     level: 0,
 }
 
