@@ -18,6 +18,7 @@ const CssReset = () => (
         *,
         *:before,
         *:after {
+            font-family: ${theme.fonts};
             box-sizing: inherit;
         }
 
