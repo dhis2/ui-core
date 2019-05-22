@@ -13,6 +13,11 @@ const icons = resolve`
         fill: ${theme.default};
     }
 
+    .focus :global(path) {
+        stroke: #646464;
+        stroke-width: 2px;
+    }
+
     .checked {
         fill: ${colors.teal400};
     }
@@ -35,6 +40,7 @@ const icons = resolve`
 `
 
 export const Icon = ({
+    focus,
     checked,
     disabled,
     valid,
@@ -44,6 +50,7 @@ export const Icon = ({
 }) => {
     const classes = cx(icons.className, {
         checked: checked && !valid && !error && !warning,
+        focus,
         disabled,
         valid,
         error,
