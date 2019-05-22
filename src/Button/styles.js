@@ -33,8 +33,32 @@ export default css`
     }
 
     button:focus {
-        /* Prevent default browser behavior whcih adds an outline */
+        /* Prevent default browser behavior which adds an outline */
         outline: none;
+    }
+
+    /* Use the ::after pseudo-element for focus styles */
+    button::after {
+        content: ' ';
+        pointer-events: none;
+
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        left: -2px;
+        z-index: 1;
+
+        border: 2px solid transparent;
+        border-radius: inherit;
+
+        transition: border-color 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+    }
+
+    /* Prevent focus styles on active and disabled buttons */
+    button:active:focus::after,
+    button:disabled:focus::after {
+        border-color: transparent;
     }
 
     button:hover {
@@ -50,9 +74,11 @@ export default css`
     }
 
     button:focus {
-        border: 1px solid ${theme.primary600};
         background-color: #f9fafb;
-        box-shadow: 0 0 0 1px ${theme.primary600};
+    }
+
+    button:focus::after {
+        border-color: ${theme.primary600};
     }
 
     button:disabled {
@@ -111,10 +137,12 @@ export default css`
     }
 
     .primary:focus {
-        border: 1px solid ${colors.yellow300};
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
         background-color: #285dac;
-        box-shadow: 0 0 0 1px ${colors.yellow300} inset;
+    }
+
+    .primary:focus::after {
+        border-color: ${colors.yellow300};
     }
 
     .primary:disabled {
@@ -145,9 +173,11 @@ export default css`
     }
 
     .secondary:focus {
-        border: 1px solid ${theme.primary600};
         background-color: transparent;
-        box-shadow: 0 0 0 1px ${theme.primary600};
+    }
+
+    .secondary:focus::after {
+        border-color: ${theme.primary600};
     }
 
     .secondary:disabled {
@@ -182,10 +212,12 @@ export default css`
     }
 
     .destructive:focus {
-        border: 1px solid #5e0303;
         background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
         background-color: #b72229;
-        box-shadow: 0 0 0 1px #5e0303 inset;
+    }
+
+    .destructive:focus:after {
+        border-color: #5e0303;
     }
 
     .destructive:disabled {

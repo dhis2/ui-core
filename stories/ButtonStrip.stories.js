@@ -8,7 +8,7 @@ const Wrapper = fn => (
     <div
         style={{
             width: '358px',
-            border: '1px solid grey',
+            border: '1px solid #c4c9cc',
             padding: 8,
         }}
     >
