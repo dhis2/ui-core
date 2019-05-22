@@ -50,6 +50,7 @@ const Radio = ({
     warning,
     error,
 }) => {
+    console.log(`Radio checked (${value})`, checked)
     const classes = cx(icons.className, {
         checked: checked && !valid && !error && !warning,
         disabled,
