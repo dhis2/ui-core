@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/dhis2/ui/compare/v2.2.1...v2.2.2) (2019-05-22)
+
+
+### Bug Fixes
+
+* introduce the stacking context ([#229](https://github.com/dhis2/ui/issues/229)) ([54acc10](https://github.com/dhis2/ui/commit/54acc10))
+
 ## [2.2.1](https://github.com/dhis2/ui/compare/v2.2.0...v2.2.1) (2019-05-21)
 
 
