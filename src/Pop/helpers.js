@@ -16,7 +16,7 @@ export const Content = React.forwardRef(
                     max-height: 100vh;
                     overflow-y: auto;
                     position: fixed;
-                    z-index: ${level + 99999999 || 1};
+                    z-index: ${level + 2000 || 1};
                 }
             `}</style>
         </div>

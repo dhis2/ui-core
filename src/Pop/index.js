@@ -4,7 +4,7 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { ScreenCover } from '../ScreenCover'
+import { BackgroundCover } from './BackgroundCover'
 import {
     Content,
     arePositionsEqual,
@@ -65,13 +65,13 @@ class Pop extends Component {
             />
         )
 
-        if (!level) {
+        if (!!level) {
             return createPortal(content, document.body)
         }
 
         return createPortal(
             <div>
-                <ScreenCover withoutBackgroundColor onClick={onClose} />
+                <BackgroundCover onClick={onClose} />
 
                 {content}
 
@@ -82,7 +82,7 @@ class Pop extends Component {
                         position: fixed;
                         top: 0;
                         width: 100vw;
-                        z-index: ${99999999 + level};
+                        z-index: ${2000 + level};
                     }
                 `}</style>
             </div>,

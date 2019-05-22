@@ -180,12 +180,7 @@ class BottomRight extends Component {
                     >
                         Anchor
                     </Btn>
-                    <Pop
-                        screencover
-                        open={true}
-                        onClose={() => null}
-                        anchorRef={this.ref1}
-                    >
+                    <Pop open={true} onClose={() => null} anchorRef={this.ref1}>
                         <Menu>
                             <MenuItem label="First Item" onClick={() => null}>
                                 <span />
@@ -216,6 +211,7 @@ class BottomRight extends Component {
                     :global(html),
                     :global(body),
                     :global(#root),
+                    :global(#root > div),
                     .flex {
                         height: 100%;
                     }
@@ -243,7 +239,7 @@ storiesOf('Pop', module)
     .addDecorator(fn => <BottomRight>{fn()}</BottomRight>)
     .add('Bottom right', () => (
         <Pop
-            screencover
+            level={1}
             open={true}
             onClose={() => null}
             anchorRef={{ current: 'Overriden by story implementation' }}
@@ -313,6 +309,7 @@ class BottomLeft extends Component {
                     :global(html),
                     :global(body),
                     :global(#root),
+                    :global(#root > div),
                     .flex {
                         height: 100%;
                     }
