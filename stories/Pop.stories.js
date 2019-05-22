@@ -1,5 +1,5 @@
 import React, { Component, Fragment, forwardRef } from 'react'
-import { storiesOf, addParameters } from '@storybook/react'
+import { storiesOf, addDecorator, addParameters } from '@storybook/react'
 
 import { Button } from '../src/Button'
 import { Pop } from '../src/Pop'
@@ -27,49 +27,7 @@ const Btn = forwardRef(({ styles = {}, ...props }, ref) => (
  * Story with one level opened
  * ===========================
  */
-class OneLevel extends Component {
-    ref = React.createRef()
-    render() {
-        return (
-            <Fragment>
-                <Btn ref={this.ref}>Anchor</Btn>
-                {React.Children.map(this.props.children, child =>
-                    React.cloneElement(child, { anchorRef: this.ref })
-                )}
-            </Fragment>
-        )
-    }
-}
-
-storiesOf('Pop', module)
-    .addDecorator(fn => <OneLevel>{fn()}</OneLevel>)
-    .add('Level one', () => (
-        <Pop
-            screencover
-            open={true}
-            onClose={() => null}
-            anchorRef={{ current: 'Overriden by story implementation' }}
-        >
-            <Menu>
-                <MenuItem label="First item" onClick={() => null}>
-                    <span />
-                </MenuItem>
-                <MenuItem label="Second item" onClick={() => null}>
-                    <span />
-                </MenuItem>
-                <MenuItem label="Third item" onClick={() => null}>
-                    <span />
-                </MenuItem>
-            </Menu>
-        </Pop>
-    ))
-
-/**
- * ===========================
- * Story with two levels opened
- * ===========================
- */
-class TwoLevels extends Component {
+class TopLeft extends Component {
     ref1 = React.createRef()
     ref2 = React.createRef()
 
@@ -109,22 +67,22 @@ class TwoLevels extends Component {
 }
 
 storiesOf('Pop', module)
-    .addDecorator(fn => <TwoLevels>{fn()}</TwoLevels>)
-    .add('Level two', () => (
+    .addDecorator(fn => <TopLeft>{fn()}</TopLeft>)
+    .add('Top Left', () => (
         <Pop
-            level={1}
+            screencover
             open={true}
             onClose={() => null}
             anchorRef={{ current: 'Overriden by story implementation' }}
         >
             <Menu>
-                <MenuItem label="Fourth Item" onClick={() => null}>
+                <MenuItem label="First item" onClick={() => null}>
                     <span />
                 </MenuItem>
-                <MenuItem label="Fifth Item" onClick={() => null}>
+                <MenuItem label="Second item" onClick={() => null}>
                     <span />
                 </MenuItem>
-                <MenuItem label="Sixth Item" onClick={() => null}>
+                <MenuItem label="Third item" onClick={() => null}>
                     <span />
                 </MenuItem>
             </Menu>
@@ -132,23 +90,18 @@ storiesOf('Pop', module)
     ))
 
 /**
- * =========================================
- * Story with two levels opened on the right
- * =========================================
+ * ===========================
+ * Story with two levels opened
+ * ===========================
  */
-class TwoLevelsRight extends Component {
+class TopRight extends Component {
     ref1 = React.createRef()
     ref2 = React.createRef()
 
     render() {
         return (
             <Fragment>
-                <Btn
-                    ref={this.ref1}
-                    styles={{
-                        marginLeft: 'auto',
-                    }}
-                >
+                <Btn ref={this.ref1} styles={{ marginLeft: 'auto' }}>
                     Anchor
                 </Btn>
                 <Pop
@@ -183,8 +136,8 @@ class TwoLevelsRight extends Component {
 }
 
 storiesOf('Pop', module)
-    .addDecorator(fn => <TwoLevelsRight>{fn()}</TwoLevelsRight>)
-    .add('On the right', () => (
+    .addDecorator(fn => <TopRight>{fn()}</TopRight>)
+    .add('Top right', () => (
         <Pop
             level={1}
             open={true}
@@ -210,27 +163,49 @@ storiesOf('Pop', module)
  * Story with two levels opened on the bottom right
  * ================================================
  */
-class OneLevelRightBottom extends Component {
+class BottomRight extends Component {
     ref1 = React.createRef()
+    ref2 = React.createRef()
 
     render() {
         return (
-            <Fragment>
-                <div className="flex">
-                    <span />
-                    <div className="container">
-                        <Btn
-                            ref={this.ref1}
-                            styles={{
-                                marginLeft: 'auto',
-                            }}
-                        >
-                            Anchor
-                        </Btn>
-                        {React.Children.map(this.props.children, child =>
-                            React.cloneElement(child, { anchorRef: this.ref1 })
-                        )}
-                    </div>
+            <div className="flex">
+                <span />
+                <div className="container">
+                    <Btn
+                        ref={this.ref1}
+                        styles={{
+                            marginLeft: 'auto',
+                        }}
+                    >
+                        Anchor
+                    </Btn>
+                    <Pop
+                        screencover
+                        open={true}
+                        onClose={() => null}
+                        anchorRef={this.ref1}
+                    >
+                        <Menu>
+                            <MenuItem label="First Item" onClick={() => null}>
+                                <span />
+                            </MenuItem>
+                            <MenuItem label="Second Item" onClick={() => null}>
+                                <span />
+                            </MenuItem>
+                            <span ref={this.ref2}>
+                                <MenuItem label="Anchor 2" onClick={() => null}>
+                                    {React.Children.map(
+                                        this.props.children,
+                                        child =>
+                                            React.cloneElement(child, {
+                                                anchorRef: this.ref2,
+                                            })
+                                    )}
+                                </MenuItem>
+                            </span>
+                        </Menu>
+                    </Pop>
                 </div>
 
                 <style jsx>{`
@@ -245,6 +220,11 @@ class OneLevelRightBottom extends Component {
                         height: 100%;
                     }
 
+                    :global(#root) {
+                        padding: 16px;
+                        box-sizing: border-box;
+                    }
+
                     .flex {
                         display: flex;
                         flex-direction: column;
@@ -253,19 +233,15 @@ class OneLevelRightBottom extends Component {
                     span {
                         flex-grow: 1;
                     }
-
-                    .container {
-                        padding: 16px;
-                    }
                 `}</style>
-            </Fragment>
+            </div>
         )
     }
 }
 
 storiesOf('Pop', module)
-    .addDecorator(fn => <OneLevelRightBottom>{fn()}</OneLevelRightBottom>)
-    .add('On the bottom right', () => (
+    .addDecorator(fn => <BottomRight>{fn()}</BottomRight>)
+    .add('Bottom right', () => (
         <Pop
             screencover
             open={true}
@@ -280,6 +256,103 @@ storiesOf('Pop', module)
                     <span />
                 </MenuItem>
                 <MenuItem label="Third Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+            </Menu>
+        </Pop>
+    ))
+
+/**
+ * =========================================
+ * Story with two levels opened on the right
+ * =========================================
+ */
+class BottomLeft extends Component {
+    ref1 = React.createRef()
+    ref2 = React.createRef()
+
+    render() {
+        return (
+            <div className="flex">
+                <span />
+                <div className="container">
+                    <Btn ref={this.ref1}>Anchor</Btn>
+                    <Pop
+                        screencover
+                        open={true}
+                        onClose={() => null}
+                        anchorRef={this.ref1}
+                    >
+                        <Menu>
+                            <MenuItem label="First Item" onClick={() => null}>
+                                <span />
+                            </MenuItem>
+                            <MenuItem label="Second Item" onClick={() => null}>
+                                <span />
+                            </MenuItem>
+                            <span ref={this.ref2}>
+                                <MenuItem label="Anchor 2" onClick={() => null}>
+                                    {React.Children.map(
+                                        this.props.children,
+                                        child =>
+                                            React.cloneElement(child, {
+                                                anchorRef: this.ref2,
+                                            })
+                                    )}
+                                </MenuItem>
+                            </span>
+                        </Menu>
+                    </Pop>
+                </div>
+
+                <style jsx>{`
+                    :global(body) {
+                        margin: 0;
+                    }
+
+                    :global(html),
+                    :global(body),
+                    :global(#root),
+                    .flex {
+                        height: 100%;
+                    }
+
+                    :global(#root) {
+                        padding: 16px;
+                        box-sizing: border-box;
+                    }
+
+                    .flex {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    span {
+                        flex-grow: 1;
+                    }
+                `}</style>
+            </div>
+        )
+    }
+}
+
+storiesOf('Pop', module)
+    .addDecorator(fn => <BottomLeft>{fn()}</BottomLeft>)
+    .add('On the right', () => (
+        <Pop
+            level={1}
+            open={true}
+            onClose={() => null}
+            anchorRef={{ current: 'Overriden by story implementation' }}
+        >
+            <Menu>
+                <MenuItem label="Fourth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Fifth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Sixth Item" onClick={() => null}>
                     <span />
                 </MenuItem>
             </Menu>
