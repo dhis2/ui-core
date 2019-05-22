@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 import propTypes from 'prop-types'
 import { getPosition } from './getPosition'
+import { layers } from '../theme.js'
 
 class DropMenu extends PureComponent {
     state = {
@@ -45,7 +46,7 @@ class DropMenu extends PureComponent {
 
                 <style jsx>{`
                     div {
-                        z-index: 1000;
+                        z-index: ${layers.applicationTop};
                         position: absolute;
                         top: ${top};
                         left: ${left};

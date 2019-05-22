@@ -3,6 +3,8 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { layers } from '../theme.js'
+
 const ComponentCover = ({ children, className }) => (
     <div className={className}>
         {children}
@@ -17,7 +19,7 @@ const ComponentCover = ({ children, className }) => (
                 height: inherit;
                 width: inherit;
 
-                z-index: 900;
+                z-index: ${layers.applicationTop - 1};
                 background: rgba(200, 200, 200, 0.6);
             }
         `}</style>
