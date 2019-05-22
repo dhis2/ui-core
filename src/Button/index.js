@@ -2,6 +2,7 @@ import cx from 'classnames'
 
 import React from 'react'
 import propTypes from 'prop-types'
+import { boolAndMutuallyExclusiveWith } from '../prop-types'
 
 import styles from './styles.js'
 
@@ -59,9 +60,9 @@ Button.propTypes = {
     small: propTypes.bool,
     large: propTypes.bool,
 
-    primary: propTypes.bool,
-    secondary: propTypes.bool,
-    destructive: propTypes.bool,
+    primary: boolAndMutuallyExclusiveWith('secondary', 'destructive'),
+    secondary: boolAndMutuallyExclusiveWith('primary', 'destructive'),
+    destructive: boolAndMutuallyExclusiveWith('primary', 'secondary'),
 
     disabled: propTypes.bool,
 }
