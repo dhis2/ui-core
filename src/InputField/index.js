@@ -108,10 +108,9 @@ InputField.propTypes = {
 
     className: propTypes.string,
     placeholder: propTypes.string,
+    value: propTypes.string,
     autocomplete: propTypes.string,
     tabIndex: propTypes.string,
-
-    value: propTypes.string,
 
     required: propTypes.bool,
     disabled: propTypes.bool,

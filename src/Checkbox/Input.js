@@ -20,6 +20,10 @@ export class Input extends Component {
             value,
             onFocus,
             onBlur,
+            autocomplete,
+            autofocus,
+            tabIndex,
+            readonly,
         } = this.props
 
         return (
@@ -35,6 +39,10 @@ export class Input extends Component {
                     onBlur={onBlur}
                     checked={checked}
                     disabled={disabled}
+                    autocomplete={autocomplete}
+                    autofocus={autofocus}
+                    tabIndex={tabIndex}
+                    readonly={readonly}
                 />
 
                 <style jsx>{`
@@ -55,8 +63,13 @@ Input.propTypes = {
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
 
+    autocomplete: propTypes.string,
+    tabIndex: propTypes.string,
+
     onFocus: propTypes.func,
     onBlur: propTypes.func,
     checked: propTypes.bool,
     disabled: propTypes.bool,
+    autofocus: propTypes.bool,
+    readonly: propTypes.bool,
 }
