@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/dhis2/ui/compare/v2.2.2...v2.2.3) (2019-05-22)
+
+
+### Bug Fixes
+
+* issue with gatsby ([#231](https://github.com/dhis2/ui/issues/231)) ([cfb4718](https://github.com/dhis2/ui/commit/cfb4718))
+
 ## [2.2.2](https://github.com/dhis2/ui/compare/v2.2.1...v2.2.2) (2019-05-22)
 
 
