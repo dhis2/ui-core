@@ -4,6 +4,7 @@ import { Modal } from '../src/Modal'
 import { Button } from '../src/Button'
 
 import markdown from './info/molecules/modal.md'
+import { ButtonStrip } from '../src'
 
 const say = something => () => alert(something)
 
@@ -33,19 +34,15 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                <span style={{ marginLeft: 16 }}>
-                    <Button
-                        onClick={say('Button primary')}
-                        primary
-                        className="prim"
-                    >
+                    <Button onClick={say('Button primary')} primary>
                         Primary action
                     </Button>
-                </span>
+                </ButtonStrip>
             </Modal.Actions>
         </Modal>
     ))
@@ -69,19 +66,15 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                <span style={{ marginLeft: 16 }}>
-                    <Button
-                        onClick={say('Button primary')}
-                        primary
-                        className="prim"
-                    >
+                    <Button onClick={say('Button primary')} primary>
                         Primary action
                     </Button>
-                </span>
+                </ButtonStrip>
             </Modal.Actions>
         </Modal>
     ))
@@ -105,19 +98,15 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                <span style={{ marginLeft: 16 }}>
-                    <Button
-                        onClick={say('Button primary')}
-                        primary
-                        className="prim"
-                    >
+                    <Button onClick={say('Button primary')} primary>
                         Primary action
                     </Button>
-                </span>
+                </ButtonStrip>
             </Modal.Actions>
         </Modal>
     ))
@@ -137,19 +126,15 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                <span style={{ marginLeft: 16 }}>
-                    <Button
-                        onClick={say('Button primary')}
-                        primary
-                        className="prim"
-                    >
+                    <Button onClick={say('Button primary')} primary>
                         Primary action
                     </Button>
-                </span>
+                </ButtonStrip>
             </Modal.Actions>
         </Modal>
     ))
@@ -169,20 +154,15 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                <span style={{ marginLeft: 16 }}>
-                    <Button
-                        primary
-                        destructive
-                        onClick={say('Button primary')}
-                        className="prim"
-                    >
+                    <Button primary destructive onClick={say('Button primary')}>
                         Primary action
                     </Button>
-                </span>
+                </ButtonStrip>
             </Modal.Actions>
         </Modal>
     ))
@@ -199,20 +179,15 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                <span style={{ marginLeft: 16 }}>
-                    <Button
-                        primary
-                        destructive
-                        onClick={say('Button primary')}
-                        className="prim"
-                    >
+                    <Button primary destructive onClick={say('Button primary')}>
                         Primary action
                     </Button>
-                </span>
+                </ButtonStrip>
             </Modal.Actions>
         </Modal>
     ))
@@ -273,20 +248,15 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                <span style={{ marginLeft: 16 }}>
-                    <Button
-                        primary
-                        destructive
-                        onClick={say('Button primary')}
-                        className="prim"
-                    >
+                    <Button primary destructive onClick={say('Button primary')}>
                         Primary action
                     </Button>
-                </span>
+                </ButtonStrip>
             </Modal.Actions>
         </Modal>
     ))
@@ -305,19 +275,15 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <Button onClick={say('Button secondary')} secondary>
-                    Secondary action
-                </Button>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
 
-                <span style={{ marginLeft: 16 }}>
-                    <Button
-                        onClick={say('Button primary')}
-                        primary
-                        className="prim"
-                    >
+                    <Button onClick={say('Button primary')} primary>
                         Primary action
                     </Button>
-                </span>
+                </ButtonStrip>
             </Modal.Actions>
         </Modal>
     ))
