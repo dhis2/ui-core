@@ -7,7 +7,7 @@ import markdown from './info/atoms/buttonStrip.md'
 const Wrapper = fn => (
     <div
         style={{
-            width: '358px',
+            width: '450px',
             border: '1px solid #c4c9cc',
             padding: 8,
         }}
@@ -39,8 +39,24 @@ storiesOf('ButtonStrip', module)
             <Button>Save</Button>
         </ButtonStrip>
     ))
+    .add('Default - aligned middle', () => (
+        <ButtonStrip middle>
+            <Button>Save</Button>
+            <Button>Save</Button>
+            <Button>Save</Button>
+            <Button>Save</Button>
+        </ButtonStrip>
+    ))
+    .add('Compact - aligned middle', () => (
+        <ButtonStrip middle compact>
+            <Button>Save</Button>
+            <Button>Save</Button>
+            <Button>Save</Button>
+            <Button>Save</Button>
+        </ButtonStrip>
+    ))
     .add('Default - aligned right', () => (
-        <ButtonStrip alignEnd>
+        <ButtonStrip end>
             <Button>Save</Button>
             <Button>Save</Button>
             <Button>Save</Button>
@@ -48,7 +64,7 @@ storiesOf('ButtonStrip', module)
         </ButtonStrip>
     ))
     .add('Compact - aligned right', () => (
-        <ButtonStrip alignEnd compact>
+        <ButtonStrip end compact>
             <Button>Save</Button>
             <Button>Save</Button>
             <Button>Save</Button>

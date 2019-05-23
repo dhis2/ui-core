@@ -4,7 +4,10 @@ export default css`
     div {
         display: flex;
     }
-    div.align-end {
+    div.middle {
+        justify-content: center;
+    }
+    div.end {
         justify-content: flex-end;
     }
     div > :global(button) {
