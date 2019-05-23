@@ -84,28 +84,28 @@ const getRelativePosition = (anchorRect, popRect, anchorPoint, popPoint) => {
             pop.vertical === startRotation[1].vertical &&
             pop.horizontal === startRotation[1].horizontal
     )
-    const updatedRotation = FALLBACKS[startRotationIndex][2]
+    const updatedRotation = [startRotation, ...FALLBACKS[startRotationIndex][2]]
 
-    let relativePosition = startRotation
+    return (
+        updatedRotation.reduce((finalPosition, curPosition) => {
+            if (finalPosition) return finalPosition
 
-    for (let i = 0, l = updatedRotation.length; i < l; ++i) {
-        let curRotation = updatedRotation[i]
-        let [curAnchorPoint, curPopPoint] = curRotation
+            let [curAnchorPoint, curPopPoint] = curPosition
 
-        if (
-            doesPositionFitOnScreen(
-                anchorRect,
-                popRect,
-                curAnchorPoint,
-                curPopPoint
-            )
-        ) {
-            relativePosition = curRotation
-            break
-        }
-    }
+            if (
+                doesPositionFitOnScreen(
+                    anchorRect,
+                    popRect,
+                    curAnchorPoint,
+                    curPopPoint
+                )
+            ) {
+                return curPosition
+            }
 
-    return relativePosition
+            return finalPosition
+        }, null) || startRotation
+    )
 }
 
 const doesPositionFitOnScreen = (anchor, pop, anchorPoint, popPoint) =>
