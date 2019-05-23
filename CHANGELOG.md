@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/dhis2/ui/compare/v2.3.0...v2.4.0) (2019-05-23)
+
+
+### Features
+
+* **buttonstrip:** add button strip component ([#227](https://github.com/dhis2/ui/issues/227)) ([63d774e](https://github.com/dhis2/ui/commit/63d774e))
+
 # [2.3.0](https://github.com/dhis2/ui/compare/v2.2.3...v2.3.0) (2019-05-23)
 
 
