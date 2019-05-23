@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
-import { ROTATION } from './rotation'
+import { FALLBACKS } from './fallbacks'
 
 export const Content = React.forwardRef(
     ({ children, position, level }, ref) => (
@@ -77,20 +77,14 @@ export const getPosition = ({
 
 const getRelativePosition = (anchorRect, popRect, anchorPoint, popPoint) => {
     const startRotation = [anchorPoint, popPoint]
-    const startRotationIndex = ROTATION.findIndex(
+    const startRotationIndex = FALLBACKS.findIndex(
         ([anchor, pop]) =>
             anchor.vertical === startRotation[0].vertical &&
             anchor.horizontal === startRotation[0].horizontal &&
             pop.vertical === startRotation[1].vertical &&
             pop.horizontal === startRotation[1].horizontal
     )
-    const updatedRotation =
-        startRotationIndex === 0
-            ? ROTATION
-            : [
-                  ...ROTATION.slice(startRotationIndex),
-                  ...ROTATION.slice(0, startRotationIndex),
-              ]
+    const updatedRotation = FALLBACKS[startRotationIndex][2]
 
     let relativePosition = startRotation
 
