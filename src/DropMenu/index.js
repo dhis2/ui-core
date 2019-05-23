@@ -67,7 +67,9 @@ DropMenu.propTypes = {
     /** Decides if the menu should call the onClose function or not */
     stayOpen: propTypes.bool,
     /** DOM node to position itself against */
-    anchorEl: propTypes.instanceOf(Element),
+    anchorEl: propTypes.shape({
+        getBoundingClientRect: propTypes.func.isRequired,
+    }),
 }
 
 export { DropMenu }
