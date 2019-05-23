@@ -34,7 +34,7 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <ButtonStrip alignEnd>
+                <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
                     </Button>
@@ -66,7 +66,7 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <ButtonStrip alignEnd>
+                <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
                     </Button>
@@ -98,7 +98,7 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <ButtonStrip alignEnd>
+                <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
                     </Button>
@@ -126,7 +126,7 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <ButtonStrip alignEnd>
+                <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
                     </Button>
@@ -154,7 +154,7 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <ButtonStrip alignEnd>
+                <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
                     </Button>
@@ -179,7 +179,7 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <ButtonStrip alignEnd>
+                <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
                     </Button>
@@ -248,7 +248,7 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <ButtonStrip alignEnd>
+                <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
                     </Button>
@@ -275,7 +275,7 @@ storiesOf('Modal', module)
             </Modal.Content>
 
             <Modal.Actions>
-                <ButtonStrip alignEnd>
+                <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
                     </Button>
