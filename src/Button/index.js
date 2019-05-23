@@ -2,7 +2,7 @@ import cx from 'classnames'
 
 import React from 'react'
 import propTypes from 'prop-types'
-import { boolAndMutuallyExclusiveWith } from '../prop-types'
+import { mutuallyExclusive } from '../prop-validators'
 
 import styles from './styles.js'
 
@@ -48,6 +48,13 @@ Button.defaultProps = {
     type: 'button',
 }
 
+const variantPropType = mutuallyExclusive(
+    ['primary', 'secondary', 'destructive'],
+    propTypes.bool
+)
+
+const sizePropType = mutuallyExclusive(['small', 'large'], propTypes.bool)
+
 Button.propTypes = {
     onClick: propTypes.func,
 
@@ -57,12 +64,12 @@ Button.propTypes = {
     value: propTypes.string,
     type: propTypes.oneOf(['submit', 'reset', 'button']),
 
-    small: propTypes.bool,
-    large: propTypes.bool,
+    small: sizePropType,
+    large: sizePropType,
 
-    primary: boolAndMutuallyExclusiveWith('secondary', 'destructive'),
-    secondary: boolAndMutuallyExclusiveWith('primary', 'destructive'),
-    destructive: boolAndMutuallyExclusiveWith('primary', 'secondary'),
+    primary: variantPropType,
+    secondary: variantPropType,
+    destructive: variantPropType,
 
     disabled: propTypes.bool,
 }
