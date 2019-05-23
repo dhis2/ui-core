@@ -88,6 +88,10 @@ class Radio extends Component {
             valid,
             warning,
             error,
+            autocomplete,
+            autofocus,
+            readonly,
+            tabIndex,
             focus = this.state.focus,
         } = this.props
 
@@ -113,7 +117,6 @@ class Radio extends Component {
                 })}
             >
                 <input
-                    tabIndex="0"
                     ref={this.ref}
                     type="radio"
                     name={name}
@@ -121,6 +124,10 @@ class Radio extends Component {
                     focus={focus}
                     checked={checked}
                     disabled={disabled}
+                    autocomplete={autocomplete}
+                    autofocus={autofocus}
+                    tabIndex={tabIndex}
+                    readonly={readonly}
                     onChange={onChange}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
@@ -144,6 +151,8 @@ Radio.propTypes = {
 
     className: propTypes.string,
     label: propTypes.string,
+    autocomplete: propTypes.string,
+    tabIndex: propTypes.string,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,
@@ -154,6 +163,12 @@ Radio.propTypes = {
     valid: propTypes.bool,
     warning: propTypes.bool,
     error: propTypes.bool,
+    autofocus: propTypes.bool,
+    readonly: propTypes.bool,
+}
+
+Radio.defaultProps = {
+    tabIndex: '0',
 }
 
 export { Radio }
