@@ -34,7 +34,12 @@ class Pop extends Component {
 
     updatePosition() {
         if (this.ref.current) {
-            const { anchorRef, anchorPoint, popPoint } = this.props
+            const {
+                anchorRef,
+                anchorPoint,
+                popPoint,
+                fallbackPoints,
+            } = this.props
 
             const position = getPosition({
                 popPoint,
@@ -42,6 +47,7 @@ class Pop extends Component {
                 pop: this.ref.current,
                 anchor: anchorRef.current,
                 isNotRoot: !!this.props.level,
+                fallbackPoints,
             })
 
             if (!arePositionsEqual(position, this.state.position)) {
@@ -99,6 +105,8 @@ Pop.propTypes = {
 
     anchorPoint: propPosition,
     popPoint: propPosition,
+
+    fallbackPoints: propTypes.arrayOf([propTypes.arrayOf([propPosition])]),
 
     /* Is required for Pop components that are not the root level */
     level: propTypes.number,

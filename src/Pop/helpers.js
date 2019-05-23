@@ -41,6 +41,7 @@ export const getPosition = ({
     popPoint,
     anchorPoint,
     isNotRoot,
+    fallbackPoints,
 }) => {
     if (!anchor || !pop) {
         return { left: 'auto', top: 'auto' }
@@ -52,7 +53,8 @@ export const getPosition = ({
         anchorRect,
         popRect,
         anchorPoint,
-        popPoint
+        popPoint,
+        fallbackPoints
     )
     const [realAnchorPoint, realPopPoint] = relativePosition
 
@@ -75,19 +77,31 @@ export const getPosition = ({
     return styles
 }
 
-const getRelativePosition = (anchorRect, popRect, anchorPoint, popPoint) => {
-    const startRotation = [anchorPoint, popPoint]
-    const startRotationIndex = FALLBACKS.findIndex(
-        ([anchor, pop]) =>
-            anchor.vertical === startRotation[0].vertical &&
-            anchor.horizontal === startRotation[0].horizontal &&
-            pop.vertical === startRotation[1].vertical &&
-            pop.horizontal === startRotation[1].horizontal
-    )
-    const updatedRotation = [startRotation, ...FALLBACKS[startRotationIndex][2]]
+const getRelativePosition = (
+    anchorRect,
+    popRect,
+    anchorPoint,
+    popPoint,
+    fallbackPoints
+) => {
+    let positionsToTry
+    const startPosition = [anchorPoint, popPoint]
+
+    if (fallbackPoints) {
+        positionsToTry = [startPosition, ...fallbackPoints]
+    } else {
+        const startPositionIndex = FALLBACKS.findIndex(
+            ([anchor, pop]) =>
+                anchor.vertical === startPosition[0].vertical &&
+                anchor.horizontal === startPosition[0].horizontal &&
+                pop.vertical === startPosition[1].vertical &&
+                pop.horizontal === startPosition[1].horizontal
+        )
+        positionsToTry = [startPosition, ...FALLBACKS[startPositionIndex][2]]
+    }
 
     return (
-        updatedRotation.reduce((finalPosition, curPosition) => {
+        positionsToTry.reduce((finalPosition, curPosition) => {
             if (finalPosition) return finalPosition
 
             let [curAnchorPoint, curPopPoint] = curPosition
@@ -104,7 +118,7 @@ const getRelativePosition = (anchorRect, popRect, anchorPoint, popPoint) => {
             }
 
             return finalPosition
-        }, null) || startRotation
+        }, null) || startPosition
     )
 }
 

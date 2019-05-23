@@ -355,3 +355,38 @@ storiesOf('Pop', module)
             </Menu>
         </Pop>
     ))
+
+/**
+ * =========================================
+ * Story with fallback positions
+ * =========================================
+ */
+
+storiesOf('Pop', module)
+    .addDecorator(fn => <BottomLeft>{fn()}</BottomLeft>)
+    .add('Fallback positions', () => (
+        <Pop
+            level={1}
+            open={true}
+            onClose={() => null}
+            anchorRef={{ current: 'Overriden by story implementation' }}
+            fallbackPoints={[
+                [
+                    { vertical: 'center', horizontal: 'center' },
+                    { vertical: 'bottom', horizontal: 'right' },
+                ],
+            ]}
+        >
+            <Menu>
+                <MenuItem label="Fourth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Fifth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+                <MenuItem label="Sixth Item" onClick={() => null}>
+                    <span />
+                </MenuItem>
+            </Menu>
+        </Pop>
+    ))
