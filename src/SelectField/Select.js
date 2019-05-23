@@ -111,8 +111,8 @@ Select.propTypes = {
     onChange: propTypes.func.isRequired,
     value: propTypes.string,
 
-    onFocus: propTypes.func,
-    onBlur: propTypes.func,
+    onFocus: propTypes.func.isRequired,
+    onBlur: propTypes.func.isRequired,
 
     children: propTypes.oneOfType([
         propTypes.arrayOf(
