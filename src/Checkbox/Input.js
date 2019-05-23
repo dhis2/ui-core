@@ -53,10 +53,10 @@ export class Input extends Component {
 
 Input.propTypes = {
     onChange: propTypes.func.isRequired,
-    onFocus: propTypes.func.isRequired,
-    onBlur: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
 
+    onFocus: propTypes.func,
+    onBlur: propTypes.func,
     checked: propTypes.bool,
     disabled: propTypes.bool,
 }
