@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/dhis2/ui/compare/v2.2.3...v2.3.0) (2019-05-23)
+
+
+### Features
+
+* **prop-types:** mutually exclusive booleans ([#232](https://github.com/dhis2/ui/issues/232)) ([c2ce2c1](https://github.com/dhis2/ui/commit/c2ce2c1))
+
 ## [2.2.3](https://github.com/dhis2/ui/compare/v2.2.2...v2.2.3) (2019-05-22)
 
 
