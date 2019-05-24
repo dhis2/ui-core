@@ -27,6 +27,7 @@ export default css`
         white-space: nowrap;
 
         user-select: none;
+        padding-right: 12px;
     }
 
     .icon {

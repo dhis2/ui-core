@@ -12,7 +12,7 @@ const Backdrop = ({ onClick }) => (
                 height: 100%;
                 width: 100%;
 
-                background: rgba(200, 200, 200, 0.6);
+                background: rgba(33, 43, 54, 0.4);
             }
         `}</style>
     </div>
