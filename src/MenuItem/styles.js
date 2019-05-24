@@ -24,9 +24,13 @@ export default css`
     .label {
         color: ${colors.grey900};
         font-size: 15px;
+
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         user-select: none;
+        padding-right: 12px;
     }
 
     .icon {

@@ -20,7 +20,7 @@ const ComponentCover = ({ children, className }) => (
                 width: inherit;
 
                 z-index: ${layers.applicationTop - 1};
-                background: rgba(200, 200, 200, 0.6);
+                background: rgba(33, 43, 54, 0.4);
             }
         `}</style>
     </div>
