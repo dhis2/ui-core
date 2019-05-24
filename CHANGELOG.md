@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/dhis2/ui/compare/v2.4.1...v2.4.2) (2019-05-24)
+
+
+### Bug Fixes
+
+* **linting:** ran `d2 style js install` to generate eslint config ([#234](https://github.com/dhis2/ui/issues/234)) ([f75c8ba](https://github.com/dhis2/ui/commit/f75c8ba))
+
 ## [2.4.1](https://github.com/dhis2/ui/compare/v2.4.0...v2.4.1) (2019-05-23)
 
 
