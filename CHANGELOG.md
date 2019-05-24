@@ -1,3 +1,10 @@
+## [2.4.3](https://github.com/dhis2/ui/compare/v2.4.2...v2.4.3) (2019-05-24)
+
+
+### Bug Fixes
+
+* styling adjustments ([#235](https://github.com/dhis2/ui/issues/235)) ([b0bb96e](https://github.com/dhis2/ui/commit/b0bb96e))
+
 ## [2.4.2](https://github.com/dhis2/ui/compare/v2.4.1...v2.4.2) (2019-05-24)
 
 
