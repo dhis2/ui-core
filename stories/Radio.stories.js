@@ -17,9 +17,20 @@ storiesOf('Radio', module)
         <Radio name="Ex" label="Radio" value="default" onChange={logger} />
     ))
 
-    .add('Focused', () => (
+    .add('Focused unchecked', () => (
         <Radio
             focus
+            name="Ex"
+            label="Radio"
+            value="default"
+            onChange={logger}
+        />
+    ))
+
+    .add('Focused checked', () => (
+        <Radio
+            focus
+            checked
             name="Ex"
             label="Radio"
             value="default"
