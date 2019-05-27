@@ -32,6 +32,7 @@ const common = css`
             0 1px 1px 0 rgba(0, 0, 0, 0.24);
         background-color: #efefef;
         position: relative;
+        transition: transform 0.1s ease-in;
     }
 
     .toggle:before {
@@ -83,6 +84,7 @@ const common = css`
     .checked .toggle {
         transform: translate(80%, -50%);
         background-color: ${colors.teal400};
+        transition: transform 0.1s ease-out;
     }
 
     .checked .toggle:before,

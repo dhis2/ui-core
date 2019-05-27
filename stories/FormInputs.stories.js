@@ -1,7 +1,14 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { Button, Checkbox, InputField, Radio, SelectField } from '../src'
+import {
+    Button,
+    Checkbox,
+    InputField,
+    Radio,
+    SelectField,
+    Switch,
+} from '../src'
 
 class Form extends React.Component {
     state = {
@@ -9,6 +16,7 @@ class Form extends React.Component {
         name: '',
         foodWish: '',
         allergies: [],
+        newsletter: false,
     }
 
     onSubmit = e => {
@@ -29,6 +37,11 @@ class Form extends React.Component {
     setFoodWish = event =>
         this.setState({
             foodWish: event.target.value,
+        })
+
+    setNewsLetter = event =>
+        this.setState({
+            newsletter: event.target.checked,
         })
 
     updateAllergies = event => {
@@ -119,6 +132,16 @@ class Form extends React.Component {
                         value="nuts"
                         label="nuts"
                         onChange={this.updateAllergies}
+                    />
+                </p>
+
+                <p>
+                    <Switch
+                        name="newsletter"
+                        label="Receive newsletter"
+                        checked={this.state.newsletter}
+                        valid={this.state.newsletter}
+                        onChange={this.setNewsLetter}
                     />
                 </p>
 
