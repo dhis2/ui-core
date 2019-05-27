@@ -3,7 +3,9 @@ import { theme } from '../theme.js'
 
 export default css`
     input {
-        display: none;
+        opacity: 0;
+        width: 0;
+        height: 0;
     }
 
     span {
