@@ -27,13 +27,23 @@ storiesOf('Checkbox', module)
         />
     ))
 
-    .add('Focused', () => (
+    .add('Focused checked', () => (
         <Checkbox
             focus
             name="Ex"
             value="ex"
             label="Set with checked"
             checked
+            onChange={logger}
+        />
+    ))
+
+    .add('Focused unchecked', () => (
+        <Checkbox
+            focus
+            name="Ex"
+            value="ex"
+            label="Unchecked focused"
             onChange={logger}
         />
     ))

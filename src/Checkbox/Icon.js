@@ -1,21 +1,21 @@
 import React, { Fragment } from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import { resolve } from 'styled-jsx/css'
+import css, { resolve } from 'styled-jsx/css'
 
 import { colors, theme } from '../theme'
 import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox'
 
 const icons = resolve`
     svg {
+        display: block;
         height: 24px;
         width: 24px;
         fill: ${theme.default};
     }
 
-    .focus :global(path) {
-        stroke: #646464;
-        stroke-width: 2px;
+    .focus {
+        fill: ${colors.grey800};
     }
 
     .checked {
@@ -58,7 +58,7 @@ export const Icon = ({
     })
 
     return (
-        <Fragment>
+        <div className={cx({ focus })}>
             {indeterminate ? (
                 <Indeterminate className={classes} />
             ) : checked ? (
@@ -68,7 +68,21 @@ export const Icon = ({
             )}
 
             {icons.styles}
-        </Fragment>
+            <style jsx>{`
+                div {
+                    position: relative;
+                }
+
+                .focus:before {
+                    content: '';
+                    position: absolute;
+                    border: 2px solid ${colors.blue400};
+                    border-radius: 4px;
+                    width: 100%;
+                    height: 100%;
+                }
+            `}</style>
+        </div>
     )
 }
 
