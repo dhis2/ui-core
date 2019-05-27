@@ -1,4 +1,4 @@
-import * as positions from './positions'
+import { positions } from './positions'
 
 /**
  * This determins the order in which to check whether the pop will fit
