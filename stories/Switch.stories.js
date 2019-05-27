@@ -23,7 +23,14 @@ storiesOf('Switch', module)
     ))
 
     .add('Focus', () => (
-        <Switch name="Ex" focus label="Switch" onChange={logger} />
+        <Switch
+            name="Ex"
+            checked
+            valid
+            focus
+            label="Switch"
+            onChange={logger}
+        />
     ))
 
     .add('Checked', () => (

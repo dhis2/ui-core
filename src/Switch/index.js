@@ -75,6 +75,7 @@ class Switch extends Component {
                     valid={valid}
                     warning={warning}
                     error={error}
+                    focus={focus}
                 />
 
                 <span className={cx({ required, disabled })}>{label}</span>

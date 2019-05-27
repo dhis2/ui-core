@@ -31,6 +31,39 @@ const common = css`
         box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.12),
             0 1px 1px 0 rgba(0, 0, 0, 0.24);
         background-color: #efefef;
+        position: relative;
+    }
+
+    .toggle:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.5);
+        transition: transform 0.05s ease-in;
+        width: 200%;
+        height: 200%;
+        background-color: #efefef;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0.4;
+    }
+
+    .focus .toggle:before {
+        transform: translate(-50%, -50%) scale(1);
+        transition: transform 0.05s ease-out;
+    }
+
+    .toggle:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: #efefef;
+        border-radius: 50%;
     }
 
     .path,
@@ -52,9 +85,19 @@ const common = css`
         background-color: ${colors.teal400};
     }
 
+    .checked .toggle:before,
+    .checked .toggle:after {
+        background-color: ${colors.teal400};
+    }
+
     .valid .path,
     .valid .toggle {
         background-color: ${theme.valid};
+    }
+
+    .valid .toggle:before,
+    .valid .toggle:after {
+        background-color: ${colors.valid};
     }
 
     .warning .path,
@@ -62,9 +105,19 @@ const common = css`
         background-color: ${theme.warning};
     }
 
+    .warning .toggle:before,
+    .warning .toggle:after {
+        background-color: ${colors.warning};
+    }
+
     .error .path,
     .error .toggle {
         background-color: ${theme.error};
+    }
+
+    .error .toggle:before,
+    .error .toggle:after {
+        background: ${colors.error};
     }
 
     .disabled {
@@ -80,13 +133,14 @@ const common = css`
     }
 `
 
-const SwitchIcon = ({ checked, valid, warning, error, disabled }) => {
+const SwitchIcon = ({ checked, valid, warning, error, disabled, focus }) => {
     const classes = cx({
         checked: checked,
         disabled,
         valid,
         error,
         warning,
+        focus,
     })
 
     return (
