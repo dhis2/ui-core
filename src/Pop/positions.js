@@ -12,17 +12,18 @@ const points = (() => {
     )
 })()
 
-const positions = (() => {
-    const combinations = points.reduce(
+const combinations = (() =>
+    points.reduce(
         (all, anchorPoint) =>
             points.reduce((all, popPoint) => {
                 all.push([anchorPoint, popPoint])
                 return all
             }, all),
         []
-    )
+    ))()
 
-    return combinations.reduce((all, position) => {
+const positions = (() =>
+    combinations.reduce((all, position) => {
         const [anchor, pop] = position
         const { vertical: aVertical, horizontal: aHorizontal } = anchor
         const { vertical: pVertical, horizontal: pHorizontal } = pop
@@ -30,7 +31,6 @@ const positions = (() => {
 
         all[name] = position
         return all
-    }, {})
-})()
+    }, {}))()
 
-export { positions }
+export { combinations, positions }
