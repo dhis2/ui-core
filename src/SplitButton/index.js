@@ -7,21 +7,13 @@ import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
 
 import { DropMenu } from '../DropMenu'
 import { Button } from '../Button'
+import { ButtonStrip } from '../ButtonStrip'
 
 import cx from 'classnames'
-
-const leftButton = css.resolve`
-    button {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-`
 
 const rightButton = css.resolve`
     button {
         padding: 0 9px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
     }
 `
 
@@ -40,20 +32,25 @@ class SplitButton extends Component {
 
         return (
             <div ref={this.anchorRef}>
-                <Button
-                    {...this.props}
-                    className={cx(this.props.className, leftButton.className)}
-                >
-                    {this.props.children}
-                </Button>
+                <ButtonStrip compact>
+                    <Button
+                        {...this.props}
+                        className={cx(this.props.className)}
+                    >
+                        {this.props.children}
+                    </Button>
 
-                <Button
-                    {...this.props}
-                    onClick={this.onToggle}
-                    className={cx(this.props.className, rightButton.className)}
-                >
-                    {icon}
-                </Button>
+                    <Button
+                        {...this.props}
+                        onClick={this.onToggle}
+                        className={cx(
+                            this.props.className,
+                            rightButton.className
+                        )}
+                    >
+                        {icon}
+                    </Button>
+                </ButtonStrip>
 
                 {open && (
                     <DropMenu
@@ -63,7 +60,6 @@ class SplitButton extends Component {
                     />
                 )}
 
-                {leftButton.styles}
                 {rightButton.styles}
                 <style jsx>{`
                     div {
