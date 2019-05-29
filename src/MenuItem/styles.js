@@ -16,9 +16,12 @@ export default css`
         margin-left: 8px;
     }
 
-    li:hover,
-    li.active {
+    li:hover {
         background-color: ${colors.grey200};
+    }
+
+    li.active {
+        background-color: ${colors.grey400};
     }
 
     .label {
