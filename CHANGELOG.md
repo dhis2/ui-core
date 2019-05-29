@@ -1,3 +1,10 @@
+## [2.4.4](https://github.com/dhis2/ui/compare/v2.4.3...v2.4.4) (2019-05-29)
+
+
+### Bug Fixes
+
+* **menu item:** differentiate between hover and active style ([#240](https://github.com/dhis2/ui/issues/240)) ([37c51cb](https://github.com/dhis2/ui/commit/37c51cb))
+
 ## [2.4.3](https://github.com/dhis2/ui/compare/v2.4.2...v2.4.3) (2019-05-24)
 
 
