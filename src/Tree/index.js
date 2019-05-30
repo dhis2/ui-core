@@ -47,6 +47,7 @@ const Arrow = ({ hasLeafes, open, onToggleOpen }) => {
                 div {
                     width: 24px;
                     position: relative;
+                    flex-shrink: 0;
                 }
 
                 div:after {
