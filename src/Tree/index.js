@@ -62,7 +62,7 @@ const Arrow = ({ hasLeafes, open, onToggleOpen, arrowTopOffset }) => {
                     flex-shrink: 0;
                 }
 
-                div:after {
+                .has-leafes.open:after {
                     content: '';
                     background: ${colors.grey400};
                     height: calc(100% - 24px);
