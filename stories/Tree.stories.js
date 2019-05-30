@@ -152,6 +152,53 @@ storiesOf('Tree', module)
                                 </Tree>
                             </Tree.Contents>
                         </Tree>
+                        <Tree
+                            hasLeafes
+                            open={state.open10}
+                            onToggleOpen={toggleOpen(10)}
+                        >
+                            <Tree.Label open={state.open10}>
+                                <Checkbox
+                                    label="Tree label"
+                                    name="l3.1"
+                                    onChange={toggleChecked(10)}
+                                    checked={state.checked10}
+                                />
+                            </Tree.Label>
+
+                            <Tree.Contents open={state.open10}>
+                                <Tree>
+                                    <Tree.Label>
+                                        <Checkbox
+                                            label="Tree label"
+                                            name="l3.1"
+                                            onChange={toggleChecked(11)}
+                                            checked={state.checked11}
+                                        />
+                                    </Tree.Label>
+                                </Tree>
+                                <Tree>
+                                    <Tree.Label>
+                                        <Checkbox
+                                            label="Tree label"
+                                            name="l3.2"
+                                            onChange={toggleChecked(12)}
+                                            checked={state.checked12}
+                                        />
+                                    </Tree.Label>
+                                </Tree>
+                                <Tree>
+                                    <Tree.Label>
+                                        <Checkbox
+                                            label="Tree label"
+                                            name="l3.3"
+                                            onChange={toggleChecked(13)}
+                                            checked={state.checked13}
+                                        />
+                                    </Tree.Label>
+                                </Tree>
+                            </Tree.Contents>
+                        </Tree>
                         <Tree open={state.open3} onToggleOpen={toggleOpen(3)}>
                             <Tree.Label open={state.open3}>
                                 <Checkbox

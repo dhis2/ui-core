@@ -4,8 +4,20 @@ import cx from 'classnames'
 import css, { resolve } from 'styled-jsx/css'
 
 import { ArrowDown } from '../icons/Arrow'
+import { colors } from '../theme'
 
-const Label = ({ icon, children }) => <div>{children}</div>
+const Label = ({ icon, children }) => (
+    <div>
+        {children}
+
+        <style jsx>{`
+            div {
+                min-height: 24px;
+                padding: 3px 0;
+            }
+        `}</style>
+    </div>
+)
 
 const Contents = ({ children, open }) => (
     <div className={cx({ open })}>
@@ -31,7 +43,7 @@ const arrowStyle = resolve`
     }
 `
 
-const Arrow = ({ hasLeafes, open, onToggleOpen }) => {
+const Arrow = ({ hasLeafes, open, onToggleOpen, arrowTopOffset }) => {
     const arrowIcon = hasLeafes ? <ArrowDown /> : <span />
 
     return (
@@ -52,20 +64,22 @@ const Arrow = ({ hasLeafes, open, onToggleOpen }) => {
 
                 div:after {
                     content: '';
-                    background: #e2e2e2;
+                    background: ${colors.grey400};
                     height: calc(100% - 24px);
                     left: 12px;
                     position: absolute;
-                    top: 12px;
+                    top: 15px;
                     width: 1px;
                     z-index: 1;
                 }
 
                 span {
                     display: block;
+                    padding-top: ${arrowTopOffset};
                     position: relative;
                     transform: rotate(-90deg);
                     z-index: 2;
+                    fill: ${colors.grey700};
                 }
 
                 .open span {
@@ -79,7 +93,13 @@ const Arrow = ({ hasLeafes, open, onToggleOpen }) => {
 
 const Content = ({ children }) => <div>{children}</div>
 
-export const Tree = ({ children, hasLeafes, open, onToggleOpen }) => {
+export const Tree = ({
+    children,
+    hasLeafes,
+    open,
+    onToggleOpen,
+    arrowTopOffset,
+}) => {
     const className = cx('tree', {
         open,
         'has-leafes': hasLeafes,
@@ -91,6 +111,7 @@ export const Tree = ({ children, hasLeafes, open, onToggleOpen }) => {
                 open={open}
                 hasLeafes={hasLeafes}
                 onToggleOpen={onToggleOpen}
+                arrowTopOffset={arrowTopOffset}
             />
             <Content children={children} />
 
@@ -104,9 +125,14 @@ export const Tree = ({ children, hasLeafes, open, onToggleOpen }) => {
 }
 
 Tree.propTypes = {
+    open: propTypes.bool,
     hasLeafes: propTypes.bool,
     onToggleOpen: propTypes.func,
-    open: propTypes.bool,
+    arrowTopOffset: propTypes.string,
+}
+
+Tree.defaultProps = {
+    arrowTopOffset: '4px',
 }
 
 Tree.Label = Label
