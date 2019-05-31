@@ -4,7 +4,7 @@ import { State, Store } from '@sambego/storybook-state'
 
 import { Chevron } from '../src/icons/Chevron'
 import { Checkbox } from '../src/Checkbox'
-import { Tree } from '../src/Tree'
+import { Node } from '../src/Node'
 
 const say = something => () => alert(something)
 
@@ -25,15 +25,15 @@ const toggleOpen = num => () =>
 const toggleChecked = num => () =>
     store.set({ [`checked${num}`]: !store.get(`checked${num}`) })
 
-storiesOf('Tree', module)
+storiesOf('Node', module)
     .add('Multiple roots', () => (
         <div>
-            <Tree
+            <Node
                 open={false}
                 onToggleOpen={say('toggle tree 1.1')}
                 label={() => (
                     <Checkbox
-                        label="Tree label 1.1"
+                        label="Node label 1.1"
                         name="l1.1"
                         onChange={say('checkbox 1.1 clicked')}
                         checked={false}
@@ -41,14 +41,14 @@ storiesOf('Tree', module)
                 )}
             >
                 <span>Placeholder content</span>
-            </Tree>
+            </Node>
 
-            <Tree
+            <Node
                 open={false}
                 onToggleOpen={say('toggle tree 1.2')}
                 label={() => (
                     <Checkbox
-                        label="Tree label 1.2"
+                        label="Node label 1.2"
                         name="l1.2"
                         onChange={say('checkbox 1.2 clicked')}
                         checked={false}
@@ -56,151 +56,151 @@ storiesOf('Tree', module)
                 )}
             >
                 <span>Placeholder content</span>
-            </Tree>
+            </Node>
         </div>
     ))
 
     .add('2 Levels open', () => (
-        <Tree
+        <Node
             open={true}
             onToggleOpen={say('Toggle tree 1.1')}
             label={() => (
                 <Checkbox
-                    label="Tree label"
+                    label="Node label"
                     name="l1.1"
                     onChange={say('Check 1.1')}
                     checked={false}
                 />
             )}
         >
-            <Tree
+            <Node
                 open={true}
                 onToggleOpen={say('Toggel tree 2.1')}
                 label={() => (
                     <Checkbox
-                        label="Tree label"
+                        label="Node label"
                         name="l2.1"
                         onChange={say('Check 2.1')}
                         checked={false}
                     />
                 )}
             >
-                <Tree
+                <Node
                     label={() => (
                         <Checkbox
-                            label="Tree label"
+                            label="Node label"
                             name="l3.1"
                             onChange={say('Check 3.1')}
                             checked={false}
                         />
                     )}
                 />
-                <Tree
+                <Node
                     label={() => (
                         <Checkbox
-                            label="Tree label"
+                            label="Node label"
                             name="l3.2"
                             onChange={say('Check 3.2')}
                             checked={false}
                         />
                     )}
                 />
-                <Tree
+                <Node
                     label={() => (
                         <Checkbox
-                            label="Tree label"
+                            label="Node label"
                             name="l3.3"
                             onChange={say('Check 3.3')}
                             checked={false}
                         />
                     )}
                 />
-            </Tree>
-            <Tree
+            </Node>
+            <Node
                 open={false}
                 onToggleOpen={toggleOpen(10)}
                 label={() => (
                     <Checkbox
-                        label="Tree label"
+                        label="Node label"
                         name="l3.1"
                         onChange={toggleChecked(10)}
                         checked={false}
                     />
                 )}
             >
-                <Tree
+                <Node
                     label={() => (
                         <Checkbox
-                            label="Tree label"
+                            label="Node label"
                             name="l3.1"
                             onChange={toggleChecked(11)}
                             checked={false}
                         />
                     )}
                 />
-                <Tree
+                <Node
                     label={() => (
                         <Checkbox
-                            label="Tree label"
+                            label="Node label"
                             name="l3.2"
                             onChange={toggleChecked(12)}
                             checked={false}
                         />
                     )}
                 />
-                <Tree
+                <Node
                     label={() => (
                         <Checkbox
-                            label="Tree label"
+                            label="Node label"
                             name="l3.3"
                             onChange={toggleChecked(13)}
                             checked={false}
                         />
                     )}
                 />
-            </Tree>
-            <Tree
+            </Node>
+            <Node
                 open={false}
                 onToggleOpen={say('Toggle tree 2.2')}
                 label={() => (
                     <Checkbox
-                        label="Tree label"
+                        label="Node label"
                         name="l2.2"
                         onChange={say('Check 2.2')}
                         checked={false}
                     />
                 )}
             />
-            <Tree
+            <Node
                 open={false}
                 onToggleOpen={say('Toggle tree 2.3')}
                 label={() => (
                     <Checkbox
-                        label="Tree label"
+                        label="Node label"
                         name="l2.3"
                         onChange={say('Check 2.3')}
                         checked={false}
                     />
                 )}
             />
-            <Tree
+            <Node
                 open={false}
                 onToggleOpen={say('Toggle tree 2.4')}
                 label={() => (
                     <Checkbox
-                        label="Tree label"
+                        label="Node label"
                         name="l2.4"
                         onChange={say('Check 2.4')}
                         checked={false}
                     />
                 )}
             />
-        </Tree>
+        </Node>
     ))
 
     .add('Text leaves', () => (
         <div>
-            <Tree
+            <Node
                 open={true}
                 onToggleOpen={say('toggle tree level 1')}
                 arrowTopOffset="10px"
@@ -220,7 +220,7 @@ storiesOf('Tree', module)
                 et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
                 est Lorem ipsum dolor sit amet.
                 <div className="sub-tree sub-tree--open">
-                    <Tree
+                    <Node
                         open={true}
                         onToggleOpen={say('toggle tree level 1')}
                         label={() => (
@@ -240,10 +240,10 @@ storiesOf('Tree', module)
                         sed diam voluptua. At vero eos et accusam et justo duo
                         dolores et ea rebum. Stet clita kasd gubergren, no sea
                         takimata sanctus est Lorem ipsum dolor sit amet.
-                    </Tree>
+                    </Node>
                 </div>
                 <div className="sub-tree">
-                    <Tree
+                    <Node
                         open={false}
                         onToggleOpen={say('toggle tree level 1')}
                         label={() => (
@@ -254,10 +254,10 @@ storiesOf('Tree', module)
                         )}
                     >
                         <span>Dummy content</span>
-                    </Tree>
+                    </Node>
                 </div>
                 <div className="sub-tree">
-                    <Tree
+                    <Node
                         open={false}
                         onToggleOpen={say('toggle tree level 1')}
                         label={() => (
@@ -268,10 +268,10 @@ storiesOf('Tree', module)
                         )}
                     >
                         <span>Dummy content</span>
-                    </Tree>
+                    </Node>
                 </div>
                 <div className="sub-tree">
-                    <Tree
+                    <Node
                         open={false}
                         onToggleOpen={say('toggle tree level 1')}
                         label={() => (
@@ -282,10 +282,10 @@ storiesOf('Tree', module)
                         )}
                     >
                         <span>Dummy content</span>
-                    </Tree>
+                    </Node>
                 </div>
                 <div className="sub-tree">
-                    <Tree
+                    <Node
                         open={false}
                         onToggleOpen={say('toggle tree level 1')}
                         label={() => (
@@ -296,9 +296,9 @@ storiesOf('Tree', module)
                         )}
                     >
                         <span>Dummy content</span>
-                    </Tree>
+                    </Node>
                 </div>
-            </Tree>
+            </Node>
 
             <style jsx>{`
                 div {
@@ -326,7 +326,7 @@ storiesOf('Tree', module)
 
                 div :global(.tree__arrow.open:after) {
                     top: 17px;
-                    height: calc(100% - 34px);
+                    height: calc(100% - 28px);
                 }
             `}</style>
         </div>

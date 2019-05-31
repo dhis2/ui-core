@@ -97,7 +97,7 @@ const Content = ({ open, children, label: Label }) => (
     </div>
 )
 
-export const Tree = ({ open, label, children, onToggleOpen }) => {
+export const Node = ({ open, label, children, onToggleOpen }) => {
     const hasLeaves = !!React.Children.count(children)
     const className = cx('tree', {
         open,
@@ -123,7 +123,7 @@ export const Tree = ({ open, label, children, onToggleOpen }) => {
     )
 }
 
-Tree.propTypes = {
+Node.propTypes = {
     label: propTypes.func.isRequired,
     open: propTypes.bool,
     onToggleOpen: propTypes.func,
