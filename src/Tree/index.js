@@ -7,7 +7,7 @@ import { ArrowDown } from '../icons/Arrow'
 import { colors } from '../theme'
 
 const Label = ({ icon, children }) => (
-    <div>
+    <div className="tree__label">
         {children}
 
         <style jsx>{`
@@ -20,7 +20,7 @@ const Label = ({ icon, children }) => (
 )
 
 const Contents = ({ children, open }) => (
-    <div className={cx({ open })}>
+    <div className={cx('tree__contents', { open })}>
         {children}
 
         <style jsx>{`
@@ -40,15 +40,16 @@ const Contents = ({ children, open }) => (
 const arrowStyle = resolve`
     div > :global(svg){
         fill: #e2e2e2;
+
     }
 `
 
-const Arrow = ({ hasLeafes, open, onToggleOpen, arrowTopOffset }) => {
+const Arrow = ({ hasLeafes, open, onToggleOpen }) => {
     const arrowIcon = hasLeafes ? <ArrowDown /> : <span />
 
     return (
         <div
-            className={cx('arrow', arrowStyle.className, {
+            className={cx('tree__arrow', arrowStyle.className, {
                 open,
                 'has-leafes': hasLeafes,
             })}
@@ -62,8 +63,7 @@ const Arrow = ({ hasLeafes, open, onToggleOpen, arrowTopOffset }) => {
                     flex-shrink: 0;
                 }
 
-                .has-leafes.open:after {
-                    content: '';
+                div:after {
                     background: ${colors.grey400};
                     height: calc(100% - 24px);
                     left: 12px;
@@ -73,16 +73,24 @@ const Arrow = ({ hasLeafes, open, onToggleOpen, arrowTopOffset }) => {
                     z-index: 1;
                 }
 
+                .has-leafes.open:after {
+                    content: '';
+                }
+
                 span {
                     display: block;
-                    padding-top: ${arrowTopOffset};
+                    padding-top: 4px;
                     position: relative;
-                    transform: rotate(-90deg);
                     z-index: 2;
                     fill: ${colors.grey700};
                 }
 
-                .open span {
+                div :global(svg) {
+                    vertical-align: top;
+                    transform: rotate(-90deg);
+                }
+
+                .open :global(svg) {
                     transform: rotate(0);
                 }
             `}</style>
@@ -111,7 +119,6 @@ export const Tree = ({
                 open={open}
                 hasLeafes={hasLeafes}
                 onToggleOpen={onToggleOpen}
-                arrowTopOffset={arrowTopOffset}
             />
             <Content children={children} />
 
@@ -128,11 +135,6 @@ Tree.propTypes = {
     open: propTypes.bool,
     hasLeafes: propTypes.bool,
     onToggleOpen: propTypes.func,
-    arrowTopOffset: propTypes.string,
-}
-
-Tree.defaultProps = {
-    arrowTopOffset: '4px',
 }
 
 Tree.Label = Label
