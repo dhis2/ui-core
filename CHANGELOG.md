@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/dhis2/ui/compare/v2.5.0...v2.5.1) (2019-05-31)
+
+
+### Bug Fixes
+
+* **node:** do not count false when calculating the amount of children ([#242](https://github.com/dhis2/ui/issues/242)) ([a00dc19](https://github.com/dhis2/ui/commit/a00dc19))
+
 # [2.5.0](https://github.com/dhis2/ui/compare/v2.4.4...v2.5.0) (2019-05-31)
 
 
