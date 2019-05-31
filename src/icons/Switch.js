@@ -30,28 +30,25 @@ const common = css`
         border-radius: 50%;
         box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.12),
             0 1px 1px 0 rgba(0, 0, 0, 0.24);
-        background-color: #efefef;
         position: relative;
         transition: transform 0.1s ease-in;
     }
 
     .toggle:before {
-        content: '';
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) scale(0.5);
-        transition: transform 0.05s ease-in;
-        width: 100%;
-        height: 100%;
+        transform: translate(-50%, -50%);
+        width: calc(100% + 1px);
+        height: calc(100% + 1px);
         border: 2px solid ${colors.blue600};
         border-radius: 50%;
         z-index: 2;
+        box-sizing: content-box;
     }
 
     .focus .toggle:before {
-        transform: translate(-50%, -50%) scale(1);
-        transition: transform 0.05s ease-out;
+        content: '';
     }
 
     .toggle:after {
@@ -82,43 +79,35 @@ const common = css`
 
     .checked .toggle {
         transform: translate(80%, -50%);
-        background-color: ${colors.teal400};
         transition: transform 0.1s ease-out;
     }
 
-    .checked .toggle:before,
     .checked .toggle:after {
         background-color: ${colors.teal400};
     }
 
-    .valid .path,
-    .valid .toggle {
+    .valid .path {
         background-color: ${theme.valid};
     }
 
-    .valid .toggle:before,
     .valid .toggle:after {
-        background-color: ${colors.valid};
+        background-color: ${theme.valid};
     }
 
-    .warning .path,
-    .warning .toggle {
+    .warning .path {
         background-color: ${theme.warning};
     }
 
-    .warning .toggle:before,
     .warning .toggle:after {
-        background-color: ${colors.warning};
+        background-color: ${theme.warning};
     }
 
-    .error .path,
-    .error .toggle {
+    .error .path {
         background-color: ${theme.error};
     }
 
-    .error .toggle:before,
     .error .toggle:after {
-        background: ${colors.error};
+        background: ${theme.error};
     }
 
     .disabled {
@@ -129,7 +118,8 @@ const common = css`
     .disabled .path {
         background-color: #dadada;
     }
-    .disabled .toggle {
+
+    .disabled .toggle:after {
         background-color: #f5f5f5;
     }
 `
