@@ -28,7 +28,7 @@ const toggleChecked = num => () =>
 storiesOf('Tree', module)
     .add('Multiple roots', () => (
         <div>
-            <Tree hasLeafes open={false} onToggleOpen={say('toggle tree 1.1')}>
+            <Tree hasLeaves open={false} onToggleOpen={say('toggle tree 1.1')}>
                 <Tree.Label open={false}>
                     <Checkbox
                         label="Tree label 1.1"
@@ -41,7 +41,7 @@ storiesOf('Tree', module)
                 <Tree.Contents open={false} />
             </Tree>
 
-            <Tree hasLeafes open={false} onToggleOpen={say('toggle tree 1.2')}>
+            <Tree hasLeaves open={false} onToggleOpen={say('toggle tree 1.2')}>
                 <Tree.Label open={false}>
                     <Checkbox
                         label="Tree label 1.2"
@@ -56,7 +56,7 @@ storiesOf('Tree', module)
         </div>
     ))
     .add('2 Levels open', () => (
-        <Tree hasLeafes open={true} onToggleOpen={say('Toggle tree 1.1')}>
+        <Tree hasLeaves open={true} onToggleOpen={say('Toggle tree 1.1')}>
             <Tree.Label open={true}>
                 <Checkbox
                     label="Tree label"
@@ -68,7 +68,7 @@ storiesOf('Tree', module)
 
             <Tree.Contents open={true}>
                 <Tree
-                    hasLeafes
+                    hasLeaves
                     open={true}
                     onToggleOpen={say('Toggel tree 2.1')}
                 >
@@ -114,7 +114,7 @@ storiesOf('Tree', module)
                         </Tree>
                     </Tree.Contents>
                 </Tree>
-                <Tree hasLeafes open={false} onToggleOpen={toggleOpen(10)}>
+                <Tree hasLeaves open={false} onToggleOpen={toggleOpen(10)}>
                     <Tree.Label open={false}>
                         <Checkbox
                             label="Tree label"
@@ -193,7 +193,7 @@ storiesOf('Tree', module)
     .add('Text leaves', () => (
         <div>
             <Tree
-                hasLeafes
+                hasLeaves
                 open={true}
                 onToggleOpen={say('toggle tree level 1')}
                 arrowTopOffset="10px"
@@ -216,7 +216,7 @@ storiesOf('Tree', module)
                     amet.
                     <div className="sub-tree sub-tree--open">
                         <Tree
-                            hasLeafes
+                            hasLeaves
                             open={true}
                             onToggleOpen={say('toggle tree level 1')}
                         >
@@ -244,7 +244,7 @@ storiesOf('Tree', module)
                     </div>
                     <div className="sub-tree">
                         <Tree
-                            hasLeafes
+                            hasLeaves
                             open={false}
                             onToggleOpen={say('toggle tree level 1')}
                         >
@@ -259,7 +259,7 @@ storiesOf('Tree', module)
                     </div>
                     <div className="sub-tree">
                         <Tree
-                            hasLeafes
+                            hasLeaves
                             open={false}
                             onToggleOpen={say('toggle tree level 1')}
                         >
@@ -274,7 +274,7 @@ storiesOf('Tree', module)
                     </div>
                     <div className="sub-tree">
                         <Tree
-                            hasLeafes
+                            hasLeaves
                             open={false}
                             onToggleOpen={say('toggle tree level 1')}
                         >
@@ -289,7 +289,7 @@ storiesOf('Tree', module)
                     </div>
                     <div className="sub-tree">
                         <Tree
-                            hasLeafes
+                            hasLeaves
                             open={false}
                             onToggleOpen={say('toggle tree level 1')}
                         >

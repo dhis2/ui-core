@@ -44,14 +44,14 @@ const arrowStyle = resolve`
     }
 `
 
-const Arrow = ({ hasLeafes, open, onToggleOpen }) => {
-    const arrowIcon = hasLeafes ? <ArrowDown /> : <span />
+const Arrow = ({ hasLeaves, open, onToggleOpen }) => {
+    const arrowIcon = hasLeaves ? <ArrowDown /> : <span />
 
     return (
         <div
             className={cx('tree__arrow', arrowStyle.className, {
                 open,
-                'has-leafes': hasLeafes,
+                'has-leaves': hasLeaves,
             })}
         >
             <span onClick={onToggleOpen}>{arrowIcon}</span>
@@ -73,7 +73,7 @@ const Arrow = ({ hasLeafes, open, onToggleOpen }) => {
                     z-index: 1;
                 }
 
-                .has-leafes.open:after {
+                .has-leaves.open:after {
                     content: '';
                 }
 
@@ -103,21 +103,21 @@ const Content = ({ children }) => <div>{children}</div>
 
 export const Tree = ({
     children,
-    hasLeafes,
+    hasLeaves,
     open,
     onToggleOpen,
     arrowTopOffset,
 }) => {
     const className = cx('tree', {
         open,
-        'has-leafes': hasLeafes,
+        'has-leaves': hasLeaves,
     })
 
     return (
         <div className={className}>
             <Arrow
                 open={open}
-                hasLeafes={hasLeafes}
+                hasLeaves={hasLeaves}
                 onToggleOpen={onToggleOpen}
             />
             <Content children={children} />
@@ -133,7 +133,7 @@ export const Tree = ({
 
 Tree.propTypes = {
     open: propTypes.bool,
-    hasLeafes: propTypes.bool,
+    hasLeaves: propTypes.bool,
     onToggleOpen: propTypes.func,
 }
 
