@@ -35,16 +35,16 @@ const common = css`
     }
 
     .toggle:before {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: calc(100% + 1px);
-        height: calc(100% + 1px);
+        box-sizing: content-box;
         border: 2px solid ${colors.blue600};
         border-radius: 50%;
+        height: calc(100% + 1px);
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% + 1px);
         z-index: 2;
-        box-sizing: content-box;
     }
 
     .focus .toggle:before {
@@ -52,15 +52,18 @@ const common = css`
     }
 
     .toggle:after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
         background-color: #efefef;
+        border: 2px solid white;
         border-radius: 50%;
+        box-sizing: content-box;
+        content: '';
+        height: 100%;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        z-index: 1;
     }
 
     .path,
