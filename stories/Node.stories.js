@@ -185,6 +185,21 @@ storiesOf('Node', module)
                     />
                 }
             />
+            <Node
+                open={false}
+                onOpen={say('open tree 2.5')}
+                onClose={say('close tree 2.5')}
+                component={
+                    <Checkbox
+                        label="Node label"
+                        name="l2.5"
+                        onChange={say('Check 2.5')}
+                        checked={false}
+                    />
+                }
+            >
+                {false && 'Foo'}
+            </Node>
         </Node>
     ))
 

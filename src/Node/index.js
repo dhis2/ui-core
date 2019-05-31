@@ -99,7 +99,7 @@ const Content = ({ open, children, label }) => (
 )
 
 export const Node = ({ open, component, children, onOpen, onClose }) => {
-    const hasLeaves = !!React.Children.count(children)
+    const hasLeaves = !!React.Children.toArray(children).filter(i => i).length
     const className = cx('tree', {
         open,
         'has-leaves': hasLeaves,
