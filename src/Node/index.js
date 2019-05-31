@@ -37,8 +37,9 @@ const Contents = ({ children, open }) => (
     </div>
 )
 
-const Arrow = ({ hasLeaves, open, onToggleOpen }) => {
+const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
     const arrowIcon = hasLeaves ? <ArrowDown /> : <span />
+    const onClick = open ? onClose : onOpen
 
     return (
         <div
@@ -47,7 +48,7 @@ const Arrow = ({ hasLeaves, open, onToggleOpen }) => {
                 'has-leaves': hasLeaves,
             })}
         >
-            <span onClick={onToggleOpen}>{arrowIcon}</span>
+            <span onClick={onClick}>{arrowIcon}</span>
 
             <style jsx>{`
                 div {
@@ -97,7 +98,7 @@ const Content = ({ open, children, label: Label }) => (
     </div>
 )
 
-export const Node = ({ open, label, children, onToggleOpen }) => {
+export const Node = ({ open, label, children, onOpen, onClose }) => {
     const hasLeaves = !!React.Children.count(children)
     const className = cx('tree', {
         open,
@@ -109,7 +110,8 @@ export const Node = ({ open, label, children, onToggleOpen }) => {
             <Arrow
                 open={open}
                 hasLeaves={hasLeaves}
-                onToggleOpen={onToggleOpen}
+                onOpen={onOpen}
+                onClose={onClose}
             />
 
             <Content open={open} label={label} children={children} />
@@ -126,5 +128,6 @@ export const Node = ({ open, label, children, onToggleOpen }) => {
 Node.propTypes = {
     label: propTypes.func.isRequired,
     open: propTypes.bool,
-    onToggleOpen: propTypes.func,
+    onOpen: propTypes.func,
+    onClose: propTypes.func,
 }
