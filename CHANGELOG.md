@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/dhis2/ui/compare/v2.4.4...v2.5.0) (2019-05-31)
+
+
+### Features
+
+* add node component ([#215](https://github.com/dhis2/ui/issues/215)) ([2bbd4b4](https://github.com/dhis2/ui/commit/2bbd4b4))
+
 ## [2.4.4](https://github.com/dhis2/ui/compare/v2.4.3...v2.4.4) (2019-05-29)
 
 
