@@ -42,12 +42,11 @@ const common = css`
         left: 50%;
         transform: translate(-50%, -50%) scale(0.5);
         transition: transform 0.05s ease-in;
-        width: 200%;
-        height: 200%;
-        background-color: #efefef;
+        width: 100%;
+        height: 100%;
+        border: 2px solid ${colors.blue600};
         border-radius: 50%;
-        z-index: -1;
-        opacity: 0.4;
+        z-index: 2;
     }
 
     .focus .toggle:before {

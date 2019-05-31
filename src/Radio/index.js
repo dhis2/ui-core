@@ -147,7 +147,7 @@ class Radio extends Component {
                     .focus:before {
                         content: '';
                         position: absolute;
-                        border: 2px solid ${colors.blue400};
+                        border: 2px solid ${colors.blue600};
                         border-radius: 50%;
                         width: calc(100% + 2px);
                         height: calc(100% + 2px);

@@ -142,6 +142,7 @@ class Form extends React.Component {
                         checked={this.state.newsletter}
                         valid={this.state.newsletter}
                         onChange={this.setNewsLetter}
+                        focus
                     />
                 </p>
 
