@@ -91,14 +91,14 @@ const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
     )
 }
 
-const Content = ({ open, children, label: Label }) => (
+const Content = ({ open, children, label }) => (
     <div>
-        <Label />
+        {label}
         <Contents open={open}>{children}</Contents>
     </div>
 )
 
-export const Node = ({ open, label, children, onOpen, onClose }) => {
+export const Node = ({ open, component, children, onOpen, onClose }) => {
     const hasLeaves = !!React.Children.count(children)
     const className = cx('tree', {
         open,
@@ -114,7 +114,7 @@ export const Node = ({ open, label, children, onOpen, onClose }) => {
                 onClose={onClose}
             />
 
-            <Content open={open} label={label} children={children} />
+            <Content open={open} label={component} children={children} />
 
             <style jsx>{`
                 div {
@@ -126,7 +126,7 @@ export const Node = ({ open, label, children, onOpen, onClose }) => {
 }
 
 Node.propTypes = {
-    label: propTypes.func.isRequired,
+    component: propTypes.element.isRequired,
     open: propTypes.bool,
     onOpen: propTypes.func,
     onClose: propTypes.func,

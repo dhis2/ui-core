@@ -14,14 +14,14 @@ storiesOf('Node', module)
                 open={false}
                 onOpen={say('open tree 1.1')}
                 onClose={say('close tree 1.1')}
-                label={() => (
+                component={
                     <Checkbox
                         label="Node label 1.1"
                         name="l1.1"
                         onChange={say('checkbox 1.1 clicked')}
                         checked={false}
                     />
-                )}
+                }
             >
                 <span>Placeholder content</span>
             </Node>
@@ -30,14 +30,14 @@ storiesOf('Node', module)
                 open={false}
                 onOpen={say('open tree 1.2')}
                 onClose={say('close tree 1.2')}
-                label={() => (
+                component={
                     <Checkbox
                         label="Node label 1.2"
                         name="l1.2"
                         onChange={say('checkbox 1.2 clicked')}
                         checked={false}
                     />
-                )}
+                }
             >
                 <span>Placeholder content</span>
             </Node>
@@ -49,141 +49,141 @@ storiesOf('Node', module)
             open={true}
             onOpen={say('open tree 1.1')}
             onClose={say('close tree 1.1')}
-            label={() => (
+            component={
                 <Checkbox
                     label="Node label"
                     name="l1.1"
                     onChange={say('Check 1.1')}
                     checked={false}
                 />
-            )}
+            }
         >
             <Node
                 open={true}
                 onOpen={say('open tree 2.1')}
                 onClose={say('close tree 2.1')}
-                label={() => (
+                component={
                     <Checkbox
                         label="Node label"
                         name="l2.1"
                         onChange={say('Check 2.1')}
                         checked={false}
                     />
-                )}
+                }
             >
                 <Node
-                    label={() => (
+                    component={
                         <Checkbox
                             label="Node label"
                             name="l3.1"
                             onChange={say('Check 3.1')}
                             checked={false}
                         />
-                    )}
+                    }
                 />
                 <Node
-                    label={() => (
+                    component={
                         <Checkbox
                             label="Node label"
                             name="l3.2"
                             onChange={say('Check 3.2')}
                             checked={false}
                         />
-                    )}
+                    }
                 />
                 <Node
-                    label={() => (
+                    component={
                         <Checkbox
                             label="Node label"
                             name="l3.3"
                             onChange={say('Check 3.3')}
                             checked={false}
                         />
-                    )}
+                    }
                 />
             </Node>
             <Node
                 open={false}
                 onOpen={say('open tree 2.2')}
                 onCLose={say('close tree 2.2')}
-                label={() => (
+                component={
                     <Checkbox
                         label="Node label"
                         name="l3.1"
                         onChange={say('Check 2.2')}
                         checked={false}
                     />
-                )}
+                }
             >
                 <Node
-                    label={() => (
+                    component={
                         <Checkbox
                             label="Node label"
                             name="l3.4"
                             onChange={say('Check 3.4')}
                             checked={false}
                         />
-                    )}
+                    }
                 />
                 <Node
-                    label={() => (
+                    component={
                         <Checkbox
                             label="Node label"
                             name="l3.5"
                             onChange={say('Check 3.5')}
                             checked={false}
                         />
-                    )}
+                    }
                 />
                 <Node
-                    label={() => (
+                    component={
                         <Checkbox
                             label="Node label"
                             name="l3.6"
                             onChange={say('Check 3.6')}
                             checked={false}
                         />
-                    )}
+                    }
                 />
             </Node>
             <Node
                 open={false}
                 onOpen={say('open tree 2.3')}
                 onClose={say('close tree 2.3')}
-                label={() => (
+                component={
                     <Checkbox
                         label="Node label"
                         name="l2.3"
                         onChange={say('Check 2.3')}
                         checked={false}
                     />
-                )}
+                }
             />
             <Node
                 open={false}
                 onOpen={say('open tree 2.4')}
                 onClose={say('close tree 2.4')}
-                label={() => (
+                component={
                     <Checkbox
                         label="Node label"
                         name="l2.4"
                         onChange={say('Check 2.4')}
                         checked={false}
                     />
-                )}
+                }
             />
             <Node
                 open={false}
                 onOpen={say('open tree 2.5')}
                 onClose={say('close tree 2.5')}
-                label={() => (
+                component={
                     <Checkbox
                         label="Node label"
                         name="l2.5"
                         onChange={say('Check 2.5')}
                         checked={false}
                     />
-                )}
+                }
             />
         </Node>
     ))
@@ -195,11 +195,11 @@ storiesOf('Node', module)
                 onOpen={say('open tree level 1')}
                 onClose={say('close tree level 1')}
                 arrowTopOffset="10px"
-                label={() => (
+                component={
                     <h2>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr
                     </h2>
-                )}
+                }
             >
                 Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
@@ -215,12 +215,12 @@ storiesOf('Node', module)
                         open={true}
                         onOpen={say('open tree level 2.1')}
                         onClose={say('close tree level 2.1')}
-                        label={() => (
+                        component={
                             <h2>
                                 Lorem ipsum dolor sit amet, consetetur
                                 sadipscing elitr
                             </h2>
-                        )}
+                        }
                     >
                         Sed diam nonumy eirmod tempor invidunt ut labore et
                         dolore magna aliquyam erat, sed diam voluptua. At vero
@@ -239,12 +239,12 @@ storiesOf('Node', module)
                         open={false}
                         onOpen={say('open tree level 2.2')}
                         onClose={say('close tree level 2.2')}
-                        label={() => (
+                        component={
                             <h2>
                                 Lorem ipsum dolor sit amet, consetetur
                                 sadipscing elitr
                             </h2>
-                        )}
+                        }
                     >
                         <span>Dummy content</span>
                     </Node>
@@ -254,12 +254,12 @@ storiesOf('Node', module)
                         open={false}
                         onOpen={say('open tree level 2.3')}
                         onClose={say('close tree level 2.3')}
-                        label={() => (
+                        component={
                             <h2>
                                 Lorem ipsum dolor sit amet, consetetur
                                 sadipscing elitr
                             </h2>
-                        )}
+                        }
                     >
                         <span>Dummy content</span>
                     </Node>
@@ -269,12 +269,12 @@ storiesOf('Node', module)
                         open={false}
                         onOpen={say('open tree level 2.4')}
                         onClose={say('close tree level 2.4')}
-                        label={() => (
+                        component={
                             <h2>
                                 Lorem ipsum dolor sit amet, consetetur
                                 sadipscing elitr
                             </h2>
-                        )}
+                        }
                     >
                         <span>Dummy content</span>
                     </Node>
@@ -284,12 +284,12 @@ storiesOf('Node', module)
                         open={false}
                         onOpen={say('open tree level 2.5')}
                         onClose={say('close tree level 2.5')}
-                        label={() => (
+                        component={
                             <h2>
                                 Lorem ipsum dolor sit amet, consetetur
                                 sadipscing elitr
                             </h2>
-                        )}
+                        }
                     >
                         <span>Dummy content</span>
                     </Node>
