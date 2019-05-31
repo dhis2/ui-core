@@ -190,3 +190,149 @@ storiesOf('Tree', module)
             </Tree.Contents>
         </Tree>
     ))
+    .add('Text leaves', () => (
+        <div>
+            <Tree
+                hasLeafes
+                open={true}
+                onToggleOpen={say('toggle tree level 1')}
+                arrowTopOffset="10px"
+            >
+                <Tree.Label open={true}>
+                    <h2>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr
+                    </h2>
+                </Tree.Label>
+                <Tree.Contents open={true}>
+                    Sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et
+                    accusam et justo duo dolores et ea rebum. Stet clita kasd
+                    gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                    amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+                    elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos
+                    et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                    gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                    amet.
+                    <div className="sub-tree sub-tree--open">
+                        <Tree
+                            hasLeafes
+                            open={true}
+                            onToggleOpen={say('toggle tree level 1')}
+                        >
+                            <Tree.Label open={true}>
+                                <h2>
+                                    Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr
+                                </h2>
+                            </Tree.Label>
+                            <Tree.Contents open={true}>
+                                Sed diam nonumy eirmod tempor invidunt ut labore
+                                et dolore magna aliquyam erat, sed diam
+                                voluptua. At vero eos et accusam et justo duo
+                                dolores et ea rebum. Stet clita kasd gubergren,
+                                no sea takimata sanctus est Lorem ipsum dolor
+                                sit amet. Lorem ipsum dolor sit amet, consetetur
+                                sadipscing elitr, sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore magna aliquyam
+                                erat, sed diam voluptua. At vero eos et accusam
+                                et justo duo dolores et ea rebum. Stet clita
+                                kasd gubergren, no sea takimata sanctus est
+                                Lorem ipsum dolor sit amet.
+                            </Tree.Contents>
+                        </Tree>
+                    </div>
+                    <div className="sub-tree">
+                        <Tree
+                            hasLeafes
+                            open={false}
+                            onToggleOpen={say('toggle tree level 1')}
+                        >
+                            <Tree.Label open={false}>
+                                <h2>
+                                    Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr
+                                </h2>
+                            </Tree.Label>
+                            <Tree.Contents open={false} />
+                        </Tree>
+                    </div>
+                    <div className="sub-tree">
+                        <Tree
+                            hasLeafes
+                            open={false}
+                            onToggleOpen={say('toggle tree level 1')}
+                        >
+                            <Tree.Label open={false}>
+                                <h2>
+                                    Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr
+                                </h2>
+                            </Tree.Label>
+                            <Tree.Contents open={false} />
+                        </Tree>
+                    </div>
+                    <div className="sub-tree">
+                        <Tree
+                            hasLeafes
+                            open={false}
+                            onToggleOpen={say('toggle tree level 1')}
+                        >
+                            <Tree.Label open={false}>
+                                <h2>
+                                    Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr
+                                </h2>
+                            </Tree.Label>
+                            <Tree.Contents open={false} />
+                        </Tree>
+                    </div>
+                    <div className="sub-tree">
+                        <Tree
+                            hasLeafes
+                            open={false}
+                            onToggleOpen={say('toggle tree level 1')}
+                        >
+                            <Tree.Label open={false}>
+                                <h2>
+                                    Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr
+                                </h2>
+                            </Tree.Label>
+                            <Tree.Contents open={false} />
+                        </Tree>
+                    </div>
+                </Tree.Contents>
+            </Tree>
+
+            <style jsx>{`
+                div {
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+
+                h2 {
+                    font-size: 24px;
+                    line-height: 32px;
+                    margin: 0 0 10px;
+                }
+
+                .sub-tree {
+                    margin-top: 10px;
+                }
+
+                .sub-tree--open {
+                    margin-bottom: 20px;
+                }
+
+                div :global(.tree__arrow > span) {
+                    padding-top: 8px;
+                }
+
+                div :global(.tree__arrow.open:after) {
+                    top: 21px;
+                    height: calc(100% - 32px);
+                }
+            `}</style>
+        </div>
+    ))
