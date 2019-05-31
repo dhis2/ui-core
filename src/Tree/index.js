@@ -37,19 +37,12 @@ const Contents = ({ children, open }) => (
     </div>
 )
 
-const arrowStyle = resolve`
-    div > :global(svg){
-        fill: #e2e2e2;
-
-    }
-`
-
 const Arrow = ({ hasLeaves, open, onToggleOpen }) => {
     const arrowIcon = hasLeaves ? <ArrowDown /> : <span />
 
     return (
         <div
-            className={cx('tree__arrow', arrowStyle.className, {
+            className={cx('tree__arrow', {
                 open,
                 'has-leaves': hasLeaves,
             })}
@@ -79,7 +72,6 @@ const Arrow = ({ hasLeaves, open, onToggleOpen }) => {
 
                 span {
                     display: block;
-                    padding-top: 4px;
                     position: relative;
                     z-index: 2;
                     fill: ${colors.grey700};
@@ -94,20 +86,19 @@ const Arrow = ({ hasLeaves, open, onToggleOpen }) => {
                     transform: rotate(0);
                 }
             `}</style>
-            {arrowStyle.styles}
         </div>
     )
 }
 
-const Content = ({ children }) => <div>{children}</div>
+const Content = ({ open, children, label: Label }) => (
+    <div>
+        <Label />
+        <Contents open={open}>{children}</Contents>
+    </div>
+)
 
-export const Tree = ({
-    children,
-    hasLeaves,
-    open,
-    onToggleOpen,
-    arrowTopOffset,
-}) => {
+export const Tree = ({ open, label, children, onToggleOpen }) => {
+    const hasLeaves = !!React.Children.count(children)
     const className = cx('tree', {
         open,
         'has-leaves': hasLeaves,
@@ -120,7 +111,8 @@ export const Tree = ({
                 hasLeaves={hasLeaves}
                 onToggleOpen={onToggleOpen}
             />
-            <Content children={children} />
+
+            <Content open={open} label={label} children={children} />
 
             <style jsx>{`
                 div {
@@ -132,10 +124,7 @@ export const Tree = ({
 }
 
 Tree.propTypes = {
+    label: propTypes.func.isRequired,
     open: propTypes.bool,
-    hasLeaves: propTypes.bool,
     onToggleOpen: propTypes.func,
 }
-
-Tree.Label = Label
-Tree.Contents = Contents
