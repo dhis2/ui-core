@@ -38,12 +38,12 @@ const common = css`
         box-sizing: content-box;
         border: 2px solid ${colors.blue600};
         border-radius: 50%;
-        height: calc(100% + 1px);
+        height: calc(100% + 2px);
         left: 50%;
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: calc(100% + 1px);
+        width: calc(100% + 2px);
         z-index: 2;
     }
 
