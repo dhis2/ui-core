@@ -52,8 +52,8 @@ class Checkbox extends Component {
             autofocus,
             tabIndex,
             readonly,
-            focus = this.state.focus,
         } = this.props
+        const { focus } = this.state
 
         return (
             <Fragment>
