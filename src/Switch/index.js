@@ -29,6 +29,7 @@ class Switch extends Component {
     }
 
     onBlur = e => {
+        console.log('on blur!')
         this.setState({ focus: false })
 
         if (this.props.onBlur) {
@@ -48,8 +49,8 @@ class Switch extends Component {
             valid,
             warning,
             error,
-            focus = this.state.focus,
         } = this.props
+        const { focus } = this.state
 
         return (
             <label

@@ -52,11 +52,10 @@ const common = css`
     }
 
     .toggle:after {
+        content: '';
         background-color: #efefef;
-        border: 2px solid white;
         border-radius: 50%;
         box-sizing: content-box;
-        content: '';
         height: 100%;
         left: 50%;
         position: absolute;
@@ -64,6 +63,10 @@ const common = css`
         transform: translate(-50%, -50%);
         width: 100%;
         z-index: 1;
+    }
+
+    .focus .toggle:after {
+        border: 2px solid white;
     }
 
     .path,
