@@ -77,6 +77,12 @@ function createStory(name, props) {
             </SelectField>
         ))
 
+        .add('Focus', () => (
+            <SelectField {...props} focus>
+                {options}
+            </SelectField>
+        ))
+
         .add('Dense', () => (
             <SelectField {...props} dense>
                 {options}
