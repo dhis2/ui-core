@@ -8,6 +8,24 @@ import { MenuItem } from '../src/MenuItem'
 import markdown from './info/molecules/pop.md'
 
 addParameters({ notes: markdown })
+addDecorator(fn => (
+    <Fragment>
+        {fn()}
+
+        <style jsx>{`
+            :global(html) {
+                height: 100%;
+            }
+            :global(body) {
+                height: 100%;
+                min-height: 100%;
+            }
+            :global(#root) {
+                height: 100%;
+            }
+        `}</style>
+    </Fragment>
+))
 
 const Btn = forwardRef(({ styles = {}, ...props }, ref) => (
     <button
@@ -388,5 +406,54 @@ storiesOf('Pop', module)
                     <span />
                 </MenuItem>
             </Menu>
+        </Pop>
+    ))
+
+/**
+ * =========================================
+ * Tooltip
+ * =========================================
+ */
+
+class Tooltip extends React.Component {
+    ref1 = React.createRef()
+
+    render() {
+        return (
+            <Fragment>
+                <Btn ref={this.ref1}>Anchor</Btn>
+                {React.Children.map(this.props.children, child =>
+                    React.cloneElement(child, {
+                        anchorRef: this.ref1,
+                    })
+                )}
+            </Fragment>
+        )
+    }
+}
+
+storiesOf('Pop', module)
+    .addDecorator(fn => <Tooltip>{fn()}</Tooltip>)
+    .add('Tooltip', () => (
+        <Pop
+            open={true}
+            onClose={() => null}
+            anchorRef={{ current: 'Overriden by story implementation' }}
+            anchorPoint={{ vertical: 'top', horizontal: 'center' }}
+            popPoint={{ vertical: 'bottom', horizontal: 'center' }}
+        >
+            <p>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua.
+            </p>
+
+            <style jsx>{`
+                p {
+                    margin: 0;
+                    padding: 16px;
+                    max-width: 300px;
+                }
+            `}</style>
         </Pop>
     ))
