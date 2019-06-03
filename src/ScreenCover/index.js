@@ -3,16 +3,16 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-const Backdrop = ({ onClick, withoutBackgroundColor }) => (
+import { layers } from '../theme.js'
+
+const Backdrop = ({ onClick }) => (
     <div className="backdrop" onClick={onClick}>
         <style jsx>{`
             div {
                 height: 100%;
                 width: 100%;
 
-                background: ${withoutBackgroundColor
-                    ? 'none'
-                    : 'rgba(200, 200, 200, 0.6)'};
+                background: rgba(33, 43, 54, 0.4);
             }
         `}</style>
     </div>
@@ -34,17 +34,9 @@ const Content = ({ children }) => (
     </div>
 )
 
-const ScreenCover = ({
-    children,
-    onClick,
-    className,
-    withoutBackgroundColor,
-}) => (
+const ScreenCover = ({ children, onClick, className }) => (
     <div className={className}>
-        <Backdrop
-            onClick={onClick}
-            withoutBackgroundColor={withoutBackgroundColor}
-        />
+        <Backdrop onClick={onClick} />
         <Content>{children}</Content>
 
         <style jsx>{`
@@ -56,7 +48,7 @@ const ScreenCover = ({
                 left: 0;
                 top: 0;
 
-                z-index: 10000;
+                z-index: ${layers.blocking};
             }
         `}</style>
     </div>
@@ -66,7 +58,6 @@ ScreenCover.propTypes = {
     onClick: propTypes.func,
     className: propTypes.string,
     children: propTypes.node,
-    withoutBackgroundColor: propTypes.bool,
 }
 
 export { ScreenCover }
