@@ -92,8 +92,8 @@ class Radio extends Component {
             autofocus,
             readonly,
             tabIndex,
-            focus = this.state.focus,
         } = this.props
+        const { focus } = this.state
 
         const classes = cx(icons.className, {
             checked: checked && !valid && !error && !warning,
