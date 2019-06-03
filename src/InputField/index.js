@@ -42,8 +42,8 @@ class InputField extends React.Component {
             autofocus,
             readonly,
             tabIndex,
-            focus = this.state.focus,
         } = this.props
+        const { focus } = this.state
 
         const Container = filled ? LabelFilled : LabelOutlined
 
