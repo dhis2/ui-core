@@ -56,6 +56,15 @@ export const getPosition = ({
         popPoint,
         fallbackPoints
     )
+
+    if (relativePosition === null) {
+        return {
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+        }
+    }
+
     const [realAnchorPoint, realPopPoint] = relativePosition
 
     return {
@@ -100,26 +109,19 @@ const getRelativePosition = (
         positionsToTry = [startPosition, ...FALLBACKS[startPositionIndex][2]]
     }
 
-    return (
-        positionsToTry.reduce((finalPosition, curPosition) => {
-            if (finalPosition) return finalPosition
+    return positionsToTry.reduce((finalPosition, curPosition) => {
+        if (finalPosition) return finalPosition
 
-            let [curAnchorPoint, curPopPoint] = curPosition
+        const [curAnchorPoint, curPopPoint] = curPosition
+        const fitsOnScreen = doesPositionFitOnScreen(
+            anchorRect,
+            popRect,
+            curAnchorPoint,
+            curPopPoint
+        )
 
-            if (
-                doesPositionFitOnScreen(
-                    anchorRect,
-                    popRect,
-                    curAnchorPoint,
-                    curPopPoint
-                )
-            ) {
-                return curPosition
-            }
-
-            return finalPosition
-        }, null) || startPosition
-    )
+        return fitsOnScreen ? curPosition : finalPosition
+    }, null)
 }
 
 const doesPositionFitOnScreen = (anchor, pop, anchorPoint, popPoint) =>
