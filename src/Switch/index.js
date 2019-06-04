@@ -29,7 +29,6 @@ class Switch extends Component {
     }
 
     onBlur = e => {
-        console.log('on blur!')
         this.setState({ focus: false })
 
         if (this.props.onBlur) {
