@@ -29,7 +29,7 @@ storiesOf('Checkbox', module)
 
     .add('Focused checked', () => (
         <Checkbox
-            focus
+            initialFocus
             name="Ex"
             value="ex"
             label="Set with checked"
@@ -40,7 +40,7 @@ storiesOf('Checkbox', module)
 
     .add('Focused unchecked', () => (
         <Checkbox
-            focus
+            initialFocus
             name="Ex"
             value="ex"
             label="Unchecked focused"
