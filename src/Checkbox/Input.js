@@ -29,7 +29,6 @@ export class Input extends Component {
         return (
             <Fragment>
                 <input
-                    tabIndex="0"
                     ref={this.ref}
                     type="checkbox"
                     name={name}
