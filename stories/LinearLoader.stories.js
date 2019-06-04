@@ -3,11 +3,11 @@ import { storiesOf } from '@storybook/react'
 import { LinearLoader, ScreenCover, ComponentCover } from '../src'
 
 storiesOf('LinearLoader', module)
-    .add('Determinate', () => <LinearProgress amount={60} />)
+    .add('Determinate', () => <LinearLoader amount={60} />)
 
     .add('Overlay page', () => (
         <ScreenCover>
-            <LinearProgress amount={30} />
+            <LinearLoader amount={30} />
         </ScreenCover>
     ))
 
