@@ -78,7 +78,7 @@ function createStory(name, props) {
         ))
 
         .add('Focus', () => (
-            <SelectField {...props} focus>
+            <SelectField {...props} initialFocus>
                 {options}
             </SelectField>
         ))
