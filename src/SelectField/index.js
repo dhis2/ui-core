@@ -42,7 +42,7 @@ class SelectField extends React.Component {
     }
 
     isFocused() {
-        return this.state.focused
+        return this.state.focus
     }
 
     render() {
@@ -82,6 +82,7 @@ class SelectField extends React.Component {
                 dense={dense}
             >
                 <Select
+                    focus={focus}
                     name={name}
                     value={value}
                     disabled={disabled}

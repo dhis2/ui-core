@@ -15,7 +15,7 @@ class Switch extends Component {
     }
 
     componentDidMount() {
-        if (this.props.focus) {
+        if (this.state.focus) {
             this.ref.current.focus()
         }
     }

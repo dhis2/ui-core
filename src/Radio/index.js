@@ -49,12 +49,12 @@ class Radio extends Component {
         super(props)
 
         this.state = {
-            focus: !!props.initialFocus,
+            focus: props.initialFocus,
         }
     }
 
     componentDidMount() {
-        if (this.props.focus) {
+        if (this.state.focus) {
             this.ref.current.focus()
         }
     }
@@ -118,7 +118,6 @@ class Radio extends Component {
                     type="radio"
                     name={name}
                     value={value}
-                    focus={focus}
                     checked={checked}
                     disabled={disabled}
                     tabIndex={tabIndex}
