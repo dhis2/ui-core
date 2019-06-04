@@ -8,7 +8,7 @@ import { theme } from '../theme'
 
 class InputField extends React.Component {
     state = {
-        focus: this.props.focus,
+        focus: this.props.initialFocus,
     }
 
     onFocus = e => {
@@ -116,13 +116,13 @@ InputField.propTypes = {
     disabled: propTypes.bool,
     filled: propTypes.bool,
     dense: propTypes.bool,
-    focus: propTypes.bool,
     valid: propTypes.bool,
     warning: propTypes.bool,
     error: propTypes.bool,
     loading: propTypes.bool,
     autofocus: propTypes.bool,
     readonly: propTypes.bool,
+    initialFocus: propTypes.bool,
 
     onBlur: propTypes.func,
     onFocus: propTypes.func,
