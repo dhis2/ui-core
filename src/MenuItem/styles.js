@@ -16,17 +16,24 @@ export default css`
         margin-left: 8px;
     }
 
-    li:hover,
-    li.active {
+    li:hover {
         background-color: ${colors.grey200};
+    }
+
+    li.active {
+        background-color: ${colors.grey400};
     }
 
     .label {
         color: ${colors.grey900};
         font-size: 15px;
+
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         user-select: none;
+        padding-right: 12px;
     }
 
     .icon {

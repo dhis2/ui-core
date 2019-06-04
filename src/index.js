@@ -1,4 +1,5 @@
 export { Button } from './Button'
+export { ButtonStrip } from './ButtonStrip'
 export { Card } from './Card'
 export { Checkbox } from './Checkbox'
 export { Chip } from './Chip'
@@ -20,6 +21,7 @@ export { Radio } from './Radio'
 export { SelectField } from './SelectField'
 export { SplitButton } from './SplitButton'
 export { Switch } from './Switch'
+export { Node } from './Node'
 
 export { CssReset } from './CssReset'
 

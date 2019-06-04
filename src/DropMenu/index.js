@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 import propTypes from 'prop-types'
 import { getPosition } from './getPosition'
+import { layers } from '../theme.js'
 
 class DropMenu extends PureComponent {
     state = {
@@ -45,7 +46,7 @@ class DropMenu extends PureComponent {
 
                 <style jsx>{`
                     div {
-                        z-index: 1000;
+                        z-index: ${layers.applicationTop};
                         position: absolute;
                         top: ${top};
                         left: ${left};
@@ -66,7 +67,9 @@ DropMenu.propTypes = {
     /** Decides if the menu should call the onClose function or not */
     stayOpen: propTypes.bool,
     /** DOM node to position itself against */
-    anchorEl: propTypes.instanceOf(Element),
+    anchorEl: propTypes.shape({
+        getBoundingClientRect: propTypes.func.isRequired,
+    }),
 }
 
 export { DropMenu }

@@ -33,30 +33,56 @@ export default css`
     }
 
     button:focus {
-        /* Prevent default browser behavior whcih adds an outline */
+        /* Prevent default browser behavior which adds an outline */
         outline: none;
     }
 
+    /* Use the ::after pseudo-element for focus styles */
+    button::after {
+        content: ' ';
+        pointer-events: none;
+
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        left: -2px;
+        z-index: 1;
+
+        border: 2px solid transparent;
+        border-radius: inherit;
+
+        transition: border-color 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+    }
+
+    /* Prevent focus styles on active and disabled buttons */
+    button:active:focus::after,
+    button:disabled:focus::after {
+        border-color: transparent;
+    }
+
     button:hover {
-        border: 1px solid #c4c9cc;
+        border-color: #c4c9cc;
         background-color: #f3f4f5;
     }
 
     button:active,
     button:active:focus {
-        border: 1px solid #c5c9cc;
+        border-color: #c5c9cc;
         background-color: #f3f4f5;
         box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.1) inset;
     }
 
     button:focus {
-        border: 1px solid ${theme.primary600};
         background-color: #f9fafb;
-        box-shadow: 0 0 0 1px ${theme.primary600};
+    }
+
+    button:focus::after {
+        border-color: ${theme.primary600};
     }
 
     button:disabled {
-        border: 1px solid #c4c9cc;
+        border-color: #c4c9cc;
         background-color: #f9fafb;
         box-shadow: none;
         color: ${theme.disabled};
@@ -88,7 +114,7 @@ export default css`
     }
 
     .primary {
-        border: 1px solid ${theme.primary800};
+        border-color: ${theme.primary800};
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
         background-color: #2b61b3;
         color: ${colors.white};
@@ -97,28 +123,30 @@ export default css`
     }
 
     .primary:hover {
-        border: 1px solid ${theme.primary800};
+        border-color: ${theme.primary800};
         background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
         background-color: #21539f;
     }
 
     .primary:active,
     .primary:active:focus {
-        border: 1px solid ${theme.primary800};
+        border-color: ${theme.primary800};
         background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
         background-color: #1c4a90;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
     }
 
     .primary:focus {
-        border: 1px solid ${colors.yellow300};
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
         background-color: #285dac;
-        box-shadow: 0 0 0 1px ${colors.yellow300} inset;
+    }
+
+    .primary:focus::after {
+        border-color: ${colors.yellow300};
     }
 
     .primary:disabled {
-        border: 1px solid ${theme.primary800};
+        border-color: ${theme.primary800};
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
         background-color: #b6c8e2;
         box-shadow: none;
@@ -128,30 +156,32 @@ export default css`
     }
 
     .secondary {
-        border: 1px solid ${colors.grey400};
+        border-color: ${colors.grey400};
         background-color: transparent;
     }
 
     .secondary:hover {
-        border: 1px solid ${colors.grey400};
+        border-color: ${colors.grey400};
         background-color: rgba(158, 158, 158, 0.07);
     }
 
     .secondary:active,
     .secondary:active:focus {
-        border: 1px solid ${colors.grey400};
+        border-color: ${colors.grey400};
         background-color: rgba(158, 158, 158, 0.18);
         box-shadow: none;
     }
 
     .secondary:focus {
-        border: 1px solid ${theme.primary600};
         background-color: transparent;
-        box-shadow: 0 0 0 1px ${theme.primary600};
+    }
+
+    .secondary:focus::after {
+        border-color: ${theme.primary600};
     }
 
     .secondary:disabled {
-        border: 1px solid ${colors.grey400};
+        border-color: ${colors.grey400};
         background-color: transparent;
         box-shadow: none;
         color: ${theme.disabled};
@@ -159,7 +189,7 @@ export default css`
     }
 
     .destructive {
-        border: 1px solid #a10b0b;
+        border-color: #a10b0b;
         background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
         background-color: #b9242b;
         color: ${colors.white};
@@ -168,28 +198,30 @@ export default css`
     }
 
     .destructive:hover {
-        border: 1px solid #a10b0b;
+        border-color: #a10b0b;
         background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
         background-color: #ac0f1a;
     }
 
     .destructive:active,
     .destructive:active:focus {
-        border: 1px solid #a10b0b;
+        border-color: #a10b0b;
         background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
         background-color: #ac101b;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
     }
 
     .destructive:focus {
-        border: 1px solid #5e0303;
         background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
         background-color: #b72229;
-        box-shadow: 0 0 0 1px #5e0303 inset;
+    }
+
+    .destructive:focus:after {
+        border-color: #5e0303;
     }
 
     .destructive:disabled {
-        border: 1px solid #a10b0b;
+        border-color: #a10b0b;
         background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
         background-color: #e5b5b7;
         box-shadow: none;

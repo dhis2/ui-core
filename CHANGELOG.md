@@ -1,3 +1,73 @@
+## [2.5.1](https://github.com/dhis2/ui/compare/v2.5.0...v2.5.1) (2019-05-31)
+
+
+### Bug Fixes
+
+* **node:** do not count false when calculating the amount of children ([#242](https://github.com/dhis2/ui/issues/242)) ([a00dc19](https://github.com/dhis2/ui/commit/a00dc19))
+
+# [2.5.0](https://github.com/dhis2/ui/compare/v2.4.4...v2.5.0) (2019-05-31)
+
+
+### Features
+
+* add node component ([#215](https://github.com/dhis2/ui/issues/215)) ([2bbd4b4](https://github.com/dhis2/ui/commit/2bbd4b4))
+
+## [2.4.4](https://github.com/dhis2/ui/compare/v2.4.3...v2.4.4) (2019-05-29)
+
+
+### Bug Fixes
+
+* **menu item:** differentiate between hover and active style ([#240](https://github.com/dhis2/ui/issues/240)) ([37c51cb](https://github.com/dhis2/ui/commit/37c51cb))
+
+## [2.4.3](https://github.com/dhis2/ui/compare/v2.4.2...v2.4.3) (2019-05-24)
+
+
+### Bug Fixes
+
+* styling adjustments ([#235](https://github.com/dhis2/ui/issues/235)) ([b0bb96e](https://github.com/dhis2/ui/commit/b0bb96e))
+
+## [2.4.2](https://github.com/dhis2/ui/compare/v2.4.1...v2.4.2) (2019-05-24)
+
+
+### Bug Fixes
+
+* **linting:** ran `d2 style js install` to generate eslint config ([#234](https://github.com/dhis2/ui/issues/234)) ([f75c8ba](https://github.com/dhis2/ui/commit/f75c8ba))
+
+## [2.4.1](https://github.com/dhis2/ui/compare/v2.4.0...v2.4.1) (2019-05-23)
+
+
+### Bug Fixes
+
+* **buttonstrip:** remove default prop so start class is not always added ([#233](https://github.com/dhis2/ui/issues/233)) ([0526051](https://github.com/dhis2/ui/commit/0526051))
+
+# [2.4.0](https://github.com/dhis2/ui/compare/v2.3.0...v2.4.0) (2019-05-23)
+
+
+### Features
+
+* **buttonstrip:** add button strip component ([#227](https://github.com/dhis2/ui/issues/227)) ([63d774e](https://github.com/dhis2/ui/commit/63d774e))
+
+# [2.3.0](https://github.com/dhis2/ui/compare/v2.2.3...v2.3.0) (2019-05-23)
+
+
+### Features
+
+* **prop-types:** mutually exclusive booleans ([#232](https://github.com/dhis2/ui/issues/232)) ([c2ce2c1](https://github.com/dhis2/ui/commit/c2ce2c1))
+
+## [2.2.3](https://github.com/dhis2/ui/compare/v2.2.2...v2.2.3) (2019-05-22)
+
+
+### Bug Fixes
+
+* issue with gatsby ([#231](https://github.com/dhis2/ui/issues/231)) ([cfb4718](https://github.com/dhis2/ui/commit/cfb4718))
+
+## [2.2.2](https://github.com/dhis2/ui/compare/v2.2.1...v2.2.2) (2019-05-22)
+
+
+### Bug Fixes
+
+* introduce the stacking context ([#229](https://github.com/dhis2/ui/issues/229)) ([54acc10](https://github.com/dhis2/ui/commit/54acc10))
+
 ## [2.2.1](https://github.com/dhis2/ui/compare/v2.2.0...v2.2.1) (2019-05-21)
 
 
