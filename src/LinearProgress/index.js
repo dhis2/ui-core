@@ -48,6 +48,7 @@ const LinearProgress = ({ amount, width, margin, className }) => {
 }
 
 LinearProgress.defaultProps = {
+    amount: 0,
     margin: '10px',
     width: '300px',
 }
