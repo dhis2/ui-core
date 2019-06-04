@@ -25,7 +25,7 @@ const Progress = ({ amount }) => {
     )
 }
 
-const LinearProgress = ({ amount, width, margin, className }) => {
+const LinearLoader = ({ amount, width, margin, className }) => {
     return (
         <div role="progressbar" className={className}>
             <Progress amount={amount} />
@@ -47,13 +47,13 @@ const LinearProgress = ({ amount, width, margin, className }) => {
     )
 }
 
-LinearProgress.defaultProps = {
+LinearLoader.defaultProps = {
     amount: 0,
     margin: '10px',
     width: '300px',
 }
 
-LinearProgress.propTypes = {
+LinearLoader.propTypes = {
     className: propTypes.string,
     /** set the progression in percentage (without the % suffix) */
     amount: propTypes.number,
@@ -62,4 +62,4 @@ LinearProgress.propTypes = {
     width: propTypes.string,
 }
 
-export { LinearProgress }
+export { LinearLoader }
