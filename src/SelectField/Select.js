@@ -54,6 +54,12 @@ const styles = css`
 export class Select extends Component {
     selectRef = createRef()
 
+    componentDidMount() {
+        if (this.props.focus) {
+            this.selectRef.current.focus()
+        }
+    }
+
     componentDidUpdate(prevProps) {
         if (prevProps.focused !== this.props.focused) {
             if (this.props.focused) {
@@ -75,6 +81,10 @@ export class Select extends Component {
             value,
             children,
             name,
+            autocomplete,
+            autofocus,
+            tabIndex,
+            readonly,
         } = this.props
         const className = cx({
             dense,
@@ -91,6 +101,10 @@ export class Select extends Component {
                 onFocus={onFocus}
                 onBlur={onBlur}
                 name={name}
+                autocomplete={autocomplete}
+                autofocus={autofocus}
+                tabIndex={tabIndex}
+                readonly={readonly}
             >
                 <option key="hidden-default-value" hidden disabled value="-1" />
                 {children}
@@ -103,7 +117,10 @@ export class Select extends Component {
 Select.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
+
     value: propTypes.string,
+    autocomplete: propTypes.string,
+    tabIndex: propTypes.string,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,
@@ -122,4 +139,6 @@ Select.propTypes = {
     disabled: propTypes.bool,
     filled: propTypes.bool,
     dense: propTypes.bool,
+    autofocus: propTypes.bool,
+    readonly: propTypes.bool,
 }

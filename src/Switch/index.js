@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component, createRef } from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 import css from 'styled-jsx/css'
@@ -8,44 +8,83 @@ import { SwitchIcon } from '../icons/Switch.js'
 
 import styles from './styles'
 
-const Switch = ({
-    onChange,
-    name,
-    className,
-    label,
-    required,
-    checked = false,
-    disabled,
-    valid,
-    warning,
-    error,
-}) => (
-    <label
-        className={cx(className, {
+class Switch extends Component {
+    ref = createRef()
+    state = {
+        focus: this.props.initialFocus,
+    }
+
+    componentDidMount() {
+        if (this.props.focus) {
+            this.ref.current.focus()
+        }
+    }
+
+    onFocus = e => {
+        this.setState({ focus: true })
+
+        if (this.props.onFocus) {
+            this.props.onFocus(e)
+        }
+    }
+
+    onBlur = e => {
+        this.setState({ focus: false })
+
+        if (this.props.onBlur) {
+            this.props.onBlur(e)
+        }
+    }
+
+    render() {
+        const {
+            onChange,
+            name,
+            className,
+            label,
+            required,
+            checked = false,
             disabled,
-        })}
-    >
-        <input
-            type="checkbox"
-            disabled={disabled}
-            name={name}
-            checked={checked}
-            onChange={onChange}
-        />
+            valid,
+            warning,
+            error,
+        } = this.props
+        const { focus } = this.state
 
-        <SwitchIcon
-            checked={checked}
-            disabled={disabled}
-            valid={valid}
-            warning={warning}
-            error={error}
-        />
+        return (
+            <label
+                className={cx(className, {
+                    disabled,
+                    focus,
+                })}
+            >
+                <input
+                    ref={this.ref}
+                    type="checkbox"
+                    disabled={disabled}
+                    name={name}
+                    checked={checked}
+                    onChange={onChange}
+                    onFocus={this.onFocus}
+                    onBlur={this.onBlur}
+                />
 
-        <span className={cx({ required, disabled })}>{label}</span>
+                <SwitchIcon
+                    checked={checked}
+                    disabled={disabled}
+                    valid={valid}
+                    warning={warning}
+                    error={error}
+                    focus={focus}
+                />
 
-        <style jsx>{styles}</style>
-    </label>
-)
+                <span className={cx({ required, disabled })}>{label}</span>
+
+                <style jsx>{styles}</style>
+            </label>
+        )
+    }
+}
 
 Switch.propTypes = {
     onChange: propTypes.func.isRequired,
@@ -60,6 +99,10 @@ Switch.propTypes = {
     valid: propTypes.bool,
     warning: propTypes.bool,
     error: propTypes.bool,
+    initialFocus: propTypes.bool,
+
+    onFocus: propTypes.func,
+    onBlur: propTypes.func,
 }
 
 export { Switch }
