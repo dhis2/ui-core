@@ -49,7 +49,7 @@ class Radio extends Component {
         super(props)
 
         this.state = {
-            focus: props.initialFocus,
+            focus: !!props.initialFocus,
         }
     }
 
