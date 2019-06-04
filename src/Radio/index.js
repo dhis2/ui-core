@@ -184,8 +184,4 @@ Radio.propTypes = {
     readonly: propTypes.bool,
 }
 
-Radio.defaultProps = {
-    tabIndex: '0',
-}
-
 export { Radio }
