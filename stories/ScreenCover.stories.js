@@ -1,15 +1,15 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { CircularProgress, ScreenCover, Menu, MenuItem, Divider } from '../src'
+import { CircularLoader, ScreenCover, Menu, MenuItem, Divider } from '../src'
 
 const onClick = () => alert('Clicked the backdrop')
 
 storiesOf('ScreenCover', module)
     .add('Default', () => <ScreenCover onClick={onClick} />)
 
-    .add('CircularProgress', () => (
+    .add('CircularLoader', () => (
         <ScreenCover onClick={onClick}>
-            <CircularProgress />
+            <CircularLoader />
         </ScreenCover>
     ))
 
