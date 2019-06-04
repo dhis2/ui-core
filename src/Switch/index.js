@@ -11,7 +11,7 @@ import styles from './styles'
 class Switch extends Component {
     ref = createRef()
     state = {
-        focus: this.props.focus,
+        focus: this.props.initialFocus,
     }
 
     componentDidMount() {
@@ -99,7 +99,7 @@ Switch.propTypes = {
     valid: propTypes.bool,
     warning: propTypes.bool,
     error: propTypes.bool,
-    focus: propTypes.bool,
+    initialFocus: propTypes.bool,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,

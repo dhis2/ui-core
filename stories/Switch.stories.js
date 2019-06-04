@@ -23,11 +23,17 @@ storiesOf('Switch', module)
     ))
 
     .add('Focus unchecked', () => (
-        <Switch name="Ex" focus label="Switch" onChange={logger} />
+        <Switch name="Ex" initialFocus label="Switch" onChange={logger} />
     ))
 
     .add('Focus checked', () => (
-        <Switch name="Ex" checked focus label="Switch" onChange={logger} />
+        <Switch
+            name="Ex"
+            checked
+            initialFocus
+            label="Switch"
+            onChange={logger}
+        />
     ))
 
     .add('Focus valid', () => (
@@ -35,7 +41,7 @@ storiesOf('Switch', module)
             name="Ex"
             checked
             valid
-            focus
+            initialFocus
             label="Switch"
             onChange={logger}
         />
@@ -46,7 +52,7 @@ storiesOf('Switch', module)
             name="Ex"
             checked
             warning
-            focus
+            initialFocus
             label="Switch"
             onChange={logger}
         />
@@ -57,7 +63,7 @@ storiesOf('Switch', module)
             name="Ex"
             checked
             error
-            focus
+            initialFocus
             label="Switch"
             onChange={logger}
         />
