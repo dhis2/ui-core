@@ -19,7 +19,7 @@ storiesOf('Radio', module)
 
     .add('Focused unchecked', () => (
         <Radio
-            focus
+            initialFocus
             name="Ex"
             label="Radio"
             value="default"
@@ -29,7 +29,7 @@ storiesOf('Radio', module)
 
     .add('Focused checked', () => (
         <Radio
-            focus
+            initialFocus
             checked
             name="Ex"
             label="Radio"
