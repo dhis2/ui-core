@@ -38,9 +38,6 @@ class InputField extends React.Component {
             warning,
             loading,
             value,
-            autocomplete,
-            autofocus,
-            readonly,
             tabIndex,
         } = this.props
         const { focus } = this.state
@@ -78,10 +75,7 @@ class InputField extends React.Component {
                     error={error}
                     loading={loading}
                     dense={dense}
-                    autocomplete={autocomplete}
-                    autofocus={autofocus}
                     tabIndex={tabIndex}
-                    readonly={readonly}
                 />
                 <style jsx>{`
                     div :global(.disabled),
@@ -109,7 +103,6 @@ InputField.propTypes = {
     className: propTypes.string,
     placeholder: propTypes.string,
     value: propTypes.string,
-    autocomplete: propTypes.string,
     tabIndex: propTypes.string,
 
     required: propTypes.bool,
@@ -120,8 +113,6 @@ InputField.propTypes = {
     warning: propTypes.bool,
     error: propTypes.bool,
     loading: propTypes.bool,
-    autofocus: propTypes.bool,
-    readonly: propTypes.bool,
     initialFocus: propTypes.bool,
 
     onBlur: propTypes.func,

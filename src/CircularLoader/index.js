@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import styles from './styles.js'
 
-const CircularProgress = ({ small, large, className }) => (
+const CircularLoader = ({ small, large, className }) => (
     <div
         role="progressbar"
         className={cx(className, {
@@ -27,10 +27,10 @@ const CircularProgress = ({ small, large, className }) => (
     </div>
 )
 
-CircularProgress.propTypes = {
+CircularLoader.propTypes = {
     className: propTypes.string,
     small: propTypes.bool,
     large: propTypes.bool,
 }
 
-export { CircularProgress }
+export { CircularLoader }
