@@ -3,6 +3,8 @@ const SEVERITY = 2
 module.exports = {
     root: true,
 
+    extends: 'react-app',
+
     parser: 'babel-eslint',
 
     env: {
