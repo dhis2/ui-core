@@ -1,7 +1,8 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import { buttonArrayPropType } from './helper'
+import { instanceOfComponent } from '../prop-validators'
+import { Button } from '../Button'
 import styles from './styles'
 
 const ButtonStrip = ({ className, children, compact, start, middle, end }) => (
@@ -14,7 +15,7 @@ const ButtonStrip = ({ className, children, compact, start, middle, end }) => (
 
 ButtonStrip.propTypes = {
     className: propTypes.string,
-    children: buttonArrayPropType,
+    children: propTypes.arrayOf(instanceOfComponent(Button)),
     compact: propTypes.bool,
     start: propTypes.bool,
     middle: propTypes.bool,
