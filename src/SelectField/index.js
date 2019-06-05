@@ -22,11 +22,11 @@ const TailIcon = () => (
 
 class SelectField extends React.Component {
     state = {
-        focus: this.props.focused,
+        focus: this.props.initialFocus,
     }
 
     onFocus = e => {
-        this.setState({ focused: true })
+        this.setState({ focus: true })
 
         if (this.props.onFocus) {
             this.props.onFocus(e)
@@ -34,7 +34,7 @@ class SelectField extends React.Component {
     }
 
     onBlur = e => {
-        this.setState({ focused: false })
+        this.setState({ focus: false })
 
         if (this.props.onBlur) {
             this.props.onBlur(e)
@@ -49,7 +49,6 @@ class SelectField extends React.Component {
         const {
             type,
             filled,
-            focus,
             dense,
             required,
             label,
@@ -61,15 +60,19 @@ class SelectField extends React.Component {
             loading,
             children,
             value,
+            autocomplete,
+            autofocus,
+            readonly,
+            tabIndex,
             onChange,
         } = this.props
+        const { focus } = this.state
 
         const Container = filled ? LabelFilled : LabelOutlined
 
         return (
             <Container
-                onClick={this.onFocus}
-                focus={this.state.focus}
+                focus={focus}
                 label={label}
                 value={!!value}
                 htmlFor={name}
@@ -87,6 +90,10 @@ class SelectField extends React.Component {
                     disabled={disabled}
                     filled={filled}
                     dense={dense}
+                    autocomplete={autocomplete}
+                    autofocus={autofocus}
+                    tabIndex={tabIndex}
+                    readonly={readonly}
                     onChange={onChange}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
@@ -104,9 +111,12 @@ SelectField.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     label: propTypes.string.isRequired,
-    value: propTypes.string,
 
+    value: propTypes.string,
     className: propTypes.string,
+    autocomplete: propTypes.string,
+    tabIndex: propTypes.string,
+
     children: propTypes.oneOfType([
         propTypes.arrayOf(
             propTypes.shape({
@@ -122,11 +132,13 @@ SelectField.propTypes = {
     disabled: propTypes.bool,
     filled: propTypes.bool,
     dense: propTypes.bool,
-    focus: propTypes.bool,
     valid: propTypes.bool,
     warning: propTypes.bool,
     error: propTypes.bool,
     loading: propTypes.bool,
+    autofocus: propTypes.bool,
+    readonly: propTypes.bool,
+    initialFocus: propTypes.bool,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,

@@ -1,3 +1,10 @@
+## [2.5.2](https://github.com/dhis2/ui/compare/v2.5.1...v2.5.2) (2019-06-04)
+
+
+### Bug Fixes
+
+* make form inputs focus-able ([#230](https://github.com/dhis2/ui/issues/230)) ([2fbd0ea](https://github.com/dhis2/ui/commit/2fbd0ea))
+
 ## [2.5.1](https://github.com/dhis2/ui/compare/v2.5.0...v2.5.1) (2019-05-31)
 
 
