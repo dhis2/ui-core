@@ -17,9 +17,6 @@ const Progress = ({ amount }) => {
                     transition: width 0.3s linear;
                     height: 4px;
                 }
-
-                .determinate {
-                }
             `}</style>
         </div>
     )
@@ -48,7 +45,6 @@ const LinearLoader = ({ amount, width, margin, className }) => {
 }
 
 LinearLoader.defaultProps = {
-    amount: 0,
     margin: '10px',
     width: '300px',
 }
@@ -56,7 +52,8 @@ LinearLoader.defaultProps = {
 LinearLoader.propTypes = {
     className: propTypes.string,
     /** set the progression in percentage (without the % suffix) */
-    amount: propTypes.number,
+    amount: propTypes.number.isRequired,
+    /** set the margin around the loader, can be a full shorthand */
     margin: propTypes.string,
     /** set the width of the entire indicator, e.g. '100%' or '300px'. */
     width: propTypes.string,
