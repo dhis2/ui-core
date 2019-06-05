@@ -17,17 +17,12 @@ export const Icon = ({ icon }) => {
                     border-radius: 50%;
                     overflow: hidden;
                 }
-
-                /* force icons to fit in our icon drawer */
-                span > :global(*) {
-                    width: 24px;
-                    height: 24px;
-                }
             `}</style>
         </span>
     )
 }
 
 Icon.propTypes = {
+    /** the slot for an icon is 24x24px, bigger elements will be clipped */
     icon: propTypes.element,
 }
