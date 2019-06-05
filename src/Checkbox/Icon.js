@@ -93,4 +93,5 @@ Icon.propTypes = {
     error: propTypes.bool,
     warning: propTypes.bool,
     indeterminate: propTypes.bool,
+    focus: propTypes.bool,
 }
