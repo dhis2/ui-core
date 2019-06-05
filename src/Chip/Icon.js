@@ -13,8 +13,15 @@ export const Icon = ({ icon }) => {
                     width: 24px;
                     height: 24px;
                     margin-left: 4px;
+                    margin-right: -6px;
                     border-radius: 50%;
                     overflow: hidden;
+                }
+
+                /* force icons to fit in our icon drawer */
+                span > :global(*) {
+                    width: 24px;
+                    height: 24px;
                 }
             `}</style>
         </span>
