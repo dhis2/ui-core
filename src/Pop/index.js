@@ -4,6 +4,7 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { reactRef } from '../prop-validators'
 import { BackgroundCover } from './BackgroundCover'
 import {
     Content,
@@ -23,31 +24,18 @@ class Pop extends Component {
     state = { position: {} }
 
     componentDidMount() {
-        if (this.props.open) {
-            this.updatePosition()
-        }
-    }
-
-    componentDidUpdate() {
         this.updatePosition()
+        window.addEventListener('resize', this.updatePosition)
     }
 
-    updatePosition() {
-        if (this.ref.current) {
-            const {
-                anchorRef,
-                anchorPoint,
-                popPoint,
-                fallbackPoints,
-            } = this.props
+    updatePosition = () => {
+        if (this.props.open && this.ref.current) {
+            const { anchorRef, side } = this.props
 
             const position = getPosition({
-                popPoint,
-                anchorPoint,
                 pop: this.ref.current,
                 anchor: anchorRef.current,
-                isNotRoot: !!this.props.level,
-                fallbackPoints,
+                side,
             })
 
             if (!arePositionsEqual(position, this.state.position)) {
@@ -57,38 +45,29 @@ class Pop extends Component {
     }
 
     render() {
-        const { children, onClose, open, level } = this.props
+        if (!this.props.open) return null
+
+        const { children, onClose } = this.props
         const { position } = this.state
-
-        if (!open) return null
-
-        const content = (
-            <Content
-                ref={this.ref}
-                position={position}
-                children={children}
-                level={level}
-            />
-        )
-
-        if (!!level) {
-            return createPortal(content, document.body)
-        }
 
         return createPortal(
             <div>
                 <BackgroundCover onClick={onClose} />
 
-                {content}
+                <Content
+                    ref={this.ref}
+                    position={position}
+                    children={children}
+                />
 
                 <style jsx>{`
                     div {
                         left: 0;
-                        height: 100vh;
+                        height: 100%;
                         position: fixed;
                         top: 0;
-                        width: 100vw;
-                        z-index: ${2000 + level};
+                        width: 100%;
+                        z-index: 2000;
                     }
                 `}</style>
             </div>,
@@ -98,27 +77,14 @@ class Pop extends Component {
 }
 
 Pop.propTypes = {
-    /* Needs to be created with `React.createRef()` */
-    anchorRef: propTypes.shape({
-        current: propTypes.element,
-    }).isRequired,
+    /* Must be created with `React.createRef()` */
+    anchorRef: reactRef.isRequired,
 
-    anchorPoint: propPosition,
-    popPoint: propPosition,
-
-    fallbackPoints: propTypes.arrayOf([propTypes.arrayOf([propPosition])]),
-
-    /* Is required for Pop components that are not the root level */
-    level: propTypes.number,
+    /* Pop will always be centered to the center of the anchor's side */
+    side: propTypes.oneOf(['top', 'right', 'bottom', 'left']).isRequired,
 
     open: propTypes.bool,
     onClose: propTypes.func,
-}
-
-Pop.defaultProps = {
-    anchorPoint: { vertical: 'top', horizontal: 'right' },
-    popPoint: { vertical: 'top', horizontal: 'left' },
-    level: 0,
 }
 
 export { Pop }

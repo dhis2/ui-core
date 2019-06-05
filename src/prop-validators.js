@@ -36,3 +36,7 @@ export const mutuallyExclusive = (exlusivePropNames, propType) => (
 
     return null
 }
+
+export const reactRef = propTypes.shape({
+    current: propTypes.element,
+})
