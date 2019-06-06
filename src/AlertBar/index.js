@@ -11,6 +11,7 @@ import { Message } from './Message'
 class AlertBar extends PureComponent {
     state = {
         visible: false,
+        hidden: false,
     }
 
     componentDidMount() {
@@ -40,18 +41,16 @@ class AlertBar extends PureComponent {
         clearTimeout(this.displayTimeout)
         this.setState({ visible: false })
 
-        if (this.props.onHidden) {
-            this.onHiddenTimeout = setTimeout(
-                this.props.onHidden,
-                ANIMATION_TIME
-            )
-        }
+        this.onHiddenTimeout = setTimeout(() => {
+            this.setState({ hidden: true })
+            this.props.onHidden && this.props.onHidden()
+        }, ANIMATION_TIME)
     }
 
     show() {
-        setTimeout(() => {
+        requestAnimationFrame(() => {
             this.setState({ visible: true })
-        }, 0)
+        })
     }
 
     render() {
@@ -64,7 +63,11 @@ class AlertBar extends PureComponent {
             icon,
             actions,
         } = this.props
-        const { visible } = this.state
+        const { visible, hidden } = this.state
+
+        if (hidden) {
+            return null
+        }
 
         const info = !critical && !success && !warning
         const iconProps = { icon, critical, success, warning }
