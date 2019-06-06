@@ -68,8 +68,8 @@ const getRelativePosition = (anchor, pop, side) => {
             top + popHeight > bodyHeight
                 ? top + popHeight - bodyHeight
                 : top < 0
-                ? 0
-                : top
+                ? top
+                : 0
 
         return {
             left: left < 0 ? 0 : left,
@@ -85,8 +85,8 @@ const getRelativePosition = (anchor, pop, side) => {
             top + popHeight > bodyHeight
                 ? top + popHeight - bodyHeight
                 : top < 0
-                ? 0
-                : top
+                ? top
+                : 0
 
         return {
             left: left - adjustmentHorizontal,
