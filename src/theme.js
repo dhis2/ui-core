@@ -1,5 +1,3 @@
-import css from 'styled-jsx/css'
-
 export const colors = {
     /* colors */
 

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import propTypes from 'prop-types'
-import css, { resolve } from 'styled-jsx/css'
+import { resolve } from 'styled-jsx/css'
 
 import { Cancel } from '../icons/Cancel'
 import { colors } from '../theme'

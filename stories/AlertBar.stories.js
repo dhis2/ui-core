@@ -4,6 +4,8 @@ import { AlertBar, AlertStack } from '../src'
 
 import markdown from './info/atoms/alertBar.md'
 
+const actions = [{ label: 'sss', onClick: () => {} }]
+
 storiesOf('AlertBar', module)
     .addParameters({
         notes: {
@@ -12,8 +14,10 @@ storiesOf('AlertBar', module)
     })
     .add('Default', () => (
         <AlertStack>
-            <AlertBar>Test 1</AlertBar>
-            <AlertBar>Test 2</AlertBar>
-            <AlertBar>Test 3</AlertBar>
+            <AlertBar critical>Test 3</AlertBar>
+            <AlertBar warning actions={actions}>
+                Test 1
+            </AlertBar>
+            <AlertBar success>Test 2</AlertBar>
         </AlertStack>
     ))
