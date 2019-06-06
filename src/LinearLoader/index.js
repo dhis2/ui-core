@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import { theme } from '../theme.js'
+import { theme, spacers } from '../theme.js'
 
 const Progress = ({ amount }) => {
     return (
@@ -47,7 +47,7 @@ const LinearLoader = ({ amount, width, margin, className }) => {
 }
 
 LinearLoader.defaultProps = {
-    margin: '10px',
+    margin: spacers.dp12,
     width: '300px',
 }
 

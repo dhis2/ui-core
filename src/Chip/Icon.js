@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import propTypes from 'prop-types'
 
+import { spacers } from '../theme.js'
+
 export const Icon = ({ icon }) => {
     if (!icon) return null
 
@@ -12,10 +14,14 @@ export const Icon = ({ icon }) => {
                 span {
                     width: 24px;
                     height: 24px;
-                    margin-left: 4px;
+                    margin-left: ${spacers.dp4};
                     margin-right: -6px;
                     border-radius: 50%;
                     overflow: hidden;
+                }
+
+                span > :global(*) {
+                    height: 24px;
                 }
             `}</style>
         </span>

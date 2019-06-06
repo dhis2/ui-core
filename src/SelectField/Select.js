@@ -3,7 +3,7 @@ import React, { Component, Fragment, createRef } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme } from '../theme'
+import { colors, theme, spacers } from '../theme'
 
 const styles = css`
     select {
@@ -33,12 +33,12 @@ const styles = css`
     }
 
     .filled {
-        padding-top: 24px;
-        padding-left: 16px;
+        padding-top: ${spacers.dp24};
+        padding-left: ${spacers.dp16};
     }
 
     .filled.dense {
-        padding-top: 20px;
+        padding-top: ${spacers.dp24};
     }
 
     option:not(:checked) {

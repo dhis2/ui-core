@@ -3,7 +3,8 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { Button } from '../index'
+import { Button } from '../index.js'
+import { spacers } from '../theme.js'
 
 export const Actions = ({ children }) => (
     <div>
@@ -11,7 +12,7 @@ export const Actions = ({ children }) => (
 
         <style jsx>{`
             div {
-                padding: 0 24px 20px;
+                padding: 0 ${spacers.dp24} ${spacers.dp24};
                 display: flex;
                 justify-content: flex-end;
             }

@@ -2,7 +2,7 @@ import propTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
-import { theme, colors } from '../theme'
+import { theme, colors, spacers } from '../theme'
 
 /**
  * @param {Object} props
@@ -25,7 +25,7 @@ export function Valid({ className }) {
                     fill: ${theme.valid};
                     width: 24px;
                     height: 24px;
-                    margin-right: 4px;
+                    margin-right: ${spacers.dp4};
                 }
             `}</style>
         </svg>
@@ -57,7 +57,7 @@ export function Warning({ className }) {
                     fill: ${theme.warning};
                     width: 24px;
                     height: 24px;
-                    margin-right: 4px;
+                    margin-right: ${spacers.dp4};
                 }
             `}</style>
         </svg>
@@ -89,7 +89,7 @@ export function Error({ className }) {
                     fill: ${theme.error};
                     width: 24px;
                     height: 24px;
-                    margin-right: 4px;
+                    margin-right: ${spacers.dp4};
                 }
             `}</style>
         </svg>
@@ -128,7 +128,7 @@ export function Loading({ className }) {
                     color: ${theme.primary600};
                     width: 24px;
                     height: 24px;
-                    margin-right: 4px;
+                    margin-right: ${spacers.dp4};
                     animation: anim-rotate 1.4s linear infinite;
                 }
 

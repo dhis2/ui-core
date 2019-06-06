@@ -10,7 +10,7 @@ import {
     shrinkedLabelFontSize,
 } from '../constants'
 
-import { colors, theme } from '../../theme'
+import { colors, theme, spacers } from '../../theme'
 
 const styles = css`
     label {
@@ -21,7 +21,7 @@ const styles = css`
         position: absolute;
         top: 0;
         width: 100%;
-        padding-left: 4px;
+        padding-left: ${spacers.dp4};
     }
 
     .disabled {
@@ -65,14 +65,14 @@ const styles = css`
     }
 
     .required span::after {
-        padding-left: 4px;
+        padding-left: ${spacers.dp4};
         content: '*';
     }
 
     span {
         display: inline-block;
         font-size: 16px;
-        padding: 0 10px 0 12px;
+        padding: 0 ${spacers.dp12} 0 ${spacers.dp12};
         position: relative;
         transform: translate(0px, 29px);
         transition: transform 0.05s ease-in;

@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme } from '../theme'
+import { colors, theme, spacers } from '../theme'
 
 const calculatePaddingTop = props => (props.filled ? '14px' : '18.5px')
 
@@ -25,8 +25,8 @@ const styles = css`
     }
 
     .dense {
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding-top: ${spacers.dp12};
+        padding-bottom: ${spacers.dp12};
         font-size: 14px;
     }
 
@@ -36,11 +36,11 @@ const styles = css`
     }
 
     .filled {
-        padding: 32px 0 8px 16px;
+        padding: ${spacers.dp32} 0 ${spacers.dp8} ${spacers.dp16};
     }
 
     .filled.dense {
-        padding: 25px 0 5px 16px;
+        padding: ${spacers.dp24} 0 ${spacers.dp4} ${spacers.dp16};
     }
 `
 

@@ -1,5 +1,7 @@
 import css from 'styled-jsx/css'
 
+import { spacers } from '../theme.js'
+
 export default css`
     div {
         display: flex;
@@ -11,7 +13,7 @@ export default css`
         justify-content: flex-end;
     }
     div > :global(button) {
-        margin-left: 16px;
+        margin-left: ${spacers.dp16};
     }
     div.compact > :global(button),
     div > :global(button:first-child) {
