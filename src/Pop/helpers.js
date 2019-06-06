@@ -7,7 +7,6 @@ import {
     getElementInnerDimension,
     getElementOffset,
 } from '../helpers/isElementInsideContainer'
-import { FALLBACKS } from './fallbacks'
 
 export const arePositionsEqual = (left, right) =>
     left.right === right.right &&
