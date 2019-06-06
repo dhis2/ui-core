@@ -49,12 +49,12 @@ class Radio extends Component {
         super(props)
 
         this.state = {
-            focus: !!props.initialFocus,
+            focus: props.initialFocus,
         }
     }
 
     componentDidMount() {
-        if (this.props.focus) {
+        if (this.state.focus) {
             this.ref.current.focus()
         }
     }
@@ -88,9 +88,6 @@ class Radio extends Component {
             valid,
             warning,
             error,
-            autocomplete,
-            autofocus,
-            readonly,
             tabIndex,
         } = this.props
         const { focus } = this.state
@@ -121,13 +118,9 @@ class Radio extends Component {
                     type="radio"
                     name={name}
                     value={value}
-                    focus={focus}
                     checked={checked}
                     disabled={disabled}
-                    autocomplete={autocomplete}
-                    autofocus={autofocus}
                     tabIndex={tabIndex}
-                    readonly={readonly}
                     onChange={onChange}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
@@ -168,7 +161,6 @@ Radio.propTypes = {
 
     className: propTypes.string,
     label: propTypes.string,
-    autocomplete: propTypes.string,
     tabIndex: propTypes.string,
 
     onFocus: propTypes.func,
@@ -180,8 +172,6 @@ Radio.propTypes = {
     valid: propTypes.bool,
     warning: propTypes.bool,
     error: propTypes.bool,
-    autofocus: propTypes.bool,
-    readonly: propTypes.bool,
     initialFocus: propTypes.bool,
 }
 

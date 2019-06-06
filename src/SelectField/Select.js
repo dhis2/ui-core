@@ -3,7 +3,7 @@ import React, { Component, Fragment, createRef } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme } from '../theme'
+import { colors, theme, spacers } from '../theme.js'
 
 const styles = css`
     select {
@@ -33,12 +33,12 @@ const styles = css`
     }
 
     .filled {
-        padding-top: 24px;
-        padding-left: 16px;
+        padding-top: ${spacers.dp24};
+        padding-left: ${spacers.dp16};
     }
 
     .filled.dense {
-        padding-top: 20px;
+        padding-top: ${spacers.dp24};
     }
 
     option:not(:checked) {
@@ -60,16 +60,6 @@ export class Select extends Component {
         }
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.focused !== this.props.focused) {
-            if (this.props.focused) {
-                this.selectRef.focus()
-            } else {
-                this.selectRef.blur()
-            }
-        }
-    }
-
     render() {
         const {
             dense,
@@ -81,10 +71,7 @@ export class Select extends Component {
             value,
             children,
             name,
-            autocomplete,
-            autofocus,
             tabIndex,
-            readonly,
         } = this.props
         const className = cx({
             dense,
@@ -100,11 +87,9 @@ export class Select extends Component {
                 disabled={disabled}
                 onFocus={onFocus}
                 onBlur={onBlur}
+                ref={this.selectRef}
                 name={name}
-                autocomplete={autocomplete}
-                autofocus={autofocus}
                 tabIndex={tabIndex}
-                readonly={readonly}
             >
                 <option key="hidden-default-value" hidden disabled value="-1" />
                 {children}
@@ -119,7 +104,6 @@ Select.propTypes = {
     onChange: propTypes.func.isRequired,
 
     value: propTypes.string,
-    autocomplete: propTypes.string,
     tabIndex: propTypes.string,
 
     onFocus: propTypes.func,
@@ -139,6 +123,5 @@ Select.propTypes = {
     disabled: propTypes.bool,
     filled: propTypes.bool,
     dense: propTypes.bool,
-    autofocus: propTypes.bool,
-    readonly: propTypes.bool,
+    focus: propTypes.bool,
 }

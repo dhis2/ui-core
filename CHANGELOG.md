@@ -1,3 +1,24 @@
+# [3.1.0](https://github.com/dhis2/ui/compare/v3.0.0...v3.1.0) (2019-06-06)
+
+
+### Features
+
+* add spacing scale (and fix a few bugs) ([#249](https://github.com/dhis2/ui/issues/249)) ([46a3574](https://github.com/dhis2/ui/commit/46a3574))
+
+# [3.0.0](https://github.com/dhis2/ui/compare/v2.5.2...v3.0.0) (2019-06-06)
+
+
+### chore
+
+* **release:** v3.0.0 ([#246](https://github.com/dhis2/ui/issues/246)) ([6df182b](https://github.com/dhis2/ui/commit/6df182b)), closes [#244](https://github.com/dhis2/ui/issues/244) [#245](https://github.com/dhis2/ui/issues/245) [#247](https://github.com/dhis2/ui/issues/247)
+
+
+### BREAKING CHANGES
+
+* **release:** The CircularProgress and LinearProgress have been renamed to CircularLoader and LinearLoader.
+The LinearLoader does not have an indeterminate option any more.
+Removes DOM attributes from component API: autofocus, autocomplete, readonly.
+
 ## [2.5.2](https://github.com/dhis2/ui/compare/v2.5.1...v2.5.2) (2019-06-04)
 
 

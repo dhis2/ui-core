@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme } from '../theme'
+import { colors, theme, spacers } from '../theme.js'
 
 export const Label = ({ disabled, required, children }) => {
     const className = cx('label', { disabled, required })
@@ -14,13 +14,13 @@ export const Label = ({ disabled, required, children }) => {
 
             <style jsx>{`
                 .label {
-                    margin: 0 0 0 8px;
+                    margin: 0 0 0 ${spacers.dp8};
                     color: ${colors.grey900};
                     cursor: pointer;
                 }
 
                 .required:after {
-                    padding-left: 4px;
+                    padding-left: ${spacers.dp4};
                     content: '*';
                 }
 

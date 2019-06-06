@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-import { colors, theme, fonts } from '../theme.js'
+import { colors, theme, fonts, spacers } from '../theme.js'
 
 export default css`
     button {
@@ -19,7 +19,7 @@ export default css`
 
         /*medium*/
         height: 36px;
-        padding: 0 16px;
+        padding: 0 ${spacers.dp16};
         font-size: 14px;
         line-height: 16px;
 
@@ -90,7 +90,7 @@ export default css`
     }
 
     button.icon {
-        padding-left: 10px;
+        padding-left: ${spacers.dp12};
     }
 
     .small {
@@ -102,7 +102,7 @@ export default css`
 
     .large {
         height: 43px;
-        padding: 0 24px;
+        padding: 0 ${spacers.dp24};
         font-size: 16px;
         letter-spacing: 0.57px;
         line-height: 19px;
@@ -242,7 +242,7 @@ export default css`
     }
 
     .button-icon {
-        margin-right: 10px;
+        margin-right: ${spacers.dp12};
         color: inherit;
         fill: inherit;
         font-size: 26px;

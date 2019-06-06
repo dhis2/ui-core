@@ -3,8 +3,8 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme } from '../../theme'
-import { inputHeight, inputHeightDense } from '../constants'
+import { colors, theme, spacers } from '../../theme.js'
+import { inputHeight, inputHeightDense } from '../constants.js'
 
 const styles = css`
     label {
@@ -16,7 +16,7 @@ const styles = css`
         left: 0;
         line-height: ${inputHeight + 2}px;
         overflow: hidden;
-        padding-left: 16px;
+        padding-left: ${spacers.dp16};
         position: absolute;
         text-overflow: ellipsis;
         top: 0;
@@ -54,7 +54,7 @@ const styles = css`
     }
 
     .required::after {
-        padding-left: 4px;
+        padding-left: ${spacers.dp4};
         content: '*';
     }
 

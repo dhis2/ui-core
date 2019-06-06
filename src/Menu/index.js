@@ -2,6 +2,8 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { Card } from '../Card'
 
+import { spacers } from '../theme.js'
+
 const Menu = ({ children, className }) => (
     <Card>
         <ul className={className}>{children}</ul>
@@ -12,7 +14,7 @@ const Menu = ({ children, className }) => (
                 width: 100%;
                 margin: 0;
 
-                padding: 4px 0;
+                padding: ${spacers.dp4} 0;
                 user-select: none;
             }
         `}</style>

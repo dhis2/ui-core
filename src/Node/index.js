@@ -4,7 +4,7 @@ import cx from 'classnames'
 import css, { resolve } from 'styled-jsx/css'
 
 import { ArrowDown } from '../icons/Arrow'
-import { colors } from '../theme'
+import { colors, spacers } from '../theme.js'
 
 const Label = ({ icon, children }) => (
     <div className="tree__label">
@@ -13,7 +13,7 @@ const Label = ({ icon, children }) => (
         <style jsx>{`
             div {
                 min-height: 24px;
-                padding: 3px 0;
+                padding: ${spacers.dp4} 0;
             }
         `}</style>
     </div>

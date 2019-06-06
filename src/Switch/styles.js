@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { theme } from '../theme.js'
+import { theme, spacers } from '../theme.js'
 
 export default css`
     input {
@@ -20,7 +20,7 @@ export default css`
     }
 
     .required::after {
-        padding-left: 4px;
+        padding-left: ${spacers.dp4};
         content: '*';
     }
 `

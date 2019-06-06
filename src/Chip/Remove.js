@@ -3,11 +3,11 @@ import propTypes from 'prop-types'
 import { resolve } from 'styled-jsx/css'
 
 import { Cancel } from '../icons/Cancel'
-import { colors } from '../theme'
+import { colors, spacers } from '../theme.js'
 
 const removeIcon = resolve`
     svg {
-        margin-right: 4px;
+        margin-right: ${spacers.dp4};
         color: ${colors.grey700};
 		height: 18px;
 		width: 18px;

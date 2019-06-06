@@ -1,22 +1,20 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { LinearProgress, ScreenCover, ComponentCover } from '../src'
+import { LinearLoader, ScreenCover, ComponentCover } from '../src'
 
-storiesOf('LinearProgress', module)
-    .add('Indeterminate', () => <LinearProgress />)
-
-    .add('Determinate', () => <LinearProgress amount={60} />)
+storiesOf('LinearLoader', module)
+    .add('Determinate', () => <LinearLoader amount={60} />)
 
     .add('Overlay page', () => (
         <ScreenCover>
-            <LinearProgress />
+            <LinearLoader amount={30} />
         </ScreenCover>
     ))
 
     .add('Overlay component', () => (
         <div style={{ width: '400px', height: '400px' }}>
             <ComponentCover>
-                <LinearProgress amount={80} />
+                <LinearLoader amount={80} />
             </ComponentCover>
         </div>
     ))

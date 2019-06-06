@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme } from '../theme'
+import { colors, theme, spacers } from '../theme.js'
 
 const calculatePaddingTop = props => (props.filled ? '14px' : '18.5px')
 
@@ -25,8 +25,8 @@ const styles = css`
     }
 
     .dense {
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding-top: ${spacers.dp12};
+        padding-bottom: ${spacers.dp12};
         font-size: 14px;
     }
 
@@ -36,11 +36,11 @@ const styles = css`
     }
 
     .filled {
-        padding: 32px 0 8px 16px;
+        padding: ${spacers.dp32} 0 ${spacers.dp8} ${spacers.dp16};
     }
 
     .filled.dense {
-        padding: 25px 0 5px 16px;
+        padding: ${spacers.dp24} 0 ${spacers.dp4} ${spacers.dp16};
     }
 `
 
@@ -76,10 +76,7 @@ export class Input extends Component {
                     type={this.props.type}
                     value={this.props.value}
                     disabled={disabled}
-                    autocomplete={this.props.autocomplete}
-                    autofocus={this.props.autofocus}
                     tabIndex={this.props.tabIndex}
-                    readonly={this.props.readonly}
                     onFocus={this.props.onFocus}
                     onBlur={this.props.onBlur}
                     onChange={this.props.onChange}
@@ -98,7 +95,6 @@ Input.propTypes = {
 
     value: propTypes.string,
     placeholder: propTypes.string,
-    autocomplete: propTypes.string,
     tabIndex: propTypes.string,
 
     onFocus: propTypes.func,
@@ -108,6 +104,4 @@ Input.propTypes = {
     disabled: propTypes.bool,
     filled: propTypes.bool,
     dense: propTypes.bool,
-    autofocus: propTypes.bool,
-    readonly: propTypes.bool,
 }

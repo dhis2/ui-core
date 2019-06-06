@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import cx from 'classnames'
 import css, { resolve } from 'styled-jsx/css'
 
-import { colors, theme } from '../theme'
+import { colors, theme } from '../theme.js'
 import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox'
 
 const icons = resolve`
@@ -93,4 +93,5 @@ Icon.propTypes = {
     error: propTypes.bool,
     warning: propTypes.bool,
     indeterminate: propTypes.bool,
+    focus: propTypes.bool,
 }
