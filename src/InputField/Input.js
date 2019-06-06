@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme, spacers } from '../theme'
+import { colors, theme, spacers } from '../theme.js'
 
 const calculatePaddingTop = props => (props.filled ? '14px' : '18.5px')
 

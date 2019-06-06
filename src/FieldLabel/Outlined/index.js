@@ -6,8 +6,8 @@ import cx from 'classnames'
 import { InputContainer } from './InputContainer'
 import { Label } from './Label'
 import { StatusIconNoDefault } from '../../icons/Status'
-import { borderRadius, inputHeight, inputHeightDense } from '../constants'
-import { colors, theme, spacers } from '../../theme'
+import { borderRadius, inputHeight, inputHeightDense } from '../constants.js'
+import { colors, theme, spacers } from '../../theme.js'
 
 const styles = css`
     .label-outlined {

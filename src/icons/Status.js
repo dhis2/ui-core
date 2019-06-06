@@ -2,7 +2,7 @@ import propTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
-import { theme, colors, spacers } from '../theme'
+import { theme, colors, spacers } from '../theme.js'
 
 /**
  * @param {Object} props

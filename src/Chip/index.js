@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme, spacers } from '../theme'
+import { colors, theme, spacers } from '../theme.js'
 import { Content } from './Content'
 import { Icon } from './Icon'
 import { Remove } from './Remove'

@@ -4,7 +4,7 @@ import cx from 'classnames'
 import css, { resolve } from 'styled-jsx/css'
 
 import { ArrowDown } from '../icons/Arrow'
-import { colors, spacers } from '../theme'
+import { colors, spacers } from '../theme.js'
 
 const Label = ({ icon, children }) => (
     <div className="tree__label">

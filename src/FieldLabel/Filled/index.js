@@ -6,7 +6,7 @@ import cx from 'classnames'
 import { InputContainer } from './InputContainer'
 import { Label } from './Label'
 import { StatusIconNoDefault } from '../../icons/Status'
-import { colors, theme, spacers } from '../../theme'
+import { colors, theme, spacers } from '../../theme.js'
 
 const styles = css`
     .label-filled {

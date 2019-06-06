@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { colors, theme, spacers } from '../theme'
+import { colors, theme, spacers } from '../theme.js'
 
 export default css`
     li {

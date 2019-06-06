@@ -8,9 +8,9 @@ import {
     inputHeight,
     inputHeightDense,
     shrinkedLabelFontSize,
-} from '../constants'
+} from '../constants.js'
 
-import { colors, theme, spacers } from '../../theme'
+import { colors, theme, spacers } from '../../theme.js'
 
 const styles = css`
     label {

@@ -3,7 +3,7 @@ import React, { Component, Fragment, createRef } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme, spacers } from '../theme'
+import { colors, theme, spacers } from '../theme.js'
 
 const styles = css`
     select {
