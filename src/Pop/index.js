@@ -84,11 +84,12 @@ Pop.propTypes = {
     /* Pop will always be centered to the center of the anchor's side */
     side: propTypes.oneOf(['top', 'right', 'bottom', 'left']).isRequired,
 
+    open: propTypes.bool.isRequired,
+
+    onClose: propTypes.func.isRequired,
+
     /* Spacing between anchor and pop in pixels */
     spacing: propTypes.number,
-
-    open: propTypes.bool,
-    onClose: propTypes.func,
 }
 
 Pop.defaultProps = {
