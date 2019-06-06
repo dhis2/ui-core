@@ -13,6 +13,7 @@ export const Icon = ({ icon }) => {
                     width: 24px;
                     height: 24px;
                     margin-left: 4px;
+                    margin-right: -6px;
                     border-radius: 50%;
                     overflow: hidden;
                 }
@@ -22,5 +23,6 @@ export const Icon = ({ icon }) => {
 }
 
 Icon.propTypes = {
+    /** the slot for an icon is 24x24px, bigger elements will be clipped */
     icon: propTypes.element,
 }
