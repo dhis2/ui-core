@@ -7,6 +7,7 @@ import { Actions, actionsPropType } from './Actions'
 import { Dismiss } from './Dismiss'
 import { Icon, iconPropType } from './Icon'
 import { Message } from './Message'
+import { mutuallyExclusive } from '../prop-validators'
 
 class AlertBar extends PureComponent {
     state = {
@@ -95,12 +96,17 @@ class AlertBar extends PureComponent {
     }
 }
 
+const variantPropType = mutuallyExclusive(
+    ['success', 'warning', 'critical'],
+    propTypes.bool
+)
+
 AlertBar.propTypes = {
     className: propTypes.string,
     children: propTypes.string.isRequired,
-    success: propTypes.bool,
-    warning: propTypes.bool,
-    critical: propTypes.bool,
+    success: variantPropType,
+    warning: variantPropType,
+    critical: variantPropType,
     icon: iconPropType,
     duration: propTypes.number,
     actions: actionsPropType,
