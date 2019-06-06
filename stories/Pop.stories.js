@@ -22,6 +22,22 @@ const Btn = forwardRef(({ styles = {}, ...props }, ref) => (
     />
 ))
 
+const createPopContent = () => (
+    <p>
+        This is content for a Pop component
+        <br />
+        It could contain any content,
+        <br />
+        but for now it's nothing but text.
+        <style jsx>{`
+            p {
+                margin: 0;
+                padding: 16px 20px;
+            }
+        `}</style>
+    </p>
+)
+
 const createPop = side => () => (
     <Pop
         side={side}
@@ -29,13 +45,7 @@ const createPop = side => () => (
         onClose={() => null}
         anchorRef={{ current: 'Overriden by story implementation' }}
     >
-        <p style={{ padding: '0 20px' }}>
-            This is content for a Pop component
-            <br />
-            It could contain any content,
-            <br />
-            but for now it's nothing but text.
-        </p>
+        {createPopContent()}
     </Pop>
 )
 
@@ -136,13 +146,7 @@ storiesOf('Pop (out of body)', module)
             onClose={() => null}
             anchorRef={{ current: 'Overriden by story implementation' }}
         >
-            <p style={{ padding: '0 20px' }}>
-                This is content for a Pop component
-                <br />
-                It could contain any content,
-                <br />
-                but for now it's nothing but text.
-            </p>
+            {createPopContent()}
         </Pop>
     ))
 
@@ -161,13 +165,7 @@ storiesOf('Pop (out of body)', module)
             onClose={() => null}
             anchorRef={{ current: 'Overriden by story implementation' }}
         >
-            <p style={{ padding: '0 20px' }}>
-                This is content for a Pop component
-                <br />
-                It could contain any content,
-                <br />
-                but for now it's nothing but text.
-            </p>
+            {createPopContent()}
         </Pop>
     ))
 
@@ -186,13 +184,7 @@ storiesOf('Pop (out of body)', module)
             onClose={() => null}
             anchorRef={{ current: 'Overriden by story implementation' }}
         >
-            <p style={{ padding: '0 20px' }}>
-                This is content for a Pop component
-                <br />
-                It could contain any content,
-                <br />
-                but for now it's nothing but text.
-            </p>
+            {createPopContent()}
         </Pop>
     ))
 
@@ -211,12 +203,6 @@ storiesOf('Pop (out of body)', module)
             onClose={() => null}
             anchorRef={{ current: 'Overriden by story implementation' }}
         >
-            <p style={{ padding: '0 20px' }}>
-                This is content for a Pop component
-                <br />
-                It could contain any content,
-                <br />
-                but for now it's nothing but text.
-            </p>
+            {createPopContent()}
         </Pop>
     ))

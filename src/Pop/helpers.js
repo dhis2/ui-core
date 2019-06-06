@@ -66,7 +66,8 @@ const getRelativePosition = (anchor, pop, side) => {
         top = anchorOffset.top + anchorHeight / 2 - popHeight / 2
         adjustmentVertical =
             top + popHeight > bodyHeight
-                ? top + popHeight - bodyHeight
+                ? // The "+ 1" is due to a chrome calculation error
+                  top + popHeight - bodyHeight + 1
                 : top < 0
                 ? top
                 : 0
@@ -80,10 +81,15 @@ const getRelativePosition = (anchor, pop, side) => {
     if (side === 'right') {
         left = anchorOffset.left + anchorWidth
         top = anchorOffset.top + anchorHeight / 2 - popHeight / 2
-        adjustmentHorizontal = Math.max(0, left + popWidth - bodyWidth)
+        adjustmentHorizontal = Math.max(
+            0,
+            // The "+ 1" is due to a chrome calculation error
+            left + popWidth - bodyWidth + 1
+        )
         adjustmentVertical =
             top + popHeight > bodyHeight
-                ? top + popHeight - bodyHeight
+                ? // The "+ 1" is due to a chrome calculation error
+                  top + popHeight - bodyHeight + 1
                 : top < 0
                 ? top
                 : 0
@@ -99,7 +105,8 @@ const getRelativePosition = (anchor, pop, side) => {
         top = anchorOffset.top - popHeight
         adjustmentHorizontal =
             left + popWidth > bodyWidth
-                ? left + popWidth - bodyWidth
+                ? // The "+ 1" is due to a chrome calculation error
+                  left + popWidth - bodyWidth + 1
                 : left < 0
                 ? left
                 : 0
@@ -116,11 +123,16 @@ const getRelativePosition = (anchor, pop, side) => {
         top = anchorOffset.top + anchorHeight
         adjustmentHorizontal =
             left + popWidth > bodyWidth
-                ? left + popWidth - bodyWidth
+                ? // The "+ 1" is due to a chrome calculation error
+                  left + popWidth - bodyWidth + 1
                 : left < 0
                 ? left
                 : 0
-        adjustmentVertical = Math.max(0, top + popHeight - bodyHeight)
+        adjustmentVertical = Math.max(
+            0,
+            // The "+ 1" is due to a chrome calculation error
+            top + popHeight - bodyHeight + 1
+        )
 
         return {
             left: left - adjustmentHorizontal,
