@@ -28,14 +28,19 @@ class AlertBar extends PureComponent {
     }
 
     startDisplayTimeout = () => {
-        this.displayTimeout = setTimeout(() => {
-            this.hide()
-        }, this.timeRemaining)
+        if (this.shouldAutoHide()) {
+            this.displayTimeout = setTimeout(() => {
+                this.hide()
+            }, this.timeRemaining)
+        }
     }
 
     stopDisplayTimeOut = () => {
-        this.timeRemaining = this.timeRemaining - (Date.now() - this.startTime)
-        clearTimeout(this.displayTimeout)
+        if (this.shouldAutoHide()) {
+            const elapsedTime = Date.now() - this.startTime
+            this.timeRemaining = this.timeRemaining - elapsedTime
+            clearTimeout(this.displayTimeout)
+        }
     }
 
     hide = () => {
@@ -52,6 +57,11 @@ class AlertBar extends PureComponent {
         requestAnimationFrame(() => {
             this.setState({ visible: true })
         })
+    }
+
+    shouldAutoHide() {
+        const { permanent, warning, critical } = this.props
+        return !(permanent || warning || critical)
     }
 
     render() {
@@ -109,6 +119,7 @@ AlertBar.propTypes = {
     critical: variantPropType,
     icon: iconPropType,
     duration: propTypes.number,
+    permanent: propTypes.bool,
     actions: actionsPropType,
     onHidden: propTypes.func,
 }
