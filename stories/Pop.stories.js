@@ -206,3 +206,24 @@ storiesOf('Pop (out of body)', module)
             {createPopContent()}
         </Pop>
     ))
+
+/**
+ * Out of viewport / Inside body
+ * ==========================
+ */
+const OutOfViewportBottom = createWrapper({
+    margin: 'calc(100vh - 50px) 200px 100px auto',
+})
+
+storiesOf('Pop (out of viewport)', module)
+    .addDecorator(fn => <OutOfViewportBottom>{fn()}</OutOfViewportBottom>)
+    .add('Bottom', () => (
+        <Pop
+            side="bottom"
+            open={true}
+            onClose={() => null}
+            anchorRef={{ current: 'Overriden by story implementation' }}
+        >
+            {createPopContent()}
+        </Pop>
+    ))
