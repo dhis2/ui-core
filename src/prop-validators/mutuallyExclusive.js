@@ -1,6 +1,6 @@
 import propTypes from 'prop-types'
 
-export const mutuallyExclusive = (exlusivePropNames, propType) => (
+const mutuallyExclusiveFactory = (exlusivePropNames, propType, isRequired) => (
     props,
     propName,
     componentName
@@ -9,6 +9,10 @@ export const mutuallyExclusive = (exlusivePropNames, propType) => (
         return new Error(
             `mutuallyExclusive was called without any arguments for property '${propName}'.`
         )
+    }
+
+    if (isRequired && typeof props[propName] === 'undefined') {
+        return new Error(`${propName} is required.`)
     }
 
     // This is how to programatically invoke a propTypes check
@@ -37,6 +41,8 @@ export const mutuallyExclusive = (exlusivePropNames, propType) => (
     return null
 }
 
-export const reactRef = propTypes.shape({
-    current: propTypes.element,
-})
+export const mutuallyExclusive = (exlusivePropNames, propType) => {
+    const fn = mutuallyExclusiveFactory(exlusivePropNames, propType, false)
+    fn.isRequired = mutuallyExclusiveFactory(exlusivePropNames, propType, true)
+    return fn
+}

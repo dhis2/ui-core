@@ -20,6 +20,7 @@ export default css`
         background-color: ${colors.grey200};
     }
 
+    li:active,
     li.active {
         background-color: ${colors.grey400};
     }

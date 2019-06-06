@@ -1,12 +1,12 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { CircularProgress, ComponentCover, Card } from '../src'
+import { CircularLoader, ComponentCover, Card } from '../src'
 
 storiesOf('ComponentCover', module)
-    .add('CircularProgress', () => (
+    .add('CircularLoader', () => (
         <div style={{ width: '400px', height: '400px' }}>
             <ComponentCover>
-                <CircularProgress />
+                <CircularLoader />
             </ComponentCover>
 
             <h1>Text behind the cover</h1>

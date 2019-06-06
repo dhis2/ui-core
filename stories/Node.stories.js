@@ -17,6 +17,7 @@ storiesOf('Node', module)
                 component={
                     <Checkbox
                         label="Node label 1.1"
+                        value="foobar"
                         name="l1.1"
                         onChange={say('checkbox 1.1 clicked')}
                         checked={false}
@@ -33,6 +34,7 @@ storiesOf('Node', module)
                 component={
                     <Checkbox
                         label="Node label 1.2"
+                        value="foobar"
                         name="l1.2"
                         onChange={say('checkbox 1.2 clicked')}
                         checked={false}
@@ -52,6 +54,7 @@ storiesOf('Node', module)
             component={
                 <Checkbox
                     label="Node label"
+                    value="foobar"
                     name="l1.1"
                     onChange={say('Check 1.1')}
                     checked={false}
@@ -65,6 +68,7 @@ storiesOf('Node', module)
                 component={
                     <Checkbox
                         label="Node label"
+                        value="foobar"
                         name="l2.1"
                         onChange={say('Check 2.1')}
                         checked={false}
@@ -76,6 +80,7 @@ storiesOf('Node', module)
                         <Checkbox
                             label="Node label"
                             name="l3.1"
+                            value="foobar"
                             onChange={say('Check 3.1')}
                             checked={false}
                         />
@@ -87,6 +92,7 @@ storiesOf('Node', module)
                             label="Node label"
                             name="l3.2"
                             onChange={say('Check 3.2')}
+                            value="foobar"
                             checked={false}
                         />
                     }
@@ -98,6 +104,7 @@ storiesOf('Node', module)
                             name="l3.3"
                             onChange={say('Check 3.3')}
                             checked={false}
+                            value="foobar"
                         />
                     }
                 />
@@ -111,6 +118,7 @@ storiesOf('Node', module)
                         label="Node label"
                         name="l3.1"
                         onChange={say('Check 2.2')}
+                        value="foobar"
                         checked={false}
                     />
                 }
@@ -120,6 +128,7 @@ storiesOf('Node', module)
                         <Checkbox
                             label="Node label"
                             name="l3.4"
+                            value="foobar"
                             onChange={say('Check 3.4')}
                             checked={false}
                         />
@@ -131,6 +140,7 @@ storiesOf('Node', module)
                             label="Node label"
                             name="l3.5"
                             onChange={say('Check 3.5')}
+                            value="foobar"
                             checked={false}
                         />
                     }
@@ -141,6 +151,7 @@ storiesOf('Node', module)
                             label="Node label"
                             name="l3.6"
                             onChange={say('Check 3.6')}
+                            value="foobar"
                             checked={false}
                         />
                     }
@@ -154,6 +165,7 @@ storiesOf('Node', module)
                     <Checkbox
                         label="Node label"
                         name="l2.3"
+                        value="foobar"
                         onChange={say('Check 2.3')}
                         checked={false}
                     />
@@ -168,6 +180,7 @@ storiesOf('Node', module)
                         label="Node label"
                         name="l2.4"
                         onChange={say('Check 2.4')}
+                        value="foobar"
                         checked={false}
                     />
                 }
@@ -180,6 +193,7 @@ storiesOf('Node', module)
                     <Checkbox
                         label="Node label"
                         name="l2.5"
+                        value="foobar"
                         onChange={say('Check 2.5')}
                         checked={false}
                     />
@@ -193,6 +207,7 @@ storiesOf('Node', module)
                     <Checkbox
                         label="Node label"
                         name="l2.5"
+                        value="foobar"
                         onChange={say('Check 2.5')}
                         checked={false}
                     />

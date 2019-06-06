@@ -1,16 +1,21 @@
 import React, { Fragment } from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import { resolve } from 'styled-jsx/css'
+import css, { resolve } from 'styled-jsx/css'
 
 import { colors, theme } from '../theme'
 import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox'
 
 const icons = resolve`
     svg {
+        display: block;
         height: 24px;
         width: 24px;
         fill: ${theme.default};
+    }
+
+    .focus {
+        fill: ${colors.grey800};
     }
 
     .checked {
@@ -35,6 +40,7 @@ const icons = resolve`
 `
 
 export const Icon = ({
+    focus,
     checked,
     disabled,
     valid,
@@ -44,6 +50,7 @@ export const Icon = ({
 }) => {
     const classes = cx(icons.className, {
         checked: checked && !valid && !error && !warning,
+        focus,
         disabled,
         valid,
         error,
@@ -51,7 +58,7 @@ export const Icon = ({
     })
 
     return (
-        <Fragment>
+        <div className={cx({ focus })}>
             {indeterminate ? (
                 <Indeterminate className={classes} />
             ) : checked ? (
@@ -61,7 +68,21 @@ export const Icon = ({
             )}
 
             {icons.styles}
-        </Fragment>
+            <style jsx>{`
+                div {
+                    position: relative;
+                }
+
+                .focus:before {
+                    content: '';
+                    position: absolute;
+                    border: 2px solid ${colors.blue600};
+                    border-radius: 4px;
+                    width: 100%;
+                    height: 100%;
+                }
+            `}</style>
+        </div>
     )
 }
 
@@ -72,4 +93,5 @@ Icon.propTypes = {
     error: propTypes.bool,
     warning: propTypes.bool,
     indeterminate: propTypes.bool,
+    focus: propTypes.bool,
 }

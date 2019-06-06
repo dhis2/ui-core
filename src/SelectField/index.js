@@ -22,11 +22,11 @@ const TailIcon = () => (
 
 class SelectField extends React.Component {
     state = {
-        focus: this.props.focused,
+        focus: this.props.initialFocus,
     }
 
     onFocus = e => {
-        this.setState({ focused: true })
+        this.setState({ focus: true })
 
         if (this.props.onFocus) {
             this.props.onFocus(e)
@@ -34,7 +34,7 @@ class SelectField extends React.Component {
     }
 
     onBlur = e => {
-        this.setState({ focused: false })
+        this.setState({ focus: false })
 
         if (this.props.onBlur) {
             this.props.onBlur(e)
@@ -42,14 +42,13 @@ class SelectField extends React.Component {
     }
 
     isFocused() {
-        return this.state.focused
+        return this.state.focus
     }
 
     render() {
         const {
             type,
             filled,
-            focus,
             dense,
             required,
             label,
@@ -61,15 +60,16 @@ class SelectField extends React.Component {
             loading,
             children,
             value,
+            tabIndex,
             onChange,
         } = this.props
+        const { focus } = this.state
 
         const Container = filled ? LabelFilled : LabelOutlined
 
         return (
             <Container
-                onClick={this.onFocus}
-                focus={this.state.focus}
+                focus={focus}
                 label={label}
                 value={!!value}
                 htmlFor={name}
@@ -82,11 +82,13 @@ class SelectField extends React.Component {
                 dense={dense}
             >
                 <Select
+                    focus={focus}
                     name={name}
                     value={value}
                     disabled={disabled}
                     filled={filled}
                     dense={dense}
+                    tabIndex={tabIndex}
                     onChange={onChange}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
@@ -104,9 +106,11 @@ SelectField.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     label: propTypes.string.isRequired,
-    value: propTypes.string,
 
+    value: propTypes.string,
     className: propTypes.string,
+    tabIndex: propTypes.string,
+
     children: propTypes.oneOfType([
         propTypes.arrayOf(
             propTypes.shape({
@@ -122,11 +126,11 @@ SelectField.propTypes = {
     disabled: propTypes.bool,
     filled: propTypes.bool,
     dense: propTypes.bool,
-    focus: propTypes.bool,
     valid: propTypes.bool,
     warning: propTypes.bool,
     error: propTypes.bool,
     loading: propTypes.bool,
+    initialFocus: propTypes.bool,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,

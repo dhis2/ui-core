@@ -42,7 +42,7 @@ function createStory(name, props) {
             />
         ))
 
-        .add('Focus', () => <InputField {...props} focus />)
+        .add('Focus', () => <InputField {...props} initialFocus />)
 
         .add('Status: Valid', () => (
             <InputField {...props} value="This value is valid" valid />

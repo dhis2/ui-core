@@ -4,7 +4,7 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { reactRef } from '../prop-validators'
+import { reactRef } from '../prop-validators/reactRef'
 import { BackgroundCover } from './BackgroundCover'
 import {
     Content,

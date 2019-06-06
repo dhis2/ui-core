@@ -76,6 +76,7 @@ export class Input extends Component {
                     type={this.props.type}
                     value={this.props.value}
                     disabled={disabled}
+                    tabIndex={this.props.tabIndex}
                     onFocus={this.props.onFocus}
                     onBlur={this.props.onBlur}
                     onChange={this.props.onChange}
@@ -90,12 +91,14 @@ Input.propTypes = {
     name: propTypes.string.isRequired,
     type: propTypes.string.isRequired,
 
-    onFocus: propTypes.func.isRequired,
-    onBlur: propTypes.func.isRequired,
     onChange: propTypes.func.isRequired,
 
     value: propTypes.string,
     placeholder: propTypes.string,
+    tabIndex: propTypes.string,
+
+    onFocus: propTypes.func,
+    onBlur: propTypes.func,
 
     focus: propTypes.bool,
     disabled: propTypes.bool,

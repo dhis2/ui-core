@@ -8,7 +8,7 @@ import { theme } from '../theme'
 
 class InputField extends React.Component {
     state = {
-        focus: this.props.focus,
+        focus: this.props.initialFocus,
     }
 
     onFocus = e => {
@@ -38,8 +38,9 @@ class InputField extends React.Component {
             warning,
             loading,
             value,
-            focus = this.state.focus,
+            tabIndex,
         } = this.props
+        const { focus } = this.state
 
         const Container = filled ? LabelFilled : LabelOutlined
 
@@ -74,6 +75,7 @@ class InputField extends React.Component {
                     error={error}
                     loading={loading}
                     dense={dense}
+                    tabIndex={tabIndex}
                 />
                 <style jsx>{`
                     div :global(.disabled),
@@ -100,18 +102,18 @@ InputField.propTypes = {
 
     className: propTypes.string,
     placeholder: propTypes.string,
-
     value: propTypes.string,
+    tabIndex: propTypes.string,
 
     required: propTypes.bool,
     disabled: propTypes.bool,
     filled: propTypes.bool,
     dense: propTypes.bool,
-    focus: propTypes.bool,
     valid: propTypes.bool,
     warning: propTypes.bool,
     error: propTypes.bool,
     loading: propTypes.bool,
+    initialFocus: propTypes.bool,
 
     onBlur: propTypes.func,
     onFocus: propTypes.func,

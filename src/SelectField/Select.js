@@ -54,13 +54,9 @@ const styles = css`
 export class Select extends Component {
     selectRef = createRef()
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.focused !== this.props.focused) {
-            if (this.props.focused) {
-                this.selectRef.focus()
-            } else {
-                this.selectRef.blur()
-            }
+    componentDidMount() {
+        if (this.props.focus) {
+            this.selectRef.current.focus()
         }
     }
 
@@ -75,6 +71,7 @@ export class Select extends Component {
             value,
             children,
             name,
+            tabIndex,
         } = this.props
         const className = cx({
             dense,
@@ -90,7 +87,9 @@ export class Select extends Component {
                 disabled={disabled}
                 onFocus={onFocus}
                 onBlur={onBlur}
+                ref={this.selectRef}
                 name={name}
+                tabIndex={tabIndex}
             >
                 <option key="hidden-default-value" hidden disabled value="-1" />
                 {children}
@@ -103,7 +102,9 @@ export class Select extends Component {
 Select.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
+
     value: propTypes.string,
+    tabIndex: propTypes.string,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,
@@ -122,4 +123,5 @@ Select.propTypes = {
     disabled: propTypes.bool,
     filled: propTypes.bool,
     dense: propTypes.bool,
+    focus: propTypes.bool,
 }
