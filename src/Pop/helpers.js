@@ -25,7 +25,7 @@ export const Content = React.forwardRef(({ children, position }, ref) => (
                 box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
                 max-height: 100vh;
                 overflow-y: auto;
-                position: fixed;
+                position: absolute;
             }
         `}</style>
     </div>

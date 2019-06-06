@@ -64,7 +64,7 @@ class Pop extends Component {
                     div {
                         left: 0;
                         height: 100%;
-                        position: fixed;
+                        position: absolute;
                         top: 0;
                         width: 100%;
                         z-index: 2000;
