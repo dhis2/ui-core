@@ -30,12 +30,13 @@ class Pop extends Component {
 
     updatePosition = () => {
         if (this.props.open && this.ref.current) {
-            const { anchorRef, side } = this.props
+            const { anchorRef, side, spacing } = this.props
 
             const position = getPosition({
                 pop: this.ref.current,
                 anchor: anchorRef.current,
                 side,
+                spacing,
             })
 
             if (!arePositionsEqual(position, this.state.position)) {
@@ -83,8 +84,15 @@ Pop.propTypes = {
     /* Pop will always be centered to the center of the anchor's side */
     side: propTypes.oneOf(['top', 'right', 'bottom', 'left']).isRequired,
 
+    /* Spacing between anchor and pop in pixels */
+    spacing: propTypes.number,
+
     open: propTypes.bool,
     onClose: propTypes.func,
+}
+
+Pop.defaultProps = {
+    spacing: 0,
 }
 
 export { Pop }

@@ -30,12 +30,12 @@ export const Content = React.forwardRef(({ children, position }, ref) => (
     </div>
 ))
 
-export const getPosition = ({ pop, anchor, side }) => {
+export const getPosition = ({ pop, anchor, side, spacing }) => {
     if (!anchor || !pop) {
         return { left: 'auto', top: 'auto' }
     }
 
-    const styles = getRelativePosition(anchor, pop, side)
+    const styles = getRelativePosition(anchor, pop, side, spacing)
 
     if (styles === null) {
         return {
@@ -48,7 +48,7 @@ export const getPosition = ({ pop, anchor, side }) => {
     return styles
 }
 
-const getRelativePosition = (anchor, pop, side) => {
+const getRelativePosition = (anchor, pop, side, spacing) => {
     let top, left, adjustmentVertical, adjustmentHorizontal
     const bodyWidth = getElementInnerDimension(document.body, 'horizontal')
     const bodyHeight = getElementInnerDimension(document.body, 'vertical')
@@ -61,7 +61,7 @@ const getRelativePosition = (anchor, pop, side) => {
     if (!doesElementFitInsideContainer(pop, document.body)) return null
 
     if (side === 'left') {
-        left = anchorOffset.left - popWidth
+        left = anchorOffset.left - popWidth - spacing
         top = anchorOffset.top + anchorHeight / 2 - popHeight / 2
         adjustmentVertical =
             top + popHeight > bodyHeight
@@ -78,7 +78,7 @@ const getRelativePosition = (anchor, pop, side) => {
     }
 
     if (side === 'right') {
-        left = anchorOffset.left + anchorWidth
+        left = anchorOffset.left + anchorWidth + spacing
         top = anchorOffset.top + anchorHeight / 2 - popHeight / 2
         adjustmentHorizontal = Math.max(
             0,
@@ -101,7 +101,7 @@ const getRelativePosition = (anchor, pop, side) => {
 
     if (side === 'top') {
         left = anchorOffset.left + anchorWidth / 2 - popWidth / 2
-        top = anchorOffset.top - popHeight
+        top = anchorOffset.top - popHeight - spacing
         adjustmentHorizontal =
             left + popWidth > bodyWidth
                 ? // The "+ 1" is due to a chrome calculation error
@@ -119,7 +119,7 @@ const getRelativePosition = (anchor, pop, side) => {
 
     if (side === 'bottom') {
         left = anchorOffset.left + anchorWidth / 2 - popWidth / 2
-        top = anchorOffset.top + anchorHeight
+        top = anchorOffset.top + anchorHeight + spacing
         adjustmentHorizontal =
             left + popWidth > bodyWidth
                 ? // The "+ 1" is due to a chrome calculation error

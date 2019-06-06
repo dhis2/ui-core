@@ -38,9 +38,10 @@ const createPopContent = () => (
     </p>
 )
 
-const createPop = side => () => (
+const createPop = (side, spacing) => () => (
     <Pop
         side={side}
+        spacing={spacing}
         open={true}
         onClose={() => null}
         anchorRef={{ current: 'Overriden by story implementation' }}
@@ -124,9 +125,29 @@ storiesOf('Pop', module)
     .add('Left', createPop('left'))
 
 /**
+ * Pop on the left with spacing
+ * ============================
+ */
+const LeftSpacing = createWrapper({ margin: '200px 0 0 auto' })
+
+storiesOf('Pop', module)
+    .addDecorator(fn => <LeftSpacing>{fn()}</LeftSpacing>)
+    .add('Left with spacing', createPop('left', 20))
+
+/**
+ * Pop on the top with spacing
+ * ============================
+ */
+const BottomSpacing = createWrapper({ margin: '0 auto' })
+
+storiesOf('Pop', module)
+    .addDecorator(fn => <BottomSpacing>{fn()}</BottomSpacing>)
+    .add('Bottom with spacing', createPop('bottom', 20))
+
+/**
  * ==========================================
  *
- * Edge cases - Positions have to be adjusted
+ * Edge cases - Out of body - Positions have to be adjusted
  *
  * ==========================================
  */
@@ -139,16 +160,27 @@ const OutOfBodyBottom = createWrapper({ margin: '200px 0 0 auto' })
 
 storiesOf('Pop (out of body)', module)
     .addDecorator(fn => <OutOfBodyBottom>{fn()}</OutOfBodyBottom>)
-    .add('Bottom', () => (
-        <Pop
-            side="bottom"
-            open={true}
-            onClose={() => null}
-            anchorRef={{ current: 'Overriden by story implementation' }}
-        >
-            {createPopContent()}
-        </Pop>
-    ))
+    .add('Bottom', createPop('bottom'))
+
+/**
+ * Out of body - bottom /w spacing
+ * ==========================
+ */
+const OutOfBodyBottomSpacing = createWrapper({ margin: '200px 0 0 auto' })
+
+storiesOf('Pop (out of body)', module)
+    .addDecorator(fn => <OutOfBodyBottomSpacing>{fn()}</OutOfBodyBottomSpacing>)
+    .add('Bottom with spacing', createPop('bottom', 20))
+
+/**
+ * Out of body - top /w spacing
+ * ==========================
+ */
+const OutOfBodyTopSpacing = createWrapper({ margin: '50px auto 0' })
+
+storiesOf('Pop (out of body)', module)
+    .addDecorator(fn => <OutOfBodyTopSpacing>{fn()}</OutOfBodyTopSpacing>)
+    .add('Top with spacing', createPop('top', 20))
 
 /**
  * Out of body - top
@@ -158,16 +190,7 @@ const OutOfBodyTop = createWrapper({ margin: '200px 0 0 auto' })
 
 storiesOf('Pop (out of body)', module)
     .addDecorator(fn => <OutOfBodyTop>{fn()}</OutOfBodyTop>)
-    .add('Top', () => (
-        <Pop
-            side="top"
-            open={true}
-            onClose={() => null}
-            anchorRef={{ current: 'Overriden by story implementation' }}
-        >
-            {createPopContent()}
-        </Pop>
-    ))
+    .add('Top', createPop('top'))
 
 /**
  * Out of body - left
@@ -177,16 +200,7 @@ const OutOfBodyLeft = createWrapper({ margin: '200px 0 0 200px' })
 
 storiesOf('Pop (out of body)', module)
     .addDecorator(fn => <OutOfBodyLeft>{fn()}</OutOfBodyLeft>)
-    .add('Left', () => (
-        <Pop
-            side="left"
-            open={true}
-            onClose={() => null}
-            anchorRef={{ current: 'Overriden by story implementation' }}
-        >
-            {createPopContent()}
-        </Pop>
-    ))
+    .add('Left', createPop('left'))
 
 /**
  * Out of body - right
@@ -196,19 +210,18 @@ const OutOfBodyRight = createWrapper({ margin: '200px 200px 0 auto' })
 
 storiesOf('Pop (out of body)', module)
     .addDecorator(fn => <OutOfBodyRight>{fn()}</OutOfBodyRight>)
-    .add('Right', () => (
-        <Pop
-            side="right"
-            open={true}
-            onClose={() => null}
-            anchorRef={{ current: 'Overriden by story implementation' }}
-        >
-            {createPopContent()}
-        </Pop>
-    ))
+    .add('Right', createPop('right'))
 
 /**
- * Out of viewport / Inside body
+ * ==========================================
+ *
+ * Edge cases - Out of viewport - Positions have to be adjusted
+ *
+ * ==========================================
+ */
+
+/**
+ * Out of viewport - bottom
  * ==========================
  */
 const OutOfViewportBottom = createWrapper({
@@ -217,13 +230,18 @@ const OutOfViewportBottom = createWrapper({
 
 storiesOf('Pop (out of viewport)', module)
     .addDecorator(fn => <OutOfViewportBottom>{fn()}</OutOfViewportBottom>)
-    .add('Bottom', () => (
-        <Pop
-            side="bottom"
-            open={true}
-            onClose={() => null}
-            anchorRef={{ current: 'Overriden by story implementation' }}
-        >
-            {createPopContent()}
-        </Pop>
+    .add('Bottom', createPop('bottom'))
+
+/**
+ * Out of viewport - bottom /w spacing
+ * ===================================
+ */
+const OutOfViewportBottomSpacing = createWrapper({
+    margin: 'calc(100vh - 50px) 200px 150px auto',
+})
+
+storiesOf('Pop (out of viewport)', module)
+    .addDecorator(fn => (
+        <OutOfViewportBottomSpacing>{fn()}</OutOfViewportBottomSpacing>
     ))
+    .add('Bottom with spacing', createPop('bottom', 20))
