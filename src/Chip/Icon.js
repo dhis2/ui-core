@@ -21,7 +21,8 @@ export const Icon = ({ icon }) => {
                 }
 
                 span > :global(*) {
-                    height: 24px;
+                    max-height: 24px;
+                    max-width: 24px;
                 }
             `}</style>
         </span>
