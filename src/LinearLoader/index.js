@@ -37,8 +37,10 @@ const LinearLoader = ({ amount, width, margin, className }) => {
                 }
             `}</style>
             <style jsx>{`
-                width: ${width};
-                margin: ${margin};
+                div {
+                    width: ${width};
+                    margin: ${margin};
+                }
             `}</style>
         </div>
     )
