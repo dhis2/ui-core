@@ -1,9 +1,7 @@
 import React, { Component, createRef } from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import css from 'styled-jsx/css'
 
-import { colors, theme } from '../theme.js'
 import { SwitchIcon } from '../icons/Switch.js'
 
 import styles from './styles'

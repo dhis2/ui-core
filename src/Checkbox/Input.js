@@ -1,6 +1,5 @@
 import React, { Component, Fragment, createRef } from 'react'
 import propTypes from 'prop-types'
-import css from 'styled-jsx/css'
 
 export class Input extends Component {
     ref = createRef()
