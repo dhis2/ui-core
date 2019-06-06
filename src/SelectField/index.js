@@ -5,7 +5,7 @@ import css from 'styled-jsx/css'
 import { ArrowDown } from '../icons/Arrow'
 import { LabelFilled, LabelOutlined } from '../FieldLabel'
 import { Select } from './Select'
-import { colors } from '../theme'
+import { colors } from '../theme.js'
 
 const TailIcon = () => (
     <div>

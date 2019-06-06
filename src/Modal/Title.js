@@ -3,6 +3,8 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
+import { spacers } from '../theme.js'
+
 export const Title = ({ children }) => (
     <h1 className={cx('title')}>
         {children}
@@ -12,8 +14,8 @@ export const Title = ({ children }) => (
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 24px;
-                padding: 20px 24px 0;
-                margin: 0 0 17px;
+                padding: ${spacers.dp24} ${spacers.dp24} 0;
+                margin: 0 0 ${spacers.dp16};
             }
         `}</style>
     </h1>

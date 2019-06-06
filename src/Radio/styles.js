@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-import { colors, theme } from '../theme.js'
+import { colors, theme, spacers } from '../theme.js'
 
 export default css`
     label {
@@ -27,7 +27,7 @@ export default css`
     }
 
     span {
-        margin: 0 0 0 8px;
+        margin: 0 0 0 ${spacers.dp8};
         cursor: pointer;
     }
 
@@ -37,7 +37,7 @@ export default css`
     }
 
     .required:after {
-        padding-left: 4px;
+        padding-left: ${spacers.dp4};
         content: '*';
     }
 `

@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
-import { colors } from '../theme.js'
+import { colors, spacers } from '../theme.js'
 
 const Divider = ({ margin, className }) => (
     <div className={className}>
@@ -22,7 +22,7 @@ const Divider = ({ margin, className }) => (
 )
 
 Divider.defaultProps = {
-    margin: '8px 0',
+    margin: `${spacers.dp8} 0`,
 }
 
 Divider.propTypes = {

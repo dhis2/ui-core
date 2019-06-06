@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import cx from 'classnames'
 import css from 'styled-jsx/css'
 
-import { colors, theme } from '../theme'
+import { colors, theme } from '../theme.js'
 import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox'
 import { Icon } from './Icon'
 import { Label } from './Label'

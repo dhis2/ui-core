@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { colors, theme } from '../theme'
+import { colors, theme, spacers } from '../theme.js'
 
 export default css`
     li {
@@ -8,12 +8,12 @@ export default css`
         flex-direction: row;
         align-items: center;
         height: 48px;
-        padding: 0 24px;
+        padding: 0 ${spacers.dp24};
         cursor: pointer;
     }
 
     li div.label:not(:first-child) {
-        margin-left: 8px;
+        margin-left: ${spacers.dp8};
     }
 
     li:hover {
@@ -34,13 +34,13 @@ export default css`
         text-overflow: ellipsis;
 
         user-select: none;
-        padding-right: 12px;
+        padding-right: ${spacers.dp12};
     }
 
     .icon {
         box-sizing: border-box;
 
-        margin-right: 18px;
+        margin-right: ${spacers.dp16};
         color: #404040;
         font-size: 24px;
         pointer-events: none;
@@ -49,7 +49,7 @@ export default css`
 
     .dense {
         height: 32px;
-        padding: 0 24px 0 12px;
+        padding: 0 ${spacers.dp24} 0 ${spacers.dp12};
     }
 
     .dense .label {

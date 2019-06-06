@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme } from '../theme'
+import { colors, theme, spacers } from '../theme.js'
 import { Content } from './Content'
 import { Icon } from './Icon'
 import { Remove } from './Remove'
@@ -43,7 +43,7 @@ class Chip extends PureComponent {
                         display: inline-flex;
                         align-items: center;
                         height: 32px;
-                        margin: 4px;
+                        margin: ${spacers.dp4};
                         border-radius: 16px;
                         background-color: ${colors.grey200};
                         font-size: 14px;

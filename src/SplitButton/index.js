@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
-
+import cx from 'classnames'
 import css from 'styled-jsx/css'
 
 import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
@@ -9,11 +9,11 @@ import { DropMenu } from '../DropMenu'
 import { Button } from '../Button'
 import { ButtonStrip } from '../ButtonStrip'
 
-import cx from 'classnames'
+import { spacers } from '../theme.js'
 
 const rightButton = css.resolve`
     button {
-        padding: 0 9px;
+        padding: 0 ${spacers.dp8};
     }
 `
 
