@@ -1,11 +1,11 @@
 import css from 'styled-jsx/css'
 
-import { theme } from '../theme.js'
+import { theme, spacers } from '../theme.js'
 
 export default css`
     div {
         display: inline-block;
-        margin: 16px;
+        margin: ${spacers.dp16};
         color: ${theme.primary600};
         animation: anim-rotate 1.4s linear infinite;
 

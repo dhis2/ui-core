@@ -3,18 +3,19 @@ import propTypes from 'prop-types'
 import css, { resolve } from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { Card } from '../Card'
+import { spacers } from '../theme.js'
 
-const OUTER_SPACING = 24
+import { Card } from '../Card'
 
 const cardBoxStyle = resolve`
     .modal-card {
         display: flex;
         height: auto;
+        max-height: 95vh;
         flex-direction: column;
         left: 50%;
-        max-width: calc(100vw - ${2 * OUTER_SPACING}px);
-        max-height: calc(100vh - ${2 * OUTER_SPACING}px);
+        max-width: calc(100vw - ${2 * spacers.dp24}px);
+        max-height: calc(100vh - ${2 * spacers.dp24}px);
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);

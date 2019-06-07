@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 
-import { theme } from '../theme.js'
+import { theme, spacers } from '../theme.js'
 
 const Help = ({ children, valid, error, warning, className }) => (
     <p
@@ -17,8 +17,8 @@ const Help = ({ children, valid, error, warning, className }) => (
         <style jsx>{`
             p {
                 height: 12px;
-                padding-top: 8px;
-                padding-left: 16px;
+                padding-top: ${spacers.dp8};
+                padding-left: ${spacers.dp16};
                 font-size: 12px;
                 margin: 0;
                 line-height: 12px;

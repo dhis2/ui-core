@@ -6,8 +6,8 @@ import cx from 'classnames'
 import { InputContainer } from './InputContainer'
 import { Label } from './Label'
 import { StatusIconNoDefault } from '../../icons/Status'
-import { borderRadius, inputHeight, inputHeightDense } from '../constants'
-import { colors, theme } from '../../theme'
+import { borderRadius, inputHeight, inputHeightDense } from '../constants.js'
+import { colors, theme, spacers } from '../../theme.js'
 
 const styles = css`
     .label-outlined {
@@ -76,8 +76,8 @@ const styles = css`
         flex-shrink: 0;
         width: 24px;
         height: 24px;
-        margin-right: 4px;
-        margin-left: 10px;
+        margin-right: ${spacers.dp4};
+        margin-left: ${spacers.dp12};
     }
 
     .status-icon:empty {
@@ -85,7 +85,7 @@ const styles = css`
     }
 
     .status-icon:last-child {
-        margin-right: 10px;
+        margin-right: ${spacers.dp12};
     }
 `
 

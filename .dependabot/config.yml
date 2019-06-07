@@ -1,0 +1,13 @@
+version: 1
+
+update_configs:
+  - package_manager: "javascript"
+    directory: "/"
+    update_schedule: "live"
+
+    ignored_updates:
+    # ui-core supports 16.3 of react, so ignore all updates
+      - match:
+          dependency_name: "react"
+      - match:
+          dependency_name: "react-dom"

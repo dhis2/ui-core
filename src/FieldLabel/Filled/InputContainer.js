@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { inputHeight, inputHeightDense } from '../constants'
+import { inputHeight, inputHeightDense } from '../constants.js'
 
 const styles = css`
     div {

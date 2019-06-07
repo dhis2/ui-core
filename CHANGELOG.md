@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/dhis2/ui/compare/v3.0.0...v3.1.0) (2019-06-06)
+
+
+### Features
+
+* add spacing scale (and fix a few bugs) ([#249](https://github.com/dhis2/ui/issues/249)) ([46a3574](https://github.com/dhis2/ui/commit/46a3574))
+
 # [3.0.0](https://github.com/dhis2/ui/compare/v2.5.2...v3.0.0) (2019-06-06)
 
 

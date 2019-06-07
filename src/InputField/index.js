@@ -4,7 +4,7 @@ import css from 'styled-jsx/css'
 
 import { Input } from './Input.js'
 import { LabelFilled, LabelOutlined } from '../FieldLabel'
-import { theme } from '../theme'
+import { theme } from '../theme.js'
 
 class InputField extends React.Component {
     state = {

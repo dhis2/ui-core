@@ -119,3 +119,21 @@ export const layers = {
     blocking: 3000,
     alert: 9999,
 }
+
+export const spacers = {
+    dp4: '4px',
+    dp8: '8px',
+    dp12: '12px',
+    dp16: '16px',
+    dp24: '24px',
+    dp32: '32px',
+    dp48: '48px',
+    dp64: '64px',
+    dp96: '96px',
+    dp128: '128px',
+    dp192: '192px',
+    dp256: '256px',
+    dp384: '384px',
+    dp512: '512px',
+    dp640: '640px',
+}
