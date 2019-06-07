@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { AlertBar } from '../src'
 import { Indeterminate } from '../src/icons/Checkbox'
 
-import markdown from './info/atoms/alertBar.md'
+import markdown from './info/molecules/alertBar.md'
 
 const Wrapper = fn => (
     <div

@@ -1,3 +1,0 @@
-# AlertBar
-
-Info about AlertBar
