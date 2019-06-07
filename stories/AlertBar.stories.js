@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { AlertBar, AlertStack } from '../src'
+import { AlertBar } from '../src'
 import { Indeterminate } from '../src/icons/Checkbox'
 
 import markdown from './info/atoms/alertBar.md'

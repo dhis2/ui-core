@@ -4,7 +4,7 @@ import { arrayWithLength } from '../prop-validators'
 import { Action } from './Action'
 import { spacers } from '../theme.js'
 
-const Actions = ({ actions }) => {
+const Actions = ({ actions, hide }) => {
     if (!actions) {
         return null
     }
@@ -12,7 +12,7 @@ const Actions = ({ actions }) => {
     return (
         <div>
             {actions.map(action => (
-                <Action key={action.label} {...action} />
+                <Action key={action.label} {...action} hide={hide} />
             ))}
             <style jsx>{`
                 div {
@@ -35,6 +35,7 @@ const actionsPropType = arrayWithLength(
 
 Actions.propTypes = {
     actions: actionsPropType,
+    hide: propTypes.func.isRequired,
 }
 
 export { Actions, actionsPropType }

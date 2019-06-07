@@ -97,7 +97,7 @@ class AlertBar extends PureComponent {
             >
                 <Icon {...iconProps} />
                 <Message>{children}</Message>
-                <Actions actions={actions} />
+                <Actions actions={actions} hide={this.hide} />
                 <Dismiss onClick={this.hide} />
 
                 <style jsx>{styles}</style>
