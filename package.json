@@ -39,7 +39,7 @@
     "@storybook/addon-notes": "^5.0.11",
     "@storybook/addons": "^5.0.11",
     "@storybook/components": "^5.0.11",
-    "@storybook/react": "^5.0.11",
+    "@storybook/react": "^5.1.1",
     "babel-loader": "^8.0.6",
     "husky": "^2.0.0",
     "react": "16.3",
