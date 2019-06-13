@@ -5,8 +5,6 @@ import cx from 'classnames'
 
 import { colors, theme, spacers } from '../theme.js'
 
-const calculatePaddingTop = props => (props.filled ? '14px' : '18.5px')
-
 const styles = css`
     input {
         color: ${colors.grey900};
@@ -54,8 +52,6 @@ export class Input extends Component {
     }
 
     render() {
-        const paddingTop = calculatePaddingTop(this.props)
-
         const { dense, filled, disabled } = this.props
 
         const classes = cx({

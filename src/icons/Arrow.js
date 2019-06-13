@@ -20,7 +20,6 @@ export function ArrowDown() {
             viewBox="0 0 48 48"
         >
             <path d="M14 20l10 10 10-10z" />
-            <path d="M0 0h48v48H0z" fill="none" />
             <style jsx>{styles}</style>
         </svg>
     )
@@ -35,7 +34,6 @@ export function ArrowUp() {
             viewBox="0 0 48 48"
         >
             <path d="M14 28l10-10 10 10z" />
-            <path d="M0 0h48v48H0z" fill="none" />
             <style jsx>{styles}</style>
         </svg>
     )

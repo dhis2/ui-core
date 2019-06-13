@@ -1,5 +1,4 @@
 import React from 'react'
-import { createPortal } from 'react-dom'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 
