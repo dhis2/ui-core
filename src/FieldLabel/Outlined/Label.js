@@ -1,5 +1,4 @@
-import propTypes from 'prop-types'
-import React, { Fragment } from 'react'
+import React from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 

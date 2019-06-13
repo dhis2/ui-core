@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import propTypes from 'prop-types'
-import css, { resolve } from 'styled-jsx/css'
+import { resolve } from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { spacers } from '../theme.js'
