@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { theme } from '..'
+import { theme } from '../theme.js'
 
 /*
  * Normalize CSS
