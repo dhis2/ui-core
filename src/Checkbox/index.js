@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
+import css from 'styled-jsx/css'
 
-import { theme } from '../theme.js'
+import { colors, theme } from '../theme.js'
+import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox'
 import { Icon } from './Icon'
 import { Label } from './Label'
 import { Input } from './Input'

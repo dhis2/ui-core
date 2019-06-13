@@ -1,4 +1,5 @@
 import React from 'react'
+import propTypes from 'prop-types'
 
 import { LogoSvg } from './LogoSvg'
 import { LogoIconSvg } from './LogoIconSvg'

@@ -1,9 +1,11 @@
 import propTypes from 'prop-types'
-import React from 'react'
+import React, { Fragment } from 'react'
+import css from 'styled-jsx/css'
 
 import { ArrowDown } from '../icons/Arrow'
 import { LabelFilled, LabelOutlined } from '../FieldLabel'
 import { Select } from './Select'
+import { colors } from '../theme.js'
 
 const TailIcon = () => (
     <div>
@@ -45,6 +47,7 @@ class SelectField extends React.Component {
 
     render() {
         const {
+            type,
             filled,
             dense,
             required,
