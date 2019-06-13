@@ -18,13 +18,15 @@ const arrayWithLengthFactory = ({
 
     if (arr && arr.length > max) {
         return new Error(
-            `${propName} array exceeds the maximum length of ${max}`
+            // prettier-ignore
+            `${propName} array has a length of ${arr.length}, but the maximum is ${max}`
         )
     }
 
     if (arr && arr.length < min) {
         return new Error(
-            `${propName} array length lower than the minimum of ${min}`
+            // prettier-ignore
+            `${propName} array has a length of ${arr.length}, but the minimum is ${min}`
         )
     }
 
