@@ -16,15 +16,29 @@ class AlertBar extends PureComponent {
     }
 
     componentDidMount() {
-        this.startTime = Date.now()
-        this.timeRemaining = this.props.duration
-        this.startDisplayTimeout()
-        this.show()
+        this.init()
+    }
+
+    componentDidUpdate(_prevProps, prevState) {
+        // Only re-init when props change, ignore state changes
+        if (
+            prevState.visible === this.state.visible &&
+            prevState.hidden === this.state.hidden
+        ) {
+            this.init()
+        }
     }
 
     componentWillUnmount() {
         clearTimeout(this.displayTimeout)
         clearTimeout(this.onHiddenTimeout)
+    }
+
+    init() {
+        this.startTime = Date.now()
+        this.timeRemaining = this.props.duration
+        this.startDisplayTimeout()
+        this.show()
     }
 
     startDisplayTimeout = () => {
