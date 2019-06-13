@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/dhis2/ui/compare/v3.1.0...v3.1.1) (2019-06-13)
+
+
+### Bug Fixes
+
+* **cssreset:** import from the theme file explicitly ([#271](https://github.com/dhis2/ui/issues/271)) ([74d35ad](https://github.com/dhis2/ui/commit/74d35ad))
+
 # [3.1.0](https://github.com/dhis2/ui/compare/v3.0.0...v3.1.0) (2019-06-06)
 
 
