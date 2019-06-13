@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { createPortal } from 'react-dom'
 import propTypes from 'prop-types'
+import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { ScreenCover } from '../ScreenCover'

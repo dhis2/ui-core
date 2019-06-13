@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import { resolve } from 'styled-jsx/css'
+import css, { resolve } from 'styled-jsx/css'
 
 import { colors, theme } from '../theme.js'
 import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox'
