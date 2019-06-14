@@ -1,6 +1,5 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import cx from 'classnames'
 import { theme, spacers } from '../theme.js'
 
 const Progress = ({ amount }) => {

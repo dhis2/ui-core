@@ -2,6 +2,8 @@
 export { CssReset } from './CssReset'
 
 /* atoms */
+export { AlertBar } from './AlertBar'
+export { AlertStack } from './AlertStack'
 export { Button } from './Button'
 export { Card } from './Card'
 export { Checkbox } from './Checkbox'

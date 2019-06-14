@@ -1,8 +1,5 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import propTypes from 'prop-types'
-import css from 'styled-jsx/css'
-import cx from 'classnames'
-
 import { layers } from '../theme.js'
 
 const ComponentCover = ({ children, className }) => (
