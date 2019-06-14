@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css'
+import { layers } from '../theme.js'
 
 export default css`
     div {
@@ -9,7 +10,7 @@ export default css`
         left: 50%;
         transform: translateX(-50%);
 
-        z-index: 9999;
+        z-index: ${layers.alert};
 
         display: flex;
         flex-direction: column-reverse;
