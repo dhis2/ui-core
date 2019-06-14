@@ -1,5 +1,5 @@
 import propTypes from 'prop-types'
-import React, { Component, createRef } from 'react'
+import React, { Component, Fragment, createRef } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 

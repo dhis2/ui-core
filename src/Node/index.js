@@ -1,9 +1,23 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
+import css, { resolve } from 'styled-jsx/css'
 
 import { ArrowDown } from '../icons/Arrow'
-import { colors } from '../theme.js'
+import { colors, spacers } from '../theme.js'
+
+const Label = ({ icon, children }) => (
+    <div className="tree__label">
+        {children}
+
+        <style jsx>{`
+            div {
+                min-height: 24px;
+                padding: ${spacers.dp4} 0;
+            }
+        `}</style>
+    </div>
+)
 
 const Contents = ({ children, open }) => (
     <div className={cx('tree__contents', { open })}>
