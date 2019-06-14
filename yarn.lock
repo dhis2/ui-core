@@ -850,17 +850,16 @@
   dependencies:
     lodash "4.17.11"
 
-"@commitlint/execute-rule@^7.6.0":
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/execute-rule/-/execute-rule-7.6.0.tgz#60c1c34b5f2fca6c6cbca019a9c7d81c2fab1e4a"
+"@commitlint/execute-rule@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/execute-rule/-/execute-rule-8.0.0.tgz#df2a9893f162fc561ca4e95a34bd782469dd7f8b"
   dependencies:
     babel-runtime "6.26.0"
 
-"@commitlint/format@^7.6.1":
-  version "7.6.1"
-  resolved "https://registry.yarnpkg.com/@commitlint/format/-/format-7.6.1.tgz#106750de50fab7d153eed80e7577c768bb9a3a1b"
+"@commitlint/format@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/format/-/format-8.0.0.tgz#f7c858d9057e1da6856be211ad049c5b9a66185b"
   dependencies:
-    babel-runtime "^6.23.0"
     chalk "^2.0.1"
 
 "@commitlint/is-ignored@^7.6.0":
@@ -879,12 +878,12 @@
     babel-runtime "^6.23.0"
     lodash "4.17.11"
 
-"@commitlint/load@^7.6.2":
-  version "7.6.2"
-  resolved "https://registry.yarnpkg.com/@commitlint/load/-/load-7.6.2.tgz#b5ed8163fa3117d60faf70a4e677b2017bbc71bb"
+"@commitlint/load@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/load/-/load-8.0.0.tgz#5eacfb96635e9aeac8f1a0674491f29483348872"
   dependencies:
-    "@commitlint/execute-rule" "^7.6.0"
-    "@commitlint/resolve-extends" "^7.6.0"
+    "@commitlint/execute-rule" "^8.0.0"
+    "@commitlint/resolve-extends" "^8.0.0"
     babel-runtime "^6.23.0"
     cosmiconfig "^5.2.0"
     lodash "4.17.11"
@@ -902,18 +901,18 @@
     conventional-commits-parser "^2.1.0"
     lodash "^4.17.11"
 
-"@commitlint/read@^7.6.0":
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/read/-/read-7.6.0.tgz#e55863354b436683daa2081de7ec2189573bc306"
+"@commitlint/read@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/read/-/read-8.0.0.tgz#5149fcb2550a07e7eb6a9f50b88df742780fa1e8"
   dependencies:
-    "@commitlint/top-level" "^7.6.0"
+    "@commitlint/top-level" "^8.0.0"
     "@marionebl/sander" "^0.6.0"
     babel-runtime "^6.23.0"
     git-raw-commits "^1.3.0"
 
-"@commitlint/resolve-extends@^7.6.0":
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/resolve-extends/-/resolve-extends-7.6.0.tgz#0680b76eeb0e41f728c2f38645473a0956299edb"
+"@commitlint/resolve-extends@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/resolve-extends/-/resolve-extends-8.0.0.tgz#dc606cecb0f392d57905cfd690d8f736ad26eec2"
   dependencies:
     babel-runtime "6.26.0"
     import-fresh "^3.0.0"
@@ -934,9 +933,9 @@
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/@commitlint/to-lines/-/to-lines-7.6.0.tgz#5ed4dbf39db0ceff96dbb661b9ce048ed3db7a4b"
 
-"@commitlint/top-level@^7.6.0":
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/top-level/-/top-level-7.6.0.tgz#0ed88078ac585c93ee314ff3b7f8c20143c57652"
+"@commitlint/top-level@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/top-level/-/top-level-8.0.0.tgz#3d998ba1e13be939f4227202eebae7f1dbb472a9"
   dependencies:
     find-up "^2.1.0"
 
@@ -948,32 +947,34 @@
     puppeteer "^1.2.0"
     yargs "^11.1.0"
 
-"@dhis2/cli-helpers-engine@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-1.2.0.tgz#ffec930cf57668aa29c91de3d871d7898ac915b7"
+"@dhis2/cli-helpers-engine@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-1.3.0.tgz#e12f7a1bfd6223054cf9254e675b2b660b0690a5"
   dependencies:
     chalk "^2.4.2"
-    mkdirp "^0.5.1"
+    fs-extra "^8.0.1"
     request "^2.88.0"
-    rimraf "^2.6.3"
     tar "^4.4.8"
     update-notifier "^3.0.0"
     yargs "^13.1.0"
 
-"@dhis2/cli-style@^3.2.2":
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-3.2.2.tgz#e4baf9b9b568b9b0760908a2545e82da145e881b"
+"@dhis2/cli-style@^3.3.4":
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-3.3.4.tgz#9dc7588e37268e1e0e74d89a2ec494bdaf40d236"
   dependencies:
     "@commitlint/config-conventional" "^7.6.0"
-    "@commitlint/format" "^7.6.1"
+    "@commitlint/format" "^8.0.0"
     "@commitlint/lint" "^7.6.0"
-    "@commitlint/load" "^7.6.2"
-    "@commitlint/read" "^7.6.0"
-    "@dhis2/cli-helpers-engine" "1.2.0"
+    "@commitlint/load" "^8.0.0"
+    "@commitlint/read" "^8.0.0"
+    "@dhis2/cli-helpers-engine" "1.3.0"
     babel-eslint "^10.0.1"
+    chalk "^2.4.2"
     eslint "^5.16.0"
+    fs-extra "^8.0.1"
     perfy "^1.1.5"
     prettier "^1.15.3"
+    semver "^6.1.1"
     yargs "^13.1.0"
 
 "@emotion/cache@^10.0.9":
@@ -8239,7 +8240,7 @@ semver@6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.0.0.tgz#05e359ee571e5ad7ed641a6eec1e547ba52dea65"
 
-semver@^6.0.0, semver@^6.1.0:
+semver@^6.0.0, semver@^6.1.0, semver@^6.1.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.1.1.tgz#53f53da9b30b2103cd4f15eab3a18ecbcb210c9b"
 
