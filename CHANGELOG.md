@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/dhis2/ui/compare/v3.1.1...v3.2.0) (2019-06-14)
+
+
+### Features
+
+* **alertbar:** add the alert bar and alert stack ([#277](https://github.com/dhis2/ui/issues/277)) ([a645093](https://github.com/dhis2/ui/commit/a645093))
+
 ## [3.1.1](https://github.com/dhis2/ui/compare/v3.1.0...v3.1.1) (2019-06-13)
 
 
