@@ -1,4 +1,4 @@
-import React, { isValidElement } from 'react'
+import React from 'react'
 import propTypes from 'prop-types'
 import { Valid, Warning, Error, Info } from '../icons/Status'
 import { spacers } from '../theme.js'
@@ -9,7 +9,7 @@ const Icon = ({ icon, success, warning, critical }) => {
     }
 
     let IconComponent
-    if (isValidElement(icon)) {
+    if (React.isValidElement(icon)) {
         IconComponent = icon
     } else if (critical) {
         IconComponent = <Error />
