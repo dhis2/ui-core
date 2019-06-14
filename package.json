@@ -41,7 +41,7 @@
     "@storybook/components": "^5.1.7",
     "@storybook/react": "^5.1.1",
     "babel-loader": "^8.0.6",
-    "husky": "^2.0.0",
+    "husky": "^2.4.1",
     "react": "16.3",
     "react-dev-utils": "^9.0.1",
     "react-dom": "16.3",
