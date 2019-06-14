@@ -10,7 +10,7 @@ update_configs:
       # ui-core supports 16.3 of react, so ignore all updates
       - match:
           dependency_name: "react"
-          ignored_updates: ">=16.4.x"
+          version_requirement: ">=16.4.x"
       - match:
           dependency_name: "react-dom"
-          ignored_updates: ">=16.4.x"
+          version_requirement: ">=16.4.x"
