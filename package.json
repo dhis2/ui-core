@@ -13,12 +13,25 @@
   },
   "scripts": {
     "prebuild": "rm -rf ./build/*",
-    "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
-    "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
-    "build": "NODE_ENV=production yarn build:commonjs && NODE_ENV=production yarn build:modules",
-    "postbuild": "NODE_ENV=production yarn build-storybook && size-limit",
-    "build-storybook": "build-storybook -c .storybook -o ./build/docs && cp -r ./stories/info/images ./build/docs",
+
+    "build:dev:commonjs": "NODE_ENV=development BABEL_ENV=commonjs babel src --out-dir ./build/cjs/dev --copy-files --verbose",
+    "build:dev:modules": "NODE_ENV=development BABEL_ENV=modules babel src --out-dir ./build/es/dev --copy-files --verbose",
+
+    "build:prod:commonjs": "NODE_ENV=production BABEL_ENV=commonjs babel src --out-dir ./build/cjs/prod --copy-files --verbose",
+    "build:prod:modules": "NODE_ENV=production BABEL_ENV=modules babel src --out-dir ./build/es/prod --copy-files --verbose",
+
+    "build:index:modules": "BABEL_ENV=commonjs babel ./index.js --out-file ./build/cjs/index.js --verbose",
+    "build:index:commonjs": "BABEL_ENV=modules babel ./index.js --out-file ./build/es/index.js --verbose",
+
+    "build:prod": "yarn build:prod:commonjs && yarn build:prod:modules",
+    "build:dev": "yarn build:dev:commonjs && yarn build:dev:modules",
+
+    "build": "yarn build:prod && yarn build:dev && yarn build:index:modules && yarn build:index:commonjs",
+    "postbuild": "yarn build-storybook && size-limit",
+
+    "build-storybook": "NODE_ENV=production build-storybook -c .storybook -o ./build/docs && cp -r ./stories/info/images ./build/docs",
     "start-storybook": "start-storybook --port 5000 -s ./stories/info",
+
     "start": "yarn start-storybook"
   },
   "husky": {
