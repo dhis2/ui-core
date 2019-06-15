@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/dhis2/ui/compare/v3.2.0...v3.2.1) (2019-06-15)
+
+
+### Bug Fixes
+
+* remove spacing left to the checkbox icon in FF ([#283](https://github.com/dhis2/ui/issues/283)) ([33165a5](https://github.com/dhis2/ui/commit/33165a5))
+
 # [3.2.0](https://github.com/dhis2/ui/compare/v3.1.1...v3.2.0) (2019-06-14)
 
 
