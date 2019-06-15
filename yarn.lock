@@ -8681,9 +8681,9 @@ storybook-addon-jsx@^7.0.0:
     react-copy-to-clipboard "^5.0.1"
     react-element-to-jsx-string "^14.0.2"
 
-storybook-addon-react-docgen@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.1.tgz#ec18910273c61463eafd6298f40f4d1b620557a8"
+storybook-addon-react-docgen@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.2.tgz#eefca64b0d582fd35898801eea791a0294bbfc9b"
   dependencies:
     nested-object-assign "^1.0.3"
     prop-types "^15.6.2"
