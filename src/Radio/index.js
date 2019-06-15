@@ -42,6 +42,36 @@ const icons = css.resolve`
     }
 `
 
+const Input = React.forwardRef(
+    (
+        { name, value, checked, disabled, tabIndex, onChange, onFocus, onBlur },
+        ref
+    ) => (
+        <div>
+            <input
+                type="radio"
+                ref={ref}
+                name={name}
+                value={value}
+                checked={checked}
+                disabled={disabled}
+                tabIndex={tabIndex}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+
+            <style jsx>{`
+                div {
+                    height: 0;
+                    width: 0;
+                    overflow: hidden;
+                }
+            `}</style>
+        </div>
+    )
+)
+
 class Radio extends Component {
     ref = createRef()
 
@@ -113,9 +143,8 @@ class Radio extends Component {
                     disabled,
                 })}
             >
-                <input
+                <Input
                     ref={this.ref}
-                    type="radio"
                     name={name}
                     value={value}
                     checked={checked}

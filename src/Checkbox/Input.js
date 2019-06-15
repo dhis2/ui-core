@@ -23,7 +23,7 @@ export class Input extends Component {
         } = this.props
 
         return (
-            <Fragment>
+            <div>
                 <input
                     ref={this.ref}
                     type="checkbox"
@@ -38,15 +38,13 @@ export class Input extends Component {
                 />
 
                 <style jsx>{`
-                    input {
-                        display: block;
-                        opacity: 0;
+                    div {
                         width: 0;
                         height: 0;
-                        outline: 0;
+                        overflow: hidden;
                     }
                 `}</style>
-            </Fragment>
+            </div>
         )
     }
 }
