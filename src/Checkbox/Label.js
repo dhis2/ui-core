@@ -13,7 +13,7 @@ export const Label = ({ disabled, required, children }) => {
 
             <style jsx>{`
                 .label {
-                    margin: 0 0 0 ${spacers.dp8};
+                    padding: 0 0 0 2px;
                     color: ${colors.grey900};
                     cursor: pointer;
                 }

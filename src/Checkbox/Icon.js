@@ -71,6 +71,7 @@ export const Icon = ({
             <style jsx>{`
                 div {
                     position: relative;
+                    padding: 0 6px 0 0;
                 }
 
                 .focus:before {
