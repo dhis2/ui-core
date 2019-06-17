@@ -155,28 +155,12 @@ class Radio extends Component {
                     onBlur={this.onBlur}
                 />
 
-                <div className={cx({ focus })}>{icon}</div>
+                <div className={cx('icon', { focus })}>{icon}</div>
 
                 <span className={cx({ required })}>{label}</span>
 
                 {icons.styles}
                 <style jsx>{styles}</style>
-                <style jsx>{`
-                    div {
-                        position: relative;
-                    }
-
-                    .focus:before {
-                        content: '';
-                        position: absolute;
-                        border: 2px solid ${colors.blue600};
-                        border-radius: 50%;
-                        width: calc(100% + 2px);
-                        height: calc(100% + 2px);
-                        top: -1px;
-                        left: -1px;
-                    }
-                `}</style>
             </label>
         )
     }
