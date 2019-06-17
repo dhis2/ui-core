@@ -34,19 +34,20 @@ class Checkbox extends Component {
 
     render() {
         const {
-            onChange,
-            name,
-            value,
-            label,
-            className,
-            indeterminate,
-            required,
             checked = false,
+            className,
             disabled,
-            valid,
-            warning,
             error,
+            icon,
+            indeterminate,
+            label,
+            name,
+            onChange,
+            required,
             tabIndex,
+            valid,
+            value,
+            warning,
         } = this.props
         const { focus } = this.state
 
@@ -79,6 +80,8 @@ class Checkbox extends Component {
                         warning={warning}
                         indeterminate={indeterminate}
                     />
+
+                    {icon}
 
                     <Label required={required}>{label}</Label>
 
@@ -115,11 +118,12 @@ Checkbox.propTypes = {
     name: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     tabIndex: propTypes.string,
+    className: propTypes.string,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 
-    className: propTypes.string,
+    icon: propTypes.element,
 
     indeterminate: propTypes.bool,
     required: propTypes.bool,
