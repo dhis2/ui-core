@@ -6,19 +6,24 @@ import { MenuList } from '../MenuList'
 import { spacers } from '../theme.js'
 
 const Menu = ({ children, className }) => (
-    <Card>
-        <div>
-            <MenuList className={className}>{children}</MenuList>
-        </div>
+    <div className={className}>
+        <Card>
+            <div className="menu-list-wrapper">
+                <MenuList>{children}</MenuList>
+            </div>
+        </Card>
 
         <style jsx>{`
-            div {
+            .menu-list-wrapper {
                 padding: ${spacers.dp4} 0;
             }
         `}</style>
-    </Card>
+    </div>
 )
 
-Menu.propTypes = MenuList.propTypes
+Menu.propTypes = {
+    children: MenuList.propTypes.children,
+    className: propTypes.string,
+}
 
 export { Menu }
