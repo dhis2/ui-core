@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/dhis2/ui/compare/v3.3.0...v3.4.0) (2019-06-21)
+
+
+### Features
+
+* extract and expose MenuList from Menu component ([#297](https://github.com/dhis2/ui/issues/297)) ([4d576af](https://github.com/dhis2/ui/commit/4d576af))
+
 # [3.3.0](https://github.com/dhis2/ui/compare/v3.2.1...v3.3.0) (2019-06-17)
 
 
