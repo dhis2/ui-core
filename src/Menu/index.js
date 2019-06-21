@@ -1,29 +1,29 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { Card } from '../Card'
 
+import { Card } from '../Card'
+import { MenuList } from '../MenuList'
 import { spacers } from '../theme.js'
 
 const Menu = ({ children, className }) => (
-    <Card>
-        <ul className={className}>{children}</ul>
-        <style jsx>{`
-            ul {
-                display: block;
-                position: relative;
-                width: 100%;
-                margin: 0;
+    <div className={className}>
+        <Card>
+            <div className="menu-list-wrapper">
+                <MenuList>{children}</MenuList>
+            </div>
+        </Card>
 
+        <style jsx>{`
+            .menu-list-wrapper {
                 padding: ${spacers.dp4} 0;
-                user-select: none;
             }
         `}</style>
-    </Card>
+    </div>
 )
 
 Menu.propTypes = {
+    children: MenuList.propTypes.children,
     className: propTypes.string,
-    children: propTypes.any.isRequired,
 }
 
 export { Menu }
