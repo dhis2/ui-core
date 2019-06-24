@@ -15,11 +15,11 @@ import {
 } from './helpers'
 
 /**
- * The Pop component is a content container that behaves like a context menu
+ * The Tooltip component is a content container that behaves like a context menu
  * container. It can be used to create multi level context menus that won't be
- * displayed off-screen by wrapping each level with the Pop component.
+ * displayed off-screen by wrapping each level with the Tooltip component.
  */
-class Pop extends Component {
+class Tooltip extends Component {
     ref = createRef()
     state = {
         position: {},
@@ -83,14 +83,14 @@ class Pop extends Component {
     }
 }
 
-Pop.propTypes = {
+Tooltip.propTypes = {
     /**
      * Must be created with `React.createRef()`
      */
     anchorRef: reactRef.isRequired,
 
     /**
-     * Pop will always be centered to the center of the anchor's side
+     * Tooltip will always be centered to the center of the anchor's side
      */
     side: propTypes.oneOf(['top', 'right', 'bottom', 'left']).isRequired,
 
@@ -115,8 +115,8 @@ Pop.propTypes = {
     withArrow: propTypes.bool,
 }
 
-Pop.defaultProps = {
+Tooltip.defaultProps = {
     spacing: 0,
 }
 
-export { Pop }
+export { Tooltip }
