@@ -73,6 +73,15 @@ export { TableHead } from './TableHead.js'
 export { TableRow } from './TableRow.js'
 export { TableRowHead } from './TableRowHead.js'
 
+export { StackedTableBody } from './StackedTableBody.js'
+export { StackedTableCell } from './StackedTableCell.js'
+export { StackedTableCellHead } from './StackedTableCellHead.js'
+export { StackedTable } from './StackedTable.js'
+export { StackedTableFoot } from './StackedTableFoot.js'
+export { StackedTableHead } from './StackedTableHead.js'
+export { StackedTableRow } from './StackedTableRow.js'
+export { StackedTableRowHead } from './StackedTableRowHead.js'
+
 /* molecules */
 export { ButtonStrip } from './ButtonStrip.js'
 export { DropdownButton } from './DropdownButton.js'
