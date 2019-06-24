@@ -42,6 +42,36 @@ const icons = css.resolve`
     }
 `
 
+const Input = React.forwardRef(
+    (
+        { name, value, checked, disabled, tabIndex, onChange, onFocus, onBlur },
+        ref
+    ) => (
+        <div>
+            <input
+                type="radio"
+                ref={ref}
+                name={name}
+                value={value}
+                checked={checked}
+                disabled={disabled}
+                tabIndex={tabIndex}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+
+            <style jsx>{`
+                div {
+                    height: 0;
+                    width: 0;
+                    overflow: hidden;
+                }
+            `}</style>
+        </div>
+    )
+)
+
 class Radio extends Component {
     ref = createRef()
 
@@ -77,18 +107,19 @@ class Radio extends Component {
 
     render() {
         const {
-            onChange,
-            name,
-            value,
-            className,
-            label,
-            required,
             checked = false,
+            className,
             disabled,
-            valid,
-            warning,
             error,
+            icon,
+            label,
+            name,
+            onChange,
+            required,
             tabIndex,
+            valid,
+            value,
+            warning,
         } = this.props
         const { focus } = this.state
 
@@ -101,21 +132,14 @@ class Radio extends Component {
             focus,
         })
 
-        const icon = checked ? (
-            <Checked className={classes} />
-        ) : (
-            <Unchecked className={classes} />
-        )
-
         return (
             <label
                 className={cx(className, {
                     disabled,
                 })}
             >
-                <input
+                <Input
                     ref={this.ref}
-                    type="radio"
                     name={name}
                     value={value}
                     checked={checked}
@@ -126,28 +150,20 @@ class Radio extends Component {
                     onBlur={this.onBlur}
                 />
 
-                <div className={cx({ focus })}>{icon}</div>
+                <div className={cx('icon', { focus })}>
+                    {checked ? (
+                        <Checked className={classes} />
+                    ) : (
+                        <Unchecked className={classes} />
+                    )}
+                </div>
+
+                {icon}
 
                 <span className={cx({ required })}>{label}</span>
 
                 {icons.styles}
                 <style jsx>{styles}</style>
-                <style jsx>{`
-                    div {
-                        position: relative;
-                    }
-
-                    .focus:before {
-                        content: '';
-                        position: absolute;
-                        border: 2px solid ${colors.blue600};
-                        border-radius: 50%;
-                        width: calc(100% + 2px);
-                        height: calc(100% + 2px);
-                        top: -1px;
-                        left: -1px;
-                    }
-                `}</style>
             </label>
         )
     }
@@ -158,10 +174,11 @@ Radio.propTypes = {
 
     name: propTypes.string.isRequired,
     value: propTypes.string.isRequired,
-
     className: propTypes.string,
     label: propTypes.string,
     tabIndex: propTypes.string,
+
+    icon: propTypes.element,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,

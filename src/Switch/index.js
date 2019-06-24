@@ -1,12 +1,35 @@
 import React, { Component, createRef } from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import css from 'styled-jsx/css'
 
-import { colors, theme } from '../theme.js'
 import { SwitchIcon } from '../icons/Switch.js'
 
 import styles from './styles'
+
+const Input = React.forwardRef(
+    ({ name, disabled, checked, onChange, onFocus, onBlur }, ref) => (
+        <div>
+            <input
+                type="checkbox"
+                ref={ref}
+                name={name}
+                disabled={disabled}
+                checked={checked}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+
+            <style jsx>{`
+                div {
+                    height: 0;
+                    width: 0;
+                    overflow: hidden;
+                }
+            `}</style>
+        </div>
+    )
+)
 
 class Switch extends Component {
     ref = createRef()
@@ -58,15 +81,14 @@ class Switch extends Component {
                     focus,
                 })}
             >
-                <input
+                <Input
                     ref={this.ref}
-                    type="checkbox"
-                    disabled={disabled}
                     name={name}
-                    checked={checked}
-                    onChange={onChange}
-                    onFocus={this.onFocus}
                     onBlur={this.onBlur}
+                    onFocus={this.onFocus}
+                    checked={checked}
+                    disabled={disabled}
+                    onChange={onChange}
                 />
 
                 <SwitchIcon

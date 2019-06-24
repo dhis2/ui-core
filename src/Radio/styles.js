@@ -3,6 +3,21 @@ import css from 'styled-jsx/css'
 import { colors, theme, spacers } from '../theme.js'
 
 export default css`
+    div {
+        position: relative;
+    }
+
+    .focus:before {
+        content: '';
+        position: absolute;
+        border: 2px solid ${colors.blue600};
+        border-radius: 50%;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        top: -1px;
+        left: -1px;
+    }
+
     label {
         display: flex;
         flex-direction: row;
@@ -24,10 +39,12 @@ export default css`
     .icon {
         pointer-events: none;
         user-select: none;
+        margin: 0 6px 0 0;
     }
 
     span {
-        margin: 0 0 0 ${spacers.dp8};
+        display: block;
+        margin: 0 0 0 2px;
         cursor: pointer;
     }
 

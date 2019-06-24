@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import propTypes from 'prop-types'
-import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { colors, theme, spacers } from '../theme.js'
@@ -14,7 +13,7 @@ export const Label = ({ disabled, required, children }) => {
 
             <style jsx>{`
                 .label {
-                    margin: 0 0 0 ${spacers.dp8};
+                    margin: 0 0 0 2px;
                     color: ${colors.grey900};
                     cursor: pointer;
                 }

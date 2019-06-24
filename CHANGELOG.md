@@ -1,3 +1,38 @@
+# [3.4.0](https://github.com/dhis2/ui/compare/v3.3.0...v3.4.0) (2019-06-21)
+
+
+### Features
+
+* extract and expose MenuList from Menu component ([#297](https://github.com/dhis2/ui/issues/297)) ([4d576af](https://github.com/dhis2/ui/commit/4d576af))
+
+# [3.3.0](https://github.com/dhis2/ui/compare/v3.2.1...v3.3.0) (2019-06-17)
+
+
+### Features
+
+* **checkbox & radio:** add custom icon prop ([#295](https://github.com/dhis2/ui/issues/295)) ([2da6bc5](https://github.com/dhis2/ui/commit/2da6bc5))
+
+## [3.2.1](https://github.com/dhis2/ui/compare/v3.2.0...v3.2.1) (2019-06-15)
+
+
+### Bug Fixes
+
+* remove spacing left to the checkbox icon in FF ([#283](https://github.com/dhis2/ui/issues/283)) ([33165a5](https://github.com/dhis2/ui/commit/33165a5))
+
+# [3.2.0](https://github.com/dhis2/ui/compare/v3.1.1...v3.2.0) (2019-06-14)
+
+
+### Features
+
+* **alertbar:** add the alert bar and alert stack ([#277](https://github.com/dhis2/ui/issues/277)) ([a645093](https://github.com/dhis2/ui/commit/a645093))
+
+## [3.1.1](https://github.com/dhis2/ui/compare/v3.1.0...v3.1.1) (2019-06-13)
+
+
+### Bug Fixes
+
+* **cssreset:** import from the theme file explicitly ([#271](https://github.com/dhis2/ui/issues/271)) ([74d35ad](https://github.com/dhis2/ui/commit/74d35ad))
+
 # [3.1.0](https://github.com/dhis2/ui/compare/v3.0.0...v3.1.0) (2019-06-06)
 
 

@@ -1,10 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import css from 'styled-jsx/css'
 
-import { colors, theme } from '../theme.js'
-import { Indeterminate, Checked, Unchecked } from '../icons/Checkbox'
+import { theme } from '../theme.js'
 import { Icon } from './Icon'
 import { Label } from './Label'
 import { Input } from './Input'
@@ -36,19 +34,20 @@ class Checkbox extends Component {
 
     render() {
         const {
-            onChange,
-            name,
-            value,
-            label,
-            className,
-            indeterminate,
-            required,
             checked = false,
+            className,
             disabled,
-            valid,
-            warning,
             error,
+            icon,
+            indeterminate,
+            label,
+            name,
+            onChange,
+            required,
             tabIndex,
+            valid,
+            value,
+            warning,
         } = this.props
         const { focus } = this.state
 
@@ -81,6 +80,8 @@ class Checkbox extends Component {
                         warning={warning}
                         indeterminate={indeterminate}
                     />
+
+                    {icon}
 
                     <Label required={required}>{label}</Label>
 
@@ -117,11 +118,12 @@ Checkbox.propTypes = {
     name: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     tabIndex: propTypes.string,
+    className: propTypes.string,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 
-    className: propTypes.string,
+    icon: propTypes.element,
 
     indeterminate: propTypes.bool,
     required: propTypes.bool,
