@@ -52,33 +52,33 @@ export const Content = React.forwardRef(
                      * Pythagoras theorem in a square
                      * s^2 + s^2 = d^2 (s = side, d = diagonal)
                      *
-                     * diagonal = 20px
-                     * => side ~= 14px
+                     * diagonal = 10px
+                     * => side ~= 7px
                      */ ''}
-                    width: 14px;
-                    height: 14px;
+                    width: 7px;
+                    height: 7px;
                 }
 
                 .with-arrow-top:before {
-                    top: -7px;
+                    top: -3px;
                     left: calc(50% + ${adjustment.adjustmentHorizontal}px);
                     transform: translateX(-50%) rotate(45deg);
                 }
 
                 .with-arrow-bottom:before {
-                    bottom: -7px;
+                    bottom: -3px;
                     left: calc(50% + ${adjustment.adjustmentHorizontal}px);
                     transform: translateX(-50%) rotate(45deg);
                 }
 
                 .with-arrow-right:before {
-                    right: -7px;
+                    right: -3px;
                     top: calc(50% + ${adjustment.adjustmentVertical}px);
                     transform: translateY(-50%) rotate(45deg);
                 }
 
                 .with-arrow-left:before {
-                    left: -7px;
+                    left: -3px;
                     top: calc(50% + ${adjustment.adjustmentVertical}px);
                     transform: translateY(-50%) rotate(45deg);
                 }
