@@ -29,6 +29,10 @@ const createPopContent = () => (
         It could contain any content,
         <br />
         but for now it's nothing but text.
+        <br />
+        There might a be few extra lines,
+        <br />
+        which can be below the text.
         <style jsx>{`
             p {
                 margin: 0;
@@ -45,6 +49,7 @@ const createPop = (side, spacing) => () => (
         open={true}
         onClose={() => null}
         anchorRef={{ current: 'Overriden by story implementation' }}
+        withArrow={!!spacing}
     >
         {createPopContent()}
     </Pop>
@@ -203,6 +208,16 @@ storiesOf('Pop (out of body)', module)
     .add('Left', createPop('left'))
 
 /**
+ * Out of body - bottom
+ * ==========================
+ */
+const OutOfBodyLeftSpacing = createWrapper({ margin: '0 0 0 200px' })
+
+storiesOf('Pop (out of body)', module)
+    .addDecorator(fn => <OutOfBodyLeftSpacing>{fn()}</OutOfBodyLeftSpacing>)
+    .add('Left with spacing', createPop('left', 20))
+
+/**
  * Out of body - right
  * ==========================
  */
@@ -211,6 +226,16 @@ const OutOfBodyRight = createWrapper({ margin: '200px 200px 0 auto' })
 storiesOf('Pop (out of body)', module)
     .addDecorator(fn => <OutOfBodyRight>{fn()}</OutOfBodyRight>)
     .add('Right', createPop('right'))
+
+/**
+ * Out of body - right
+ * ==========================
+ */
+const OutOfBodyRightSpacing = createWrapper({ margin: '0 200px 0 auto' })
+
+storiesOf('Pop (out of body)', module)
+    .addDecorator(fn => <OutOfBodyRightSpacing>{fn()}</OutOfBodyRightSpacing>)
+    .add('Right with spacing', createPop('right', 20))
 
 /**
  * ==========================================

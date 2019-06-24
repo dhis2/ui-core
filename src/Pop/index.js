@@ -6,8 +6,8 @@ import cx from 'classnames'
 
 import { reactRef } from '../prop-validators/reactRef'
 import { BackgroundCover } from './BackgroundCover'
+import { Content } from './Content'
 import {
-    Content,
     arePositionsEqual,
     getPosition,
     getScrollAndClientOffset,
@@ -21,7 +21,10 @@ import {
  */
 class Pop extends Component {
     ref = createRef()
-    state = { position: {} }
+    state = {
+        position: {},
+        adjustment: {},
+    }
 
     componentDidMount() {
         this.updatePosition()
@@ -32,7 +35,7 @@ class Pop extends Component {
         if (this.props.open && this.ref.current) {
             const { anchorRef, side, spacing } = this.props
 
-            const position = getPosition({
+            const [position, adjustment] = getPosition({
                 pop: this.ref.current,
                 anchor: anchorRef.current,
                 side,
@@ -40,7 +43,7 @@ class Pop extends Component {
             })
 
             if (!arePositionsEqual(position, this.state.position)) {
-                this.setState({ position })
+                this.setState({ position, adjustment })
             }
         }
     }
@@ -48,8 +51,8 @@ class Pop extends Component {
     render() {
         if (!this.props.open) return null
 
-        const { children, onClose } = this.props
-        const { position } = this.state
+        const { side, children, onClose, withArrow } = this.props
+        const { position, adjustment } = this.state
 
         return createPortal(
             <div>
@@ -57,8 +60,11 @@ class Pop extends Component {
 
                 <Content
                     ref={this.ref}
+                    side={side}
                     position={position}
                     children={children}
+                    withArrow={withArrow}
+                    adjustment={adjustment}
                 />
 
                 <style jsx>{`
@@ -102,6 +108,11 @@ Pop.propTypes = {
      * Spacing between anchor and pop in pixels
      */
     spacing: propTypes.number,
+
+    /**
+     * Will add a triangular arrow icon to the opposite side of "props.side"
+     */
+    withArrow: propTypes.bool,
 }
 
 Pop.defaultProps = {
