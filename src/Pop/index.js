@@ -78,17 +78,29 @@ class Pop extends Component {
 }
 
 Pop.propTypes = {
-    /* Must be created with `React.createRef()` */
+    /**
+     * Must be created with `React.createRef()`
+     */
     anchorRef: reactRef.isRequired,
 
-    /* Pop will always be centered to the center of the anchor's side */
+    /**
+     * Pop will always be centered to the center of the anchor's side
+     */
     side: propTypes.oneOf(['top', 'right', 'bottom', 'left']).isRequired,
 
+    /**
+     * When false, the component will return null, effectively rendering nothing
+     */
     open: propTypes.bool.isRequired,
 
+    /**
+     * This callback will only be called when clicking on the backdrop
+     */
     onClose: propTypes.func.isRequired,
 
-    /* Spacing between anchor and pop in pixels */
+    /**
+     * Spacing between anchor and pop in pixels
+     */
     spacing: propTypes.number,
 }
 

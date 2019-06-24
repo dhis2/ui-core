@@ -173,16 +173,6 @@ storiesOf('Pop (out of body)', module)
     .add('Bottom with spacing', createPop('bottom', 20))
 
 /**
- * Out of body - top /w spacing
- * ==========================
- */
-const OutOfBodyTopSpacing = createWrapper({ margin: '50px auto 0' })
-
-storiesOf('Pop (out of body)', module)
-    .addDecorator(fn => <OutOfBodyTopSpacing>{fn()}</OutOfBodyTopSpacing>)
-    .add('Top with spacing', createPop('top', 20))
-
-/**
  * Out of body - top
  * ==========================
  */
@@ -191,6 +181,16 @@ const OutOfBodyTop = createWrapper({ margin: '200px 0 0 auto' })
 storiesOf('Pop (out of body)', module)
     .addDecorator(fn => <OutOfBodyTop>{fn()}</OutOfBodyTop>)
     .add('Top', createPop('top'))
+
+/**
+ * Out of body - top /w spacing
+ * ==========================
+ */
+const OutOfBodyTopSpacing = createWrapper({ margin: '50px auto 0' })
+
+storiesOf('Pop (out of body)', module)
+    .addDecorator(fn => <OutOfBodyTopSpacing>{fn()}</OutOfBodyTopSpacing>)
+    .add('Top with spacing', createPop('top', 20))
 
 /**
  * Out of body - left
