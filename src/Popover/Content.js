@@ -3,7 +3,7 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { invertSide } from './helpers'
-import { colors } from '../theme'
+import { colors, layers } from '../theme'
 
 export const Content = React.forwardRef(
     ({ side, children, position, noArrow, adjustment }, ref) => (
@@ -22,6 +22,7 @@ export const Content = React.forwardRef(
                     background: ${colors.white};
                     box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
                     position: absolute;
+                    z-index: ${layers.applicationTop};
                 }
 
                 .content {

@@ -47,7 +47,7 @@ const createPopover = (side, spacing) => () => (
         side={side}
         spacing={spacing}
         open={true}
-        onClose={() => null}
+        onClose={() => console.log('onClose called')}
         anchorRef={{ current: <span>Overriden by story implementation</span> }}
         noArrow={!spacing}
     >
@@ -62,7 +62,13 @@ const createWrapper = (styles, displayName = '') => {
         render() {
             return (
                 <Fragment>
-                    <Btn ref={this.ref1} styles={styles}>
+                    <Btn
+                        ref={this.ref1}
+                        styles={styles}
+                        onClick={() =>
+                            console.log('Button is still interactive')
+                        }
+                    >
                         Anchor
                     </Btn>
 

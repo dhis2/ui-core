@@ -5,7 +5,6 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { reactRef } from '../prop-validators/reactRef'
-import { BackgroundCover } from './BackgroundCover'
 import { Content } from './Content'
 import {
     arePositionsEqual,
@@ -23,8 +22,20 @@ class Popover extends Component {
     }
 
     componentDidMount() {
-        this.updatePosition()
+        document.addEventListener('click', this.onDocClick)
         window.addEventListener('resize', this.updatePosition)
+        this.updatePosition()
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.onDocClick)
+        window.removeEventListener('resize', this.updatePosition)
+    }
+
+    onDocClick = evt => {
+        if (this.ref.current && !this.ref.current.contains(evt.target)) {
+            this.props.onClose()
+        }
     }
 
     updatePosition = () => {
@@ -51,29 +62,14 @@ class Popover extends Component {
         const { position, adjustment } = this.state
 
         return createPortal(
-            <div>
-                <BackgroundCover onClick={onClose} />
-
-                <Content
-                    ref={this.ref}
-                    side={side}
-                    position={position}
-                    children={children}
-                    noArrow={noArrow}
-                    adjustment={adjustment}
-                />
-
-                <style jsx>{`
-                    div {
-                        left: 0;
-                        height: 100%;
-                        position: absolute;
-                        top: 0;
-                        width: 100%;
-                        z-index: ${layers.applicationTop};
-                    }
-                `}</style>
-            </div>,
+            <Content
+                ref={this.ref}
+                side={side}
+                position={position}
+                children={children}
+                noArrow={noArrow}
+                adjustment={adjustment}
+            />,
             document.body
         )
     }
