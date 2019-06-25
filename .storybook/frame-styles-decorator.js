@@ -8,9 +8,9 @@ const FrameStylesWrapper = fn => (
         <style jsx>{`
             :global(html) {
                 height: 100%;
+                min-height: 100%;
             }
             :global(body) {
-                height: 100%;
                 min-height: 100%;
             }
             :global(#root) {
