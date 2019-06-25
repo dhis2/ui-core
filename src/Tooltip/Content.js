@@ -3,6 +3,7 @@ import css from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { invertSide } from './helpers'
+import { colors } from '../theme'
 
 export const Content = React.forwardRef(
     ({ side, children, position, withArrow, adjustment }, ref) => (
@@ -18,7 +19,7 @@ export const Content = React.forwardRef(
 
             <style jsx>{`
                 .container {
-                    background: white;
+                    background: ${colors.white};
                     box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
                     position: absolute;
                 }
@@ -37,13 +38,13 @@ export const Content = React.forwardRef(
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background: white;
+                    background: ${colors.white};
                     z-index: 1;
                 }
 
                 .with-arrow:before {
                     content: '';
-                    background: white;
+                    background: ${colors.white};
                     position: absolute;
                     z-index: 0;
                     box-shadow: 0 0 3px black;
