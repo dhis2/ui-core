@@ -34,6 +34,7 @@ export const TableRow = ({ children }) => (
             @media (max-width: 400px) {
                 tr {
                     display: block;
+                    border: 0;
                 }
 
                 tr:nth-child(even) {

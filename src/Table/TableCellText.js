@@ -17,12 +17,6 @@ export const TableCellText = ({ label }) => (
             :global(tbody) span {
                 padding: 13px 0;
             }
-
-            @media (max-width: 400px) {
-                :global(tbody) span {
-                    padding: 3px 0;
-                }
-            }
         `}</style>
     </span>
 )

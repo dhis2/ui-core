@@ -49,6 +49,8 @@ export const TableCell = ({ children, title, colspan, rowspan }) => (
             @media (max-width: 400px) {
                 td {
                     display: block;
+                    border: 1px solid #E8EDF2;
+                    margin-top: 8px;
                 }
 
                 td:first-child {
@@ -58,9 +60,10 @@ export const TableCell = ({ children, title, colspan, rowspan }) => (
                 td:before {
                     display: block;
                     white-space: normal;
-                    min-height: 24px;
+                    min-height: 45px;
+                    border-bottom: 1px solid #e8edf2;
                     line-height: 18px;
-                    padding: 8px 0 0 0;
+                    padding: 12px 0;
                 }
 
                 :global(tfooter) td:before {
@@ -70,7 +73,6 @@ export const TableCell = ({ children, title, colspan, rowspan }) => (
                 div {
                     display: block;
                     padding: 0;
-                    min-height:32px;
                 }
             }
         `}</style>
