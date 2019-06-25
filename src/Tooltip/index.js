@@ -13,12 +13,8 @@ import {
     getScrollAndClientOffset,
     propPosition,
 } from './helpers'
+import { layers } from '../theme'
 
-/**
- * The Tooltip component is a content container that behaves like a context menu
- * container. It can be used to create multi level context menus that won't be
- * displayed off-screen by wrapping each level with the Tooltip component.
- */
 class Tooltip extends Component {
     ref = createRef()
     state = {
@@ -74,7 +70,7 @@ class Tooltip extends Component {
                         position: absolute;
                         top: 0;
                         width: 100%;
-                        z-index: 2000;
+                        z-index: ${layers.applicationTop};
                     }
                 `}</style>
             </div>,
@@ -117,6 +113,7 @@ Tooltip.propTypes = {
 
 Tooltip.defaultProps = {
     spacing: 0,
+    side: 'top',
 }
 
 export { Tooltip }
