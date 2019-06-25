@@ -2,7 +2,7 @@ import React, { Component, Fragment, forwardRef } from 'react'
 import { storiesOf, addDecorator, addParameters } from '@storybook/react'
 
 import { Button } from '../src/Button'
-import { Tooltip } from '../src/Tooltip'
+import { Popover } from '../src/Popover'
 import { Menu } from '../src/Menu'
 import { MenuItem } from '../src/MenuItem'
 import markdown from './info/molecules/popover.md'
@@ -22,9 +22,9 @@ const Btn = forwardRef(({ styles = {}, ...props }, ref) => (
     />
 ))
 
-const createTooltipContent = () => (
+const createPopoverContent = () => (
     <p>
-        This is content for a Tooltip component
+        This is content for a Popover component
         <br />
         It could contain any content,
         <br />
@@ -42,8 +42,8 @@ const createTooltipContent = () => (
     </p>
 )
 
-const createTooltip = (side, spacing) => () => (
-    <Tooltip
+const createPopover = (side, spacing) => () => (
+    <Popover
         side={side}
         spacing={spacing}
         open={true}
@@ -51,8 +51,8 @@ const createTooltip = (side, spacing) => () => (
         anchorRef={{ current: <span>Overriden by story implementation</span> }}
         noArrow={!spacing}
     >
-        {createTooltipContent()}
-    </Tooltip>
+        {createPopoverContent()}
+    </Popover>
 )
 
 const createWrapper = (styles, displayName = '') => {
@@ -89,65 +89,65 @@ const createWrapper = (styles, displayName = '') => {
  */
 
 /**
- * Tooltip in bottom position
+ * Popover in bottom position
  * ===========================
  */
 const Bottom = createWrapper({ margin: '0 auto' })
 
-storiesOf('Tooltip', module)
+storiesOf('Popover', module)
     .addDecorator(fn => <Bottom>{fn()}</Bottom>)
-    .add('Bottom', createTooltip('bottom'))
+    .add('Bottom', createPopover('bottom'))
 
 /**
- * Tooltip in top position
+ * Popover in top position
  * ===========================
  */
 const Top = createWrapper({ margin: '200px auto 0' })
 
-storiesOf('Tooltip', module)
+storiesOf('Popover', module)
     .addDecorator(fn => <Top>{fn()}</Top>)
-    .add('Top', createTooltip('top'))
+    .add('Top', createPopover('top'))
 
 /**
  * ===========================
- * Tooltip on the right
+ * Popover on the right
  * ===========================
  */
 const Right = createWrapper({ margin: '200px 0 0' })
 
-storiesOf('Tooltip', module)
+storiesOf('Popover', module)
     .addDecorator(fn => <Right>{fn()}</Right>)
-    .add('Right', createTooltip('right'))
+    .add('Right', createPopover('right'))
 
 /**
- * Tooltip on the left
+ * Popover on the left
  * ===========================
  */
 const Left = createWrapper({ margin: '200px 0 0 auto' })
 
-storiesOf('Tooltip', module)
+storiesOf('Popover', module)
     .addDecorator(fn => <Left>{fn()}</Left>)
-    .add('Left', createTooltip('left'))
+    .add('Left', createPopover('left'))
 
 /**
- * Tooltip on the left with spacing
+ * Popover on the left with spacing
  * ============================
  */
 const LeftSpacing = createWrapper({ margin: '200px 0 0 auto' })
 
-storiesOf('Tooltip', module)
+storiesOf('Popover', module)
     .addDecorator(fn => <LeftSpacing>{fn()}</LeftSpacing>)
-    .add('Left with spacing', createTooltip('left', 20))
+    .add('Left with spacing', createPopover('left', 20))
 
 /**
- * Tooltip on the top with spacing
+ * Popover on the top with spacing
  * ============================
  */
 const BottomSpacing = createWrapper({ margin: '0 auto' })
 
-storiesOf('Tooltip', module)
+storiesOf('Popover', module)
     .addDecorator(fn => <BottomSpacing>{fn()}</BottomSpacing>)
-    .add('Bottom with spacing', createTooltip('bottom', 20))
+    .add('Bottom with spacing', createPopover('bottom', 20))
 
 /**
  * ==========================================
@@ -163,9 +163,9 @@ storiesOf('Tooltip', module)
  */
 const OutOfBodyBottom = createWrapper({ margin: '200px 0 0 auto' })
 
-storiesOf('Tooltip (out of body)', module)
+storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyBottom>{fn()}</OutOfBodyBottom>)
-    .add('Bottom', createTooltip('bottom'))
+    .add('Bottom', createPopover('bottom'))
 
 /**
  * Out of body - bottom /w spacing
@@ -173,9 +173,9 @@ storiesOf('Tooltip (out of body)', module)
  */
 const OutOfBodyBottomSpacing = createWrapper({ margin: '200px 0 0 auto' })
 
-storiesOf('Tooltip (out of body)', module)
+storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyBottomSpacing>{fn()}</OutOfBodyBottomSpacing>)
-    .add('Bottom with spacing', createTooltip('bottom', 20))
+    .add('Bottom with spacing', createPopover('bottom', 20))
 
 /**
  * Out of body - top
@@ -183,9 +183,9 @@ storiesOf('Tooltip (out of body)', module)
  */
 const OutOfBodyTop = createWrapper({ margin: '200px 0 0 auto' })
 
-storiesOf('Tooltip (out of body)', module)
+storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyTop>{fn()}</OutOfBodyTop>)
-    .add('Top', createTooltip('top'))
+    .add('Top', createPopover('top'))
 
 /**
  * Out of body - top /w spacing
@@ -193,9 +193,9 @@ storiesOf('Tooltip (out of body)', module)
  */
 const OutOfBodyTopSpacing = createWrapper({ margin: '50px auto 0' })
 
-storiesOf('Tooltip (out of body)', module)
+storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyTopSpacing>{fn()}</OutOfBodyTopSpacing>)
-    .add('Top with spacing', createTooltip('top', 20))
+    .add('Top with spacing', createPopover('top', 20))
 
 /**
  * Out of body - left
@@ -203,9 +203,9 @@ storiesOf('Tooltip (out of body)', module)
  */
 const OutOfBodyLeft = createWrapper({ margin: '200px 0 0 200px' })
 
-storiesOf('Tooltip (out of body)', module)
+storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyLeft>{fn()}</OutOfBodyLeft>)
-    .add('Left', createTooltip('left'))
+    .add('Left', createPopover('left'))
 
 /**
  * Out of body - bottom
@@ -213,9 +213,9 @@ storiesOf('Tooltip (out of body)', module)
  */
 const OutOfBodyLeftSpacing = createWrapper({ margin: '0 0 0 200px' })
 
-storiesOf('Tooltip (out of body)', module)
+storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyLeftSpacing>{fn()}</OutOfBodyLeftSpacing>)
-    .add('Left with spacing', createTooltip('left', 20))
+    .add('Left with spacing', createPopover('left', 20))
 
 /**
  * Out of body - right
@@ -223,9 +223,9 @@ storiesOf('Tooltip (out of body)', module)
  */
 const OutOfBodyRight = createWrapper({ margin: '200px 200px 0 auto' })
 
-storiesOf('Tooltip (out of body)', module)
+storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyRight>{fn()}</OutOfBodyRight>)
-    .add('Right', createTooltip('right'))
+    .add('Right', createPopover('right'))
 
 /**
  * Out of body - right
@@ -233,9 +233,9 @@ storiesOf('Tooltip (out of body)', module)
  */
 const OutOfBodyRightSpacing = createWrapper({ margin: '0 200px 0 auto' })
 
-storiesOf('Tooltip (out of body)', module)
+storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyRightSpacing>{fn()}</OutOfBodyRightSpacing>)
-    .add('Right with spacing', createTooltip('right', 20))
+    .add('Right with spacing', createPopover('right', 20))
 
 /**
  * ==========================================
@@ -253,9 +253,9 @@ const OutOfViewportBottom = createWrapper({
     margin: 'calc(100vh - 50px) 200px 100px auto',
 })
 
-storiesOf('Tooltip (out of viewport)', module)
+storiesOf('Popover (out of viewport)', module)
     .addDecorator(fn => <OutOfViewportBottom>{fn()}</OutOfViewportBottom>)
-    .add('Bottom', createTooltip('bottom'))
+    .add('Bottom', createPopover('bottom'))
 
 /**
  * Out of viewport - bottom /w spacing
@@ -265,8 +265,8 @@ const OutOfViewportBottomSpacing = createWrapper({
     margin: 'calc(100vh - 50px) 200px 150px auto',
 })
 
-storiesOf('Tooltip (out of viewport)', module)
+storiesOf('Popover (out of viewport)', module)
     .addDecorator(fn => (
         <OutOfViewportBottomSpacing>{fn()}</OutOfViewportBottomSpacing>
     ))
-    .add('Bottom with spacing', createTooltip('bottom', 20))
+    .add('Bottom with spacing', createPopover('bottom', 20))

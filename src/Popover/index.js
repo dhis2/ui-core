@@ -15,7 +15,7 @@ import {
 } from './helpers'
 import { layers } from '../theme'
 
-class Tooltip extends Component {
+class Popover extends Component {
     ref = createRef()
     state = {
         position: {},
@@ -79,14 +79,14 @@ class Tooltip extends Component {
     }
 }
 
-Tooltip.propTypes = {
+Popover.propTypes = {
     /**
      * Must be created with `React.createRef()`
      */
     anchorRef: reactRef.isRequired,
 
     /**
-     * Tooltip will always be centered to the center of the anchor's side
+     * Popover will always be centered to the center of the anchor's side
      */
     side: propTypes.oneOf(['top', 'right', 'bottom', 'left']).isRequired,
 
@@ -111,9 +111,9 @@ Tooltip.propTypes = {
     noArrow: propTypes.bool,
 }
 
-Tooltip.defaultProps = {
+Popover.defaultProps = {
     spacing: 0,
     side: 'top',
 }
 
-export { Tooltip }
+export { Popover }
