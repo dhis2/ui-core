@@ -49,7 +49,7 @@ const createTooltip = (side, spacing) => () => (
         open={true}
         onClose={() => null}
         anchorRef={{ current: <span>Overriden by story implementation</span> }}
-        withArrow={!!spacing}
+        noArrow={!spacing}
     >
         {createTooltipContent()}
     </Tooltip>

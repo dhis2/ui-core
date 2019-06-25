@@ -6,13 +6,13 @@ import { invertSide } from './helpers'
 import { colors } from '../theme'
 
 export const Content = React.forwardRef(
-    ({ side, children, position, withArrow, adjustment }, ref) => (
+    ({ side, children, position, noArrow, adjustment }, ref) => (
         <div
             ref={ref}
             style={position}
             className={cx('container', {
-                'with-arrow': withArrow,
-                [`with-arrow-${invertSide(side)}`]: withArrow,
+                'with-arrow': !noArrow,
+                [`with-arrow-${invertSide(side)}`]: !noArrow,
             })}
         >
             <div className="content">{children}</div>

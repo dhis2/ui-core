@@ -47,7 +47,7 @@ class Tooltip extends Component {
     render() {
         if (!this.props.open) return null
 
-        const { side, children, onClose, withArrow } = this.props
+        const { side, children, onClose, noArrow } = this.props
         const { position, adjustment } = this.state
 
         return createPortal(
@@ -59,7 +59,7 @@ class Tooltip extends Component {
                     side={side}
                     position={position}
                     children={children}
-                    withArrow={withArrow}
+                    noArrow={noArrow}
                     adjustment={adjustment}
                 />
 
@@ -106,9 +106,9 @@ Tooltip.propTypes = {
     spacing: propTypes.number,
 
     /**
-     * Will add a triangular arrow icon to the opposite side of "props.side"
+     * Will remove the triangular arrow icon to the opposite side of "props.side"
      */
-    withArrow: propTypes.bool,
+    noArrow: propTypes.bool,
 }
 
 Tooltip.defaultProps = {
