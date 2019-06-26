@@ -41,6 +41,7 @@ class TabIndicator extends Component {
                             scaleX(${scaleX});
                     }
                 `}</style>
+
                 <style jsx>{`
                     span {
                         display: block;
