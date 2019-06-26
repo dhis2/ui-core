@@ -3,14 +3,12 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 class TabIndicator extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { animated: false }
-    }
+    state = { animated: false }
 
     componentDidUpdate(prevProps) {
-        // The tabindicator should not move with a CSS transition when it is first positioned into place
-        // The tick after the visibility is true, the animation should start
+        /* The tabindicator should not move with a CSS transition when
+           it is first positioned into place. In the render cycle
+           after it became visible the animation should be enabled  */
         if (!prevProps.visible && this.props.visible) {
             this.setState({
                 animated: true,
@@ -20,17 +18,15 @@ class TabIndicator extends Component {
 
     getTransformStyle() {
         const activeTabNode = this.props.getSelectedTabRef()
-
-        if (!activeTabNode) {
-            return null
+        return {
+            translateX: activeTabNode ? activeTabNode.offsetLeft : 0,
+            scaleX: activeTabNode ? activeTabNode.offsetWidth : 100,
         }
-
-        const translateX = `translateX(${activeTabNode.offsetLeft}px)`
-        const scaleX = `scaleX(${activeTabNode.offsetWidth})`
-        return { transform: `${translateX} translateY(2px) ${scaleX}` }
     }
 
     render() {
+        const { translateX, scaleX } = this.getTransformStyle()
+
         return (
             <span
                 className={cx({
@@ -41,17 +37,23 @@ class TabIndicator extends Component {
             >
                 <style jsx>{`
                     span {
+                        transform: translateX(${translateX}px) translateY(2px)
+                            scaleX(${scaleX});
+                    }
+                `}</style>
+                <style jsx>{`
+                    span {
                         display: block;
                         position: absolute;
                         bottom: 0;
                         left: 0;
                         height: 4px;
-                        /* By choosing 1px here, we can use scaleX to animate the width  
-                        of the tabIndicator. I.e. 40px width = scaleX(40) */
+                        /* By choosing 1px here, we can use scaleX to animate 
+                           the width of the tabIndicator.
+                           I.e. 40px width = scaleX(40) */
                         width: 1px;
                         background-color: #1976d2;
                         transform-origin: left bottom;
-                        transform: translateX(0) translateY(2px) scaleX(100);
                         transition: none;
                         visibility: hidden;
                     }
@@ -73,4 +75,4 @@ TabIndicator.propTypes = {
     visible: PropTypes.bool.isRequired,
 }
 
-export default TabIndicator
+export { TabIndicator }

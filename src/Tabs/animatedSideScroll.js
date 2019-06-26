@@ -1,6 +1,6 @@
 const DURATION = 350
 
-export default function animatedSideScroll({ targetEl, scrollBox, callback }) {
+export function animatedSideScroll({ targetEl, scrollBox, callback }) {
     const startValue = scrollBox.scrollLeft
     const endValue = getEndValue(targetEl, scrollBox, startValue)
     const change = endValue - startValue

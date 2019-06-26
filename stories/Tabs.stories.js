@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Tabs, Tab } from '../src'
+import { Indeterminate } from '../src/icons/Checkbox'
 
 import markdown from './info/atoms/buttonStrip.md'
 
@@ -16,7 +17,12 @@ class TabsContainer extends React.Component {
             <Tabs selected={this.state.tabIndex}>
                 <Tab onClick={() => this.setTabIndex(0)}>Test A</Tab>
                 <Tab onClick={() => this.setTabIndex(1)}>Test B</Tab>
-                <Tab onClick={() => this.setTabIndex(2)}>Test C</Tab>
+                <Tab
+                    icon={<Indeterminate />}
+                    onClick={() => this.setTabIndex(2)}
+                >
+                    Test C
+                </Tab>
                 <Tab onClick={() => this.setTabIndex(3)}>Test D</Tab>
                 <Tab onClick={() => this.setTabIndex(4)}>Test E</Tab>
                 <Tab onClick={() => this.setTabIndex(5)}>Test F</Tab>

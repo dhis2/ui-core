@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const Tab = forwardRef(
-    ({ icon, label, onClick, selected, disabled, stacked, children }, ref) => (
+    ({ icon, onClick, selected, disabled, stacked, children }, ref) => (
         <button
             className={`${cx('d2ui-align-icon', {
                 selected,
@@ -13,7 +13,8 @@ const Tab = forwardRef(
             onClick={onClick}
             ref={ref}
         >
-            {children ? children : <span>{label}</span>}
+            {icon && icon}
+            {children}
             <style jsx>{`
                 button {
                     background-color: transparent;
@@ -65,7 +66,6 @@ const Tab = forwardRef(
 )
 
 Tab.propTypes = {
-    label: PropTypes.string,
     icon: PropTypes.string,
     onClick: PropTypes.func,
     addTabRef: PropTypes.func,
@@ -82,4 +82,4 @@ Tab.defaultProps = {
     onClick: () => {},
 }
 
-export default Tab
+export { Tab }
