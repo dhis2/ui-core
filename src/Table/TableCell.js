@@ -2,25 +2,36 @@ import React from 'react'
 import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
-export const TableCell = ({ children, title, colspan, rowspan }) => (
-    <td colspan={colspan} rowspan={rowspan}>
+import { useTableContext } from './tableContext'
+
+const tableCellStyles = css`
+    td {
+        border-bottom: 1px solid #e8edf2;
+        padding: 0 12px;
+        font-size: 14px;
+    }
+
+    div {
+        min-height: 45px;
+    }
+
+    :global(tfooter) div {
+        min-height: 36px;
+    }
+`
+
+const TableCellStatic = ({ children, colSpan, rowSpan }) => (
+    <td colSpan={colSpan} rowSpan={rowSpan}>
         <div>{children}</div>
+        <style jsx>{tableCellStyles}</style>
+    </td>
+)
 
+const TableCellResponsive = ({ children, colSpan, rowSpan, title }) => (
+    <td colSpan={colSpan} rowSpan={rowSpan}>
+        <div>{children}</div>
+        <style jsx>{tableCellStyles}</style>
         <style jsx>{`
-            td {
-                border-bottom: 1px solid #e8edf2;
-                padding: 0 12px;
-                font-size: 14px;
-            }
-
-            div {
-                min-height: 45px;
-            }
-
-            :global(tfooter) div {
-                min-height: 36px;
-            }
-
             @media (max-width: 768px) {
                 td {
                     display: table-row;
@@ -63,10 +74,6 @@ export const TableCell = ({ children, title, colspan, rowspan }) => (
                     padding: 8px 0 0 0;
                 }
 
-                :global(tfooter) td:before {
-                    min-height: 36px;
-                }
-
                 div {
                     display: block;
                     padding: 0;
@@ -77,8 +84,19 @@ export const TableCell = ({ children, title, colspan, rowspan }) => (
     </td>
 )
 
+export const TableCell = ({ children, title, colSpan, rowSpan }) => {
+    const { staticLayout } = useTableContext()
+    const TableCell = staticLayout ? TableCellStatic : TableCellResponsive
+
+    return (
+        <TableCell colSpan={colSpan} rowSpan={rowSpan} title={title}>
+            <div>{children}</div>
+        </TableCell>
+    )
+}
+
 TableCell.propTypes = {
     title: propTypes.string,
-    colspan: propTypes.string,
-    rowspan: propTypes.string,
+    colSpan: propTypes.string,
+    rowSpan: propTypes.string,
 }

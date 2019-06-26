@@ -1,44 +1,33 @@
-import { TableFoot } from './TableFoot'
-
 import React from 'react'
-import css from 'styled-jsx/css'
+import propTypes from 'prop-types'
 
+import { Provider } from './tableContext'
+import { Table as TableComponent } from './Table'
 import { TableHead } from './TableHead'
 import { TableBody } from './TableBody'
+import { TableFoot } from './TableFoot'
 import { TableRow } from './TableRow'
 import { TableCell } from './TableCell'
 import { TableCellHead } from './TableCellHead'
 import { TableCellText } from './TableCellText'
 
-const Table = ({ children }) => (
+const Table = ({ children, staticLayout }) => (
     <div>
-        <table>{children}</table>
+        <Provider value={{ staticLayout }}>
+            <TableComponent>{children}</TableComponent>
+        </Provider>
 
         <style jsx>{`
             div {
                 overflow-x: auto;
             }
-
-            table {
-                border: 1px solid #e8edf2;
-                background-color: #ffffff;
-                min-width: 100%;
-                text-align: left;
-                border-collapse: collapse;
-                vertical-align: top;
-            }
-
-            @media (max-width: 768px) {
-                table {
-                    display: block;
-                    border: 0;
-                }
-            }
         `}</style>
     </div>
 )
 
-Table.propTypes = {}
+Table.propTypes = {
+    staticLayout: propTypes.bool,
+}
 
 export {
     Table,

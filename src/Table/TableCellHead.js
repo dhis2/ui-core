@@ -1,8 +1,9 @@
 import React from 'react'
+import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
-export const TableCellHead = ({ children }) => (
-    <th>
+export const TableCellHead = ({ children, colSpan, rowSpan }) => (
+    <th colSpan={colSpan} rowSpan={rowSpan}>
         <div>{children}</div>
 
         <style jsx>{`
@@ -11,15 +12,14 @@ export const TableCellHead = ({ children }) => (
                 padding: 0 12px;
             }
 
-            @media (max-width: 768px) {
-                th {
-                    display: block;
-                }
-            }
-
             div {
                 min-height: 36px;
             }
         `}</style>
     </th>
 )
+
+TableCellHead.propTypes = {
+    colSpan: propTypes.string,
+    rowSpan: propTypes.string,
+}
