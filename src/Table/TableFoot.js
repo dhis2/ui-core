@@ -31,14 +31,5 @@ export const TableFoot = ({ children }) => {
     const { staticLayout } = useTableContext()
     const TFoot = staticLayout ? TFootStatic : TFootResponsive
 
-    return (
-        <TFoot>
-            {children}
-
-            <style jsx>{`
-                tfoot {
-                }
-            `}</style>
-        </TFoot>
-    )
+    return <TFoot>{children}</TFoot>
 }
