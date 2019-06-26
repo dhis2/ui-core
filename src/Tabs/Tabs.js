@@ -18,9 +18,6 @@ class Tabs extends PureComponent {
     scrollArea = createRef()
     tabRefs = Children.map(this.props.children, createRef)
 
-    nodes = {
-        tabs: [],
-    }
     state = {
         scrolledToStart: true,
         scrolledToEnd: true,
@@ -35,15 +32,15 @@ class Tabs extends PureComponent {
 
         this.setHorizontalScrollbarHeight()
 
-        if (this.scrollRequiredToReachActiveTab()) {
+        if (this.scrollRequiredToReachSelectedTab()) {
             const scrollProps = {
                 duration: 1,
-                callback: this.updateScrollableUiAfterMount,
+                callback: this.initScrollableUI,
             }
 
             this.scrollToTab(this.getSelectedTabRef(), scrollProps)
         } else {
-            this.updateScrollableUiAfterMount()
+            this.initScrollableUI()
         }
     }
 
@@ -51,7 +48,7 @@ class Tabs extends PureComponent {
         if (
             !this.props.contained &&
             this.props.selected !== prevProps.selected &&
-            this.scrollRequiredToReachActiveTab()
+            this.scrollRequiredToReachSelectedTab()
         ) {
             this.scrollToTab(this.getSelectedTabRef())
         }
@@ -63,35 +60,36 @@ class Tabs extends PureComponent {
         }
     }
 
-    // Refs
-    addTabRef = node => {
-        this.nodes.tabs.push(node)
-    }
-
     getSelectedTabRef = () => {
         const { selected } = this.props
-        return this.nodes.tabs[selected]
+        return this.tabRefs[selected].current
     }
 
     scrollLeft = () => {
-        const { tabs } = this.nodes
+        const firstTab = this.tabRefs[0].current
         const { scrollLeft, offsetWidth } = this.scrollBox.current
         const offsetLeft = scrollLeft - offsetWidth
         const targetTab =
-            offsetLeft <= 0 ? tabs[0] : this.getTabAtOffsetLeft(offsetLeft)
+            offsetLeft <= 0 ? firstTab : this.getTabAtOffsetLeft(offsetLeft)
+
         this.scrollToTab(targetTab)
     }
 
     scrollRight = () => {
-        const { tabs } = this.nodes
+        const lastTab = this.tabRefs[this.tabRefs.length - 1].current
         const { scrollLeft, offsetWidth } = this.scrollBox.current
         const { offsetWidth: areaOffsetWidth } = this.scrollArea.current
         const offsetLeft = scrollLeft + offsetWidth * 2
         const atEnd = areaOffsetWidth <= offsetLeft
-        const targetTab = atEnd
-            ? tabs[tabs.length - 1]
-            : this.getTabAtOffsetLeft(offsetLeft)
+        const targetTab = atEnd ? lastTab : this.getTabAtOffsetLeft(offsetLeft)
+
         this.scrollToTab(targetTab)
+    }
+
+    initScrollableUI = () => {
+        this.showTabIndicator()
+        this.toggleScrollButtonVisibility()
+        this.attachSideScrollListener()
     }
 
     animatedScrollCallback = () => {
@@ -99,13 +97,6 @@ class Tabs extends PureComponent {
         this.attachSideScrollListener()
     }
 
-    updateScrollableUiAfterMount = () => {
-        this.showTabIndicator()
-        this.toggleScrollButtonVisibility()
-        this.attachSideScrollListener()
-    }
-
-    // Methods
     showTabIndicator() {
         this.setState({ showTabIndicator: true })
     }
@@ -130,14 +121,14 @@ class Tabs extends PureComponent {
     }
 
     getTabAtOffsetLeft(offsetLeft) {
-        return this.nodes.tabs.find(
-            tab =>
+        return this.tabRefs.find(
+            ({ current: tab }) =>
                 offsetLeft >= tab.offsetLeft &&
                 offsetLeft <= tab.offsetLeft + tab.offsetWidth
-        )
+        ).current
     }
 
-    scrollRequiredToReachActiveTab() {
+    scrollRequiredToReachSelectedTab() {
         const { scrollLeft, offsetWidth } = this.scrollBox.current
         const tab = this.getSelectedTabRef()
         const shouldScrollRight =
@@ -177,13 +168,12 @@ class Tabs extends PureComponent {
         const { children, selected } = this.props
         return Children.map(children, (child, index) =>
             cloneElement(child, {
-                active: index === selected,
-                addTabRef: this.addTabRef,
+                selected: index === selected,
+                ref: this.tabRefs[index],
             })
         )
     }
 
-    // Rendering
     renderTabBar() {
         const { cluster, contained } = this.props
 
