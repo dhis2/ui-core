@@ -1,7 +1,7 @@
 import React from 'react'
 import css from 'styled-jsx/css'
 
-import { useTableContext } from './tableContext'
+import { Consumer } from './tableContext'
 
 const tableStyles = css`
     table {
@@ -40,9 +40,11 @@ const TableStatic = ({ children }) => (
     </table>
 )
 
-export const Table = ({ children }) => {
-    const { staticLayout } = useTableContext()
-    const TableComponent = staticLayout ? TableStatic : TableRepsonsive
-
-    return <TableComponent>{children}</TableComponent>
-}
+export const Table = ({ children }) => (
+    <Consumer>
+        {({ staticLayout }) => {
+            const TableComponent = staticLayout ? TableStatic : TableRepsonsive
+            return <TableComponent>{children}</TableComponent>
+        }}
+    </Consumer>
+)

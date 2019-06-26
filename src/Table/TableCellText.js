@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
-import { useTableContext } from './tableContext'
+import { Consumer } from './tableContext'
 
 const tableCellTextStyles = css`
     span {
@@ -40,14 +40,17 @@ const TableCellTextResponsive = ({ label }) => (
     </span>
 )
 
-export const TableCellText = ({ label }) => {
-    const { staticLayout } = useTableContext()
-    const TableCellTextComponent = staticLayout
-        ? TableCellTextStatic
-        : TableCellTextResponsive
+export const TableCellText = ({ label }) => (
+    <Consumer>
+        {({ staticLayout }) => {
+            const TableCellTextComponent = staticLayout
+                ? TableCellTextStatic
+                : TableCellTextResponsive
 
-    return <TableCellTextComponent label={label} />
-}
+            return <TableCellTextComponent label={label} />
+        }}
+    </Consumer>
+)
 
 TableCellText.propTypes = {
     label: propTypes.string,

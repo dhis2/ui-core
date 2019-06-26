@@ -1,7 +1,7 @@
 import React from 'react'
 import css from 'styled-jsx/css'
 
-import { useTableContext } from './tableContext'
+import { Consumer } from './tableContext'
 
 const tableHeadStylesResponsive = css`
     @media (max-width: 768px) {
@@ -20,9 +20,11 @@ const THeadResponsive = ({ children }) => (
     </thead>
 )
 
-export const TableHead = ({ children }) => {
-    const { staticLayout } = useTableContext()
-    const THead = staticLayout ? THeadStatic : THeadResponsive
-
-    return <THead>{children}</THead>
-}
+export const TableHead = ({ children }) => (
+    <Consumer>
+        {({ staticLayout }) => {
+            const THead = staticLayout ? THeadStatic : THeadResponsive
+            return <THead>{children}</THead>
+        }}
+    </Consumer>
+)

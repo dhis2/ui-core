@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
-import { useTableContext } from './tableContext'
+import { Consumer } from './tableContext'
 
 const tableCellStyles = css`
     td {
@@ -84,16 +84,20 @@ const TableCellResponsive = ({ children, colSpan, rowSpan, title }) => (
     </td>
 )
 
-export const TableCell = ({ children, title, colSpan, rowSpan }) => {
-    const { staticLayout } = useTableContext()
-    const TableCell = staticLayout ? TableCellStatic : TableCellResponsive
-
-    return (
-        <TableCell colSpan={colSpan} rowSpan={rowSpan} title={title}>
-            <div>{children}</div>
-        </TableCell>
-    )
-}
+export const TableCell = ({ children, title, colSpan, rowSpan }) => (
+    <Consumer>
+        {({ staticLayout }) => {
+            const TableCell = staticLayout
+                ? TableCellStatic
+                : TableCellResponsive
+            return (
+                <TableCell colSpan={colSpan} rowSpan={rowSpan} title={title}>
+                    <div>{children}</div>
+                </TableCell>
+            )
+        }}
+    </Consumer>
+)
 
 TableCell.propTypes = {
     title: propTypes.string,

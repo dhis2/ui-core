@@ -1,7 +1,7 @@
 import React from 'react'
 import css from 'styled-jsx/css'
 
-import { useTableContext } from './tableContext'
+import { Consumer } from './tableContext'
 
 const tableFootStylesResponsive = css`
     @media (max-width: 768px) {
@@ -27,9 +27,11 @@ const TFootResponsive = ({ children }) => (
     </tfoot>
 )
 
-export const TableFoot = ({ children }) => {
-    const { staticLayout } = useTableContext()
-    const TFoot = staticLayout ? TFootStatic : TFootResponsive
-
-    return <TFoot>{children}</TFoot>
-}
+export const TableFoot = ({ children }) => (
+    <Consumer>
+        {({ staticLayout }) => {
+            const TFoot = staticLayout ? TFootStatic : TFootResponsive
+            return <TFoot>{children}</TFoot>
+        }}
+    </Consumer>
+)
