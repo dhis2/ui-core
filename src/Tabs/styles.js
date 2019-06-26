@@ -1,18 +1,16 @@
 import css from 'styled-jsx/css'
 
-// import { spacers } from '../theme.js'
+import { colors } from '../theme.js'
 
 export default css`
     div {
-        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-            0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-            0px 1px 10px 0px rgba(0, 0, 0, 0.12);
         width: 100%;
         display: flex;
         box-sizing: border-box;
         flex-shrink: 0;
         flex-direction: row;
-        background-color: #eceff1;
+        background-color: ${colors.white};
+        border-bottom: 1px solid ${colors.grey400};
     }
     div.relative {
         position: relative;

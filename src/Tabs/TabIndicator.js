@@ -37,7 +37,7 @@ class TabIndicator extends Component {
             >
                 <style jsx>{`
                     span {
-                        transform: translateX(${translateX}px) translateY(2px)
+                        transform: translateX(${translateX}px) translateY(1px)
                             scaleX(${scaleX});
                     }
                 `}</style>
@@ -57,6 +57,7 @@ class TabIndicator extends Component {
                         transform-origin: left bottom;
                         transition: none;
                         visibility: hidden;
+                        z-index: 99999;
                     }
                     span.visible {
                         visibility: visible;

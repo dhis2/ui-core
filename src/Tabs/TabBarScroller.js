@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import propTypes from 'prop-types'
 import { ChevronLeft, ChevronRight } from '../icons/Chevron'
 import cx from 'classnames'
+import { colors } from '../theme.js'
 
 const TabBarScroller = ({
     marginBottom,
@@ -46,22 +47,29 @@ const TabBarScroller = ({
 
         <style jsx>{`
             .scroll-button {
-                flex: 0 0 3rem;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+
                 color: inherit;
-                border-radius: 8px;
-                background-color: transparent;
-                transition: all 150ms ease-in-out;
+                background-color: ${colors.white};
+                opacity: 1;
                 border: none;
                 outline: none;
+                padding: 16px 16px 11px 16px;
+
                 cursor: pointer;
-                opacity: 1;
-                transition: opacity 150ms ease-in-out;
-                height: 4px;
+                transition: all 150ms ease-in-out;
+            }
+
+            .scroll-button:hover {
+                /* Cheap ripple alternative to flash clicked tab */
+                background-color: ${colors.grey100};
             }
 
             .scroll-button:active {
-                /* Cheap ripple alternative to flash clicked tab */
-                background-color: #e0e0e0;
+                /* Briefly highlight clicked button */
+                background-color: ${colors.grey200};
             }
 
             .scroll-button.hidden {
@@ -69,8 +77,16 @@ const TabBarScroller = ({
                 opacity: 0;
             }
 
+            .scroll-button :global(svg) {
+                width: 20px;
+                height: 20px;
+                fill: ${colors.grey700};
+            }
+
             .scroll-box-clipper {
                 overflow-y: hidden;
+                /* This places the box over the border-bottom of the container */
+                margin-bottom: -1px;
             }
 
             .scroll-box {

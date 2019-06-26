@@ -1,6 +1,9 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { colors } from '../theme.js'
+
+const noop = () => {}
 
 const Tab = forwardRef(
     ({ icon, onClick, selected, disabled, stacked, children }, ref) => (
@@ -10,55 +13,68 @@ const Tab = forwardRef(
                 disabled,
                 stacked,
             })}`}
-            onClick={onClick}
+            onClick={disabled ? noop : onClick}
             ref={ref}
         >
             {icon && icon}
             {children}
             <style jsx>{`
                 button {
-                    background-color: transparent;
-                    height: 100%;
-                    border: none;
-                    outline: none;
-                    color: rgba(0, 0, 0, 0.6);
-                    transition: all 150ms ease-in-out;
-                    cursor: pointer;
-                    padding: 0.375rem 1.5rem;
-                    text-transform: uppercase;
-                    font-size: 0.875rem;
-                    line-height: 2.25rem;
-                    font-weight: 500;
-                    letter-spacing: 0.08929em;
                     display: inline-flex;
                     justify-content: center;
                     align-items: center;
-                    max-width: 20rem;
+
+                    height: 100%;
+                    max-width: 320px;
+                    padding: 19px 16px 13px 16px;
+                    /* prevent button covering the bottom border */
+                    transform: translateY(-1px);
+
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+
+                    color: ${colors.grey700};
+                    font-size: 14px;
+                    line-height: 14px;
+
+                    transition: all 150ms ease-in-out;
+                    cursor: pointer;
                 }
 
-                button.selected {
-                    color: #000000;
+                button > :global(svg) {
+                    fill: ${colors.grey700};
+                    width: 14px;
+                    height: 14px;
+                    margin-right: 4px;
+                    display: inline;
+                    line-height: 14px;
                 }
 
-                button.disabled {
-                    color: rgba(0, 0, 0, 0.3);
-                    pointer-events: none;
-                }
-
-                button.stacked {
-                    flex-direction: column;
-                }
-
-                button > :global(svg),
-                button > :global(svg:first-child),
-                button > :global(svg:last-child),
-                button > :global(svg:only-child) {
-                    margin: 0.6rem 0 0 0;
+                button:hover {
+                    background-color: ${colors.grey100};
                 }
 
                 button:active {
-                    /* Cheap ripple alternative to flash clicked tab */
-                    background-color: #e0e0e0;
+                    /* Briefly highlight clicked tab */
+                    background-color: ${colors.grey200};
+                }
+
+                button.selected {
+                    color: ${colors.grey900};
+                }
+
+                button.selected > :global(svg) {
+                    fill: ${colors.grey900};
+                }
+
+                button.disabled {
+                    color: ${colors.grey500};
+                    cursor: not-allowed;
+                }
+
+                button.disabled > :global(svg) {
+                    fill: ${colors.grey500};
                 }
             `}</style>
         </button>

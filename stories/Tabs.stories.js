@@ -16,11 +16,13 @@ class TabsContainer extends React.Component {
         return (
             <Tabs selected={this.state.tabIndex}>
                 <Tab onClick={() => this.setTabIndex(0)}>Test A</Tab>
-                <Tab onClick={() => this.setTabIndex(1)}>Test B</Tab>
                 <Tab
                     icon={<Indeterminate />}
-                    onClick={() => this.setTabIndex(2)}
+                    onClick={() => this.setTabIndex(1)}
                 >
+                    Test B
+                </Tab>
+                <Tab disabled={true} onClick={() => this.setTabIndex(2)}>
                     Test C
                 </Tab>
                 <Tab onClick={() => this.setTabIndex(3)}>Test D</Tab>
@@ -41,7 +43,6 @@ const Wrapper = fn => (
     <div
         style={{
             width: '450px',
-            border: '1px solid #c4c9cc',
         }}
     >
         {fn()}
