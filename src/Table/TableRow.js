@@ -69,11 +69,5 @@ export const TableRow = ({ children }) => {
     const { staticLayout } = useTableContext()
     const TableRowComponent = staticLayout ? TableRowStatic : TableRowResponsive
 
-    return (
-        <TableRowComponent>
-            {children}
-
-            <style jsx>{``}</style>
-        </TableRowComponent>
-    )
+    return <TableRowComponent>{children}</TableRowComponent>
 }
