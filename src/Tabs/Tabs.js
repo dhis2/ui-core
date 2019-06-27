@@ -1,12 +1,11 @@
-import React, { PureComponent, Children, cloneElement, createRef } from 'react'
 import propTypes from 'prop-types'
-import { TabIndicator } from './TabIndicator'
-import { animatedSideScroll } from './animatedSideScroll'
-import cx from 'classnames'
-import styles from './styles'
-import { TabBar } from './TabBar'
-import { Tab } from './Tab'
+import React, { Children, cloneElement, createRef, PureComponent } from 'react'
 import { instanceOfComponent } from '../prop-validators'
+import { colors } from '../theme.js'
+import { animatedSideScroll } from './animatedSideScroll'
+import { Tab } from './Tab'
+import { TabBar } from './TabBar'
+import { TabIndicator } from './TabIndicator'
 
 class Tabs extends PureComponent {
     scrollBox = createRef()
@@ -161,17 +160,10 @@ class Tabs extends PureComponent {
 
     render() {
         const { scrolledToStart, scrolledToEnd, showTabIndicator } = this.state
-        const {
-            className,
-            position,
-            contained,
-            cluster,
-            children,
-            selected,
-        } = this.props
+        const { className, contained, cluster, children, selected } = this.props
 
         return (
-            <div className={cx(className, position)}>
+            <div className={className}>
                 <TabBar
                     cluster={cluster}
                     contained={contained}
@@ -194,7 +186,16 @@ class Tabs extends PureComponent {
                         visible={showTabIndicator}
                     />
                 </TabBar>
-                <style jsx>{styles}</style>
+                <style jsx>{`
+                    div {
+                        width: 100%;
+                        display: flex;
+                        box-sizing: border-box;
+                        flex-shrink: 0;
+                        flex-direction: row;
+                        background-color: ${colors.white};
+                    }
+                `}</style>
             </div>
         )
     }
@@ -203,7 +204,6 @@ class Tabs extends PureComponent {
 Tabs.propTypes = {
     className: propTypes.string,
     selected: propTypes.number.isRequired,
-    position: propTypes.oneOf(['relative', 'fixed', 'absolute', 'sticky']),
     contained: TabBar.propTypes.contained,
     cluster: TabBar.propTypes.cluster,
     children: propTypes.arrayOf(instanceOfComponent(Tab)),
