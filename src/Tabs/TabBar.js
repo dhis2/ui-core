@@ -3,22 +3,23 @@ import propTypes from 'prop-types'
 import { InnerTabBar } from './InnerTabBar'
 import { TabBarScroller } from './TabBarScroller'
 
-const TabBar = ({ cluster, contained, children, ...tabBarScrollerProps }) =>
-    contained ? (
-        <InnerTabBar cluster={cluster} contained={contained}>
-            {children}
-        </InnerTabBar>
+const TabBar = ({
+    fixed,
+    isScrollingRequired,
+    children,
+    ...tabBarScrollerProps
+}) =>
+    fixed || !isScrollingRequired ? (
+        <InnerTabBar fixed={fixed}>{children}</InnerTabBar>
     ) : (
         <TabBarScroller {...tabBarScrollerProps}>
-            <InnerTabBar cluster={cluster} contained={contained}>
-                {children}
-            </InnerTabBar>
+            <InnerTabBar fixed={fixed}>{children}</InnerTabBar>
         </TabBarScroller>
     )
 
 TabBar.propTypes = {
-    cluster: InnerTabBar.propTypes.cluster,
-    contained: InnerTabBar.propTypes.contained,
+    isScrollingRequired: propTypes.bool.isRequired,
+    fixed: InnerTabBar.propTypes.fixed,
     children: propTypes.node.isRequired,
 }
 

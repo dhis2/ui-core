@@ -70,7 +70,6 @@ const TabBarScroller = ({
             }
 
             .scroll-button:hover {
-                /* Cheap ripple alternative to flash clicked tab */
                 background-color: ${colors.grey100};
             }
 

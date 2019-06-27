@@ -8,39 +8,27 @@ import { TabBar } from './TabBar'
 import { TabIndicator } from './TabIndicator'
 
 class Tabs extends PureComponent {
+    container = createRef()
     scrollBox = createRef()
     scrollArea = createRef()
     tabRefs = Children.map(this.props.children, createRef)
 
     state = {
+        isScrollingRequired: true,
         scrolledToStart: true,
         scrolledToEnd: true,
         showTabIndicator: false,
     }
 
     componentDidMount() {
-        if (this.props.contained) {
-            this.showTabIndicator()
-            return
-        }
-
-        this.setHorizontalScrollbarHeight()
-
-        if (this.scrollRequiredToReachSelectedTab()) {
-            const scrollProps = {
-                duration: 1,
-                callback: this.initScrollableUI,
-            }
-
-            this.scrollToTab(this.getSelectedTabRef(), scrollProps)
-        } else {
-            this.initScrollableUI()
-        }
+        window.addEventListener('resize', this.init)
+        this.init()
     }
 
     componentDidUpdate(prevProps) {
         if (
-            !this.props.contained &&
+            !this.props.fixed &&
+            this.state.isScrollingRequired &&
             this.props.selected !== prevProps.selected &&
             this.scrollRequiredToReachSelectedTab()
         ) {
@@ -49,8 +37,32 @@ class Tabs extends PureComponent {
     }
 
     componentWillUnmount() {
-        if (!this.props.contained) {
+        window.addEventListener('resize', this.onResize)
+
+        if (!this.props.fixed && this.state.isScrollingRequired) {
             this.removeSideScrollListener()
+        }
+    }
+
+    init = () => {
+        const isScrollingRequired = this.isScrollingRequired()
+        this.setState({ isScrollingRequired })
+
+        if (this.props.fixed || !isScrollingRequired) {
+            this.showTabIndicator()
+        } else {
+            this.setHorizontalScrollbarHeight()
+
+            if (this.scrollRequiredToReachSelectedTab()) {
+                const scrollProps = {
+                    duration: 0,
+                    callback: this.initScrollableUI,
+                }
+
+                this.scrollToTab(this.getSelectedTabRef(), scrollProps)
+            } else {
+                this.initScrollableUI()
+            }
         }
     }
 
@@ -89,6 +101,15 @@ class Tabs extends PureComponent {
     animatedScrollCallback = () => {
         this.toggleScrollButtonVisibility()
         this.attachSideScrollListener()
+    }
+
+    isScrollingRequired() {
+        const availableWidth = this.container.current.offsetWidth
+        const requiredWidth = this.tabRefs.reduce(
+            (total, { current: el }) => total + el.offsetWidth,
+            0
+        )
+        return requiredWidth > availableWidth
     }
 
     showTabIndicator() {
@@ -159,14 +180,19 @@ class Tabs extends PureComponent {
     }
 
     render() {
-        const { scrolledToStart, scrolledToEnd, showTabIndicator } = this.state
-        const { className, contained, cluster, children, selected } = this.props
+        const {
+            isScrollingRequired,
+            scrolledToStart,
+            scrolledToEnd,
+            showTabIndicator,
+        } = this.state
+        const { className, fixed, children, selected } = this.props
 
         return (
-            <div className={className}>
+            <div className={className} ref={this.container}>
                 <TabBar
-                    cluster={cluster}
-                    contained={contained}
+                    isScrollingRequired={isScrollingRequired}
+                    fixed={fixed}
                     scrollLeft={this.scrollLeft}
                     scrollRight={this.scrollRight}
                     scrolledToStart={scrolledToStart}
@@ -179,6 +205,7 @@ class Tabs extends PureComponent {
                         cloneElement(child, {
                             selected: index === selected,
                             ref: this.tabRefs[index],
+                            fixed,
                         })
                     )}
                     <TabIndicator
@@ -194,6 +221,7 @@ class Tabs extends PureComponent {
                         flex-shrink: 0;
                         flex-direction: row;
                         background-color: ${colors.white};
+                        box-shadow: inset 0 -1px 0 0 ${colors.grey400};
                     }
                 `}</style>
             </div>
@@ -204,15 +232,12 @@ class Tabs extends PureComponent {
 Tabs.propTypes = {
     className: propTypes.string,
     selected: propTypes.number.isRequired,
-    contained: TabBar.propTypes.contained,
-    cluster: TabBar.propTypes.cluster,
+    fixed: TabBar.propTypes.fixed,
     children: propTypes.arrayOf(instanceOfComponent(Tab)),
 }
 
 Tabs.defaultProps = {
-    contained: false,
-    position: 'relative',
-    cluster: null,
+    fixed: false,
 }
 
 export { Tabs }

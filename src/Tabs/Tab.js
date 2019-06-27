@@ -6,18 +6,25 @@ import { colors } from '../theme.js'
 const noop = () => {}
 
 const Tab = forwardRef(
-    ({ icon, onClick, selected, disabled, stacked, children }, ref) => (
+    ({ icon, onClick, selected, disabled, fixed, children }, ref) => (
         <button
-            className={`${cx('d2ui-align-icon', {
+            className={`${cx({
                 selected,
                 disabled,
-                stacked,
+                fixed,
             })}`}
             onClick={disabled ? noop : onClick}
             ref={ref}
         >
             {icon && icon}
             {children}
+
+            <style jsx>{`
+                button {
+                    flex-grow: ${fixed ? 1 : 0};
+                }
+            `}</style>
+
             <style jsx>{`
                 button {
                     display: inline-flex;
@@ -71,6 +78,11 @@ const Tab = forwardRef(
                     cursor: not-allowed;
                 }
 
+                button.disabled:hover,
+                button.selected:hover {
+                    background-color: transparent;
+                }
+
                 button.disabled > :global(svg) {
                     fill: ${colors.grey500};
                 }
@@ -85,15 +97,13 @@ Tab.propTypes = {
     addTabRef: PropTypes.func,
     selected: PropTypes.bool,
     disabled: PropTypes.bool,
-    stacked: PropTypes.bool,
     children: PropTypes.node,
 }
 
 Tab.defaultProps = {
     active: false,
     disabled: false,
-    stacked: false,
-    onClick: () => {},
+    onClick: noop,
 }
 
 export { Tab }

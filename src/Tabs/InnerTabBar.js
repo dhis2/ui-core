@@ -2,12 +2,10 @@ import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 
-const InnerTabBar = ({ cluster, contained, children }) => (
+const InnerTabBar = ({ fixed, children }) => (
     <div
         className={cx({
-            contained,
-            // A scrollable tabBar cannot be clustered
-            [`cluster-${cluster}`]: cluster && contained,
+            fixed,
         })}
     >
         {children}
@@ -16,23 +14,10 @@ const InnerTabBar = ({ cluster, contained, children }) => (
                 position: relative;
                 overflow-y: hidden;
             }
-
-            div.contained {
+            div.fixed {
                 display: flex;
                 flex-grow: 1;
                 overflow-x: hidden;
-            }
-
-            div.cluster-left {
-                justify-content: flex-start;
-            }
-
-            div.cluster-centered {
-                justify-content: center;
-            }
-
-            div.cluster-right {
-                justify-content: flex-end;
             }
 
             /* FIREFOX HACK */
@@ -47,8 +32,7 @@ const InnerTabBar = ({ cluster, contained, children }) => (
 )
 
 InnerTabBar.propTypes = {
-    cluster: propTypes.oneOf([null, 'left', 'centered', 'right']),
-    contained: propTypes.bool,
+    fixed: propTypes.bool.isRequired,
 }
 
 export { InnerTabBar }

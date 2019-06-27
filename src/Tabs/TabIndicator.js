@@ -5,6 +5,13 @@ import cx from 'classnames'
 class TabIndicator extends Component {
     state = { animated: false }
 
+    componentDidMount() {
+        window.addEventListener('resize', this.refresh)
+    }
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.refresh)
+    }
+
     componentDidUpdate(prevProps) {
         /* The tabindicator should not move with a CSS transition when
            it is first positioned into place. In the render cycle
@@ -14,6 +21,10 @@ class TabIndicator extends Component {
                 animated: true,
             })
         }
+    }
+
+    refresh = () => {
+        this.forceUpdate()
     }
 
     getTransformStyle() {
