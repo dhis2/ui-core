@@ -1,9 +1,7 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { colors } from '../theme.js'
-
-const noop = () => {}
+import { colors, theme } from '../theme.js'
 
 const Tab = forwardRef(
     ({ icon, onClick, selected, disabled, fixed, children }, ref) => (
@@ -13,11 +11,11 @@ const Tab = forwardRef(
                 disabled,
                 fixed,
             })}`}
-            onClick={disabled ? noop : onClick}
+            onClick={disabled ? undefined : onClick}
             ref={ref}
         >
-            {icon && icon}
-            {children}
+            {icon}
+            <span>{children}</span>
 
             <style jsx>{`
                 button {
@@ -33,7 +31,6 @@ const Tab = forwardRef(
                     vertical-align: bottom;
 
                     height: 100%;
-                    max-width: 320px;
                     padding: 19px 16px 14px 16px;
 
                     background-color: transparent;
@@ -41,7 +38,7 @@ const Tab = forwardRef(
                     outline: none;
                     border-bottom: 1px solid ${colors.grey400};
 
-                    color: ${colors.grey700};
+                    color: ${colors.grey600};
                     font-size: 14px;
                     line-height: 14px;
 
@@ -49,8 +46,15 @@ const Tab = forwardRef(
                     cursor: pointer;
                 }
 
+                button > span {
+                    max-width: 320px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
                 button > :global(svg) {
-                    fill: ${colors.grey700};
+                    fill: ${colors.grey600};
                     width: 14px;
                     height: 14px;
                     margin: 0 4px 0 0;
@@ -66,11 +70,11 @@ const Tab = forwardRef(
                 }
 
                 button.selected {
-                    color: ${colors.grey900};
+                    color: ${theme.primary800};
                 }
 
                 button.selected > :global(svg) {
-                    fill: ${colors.grey900};
+                    fill: ${theme.primary800};
                 }
 
                 button.disabled {
@@ -98,12 +102,6 @@ Tab.propTypes = {
     selected: PropTypes.bool,
     disabled: PropTypes.bool,
     children: PropTypes.node,
-}
-
-Tab.defaultProps = {
-    active: false,
-    disabled: false,
-    onClick: noop,
 }
 
 export { Tab }

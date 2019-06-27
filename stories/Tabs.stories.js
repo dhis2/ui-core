@@ -97,6 +97,10 @@ storiesOf('Tabs', module)
             <Tab>Default</Tab>
             <Tab>Active</Tab>
             <Tab disabled>Disabled</Tab>
+            <Tab>
+                Text overflow - This tab has a very long text and it exceeds the
+                maximum width of 320px
+            </Tab>
         </Tabs>
     ))
     .add('Tab states - with icon', () => (

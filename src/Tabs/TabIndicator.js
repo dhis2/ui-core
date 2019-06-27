@@ -44,7 +44,6 @@ class TabIndicator extends Component {
                     visible: this.props.visible,
                     animated: this.state.animated,
                 })}
-                style={this.getTransformStyle()}
             >
                 <style jsx>{`
                     span {

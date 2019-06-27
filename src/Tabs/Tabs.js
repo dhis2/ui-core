@@ -36,6 +36,13 @@ class Tabs extends PureComponent {
         ) {
             this.scrollToTab(this.getSelectedTabRef())
         }
+
+        if (
+            Children.count(this.props.children) !==
+            Children.count(prevProps.children)
+        ) {
+            this.tabRefs = Children.map(this.props.children, createRef)
+        }
     }
 
     componentWillUnmount() {
@@ -232,7 +239,7 @@ Tabs.propTypes = {
 }
 
 Tabs.defaultProps = {
-    fixed: false,
+    fixed: TabBar.defaultProps.fixed,
 }
 
 export { Tabs }

@@ -16,24 +16,24 @@ const TabBarScroller = ({
 }) => (
     <Fragment>
         <button
-            onClick={scrollLeft}
+            onClick={scrolledToStart ? undefined : scrollLeft}
             className={cx('scroll-button', {
-                hidden: scrolledToStart,
+                disabled: scrolledToStart,
             })}
         >
             <ChevronLeft />
         </button>
         <div className="scroll-box-clipper">
             <div className="scroll-box" ref={scrollBoxRef}>
-                <div className={'scroll-area'} ref={scrollAreaRef}>
+                <div className="scroll-area" ref={scrollAreaRef}>
                     {children}
                 </div>
             </div>
         </div>
         <button
-            onClick={scrollRight}
+            onClick={scrolledToEnd ? undefined : scrollRight}
             className={cx('scroll-button', {
-                hidden: scrolledToEnd,
+                disabled: scrolledToEnd,
             })}
         >
             <ChevronRight />
@@ -64,7 +64,7 @@ const TabBarScroller = ({
             .scroll-button :global(svg) {
                 width: 20px;
                 height: 20px;
-                fill: ${colors.grey700};
+                fill: ${colors.grey600};
                 transition: opacity 150ms ease-in-out;
                 opacity: 1;
             }
@@ -78,16 +78,16 @@ const TabBarScroller = ({
                 background-color: ${colors.grey200};
             }
 
-            .scroll-button.hidden {
-                pointer-events: none;
+            .scroll-button.disabled {
+                cursor: not-allowed;
             }
 
-            .scroll-button.hidden :global(svg) {
-                opacity: 0;
+            .scroll-button.disabled :global(svg) {
+                fill: ${colors.grey500};
             }
 
             .scroll-box-clipper {
-                overflow-y: hidden;
+                overflow-y: disabled;
             }
 
             .scroll-box {

@@ -23,4 +23,8 @@ TabBar.propTypes = {
     children: propTypes.node.isRequired,
 }
 
+TabBar.defaultProps = {
+    fixed: false,
+}
+
 export { TabBar }
