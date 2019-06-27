@@ -23,16 +23,16 @@ const Tab = forwardRef(
                     display: inline-flex;
                     justify-content: center;
                     align-items: center;
+                    vertical-align: bottom;
 
                     height: 100%;
                     max-width: 320px;
-                    padding: 19px 16px 13px 16px;
-                    /* prevent button covering the bottom border */
-                    transform: translateY(-1px);
+                    padding: 19px 16px 14px 16px;
 
                     background-color: transparent;
                     border: none;
                     outline: none;
+                    border-bottom: 1px solid ${colors.grey400};
 
                     color: ${colors.grey700};
                     font-size: 14px;
@@ -46,9 +46,7 @@ const Tab = forwardRef(
                     fill: ${colors.grey700};
                     width: 14px;
                     height: 14px;
-                    margin-right: 4px;
-                    display: inline;
-                    line-height: 14px;
+                    margin: 0 4px 0 0;
                 }
 
                 button:hover {

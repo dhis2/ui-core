@@ -53,13 +53,20 @@ const TabBarScroller = ({
 
                 color: inherit;
                 background-color: ${colors.white};
-                opacity: 1;
                 border: none;
+                border-bottom: 1px solid ${colors.grey400};
                 outline: none;
                 padding: 16px 16px 11px 16px;
 
                 cursor: pointer;
-                transition: all 150ms ease-in-out;
+            }
+
+            .scroll-button :global(svg) {
+                width: 20px;
+                height: 20px;
+                fill: ${colors.grey700};
+                transition: opacity 150ms ease-in-out;
+                opacity: 1;
             }
 
             .scroll-button:hover {
@@ -74,19 +81,14 @@ const TabBarScroller = ({
 
             .scroll-button.hidden {
                 pointer-events: none;
-                opacity: 0;
             }
 
-            .scroll-button :global(svg) {
-                width: 20px;
-                height: 20px;
-                fill: ${colors.grey700};
+            .scroll-button.hidden :global(svg) {
+                opacity: 0;
             }
 
             .scroll-box-clipper {
                 overflow-y: hidden;
-                /* This places the box over the border-bottom of the container */
-                margin-bottom: -1px;
             }
 
             .scroll-box {

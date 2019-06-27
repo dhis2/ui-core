@@ -37,8 +37,7 @@ class TabIndicator extends Component {
             >
                 <style jsx>{`
                     span {
-                        transform: translateX(${translateX}px) translateY(1px)
-                            scaleX(${scaleX});
+                        transform: translateX(${translateX}px) scaleX(${scaleX});
                     }
                 `}</style>
 

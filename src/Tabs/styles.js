@@ -10,7 +10,6 @@ export default css`
         flex-shrink: 0;
         flex-direction: row;
         background-color: ${colors.white};
-        border-bottom: 1px solid ${colors.grey400};
     }
     div.relative {
         position: relative;
