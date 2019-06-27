@@ -82,6 +82,10 @@ const TabBarScroller = ({
                 cursor: not-allowed;
             }
 
+            .scroll-button.disabled:hover {
+                background-color: transparent;
+            }
+
             .scroll-button.disabled :global(svg) {
                 fill: ${colors.grey500};
             }
