@@ -3,11 +3,11 @@ import { storiesOf } from '@storybook/react'
 import { Tabs, Tab } from '../src'
 import { Indeterminate } from '../src/icons/Checkbox'
 
-import markdown from './info/atoms/buttonStrip.md'
+import markdown from './info/molecules/tabs.md'
 
 class TabsContainer extends React.Component {
     state = {
-        tabIndex: 0,
+        tabIndex: 10,
     }
     setTabIndex = index => {
         this.setState({ tabIndex: index })
@@ -16,13 +16,8 @@ class TabsContainer extends React.Component {
         return (
             <Tabs selected={this.state.tabIndex}>
                 <Tab onClick={() => this.setTabIndex(0)}>Test A</Tab>
-                <Tab
-                    icon={<Indeterminate />}
-                    onClick={() => this.setTabIndex(1)}
-                >
-                    Test B
-                </Tab>
-                <Tab disabled={true} onClick={() => this.setTabIndex(2)}>
+                <Tab onClick={() => this.setTabIndex(1)}>Test B</Tab>
+                <Tab disabled onClick={() => this.setTabIndex(2)}>
                     Test C
                 </Tab>
                 <Tab onClick={() => this.setTabIndex(3)}>Test D</Tab>
@@ -42,10 +37,11 @@ class TabsContainer extends React.Component {
 const Wrapper = fn => (
     <div
         style={{
-            width: '450px',
+            maxWidth: 700,
         }}
     >
         {fn()}
+        <p>Max-width of this container is 700 px</p>
     </div>
 )
 
@@ -56,4 +52,60 @@ storiesOf('Tabs', module)
         },
     })
     .addDecorator(Wrapper)
-    .add('Default', () => <TabsContainer />)
+    .add('Default (fluid)', () => (
+        <Tabs selected={3}>
+            <Tab>Tab A</Tab>
+            <Tab>Tab B</Tab>
+            <Tab>Tab C</Tab>
+            <Tab>Tab D</Tab>
+            <Tab>Tab E</Tab>
+        </Tabs>
+    ))
+    .add('Fluid - with side scroll', () => (
+        <Tabs selected={3}>
+            <Tab>Tab A</Tab>
+            <Tab>Tab B</Tab>
+            <Tab>Tab C</Tab>
+            <Tab>Tab D</Tab>
+            <Tab>Tab E</Tab>
+            <Tab>Tab F</Tab>
+            <Tab>Tab G</Tab>
+            <Tab>Tab H</Tab>
+            <Tab>Tab I</Tab>
+            <Tab>Tab J</Tab>
+            <Tab>Tab K</Tab>
+            <Tab>Tab L</Tab>
+            <Tab>Tab M</Tab>
+            <Tab>Tab N</Tab>
+            <Tab>Tab O</Tab>
+            <Tab>Tab P</Tab>
+            <Tab>Tab Q</Tab>
+            <Tab>Tab R</Tab>
+        </Tabs>
+    ))
+    .add('Fixed - tabs fill content', () => (
+        <Tabs fixed selected={3}>
+            <Tab>Tab A</Tab>
+            <Tab>Tab B</Tab>
+            <Tab>Tab C</Tab>
+            <Tab>Tab D</Tab>
+            <Tab>Tab E</Tab>
+        </Tabs>
+    ))
+    .add('Tab states', () => (
+        <Tabs fixed selected={1}>
+            <Tab>Default</Tab>
+            <Tab>Active</Tab>
+            <Tab disabled>Disabled</Tab>
+        </Tabs>
+    ))
+    .add('Tab states - with icon', () => (
+        <Tabs fixed selected={1}>
+            <Tab icon={<Indeterminate />}>Default</Tab>
+            <Tab icon={<Indeterminate />}>Active</Tab>
+            <Tab icon={<Indeterminate />} disabled>
+                Disabled
+            </Tab>
+        </Tabs>
+    ))
+    .add('Interactive demo with scrolling', () => <TabsContainer />)
