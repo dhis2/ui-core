@@ -22,7 +22,7 @@ export function animatedSideScroll({
 }
 
 function getEndValue(targetEl, scrollBox, startValue) {
-    return Math.round(
+    return Math.floor(
         targetEl.offsetLeft > startValue
             ? // scrolling forward
               targetEl.offsetLeft + targetEl.offsetWidth - scrollBox.offsetWidth
