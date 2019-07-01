@@ -87,13 +87,18 @@ const TableCellResponsive = ({ children, colSpan, rowSpan, title }) => (
 export const TableCell = ({ children, title, colSpan, rowSpan }) => (
     <Consumer>
         {({ staticLayout }) => {
-            const TableCell = staticLayout
-                ? TableCellStatic
-                : TableCellResponsive
+            const TableCellComponent = staticLayout
+                ? TableCellComponentStatic
+                : TableCellComponentResponsive
+
             return (
-                <TableCell colSpan={colSpan} rowSpan={rowSpan} title={title}>
+                <TableCellComponent
+                    colSpan={colSpan}
+                    rowSpan={rowSpan}
+                    title={title}
+                >
                     <div>{children}</div>
-                </TableCell>
+                </TableCellComponent>
             )
         }}
     </Consumer>
