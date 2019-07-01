@@ -110,8 +110,7 @@ const TabBarScroller = ({
                 position: relative;
                 display: flex;
                 flex: 1 0 auto;
-                transform: none;
-                will-change: transform;
+                overflow-x: hidden;
             }
 
             @-moz-document url-prefix() {

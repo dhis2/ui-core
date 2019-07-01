@@ -12,7 +12,7 @@ const InnerTabBar = ({ fixed, children }) => (
         <style jsx>{`
             div {
                 position: relative;
-                overflow-y: hidden;
+                overflow: hidden;
             }
             div.fixed {
                 display: flex;
