@@ -1,4 +1,4 @@
-const DURATION = 350
+const DURATION = 250
 
 export function animatedSideScroll({
     targetEl,
@@ -48,7 +48,7 @@ function createFrameStepper({
 
         elapsedTime = timestamp - startTimestamp
         scrollValue = easeInOutQuad({
-            elapsedTime,
+            currentTime: elapsedTime,
             duration,
             startValue,
             change,
@@ -56,22 +56,18 @@ function createFrameStepper({
 
         if (elapsedTime >= duration) {
             if (scrollValue !== endValue) {
-                scroll(scrollBox, endValue)
+                scrollBox.scrollLeft = endValue
             }
             callback && callback()
         } else {
-            scroll(scrollBox, scrollValue)
+            scrollBox.scrollLeft = scrollValue
             window.requestAnimationFrame(step)
         }
     }
 }
 
-function scroll(scrollBox, scrollValue) {
-    scrollBox.scrollLeft = scrollValue
-}
-
-function easeInOutQuad({ currentTime, duration, initialValue, change }) {
+function easeInOutQuad({ currentTime, duration, startValue, change }) {
     return (currentTime /= duration / 2) < 1
-        ? (change / 2) * currentTime * currentTime + initialValue
-        : (-change / 2) * (--currentTime * (currentTime - 2) - 1) + initialValue
+        ? (change / 2) * currentTime * currentTime + startValue
+        : (-change / 2) * (--currentTime * (currentTime - 2) - 1) + startValue
 }

@@ -91,7 +91,7 @@ const TabBarScroller = ({
             }
 
             .scroll-box-clipper {
-                overflow-y: disabled;
+                overflow-y: hidden;
             }
 
             .scroll-box {
