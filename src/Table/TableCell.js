@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
@@ -20,6 +20,21 @@ const tableCellStyles = css`
     }
 `
 
+const tableCellStylesResponsive = css`
+    @media (max-width: 768px) {
+        td {
+            display: table-row;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 400px) {
+        td {
+            display: block;
+        }
+    }
+`
+
 const TableCellStatic = ({ children, colSpan, rowSpan }) => (
     <td colSpan={colSpan} rowSpan={rowSpan}>
         <div>{children}</div>
@@ -27,30 +42,40 @@ const TableCellStatic = ({ children, colSpan, rowSpan }) => (
     </td>
 )
 
-const TableCellResponsive = ({ children, colSpan, rowSpan, title }) => (
-    <td colSpan={colSpan} rowSpan={rowSpan}>
-        <div>{children}</div>
-        <style jsx>{tableCellStyles}</style>
+const ContentWithTitle = ({ title, children }) => (
+    <Fragment>
+        {title && <td className="title">{title}</td>}
+
+        <td className="content" colSpan={title ? '1' : '2'}>
+            {children}
+        </td>
+
         <style jsx>{`
+            .title {
+                display: none;
+            }
+
+            .content {
+                display: block;
+            }
+
             @media (max-width: 768px) {
-                td {
-                    display: table-row;
-                    width: 100%;
+                .title,
+                .content {
+                    display: table-cell;
                 }
 
-                td:before {
-                    content: '${title}:';
-                    display: table-cell;
+                .title {
                     white-space: nowrap;
                     padding: 0 16px;
                     font-weight: bold;
                 }
 
-                :global(tfoot) td:before {
+                :global(tfoot) .title {
                     display: none;
                 }
 
-                div {
+                .content {
                     display: table-cell;
                     width: 100%;
                     padding: 0 16px;
@@ -58,15 +83,7 @@ const TableCellResponsive = ({ children, colSpan, rowSpan, title }) => (
             }
 
             @media (max-width: 400px) {
-                td {
-                    display: block;
-                }
-
-                td:first-child {
-                    margin-top: 0;
-                }
-
-                td:before {
+                .title {
                     display: block;
                     white-space: normal;
                     min-height: 24px;
@@ -74,25 +91,42 @@ const TableCellResponsive = ({ children, colSpan, rowSpan, title }) => (
                     padding: 8px 0 0 0;
                 }
 
-                div {
+                .content {
                     display: block;
                     padding: 0;
-                    min-height:32px;
+                    min-height: 32px;
+                }
+
+                .content:first-child {
+                    padding-top: 8px;
+                    padding-bottom: 8px;
                 }
             }
         `}</style>
+    </Fragment>
+)
+
+const TableCellResponsive = ({ children, colSpan, rowSpan, title }) => (
+    <td colSpan={colSpan} rowSpan={rowSpan}>
+        <ContentWithTitle title={title}>{children}</ContentWithTitle>
+
+        <style jsx>{tableCellStyles}</style>
+        <style jsx>{tableCellStylesResponsive}</style>
     </td>
 )
 
-export const TableCell = ({ children, title, colSpan, rowSpan }) => (
+export const TableCell = ({ children, noTitle, colSpan, rowSpan, column }) => (
     <Consumer>
-        {({ staticLayout }) => {
+        {({ staticLayout, headerLabels }) => {
+            const title = noTitle || staticLayout ? '' : headerLabels[column]
+
             const TableCellComponent = staticLayout
                 ? TableCellStatic
                 : TableCellResponsive
 
             return (
                 <TableCellComponent
+                    column={column}
                     colSpan={colSpan}
                     rowSpan={rowSpan}
                     title={title}
@@ -105,7 +139,8 @@ export const TableCell = ({ children, title, colSpan, rowSpan }) => (
 )
 
 TableCell.propTypes = {
-    title: propTypes.string,
+    noTitle: propTypes.bool,
     colSpan: propTypes.string,
     rowSpan: propTypes.string,
+    column: propTypes.number,
 }
