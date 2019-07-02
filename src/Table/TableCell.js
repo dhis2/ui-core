@@ -88,8 +88,8 @@ export const TableCell = ({ children, title, colSpan, rowSpan }) => (
     <Consumer>
         {({ staticLayout }) => {
             const TableCellComponent = staticLayout
-                ? TableCellComponentStatic
-                : TableCellComponentResponsive
+                ? TableCellStatic
+                : TableCellResponsive
 
             return (
                 <TableCellComponent

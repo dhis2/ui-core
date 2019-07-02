@@ -27,30 +27,23 @@ storiesOf('Table', module)
         <Table>
             <TableHead>
                 <TableRow>
-                    <TableCellHead>
-                        <TableCellText label="First name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
+                    <TableCellHead colSpan="2" label="Name" />
+                    <TableCellHead label="Incident date" />
+                    <TableCellHead label="Last updated" />
+                    <TableCellHead label="Age" />
+                    <TableCellHead label="Registering unit" />
+                    <TableCellHead label="Assigned user" />
+                    <TableCellHead label="Status" />
+                </TableRow>
+                <TableRow>
+                    <TableCellHead label="First name" />
+                    <TableCellHead label="Last name" />
+                    <TableCellHead label="" />
+                    <TableCellHead label="" />
+                    <TableCellHead label="" />
+                    <TableCellHead label="" />
+                    <TableCellHead label="" />
+                    <TableCellHead label="" />
                 </TableRow>
             </TableHead>
             <TableBody>
@@ -328,30 +321,14 @@ storiesOf('Table', module)
         <Table staticLayout>
             <TableHead>
                 <TableRow>
-                    <TableCellHead>
-                        <TableCellText label="First name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
+                    <TableCellHead label="First name" />
+                    <TableCellHead label="Last name" />
+                    <TableCellHead label="Incident date" />
+                    <TableCellHead label="Last updated" />
+                    <TableCellHead label="Age" />
+                    <TableCellHead label="Registering unit" />
+                    <TableCellHead label="Assigned user" />
+                    <TableCellHead label="Status" />
                 </TableRow>
             </TableHead>
             <TableBody>

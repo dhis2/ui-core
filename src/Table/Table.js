@@ -1,7 +1,12 @@
 import React from 'react'
 import css from 'styled-jsx/css'
+import propTypes from 'prop-types'
 
 import { Consumer } from './tableContext'
+import { TableBody } from './TableBody'
+import { TableFoot } from './TableFoot'
+import { TableHead } from './TableHead'
+import { instanceOfComponent } from '../prop-validators/instanceOfComponent'
 
 const tableStyles = css`
     table {
@@ -48,3 +53,16 @@ export const Table = ({ children }) => (
         }}
     </Consumer>
 )
+
+const childPropType = propTypes.oneOfType([
+    instanceOfComponent(TableHead),
+    instanceOfComponent(TableBody),
+    instanceOfComponent(TableFoot),
+])
+
+Table.propTypes = {
+    children: propTypes.oneOfType([
+        childPropType,
+        propTypes.arrayOf(childPropType),
+    ]).isRequired,
+}
