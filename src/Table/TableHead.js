@@ -1,7 +1,10 @@
 import React from 'react'
 import css from 'styled-jsx/css'
+import propTypes from 'prop-types'
 
 import { Consumer } from './tableContext'
+import { TableRowHead } from './TableRowHead'
+import { instanceOfComponent } from '../prop-validators/instanceOfComponent'
 
 const tableHeadStylesResponsive = css`
     @media (max-width: 768px) {
@@ -28,3 +31,12 @@ export const TableHead = ({ children }) => (
         }}
     </Consumer>
 )
+
+const childPropType = instanceOfComponent(TableRowHead)
+
+TableHead.propTypes = {
+    children: propTypes.oneOfType([
+        childPropType,
+        propTypes.arrayOf(childPropType),
+    ]).isRequired,
+}

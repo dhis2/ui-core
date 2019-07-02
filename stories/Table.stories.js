@@ -1,14 +1,17 @@
 import React from 'react'
+
 import { storiesOf } from '@storybook/react'
+
 import { Button } from '../src/Button'
 import { Table } from '../src/Table'
 import { TableBody } from '../src/Table/TableBody'
-import { TableHead } from '../src/Table/TableHead'
-import { TableFoot } from '../src/Table/TableFoot'
-import { TableRow } from '../src/Table/TableRow'
-import { TableCellHead } from '../src/Table/TableCellHead'
 import { TableCell } from '../src/Table/TableCell'
+import { TableCellHead } from '../src/Table/TableCellHead'
 import { TableCellText } from '../src/Table/TableCellText'
+import { TableFoot } from '../src/Table/TableFoot'
+import { TableHead } from '../src/Table/TableHead'
+import { TableRow } from '../src/Table/TableRow'
+import { TableRowHead } from '../src/Table/TableRowHead'
 
 const TableFooterButton = () => (
     <div>
@@ -26,7 +29,7 @@ storiesOf('Table', module)
     .add('Default', () => (
         <Table>
             <TableHead>
-                <TableRow>
+                <TableRowHead>
                     <TableCellHead colSpan="2" label="Name" />
                     <TableCellHead label="Incident date" />
                     <TableCellHead label="Last updated" />
@@ -34,8 +37,8 @@ storiesOf('Table', module)
                     <TableCellHead label="Registering unit" />
                     <TableCellHead label="Assigned user" />
                     <TableCellHead label="Status" />
-                </TableRow>
-                <TableRow>
+                </TableRowHead>
+                <TableRowHead>
                     <TableCellHead label="First name" />
                     <TableCellHead label="Last name" />
                     <TableCellHead label="" />
@@ -44,7 +47,7 @@ storiesOf('Table', module)
                     <TableCellHead label="" />
                     <TableCellHead label="" />
                     <TableCellHead label="" />
-                </TableRow>
+                </TableRowHead>
             </TableHead>
             <TableBody>
                 <TableRow>
@@ -320,7 +323,7 @@ storiesOf('Table', module)
     .add('Static layout', () => (
         <Table staticLayout>
             <TableHead>
-                <TableRow>
+                <TableRowHead>
                     <TableCellHead label="First name" />
                     <TableCellHead label="Last name" />
                     <TableCellHead label="Incident date" />
@@ -329,7 +332,7 @@ storiesOf('Table', module)
                     <TableCellHead label="Registering unit" />
                     <TableCellHead label="Assigned user" />
                     <TableCellHead label="Status" />
-                </TableRow>
+                </TableRowHead>
             </TableHead>
             <TableBody>
                 <TableRow>

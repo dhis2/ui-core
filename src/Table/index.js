@@ -10,6 +10,7 @@ import { Table as TableComponent } from './Table'
 import { TableFoot } from './TableFoot'
 import { TableHead } from './TableHead'
 import { TableRow } from './TableRow'
+import { TableRowHead } from './TableRowHead'
 import { extractHeaderLabels } from './extractHeaderLabels'
 
 const Table = ({ children, staticLayout }) => {
@@ -37,6 +38,7 @@ Table.propTypes = {
 export {
     Table,
     TableRow,
+    TableRowHead,
     TableHead,
     TableBody,
     TableFoot,
