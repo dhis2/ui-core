@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
-import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
+import propTypes from 'prop-types'
 
 import { Consumer } from './tableContext'
+import { TableCellText } from './TableCellText'
 
 const tableCellStyles = css`
     td {
@@ -124,6 +125,13 @@ export const TableCell = ({ children, noTitle, colSpan, rowSpan, column }) => (
                 ? TableCellStatic
                 : TableCellResponsive
 
+            const content =
+                typeof children === 'string' ? (
+                    <TableCellText label={children} />
+                ) : (
+                    children
+                )
+
             return (
                 <TableCellComponent
                     column={column}
@@ -131,7 +139,7 @@ export const TableCell = ({ children, noTitle, colSpan, rowSpan, column }) => (
                     rowSpan={rowSpan}
                     title={title}
                 >
-                    <div>{children}</div>
+                    <div>{content}</div>
                 </TableCellComponent>
             )
         }}

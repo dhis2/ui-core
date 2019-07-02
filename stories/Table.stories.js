@@ -97,264 +97,104 @@ storiesOf('Table', module)
             </TableHead>
             <TableBody>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Onyekachukwu" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Kariuki" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="02/06/2007" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="05/25/1972" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="66" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Jawi" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Sofie Hubert" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Onyekachukwu</TableCell>
+                    <TableCell>Kariuki</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>05/25/1972</TableCell>
+                    <TableCell>66</TableCell>
+                    <TableCell>Jawi</TableCell>
+                    <TableCell>Sofie Hubert</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Kwasi" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okafor" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="08/11/2010" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="02/26/1991" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="38" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Mokassie MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Dashonte Clarke" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Kwasi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>08/11/2010</TableCell>
+                    <TableCell>02/26/1991</TableCell>
+                    <TableCell>38</TableCell>
+                    <TableCell>Mokassie MCHP</TableCell>
+                    <TableCell>Dashonte Clarke</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Siyabonga" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Abiodun" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="07/21/1981" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="02/06/2007" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="98" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Bathurst MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Unassigned" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Siyabonga</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>07/21/1981</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>98</TableCell>
+                    <TableCell>Bathurst MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Chiyembekezo" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okeke" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/23/1982" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="07/15/2003" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="2" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Mayolla MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Wan Gengxin" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Chiyembekezo</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/23/1982</TableCell>
+                    <TableCell>07/15/2003</TableCell>
+                    <TableCell>2</TableCell>
+                    <TableCell>Mayolla MCHP</TableCell>
+                    <TableCell>Wan Gengxin</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Mtendere" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Afolayan" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="08/12/1994" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="05/12/1972" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="37" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Gbangadu MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Gvozden Boskovsky" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Mtendere</TableCell>
+                    <TableCell>Afolayan</TableCell>
+                    <TableCell>08/12/1994</TableCell>
+                    <TableCell>05/12/1972</TableCell>
+                    <TableCell>37</TableCell>
+                    <TableCell>Gbangadu MCHP</TableCell>
+                    <TableCell>Gvozden Boskovsky</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Inyene" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okonkwo" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="04/01/1971" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="03/16/2000" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="70" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Kunike Barina" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Oscar de la Cavallería" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Inyene</TableCell>
+                    <TableCell>Okonkwo</TableCell>
+                    <TableCell>04/01/1971</TableCell>
+                    <TableCell>03/16/2000</TableCell>
+                    <TableCell>70</TableCell>
+                    <TableCell>Kunike Barina</TableCell>
+                    <TableCell>Oscar de la Cavallería</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Amaka" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Pretorius" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/25/1996" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="09/15/1986" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="32" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Bargbo" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Alberto Raya" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Amaka</TableCell>
+                    <TableCell>Pretorius</TableCell>
+                    <TableCell>01/25/1996</TableCell>
+                    <TableCell>09/15/1986</TableCell>
+                    <TableCell>32</TableCell>
+                    <TableCell>Bargbo</TableCell>
+                    <TableCell>Alberto Raya</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Meti" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Abiodun" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="10/24/2010" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="07/26/1989" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="8" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Majihun MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Unassigned" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Meti</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>10/24/2010</TableCell>
+                    <TableCell>07/26/1989</TableCell>
+                    <TableCell>8</TableCell>
+                    <TableCell>Majihun MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Eshe" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okeke" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/31/1995" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/31/1995" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="63" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Mambiama CHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Shadrias Pearson" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Eshe</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>63</TableCell>
+                    <TableCell>Mambiama CHP</TableCell>
+                    <TableCell>Shadrias Pearson</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Obi" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okafor" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="06/07/1990" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/03/2006" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="28" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Dalakuru CHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Anatoliy Shcherbatykh" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Obi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>06/07/1990</TableCell>
+                    <TableCell>01/03/2006</TableCell>
+                    <TableCell>28</TableCell>
+                    <TableCell>Dalakuru CHP</TableCell>
+                    <TableCell>Anatoliy Shcherbatykh</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
             </TableBody>
             <TableFoot>
@@ -387,291 +227,131 @@ storiesOf('Table', module)
             </TableHead>
             <TableBody>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Onyekachukwu" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Kariuki" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="02/06/2007" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="05/25/1972" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="66" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Jawi" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Sofie Hubert" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Onyekachukwu</TableCell>
+                    <TableCell>Kariuki</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>05/25/1972</TableCell>
+                    <TableCell>66</TableCell>
+                    <TableCell>Jawi</TableCell>
+                    <TableCell>Sofie Hubert</TableCell>
+                    <TableCell>Incomplete</TableCell>
                     <TableCell noTitle>
                         <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Kwasi" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okafor" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="08/11/2010" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="02/26/1991" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="38" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Mokassie MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Dashonte Clarke" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Kwasi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>08/11/2010</TableCell>
+                    <TableCell>02/26/1991</TableCell>
+                    <TableCell>38</TableCell>
+                    <TableCell>Mokassie MCHP</TableCell>
+                    <TableCell>Dashonte Clarke</TableCell>
+                    <TableCell>Complete</TableCell>
                     <TableCell noTitle>
                         <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Siyabonga" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Abiodun" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="07/21/1981" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="02/06/2007" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="98" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Bathurst MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Unassigned" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Siyabonga</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>07/21/1981</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>98</TableCell>
+                    <TableCell>Bathurst MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Incomplete</TableCell>
                     <TableCell noTitle>
                         <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Chiyembekezo" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okeke" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/23/1982" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="07/15/2003" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="2" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Mayolla MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Wan Gengxin" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Chiyembekezo</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/23/1982</TableCell>
+                    <TableCell>07/15/2003</TableCell>
+                    <TableCell>2</TableCell>
+                    <TableCell>Mayolla MCHP</TableCell>
+                    <TableCell>Wan Gengxin</TableCell>
+                    <TableCell>Incomplete</TableCell>
                     <TableCell noTitle>
                         <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Mtendere" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Afolayan" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="08/12/1994" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="05/12/1972" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="37" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Gbangadu MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Gvozden Boskovsky" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Mtendere</TableCell>
+                    <TableCell>Afolayan</TableCell>
+                    <TableCell>08/12/1994</TableCell>
+                    <TableCell>05/12/1972</TableCell>
+                    <TableCell>37</TableCell>
+                    <TableCell>Gbangadu MCHP</TableCell>
+                    <TableCell>Gvozden Boskovsky</TableCell>
+                    <TableCell>Complete</TableCell>
                     <TableCell noTitle>
                         <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Inyene" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okonkwo" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="04/01/1971" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="03/16/2000" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="70" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Kunike Barina" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Oscar de la Cavallería" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Inyene</TableCell>
+                    <TableCell>Okonkwo</TableCell>
+                    <TableCell>04/01/1971</TableCell>
+                    <TableCell>03/16/2000</TableCell>
+                    <TableCell>70</TableCell>
+                    <TableCell>Kunike Barina</TableCell>
+                    <TableCell>Oscar de la Cavallería</TableCell>
+                    <TableCell>Complete</TableCell>
                     <TableCell noTitle>
                         <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Amaka" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Pretorius" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/25/1996" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="09/15/1986" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="32" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Bargbo" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Alberto Raya" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Amaka</TableCell>
+                    <TableCell>Pretorius</TableCell>
+                    <TableCell>01/25/1996</TableCell>
+                    <TableCell>09/15/1986</TableCell>
+                    <TableCell>32</TableCell>
+                    <TableCell>Bargbo</TableCell>
+                    <TableCell>Alberto Raya</TableCell>
+                    <TableCell>Incomplete</TableCell>
                     <TableCell noTitle>
                         <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Meti" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Abiodun" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="10/24/2010" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="07/26/1989" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="8" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Majihun MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Unassigned" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Meti</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>10/24/2010</TableCell>
+                    <TableCell>07/26/1989</TableCell>
+                    <TableCell>8</TableCell>
+                    <TableCell>Majihun MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Complete</TableCell>
                     <TableCell noTitle>
                         <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Eshe" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okeke" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/31/1995" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/31/1995" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="63" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Mambiama CHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Shadrias Pearson" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Eshe</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>63</TableCell>
+                    <TableCell>Mambiama CHP</TableCell>
+                    <TableCell>Shadrias Pearson</TableCell>
+                    <TableCell>Incomplete</TableCell>
                     <TableCell noTitle>
                         <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Obi" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okafor" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="06/07/1990" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/03/2006" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="28" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Dalakuru CHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Anatoliy Shcherbatykh" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Obi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>06/07/1990</TableCell>
+                    <TableCell>01/03/2006</TableCell>
+                    <TableCell>28</TableCell>
+                    <TableCell>Dalakuru CHP</TableCell>
+                    <TableCell>Anatoliy Shcherbatykh</TableCell>
+                    <TableCell>Incomplete</TableCell>
                     <TableCell noTitle>
                         <Actions />
                     </TableCell>
@@ -702,264 +382,104 @@ storiesOf('Table', module)
             </TableHead>
             <TableBody>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Onyekachukwu" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Kariuki" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="02/06/2007" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="05/25/1972" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="66" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Jawi" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Sofie Hubert" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Onyekachukwu</TableCell>
+                    <TableCell>Kariuki</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>05/25/1972</TableCell>
+                    <TableCell>66</TableCell>
+                    <TableCell>Jawi</TableCell>
+                    <TableCell>Sofie Hubert</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Kwasi" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okafor" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="08/11/2010" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="02/26/1991" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="38" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Mokassie MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Dashonte Clarke" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Kwasi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>08/11/2010</TableCell>
+                    <TableCell>02/26/1991</TableCell>
+                    <TableCell>38</TableCell>
+                    <TableCell>Mokassie MCHP</TableCell>
+                    <TableCell>Dashonte Clarke</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Siyabonga" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Abiodun" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="07/21/1981" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="02/06/2007" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="98" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Bathurst MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Unassigned" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Siyabonga</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>07/21/1981</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>98</TableCell>
+                    <TableCell>Bathurst MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Chiyembekezo" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okeke" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/23/1982" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="07/15/2003" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="2" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Mayolla MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Wan Gengxin" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Chiyembekezo</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/23/1982</TableCell>
+                    <TableCell>07/15/2003</TableCell>
+                    <TableCell>2</TableCell>
+                    <TableCell>Mayolla MCHP</TableCell>
+                    <TableCell>Wan Gengxin</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Mtendere" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Afolayan" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="08/12/1994" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="05/12/1972" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="37" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Gbangadu MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Gvozden Boskovsky" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Mtendere</TableCell>
+                    <TableCell>Afolayan</TableCell>
+                    <TableCell>08/12/1994</TableCell>
+                    <TableCell>05/12/1972</TableCell>
+                    <TableCell>37</TableCell>
+                    <TableCell>Gbangadu MCHP</TableCell>
+                    <TableCell>Gvozden Boskovsky</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Inyene" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okonkwo" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="04/01/1971" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="03/16/2000" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="70" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Kunike Barina" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Oscar de la Cavallería" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Inyene</TableCell>
+                    <TableCell>Okonkwo</TableCell>
+                    <TableCell>04/01/1971</TableCell>
+                    <TableCell>03/16/2000</TableCell>
+                    <TableCell>70</TableCell>
+                    <TableCell>Kunike Barina</TableCell>
+                    <TableCell>Oscar de la Cavallería</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Amaka" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Pretorius" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/25/1996" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="09/15/1986" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="32" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Bargbo" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Alberto Raya" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Amaka</TableCell>
+                    <TableCell>Pretorius</TableCell>
+                    <TableCell>01/25/1996</TableCell>
+                    <TableCell>09/15/1986</TableCell>
+                    <TableCell>32</TableCell>
+                    <TableCell>Bargbo</TableCell>
+                    <TableCell>Alberto Raya</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Meti" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Abiodun" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="10/24/2010" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="07/26/1989" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="8" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Majihun MCHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Unassigned" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Meti</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>10/24/2010</TableCell>
+                    <TableCell>07/26/1989</TableCell>
+                    <TableCell>8</TableCell>
+                    <TableCell>Majihun MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Eshe" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okeke" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/31/1995" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/31/1995" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="63" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Mambiama CHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Shadrias Pearson" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Eshe</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>63</TableCell>
+                    <TableCell>Mambiama CHP</TableCell>
+                    <TableCell>Shadrias Pearson</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>
-                        <TableCellText label="Obi" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Okafor" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="06/07/1990" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="01/03/2006" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="28" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Dalakuru CHP" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Anatoliy Shcherbatykh" />
-                    </TableCell>
-                    <TableCell>
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Obi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>06/07/1990</TableCell>
+                    <TableCell>01/03/2006</TableCell>
+                    <TableCell>28</TableCell>
+                    <TableCell>Dalakuru CHP</TableCell>
+                    <TableCell>Anatoliy Shcherbatykh</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
             </TableBody>
             <TableFoot>
