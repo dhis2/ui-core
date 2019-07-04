@@ -24,13 +24,7 @@ const tableCellStyles = css`
 const tableCellStylesResponsive = css`
     @media (max-width: 768px) {
         td {
-            display: table-row;
             width: 100%;
-        }
-    }
-
-    @media (max-width: 400px) {
-        td {
             display: block;
         }
     }
@@ -45,11 +39,8 @@ const TableCellStatic = ({ children, colSpan, rowSpan }) => (
 
 const ContentWithTitle = ({ title, children }) => (
     <Fragment>
-        {title && <td className="title">{title}</td>}
-
-        <td className="content" colSpan={title ? '1' : '2'}>
-            {children}
-        </td>
+        {title && <span className="title">{title}</span>}
+        <span className="content">{children}</span>
 
         <style jsx>{`
             .title {
@@ -61,35 +52,14 @@ const ContentWithTitle = ({ title, children }) => (
             }
 
             @media (max-width: 768px) {
-                .title,
-                .content {
-                    display: table-cell;
-                }
-
-                .title {
-                    white-space: nowrap;
-                    padding: 0 16px;
-                    font-weight: bold;
-                }
-
-                :global(tfoot) .title {
-                    display: none;
-                }
-
-                .content {
-                    display: table-cell;
-                    width: 100%;
-                    padding: 0 16px;
-                }
-            }
-
-            @media (max-width: 400px) {
                 .title {
                     display: block;
                     white-space: normal;
                     min-height: 24px;
                     line-height: 18px;
                     padding: 8px 0 0 0;
+                    font-weight: bold;
+                    white-space: nowrap;
                 }
 
                 .content {
@@ -116,21 +86,24 @@ const TableCellResponsive = ({ children, colSpan, rowSpan, title }) => (
     </td>
 )
 
-export const TableCell = ({ children, noTitle, colSpan, rowSpan, column }) => (
+// Leveraging on being able to return before creating the text component
+// If not extracted, TableCellText will be created on every render
+// and throw a warning as children is not a string
+const getContent = children => {
+    if (typeof children !== 'string') return children
+    return <TableCellText label={children} />
+}
+
+export const TableCell = ({ children, colSpan, rowSpan, column }) => (
     <Consumer>
         {({ staticLayout, headerLabels }) => {
-            const title = noTitle || staticLayout ? '' : headerLabels[column]
+            const title = staticLayout ? '' : headerLabels[column]
 
             const TableCellComponent = staticLayout
                 ? TableCellStatic
                 : TableCellResponsive
 
-            const content =
-                typeof children === 'string' ? (
-                    <TableCellText label={children} />
-                ) : (
-                    children
-                )
+            const content = getContent(children)
 
             return (
                 <TableCellComponent
@@ -139,7 +112,7 @@ export const TableCell = ({ children, noTitle, colSpan, rowSpan, column }) => (
                     rowSpan={rowSpan}
                     title={title}
                 >
-                    <div>{content}</div>
+                    {content}
                 </TableCellComponent>
             )
         }}
@@ -147,7 +120,6 @@ export const TableCell = ({ children, noTitle, colSpan, rowSpan, column }) => (
 )
 
 TableCell.propTypes = {
-    noTitle: propTypes.bool,
     colSpan: propTypes.string,
     rowSpan: propTypes.string,
     column: propTypes.number,

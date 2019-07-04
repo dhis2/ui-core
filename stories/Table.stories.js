@@ -210,14 +210,14 @@ storiesOf('Table', module)
         <Table>
             <TableHead>
                 <TableRowHead>
-                    <TableCellHead label="Name" colSpan="2" />
+                    <TableCellHead label="Name" colSpan="2" noTitle />
                     <TableCellHead label="Incident date" />
                     <TableCellHead label="Last updated" />
                     <TableCellHead label="Age" />
                     <TableCellHead label="Registering unit" />
                     <TableCellHead label="Assigned user" />
                     <TableCellHead label="Status" />
-                    <TableCellHead label="Actions" />
+                    <TableCellHead label="Actions" noTitle />
                 </TableRowHead>
                 <TableRowHead>
                     <TableCellHead label="First name" />
@@ -235,7 +235,7 @@ storiesOf('Table', module)
                     <TableCell>Jawi</TableCell>
                     <TableCell>Sofie Hubert</TableCell>
                     <TableCell>Incomplete</TableCell>
-                    <TableCell noTitle>
+                    <TableCell>
                         <Actions />
                     </TableCell>
                 </TableRow>
@@ -248,7 +248,7 @@ storiesOf('Table', module)
                     <TableCell>Mokassie MCHP</TableCell>
                     <TableCell>Dashonte Clarke</TableCell>
                     <TableCell>Complete</TableCell>
-                    <TableCell noTitle>
+                    <TableCell>
                         <Actions />
                     </TableCell>
                 </TableRow>
@@ -261,7 +261,7 @@ storiesOf('Table', module)
                     <TableCell>Bathurst MCHP</TableCell>
                     <TableCell>Unassigned</TableCell>
                     <TableCell>Incomplete</TableCell>
-                    <TableCell noTitle>
+                    <TableCell>
                         <Actions />
                     </TableCell>
                 </TableRow>
@@ -274,7 +274,7 @@ storiesOf('Table', module)
                     <TableCell>Mayolla MCHP</TableCell>
                     <TableCell>Wan Gengxin</TableCell>
                     <TableCell>Incomplete</TableCell>
-                    <TableCell noTitle>
+                    <TableCell>
                         <Actions />
                     </TableCell>
                 </TableRow>
@@ -287,7 +287,7 @@ storiesOf('Table', module)
                     <TableCell>Gbangadu MCHP</TableCell>
                     <TableCell>Gvozden Boskovsky</TableCell>
                     <TableCell>Complete</TableCell>
-                    <TableCell noTitle>
+                    <TableCell>
                         <Actions />
                     </TableCell>
                 </TableRow>
@@ -300,7 +300,7 @@ storiesOf('Table', module)
                     <TableCell>Kunike Barina</TableCell>
                     <TableCell>Oscar de la Cavallería</TableCell>
                     <TableCell>Complete</TableCell>
-                    <TableCell noTitle>
+                    <TableCell>
                         <Actions />
                     </TableCell>
                 </TableRow>
@@ -313,7 +313,7 @@ storiesOf('Table', module)
                     <TableCell>Bargbo</TableCell>
                     <TableCell>Alberto Raya</TableCell>
                     <TableCell>Incomplete</TableCell>
-                    <TableCell noTitle>
+                    <TableCell>
                         <Actions />
                     </TableCell>
                 </TableRow>
@@ -326,7 +326,7 @@ storiesOf('Table', module)
                     <TableCell>Majihun MCHP</TableCell>
                     <TableCell>Unassigned</TableCell>
                     <TableCell>Complete</TableCell>
-                    <TableCell noTitle>
+                    <TableCell>
                         <Actions />
                     </TableCell>
                 </TableRow>
@@ -339,7 +339,7 @@ storiesOf('Table', module)
                     <TableCell>Mambiama CHP</TableCell>
                     <TableCell>Shadrias Pearson</TableCell>
                     <TableCell>Incomplete</TableCell>
-                    <TableCell noTitle>
+                    <TableCell>
                         <Actions />
                     </TableCell>
                 </TableRow>
@@ -352,7 +352,7 @@ storiesOf('Table', module)
                     <TableCell>Dalakuru CHP</TableCell>
                     <TableCell>Anatoliy Shcherbatykh</TableCell>
                     <TableCell>Incomplete</TableCell>
-                    <TableCell noTitle>
+                    <TableCell>
                         <Actions />
                     </TableCell>
                 </TableRow>

@@ -33,5 +33,5 @@ TableCellHead.propTypes = {
     colSpan: propTypes.string,
     rowSpan: propTypes.string,
     label: propTypes.string,
-    hideLabel: propTypes.bool,
+    noTitle: propTypes.bool,
 }

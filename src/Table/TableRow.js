@@ -40,19 +40,8 @@ const tableRowStyles = css`
 const tableRowStylesResponsive = css`
     @media (max-width: 768px) {
         tr {
-            display: table;
-            width: 100%;
-            border: 1px solid #e8edf2;
-        }
-
-        tr + tr {
-            margin-top: 16px;
-        }
-    }
-
-    @media (max-width: 400px) {
-        tr {
             display: block;
+            border: 1px solid #e8edf2;
         }
 
         tr:nth-child(even) {

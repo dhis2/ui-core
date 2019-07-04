@@ -41,9 +41,8 @@ const mapCellsToLabels = row => {
     return labels
 }
 
-const extractLabelFromCell = cell => {
-    return cell.props.label
-}
+const extractLabelFromCell = cell =>
+    !cell.props.noTitle ? cell.props.label : ''
 
 const combineRowLables = (columnCount, rowCount, headerLabels) =>
     Array(columnCount)

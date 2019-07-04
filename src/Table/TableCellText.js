@@ -18,7 +18,7 @@ const tableCellTextStyles = css`
 `
 
 const tableCellTextStylesResponsive = css`
-    @media (max-width: 400px) {
+    @media (max-width: 768px) {
         :global(tbody) span {
             padding: 3px 0;
         }
