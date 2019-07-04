@@ -92,7 +92,7 @@ storiesOf('Table', module)
                 <TableRowHead>
                     <TableCellHead label="First name" />
                     <TableCellHead label="Last name" />
-                    <TableCellHead label="" colSpan="6" />
+                    <TableCellHead colSpan="6" />
                 </TableRowHead>
             </TableHead>
             <TableBody>
@@ -222,7 +222,7 @@ storiesOf('Table', module)
                 <TableRowHead>
                     <TableCellHead label="First name" />
                     <TableCellHead label="Last name" />
-                    <TableCellHead label="" colSpan="7" />
+                    <TableCellHead colSpan="7" />
                 </TableRowHead>
             </TableHead>
             <TableBody>
