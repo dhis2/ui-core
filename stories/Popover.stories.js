@@ -10,16 +10,17 @@ import markdown from './info/molecules/popover.md'
 addParameters({ notes: markdown })
 
 const Btn = forwardRef(({ styles = {}, ...props }, ref) => (
-    <button
-        ref={ref}
-        {...props}
-        style={{
-            display: 'block',
-            width: 150,
-            height: 50,
-            ...styles,
-        }}
-    />
+    <div style={{ ...styles, width: 'fit-content' }}>
+        <button
+            ref={ref}
+            {...props}
+            style={{
+                display: 'block',
+                width: 150,
+                height: 50,
+            }}
+        />
+    </div>
 ))
 
 const createPopoverContent = () => (
@@ -108,7 +109,7 @@ storiesOf('Popover', module)
  * Popover in top position
  * ===========================
  */
-const Top = createWrapper({ margin: '200px auto 0' })
+const Top = createWrapper({ margin: '0 auto', padding: '200px 0 0' })
 
 storiesOf('Popover', module)
     .addDecorator(fn => <Top>{fn()}</Top>)
@@ -119,7 +120,7 @@ storiesOf('Popover', module)
  * Popover on the right
  * ===========================
  */
-const Right = createWrapper({ margin: '200px 0 0' })
+const Right = createWrapper({ padding: '200px 0 0' })
 
 storiesOf('Popover', module)
     .addDecorator(fn => <Right>{fn()}</Right>)
@@ -129,7 +130,7 @@ storiesOf('Popover', module)
  * Popover on the left
  * ===========================
  */
-const Left = createWrapper({ margin: '200px 0 0 auto' })
+const Left = createWrapper({ margin: '0 0 0 auto', padding: '200px 0 0 0' })
 
 storiesOf('Popover', module)
     .addDecorator(fn => <Left>{fn()}</Left>)
@@ -139,7 +140,10 @@ storiesOf('Popover', module)
  * Popover on the left with spacing
  * ============================
  */
-const LeftSpacing = createWrapper({ margin: '200px 0 0 auto' })
+const LeftSpacing = createWrapper({
+    margin: '0 0 0 auto',
+    padding: '200px 0 0 0',
+})
 
 storiesOf('Popover', module)
     .addDecorator(fn => <LeftSpacing>{fn()}</LeftSpacing>)
@@ -167,7 +171,10 @@ storiesOf('Popover', module)
  * Out of body - bottom
  * ==========================
  */
-const OutOfBodyBottom = createWrapper({ margin: '200px 0 0 auto' })
+const OutOfBodyBottom = createWrapper({
+    margin: '0 0 0 auto',
+    padding: '200px 0 0 0',
+})
 
 storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyBottom>{fn()}</OutOfBodyBottom>)
@@ -177,7 +184,10 @@ storiesOf('Popover (out of body)', module)
  * Out of body - bottom /w spacing
  * ==========================
  */
-const OutOfBodyBottomSpacing = createWrapper({ margin: '200px 0 0 auto' })
+const OutOfBodyBottomSpacing = createWrapper({
+    margin: '0 0 0 auto',
+    padding: '200px 0 0 0',
+})
 
 storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyBottomSpacing>{fn()}</OutOfBodyBottomSpacing>)
@@ -187,7 +197,10 @@ storiesOf('Popover (out of body)', module)
  * Out of body - top
  * ==========================
  */
-const OutOfBodyTop = createWrapper({ margin: '200px 0 0 auto' })
+const OutOfBodyTop = createWrapper({
+    margin: '0 0 0 auto',
+    padding: '200px 0 0 0',
+})
 
 storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyTop>{fn()}</OutOfBodyTop>)
@@ -197,7 +210,10 @@ storiesOf('Popover (out of body)', module)
  * Out of body - top /w spacing
  * ==========================
  */
-const OutOfBodyTopSpacing = createWrapper({ margin: '50px auto 0' })
+const OutOfBodyTopSpacing = createWrapper({
+    margin: '0 auto',
+    padding: '50px 0 0',
+})
 
 storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyTopSpacing>{fn()}</OutOfBodyTopSpacing>)
@@ -207,7 +223,7 @@ storiesOf('Popover (out of body)', module)
  * Out of body - left
  * ==========================
  */
-const OutOfBodyLeft = createWrapper({ margin: '200px 0 0 200px' })
+const OutOfBodyLeft = createWrapper({ padding: '200px 0 0 200px' })
 
 storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyLeft>{fn()}</OutOfBodyLeft>)
@@ -217,7 +233,7 @@ storiesOf('Popover (out of body)', module)
  * Out of body - bottom
  * ==========================
  */
-const OutOfBodyLeftSpacing = createWrapper({ margin: '0 0 0 200px' })
+const OutOfBodyLeftSpacing = createWrapper({ padding: '0 0 0 200px' })
 
 storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyLeftSpacing>{fn()}</OutOfBodyLeftSpacing>)
@@ -227,7 +243,10 @@ storiesOf('Popover (out of body)', module)
  * Out of body - right
  * ==========================
  */
-const OutOfBodyRight = createWrapper({ margin: '200px 200px 0 auto' })
+const OutOfBodyRight = createWrapper({
+    margin: '0 0 0 auto',
+    padding: '200px 200px 0 0',
+})
 
 storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyRight>{fn()}</OutOfBodyRight>)
@@ -237,7 +256,10 @@ storiesOf('Popover (out of body)', module)
  * Out of body - right
  * ==========================
  */
-const OutOfBodyRightSpacing = createWrapper({ margin: '0 200px 0 auto' })
+const OutOfBodyRightSpacing = createWrapper({
+    margin: '0 0 0 auto',
+    padding: '0 200px 0 0',
+})
 
 storiesOf('Popover (out of body)', module)
     .addDecorator(fn => <OutOfBodyRightSpacing>{fn()}</OutOfBodyRightSpacing>)
@@ -256,7 +278,8 @@ storiesOf('Popover (out of body)', module)
  * ==========================
  */
 const OutOfViewportBottom = createWrapper({
-    margin: 'calc(100vh - 50px) 200px 100px auto',
+    margin: '0 0 0 auto',
+    padding: 'calc(100vh - 50px) 200px 100px 0',
 })
 
 storiesOf('Popover (out of viewport)', module)
@@ -268,7 +291,8 @@ storiesOf('Popover (out of viewport)', module)
  * ===================================
  */
 const OutOfViewportBottomSpacing = createWrapper({
-    margin: 'calc(100vh - 50px) 200px 150px auto',
+    margin: '0 0 0 auto',
+    padding: 'calc(100vh - 50px) 200px 150px 0',
 })
 
 storiesOf('Popover (out of viewport)', module)
