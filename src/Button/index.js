@@ -1,48 +1,63 @@
 import cx from 'classnames'
 
-import React from 'react'
+import React, { Component, createRef } from 'react'
 import propTypes from 'prop-types'
 import { mutuallyExclusive } from '../prop-validators/mutuallyExclusive'
 
 import styles from './styles.js'
 
-const Button = ({
-    type,
-    children,
-    icon,
-    name,
-    value,
-    disabled,
-    onClick,
-    className,
-    primary,
-    secondary,
-    destructive,
-    small,
-    large,
-}) => (
-    <button
-        disabled={disabled}
-        onClick={onClick}
-        className={cx(className, {
+export class Button extends Component {
+    buttonRef = createRef()
+
+    componentDidMount() {
+        if (this.props.initialFocus) {
+            this.buttonRef.current.focus()
+        }
+    }
+
+    render() {
+        const {
+            type,
+            children,
+            icon,
+            name,
+            value,
+            disabled,
+            onClick,
+            className,
             primary,
             secondary,
             destructive,
             small,
             large,
-            'icon-only': icon && !children,
-            icon,
-        })}
-        type={type}
-        name={name}
-        value={value}
-    >
-        {icon && <span className="button-icon">{icon}</span>}
-        {children}
+        } = this.props
 
-        <style jsx>{styles}</style>
-    </button>
-)
+        return (
+            <button
+                disabled={disabled}
+                onClick={onClick}
+                className={cx(className, {
+                    primary,
+                    secondary,
+                    destructive,
+                    small,
+                    large,
+                    'icon-only': icon && !children,
+                    icon,
+                })}
+                type={type}
+                name={name}
+                value={value}
+                ref={this.buttonRef}
+            >
+                {icon && <span className="button-icon">{icon}</span>}
+                {children}
+
+                <style jsx>{styles}</style>
+            </button>
+        )
+    }
+}
 
 Button.defaultProps = {
     type: 'button',
@@ -72,6 +87,5 @@ Button.propTypes = {
     destructive: variantPropType,
 
     disabled: propTypes.bool,
+    initialFocus: propTypes.bool,
 }
-
-export { Button }

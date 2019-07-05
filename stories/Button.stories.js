@@ -60,4 +60,10 @@ function createStory(name, props) {
                 Label me!
             </Button>
         ))
+
+        .add('Focus', () => (
+            <Button {...props} initialFocus>
+                Label me!
+            </Button>
+        ))
 }
