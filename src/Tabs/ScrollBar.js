@@ -45,8 +45,8 @@ class ScrollBar extends PureComponent {
     toggleScrollButtonVisibility = () => {
         const { scrollLeft, offsetWidth } = this.scrollBox.current
         const { offsetWidth: areaOffsetWidth } = this.scrollArea.current
-        const scrolledToStart = scrollLeft === 0
-        const scrolledToEnd = scrollLeft + offsetWidth === areaOffsetWidth
+        const scrolledToStart = scrollLeft <= 0
+        const scrolledToEnd = scrollLeft + offsetWidth >= areaOffsetWidth
 
         if (
             this.state.scrolledToStart !== scrolledToStart ||
