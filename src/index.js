@@ -29,7 +29,7 @@ export { Menu } from './Menu'
 export { Node } from './Node'
 export { Modal } from './Modal'
 export { SplitButton } from './SplitButton'
-export { Tabs, Tab } from './Tabs'
+export { Tab, TabBar, ScrollBar } from './Tabs'
 
 /* constants */
 export { theme, colors } from './theme.js'

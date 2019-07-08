@@ -1,102 +1,116 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { colors, theme } from '../theme.js'
 
-const Tab = forwardRef(
-    ({ icon, onClick, selected, disabled, fixed, children }, ref) => (
-        <button
-            className={`${cx({
-                selected,
-                disabled,
-                fixed,
-            })}`}
-            onClick={disabled ? undefined : onClick}
-            ref={ref}
-        >
-            {icon}
-            <span>{children}</span>
+const Tab = ({ icon, onClick, selected, disabled, children }) => (
+    <button
+        className={`${cx({
+            selected,
+            disabled,
+        })}`}
+        onClick={disabled ? undefined : onClick}
+    >
+        {icon}
+        <span>{children}</span>
 
-            <style jsx>{`
-                button {
-                    flex-grow: ${fixed ? 1 : 0};
-                }
-            `}</style>
+        <style jsx>{`
+            button {
+                flex-grow: 0;
+                position: relative;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                vertical-align: bottom;
 
-            <style jsx>{`
-                button {
-                    display: inline-flex;
-                    justify-content: center;
-                    align-items: center;
-                    vertical-align: bottom;
+                height: 100%;
+                padding: 19px 16px 14px 16px;
 
-                    height: 100%;
-                    padding: 19px 16px 14px 16px;
+                background-color: transparent;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid ${colors.grey400};
 
-                    background-color: transparent;
-                    border: none;
-                    outline: none;
-                    border-bottom: 1px solid ${colors.grey400};
+                color: ${colors.grey600};
+                font-size: 14px;
+                line-height: 14px;
 
-                    color: ${colors.grey600};
-                    font-size: 14px;
-                    line-height: 14px;
+                transition: all 150ms ease-in-out;
+                transition-property: color, background-color;
+                cursor: pointer;
+            }
 
-                    transition: all 150ms ease-in-out;
-                    cursor: pointer;
-                }
+            :global(.tab-bar.fixed) button {
+                flex-grow: 1;
+            }
 
-                button > span {
-                    max-width: 320px;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
+            button::after {
+                content: ' ';
+                display: block;
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                height: 4px;
+                width: 100%;
+                transition: background-color 150ms ease-in-out;
+                background-color: transparent;
+            }
 
-                button > :global(svg) {
-                    fill: ${colors.grey600};
-                    width: 14px;
-                    height: 14px;
-                    margin: 0 4px 0 0;
-                }
+            span {
+                max-width: 320px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transition: fill 150ms ease-in-out;
+            }
 
-                button:hover {
-                    background-color: ${colors.grey100};
-                }
+            button > :global(svg) {
+                fill: ${colors.grey600};
+                width: 14px;
+                height: 14px;
+                margin: 0 4px 0 0;
+            }
 
-                button:active {
-                    /* Briefly highlight clicked tab */
-                    background-color: ${colors.grey200};
-                }
+            button:hover {
+                background-color: ${colors.grey100};
+            }
 
-                button.selected {
-                    color: ${theme.primary800};
-                }
+            button:active {
+                /* Briefly highlight clicked tab */
+                background-color: ${colors.grey200};
+            }
 
-                button.selected > :global(svg) {
-                    fill: ${theme.primary800};
-                }
+            button.selected {
+                color: ${theme.primary700};
+            }
 
-                button.disabled {
-                    color: ${colors.grey500};
-                    cursor: not-allowed;
-                }
+            button.selected::after {
+                background-color: ${theme.primary700};
+            }
 
-                button.disabled:hover,
-                button.selected:hover {
-                    background-color: transparent;
-                }
+            button.selected > :global(svg) {
+                fill: ${theme.primary700};
+            }
 
-                button.disabled > :global(svg) {
-                    fill: ${colors.grey500};
-                }
-            `}</style>
-        </button>
-    )
+            button.disabled {
+                color: ${colors.grey500};
+                cursor: not-allowed;
+            }
+
+            button.disabled:hover,
+            button.selected:hover {
+                background-color: transparent;
+            }
+
+            button.disabled > :global(svg) {
+                fill: ${colors.grey500};
+            }
+        `}</style>
+    </button>
 )
 
 Tab.propTypes = {
-    icon: PropTypes.string,
+    icon: PropTypes.element,
     onClick: PropTypes.func,
     addTabRef: PropTypes.func,
     selected: PropTypes.bool,

@@ -1,17 +1,12 @@
 const DURATION = 250
+const SCROLL_STEP = 0.5
 
-export function animatedSideScroll({
-    targetEl,
-    scrollBox,
-    duration = DURATION,
-    callback,
-}) {
+export function animatedSideScroll(scrollBox, callback, goBackwards = false) {
     const startValue = scrollBox.scrollLeft
-    const endValue = getEndValue(targetEl, scrollBox, startValue)
+    const endValue = getEndValue(scrollBox, startValue, goBackwards)
     const change = endValue - startValue
     const step = createFrameStepper({
         scrollBox,
-        duration,
         callback,
         startValue,
         endValue,
@@ -21,19 +16,14 @@ export function animatedSideScroll({
     window.requestAnimationFrame(step)
 }
 
-function getEndValue(targetEl, scrollBox, startValue) {
-    return Math.floor(
-        targetEl.offsetLeft > startValue
-            ? // scrolling forward
-              targetEl.offsetLeft + targetEl.offsetWidth - scrollBox.offsetWidth
-            : // scrolling backwards
-              targetEl.offsetLeft
-    )
+function getEndValue(scrollBox, startValue, goBackwards) {
+    const scrollDistance = scrollBox.clientWidth * SCROLL_STEP
+    const inverter = goBackwards ? -1 : 1
+    return Math.floor(startValue + scrollDistance * inverter)
 }
 
 function createFrameStepper({
     scrollBox,
-    duration,
     callback,
     startValue,
     endValue,
@@ -49,12 +39,12 @@ function createFrameStepper({
         elapsedTime = timestamp - startTimestamp
         scrollValue = easeInOutQuad({
             currentTime: elapsedTime,
-            duration,
+            DURATION,
             startValue,
             change,
         })
 
-        if (elapsedTime >= duration) {
+        if (elapsedTime >= DURATION) {
             if (scrollValue !== endValue) {
                 scrollBox.scrollLeft = endValue
             }
@@ -66,8 +56,8 @@ function createFrameStepper({
     }
 }
 
-function easeInOutQuad({ currentTime, duration, startValue, change }) {
-    return (currentTime /= duration / 2) < 1
+function easeInOutQuad({ currentTime, startValue, change }) {
+    return (currentTime /= DURATION / 2) < 1
         ? (change / 2) * currentTime * currentTime + startValue
         : (-change / 2) * (--currentTime * (currentTime - 2) - 1) + startValue
 }
