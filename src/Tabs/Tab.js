@@ -40,7 +40,7 @@ const Tab = ({ icon, onClick, selected, disabled, children }) => (
                 cursor: pointer;
             }
 
-            :global(.tab-bar.fixed) button {
+            :global(.fixed) > button {
                 flex-grow: 1;
             }
 
