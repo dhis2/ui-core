@@ -14,14 +14,7 @@ const TabBar = ({ fixed, children }) => (
                 position: relative;
                 overflow: hidden;
                 box-shadow: inset 0 -1px 0 0 ${colors.grey400};
-            }
-
-            /* FIREFOX HACK */
-            @-moz-document url-prefix() {
-                div {
-                    /* Forces all the tabs to be on one line */
-                    width: -moz-max-content;
-                }
+                flex-wrap: nowrap;
             }
         `}</style>
     </div>

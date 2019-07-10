@@ -112,6 +112,7 @@ class ScrollBar extends PureComponent {
                 <style jsx>{`
                     .scroll-bar {
                         display: flex;
+                        flex-wrap: nowrap;
                     }
                     .scroll-button {
                         display: inline-flex;
@@ -178,13 +179,6 @@ class ScrollBar extends PureComponent {
                         display: flex;
                         flex: 1 0 auto;
                         overflow-x: hidden;
-                    }
-
-                    @-moz-document url-prefix() {
-                        .tab-container {
-                            /* Forces all the tabs to be on one line */
-                            width: -moz-max-content;
-                        }
                     }
                 `}</style>
             </div>
