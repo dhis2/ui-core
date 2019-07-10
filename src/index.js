@@ -31,12 +31,7 @@ export { Modal } from './Modal'
 export { SplitButton } from './SplitButton'
 
 /* Layout */
-export {
-    LayoutContainer,
-    LayoutAreaNavigation,
-    LayoutAreaSidebar,
-    LayoutAreaContent,
-} from './Layout'
+export * from './Layout'
 
 /* constants */
 export { theme, colors } from './theme.js'

@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const LayoutAreaSidebar = ({ children }) => (
+const LayoutTopBar = ({ children }) => (
     <section>
         {children}
 
         <style jsx>{`
             section {
-                grid-area: sidebar;
+                grid-area: topbar;
             }
         `}</style>
     </section>
 )
 
-export { LayoutAreaSidebar }
+export { LayoutTopBar }

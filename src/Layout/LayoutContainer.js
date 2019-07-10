@@ -7,8 +7,8 @@ import { ContainerV2 } from './container/ContainerV2'
 import { ContainerV3 } from './container/ContainerV3'
 import { ContainerV4 } from './container/ContainerV4'
 
-const LayoutContainer = ({ withSidebar, withNavigation, children }) => {
-    if (withSidebar && withNavigation) {
+const LayoutContainer = ({ withSidebar, withTopBar, children }) => {
+    if (withSidebar && withTopBar) {
         return <ContainerV4 children={children} />
     }
 
@@ -16,7 +16,7 @@ const LayoutContainer = ({ withSidebar, withNavigation, children }) => {
         return <ContainerV3 children={children} />
     }
 
-    if (withNavigation) {
+    if (withTopBar) {
         return <ContainerV2 children={children} />
     }
 
@@ -25,7 +25,7 @@ const LayoutContainer = ({ withSidebar, withNavigation, children }) => {
 
 LayoutContainer.propTypes = {
     withSidebar: propTypes.bool,
-    withNavigation: propTypes.bool,
+    withTopBar: propTypes.bool,
 }
 
 export { LayoutContainer }

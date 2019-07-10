@@ -11,7 +11,7 @@ const containerStyles = css`
 const containerV4Styles = css`
     .container {
         grid-template-areas:
-            'navigation'
+            'topbar'
             'sidebar'
             'content';
     }
@@ -20,7 +20,7 @@ const containerV4Styles = css`
         .container {
             grid-template-columns: 350px auto;
             grid-template-areas:
-                'navigation navigation'
+                'topbar topbar'
                 'sidebar    content   ';
         }
     }
@@ -44,7 +44,7 @@ const containerV3Styles = css`
 const containerV2Styles = css`
     .container {
         grid-template-areas:
-            'navigation'
+            'topbar'
             'content';
     }
 `

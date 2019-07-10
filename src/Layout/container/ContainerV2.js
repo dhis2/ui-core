@@ -3,8 +3,8 @@ import React from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { LayoutAreaContent } from '../LayoutAreaContent'
-import { LayoutAreaNavigation } from '../LayoutAreaNavigation'
+import { LayoutContent } from '../LayoutContent'
+import { LayoutTopBar } from '../LayoutTopBar'
 import { containerStyles, containerV2Styles } from './styles'
 import { instanceOfComponent } from '../../prop-validators/instanceOfComponent'
 
@@ -12,11 +12,11 @@ import { instanceOfComponent } from '../../prop-validators/instanceOfComponent'
  * Layout Version 2
  * ================
  *
- * |-----------|
- * | Navigaton |
- * |-----------|
- * |  Content  |
- * |-----------|
+ * |---------|
+ * | TopBar  |
+ * |---------|
+ * | Content |
+ * |---------|
  */
 const ContainerV2 = ({ children }) => (
     <div className={cx('container', 'container-v2')}>
@@ -26,13 +26,13 @@ const ContainerV2 = ({ children }) => (
     </div>
 )
 
-const containerV2Areas = propTypes.oneOfType([
-    instanceOfComponent(LayoutAreaNavigation),
-    instanceOfComponent(LayoutAreaContent),
+const containerV2s = propTypes.oneOfType([
+    instanceOfComponent(LayoutTopBar),
+    instanceOfComponent(LayoutContent),
 ])
 
 ContainerV2.propTypes = {
-    children: propTypes.arrayOf(containerV2Areas),
+    children: propTypes.arrayOf(containerV2s),
 }
 
 export { ContainerV2 }

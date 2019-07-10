@@ -1,4 +1,4 @@
 export { LayoutContainer } from './LayoutContainer'
-export { LayoutAreaNavigation } from './LayoutAreaNavigation'
-export { LayoutAreaSidebar } from './LayoutAreaSidebar'
-export { LayoutAreaContent } from './LayoutAreaContent'
+export { LayoutTopBar } from './LayoutTopBar'
+export { LayoutSidebar } from './LayoutSidebar'
+export { LayoutContent } from './LayoutContent'

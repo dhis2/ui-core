@@ -3,9 +3,9 @@ import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 
-import { LayoutAreaContent } from '../LayoutAreaContent'
-import { LayoutAreaNavigation } from '../LayoutAreaNavigation'
-import { LayoutAreaSidebar } from '../LayoutAreaSidebar'
+import { LayoutContent } from '../LayoutContent'
+import { LayoutTopBar } from '../LayoutTopBar'
+import { LayoutSidebar } from '../LayoutSidebar'
 import { containerStyles, containerV4Styles } from './styles'
 import { instanceOfComponent } from '../../prop-validators/instanceOfComponent'
 
@@ -14,7 +14,7 @@ import { instanceOfComponent } from '../../prop-validators/instanceOfComponent'
  * =====================
  *
  * |-------------------|
- * |     Navigaton     |
+ * |      TopBar       |
  * |-------------------|
  * | Sidebar | Content |
  * |-------------------|
@@ -27,14 +27,14 @@ const ContainerV4 = ({ children }) => (
     </div>
 )
 
-const containerV4Areas = propTypes.oneOfType([
-    instanceOfComponent(LayoutAreaNavigation),
-    instanceOfComponent(LayoutAreaSidebar),
-    instanceOfComponent(LayoutAreaContent),
+const containerV4s = propTypes.oneOfType([
+    instanceOfComponent(LayoutTopBar),
+    instanceOfComponent(LayoutSidebar),
+    instanceOfComponent(LayoutContent),
 ])
 
 ContainerV4.propTypes = {
-    children: propTypes.arrayOf(containerV4Areas),
+    children: propTypes.arrayOf(containerV4s),
 }
 
 export { ContainerV4 }

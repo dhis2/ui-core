@@ -3,8 +3,8 @@ import React from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { LayoutAreaContent } from '../LayoutAreaContent'
-import { LayoutAreaSidebar } from '../LayoutAreaSidebar'
+import { LayoutContent } from '../LayoutContent'
+import { LayoutSidebar } from '../LayoutSidebar'
 import { containerStyles, containerV3Styles } from './styles'
 import { instanceOfComponent } from '../../prop-validators/instanceOfComponent'
 
@@ -24,13 +24,13 @@ const ContainerV3 = ({ children }) => (
     </div>
 )
 
-const containerV3Areas = propTypes.oneOfType([
-    instanceOfComponent(LayoutAreaSidebar),
-    instanceOfComponent(LayoutAreaContent),
+const containerV3s = propTypes.oneOfType([
+    instanceOfComponent(LayoutSidebar),
+    instanceOfComponent(LayoutContent),
 ])
 
 ContainerV3.propTypes = {
-    children: propTypes.arrayOf(containerV3Areas),
+    children: propTypes.arrayOf(containerV3s),
 }
 
 export { ContainerV3 }

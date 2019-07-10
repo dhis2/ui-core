@@ -3,7 +3,7 @@ import React from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { LayoutAreaContent } from '../LayoutAreaContent'
+import { LayoutContent } from '../LayoutContent'
 import { containerStyles, containerV1Styles } from './styles'
 import { instanceOfComponent } from '../../prop-validators/instanceOfComponent'
 
@@ -24,7 +24,7 @@ const ContainerV1 = ({ children }) => (
 )
 
 ContainerV1.propTypes = {
-    children: instanceOfComponent(LayoutAreaContent),
+    children: instanceOfComponent(LayoutContent),
 }
 
 export { ContainerV1 }

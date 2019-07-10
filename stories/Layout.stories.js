@@ -2,9 +2,9 @@ import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import {
     LayoutContainer,
-    LayoutAreaNavigation,
-    LayoutAreaSidebar,
-    LayoutAreaContent,
+    LayoutTopBar,
+    LayoutSidebar,
+    LayoutContent,
 } from '../src'
 
 import markdown from './info/molecules/alertBar.md'
@@ -79,46 +79,46 @@ const Content = () => (
 storiesOf('Layout', module)
     .addDecorator(Wrapper)
     .add('Nav and sidebar', () => (
-        <LayoutContainer withSidebar withNavigation>
-            <LayoutAreaNavigation>
+        <LayoutContainer withSidebar withTopBar>
+            <LayoutTopBar>
                 <Navigation />
-            </LayoutAreaNavigation>
+            </LayoutTopBar>
 
-            <LayoutAreaSidebar>
+            <LayoutSidebar>
                 <Sidebar />
-            </LayoutAreaSidebar>
+            </LayoutSidebar>
 
-            <LayoutAreaContent>
+            <LayoutContent>
                 <Content />
-            </LayoutAreaContent>
+            </LayoutContent>
         </LayoutContainer>
     ))
     .add('With sidebar', () => (
         <LayoutContainer withSidebar>
-            <LayoutAreaSidebar>
+            <LayoutSidebar>
                 <Sidebar />
-            </LayoutAreaSidebar>
+            </LayoutSidebar>
 
-            <LayoutAreaContent>
+            <LayoutContent>
                 <Content />
-            </LayoutAreaContent>
+            </LayoutContent>
         </LayoutContainer>
     ))
     .add('With nav', () => (
-        <LayoutContainer withNavigation>
-            <LayoutAreaNavigation>
+        <LayoutContainer withTopBar>
+            <LayoutTopBar>
                 <Navigation />
-            </LayoutAreaNavigation>
+            </LayoutTopBar>
 
-            <LayoutAreaContent>
+            <LayoutContent>
                 <Content />
-            </LayoutAreaContent>
+            </LayoutContent>
         </LayoutContainer>
     ))
     .add('Content only', () => (
         <LayoutContainer>
-            <LayoutAreaContent>
+            <LayoutContent>
                 <Content />
-            </LayoutAreaContent>
+            </LayoutContent>
         </LayoutContainer>
     ))
