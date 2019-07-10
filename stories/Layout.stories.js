@@ -79,7 +79,7 @@ const Content = () => (
 storiesOf('Layout', module)
     .addDecorator(Wrapper)
     .add('Nav and sidebar', () => (
-        <LayoutContainer withSidebar withTopBar>
+        <LayoutContainer>
             <LayoutTopBar>
                 <Navigation />
             </LayoutTopBar>
@@ -94,7 +94,7 @@ storiesOf('Layout', module)
         </LayoutContainer>
     ))
     .add('With sidebar', () => (
-        <LayoutContainer withSidebar>
+        <LayoutContainer>
             <LayoutSidebar>
                 <Sidebar />
             </LayoutSidebar>
@@ -105,7 +105,7 @@ storiesOf('Layout', module)
         </LayoutContainer>
     ))
     .add('With nav', () => (
-        <LayoutContainer withTopBar>
+        <LayoutContainer>
             <LayoutTopBar>
                 <Navigation />
             </LayoutTopBar>
