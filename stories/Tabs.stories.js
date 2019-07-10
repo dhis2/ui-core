@@ -141,7 +141,7 @@ storiesOf('Tabs', module)
                 <Tab>Tab A</Tab>
                 <Tab>Tab B</Tab>
                 <Tab>Tab C</Tab>
-                <Tab selected>Tab D</Tab>
+                <Tab>Tab D</Tab>
                 <Tab>Tab E</Tab>
                 <Tab>Tab F</Tab>
                 <Tab>Tab G</Tab>
@@ -150,7 +150,7 @@ storiesOf('Tabs', module)
                 <Tab>Tab J</Tab>
                 <Tab>Tab K</Tab>
                 <Tab>Tab L</Tab>
-                <Tab>Tab M</Tab>
+                <Tab selected>Tab M</Tab>
                 <Tab>Tab N</Tab>
                 <Tab>Tab O</Tab>
                 <Tab>Tab P</Tab>

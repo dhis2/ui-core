@@ -5,7 +5,7 @@ import { colors, theme } from '../theme.js'
 
 const Tab = ({ icon, onClick, selected, disabled, children }) => (
     <button
-        className={`${cx({
+        className={`${cx('tab', {
             selected,
             disabled,
         })}`}

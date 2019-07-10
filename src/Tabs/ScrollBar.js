@@ -16,6 +16,7 @@ class ScrollBar extends PureComponent {
     horizontalScrollBarHeight = detectHorizontalScrollbarHeight()
 
     componentDidMount() {
+        this.scrollSelectedTabIntoView()
         this.attachSideScrollListener()
     }
 
@@ -56,6 +57,19 @@ class ScrollBar extends PureComponent {
                 scrolledToStart,
                 scrolledToEnd,
             })
+        }
+    }
+
+    scrollSelectedTabIntoView() {
+        const scrollBoxEl = this.scrollBox.current
+        const tab = scrollBoxEl.querySelector('.tab.selected')
+
+        if (tab) {
+            const tabEnd = tab.offsetLeft + tab.offsetWidth
+
+            if (tabEnd > scrollBoxEl.offsetWidth) {
+                scrollBoxEl.scrollLeft = tabEnd - scrollBoxEl.offsetWidth
+            }
         }
     }
 
