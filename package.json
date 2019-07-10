@@ -33,7 +33,7 @@
     "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.3",
     "@babel/plugin-transform-react-constant-elements": "^7.5.0",
-    "@babel/preset-env": "^7.5.2",
+    "@babel/preset-env": "^7.5.3",
     "@babel/preset-react": "^7.0.0",
     "@dhis2/cli-style": "^3.3.4",
     "@storybook/addon-notes": "^5.1.9",
