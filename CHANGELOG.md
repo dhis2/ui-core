@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/dhis2/ui/compare/v3.4.0...v3.5.0) (2019-07-03)
+
+
+### Features
+
+* add focus prop to button ([#315](https://github.com/dhis2/ui/issues/315)) ([56697b6](https://github.com/dhis2/ui/commit/56697b6))
+
 # [3.4.0](https://github.com/dhis2/ui/compare/v3.3.0...v3.4.0) (2019-06-21)
 
 
