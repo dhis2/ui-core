@@ -210,14 +210,18 @@ storiesOf('Table', module)
         <Table>
             <TableHead>
                 <TableRowHead>
-                    <TableCellHead label="Name" colSpan="2" noTitle />
+                    <TableCellHead
+                        label="Name"
+                        colSpan="2"
+                        hideResponsiveLabel
+                    />
                     <TableCellHead label="Incident date" />
                     <TableCellHead label="Last updated" />
                     <TableCellHead label="Age" />
                     <TableCellHead label="Registering unit" />
                     <TableCellHead label="Assigned user" />
                     <TableCellHead label="Status" />
-                    <TableCellHead label="Actions" noTitle />
+                    <TableCellHead label="Actions" hideResponsiveLabel />
                 </TableRowHead>
                 <TableRowHead>
                     <TableCellHead label="First name" />
