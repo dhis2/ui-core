@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/dhis2/ui/compare/v3.5.0...v3.6.0) (2019-07-10)
+
+
+### Features
+
+* add tabs component ([#312](https://github.com/dhis2/ui/issues/312)) ([9420365](https://github.com/dhis2/ui/commit/9420365))
+
 # [3.5.0](https://github.com/dhis2/ui/compare/v3.4.0...v3.5.0) (2019-07-03)
 
 
