@@ -1,15 +1,13 @@
 import css from 'styled-jsx/css'
 
-const containerStyles = css`
+export default css`
     .container {
         display: grid;
         grid-template-columns: auto;
         grid-template-rows: auto;
     }
-`
 
-const containerV4Styles = css`
-    .container {
+    .with-topbar-sidebar {
         grid-template-areas:
             'topbar'
             'sidebar'
@@ -17,48 +15,34 @@ const containerV4Styles = css`
     }
 
     @media (min-width: 768px) {
-        .container {
+        .with-topbar-sidebar {
             grid-template-columns: 350px auto;
             grid-template-areas:
                 'topbar topbar'
-                'sidebar    content   ';
+                'sidebar content';
         }
     }
-`
 
-const containerV3Styles = css`
-    .container {
+    .with-sidebar {
         grid-template-areas:
             'sidebar'
             'content';
     }
 
     @media (min-width: 768px) {
-        .container {
+        .with-sidebar {
             grid-template-columns: 350px auto;
             grid-template-areas: 'sidebar content';
         }
     }
-`
 
-const containerV2Styles = css`
-    .container {
+    .with-topbar {
         grid-template-areas:
             'topbar'
             'content';
     }
-`
 
-const containerV1Styles = css`
-    .container {
+    .content-only {
         grid-template-areas: 'content';
     }
 `
-
-export {
-    containerStyles,
-    containerV1Styles,
-    containerV2Styles,
-    containerV3Styles,
-    containerV4Styles,
-}
