@@ -17,6 +17,7 @@ export class Button extends Component {
 
     render() {
         const {
+            as: Element,
             type,
             children,
             icon,
@@ -33,10 +34,10 @@ export class Button extends Component {
         } = this.props
 
         return (
-            <button
+            <Element
                 disabled={disabled}
                 onClick={onClick}
-                className={cx(className, {
+                className={cx('button', className, {
                     primary,
                     secondary,
                     destructive,
@@ -45,7 +46,7 @@ export class Button extends Component {
                     'icon-only': icon && !children,
                     icon,
                 })}
-                type={type}
+                type={Element === 'button' ? type : undefined}
                 name={name}
                 value={value}
                 ref={this.buttonRef}
@@ -54,13 +55,14 @@ export class Button extends Component {
                 {children}
 
                 <style jsx>{styles}</style>
-            </button>
+            </Element>
         )
     }
 }
 
 Button.defaultProps = {
     type: 'button',
+    as: 'button',
 }
 
 const variantPropType = mutuallyExclusive(
@@ -78,6 +80,7 @@ Button.propTypes = {
     name: propTypes.string,
     value: propTypes.string,
     type: propTypes.oneOf(['submit', 'reset', 'button']),
+    as: propTypes.oneOf(['button', 'span', 'a']),
 
     small: sizePropType,
     large: sizePropType,

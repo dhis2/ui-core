@@ -43,6 +43,17 @@ function createStory(name, props) {
 
         .add('Default', () => <Button {...props}>Label me!</Button>)
 
+        .add('As span', () => (
+            <Button as="span" {...props}>
+                Label me!
+            </Button>
+        ))
+        .add('As a', () => (
+            <Button as="a" {...props}>
+                Label me!
+            </Button>
+        ))
+
         .add('Disabled', () => (
             <Button {...props} disabled>
                 Label me!

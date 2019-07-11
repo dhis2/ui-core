@@ -3,7 +3,7 @@ import css from 'styled-jsx/css'
 import { colors, theme, spacers } from '../theme.js'
 
 export default css`
-    button {
+    .button {
         display: inline-flex;
         position: relative;
         align-items: center;
@@ -28,17 +28,17 @@ export default css`
         background-color: #f9fafb;
     }
 
-    button:disabled {
+    .button:disabled {
         cursor: not-allowed;
     }
 
-    button:focus {
+    .button:focus {
         /* Prevent default browser behavior which adds an outline */
         outline: none;
     }
 
     /* Use the ::after pseudo-element for focus styles */
-    button::after {
+    .button::after {
         content: ' ';
         pointer-events: none;
 
@@ -55,33 +55,33 @@ export default css`
         transition: border-color 0.15s cubic-bezier(0.4, 0, 0.6, 1);
     }
 
-    /* Prevent focus styles on active and disabled buttons */
-    button:active:focus::after,
-    button:disabled:focus::after {
+    /* Prevent focus styles on active and disabled .buttons */
+    .button:active:focus::after,
+    .button:disabled:focus::after {
         border-color: transparent;
     }
 
-    button:hover {
+    .button:hover {
         border-color: #c4c9cc;
         background-color: #f3f4f5;
     }
 
-    button:active,
-    button:active:focus {
+    .button:active,
+    .button:active:focus {
         border-color: #c5c9cc;
         background-color: #f3f4f5;
         box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.1) inset;
     }
 
-    button:focus {
+    .button:focus {
         background-color: #f9fafb;
     }
 
-    button:focus::after {
+    .button:focus::after {
         border-color: ${theme.primary600};
     }
 
-    button:disabled {
+    .button:disabled {
         border-color: #c4c9cc;
         background-color: #f9fafb;
         box-shadow: none;
@@ -89,7 +89,7 @@ export default css`
         fill: ${theme.disabled};
     }
 
-    button.icon {
+    .button.icon {
         padding-left: ${spacers.dp12};
     }
 
@@ -233,10 +233,10 @@ export default css`
     /* IE11 hacks */
     @media all and (-ms-high-contrast: none) {
         /*
-       Graceful degradation: remove the rounded corners on all buttons apart from circle.
+       Graceful degradation: remove the rounded corners on all .buttons apart from circle.
        These are not rendered correctly in IE11, where they produce white pixels in the corners
     */
-        button {
+        .button {
             border-radius: 0;
         }
     }
