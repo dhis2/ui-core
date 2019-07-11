@@ -15,15 +15,16 @@ export class Button extends Component {
         }
     }
 
+    getButtonProps() {
+        const { as, disabled, type, name, value } = this.props
+        return as === 'button' ? { disabled, type, name, value } : {}
+    }
+
     render() {
         const {
             as: Element,
-            type,
             children,
             icon,
-            name,
-            value,
-            disabled,
             onClick,
             className,
             primary,
@@ -35,7 +36,6 @@ export class Button extends Component {
 
         return (
             <Element
-                disabled={disabled}
                 onClick={onClick}
                 className={cx('button', className, {
                     primary,
@@ -46,10 +46,8 @@ export class Button extends Component {
                     'icon-only': icon && !children,
                     icon,
                 })}
-                type={Element === 'button' ? type : undefined}
-                name={name}
-                value={value}
                 ref={this.buttonRef}
+                {...this.getButtonProps()}
             >
                 {icon && <span className="button-icon">{icon}</span>}
                 {children}
