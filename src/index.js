@@ -29,6 +29,7 @@ export { Menu } from './Menu'
 export { Node } from './Node'
 export { Modal } from './Modal'
 export { SplitButton } from './SplitButton'
+export { Tab, TabBar, ScrollBar } from './Tabs'
 
 /* Layout */
 export * from './Layout'
