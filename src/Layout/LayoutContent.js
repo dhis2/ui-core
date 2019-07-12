@@ -1,17 +1,25 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
-const LayoutContent = ({ children }) => (
-    <section>
+const LayoutContent = ({ as: Element, children }) => (
+    <Element className="layout-content">
         {children}
 
         <style jsx>{`
-            section {
+            .layout-content {
                 grid-area: content;
             }
         `}</style>
-    </section>
+    </Element>
 )
+
+LayoutContent.propTypes = {
+    as: propTypes.oneOf(['main', 'div']),
+}
+
+LayoutContent.defaultProps = {
+    as: 'main',
+}
 
 export { LayoutContent }

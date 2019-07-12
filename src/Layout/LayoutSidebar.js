@@ -1,16 +1,25 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
+import css from 'styled-jsx/css'
 
-const LayoutSidebar = ({ children }) => (
-    <section>
+const LayoutSidebar = ({ as: Element, children }) => (
+    <Element className="layout-sidebar">
         {children}
 
         <style jsx>{`
-            section {
+            .layout-sidebar {
                 grid-area: sidebar;
             }
         `}</style>
-    </section>
+    </Element>
 )
+
+LayoutSidebar.propTypes = {
+    as: propTypes.oneOf(['section', 'aside', 'div']),
+}
+
+LayoutSidebar.defaultProps = {
+    as: 'section',
+}
 
 export { LayoutSidebar }

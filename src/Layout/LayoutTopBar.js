@@ -1,16 +1,25 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
+import css from 'styled-jsx/css'
 
-const LayoutTopBar = ({ children }) => (
-    <section>
+const LayoutTopBar = ({ as: Element, children }) => (
+    <Element className="layout-top-bar">
         {children}
 
         <style jsx>{`
-            section {
+            .layout-top-bar {
                 grid-area: topbar;
             }
         `}</style>
-    </section>
+    </Element>
 )
+
+LayoutTopBar.propTypes = {
+    as: propTypes.oneOf(['header', 'nav', 'section', 'aside', 'div']),
+}
+
+LayoutTopBar.defaultProps = {
+    as: 'div',
+}
 
 export { LayoutTopBar }
