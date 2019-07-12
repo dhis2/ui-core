@@ -29,7 +29,10 @@ function createStory(name, props) {
         .add('With Help text', () => (
             <>
                 <Input {...props} placeholder="Hold the place" />
-                <Help {...props}>A helpful text.</Help>
+                <Help {...props}>
+                    This is some help text to advice what this input actually
+                    is.
+                </Help>
             </>
         ))
 
@@ -51,7 +54,16 @@ function createStory(name, props) {
         ))
 
         .add('Status: Error', () => (
-            <Input {...props} value="This value produces an error" error />
+            <>
+                <Input {...props} value="This value produces an error" error />
+                <Help error {...props}>
+                    This describes the error, if a message is supplied.
+                </Help>
+                <Help {...props}>
+                    This is some help text to advice what this input actually
+                    is.
+                </Help>
+            </>
         ))
 
         .add('Status: Loading', () => (

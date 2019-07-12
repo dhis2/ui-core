@@ -7,7 +7,7 @@ import { inputHeight, inputHeightDense } from '../constants.js'
 const styles = css`
     div {
         height: 100%;
-        line-height: ${inputHeight}px;
+        line-height: 40px;
         min-width: 0;
         overflow: hidden;
         padding: 0;
@@ -16,7 +16,7 @@ const styles = css`
     }
 
     .dense {
-        line-height: ${inputHeightDense}px;
+        line-height: 32px;
     }
 `
 

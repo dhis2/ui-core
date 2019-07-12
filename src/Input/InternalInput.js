@@ -7,6 +7,7 @@ import { colors, theme, spacers } from '../theme.js'
 
 const styles = css`
     input {
+        display: block;
         color: ${colors.grey900};
         background-color: transparent;
         border: 0;
@@ -19,12 +20,12 @@ const styles = css`
         width: 100%;
 
         /** 15px => 16px inner spacing - 1px for border**/
-        padding: 18px 0 15px 16px;
+        padding: 12px 0 12px 15px;
     }
 
     .dense {
-        padding-top: ${spacers.dp12};
-        padding-bottom: ${spacers.dp12};
+        padding-top: 10px;
+        padding-bottom: 8px;
         font-size: 14px;
     }
 

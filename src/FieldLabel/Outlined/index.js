@@ -12,7 +12,6 @@ import { Label } from './Label'
 
 const styles = css`
     .label-outlined {
-        height: ${inputHeight + 10}px;
         position: relative;
         color: ${colors.grey700};
     }
@@ -21,56 +20,40 @@ const styles = css`
         cursor: not-allowed;
     }
 
-    .dense {
-        height: ${inputHeightDense + 10}px;
-    }
-
-    .label-outlined:before {
-        border: 1px solid ${theme.default};
-        border-top: 0;
-        border-radius: 0 0 ${borderRadius} ${borderRadius};
-        box-sizing: border-box;
-        bottom: 0;
-        content: '';
-        height: 75%;
-        left: 0;
-        position: absolute;
-        width: 100%;
-    }
-
-    .focus:before {
-        border-color: ${colors.teal400};
-    }
-
-    .valid:before {
-        border-color: ${theme.valid};
-    }
-
-    .warning:before {
-        border-color: ${theme.warning};
-    }
-
-    .error:before {
-        border-color: ${theme.error};
-    }
-
-    .disabled:before {
-        border-color: ${theme.disabled};
-    }
-
     .content {
         align-items: center;
         box-sizing: border-box;
         display: flex;
-        height: 54px;
+        height: 42px;
         left: 1px;
         position: relative;
-        top: 11px;
         width: calc(100% - 1px);
+        border: 1px solid ${theme.default};
+        border-radius: 4px;
     }
 
     .dense .content {
-        height: 42px;
+        height: 34px;
+    }
+
+    .focus .content {
+        border-color: ${colors.teal400};
+    }
+
+    .valid .content {
+        border-color: ${theme.valid};
+    }
+
+    .warning .content {
+        border-color: ${theme.warning};
+    }
+
+    .error .content {
+        border-color: ${theme.error};
+    }
+
+    .disabled .content {
+        border-color: ${theme.disabled};
     }
 
     .status-icon {
