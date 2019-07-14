@@ -5,6 +5,14 @@ update_configs:
     directory: "/"
     update_schedule: "live"
     version_requirement_updates: "increase_versions"
+    ignored_updates:
+      # ui-core supports 16.3 of react, so ignore all updates
+      - match:
+          dependency_name: "react"
+          version_requirement: ">=16.4.x"
+      - match:
+          dependency_name: "react-dom"
+          version_requirement: ">=16.4.x"
   - package_manager: "java:maven"
     directory: "/"
     update_schedule: "monthly"
