@@ -1,3 +1,10 @@
+## [3.6.2](https://github.com/dhis2/ui/compare/v3.6.1...v3.6.2) (2019-07-15)
+
+
+### Bug Fixes
+
+* **tabs:** apply flex-grow to ScrollBar and TabBar ([#343](https://github.com/dhis2/ui/issues/343)) ([f048632](https://github.com/dhis2/ui/commit/f048632))
+
 ## [3.6.1](https://github.com/dhis2/ui/compare/v3.6.0...v3.6.1) (2019-07-15)
 
 
