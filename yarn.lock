@@ -985,10 +985,10 @@
     update-notifier "^3.0.0"
     yargs "^13.1.0"
 
-"@dhis2/cli-style@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-4.0.0.tgz#88244dcc1eb63996e253568be554f7ea495694bb"
-  integrity sha512-HhI6bIPcIk3MDaDo9Q1CO8R4SOgCP63CvXZ1uaAGlB1E8yBcQpE2ursmVvHStuTemeZ9++LdxxtnQKmF/jLVkw==
+"@dhis2/cli-style@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-4.1.0.tgz#b6228eec8068adcd70780138f074dd5c57b238b2"
+  integrity sha512-7BEMfz5cDWMOttSj+sy+ggR9Vjgnm7EqDg60ps8uRhdcoa2EZjlQ2lspb7pPMCB9PVnMUwYTGB0TEGrcuveiAg==
   dependencies:
     "@commitlint/config-conventional" "^8.0.0"
     "@commitlint/format" "^8.0.0"
@@ -1000,7 +1000,7 @@
     eslint "^6.0.1"
     fs-extra "^8.1.0"
     husky "^3.0.0"
-    lint-staged "^9.1.0"
+    lint-staged "^9.2.0"
     perfy "^1.1.5"
     prettier "^1.18.2"
     semver "^6.2.0"
@@ -5782,7 +5782,7 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lint-staged@^9.1.0:
+lint-staged@^9.2.0:
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.2.0.tgz#155e5723dffdaa55d252c47bab05a2962c1e9781"
   integrity sha512-K/CQWcxYunc8lGMNTFvtI4+ybJcHW3K4Ghudz2OrJhIWdW/i1WWu9rGiVj4yJ0+D/xh8a08kp5slt89VZC9Eqg==
