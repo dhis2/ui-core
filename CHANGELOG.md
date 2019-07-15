@@ -1,3 +1,10 @@
+## [3.6.1](https://github.com/dhis2/ui/compare/v3.6.0...v3.6.1) (2019-07-15)
+
+
+### Bug Fixes
+
+* update d2-style and fix but in radio button css ([#338](https://github.com/dhis2/ui/issues/338)) ([29cf886](https://github.com/dhis2/ui/commit/29cf886))
+
 # [3.6.0](https://github.com/dhis2/ui/compare/v3.5.0...v3.6.0) (2019-07-10)
 
 
