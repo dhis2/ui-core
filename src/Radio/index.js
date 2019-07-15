@@ -18,7 +18,7 @@ const icons = css.resolve`
     }
 
     .focus {
-        fill: ${colors.grey800}
+        fill: ${colors.grey800};
     }
 
     .checked {
