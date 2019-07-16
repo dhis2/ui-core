@@ -1,3 +1,10 @@
+## [3.6.3](https://github.com/dhis2/ui/compare/v3.6.2...v3.6.3) (2019-07-16)
+
+
+### Bug Fixes
+
+* **tab:** increase line-height & decrease padding to preserve height ([#344](https://github.com/dhis2/ui/issues/344)) ([e125c8f](https://github.com/dhis2/ui/commit/e125c8f))
+
 ## [3.6.2](https://github.com/dhis2/ui/compare/v3.6.1...v3.6.2) (2019-07-15)
 
 
