@@ -16,6 +16,7 @@ const TabBar = ({ fixed, children }) => (
                 box-shadow: inset 0 -1px 0 0 ${colors.grey400};
                 flex-wrap: nowrap;
                 flex-grow: 1;
+                background: ${colors.white};
             }
         `}</style>
     </div>
