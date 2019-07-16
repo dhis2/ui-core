@@ -24,7 +24,7 @@ const Tab = ({ icon, onClick, selected, disabled, children }) => (
                 vertical-align: bottom;
 
                 height: 100%;
-                padding: 19px 16px 14px 16px;
+                padding: 16px 16px 11px;
 
                 background-color: transparent;
                 outline: none;
@@ -33,7 +33,7 @@ const Tab = ({ icon, onClick, selected, disabled, children }) => (
 
                 color: ${colors.grey600};
                 font-size: 14px;
-                line-height: 14px;
+                line-height: 20px;
 
                 transition: all 150ms ease-in-out;
                 transition-property: color, background-color;
