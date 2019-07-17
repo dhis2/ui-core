@@ -5,7 +5,7 @@ import styles, { ANIMATION_TIME } from './styles'
 
 import { Actions, actionsPropType } from './Actions'
 import { Dismiss } from './Dismiss'
-import { Icon, iconPropType } from './Icon'
+import { Icon } from './Icon'
 import { Message } from './Message'
 import { mutuallyExclusive } from '@dhis2/prop-types'
 
@@ -125,6 +125,8 @@ const variantPropType = mutuallyExclusive(
     propTypes.bool
 )
 
+const iconPropType = propTypes.oneOfType([propTypes.bool, propTypes.element])
+
 AlertBar.propTypes = {
     className: propTypes.string,
     children: propTypes.string.isRequired,
@@ -143,4 +145,4 @@ AlertBar.defaultProps = {
     duration: 8000,
 }
 
-export { AlertBar }
+export { AlertBar, iconPropType, variantPropType }

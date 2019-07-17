@@ -1,6 +1,6 @@
 import React from 'react'
-import propTypes from 'prop-types'
 import { Valid, Warning, Error, Info } from '../icons/Status'
+import { iconPropType, variantProptype } from './index'
 import { spacers } from '../theme.js'
 
 const Icon = ({ icon, success, warning, critical }) => {
@@ -37,13 +37,11 @@ const Icon = ({ icon, success, warning, critical }) => {
     )
 }
 
-const iconPropType = propTypes.oneOfType([propTypes.bool, propTypes.element])
-
 Icon.propTypes = {
     icon: iconPropType,
-    success: propTypes.bool,
-    warning: propTypes.bool,
-    critical: propTypes.bool,
+    success: variantProptype,
+    warning: variantProptype,
+    critical: variantProptype,
 }
 
-export { Icon, iconPropType }
+export { Icon }
