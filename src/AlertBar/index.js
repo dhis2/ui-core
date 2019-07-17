@@ -7,7 +7,7 @@ import { Actions, actionsPropType } from './Actions'
 import { Dismiss } from './Dismiss'
 import { Icon, iconPropType } from './Icon'
 import { Message } from './Message'
-import { mutuallyExclusive } from '../prop-validators'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 
 class AlertBar extends PureComponent {
     state = {

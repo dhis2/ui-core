@@ -2,7 +2,7 @@ import cx from 'classnames'
 
 import React, { Component, createRef } from 'react'
 import propTypes from 'prop-types'
-import { mutuallyExclusive } from '../prop-validators'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 
 import styles from './styles.js'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import { instanceOfComponent } from '../prop-validators'
+import { instanceOfComponent } from '@dhis2/prop-types'
 import { Button } from '../Button'
 import styles from './styles'
 
