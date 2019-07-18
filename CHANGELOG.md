@@ -1,3 +1,38 @@
+## [3.6.3](https://github.com/dhis2/ui/compare/v3.6.2...v3.6.3) (2019-07-16)
+
+
+### Bug Fixes
+
+* **tab:** increase line-height & decrease padding to preserve height ([#344](https://github.com/dhis2/ui/issues/344)) ([e125c8f](https://github.com/dhis2/ui/commit/e125c8f))
+
+## [3.6.2](https://github.com/dhis2/ui/compare/v3.6.1...v3.6.2) (2019-07-15)
+
+
+### Bug Fixes
+
+* **tabs:** apply flex-grow to ScrollBar and TabBar ([#343](https://github.com/dhis2/ui/issues/343)) ([f048632](https://github.com/dhis2/ui/commit/f048632))
+
+## [3.6.1](https://github.com/dhis2/ui/compare/v3.6.0...v3.6.1) (2019-07-15)
+
+
+### Bug Fixes
+
+* update d2-style and fix but in radio button css ([#338](https://github.com/dhis2/ui/issues/338)) ([29cf886](https://github.com/dhis2/ui/commit/29cf886))
+
+# [3.6.0](https://github.com/dhis2/ui/compare/v3.5.0...v3.6.0) (2019-07-10)
+
+
+### Features
+
+* add tabs component ([#312](https://github.com/dhis2/ui/issues/312)) ([9420365](https://github.com/dhis2/ui/commit/9420365))
+
+# [3.5.0](https://github.com/dhis2/ui/compare/v3.4.0...v3.5.0) (2019-07-03)
+
+
+### Features
+
+* add focus prop to button ([#315](https://github.com/dhis2/ui/issues/315)) ([56697b6](https://github.com/dhis2/ui/commit/56697b6))
+
 # [3.4.0](https://github.com/dhis2/ui/compare/v3.3.0...v3.4.0) (2019-06-21)
 
 
