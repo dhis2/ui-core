@@ -1,7 +1,26 @@
 import React from 'react'
 import css from 'styled-jsx/css'
+import propTypes from 'prop-types'
 
 import { Consumer } from './tableContext'
+import { TableCell } from './TableCell'
+import { TableCellHead } from './TableCellHead'
+import { instanceOfComponent } from '../prop-validators/instanceOfComponent'
+
+const addColNumToChildren = children => {
+    let curCol = 0
+
+    return React.Children.map(children, child => {
+        const column = curCol
+        const colSpan = child.props.colSpan
+            ? parseInt(child.props.colSpan, 10)
+            : 1
+
+        curCol += colSpan
+
+        return React.cloneElement(child, { column })
+    })
+}
 
 const tableRowStyles = css`
     tr {
@@ -21,19 +40,8 @@ const tableRowStyles = css`
 const tableRowStylesResponsive = css`
     @media (max-width: 768px) {
         tr {
-            display: table;
-            width: 100%;
-            border: 1px solid #e8edf2;
-        }
-
-        tr + tr {
-            margin-top: 16px;
-        }
-    }
-
-    @media (max-width: 400px) {
-        tr {
             display: block;
+            border: 1px solid #e8edf2;
         }
 
         tr:nth-child(even) {
@@ -65,13 +73,29 @@ const TableRowResponsive = ({ children }) => (
     </tr>
 )
 
-export const TableRow = ({ children }) => (
+export const TableRow = ({ children, headerRow }) => (
     <Consumer>
         {({ staticLayout }) => {
             const TableRowComponent = staticLayout
                 ? TableRowStatic
                 : TableRowResponsive
-            return <TableRowComponent>{children}</TableRowComponent>
+            return (
+                <TableRowComponent>
+                    {addColNumToChildren(children)}
+                </TableRowComponent>
+            )
         }}
     </Consumer>
 )
+
+const childPropType = propTypes.oneOfType([
+    instanceOfComponent(TableCell),
+    instanceOfComponent(TableCellHead),
+])
+
+TableRow.propTypes = {
+    children: propTypes.oneOfType([
+        childPropType,
+        propTypes.arrayOf(childPropType),
+    ]).isRequired,
+}

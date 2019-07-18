@@ -1,14 +1,17 @@
 import React from 'react'
+
 import { storiesOf } from '@storybook/react'
+
 import { Button } from '../src/Button'
 import { Table } from '../src/Table'
 import { TableBody } from '../src/Table/TableBody'
-import { TableHead } from '../src/Table/TableHead'
-import { TableFoot } from '../src/Table/TableFoot'
-import { TableRow } from '../src/Table/TableRow'
-import { TableCellHead } from '../src/Table/TableCellHead'
 import { TableCell } from '../src/Table/TableCell'
+import { TableCellHead } from '../src/Table/TableCellHead'
 import { TableCellText } from '../src/Table/TableCellText'
+import { TableFoot } from '../src/Table/TableFoot'
+import { TableHead } from '../src/Table/TableHead'
+import { TableRow } from '../src/Table/TableRow'
+import { TableRowHead } from '../src/Table/TableRowHead'
 
 const TableFooterButton = () => (
     <div>
@@ -22,297 +25,453 @@ const TableFooterButton = () => (
         `}</style>
     </div>
 )
+
+const Actions = () => (
+    <div>
+        <a className="icon" href="#">
+            ...
+        </a>
+
+        <div className="content">
+            <p>
+                <b>Actions:</b>
+            </p>
+            <ul>
+                <li>
+                    <a href="#">Show</a>
+                </li>
+                <li>
+                    <a href="#">Edit</a>
+                </li>
+                <li>
+                    <a href="#">Delete</a>
+                </li>
+            </ul>
+        </div>
+
+        <style jsx>{`
+            .content {
+                display: none;
+            }
+
+            ul {
+                padding: 0;
+            }
+
+            li {
+                font-size: 14px;
+                padding: 9px 0;
+            }
+
+            @media (max-width: 768px) {
+                .icon {
+                    display: none;
+                }
+                .content {
+                    display: block;
+                }
+                list-style: inside;
+            }
+        `}</style>
+    </div>
+)
+
 storiesOf('Table', module)
     .add('Default', () => (
         <Table>
             <TableHead>
-                <TableRow>
-                    <TableCellHead>
-                        <TableCellText label="First name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                </TableRow>
+                <TableRowHead>
+                    <TableCellHead label="Name" colSpan="2" />
+                    <TableCellHead label="Incident date" />
+                    <TableCellHead label="Last updated" />
+                    <TableCellHead label="Age" />
+                    <TableCellHead label="Registering unit" />
+                    <TableCellHead label="Assigned user" />
+                    <TableCellHead label="Status" />
+                </TableRowHead>
+                <TableRowHead>
+                    <TableCellHead label="First name" />
+                    <TableCellHead label="Last name" />
+                    <TableCellHead colSpan="6" />
+                </TableRowHead>
             </TableHead>
             <TableBody>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Onyekachukwu" />
+                    <TableCell>Onyekachukwu</TableCell>
+                    <TableCell>Kariuki</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>05/25/1972</TableCell>
+                    <TableCell>66</TableCell>
+                    <TableCell>Jawi</TableCell>
+                    <TableCell>Sofie Hubert</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Kwasi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>08/11/2010</TableCell>
+                    <TableCell>02/26/1991</TableCell>
+                    <TableCell>38</TableCell>
+                    <TableCell>Mokassie MCHP</TableCell>
+                    <TableCell>Dashonte Clarke</TableCell>
+                    <TableCell>Complete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Siyabonga</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>07/21/1981</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>98</TableCell>
+                    <TableCell>Bathurst MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Chiyembekezo</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/23/1982</TableCell>
+                    <TableCell>07/15/2003</TableCell>
+                    <TableCell>2</TableCell>
+                    <TableCell>Mayolla MCHP</TableCell>
+                    <TableCell>Wan Gengxin</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Mtendere</TableCell>
+                    <TableCell>Afolayan</TableCell>
+                    <TableCell>08/12/1994</TableCell>
+                    <TableCell>05/12/1972</TableCell>
+                    <TableCell>37</TableCell>
+                    <TableCell>Gbangadu MCHP</TableCell>
+                    <TableCell>Gvozden Boskovsky</TableCell>
+                    <TableCell>Complete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Inyene</TableCell>
+                    <TableCell>Okonkwo</TableCell>
+                    <TableCell>04/01/1971</TableCell>
+                    <TableCell>03/16/2000</TableCell>
+                    <TableCell>70</TableCell>
+                    <TableCell>Kunike Barina</TableCell>
+                    <TableCell>Oscar de la Cavallería</TableCell>
+                    <TableCell>Complete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Amaka</TableCell>
+                    <TableCell>Pretorius</TableCell>
+                    <TableCell>01/25/1996</TableCell>
+                    <TableCell>09/15/1986</TableCell>
+                    <TableCell>32</TableCell>
+                    <TableCell>Bargbo</TableCell>
+                    <TableCell>Alberto Raya</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Meti</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>10/24/2010</TableCell>
+                    <TableCell>07/26/1989</TableCell>
+                    <TableCell>8</TableCell>
+                    <TableCell>Majihun MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Complete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Eshe</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>63</TableCell>
+                    <TableCell>Mambiama CHP</TableCell>
+                    <TableCell>Shadrias Pearson</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Obi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>06/07/1990</TableCell>
+                    <TableCell>01/03/2006</TableCell>
+                    <TableCell>28</TableCell>
+                    <TableCell>Dalakuru CHP</TableCell>
+                    <TableCell>Anatoliy Shcherbatykh</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+            </TableBody>
+            <TableFoot>
+                <TableRow>
+                    <TableCell colSpan="8">
+                        <TableFooterButton />
                     </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Kariuki" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="02/06/2007" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="05/25/1972" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="66" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Jawi" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Sofie Hubert" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
+                </TableRow>
+            </TableFoot>
+        </Table>
+    ))
+    .add('Some without title', () => (
+        <Table>
+            <TableHead>
+                <TableRowHead>
+                    <TableCellHead
+                        label="Name"
+                        colSpan="2"
+                        hideResponsiveLabel
+                    />
+                    <TableCellHead label="Incident date" />
+                    <TableCellHead label="Last updated" />
+                    <TableCellHead label="Age" />
+                    <TableCellHead label="Registering unit" />
+                    <TableCellHead label="Assigned user" />
+                    <TableCellHead label="Status" />
+                    <TableCellHead label="Actions" hideResponsiveLabel />
+                </TableRowHead>
+                <TableRowHead>
+                    <TableCellHead label="First name" />
+                    <TableCellHead label="Last name" />
+                    <TableCellHead colSpan="7" />
+                </TableRowHead>
+            </TableHead>
+            <TableBody>
+                <TableRow>
+                    <TableCell>Onyekachukwu</TableCell>
+                    <TableCell>Kariuki</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>05/25/1972</TableCell>
+                    <TableCell>66</TableCell>
+                    <TableCell>Jawi</TableCell>
+                    <TableCell>Sofie Hubert</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                    <TableCell>
+                        <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Kwasi" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Okafor" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="08/11/2010" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="02/26/1991" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="38" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Mokassie MCHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Dashonte Clarke" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Complete" />
+                    <TableCell>Kwasi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>08/11/2010</TableCell>
+                    <TableCell>02/26/1991</TableCell>
+                    <TableCell>38</TableCell>
+                    <TableCell>Mokassie MCHP</TableCell>
+                    <TableCell>Dashonte Clarke</TableCell>
+                    <TableCell>Complete</TableCell>
+                    <TableCell>
+                        <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Siyabonga" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Abiodun" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="07/21/1981" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="02/06/2007" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="98" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Bathurst MCHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Unassigned" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
+                    <TableCell>Siyabonga</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>07/21/1981</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>98</TableCell>
+                    <TableCell>Bathurst MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                    <TableCell>
+                        <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Chiyembekezo" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Okeke" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="01/23/1982" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="07/15/2003" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="2" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Mayolla MCHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Wan Gengxin" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
+                    <TableCell>Chiyembekezo</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/23/1982</TableCell>
+                    <TableCell>07/15/2003</TableCell>
+                    <TableCell>2</TableCell>
+                    <TableCell>Mayolla MCHP</TableCell>
+                    <TableCell>Wan Gengxin</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                    <TableCell>
+                        <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Mtendere" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Afolayan" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="08/12/1994" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="05/12/1972" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="37" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Gbangadu MCHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Gvozden Boskovsky" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Complete" />
+                    <TableCell>Mtendere</TableCell>
+                    <TableCell>Afolayan</TableCell>
+                    <TableCell>08/12/1994</TableCell>
+                    <TableCell>05/12/1972</TableCell>
+                    <TableCell>37</TableCell>
+                    <TableCell>Gbangadu MCHP</TableCell>
+                    <TableCell>Gvozden Boskovsky</TableCell>
+                    <TableCell>Complete</TableCell>
+                    <TableCell>
+                        <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Inyene" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Okonkwo" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="04/01/1971" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="03/16/2000" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="70" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Kunike Barina" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Oscar de la Cavallería" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Complete" />
+                    <TableCell>Inyene</TableCell>
+                    <TableCell>Okonkwo</TableCell>
+                    <TableCell>04/01/1971</TableCell>
+                    <TableCell>03/16/2000</TableCell>
+                    <TableCell>70</TableCell>
+                    <TableCell>Kunike Barina</TableCell>
+                    <TableCell>Oscar de la Cavallería</TableCell>
+                    <TableCell>Complete</TableCell>
+                    <TableCell>
+                        <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Amaka" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Pretorius" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="01/25/1996" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="09/15/1986" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="32" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Bargbo" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Alberto Raya" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
+                    <TableCell>Amaka</TableCell>
+                    <TableCell>Pretorius</TableCell>
+                    <TableCell>01/25/1996</TableCell>
+                    <TableCell>09/15/1986</TableCell>
+                    <TableCell>32</TableCell>
+                    <TableCell>Bargbo</TableCell>
+                    <TableCell>Alberto Raya</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                    <TableCell>
+                        <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Meti" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Abiodun" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="10/24/2010" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="07/26/1989" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="8" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Majihun MCHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Unassigned" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Complete" />
+                    <TableCell>Meti</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>10/24/2010</TableCell>
+                    <TableCell>07/26/1989</TableCell>
+                    <TableCell>8</TableCell>
+                    <TableCell>Majihun MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Complete</TableCell>
+                    <TableCell>
+                        <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Eshe" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Okeke" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="01/31/1995" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="01/31/1995" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="63" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Mambiama CHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Shadrias Pearson" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
+                    <TableCell>Eshe</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>63</TableCell>
+                    <TableCell>Mambiama CHP</TableCell>
+                    <TableCell>Shadrias Pearson</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                    <TableCell>
+                        <Actions />
                     </TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Obi" />
+                    <TableCell>Obi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>06/07/1990</TableCell>
+                    <TableCell>01/03/2006</TableCell>
+                    <TableCell>28</TableCell>
+                    <TableCell>Dalakuru CHP</TableCell>
+                    <TableCell>Anatoliy Shcherbatykh</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                    <TableCell>
+                        <Actions />
                     </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Okafor" />
+                </TableRow>
+            </TableBody>
+            <TableFoot>
+                <TableRow>
+                    <TableCell colSpan="9">
+                        <TableFooterButton />
                     </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="06/07/1990" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="01/03/2006" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="28" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Dalakuru CHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Anatoliy Shcherbatykh" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                </TableRow>
+            </TableFoot>
+        </Table>
+    ))
+    .add('No head', () => (
+        <Table>
+            <TableBody>
+                <TableRow>
+                    <TableCell>Onyekachukwu</TableCell>
+                    <TableCell>Kariuki</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>05/25/1972</TableCell>
+                    <TableCell>66</TableCell>
+                    <TableCell>Jawi</TableCell>
+                    <TableCell>Sofie Hubert</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Kwasi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>08/11/2010</TableCell>
+                    <TableCell>02/26/1991</TableCell>
+                    <TableCell>38</TableCell>
+                    <TableCell>Mokassie MCHP</TableCell>
+                    <TableCell>Dashonte Clarke</TableCell>
+                    <TableCell>Complete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Siyabonga</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>07/21/1981</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>98</TableCell>
+                    <TableCell>Bathurst MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Chiyembekezo</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/23/1982</TableCell>
+                    <TableCell>07/15/2003</TableCell>
+                    <TableCell>2</TableCell>
+                    <TableCell>Mayolla MCHP</TableCell>
+                    <TableCell>Wan Gengxin</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Mtendere</TableCell>
+                    <TableCell>Afolayan</TableCell>
+                    <TableCell>08/12/1994</TableCell>
+                    <TableCell>05/12/1972</TableCell>
+                    <TableCell>37</TableCell>
+                    <TableCell>Gbangadu MCHP</TableCell>
+                    <TableCell>Gvozden Boskovsky</TableCell>
+                    <TableCell>Complete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Inyene</TableCell>
+                    <TableCell>Okonkwo</TableCell>
+                    <TableCell>04/01/1971</TableCell>
+                    <TableCell>03/16/2000</TableCell>
+                    <TableCell>70</TableCell>
+                    <TableCell>Kunike Barina</TableCell>
+                    <TableCell>Oscar de la Cavallería</TableCell>
+                    <TableCell>Complete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Amaka</TableCell>
+                    <TableCell>Pretorius</TableCell>
+                    <TableCell>01/25/1996</TableCell>
+                    <TableCell>09/15/1986</TableCell>
+                    <TableCell>32</TableCell>
+                    <TableCell>Bargbo</TableCell>
+                    <TableCell>Alberto Raya</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Meti</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>10/24/2010</TableCell>
+                    <TableCell>07/26/1989</TableCell>
+                    <TableCell>8</TableCell>
+                    <TableCell>Majihun MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Complete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Eshe</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>63</TableCell>
+                    <TableCell>Mambiama CHP</TableCell>
+                    <TableCell>Shadrias Pearson</TableCell>
+                    <TableCell>Incomplete</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Obi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>06/07/1990</TableCell>
+                    <TableCell>01/03/2006</TableCell>
+                    <TableCell>28</TableCell>
+                    <TableCell>Dalakuru CHP</TableCell>
+                    <TableCell>Anatoliy Shcherbatykh</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
             </TableBody>
             <TableFoot>
@@ -327,293 +486,117 @@ storiesOf('Table', module)
     .add('Static layout', () => (
         <Table staticLayout>
             <TableHead>
-                <TableRow>
-                    <TableCellHead>
-                        <TableCellText label="First name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                    <TableCellHead>
-                        <TableCellText label="Last name" />
-                    </TableCellHead>
-                </TableRow>
+                <TableRowHead>
+                    <TableCellHead label="First name" />
+                    <TableCellHead label="Last name" />
+                    <TableCellHead label="Incident date" />
+                    <TableCellHead label="Last updated" />
+                    <TableCellHead label="Age" />
+                    <TableCellHead label="Registering unit" />
+                    <TableCellHead label="Assigned user" />
+                    <TableCellHead label="Status" />
+                </TableRowHead>
             </TableHead>
             <TableBody>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Onyekachukwu" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Kariuki" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="02/06/2007" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="05/25/1972" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="66" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Jawi" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Sofie Hubert" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Onyekachukwu</TableCell>
+                    <TableCell>Kariuki</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>05/25/1972</TableCell>
+                    <TableCell>66</TableCell>
+                    <TableCell>Jawi</TableCell>
+                    <TableCell>Sofie Hubert</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Kwasi" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Okafor" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="08/11/2010" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="02/26/1991" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="38" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Mokassie MCHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Dashonte Clarke" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Kwasi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>08/11/2010</TableCell>
+                    <TableCell>02/26/1991</TableCell>
+                    <TableCell>38</TableCell>
+                    <TableCell>Mokassie MCHP</TableCell>
+                    <TableCell>Dashonte Clarke</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Siyabonga" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Abiodun" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="07/21/1981" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="02/06/2007" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="98" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Bathurst MCHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Unassigned" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Siyabonga</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>07/21/1981</TableCell>
+                    <TableCell>02/06/2007</TableCell>
+                    <TableCell>98</TableCell>
+                    <TableCell>Bathurst MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Chiyembekezo" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Okeke" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="01/23/1982" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="07/15/2003" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="2" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Mayolla MCHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Wan Gengxin" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Chiyembekezo</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/23/1982</TableCell>
+                    <TableCell>07/15/2003</TableCell>
+                    <TableCell>2</TableCell>
+                    <TableCell>Mayolla MCHP</TableCell>
+                    <TableCell>Wan Gengxin</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Mtendere" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Afolayan" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="08/12/1994" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="05/12/1972" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="37" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Gbangadu MCHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Gvozden Boskovsky" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Mtendere</TableCell>
+                    <TableCell>Afolayan</TableCell>
+                    <TableCell>08/12/1994</TableCell>
+                    <TableCell>05/12/1972</TableCell>
+                    <TableCell>37</TableCell>
+                    <TableCell>Gbangadu MCHP</TableCell>
+                    <TableCell>Gvozden Boskovsky</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Inyene" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Okonkwo" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="04/01/1971" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="03/16/2000" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="70" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Kunike Barina" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Oscar de la Cavallería" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Inyene</TableCell>
+                    <TableCell>Okonkwo</TableCell>
+                    <TableCell>04/01/1971</TableCell>
+                    <TableCell>03/16/2000</TableCell>
+                    <TableCell>70</TableCell>
+                    <TableCell>Kunike Barina</TableCell>
+                    <TableCell>Oscar de la Cavallería</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Amaka" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Pretorius" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="01/25/1996" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="09/15/1986" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="32" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Bargbo" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Alberto Raya" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Amaka</TableCell>
+                    <TableCell>Pretorius</TableCell>
+                    <TableCell>01/25/1996</TableCell>
+                    <TableCell>09/15/1986</TableCell>
+                    <TableCell>32</TableCell>
+                    <TableCell>Bargbo</TableCell>
+                    <TableCell>Alberto Raya</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Meti" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Abiodun" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="10/24/2010" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="07/26/1989" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="8" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Majihun MCHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Unassigned" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Complete" />
-                    </TableCell>
+                    <TableCell>Meti</TableCell>
+                    <TableCell>Abiodun</TableCell>
+                    <TableCell>10/24/2010</TableCell>
+                    <TableCell>07/26/1989</TableCell>
+                    <TableCell>8</TableCell>
+                    <TableCell>Majihun MCHP</TableCell>
+                    <TableCell>Unassigned</TableCell>
+                    <TableCell>Complete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Eshe" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Okeke" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="01/31/1995" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="01/31/1995" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="63" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Mambiama CHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Shadrias Pearson" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Eshe</TableCell>
+                    <TableCell>Okeke</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>01/31/1995</TableCell>
+                    <TableCell>63</TableCell>
+                    <TableCell>Mambiama CHP</TableCell>
+                    <TableCell>Shadrias Pearson</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell title="First name">
-                        <TableCellText label="Obi" />
-                    </TableCell>
-                    <TableCell title="Last name">
-                        <TableCellText label="Okafor" />
-                    </TableCell>
-                    <TableCell title="Incident date">
-                        <TableCellText label="06/07/1990" />
-                    </TableCell>
-                    <TableCell title="Last updated">
-                        <TableCellText label="01/03/2006" />
-                    </TableCell>
-                    <TableCell title="Age">
-                        <TableCellText label="28" />
-                    </TableCell>
-                    <TableCell title="Registering unit">
-                        <TableCellText label="Dalakuru CHP" />
-                    </TableCell>
-                    <TableCell title="Assigned user">
-                        <TableCellText label="Anatoliy Shcherbatykh" />
-                    </TableCell>
-                    <TableCell title="Status">
-                        <TableCellText label="Incomplete" />
-                    </TableCell>
+                    <TableCell>Obi</TableCell>
+                    <TableCell>Okafor</TableCell>
+                    <TableCell>06/07/1990</TableCell>
+                    <TableCell>01/03/2006</TableCell>
+                    <TableCell>28</TableCell>
+                    <TableCell>Dalakuru CHP</TableCell>
+                    <TableCell>Anatoliy Shcherbatykh</TableCell>
+                    <TableCell>Incomplete</TableCell>
                 </TableRow>
             </TableBody>
             <TableFoot>

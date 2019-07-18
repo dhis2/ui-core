@@ -1,10 +1,20 @@
 import React from 'react'
-import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
+import propTypes from 'prop-types'
 
-export const TableCellHead = ({ children, colSpan, rowSpan }) => (
+import { TableCellText } from './TableCellText'
+
+export const TableCellHead = ({
+    children,
+    colSpan,
+    rowSpan,
+    label,
+    hideLabel,
+}) => (
     <th colSpan={colSpan} rowSpan={rowSpan}>
-        <div>{children}</div>
+        {!hideLabel && (
+            <div>{children ? children : <TableCellText label={label} />}</div>
+        )}
 
         <style jsx>{`
             th {
@@ -22,4 +32,6 @@ export const TableCellHead = ({ children, colSpan, rowSpan }) => (
 TableCellHead.propTypes = {
     colSpan: propTypes.string,
     rowSpan: propTypes.string,
+    label: propTypes.string,
+    hideResponsiveLabel: propTypes.bool,
 }
