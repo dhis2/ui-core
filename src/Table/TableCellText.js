@@ -53,5 +53,5 @@ export const TableCellText = ({ children }) => (
 )
 
 TableCellText.propTypes = {
-    children: propTypes.string,
+    children: propTypes.element,
 }
