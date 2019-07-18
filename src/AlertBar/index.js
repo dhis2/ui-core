@@ -1,13 +1,13 @@
-import React, { PureComponent } from 'react'
-import propTypes from 'prop-types'
 import cx from 'classnames'
-import styles, { ANIMATION_TIME } from './styles'
+import propTypes from 'prop-types'
+import React, { PureComponent } from 'react'
 
+import { statusPropType } from '../common-prop-types'
 import { Actions, actionsPropType } from './Actions'
 import { Dismiss } from './Dismiss'
 import { Icon, iconPropType } from './Icon'
 import { Message } from './Message'
-import { mutuallyExclusive } from '@dhis2/prop-types'
+import styles, { ANIMATION_TIME } from './styles'
 
 class AlertBar extends PureComponent {
     state = {
@@ -120,17 +120,12 @@ class AlertBar extends PureComponent {
     }
 }
 
-const variantPropType = mutuallyExclusive(
-    ['success', 'warning', 'critical'],
-    propTypes.bool
-)
-
 AlertBar.propTypes = {
     className: propTypes.string,
     children: propTypes.string.isRequired,
-    success: variantPropType,
-    warning: variantPropType,
-    critical: variantPropType,
+    success: statusPropType,
+    warning: statusPropType,
+    critical: statusPropType,
     icon: iconPropType,
     duration: propTypes.number,
     permanent: propTypes.bool,

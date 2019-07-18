@@ -1,9 +1,8 @@
 import cx from 'classnames'
-
-import React, { Component, createRef } from 'react'
 import propTypes from 'prop-types'
-import { mutuallyExclusive } from '@dhis2/prop-types'
+import React, { Component, createRef } from 'react'
 
+import { buttonVariantPropType, sizePropType } from '../common-prop-types'
 import styles from './styles.js'
 
 export class Button extends Component {
@@ -63,13 +62,6 @@ Button.defaultProps = {
     type: 'button',
 }
 
-const variantPropType = mutuallyExclusive(
-    ['primary', 'secondary', 'destructive'],
-    propTypes.bool
-)
-
-const sizePropType = mutuallyExclusive(['small', 'large'], propTypes.bool)
-
 Button.propTypes = {
     onClick: propTypes.func,
 
@@ -82,9 +74,9 @@ Button.propTypes = {
     small: sizePropType,
     large: sizePropType,
 
-    primary: variantPropType,
-    secondary: variantPropType,
-    destructive: variantPropType,
+    primary: buttonVariantPropType,
+    secondary: buttonVariantPropType,
+    destructive: buttonVariantPropType,
 
     disabled: propTypes.bool,
     initialFocus: propTypes.bool,

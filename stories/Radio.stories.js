@@ -1,7 +1,7 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Radio, Help } from '../src'
+import React from 'react'
 
+import { Help, Radio } from '../src'
 import markdown from './info/atoms/radio.md'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
@@ -120,6 +120,7 @@ storiesOf('Radio', module)
         <Radio
             name="Ex"
             label="Radio"
+            value="hasIcon"
             icon={<FolderOpen />}
             onChange={logger}
         />
