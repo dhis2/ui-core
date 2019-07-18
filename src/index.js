@@ -21,16 +21,7 @@ export { Radio } from './Radio'
 export { ScreenCover } from './ScreenCover'
 export { SelectField } from './SelectField'
 export { Switch } from './Switch'
-export {
-    Table,
-    TableHead,
-    TableBody,
-    TableFoot,
-    TableRow,
-    TableCell,
-    TableCellHead,
-    TableCellText,
-} from './Table'
+export * from './Table'
 
 /* molecules */
 export { ButtonStrip } from './ButtonStrip'

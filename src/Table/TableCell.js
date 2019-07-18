@@ -86,14 +86,6 @@ const TableCellResponsive = ({ children, colSpan, rowSpan, title }) => (
     </td>
 )
 
-// Leveraging on being able to return before creating the text component
-// If not extracted, TableCellText will be created on every render
-// and throw a warning as children is not a string
-const getContent = children => {
-    if (typeof children !== 'string') return children
-    return <TableCellText label={children} />
-}
-
 export const TableCell = ({ children, colSpan, rowSpan, column }) => (
     <Consumer>
         {({ staticLayout, headerLabels }) => {
@@ -103,8 +95,6 @@ export const TableCell = ({ children, colSpan, rowSpan, column }) => (
                 ? TableCellStatic
                 : TableCellResponsive
 
-            const content = getContent(children)
-
             return (
                 <TableCellComponent
                     column={column}
@@ -112,7 +102,7 @@ export const TableCell = ({ children, colSpan, rowSpan, column }) => (
                     rowSpan={rowSpan}
                     title={title}
                 >
-                    {content}
+                    <TableCellText>{children}</TableCellText>
                 </TableCellComponent>
             )
         }}

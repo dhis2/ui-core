@@ -7,7 +7,6 @@ import { Table } from '../src/Table'
 import { TableBody } from '../src/Table/TableBody'
 import { TableCell } from '../src/Table/TableCell'
 import { TableCellHead } from '../src/Table/TableCellHead'
-import { TableCellText } from '../src/Table/TableCellText'
 import { TableFoot } from '../src/Table/TableFoot'
 import { TableHead } from '../src/Table/TableHead'
 import { TableRow } from '../src/Table/TableRow'
@@ -54,8 +53,13 @@ const Actions = () => (
                 display: none;
             }
 
+            p {
+                margin: 0 0 10px;
+            }
+
             ul {
                 padding: 0;
+                margin: 0;
             }
 
             li {

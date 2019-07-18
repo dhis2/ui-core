@@ -25,33 +25,33 @@ const tableCellTextStylesResponsive = css`
     }
 `
 
-const TableCellTextStatic = ({ label }) => (
+const TableCellTextStatic = ({ children }) => (
     <span>
-        {label}
+        {children}
         <style jsx>{tableCellTextStyles}</style>
     </span>
 )
 
-const TableCellTextResponsive = ({ label }) => (
+const TableCellTextResponsive = ({ children }) => (
     <span>
-        {label}
+        {children}
         <style jsx>{tableCellTextStyles}</style>
         <style jsx>{tableCellTextStylesResponsive}</style>
     </span>
 )
 
-export const TableCellText = ({ label }) => (
+export const TableCellText = ({ children }) => (
     <Consumer>
         {({ staticLayout }) => {
             const TableCellTextComponent = staticLayout
                 ? TableCellTextStatic
                 : TableCellTextResponsive
 
-            return <TableCellTextComponent label={label} />
+            return <TableCellTextComponent children={children} />
         }}
     </Consumer>
 )
 
 TableCellText.propTypes = {
-    label: propTypes.string,
+    children: propTypes.string,
 }

@@ -13,7 +13,9 @@ export const TableCellHead = ({
 }) => (
     <th colSpan={colSpan} rowSpan={rowSpan}>
         {!hideLabel && (
-            <div>{children ? children : <TableCellText label={label} />}</div>
+            <div>
+                <TableCellText>{children || label}</TableCellText>
+            </div>
         )}
 
         <style jsx>{`

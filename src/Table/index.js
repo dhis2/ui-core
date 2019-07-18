@@ -5,7 +5,6 @@ import { Provider } from './tableContext'
 import { TableBody } from './TableBody'
 import { TableCell } from './TableCell'
 import { TableCellHead } from './TableCellHead'
-import { TableCellText } from './TableCellText'
 import { Table as TableComponent } from './Table'
 import { TableFoot } from './TableFoot'
 import { TableHead } from './TableHead'
@@ -44,5 +43,4 @@ export {
     TableFoot,
     TableCell,
     TableCellHead,
-    TableCellText,
 }
