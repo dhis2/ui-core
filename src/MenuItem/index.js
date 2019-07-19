@@ -56,6 +56,15 @@ const MenuItem = ({
     className,
 }) => {
     const hasMenu = !!children
+    const isClickable = href || onClick
+    const LinkElement = isClickable ? 'a' : 'span'
+    const linkElementProps = {}
+
+    if (isClickable) {
+        linkElementProps.href = href
+        linkElementProps.onClick = createOnClickHandler(onClick)
+    }
+
     return (
         <li
             className={cx(className, subMenu.className, {
@@ -64,11 +73,7 @@ const MenuItem = ({
                 active,
             })}
         >
-            <a
-                className="link"
-                href={href}
-                onClick={createOnClickHandler(onClick)}
-            >
+            <LinkElement className="link" {...linkElementProps}>
                 {icon}
                 <div className="label">{label}</div>
 
@@ -79,7 +84,7 @@ const MenuItem = ({
                     <SubMenu className={subMenu.className}>{children}</SubMenu>
                 )}
                 {subMenu.styles}
-            </a>
+            </LinkElement>
 
             <style jsx>{styles}</style>
         </li>
