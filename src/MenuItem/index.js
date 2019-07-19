@@ -35,7 +35,16 @@ const SubMenu = ({ children, className }) => (
     <div className={className}>{children}</div>
 )
 
+const createOnClickHandler = onClick => evt => {
+    if (onClick) {
+        evt.preventDefault()
+        evt.stopPropagation()
+        onClick(value)
+    }
+}
+
 const MenuItem = ({
+    href,
     value,
     label,
     icon,
@@ -54,24 +63,23 @@ const MenuItem = ({
                 dense,
                 active,
             })}
-            onClick={evt => {
-                if (onClick) {
-                    evt.preventDefault()
-                    evt.stopPropagation()
-                    onClick(value)
-                }
-            }}
         >
-            {icon}
-            <div className="label">{label}</div>
+            <a
+                className="link"
+                href={href}
+                onClick={createOnClickHandler(onClick)}
+            >
+                {icon}
+                <div className="label">{label}</div>
 
-            {hasMenu && <ChevronRight className={subChevron.className} />}
-            {subChevron.styles}
+                {hasMenu && <ChevronRight className={subChevron.className} />}
+                {subChevron.styles}
 
-            {hasMenu && (
-                <SubMenu className={subMenu.className}>{children}</SubMenu>
-            )}
-            {subMenu.styles}
+                {hasMenu && (
+                    <SubMenu className={subMenu.className}>{children}</SubMenu>
+                )}
+                {subMenu.styles}
+            </a>
 
             <style jsx>{styles}</style>
         </li>
@@ -82,6 +90,7 @@ MenuItem.propTypes = {
     label: propTypes.oneOfType([propTypes.string, propTypes.object]).isRequired,
 
     value: propTypes.any,
+    href: propTypes.string,
     /** handler function called with `value` as the sole argument */
     onClick: propTypes.func,
 
