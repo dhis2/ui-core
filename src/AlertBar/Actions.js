@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { arrayWithLength } from '../prop-validators'
+import { arrayWithLength } from '@dhis2/prop-types'
 import { Action } from './Action'
 import { spacers } from '../theme.js'
 
