@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/dhis2/ui/compare/v3.6.3...v3.7.0) (2019-07-19)
+
+
+### Features
+
+* wrap contents with a link element when href or onClick is given ([#354](https://github.com/dhis2/ui/issues/354)) ([9e8d3f0](https://github.com/dhis2/ui/commit/9e8d3f0))
+
 ## [3.6.3](https://github.com/dhis2/ui/compare/v3.6.2...v3.6.3) (2019-07-16)
 
 
