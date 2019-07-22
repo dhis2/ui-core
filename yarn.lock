@@ -4676,10 +4676,6 @@ get-caller-file@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.1.tgz#25835260d3a2b9665fcdbb08cb039a7bbf7011c0"
 
-get-own-enumerable-property-symbols@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/get-own-enumerable-property-symbols/-/get-own-enumerable-property-symbols-2.0.1.tgz#5c4ad87f2834c4b9b4e84549dc1e0650fb38c24b"
-
 get-own-enumerable-property-symbols@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-own-enumerable-property-symbols/-/get-own-enumerable-property-symbols-3.0.0.tgz#b877b49a5c16aefac3655f2ed2ea5b684df8d203"
@@ -5503,17 +5499,17 @@ is-plain-obj@^1.0.0, is-plain-obj@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-1.1.0.tgz#71a50c8429dfca773c92a390a4a03b39fcd51d3e"
 
-is-plain-object@2.0.4, is-plain-object@^2.0.1, is-plain-object@^2.0.3, is-plain-object@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-2.0.4.tgz#2c163b3fafb1b606d9d17928f05c2a1c38e07677"
-  dependencies:
-    isobject "^3.0.1"
-
-is-plain-object@^3.0.0:
+is-plain-object@3.0.0, is-plain-object@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-3.0.0.tgz#47bfc5da1b5d50d64110806c199359482e75a928"
   dependencies:
     isobject "^4.0.0"
+
+is-plain-object@^2.0.1, is-plain-object@^2.0.3, is-plain-object@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-2.0.4.tgz#2c163b3fafb1b606d9d17928f05c2a1c38e07677"
+  dependencies:
+    isobject "^3.0.1"
 
 is-promise@^2.1, is-promise@^2.1.0:
   version "2.1.0"
@@ -7748,12 +7744,13 @@ react-draggable@^3.1.1:
     classnames "^2.2.5"
     prop-types "^15.6.0"
 
-react-element-to-jsx-string@^14.0.2:
-  version "14.0.2"
-  resolved "https://registry.yarnpkg.com/react-element-to-jsx-string/-/react-element-to-jsx-string-14.0.2.tgz#586d248bb2416855aa6ac3881e18726832c146d2"
+react-element-to-jsx-string@^14.0.3:
+  version "14.0.3"
+  resolved "https://registry.yarnpkg.com/react-element-to-jsx-string/-/react-element-to-jsx-string-14.0.3.tgz#64f50fdbf6ba154d6439da3d7307f79069b94d58"
+  integrity sha512-ziZAm7OwEfFtyhCmQiFNI87KFu+G9EP8qVW4XtDHdKNqqprYifLzqXkzHqC1vnVsPhyp2znoPm0bJHAf1mUBZA==
   dependencies:
-    is-plain-object "2.0.4"
-    stringify-object "3.2.2"
+    is-plain-object "3.0.0"
+    stringify-object "3.3.0"
 
 react-error-overlay@^5.1.6:
   version "5.1.6"
@@ -8673,14 +8670,15 @@ store2@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.7.1.tgz#22070b7dc04748a792fc6912a58ab99d3a21d788"
 
-storybook-addon-jsx@^7.1.2:
-  version "7.1.2"
-  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.1.2.tgz#ec569f4d85ea9f10556f3837c837737372845385"
+storybook-addon-jsx@^7.1.5:
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.1.5.tgz#f57b4fdc7da5d07b85b1da6a9425207bffbc2fb1"
+  integrity sha512-OU3JcBYGmFHeZjkvG6nbEOKy8AesURi+s7CcT7Ud68adAP8cJEDNxL6DUXWdJyt5DUKUivxewRmyQT8B9v8qWw==
   dependencies:
     copy-to-clipboard "^3.0.8"
     js-beautify "^1.8.8"
     prismjs "^1.15.0"
-    react-element-to-jsx-string "^14.0.2"
+    react-element-to-jsx-string "^14.0.3"
 
 storybook-addon-react-docgen@^1.2.2:
   version "1.2.2"
@@ -8792,15 +8790,7 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-stringify-object@3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/stringify-object/-/stringify-object-3.2.2.tgz#9853052e5a88fb605a44cd27445aa257ad7ffbcd"
-  dependencies:
-    get-own-enumerable-property-symbols "^2.0.1"
-    is-obj "^1.0.1"
-    is-regexp "^1.0.0"
-
-stringify-object@^3.3.0:
+stringify-object@3.3.0, stringify-object@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/stringify-object/-/stringify-object-3.3.0.tgz#703065aefca19300d3ce88af4f5b3956d7556629"
   dependencies:
