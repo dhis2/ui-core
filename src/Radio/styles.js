@@ -16,6 +16,7 @@ export default css`
         height: calc(100% + 2px);
         top: -1px;
         left: -1px;
+        box-sizing: border-box;
     }
 
     label {
