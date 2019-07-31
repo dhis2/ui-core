@@ -32,7 +32,7 @@
     "@dhis2/cli-style": "4.1.1",
     "@storybook/addon-notes": "^5.1.9",
     "@storybook/addons": "^5.1.8",
-    "@storybook/components": "^5.1.7",
+    "@storybook/components": "^5.1.10",
     "@storybook/react": "^5.1.9",
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
