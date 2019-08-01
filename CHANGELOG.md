@@ -1,3 +1,10 @@
+## [3.7.1](https://github.com/dhis2/ui/compare/v3.7.0...v3.7.1) (2019-08-01)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @storybook/components from 5.1.9 to 5.1.10 ([#364](https://github.com/dhis2/ui/issues/364)) ([7063ece](https://github.com/dhis2/ui/commit/7063ece))
+
 # [3.7.0](https://github.com/dhis2/ui/compare/v3.6.3...v3.7.0) (2019-07-19)
 
 
