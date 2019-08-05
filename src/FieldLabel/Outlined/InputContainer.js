@@ -13,6 +13,7 @@ const styles = css`
         padding: 0;
         position: relative;
         width: 100%;
+        font-size: 14px;
     }
 
     .dense {

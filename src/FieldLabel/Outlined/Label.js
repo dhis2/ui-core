@@ -16,7 +16,7 @@ const styles = css`
         display: block;
         box-sizing: border-box;
         height: 24px;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 20px;
         padding: 0 ${spacers.dp16} ${spacers.dp4};
         overflow: hidden;

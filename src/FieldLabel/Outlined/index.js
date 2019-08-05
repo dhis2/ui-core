@@ -27,7 +27,6 @@ const styles = css`
         height: 42px;
         left: 1px;
         position: relative;
-        width: calc(100% - 1px);
         border: 1px solid ${theme.default};
         border-radius: 4px;
     }

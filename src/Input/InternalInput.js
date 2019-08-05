@@ -12,7 +12,7 @@ const styles = css`
         background-color: transparent;
         border: 0;
         box-sizing: border-box;
-        font-size: 16px;
+        font-size: inherit;
         height: 100%;
         line-height: 16px;
         outline: 0;
@@ -20,13 +20,12 @@ const styles = css`
         width: 100%;
 
         /** 15px => 16px inner spacing - 1px for border**/
-        padding: 12px 0 12px 15px;
+        padding: 13px 0 11px 15px;
     }
 
     .dense {
-        padding-top: 10px;
-        padding-bottom: 8px;
-        font-size: 14px;
+        padding-top: 9px;
+        padding-bottom: 9px;
     }
 
     .disabled {
