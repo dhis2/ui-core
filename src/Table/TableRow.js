@@ -1,3 +1,4 @@
+import { instanceOfComponent } from '@dhis2/prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
@@ -5,7 +6,7 @@ import propTypes from 'prop-types'
 import { Consumer } from './tableContext'
 import { TableCell } from './TableCell'
 import { TableCellHead } from './TableCellHead'
-import { instanceOfComponent } from '../prop-validators/instanceOfComponent'
+import { colors } from '../theme'
 
 const addColNumToChildren = children => {
     let curCol = 0
@@ -28,7 +29,11 @@ const tableRowStyles = css`
     }
 
     tr:nth-child(even) {
-        background: #fbfcfd;
+        background: ${colors.grey050};
+    }
+
+    :global(tbody) tr:hover {
+        background: ${colors.blue050};
     }
 
     :global(thead) tr,
@@ -41,10 +46,14 @@ const tableRowStylesResponsive = css`
     @media (max-width: 768px) {
         tr {
             display: block;
-            border: 1px solid #e8edf2;
+            border: 1px solid ${colors.grey300};
         }
 
         tr:nth-child(even) {
+            background: none;
+        }
+
+        :global(tbody) tr:hover {
             background: none;
         }
 
@@ -53,7 +62,7 @@ const tableRowStylesResponsive = css`
         }
 
         tr:nth-child(even) :global(td) {
-            background: #fbfcfd;
+            background: ${colors.grey050};
         }
     }
 `

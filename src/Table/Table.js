@@ -1,12 +1,12 @@
 import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
+import { instanceOfComponent } from '@dhis2/prop-types'
 
 import { Consumer } from './tableContext'
 import { TableBody } from './TableBody'
 import { TableFoot } from './TableFoot'
 import { TableHead } from './TableHead'
-import { instanceOfComponent } from '../prop-validators/instanceOfComponent'
 
 const tableStyles = css`
     table {

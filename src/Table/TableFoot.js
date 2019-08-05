@@ -1,10 +1,10 @@
 import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
+import { instanceOfComponent } from '@dhis2/prop-types'
 
 import { Consumer } from './tableContext'
 import { TableRow } from './TableRow'
-import { instanceOfComponent } from '../prop-validators/instanceOfComponent'
 
 const tableFootStylesResponsive = css`
     @media (max-width: 768px) {
