@@ -1,12 +1,13 @@
+import cx from 'classnames'
 import propTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
-import cx from 'classnames'
 
+import { statusPropType } from '../../common-prop-types'
+import { StatusIconNoDefault } from '../../icons/Status'
+import { colors, spacers, theme } from '../../theme.js'
 import { InputContainer } from './InputContainer'
 import { Label } from './Label'
-import { StatusIconNoDefault } from '../../icons/Status'
-import { colors, theme, spacers } from '../../theme.js'
 
 const styles = css`
     .label-filled {
@@ -158,9 +159,9 @@ Filled.propTypes = {
     disabled: propTypes.bool,
     required: propTypes.bool,
 
-    valid: propTypes.bool,
-    error: propTypes.bool,
-    warning: propTypes.bool,
+    valid: statusPropType,
+    error: statusPropType,
+    warning: statusPropType,
     loading: propTypes.bool,
 
     dense: propTypes.bool,
