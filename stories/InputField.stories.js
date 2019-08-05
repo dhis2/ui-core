@@ -56,12 +56,12 @@ function createStory(name, props) {
         .add('Status: Error', () => (
             <>
                 <Input {...props} value="This value produces an error" error />
-                <Help error {...props}>
-                    This describes the error, if a message is supplied.
-                </Help>
                 <Help {...props}>
                     This is some help text to advice what this input actually
                     is.
+                </Help>
+                <Help error {...props}>
+                    This describes the error, if a message is supplied.
                 </Help>
             </>
         ))
