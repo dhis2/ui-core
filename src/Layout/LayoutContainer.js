@@ -1,8 +1,8 @@
 import React from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
+import { instanceOfComponent } from '@dhis2/prop-types'
 
-import { instanceOfComponent } from '../prop-validators/instanceOfComponent'
 import { childrenContainsSidebar, childrenContainsTopBar } from './helper'
 import styles from './container.styles'
 
