@@ -21,7 +21,7 @@ export const TableCellHead = ({
 
         <style jsx>{`
             th {
-                border-bottom: 1px solid #{colors.grey300};
+                border-bottom: 1px solid ${colors.grey300};
                 padding: 0 ${spacers.dp12};
             }
 
