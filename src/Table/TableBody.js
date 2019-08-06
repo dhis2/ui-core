@@ -25,8 +25,8 @@ const TBodyResponsive = ({ children }) => (
 
 export const TableBody = ({ children }) => (
     <Consumer>
-        {({ staticLayout }) => {
-            const TBody = staticLayout ? TBodyStatic : TBodyResponsive
+        {({ responsiveLayout }) => {
+            const TBody = responsiveLayout ? TBodyResponsive : TBodyStatic
             return <TBody>{children}</TBody>
         }}
     </Consumer>

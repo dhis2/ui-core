@@ -40,10 +40,10 @@ const TableCellTextResponsive = ({ children }) => (
 
 export const TableCellText = ({ children }) => (
     <Consumer>
-        {({ staticLayout }) => {
-            const TableCellTextComponent = staticLayout
-                ? TableCellTextStatic
-                : TableCellTextResponsive
+        {({ responsiveLayout }) => {
+            const TableCellTextComponent = responsiveLayout
+                ? TableCellTextResponsive
+                : TableCellTextStatic
 
             return <TableCellTextComponent children={children} />
         }}

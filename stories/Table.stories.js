@@ -82,7 +82,7 @@ const Actions = () => (
 
 storiesOf('Table', module)
     .add('Default', () => (
-        <Table>
+        <Table responsiveLayout>
             <TableHead>
                 <TableRowHead>
                     <TableCellHead label="Name" colSpan="2" />
@@ -211,7 +211,7 @@ storiesOf('Table', module)
         </Table>
     ))
     .add('Some without title', () => (
-        <Table>
+        <Table responsiveLayout>
             <TableHead>
                 <TableRowHead>
                     <TableCellHead
@@ -375,7 +375,7 @@ storiesOf('Table', module)
         </Table>
     ))
     .add('No head', () => (
-        <Table>
+        <Table responsiveLayout>
             <TableBody>
                 <TableRow>
                     <TableCell>Onyekachukwu</TableCell>
@@ -488,7 +488,7 @@ storiesOf('Table', module)
         </Table>
     ))
     .add('Static layout', () => (
-        <Table staticLayout>
+        <Table>
             <TableHead>
                 <TableRowHead>
                     <TableCellHead label="First name" />

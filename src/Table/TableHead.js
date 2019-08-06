@@ -33,8 +33,8 @@ const THeadResponsive = ({ children }) => (
 
 export const TableHead = ({ children }) => (
     <Consumer>
-        {({ staticLayout }) => {
-            const THead = staticLayout ? THeadStatic : THeadResponsive
+        {({ responsiveLayout }) => {
+            const THead = responsiveLayout ? THeadResponsive : THeadStatic
             return <THead>{children}</THead>
         }}
     </Consumer>

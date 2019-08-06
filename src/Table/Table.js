@@ -48,8 +48,10 @@ const TableStatic = ({ children }) => (
 
 export const Table = ({ children }) => (
     <Consumer>
-        {({ staticLayout }) => {
-            const TableComponent = staticLayout ? TableStatic : TableRepsonsive
+        {({ responsiveLayout }) => {
+            const TableComponent = responsiveLayout
+                ? TableRepsonsive
+                : TableStatic
             return <TableComponent>{children}</TableComponent>
         }}
     </Consumer>

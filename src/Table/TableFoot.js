@@ -27,8 +27,8 @@ const TFootResponsive = ({ children }) => (
 
 export const TableFoot = ({ children }) => (
     <Consumer>
-        {({ staticLayout }) => {
-            const TFoot = staticLayout ? TFootStatic : TFootResponsive
+        {({ responsiveLayout }) => {
+            const TFoot = responsiveLayout ? TFootResponsive : TFootStatic
             return <TFoot>{children}</TFoot>
         }}
     </Consumer>

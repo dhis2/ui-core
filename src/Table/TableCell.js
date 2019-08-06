@@ -91,12 +91,12 @@ const TableCellResponsive = ({ children, colSpan, rowSpan, title }) => (
 
 export const TableCell = ({ children, colSpan, rowSpan, column }) => (
     <Consumer>
-        {({ staticLayout, headerLabels }) => {
-            const title = staticLayout ? '' : headerLabels[column]
+        {({ responsiveLayout, headerLabels }) => {
+            const title = responsiveLayout ? headerLabels[column] : ''
 
-            const TableCellComponent = staticLayout
-                ? TableCellStatic
-                : TableCellResponsive
+            const TableCellComponent = responsiveLayout
+                ? TableCellResponsive
+                : TableCellStatic
 
             return (
                 <TableCellComponent

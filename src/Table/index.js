@@ -12,12 +12,17 @@ import { TableRow } from './TableRow'
 import { TableRowHead } from './TableRowHead'
 import { extractHeaderLabels } from './extractHeaderLabels'
 
-const Table = ({ children, staticLayout }) => {
-    const headerLabels = staticLayout ? null : extractHeaderLabels(children)
+const Table = ({ children, responsiveLayout }) => {
+    const headerLabels = responsiveLayout ? extractHeaderLabels(children) : null
 
     return (
         <div>
-            <Provider value={{ staticLayout, headerLabels }}>
+            <Provider
+                value={{
+                    responsiveLayout,
+                    headerLabels,
+                }}
+            >
                 <TableComponent>{children}</TableComponent>
             </Provider>
 
@@ -31,7 +36,7 @@ const Table = ({ children, staticLayout }) => {
 }
 
 Table.propTypes = {
-    staticLayout: propTypes.bool,
+    responsiveLayout: propTypes.bool,
 }
 
 export {

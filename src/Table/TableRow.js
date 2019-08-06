@@ -84,10 +84,10 @@ const TableRowResponsive = ({ children }) => (
 
 export const TableRow = ({ children, headerRow }) => (
     <Consumer>
-        {({ staticLayout }) => {
-            const TableRowComponent = staticLayout
-                ? TableRowStatic
-                : TableRowResponsive
+        {({ responsiveLayout }) => {
+            const TableRowComponent = responsiveLayout
+                ? TableRowResponsive
+                : TableRowStatic
             return (
                 <TableRowComponent>
                     {addColNumToChildren(children)}
