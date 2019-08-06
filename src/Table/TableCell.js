@@ -54,7 +54,7 @@ const ContentWithTitle = ({ title, children }) => (
             }
 
             @media (max-width: 768px) {
-                .title {
+                :global(tbody) .title {
                     display: block;
                     white-space: normal;
                     min-height: 24px;
