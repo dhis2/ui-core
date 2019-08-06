@@ -1,13 +1,12 @@
-import React, { Component, createRef } from 'react'
-import propTypes from 'prop-types'
 import cx from 'classnames'
+import propTypes from 'prop-types'
+import React, { Component, createRef } from 'react'
+import css from 'styled-jsx/css'
 
+import { statusPropType } from '../common-prop-types'
+import { Checked, Unchecked } from '../icons/Radio.js'
 import { colors, theme } from '../theme.js'
 import styles from './styles.js'
-
-import { Checked, Unchecked } from '../icons/Radio.js'
-
-import css from 'styled-jsx/css'
 
 const icons = css.resolve`
     svg {
@@ -18,7 +17,7 @@ const icons = css.resolve`
     }
 
     .focus {
-        fill: ${colors.grey800}
+        fill: ${colors.grey800};
     }
 
     .checked {
@@ -186,9 +185,9 @@ Radio.propTypes = {
     required: propTypes.bool,
     checked: propTypes.bool,
     disabled: propTypes.bool,
-    valid: propTypes.bool,
-    warning: propTypes.bool,
-    error: propTypes.bool,
+    valid: statusPropType,
+    warning: statusPropType,
+    error: statusPropType,
     initialFocus: propTypes.bool,
 }
 

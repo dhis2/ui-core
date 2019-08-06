@@ -1,9 +1,10 @@
 import propTypes from 'prop-types'
 import React from 'react'
 
-import { Input } from './Input.js'
+import { statusPropType } from '../common-prop-types'
 import { LabelFilled, LabelOutlined } from '../FieldLabel'
 import { theme } from '../theme.js'
+import { Input } from './Input.js'
 
 class InputField extends React.Component {
     state = {
@@ -108,9 +109,9 @@ InputField.propTypes = {
     disabled: propTypes.bool,
     filled: propTypes.bool,
     dense: propTypes.bool,
-    valid: propTypes.bool,
-    warning: propTypes.bool,
-    error: propTypes.bool,
+    valid: statusPropType,
+    warning: statusPropType,
+    error: statusPropType,
     loading: propTypes.bool,
     initialFocus: propTypes.bool,
 

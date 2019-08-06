@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
 import propTypes from 'prop-types'
+import React, { Component } from 'react'
 
-import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
-
-import { DropMenu } from '../DropMenu'
 import { Button } from '../Button'
+import { buttonVariantPropType, sizePropType } from '../common-prop-types'
+import { DropMenu } from '../DropMenu'
+import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
 
 class DropdownButton extends Component {
     state = {
@@ -54,12 +54,12 @@ DropdownButton.propTypes = {
     icon: propTypes.element,
     children: propTypes.string,
 
-    small: propTypes.bool,
-    large: propTypes.bool,
+    small: sizePropType,
+    large: sizePropType,
 
-    primary: propTypes.bool,
-    secondary: propTypes.bool,
-    destructive: propTypes.bool,
+    primary: buttonVariantPropType,
+    secondary: buttonVariantPropType,
+    destructive: buttonVariantPropType,
     disabled: propTypes.bool,
 }
 

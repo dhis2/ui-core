@@ -1,3 +1,38 @@
+## [3.7.1](https://github.com/dhis2/ui/compare/v3.7.0...v3.7.1) (2019-08-01)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @storybook/components from 5.1.9 to 5.1.10 ([#364](https://github.com/dhis2/ui/issues/364)) ([7063ece](https://github.com/dhis2/ui/commit/7063ece))
+
+# [3.7.0](https://github.com/dhis2/ui/compare/v3.6.3...v3.7.0) (2019-07-19)
+
+
+### Features
+
+* wrap contents with a link element when href or onClick is given ([#354](https://github.com/dhis2/ui/issues/354)) ([9e8d3f0](https://github.com/dhis2/ui/commit/9e8d3f0))
+
+## [3.6.3](https://github.com/dhis2/ui/compare/v3.6.2...v3.6.3) (2019-07-16)
+
+
+### Bug Fixes
+
+* **tab:** increase line-height & decrease padding to preserve height ([#344](https://github.com/dhis2/ui/issues/344)) ([e125c8f](https://github.com/dhis2/ui/commit/e125c8f))
+
+## [3.6.2](https://github.com/dhis2/ui/compare/v3.6.1...v3.6.2) (2019-07-15)
+
+
+### Bug Fixes
+
+* **tabs:** apply flex-grow to ScrollBar and TabBar ([#343](https://github.com/dhis2/ui/issues/343)) ([f048632](https://github.com/dhis2/ui/commit/f048632))
+
+## [3.6.1](https://github.com/dhis2/ui/compare/v3.6.0...v3.6.1) (2019-07-15)
+
+
+### Bug Fixes
+
+* update d2-style and fix but in radio button css ([#338](https://github.com/dhis2/ui/issues/338)) ([29cf886](https://github.com/dhis2/ui/commit/29cf886))
+
 # [3.6.0](https://github.com/dhis2/ui/compare/v3.5.0...v3.6.0) (2019-07-10)
 
 

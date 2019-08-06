@@ -174,6 +174,7 @@ class ScrollBar extends PureComponent {
 
                     .scroll-box-clipper {
                         overflow-y: hidden;
+                        flex-grow: 1;
                     }
 
                     .scroll-box {

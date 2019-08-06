@@ -35,7 +35,16 @@ const SubMenu = ({ children, className }) => (
     <div className={className}>{children}</div>
 )
 
+const createOnClickHandler = onClick => evt => {
+    if (onClick) {
+        evt.preventDefault()
+        evt.stopPropagation()
+        onClick(value)
+    }
+}
+
 const MenuItem = ({
+    href,
     value,
     label,
     icon,
@@ -47,6 +56,15 @@ const MenuItem = ({
     className,
 }) => {
     const hasMenu = !!children
+    const isClickable = href || onClick
+    const LinkElement = isClickable ? 'a' : 'span'
+    const linkElementProps = {}
+
+    if (isClickable) {
+        linkElementProps.href = href
+        linkElementProps.onClick = createOnClickHandler(onClick)
+    }
+
     return (
         <li
             className={cx(className, subMenu.className, {
@@ -54,24 +72,19 @@ const MenuItem = ({
                 dense,
                 active,
             })}
-            onClick={evt => {
-                if (onClick) {
-                    evt.preventDefault()
-                    evt.stopPropagation()
-                    onClick(value)
-                }
-            }}
         >
-            {icon}
-            <div className="label">{label}</div>
+            <LinkElement className="link" {...linkElementProps}>
+                {icon}
+                <div className="label">{label}</div>
 
-            {hasMenu && <ChevronRight className={subChevron.className} />}
-            {subChevron.styles}
+                {hasMenu && <ChevronRight className={subChevron.className} />}
+                {subChevron.styles}
 
-            {hasMenu && (
-                <SubMenu className={subMenu.className}>{children}</SubMenu>
-            )}
-            {subMenu.styles}
+                {hasMenu && (
+                    <SubMenu className={subMenu.className}>{children}</SubMenu>
+                )}
+                {subMenu.styles}
+            </LinkElement>
 
             <style jsx>{styles}</style>
         </li>
@@ -82,6 +95,7 @@ MenuItem.propTypes = {
     label: propTypes.oneOfType([propTypes.string, propTypes.object]).isRequired,
 
     value: propTypes.any,
+    href: propTypes.string,
     /** handler function called with `value` as the sole argument */
     onClick: propTypes.func,
 
