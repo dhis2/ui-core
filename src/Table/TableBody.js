@@ -3,30 +3,23 @@ import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
 import { instanceOfComponent } from '@dhis2/prop-types'
 
-import { Consumer } from './tableContext'
-import { TableRow } from './TableRow'
-
-const tableBodyStylesResponsive = css`
-    @media (max-width: 768px) {
-        tbody {
-            display: block;
-        }
-    }
-`
+import { Consumer } from './tableContext.js'
+import { TableRow } from './TableRow.js'
+import { tableBodyStylesStacked } from './styles.js'
 
 const TBodyStatic = ({ children }) => <tbody>{children}</tbody>
 
-const TBodyResponsive = ({ children }) => (
+const TBodyStacked = ({ children }) => (
     <tbody>
         {children}
-        <style jsx>{tableBodyStylesResponsive}</style>
+        <style jsx>{tableBodyStylesStacked}</style>
     </tbody>
 )
 
 export const TableBody = ({ children }) => (
     <Consumer>
-        {({ responsiveLayout }) => {
-            const TBody = responsiveLayout ? TBodyResponsive : TBodyStatic
+        {({ stackedLayout }) => {
+            const TBody = stackedLayout ? TBodyStacked : TBodyStatic
             return <TBody>{children}</TBody>
         }}
     </Consumer>

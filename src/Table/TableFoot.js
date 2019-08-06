@@ -3,32 +3,23 @@ import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
 
-import { Consumer } from './tableContext'
-import { TableRow } from './TableRow'
-import { spacers } from '../theme'
-
-const tableFootStylesResponsive = css`
-    @media (max-width: 768px) {
-        tfoot {
-            display: block;
-            margin-top: ${spacers.dp32};
-        }
-    }
-`
+import { Consumer } from './tableContext.js'
+import { TableRow } from './TableRow.js'
+import { tableFootStylesStacked } from './styles.js'
 
 const TFootStatic = ({ children }) => <tfoot>{children}</tfoot>
 
-const TFootResponsive = ({ children }) => (
+const TFootStacked = ({ children }) => (
     <tfoot>
         {children}
-        <style jsx>{tableFootStylesResponsive}</style>
+        <style jsx>{tableFootStylesStacked}</style>
     </tfoot>
 )
 
 export const TableFoot = ({ children }) => (
     <Consumer>
-        {({ responsiveLayout }) => {
-            const TFoot = responsiveLayout ? TFootResponsive : TFootStatic
+        {({ stackedLayout }) => {
+            const TFoot = stackedLayout ? TFootStacked : TFootStatic
             return <TFoot>{children}</TFoot>
         }}
     </Consumer>

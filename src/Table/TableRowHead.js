@@ -2,8 +2,8 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { instanceOfComponent } from '@dhis2/prop-types'
 
-import { TableCellHead } from './TableCellHead'
-import { TableRow } from './TableRow'
+import { TableCellHead } from './TableCellHead.js'
+import { TableRow } from './TableRow.js'
 
 export const TableRowHead = props => <TableRow {...props} />
 

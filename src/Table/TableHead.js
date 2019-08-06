@@ -3,23 +3,9 @@ import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
 
-import { Consumer } from './tableContext'
-import { TableRowHead } from './TableRowHead'
-import { colors } from '../theme'
-
-const tableHeadStyles = css`
-    thead {
-        background: ${colors.grey200};
-    }
-`
-
-const tableHeadStylesResponsive = css`
-    @media (max-width: 768px) {
-        thead {
-            display: none;
-        }
-    }
-`
+import { Consumer } from './tableContext.js'
+import { TableRowHead } from './TableRowHead.js'
+import { tableHeadStyles, tableHeadStylesStacked } from './styles.js'
 
 const THeadStatic = ({ children }) => <thead>{children}</thead>
 
@@ -27,14 +13,14 @@ const THeadResponsive = ({ children }) => (
     <thead>
         {children}
         <style jsx>{tableHeadStyles}</style>
-        <style jsx>{tableHeadStylesResponsive}</style>
+        <style jsx>{tableHeadStylesStacked}</style>
     </thead>
 )
 
 export const TableHead = ({ children }) => (
     <Consumer>
-        {({ responsiveLayout }) => {
-            const THead = responsiveLayout ? THeadResponsive : THeadStatic
+        {({ stackedLayout }) => {
+            const THead = stackedLayout ? THeadResponsive : THeadStatic
             return <THead>{children}</THead>
         }}
     </Consumer>

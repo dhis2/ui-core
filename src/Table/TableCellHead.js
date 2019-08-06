@@ -2,8 +2,8 @@ import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
 
-import { TableCellText } from './TableCellText'
-import { colors, spacers } from '../theme'
+import { TableCellText } from './TableCellText.js'
+import { tableCellHeadStyles } from './styles.js'
 
 export const TableCellHead = ({
     children,
@@ -19,19 +19,7 @@ export const TableCellHead = ({
             </div>
         )}
 
-        <style jsx>{`
-            th {
-                border-bottom: 1px solid ${colors.grey300};
-                padding: 0 ${spacers.dp12};
-                font-size: 13px;
-                font-weight: normal;
-                color: ${colors.grey800};
-            }
-
-            div {
-                min-height: 36px;
-            }
-        `}</style>
+        <style jsx>{tableCellHeadStyles}</style>
     </th>
 )
 

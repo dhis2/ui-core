@@ -2,15 +2,18 @@ import React from 'react'
 
 import { storiesOf } from '@storybook/react'
 
-import { Button } from '../src/Button'
-import { Table } from '../src/Table'
-import { TableBody } from '../src/Table/TableBody'
-import { TableCell } from '../src/Table/TableCell'
-import { TableCellHead } from '../src/Table/TableCellHead'
-import { TableFoot } from '../src/Table/TableFoot'
-import { TableHead } from '../src/Table/TableHead'
-import { TableRow } from '../src/Table/TableRow'
-import { TableRowHead } from '../src/Table/TableRowHead'
+import {
+    Button,
+    StaticTable,
+    StackedTable,
+    TableBody,
+    TableCell,
+    TableCellHead,
+    TableFoot,
+    TableHead,
+    TableRow,
+    TableRowHead,
+} from '../src'
 
 const TableFooterButton = () => (
     <div>
@@ -82,7 +85,7 @@ const Actions = () => (
 
 storiesOf('Table', module)
     .add('Default', () => (
-        <Table responsiveLayout>
+        <StackedTable>
             <TableHead>
                 <TableRowHead>
                     <TableCellHead label="Name" colSpan="2" />
@@ -208,10 +211,10 @@ storiesOf('Table', module)
                     </TableCell>
                 </TableRow>
             </TableFoot>
-        </Table>
+        </StackedTable>
     ))
     .add('Some without title', () => (
-        <Table responsiveLayout>
+        <StackedTable>
             <TableHead>
                 <TableRowHead>
                     <TableCellHead
@@ -372,10 +375,10 @@ storiesOf('Table', module)
                     </TableCell>
                 </TableRow>
             </TableFoot>
-        </Table>
+        </StackedTable>
     ))
     .add('No head', () => (
-        <Table responsiveLayout>
+        <StackedTable>
             <TableBody>
                 <TableRow>
                     <TableCell>Onyekachukwu</TableCell>
@@ -485,10 +488,10 @@ storiesOf('Table', module)
                     </TableCell>
                 </TableRow>
             </TableFoot>
-        </Table>
+        </StackedTable>
     ))
     .add('Static layout', () => (
-        <Table>
+        <StaticTable>
             <TableHead>
                 <TableRowHead>
                     <TableCellHead label="First name" />
@@ -610,5 +613,5 @@ storiesOf('Table', module)
                     </TableCell>
                 </TableRow>
             </TableFoot>
-        </Table>
+        </StaticTable>
     ))

@@ -3,10 +3,10 @@ import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
 
-import { Consumer } from './tableContext'
-import { TableCell } from './TableCell'
-import { TableCellHead } from './TableCellHead'
-import { colors, spacers } from '../theme'
+import { Consumer } from './tableContext.js'
+import { TableCell } from './TableCell.js'
+import { TableCellHead } from './TableCellHead.js'
+import { tableRowStyles, tableRowStylesStacked } from './styles.js'
 
 const addColNumToChildren = children => {
     let curCol = 0
@@ -23,50 +23,6 @@ const addColNumToChildren = children => {
     })
 }
 
-const tableRowStyles = css`
-    tr {
-        min-height: 45px;
-    }
-
-    :global(tbody) tr:nth-child(even) {
-        background: ${colors.grey050};
-    }
-
-    :global(tbody) tr:hover {
-        background: ${colors.blue050};
-    }
-
-    :global(thead) tr,
-    :global(tbody) tr {
-        min-height: 36px;
-    }
-`
-
-const tableRowStylesResponsive = css`
-    @media (max-width: 768px) {
-        tr {
-            display: block;
-            border: 1px solid ${colors.grey300};
-        }
-
-        tr:nth-child(even) {
-            background: none;
-        }
-
-        :global(tbody) tr:hover {
-            background: none;
-        }
-
-        tr + tr {
-            margin-top: ${spacers.dp32};
-        }
-
-        tr:nth-child(even) :global(td) {
-            background: ${colors.grey050};
-        }
-    }
-`
-
 const TableRowStatic = ({ children }) => (
     <tr>
         {children}
@@ -74,19 +30,19 @@ const TableRowStatic = ({ children }) => (
     </tr>
 )
 
-const TableRowResponsive = ({ children }) => (
+const TableRowStacked = ({ children }) => (
     <tr>
         {children}
         <style jsx>{tableRowStyles}</style>
-        <style jsx>{tableRowStylesResponsive}</style>
+        <style jsx>{tableRowStylesStacked}</style>
     </tr>
 )
 
 export const TableRow = ({ children, headerRow }) => (
     <Consumer>
-        {({ responsiveLayout }) => {
-            const TableRowComponent = responsiveLayout
-                ? TableRowResponsive
+        {({ stackedLayout }) => {
+            const TableRowComponent = stackedLayout
+                ? TableRowStacked
                 : TableRowStatic
             return (
                 <TableRowComponent>

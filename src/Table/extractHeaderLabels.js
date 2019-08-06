@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { TableHead } from './TableHead'
-import { TableRow } from './TableRow'
-import { TableCellHead } from './TableCellHead'
+import { TableHead } from './TableHead.js'
+import { TableRow } from './TableRow.js'
+import { TableCellHead } from './TableCellHead.js'
 
 const extractRowsFromTableChildren = children =>
     React.Children.toArray(children)
