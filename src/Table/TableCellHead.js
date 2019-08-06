@@ -23,6 +23,9 @@ export const TableCellHead = ({
             th {
                 border-bottom: 1px solid ${colors.grey300};
                 padding: 0 ${spacers.dp12};
+                font-size: 13px;
+                font-weight: normal;
+                color: ${colors.grey800};
             }
 
             div {

@@ -1,10 +1,17 @@
+import { instanceOfComponent } from '@dhis2/prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
-import { instanceOfComponent } from '@dhis2/prop-types'
 
 import { Consumer } from './tableContext'
 import { TableRowHead } from './TableRowHead'
+import { colors } from '../theme'
+
+const tableHeadStyles = css`
+    thead {
+        background: ${colors.grey200};
+    }
+`
 
 const tableHeadStylesResponsive = css`
     @media (max-width: 768px) {
@@ -19,6 +26,7 @@ const THeadStatic = ({ children }) => <thead>{children}</thead>
 const THeadResponsive = ({ children }) => (
     <thead>
         {children}
+        <style jsx>{tableHeadStyles}</style>
         <style jsx>{tableHeadStylesResponsive}</style>
     </thead>
 )

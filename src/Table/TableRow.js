@@ -28,7 +28,7 @@ const tableRowStyles = css`
         min-height: 45px;
     }
 
-    tr:nth-child(even) {
+    :global(tbody) tr:nth-child(even) {
         background: ${colors.grey050};
     }
 

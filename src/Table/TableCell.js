@@ -11,6 +11,7 @@ const tableCellStyles = css`
         border-bottom: 1px solid ${colors.grey300};
         padding: 0 12px;
         font-size: 14px;
+        line-height: 18px;
     }
 
     div {
@@ -57,10 +58,11 @@ const ContentWithTitle = ({ title, children }) => (
                     display: block;
                     white-space: normal;
                     min-height: 24px;
-                    line-height: 18px;
                     padding: 8px 0 0 0;
-                    font-weight: bold;
                     white-space: nowrap;
+                    font-size: 13px;
+                    font-weight: normal;
+                    color: ${colors.grey800};
                 }
 
                 .content {

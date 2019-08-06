@@ -8,8 +8,6 @@ const tableCellTextStyles = css`
     span {
         display: inline-block;
         padding: 9px 0;
-        font-size: 14px;
-        line-height: 18px;
     }
 
     :global(tbody) span {
