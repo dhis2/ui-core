@@ -1,17 +1,18 @@
+import { instanceOfComponent } from '@dhis2/prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
-import { instanceOfComponent } from '@dhis2/prop-types'
 
 import { Consumer } from './tableContext'
 import { TableBody } from './TableBody'
 import { TableFoot } from './TableFoot'
 import { TableHead } from './TableHead'
+import { colors } from '../theme'
 
 const tableStyles = css`
     table {
-        border: 1px solid #e8edf2;
-        background-color: #ffffff;
+        border: 1px solid ${colors.grey300};
+        background-color: ${colors.white};
         min-width: 100%;
         text-align: left;
         border-collapse: collapse;

@@ -1,16 +1,17 @@
+import { instanceOfComponent } from '@dhis2/prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
-import { instanceOfComponent } from '@dhis2/prop-types'
 
 import { Consumer } from './tableContext'
 import { TableRow } from './TableRow'
+import { spacers } from '../theme'
 
 const tableFootStylesResponsive = css`
     @media (max-width: 768px) {
         tfoot {
             display: block;
-            margin-top: 32px;
+            margin-top: ${spacers.dp32};
         }
     }
 `

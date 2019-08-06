@@ -4,10 +4,11 @@ import propTypes from 'prop-types'
 
 import { Consumer } from './tableContext'
 import { TableCellText } from './TableCellText'
+import { colors } from '../theme'
 
 const tableCellStyles = css`
     td {
-        border-bottom: 1px solid #e8edf2;
+        border-bottom: 1px solid ${colors.grey300};
         padding: 0 12px;
         font-size: 14px;
     }

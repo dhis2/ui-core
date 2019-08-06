@@ -6,7 +6,7 @@ import propTypes from 'prop-types'
 import { Consumer } from './tableContext'
 import { TableCell } from './TableCell'
 import { TableCellHead } from './TableCellHead'
-import { colors } from '../theme'
+import { colors, spacers } from '../theme'
 
 const addColNumToChildren = children => {
     let curCol = 0
@@ -58,7 +58,7 @@ const tableRowStylesResponsive = css`
         }
 
         tr + tr {
-            margin-top: 32px;
+            margin-top: ${spacers.dp32};
         }
 
         tr:nth-child(even) :global(td) {
