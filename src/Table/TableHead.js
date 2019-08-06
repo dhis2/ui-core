@@ -7,7 +7,12 @@ import { Consumer } from './tableContext.js'
 import { TableRowHead } from './TableRowHead.js'
 import { tableHeadStyles, tableHeadStylesStacked } from './styles.js'
 
-const THeadStatic = ({ children }) => <thead>{children}</thead>
+const THeadStatic = ({ children }) => (
+    <thead>
+        {children}
+        <style jsx>{tableHeadStyles}</style>
+    </thead>
+)
 
 const THeadResponsive = ({ children }) => (
     <thead>

@@ -159,7 +159,7 @@ const tableCellTitleStyleStacked = css`
 const tableCellTextStyles = css`
     span {
         display: inline-block;
-        padding: 9px 0;
+        padding: 11px 0;
     }
 
     :global(tbody) span {
@@ -168,10 +168,8 @@ const tableCellTextStyles = css`
 `
 
 const tableCellTextStylesStacked = css`
-    @media (max-width: 768px) {
-        :global(tbody) span {
-            padding: 3px 0;
-        }
+    :global(tbody) span {
+        padding: 3px 0;
     }
 `
 
