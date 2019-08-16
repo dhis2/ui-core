@@ -1,10 +1,10 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
+import { instanceOfComponent } from '@dhis2/prop-types'
 
 import { TableCell } from './TableCell'
 import { TableCellHead } from './TableCellHead'
-import { instanceOfComponent } from '../prop-validators/instanceOfComponent'
 
 const tableRowStyles = css`
     tr {

@@ -1,9 +1,9 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import { instanceOfComponent } from '@dhis2/prop-types'
 
 import { TableCellHead } from './TableCellHead'
 import { TableRow } from './TableRow'
-import { instanceOfComponent } from '../prop-validators/instanceOfComponent'
 
 export const TableRowHead = props => <TableRow {...props} />
 
