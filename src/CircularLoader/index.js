@@ -1,7 +1,8 @@
-import React from 'react'
-import propTypes from 'prop-types'
 import cx from 'classnames'
+import propTypes from 'prop-types'
+import React from 'react'
 
+import { sizePropType } from '../common-prop-types'
 import styles from './styles.js'
 
 const CircularLoader = ({ small, large, className }) => (
@@ -28,8 +29,8 @@ const CircularLoader = ({ small, large, className }) => (
 
 CircularLoader.propTypes = {
     className: propTypes.string,
-    small: propTypes.bool,
-    large: propTypes.bool,
+    small: sizePropType,
+    large: sizePropType,
 }
 
 export { CircularLoader }

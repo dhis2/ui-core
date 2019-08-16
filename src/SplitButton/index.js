@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
-import propTypes from 'prop-types'
 import cx from 'classnames'
+import propTypes from 'prop-types'
+import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 
-import { ArrowUp, ArrowDown } from '../icons/Arrow.js'
-
-import { DropMenu } from '../DropMenu'
 import { Button } from '../Button'
 import { ButtonStrip } from '../ButtonStrip'
-
+import { buttonVariantPropType } from '../common-prop-types'
+import { DropMenu } from '../DropMenu'
+import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
 import { spacers } from '../theme.js'
 
 const rightButton = css.resolve`
@@ -88,9 +87,9 @@ SplitButton.propTypes = {
     small: propTypes.bool,
     large: propTypes.bool,
 
-    primary: propTypes.bool,
-    secondary: propTypes.bool,
-    destructive: propTypes.bool,
+    primary: buttonVariantPropType,
+    secondary: buttonVariantPropType,
+    destructive: buttonVariantPropType,
     disabled: propTypes.bool,
 }
 
