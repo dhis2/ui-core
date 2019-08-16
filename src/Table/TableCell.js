@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
-import { TableCellText } from './TableCellText'
+import { TableCellText } from './TableCellText.js'
 
 const tableCellStyles = css`
     td {

@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import { instanceOfComponent } from '@dhis2/prop-types'
 
-import { TableRow } from './TableRow'
+import { TableRow } from './TableRow.js'
 
 export const TableBody = ({ children }) => <tbody>{children}</tbody>
 

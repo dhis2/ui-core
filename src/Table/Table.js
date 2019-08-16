@@ -3,9 +3,9 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import { instanceOfComponent } from '@dhis2/prop-types'
 
-import { TableBody } from './TableBody'
-import { TableFoot } from './TableFoot'
-import { TableHead } from './TableHead'
+import { TableBody } from './TableBody.js'
+import { TableFoot } from './TableFoot.js'
+import { TableHead } from './TableHead.js'
 
 const tableStyles = css`
     table {

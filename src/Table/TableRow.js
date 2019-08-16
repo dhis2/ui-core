@@ -3,8 +3,8 @@ import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 import { instanceOfComponent } from '@dhis2/prop-types'
 
-import { TableCell } from './TableCell'
-import { TableCellHead } from './TableCellHead'
+import { TableCell } from './TableCell.js'
+import { TableCellHead } from './TableCellHead.js'
 
 const tableRowStyles = css`
     tr {
