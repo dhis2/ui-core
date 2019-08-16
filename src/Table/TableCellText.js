@@ -2,8 +2,6 @@ import React from 'react'
 import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
 
-import { Consumer } from './tableContext'
-
 const tableCellTextStyles = css`
     span {
         display: inline-block;
@@ -17,41 +15,16 @@ const tableCellTextStyles = css`
     }
 `
 
-const tableCellTextStylesResponsive = css`
-    @media (max-width: 768px) {
-        :global(tbody) span {
-            padding: 3px 0;
-        }
-    }
-`
-
-const TableCellTextStatic = ({ children }) => (
-    <span>
-        {children}
-        <style jsx>{tableCellTextStyles}</style>
-    </span>
-)
-
-const TableCellTextResponsive = ({ children }) => (
-    <span>
-        {children}
-        <style jsx>{tableCellTextStyles}</style>
-        <style jsx>{tableCellTextStylesResponsive}</style>
-    </span>
-)
-
 export const TableCellText = ({ children }) => (
-    <Consumer>
-        {({ staticLayout }) => {
-            const TableCellTextComponent = staticLayout
-                ? TableCellTextStatic
-                : TableCellTextResponsive
-
-            return <TableCellTextComponent children={children} />
-        }}
-    </Consumer>
+    <span>
+        {children}
+        <style jsx>{tableCellTextStyles}</style>
+    </span>
 )
 
 TableCellText.propTypes = {
-    children: propTypes.element,
+    children: propTypes.oneOfType([
+        propTypes.node,
+        propTypes.arrayOf(propTypes.node),
+    ]).isRequired,
 }

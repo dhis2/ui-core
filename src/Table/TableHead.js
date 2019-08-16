@@ -1,36 +1,11 @@
 import React from 'react'
-import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
+import css from 'styled-jsx/css'
 
-import { Consumer } from './tableContext'
 import { TableRowHead } from './TableRowHead'
 import { instanceOfComponent } from '../prop-validators/instanceOfComponent'
 
-const tableHeadStylesResponsive = css`
-    @media (max-width: 768px) {
-        thead {
-            display: none;
-        }
-    }
-`
-
-const THeadStatic = ({ children }) => <thead>{children}</thead>
-
-const THeadResponsive = ({ children }) => (
-    <thead>
-        {children}
-        <style jsx>{tableHeadStylesResponsive}</style>
-    </thead>
-)
-
-export const TableHead = ({ children }) => (
-    <Consumer>
-        {({ staticLayout }) => {
-            const THead = staticLayout ? THeadStatic : THeadResponsive
-            return <THead>{children}</THead>
-        }}
-    </Consumer>
-)
+export const TableHead = ({ children }) => <thead>{children}</thead>
 
 const childPropType = instanceOfComponent(TableRowHead)
 

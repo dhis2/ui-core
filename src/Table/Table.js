@@ -1,8 +1,7 @@
 import React from 'react'
-import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
+import css from 'styled-jsx/css'
 
-import { Consumer } from './tableContext'
 import { TableBody } from './TableBody'
 import { TableFoot } from './TableFoot'
 import { TableHead } from './TableHead'
@@ -18,40 +17,12 @@ const tableStyles = css`
         vertical-align: top;
     }
 `
-
-const tableStylesResponsive = css`
-    @media (max-width: 768px) {
-        table {
-            display: block;
-            border: 0;
-        }
-    }
-`
-
-const TableRepsonsive = ({ children }) => (
-    <table>
-        {children}
-
-        <style jsx>{tableStyles}</style>
-        <style jsx>{tableStylesResponsive}</style>
-    </table>
-)
-
-const TableStatic = ({ children }) => (
-    <table>
-        {children}
-
-        <style jsx>{tableStyles}</style>
-    </table>
-)
-
 export const Table = ({ children }) => (
-    <Consumer>
-        {({ staticLayout }) => {
-            const TableComponent = staticLayout ? TableStatic : TableRepsonsive
-            return <TableComponent>{children}</TableComponent>
-        }}
-    </Consumer>
+    <table>
+        {children}
+
+        <style jsx>{tableStyles}</style>
+    </table>
 )
 
 const childPropType = propTypes.oneOfType([

@@ -1,46 +1,8 @@
-import React from 'react'
-import propTypes from 'prop-types'
-
-import { Provider } from './tableContext'
-import { TableBody } from './TableBody'
-import { TableCell } from './TableCell'
-import { TableCellHead } from './TableCellHead'
-import { Table as TableComponent } from './Table'
-import { TableFoot } from './TableFoot'
-import { TableHead } from './TableHead'
-import { TableRow } from './TableRow'
-import { TableRowHead } from './TableRowHead'
-import { extractHeaderLabels } from './extractHeaderLabels'
-
-const Table = ({ children, staticLayout }) => {
-    const headerLabels = staticLayout ? null : extractHeaderLabels(children)
-
-    return (
-        <div>
-            <Provider value={{ staticLayout, headerLabels }}>
-                <TableComponent>{children}</TableComponent>
-            </Provider>
-
-            <style jsx>{`
-                div {
-                    overflow-x: auto;
-                }
-            `}</style>
-        </div>
-    )
-}
-
-Table.propTypes = {
-    staticLayout: propTypes.bool,
-}
-
-export {
-    Table,
-    TableRow,
-    TableRowHead,
-    TableHead,
-    TableBody,
-    TableFoot,
-    TableCell,
-    TableCellHead,
-}
+export { TableBody } from './TableBody'
+export { TableCell } from './TableCell'
+export { TableCellHead } from './TableCellHead'
+export { Table } from './Table'
+export { TableFoot } from './TableFoot'
+export { TableHead } from './TableHead'
+export { TableRow } from './TableRow'
+export { TableRowHead } from './TableRowHead'
