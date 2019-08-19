@@ -5,7 +5,7 @@ import cx from 'classnames'
 import { colors, theme, spacers } from '../theme.js'
 
 export const Label = ({ disabled, required, children }) => {
-    const className = cx('label', { disabled, required, disabled })
+    const className = cx('label', { disabled, required })
 
     return (
         <span className={className}>
