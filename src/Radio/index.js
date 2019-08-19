@@ -25,6 +25,7 @@ const icons = css.resolve`
     }
 
     .disabled {
+        color: ${theme.disabled};
         fill: ${theme.disabled};
     }
 
@@ -159,7 +160,7 @@ class Radio extends Component {
 
                 {icon}
 
-                <span className={cx({ required })}>{label}</span>
+                <span className={cx({ required, disabled })}>{label}</span>
 
                 {icons.styles}
                 <style jsx>{styles}</style>

@@ -84,7 +84,9 @@ class Checkbox extends Component {
 
                     {icon}
 
-                    <Label required={required}>{label}</Label>
+                    <Label required={required} disabled={disabled}>
+                        {label}
+                    </Label>
 
                     <style jsx>{`
                         label {
