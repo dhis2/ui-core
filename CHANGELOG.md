@@ -1,3 +1,10 @@
+## [3.7.2](https://github.com/dhis2/ui/compare/v3.7.1...v3.7.2) (2019-08-19)
+
+
+### Bug Fixes
+
+* use correct disabled style & fix checkbox and radio disabled style ([#379](https://github.com/dhis2/ui/issues/379)) ([8755a04](https://github.com/dhis2/ui/commit/8755a04)), closes [dhis2/design-system#6](https://github.com/dhis2/design-system/issues/6)
+
 ## [3.7.1](https://github.com/dhis2/ui/compare/v3.7.0...v3.7.1) (2019-08-01)
 
 
