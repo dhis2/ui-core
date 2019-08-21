@@ -45,3 +45,39 @@ storiesOf('RadioGroup', module)
             required
         />
     ))
+    .add('Statuses', () => (
+        <>
+            <RadioGroup
+                name="valid"
+                label="Valid"
+                value="red"
+                options={[
+                    { label: 'The red pill', value: 'red' },
+                    { label: 'The blue pill', value: 'blue' },
+                ]}
+                valid
+            />
+            <br />
+            <RadioGroup
+                name="warning"
+                label="Warning"
+                value="red"
+                options={[
+                    { label: 'The red pill', value: 'red' },
+                    { label: 'The blue pill', value: 'blue' },
+                ]}
+                warning
+            />
+            <br />
+            <RadioGroup
+                name="error"
+                label="Error"
+                value="red"
+                options={[
+                    { label: 'The red pill', value: 'red' },
+                    { label: 'The blue pill', value: 'blue' },
+                ]}
+                error
+            />
+        </>
+    ))
