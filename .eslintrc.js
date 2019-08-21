@@ -2,5 +2,5 @@ const { config } = require('@dhis2/cli-style')
 
 module.exports = {
     parser: 'babel-eslint',
-    extends: ['react-app', config.eslint],
+    extends: ['eslint:recommended', 'plugin:react/recommended', config.eslint],
 }
