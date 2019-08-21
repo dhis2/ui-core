@@ -18,16 +18,19 @@ const Help = ({ children, valid, error, warning, className, indent }) => (
 
         <style jsx>{`
             p {
-                height: 12px;
                 font-size: 12px;
-                margin: ${spacers.dp8} 0 0 0;
                 line-height: 12px;
-                cursor: help;
+                margin: 0;
                 color: ${theme.default};
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                cursor: help;
+                padding-top: ${spacers.dp8};
             }
 
             .indent {
-                margin-left: ${spacers.dp16};
+                padding-left: ${spacers.dp16};
             }
 
             .valid {

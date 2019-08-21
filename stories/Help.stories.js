@@ -18,3 +18,8 @@ storiesOf('Help', module)
             <Help indent={false}>My identation has been set to false</Help>
         </>
     ))
+    .add('Text overflow', () => (
+        <div style={{ width: 200 }}>
+            <Help>I take up more space than my container</Help>
+        </div>
+    ))
