@@ -2,9 +2,9 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { FileField } from '../src'
 
-import markdown from './info/atoms/file.md'
+import markdown from './info/atoms/fileField.md'
 
-storiesOf('File', module)
+storiesOf('FileField', module)
     .addParameters({
         notes: {
             markdown,
@@ -18,7 +18,7 @@ storiesOf('File', module)
         />
     ))
     .add('Required', () => <FileField label="upload something" required />)
-    .add('Statusses', () => (
+    .add('Statuses', () => (
         <>
             <FileField label="Valid" valid />
             <FileField label="Warning" warning />
