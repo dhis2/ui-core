@@ -5,26 +5,32 @@ import React from 'react'
 import { statusPropType } from '../common-prop-types'
 import { spacers, theme } from '../theme.js'
 
-const Help = ({ children, valid, error, warning, className }) => (
+const Help = ({ children, valid, error, warning, className, indent }) => (
     <p
         className={cx(className, {
             valid,
             error,
             warning,
+            indent,
         })}
     >
         {children}
 
         <style jsx>{`
             p {
-                height: 12px;
-                padding-top: ${spacers.dp8};
-                padding-left: ${spacers.dp16};
                 font-size: 12px;
-                margin: 0;
                 line-height: 12px;
-                cursor: help;
+                margin: 0;
                 color: ${theme.default};
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                cursor: help;
+                padding-top: ${spacers.dp8};
+            }
+
+            .indent {
+                padding-left: ${spacers.dp16};
             }
 
             .valid {
@@ -42,14 +48,17 @@ const Help = ({ children, valid, error, warning, className }) => (
     </p>
 )
 
-Help.defaultProps = {}
-
 Help.propTypes = {
     className: propTypes.string,
     children: propTypes.string.isRequired,
     error: statusPropType,
     valid: statusPropType,
     warning: statusPropType,
+    indent: propTypes.bool,
+}
+
+Help.defaultProps = {
+    indent: true,
 }
 
 export { Help }

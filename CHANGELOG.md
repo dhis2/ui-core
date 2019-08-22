@@ -1,3 +1,10 @@
+## [3.7.3](https://github.com/dhis2/ui/compare/v3.7.2...v3.7.3) (2019-08-22)
+
+
+### Bug Fixes
+
+* **help:** spacing ([#380](https://github.com/dhis2/ui/issues/380)) ([c9fd20a](https://github.com/dhis2/ui/commit/c9fd20a))
+
 ## [3.7.2](https://github.com/dhis2/ui/compare/v3.7.1...v3.7.2) (2019-08-19)
 
 
