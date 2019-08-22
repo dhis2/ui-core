@@ -1,3 +1,10 @@
+# [3.8.0](https://github.com/dhis2/ui/compare/v3.7.3...v3.8.0) (2019-08-22)
+
+
+### Features
+
+* **form-control:** introduce FormControl component ([#382](https://github.com/dhis2/ui/issues/382)) ([0dfab15](https://github.com/dhis2/ui/commit/0dfab15))
+
 ## [3.7.3](https://github.com/dhis2/ui/compare/v3.7.2...v3.7.3) (2019-08-22)
 
 
