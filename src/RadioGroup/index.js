@@ -15,13 +15,13 @@ const stackedRadio = resolve`
 `
 
 const RadioGroup = ({
+    label,
+    name,
+    options,
     className,
     error,
     inline,
-    label,
-    name,
     onChange,
-    options,
     required,
     valid,
     value,
@@ -78,12 +78,12 @@ const RadioGroup = ({
                     color: ${theme.valid};
                 }
 
-                .error {
-                    color: ${theme.error};
-                }
-
                 .warning {
                     color: ${theme.warning};
+                }
+
+                .error {
+                    color: ${theme.error};
                 }
             `}</style>
         </>
@@ -91,19 +91,20 @@ const RadioGroup = ({
 }
 
 RadioGroup.propTypes = {
-    className: propTypes.string,
-    error: statusPropType,
-    helpText: propTypes.string,
-    inline: propTypes.bool,
     label: propTypes.string.isRequired,
     name: propTypes.string.isRequired,
-    onChange: propTypes.func,
     options: propTypes.arrayOf(
         propTypes.shape({
             label: propTypes.string.isRequired,
             value: propTypes.any.isRequired,
         })
     ).isRequired,
+
+    className: propTypes.string,
+    error: statusPropType,
+    helpText: propTypes.string,
+    inline: propTypes.bool,
+    onChange: propTypes.func,
     required: propTypes.bool,
     valid: statusPropType,
     value: propTypes.any,
@@ -111,7 +112,6 @@ RadioGroup.propTypes = {
 }
 
 RadioGroup.defaultProps = {
-    required: false,
     inline: true,
 }
 
