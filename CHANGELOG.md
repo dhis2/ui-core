@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/dhis2/ui/compare/v3.8.0...v3.9.0) (2019-08-22)
+
+
+### Features
+
+* **radio-group:** introduce RadioGroup component ([#381](https://github.com/dhis2/ui/issues/381)) ([6a88a58](https://github.com/dhis2/ui/commit/6a88a58))
+
 # [3.8.0](https://github.com/dhis2/ui/compare/v3.7.3...v3.8.0) (2019-08-22)
 
 
