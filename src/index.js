@@ -19,10 +19,10 @@ export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from './Logo'
 export { MenuList } from './MenuList'
 export { MenuItem } from './MenuItem'
 export { Radio } from './Radio'
-export { RadioGroup } from './RadioGroup'
 export { ScreenCover } from './ScreenCover'
 export { SelectField } from './SelectField'
 export { Switch } from './Switch'
+export { ToggleGroup } from './ToggleGroup'
 
 /* molecules */
 export { ButtonStrip } from './ButtonStrip'
