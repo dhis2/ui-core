@@ -37,9 +37,10 @@
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
     "eslint-plugin-react": "^7.14.3",
-    "react": "16.3",
+    "react": "16.9.0",
     "react-dev-utils": "^9.0.3",
-    "react-dom": "16.3",
+    "react-dom": "16.9.0",
+    "react-storybook-addon-chapters": "^3.1.5",
     "storybook-addon-jsx": "^7.1.5",
     "storybook-addon-react-docgen": "^1.2.3",
     "typeface-roboto": "^0.0.75"
