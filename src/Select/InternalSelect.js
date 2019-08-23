@@ -51,7 +51,7 @@ const styles = css`
     }
 `
 
-export class Select extends Component {
+export class InternalSelect extends Component {
     selectRef = createRef()
 
     componentDidMount() {
@@ -99,7 +99,7 @@ export class Select extends Component {
     }
 }
 
-Select.propTypes = {
+InternalSelect.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
 
