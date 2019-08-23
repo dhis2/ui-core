@@ -2,18 +2,18 @@ import { storiesOf } from '@storybook/react'
 import { resolve } from 'styled-jsx/css'
 import React, { Fragment } from 'react'
 
-import { InputField, Help } from '../src'
+import { Input, Help } from '../src'
 import { colors } from '../src/theme'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
-createStory('InputField: Outlined', {
+createStory('Input: Outlined', {
     label: 'Default label',
     name: 'Default',
     onChange: logger,
 })
 
-createStory('InputField: Filled', {
+createStory('Input: Filled', {
     name: 'Default',
     label: 'Default label',
     onChange: logger,
@@ -22,46 +22,42 @@ createStory('InputField: Filled', {
 
 function createStory(name, props) {
     storiesOf(name, module)
-        .add('No placeholder, no value', () => <InputField {...props} />)
+        .add('No placeholder, no value', () => <Input {...props} />)
 
         .add('Placeholder, no value', () => (
-            <InputField {...props} placeholder="Hold the place" />
+            <Input {...props} placeholder="Hold the place" />
         ))
 
         .add('With Help text', () => (
             <>
-                <InputField {...props} placeholder="Hold the place" />
+                <Input {...props} placeholder="Hold the place" />
                 <Help {...props}>A helpful text.</Help>
             </>
         ))
 
         .add('With value', () => (
-            <InputField
+            <Input
                 {...props}
                 value="This is set through the value prop, which means the component is controlled."
             />
         ))
 
-        .add('Focus', () => <InputField {...props} initialFocus />)
+        .add('Focus', () => <Input {...props} initialFocus />)
 
         .add('Status: Valid', () => (
-            <InputField {...props} value="This value is valid" valid />
+            <Input {...props} value="This value is valid" valid />
         ))
 
         .add('Status: Warning', () => (
-            <InputField
-                {...props}
-                value="This value produces a warning"
-                warning
-            />
+            <Input {...props} value="This value produces a warning" warning />
         ))
 
         .add('Status: Error', () => (
-            <InputField {...props} value="This value produces an error" error />
+            <Input {...props} value="This value produces an error" error />
         ))
 
         .add('Status: Loading', () => (
-            <InputField
+            <Input
                 {...props}
                 value="This value produces a loading state"
                 loading
@@ -69,15 +65,15 @@ function createStory(name, props) {
         ))
 
         .add('Disabled', () => (
-            <InputField {...props} value="This field is disabled" disabled />
+            <Input {...props} value="This field is disabled" disabled />
         ))
 
         .add('Dense', () => (
-            <InputField {...props} value="This field is dense" dense />
+            <Input {...props} value="This field is dense" dense />
         ))
 
         .add('Label too long', () => (
-            <InputField
+            <Input
                 {...props}
                 label="This label is too long in order to show on a single line of the input field. It should be cropped, not in an extra line. It should always be shorter than this!"
                 dense
@@ -86,7 +82,7 @@ function createStory(name, props) {
         ))
 
         .add('Value too long', () => (
-            <InputField
+            <Input
                 {...props}
                 value="This value is too long in order to show on a single line of the input field. It should stay on one line, not in an extra line and which wouldn't look like a std input"
                 dense
@@ -94,5 +90,5 @@ function createStory(name, props) {
             />
         ))
 
-        .add('Required', () => <InputField {...props} required />)
+        .add('Required', () => <Input {...props} required />)
 }

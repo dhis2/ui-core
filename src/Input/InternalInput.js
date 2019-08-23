@@ -42,7 +42,7 @@ const styles = css`
     }
 `
 
-export class Input extends Component {
+export class InternalInput extends Component {
     inputRef = React.createRef()
 
     componentDidMount() {
@@ -83,7 +83,7 @@ export class Input extends Component {
     }
 }
 
-Input.propTypes = {
+InternalInput.propTypes = {
     name: propTypes.string.isRequired,
     type: propTypes.string.isRequired,
 
