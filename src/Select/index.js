@@ -4,7 +4,7 @@ import React from 'react'
 import { statusPropType } from '../common-prop-types'
 import { LabelFilled, LabelOutlined } from '../FieldLabel'
 import { ArrowDown } from '../icons/Arrow'
-import { Select } from './Select'
+import { InternalSelect } from './InternalSelect'
 
 const TailIcon = () => (
     <div>
@@ -19,7 +19,7 @@ const TailIcon = () => (
     </div>
 )
 
-class SelectField extends React.Component {
+class Select extends React.Component {
     state = {
         focus: this.props.initialFocus,
     }
@@ -79,7 +79,7 @@ class SelectField extends React.Component {
                 loading={loading}
                 dense={dense}
             >
-                <Select
+                <InternalSelect
                     focus={focus}
                     name={name}
                     value={value}
@@ -92,7 +92,7 @@ class SelectField extends React.Component {
                     onBlur={this.onBlur}
                 >
                     {children}
-                </Select>
+                </InternalSelect>
 
                 <TailIcon />
             </Container>
@@ -100,7 +100,7 @@ class SelectField extends React.Component {
     }
 }
 
-SelectField.propTypes = {
+Select.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     label: propTypes.string.isRequired,
@@ -134,4 +134,4 @@ SelectField.propTypes = {
     onBlur: propTypes.func,
 }
 
-export { SelectField }
+export { Select }
