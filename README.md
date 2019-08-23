@@ -176,3 +176,4 @@ Pass that to the component through `className='fix'`, and it should
 negate the troublesome CSS. Once the global rules in the App has been
 removed, it is possible to remove the `className='fix'` as well. This
 should be considered a temporary measure.
+
