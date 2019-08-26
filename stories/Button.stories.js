@@ -1,10 +1,14 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { Button, Divider } from '../src'
+import JSXStyle from 'styled-jsx/style'
 
-import markdown from './info/atoms/button.md'
+import { withInfo } from '@storybook/addon-info'
+import { storiesOf, addDecorator, addParameters } from '@storybook/react'
+
+import { Button, CssReset } from '../src'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
+addDecorator(withInfo)
+addParameters({ options: { showPanel: false } })
 
 createStory('Button: Basic', {
     onClick: logger,
@@ -35,13 +39,29 @@ createStory('Button: Destructive', {
 
 function createStory(name, props) {
     storiesOf(name, module)
-        .addParameters({
-            notes: {
-                markdown,
+        .add(
+            'Default',
+            function ButtonStory() {
+                return <Button {...props}>Label me!</Button>
             },
-        })
+            {
+                info: {
+                    inline: true,
+                    header: false,
+                    source: false,
+                    text: `
+                        ## Default button
 
-        .add('Default', () => <Button {...props}>Label me!</Button>)
+                        Some text
+                    `,
+                    propTablesExclude: [
+                        CssReset,
+                        JSXStyle,
+                        function Unknown() {},
+                    ],
+                },
+            }
+        )
 
         .add('Disabled', () => (
             <Button {...props} disabled>

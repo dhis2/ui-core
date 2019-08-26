@@ -1,6 +1,5 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-
 import { MenuList, MenuItem, Divider, Switch } from '../src'
 
 const Wrapper = fn => <div style={{ width: '358px' }}>{fn()}</div>
