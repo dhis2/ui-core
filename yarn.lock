@@ -974,10 +974,10 @@
     semver "^6.2.0"
     yargs "^13.3.0"
 
-"@dhis2/prop-types@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.0.3.tgz#6230616b355c80373a7bd05af395a7eba666322a"
-  integrity sha512-2F0PVo3S0jRBMmRGsY54a3Cn6lAW4D5Ikp1EQtm6nLiCKUdzq9XBt+og1oqYtzm63hUT13U1mOK80JHbsOlpOg==
+"@dhis2/prop-types@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.0.4.tgz#37eb55a3baf7bc9cf76e19222ad4e2d0e465be8f"
+  integrity sha512-BiDR0KKn5fyUQ12u6XPq9pLs/tKR3hwiLzSWc+wVxN/enwgb8XUnLpt+Schc/ZBZq+sGozeUfPbFMRqIsifsIA==
 
 "@emotion/cache@^10.0.15":
   version "10.0.15"
