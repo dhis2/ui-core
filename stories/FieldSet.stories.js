@@ -1,21 +1,21 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { ToggleGroup, Radio, Switch, Checkbox, FormControl, Help } from '../src'
+import { FieldSet, Radio, Switch, Checkbox, FormControl, Help } from '../src'
 
-import markdown from './info/molecules/toggleGroup.md'
+import markdown from './info/atoms/fieldSet.md'
 
 const onChange = () => {
     console.log('Radio was clicked, nothing else will happen')
 }
 
-storiesOf('ToggleGroup', module)
+storiesOf('FieldSet', module)
     .addParameters({
         notes: {
             markdown,
         },
     })
     .add('Default - with Radios', () => (
-        <ToggleGroup>
+        <FieldSet label="Choose something">
             <Radio
                 onChange={onChange}
                 name="radio"
@@ -35,10 +35,10 @@ storiesOf('ToggleGroup', module)
                 value="third"
                 label="Third"
             />
-        </ToggleGroup>
+        </FieldSet>
     ))
     .add('Default - with Switches', () => (
-        <ToggleGroup>
+        <FieldSet label="Choose something">
             <Switch
                 onChange={onChange}
                 name="switch"
@@ -58,10 +58,10 @@ storiesOf('ToggleGroup', module)
                 value="third"
                 label="Third"
             />
-        </ToggleGroup>
+        </FieldSet>
     ))
     .add('Default - with Checkboxes', () => (
-        <ToggleGroup>
+        <FieldSet label="Choose something">
             <Checkbox
                 onChange={onChange}
                 name="checkbox"
@@ -81,10 +81,10 @@ storiesOf('ToggleGroup', module)
                 value="third"
                 label="Third"
             />
-        </ToggleGroup>
+        </FieldSet>
     ))
     .add('Stacked - with Radios', () => (
-        <ToggleGroup stacked>
+        <FieldSet stacked label="Choose something">
             <Radio
                 onChange={onChange}
                 name="radio"
@@ -104,10 +104,10 @@ storiesOf('ToggleGroup', module)
                 value="third"
                 label="Third"
             />
-        </ToggleGroup>
+        </FieldSet>
     ))
     .add('Stacked - with Switches', () => (
-        <ToggleGroup stacked>
+        <FieldSet stacked label="Choose something">
             <Switch
                 onChange={onChange}
                 name="switch"
@@ -127,10 +127,10 @@ storiesOf('ToggleGroup', module)
                 value="third"
                 label="Third"
             />
-        </ToggleGroup>
+        </FieldSet>
     ))
     .add('Stacked - with Checkboxes', () => (
-        <ToggleGroup stacked>
+        <FieldSet stacked label="Choose something">
             <Checkbox
                 onChange={onChange}
                 name="checkbox"
@@ -150,32 +150,5 @@ storiesOf('ToggleGroup', module)
                 value="third"
                 label="Third"
             />
-        </ToggleGroup>
-    ))
-    .add('In FormControl with Label and Help', () => (
-        <FormControl>
-            <ToggleGroup.Label>Please choose an option</ToggleGroup.Label>
-            <ToggleGroup>
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="first"
-                    label="First"
-                />
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="second"
-                    label="Second"
-                    checked
-                />
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="third"
-                    label="Third"
-                />
-            </ToggleGroup>
-            <Help indent={false}>I am very helpful text</Help>
-        </FormControl>
+        </FieldSet>
     ))
