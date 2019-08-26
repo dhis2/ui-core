@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { SelectField, Help } from '../src'
+import { Select, Help } from '../src'
 
 const logger = ({ target }) =>
     console.info(`${target.name}: ${target.value}`, target)
@@ -17,13 +17,13 @@ const options = [
     </option>,
 ]
 
-createStory('SelectField: Outlined', {
+createStory('Select: Outlined', {
     name: 'Default',
     label: 'Default label',
     onChange: logger,
 })
 
-createStory('SelectField: Filled', {
+createStory('Select: Filled', {
     name: 'Default',
     label: 'Default label',
     onChange: logger,
@@ -32,77 +32,77 @@ createStory('SelectField: Filled', {
 
 function createStory(name, props) {
     storiesOf(name, module)
-        .add('No value', () => <SelectField {...props}>{options}</SelectField>)
+        .add('No value', () => <Select {...props}>{options}</Select>)
 
         .add('With value', () => (
-            <SelectField {...props} value="1">
+            <Select {...props} value="1">
                 {options}
-            </SelectField>
+            </Select>
         ))
 
         .add('With Help text', () => (
             <>
-                <SelectField {...props}>{options}</SelectField>
+                <Select {...props}>{options}</Select>
                 <Help {...props}>A helpful text.</Help>
             </>
         ))
 
         .add('With valid status', () => (
-            <SelectField {...props} value="1" valid>
+            <Select {...props} value="1" valid>
                 {options}
-            </SelectField>
+            </Select>
         ))
 
         .add('With warning status', () => (
-            <SelectField {...props} value="1" warning>
+            <Select {...props} value="1" warning>
                 {options}
-            </SelectField>
+            </Select>
         ))
 
         .add('With error status', () => (
-            <SelectField {...props} value="2" error>
+            <Select {...props} value="2" error>
                 {options}
-            </SelectField>
+            </Select>
         ))
 
         .add('With loading status', () => (
-            <SelectField {...props} value="1" loading>
+            <Select {...props} value="1" loading>
                 {options}
-            </SelectField>
+            </Select>
         ))
 
         .add('Disabled', () => (
-            <SelectField {...props} disabled>
+            <Select {...props} disabled>
                 {options}
-            </SelectField>
+            </Select>
         ))
 
         .add('Focus', () => (
-            <SelectField {...props} initialFocus>
+            <Select {...props} initialFocus>
                 {options}
-            </SelectField>
+            </Select>
         ))
 
         .add('Dense', () => (
-            <SelectField {...props} dense>
+            <Select {...props} dense>
                 {options}
-            </SelectField>
+            </Select>
         ))
 
         .add('Required', () => (
-            <SelectField {...props} required>
+            <Select {...props} required>
                 {options}
-            </SelectField>
+            </Select>
         ))
 
         .add('With text too long to display it', () => (
-            <SelectField {...props} value="2">
+            <Select {...props} value="2">
                 {options}
-            </SelectField>
+            </Select>
         ))
 
         .add('With optgroups', () => (
-            <SelectField {...props} value="4">
+            <Select {...props} value="4">
                 <option value="0">Zero</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -110,6 +110,6 @@ function createStory(name, props) {
                     <option value="3">Three</option>
                     <option value="4">Four</option>
                 </optgroup>
-            </SelectField>
+            </Select>
         ))
 }

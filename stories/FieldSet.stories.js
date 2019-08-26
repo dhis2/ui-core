@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FieldSet, Radio, Switch, Checkbox, FormControl, Help } from '../src'
+import { FieldSet, Radio, Switch, Checkbox } from '../src'
 
 import markdown from './info/atoms/fieldSet.md'
 
