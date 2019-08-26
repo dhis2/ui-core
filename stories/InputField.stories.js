@@ -89,4 +89,11 @@ function createStory(name, props) {
         ))
 
         .add('Required', () => <Input {...props} required />)
+
+        .add('Demo of different behavior', () => (
+            <>
+                <p>No value no focus</p>
+                <Input {...props} />
+            </>
+        ))
 }

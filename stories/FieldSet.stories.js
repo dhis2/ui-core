@@ -152,3 +152,117 @@ storiesOf('FieldSet', module)
             />
         </FieldSet>
     ))
+    .add('Required', () => (
+        <FieldSet label="Choose something" required>
+            <Radio
+                onChange={onChange}
+                name="radio"
+                value="first"
+                label="First"
+            />
+            <Radio
+                onChange={onChange}
+                name="radio"
+                value="second"
+                label="Second"
+                checked
+            />
+            <Radio
+                onChange={onChange}
+                name="radio"
+                value="third"
+                label="Third"
+            />
+        </FieldSet>
+    ))
+    .add('Statuses', () => (
+        <>
+            <FieldSet label="Choose something - default">
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="first"
+                    label="First"
+                />
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="second"
+                    label="Second"
+                    checked
+                />
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="third"
+                    label="Third"
+                />
+            </FieldSet>
+            <br />
+            <FieldSet label="Choose something - valid" valid>
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="first"
+                    label="First"
+                />
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="second"
+                    label="Second"
+                    checked
+                />
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="third"
+                    label="Third"
+                />
+            </FieldSet>
+            <br />
+            <FieldSet label="Choose something - warning" warning>
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="first"
+                    label="First"
+                />
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="second"
+                    label="Second"
+                    checked
+                />
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="third"
+                    label="Third"
+                />
+            </FieldSet>
+            <br />
+            <FieldSet label="Choose something - error" error>
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="first"
+                    label="First"
+                />
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="second"
+                    label="Second"
+                    checked
+                />
+                <Radio
+                    onChange={onChange}
+                    name="radio"
+                    value="third"
+                    label="Third"
+                />
+            </FieldSet>
+        </>
+    ))
