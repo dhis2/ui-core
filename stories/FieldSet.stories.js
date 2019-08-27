@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FieldSet, Radio, Switch, Checkbox } from '../src'
+import { Help, FormControl, FieldSet, Radio, Input } from '../src'
 
 import markdown from './info/atoms/fieldSet.md'
 
@@ -15,254 +15,62 @@ storiesOf('FieldSet', module)
         },
     })
     .add('Default - with Radios', () => (
-        <FieldSet label="Choose something">
-            <Radio
-                onChange={onChange}
-                name="radio"
-                value="first"
-                label="First"
-            />
-            <Radio
-                onChange={onChange}
-                name="radio"
-                value="second"
-                label="Second"
-                checked
-            />
-            <Radio
-                onChange={onChange}
-                name="radio"
-                value="third"
-                label="Third"
-            />
-        </FieldSet>
-    ))
-    .add('Default - with Switches', () => (
-        <FieldSet label="Choose something">
-            <Switch
-                onChange={onChange}
-                name="switch"
-                value="first"
-                label="First"
-            />
-            <Switch
-                onChange={onChange}
-                name="switch"
-                value="second"
-                label="Second"
-                checked
-            />
-            <Switch
-                onChange={onChange}
-                name="switch"
-                value="third"
-                label="Third"
-            />
-        </FieldSet>
-    ))
-    .add('Default - with Checkboxes', () => (
-        <FieldSet label="Choose something">
-            <Checkbox
-                onChange={onChange}
-                name="checkbox"
-                value="first"
-                label="First"
-            />
-            <Checkbox
-                onChange={onChange}
-                name="checkbox"
-                value="second"
-                label="Second"
-                checked
-            />
-            <Checkbox
-                onChange={onChange}
-                name="checkbox"
-                value="third"
-                label="Third"
-            />
-        </FieldSet>
-    ))
-    .add('Stacked - with Radios', () => (
-        <FieldSet stacked label="Choose something">
-            <Radio
-                onChange={onChange}
-                name="radio"
-                value="first"
-                label="First"
-            />
-            <Radio
-                onChange={onChange}
-                name="radio"
-                value="second"
-                label="Second"
-                checked
-            />
-            <Radio
-                onChange={onChange}
-                name="radio"
-                value="third"
-                label="Third"
-            />
-        </FieldSet>
-    ))
-    .add('Stacked - with Switches', () => (
-        <FieldSet stacked label="Choose something">
-            <Switch
-                onChange={onChange}
-                name="switch"
-                value="first"
-                label="First"
-            />
-            <Switch
-                onChange={onChange}
-                name="switch"
-                value="second"
-                label="Second"
-                checked
-            />
-            <Switch
-                onChange={onChange}
-                name="switch"
-                value="third"
-                label="Third"
-            />
-        </FieldSet>
-    ))
-    .add('Stacked - with Checkboxes', () => (
-        <FieldSet stacked label="Choose something">
-            <Checkbox
-                onChange={onChange}
-                name="checkbox"
-                value="first"
-                label="First"
-            />
-            <Checkbox
-                onChange={onChange}
-                name="checkbox"
-                value="second"
-                label="Second"
-                checked
-            />
-            <Checkbox
-                onChange={onChange}
-                name="checkbox"
-                value="third"
-                label="Third"
-            />
-        </FieldSet>
-    ))
-    .add('Required', () => (
-        <FieldSet label="Choose something" required>
-            <Radio
-                onChange={onChange}
-                name="radio"
-                value="first"
-                label="First"
-            />
-            <Radio
-                onChange={onChange}
-                name="radio"
-                value="second"
-                label="Second"
-                checked
-            />
-            <Radio
-                onChange={onChange}
-                name="radio"
-                value="third"
-                label="Third"
-            />
-        </FieldSet>
-    ))
-    .add('Statuses', () => (
         <>
-            <FieldSet label="Choose something - default">
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="first"
-                    label="First"
-                />
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="second"
-                    label="Second"
-                    checked
-                />
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="third"
-                    label="Third"
-                />
+            <FieldSet label="1. Choose something">
+                <FormControl>
+                    <Radio
+                        onChange={onChange}
+                        name="radio"
+                        value="first"
+                        label="First"
+                    />
+                </FormControl>
+                <FormControl>
+                    <Radio
+                        onChange={onChange}
+                        name="radio"
+                        value="second"
+                        label="Second"
+                    />
+                </FormControl>
+                <FormControl>
+                    <Radio
+                        onChange={onChange}
+                        name="radio"
+                        value="third"
+                        label="Third"
+                        checked
+                        error
+                    />
+                    <Help error>Help! There is a problem with this field</Help>
+                </FormControl>
             </FieldSet>
-            <br />
-            <FieldSet label="Choose something - valid" valid>
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="first"
-                    label="First"
-                />
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="second"
-                    label="Second"
-                    checked
-                />
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="third"
-                    label="Third"
-                />
+
+            <FieldSet label="2. This set has two inputs">
+                <FormControl>
+                    <Input label="muh label" error value="Error val" />
+                    <Help error>This input has an error</Help>
+                </FormControl>
+
+                <FormControl>
+                    <Input label="muh other label" valid value="valid value!" />
+                    <Help valid>This input does not have an error</Help>
+                </FormControl>
             </FieldSet>
-            <br />
-            <FieldSet label="Choose something - warning" warning>
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="first"
-                    label="First"
-                />
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="second"
-                    label="Second"
-                    checked
-                />
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="third"
-                    label="Third"
-                />
-            </FieldSet>
-            <br />
-            <FieldSet label="Choose something - error" error>
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="first"
-                    label="First"
-                />
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="second"
-                    label="Second"
-                    checked
-                />
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="third"
-                    label="Third"
-                />
+
+            <FieldSet>
+                <FormControl>
+                    <Input
+                        label="This and the next field are in a set without a label"
+                        value=""
+                    />
+                    <Help>This input is in a set but doesnt look like it!</Help>
+                </FormControl>
+
+                <FormControl>
+                    <Input label="Second input in a set" value="value!" />
+                    <Help>help two</Help>
+                </FormControl>
             </FieldSet>
         </>
     ))
