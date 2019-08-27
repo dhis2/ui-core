@@ -3,51 +3,33 @@ import propTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 
 import { statusPropType } from '../common-prop-types'
-import { styles, switchIconStyles } from './styles'
+import { SwitchIcon } from '../icons/Switch.js'
+import styles from './styles'
 
-const Input = React.forwardRef((props, ref) => (
-    <div>
-        <input type="checkbox" ref={ref} {...props} />
+const Input = React.forwardRef(
+    ({ name, disabled, checked, onChange, onFocus, onBlur }, ref) => (
+        <div>
+            <input
+                type="checkbox"
+                ref={ref}
+                name={name}
+                disabled={disabled}
+                checked={checked}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
 
-        <style jsx>{`
-            div {
-                height: 0;
-                width: 0;
-                overflow: hidden;
-            }
-        `}</style>
-    </div>
-))
-Input.displayName = 'Input'
-
-const SwitchIcon = ({ checked, valid, warning, error, disabled, focus }) => {
-    const classes = cx({
-        checked,
-        disabled,
-        valid,
-        error,
-        warning,
-        focus,
-    })
-
-    return (
-        <div className={classes}>
-            <span className="path" />
-            <span className="toggle" />
-
-            <style jsx>{switchIconStyles}</style>
+            <style jsx>{`
+                div {
+                    height: 0;
+                    width: 0;
+                    overflow: hidden;
+                }
+            `}</style>
         </div>
     )
-}
-
-SwitchIcon.propTypes = {
-    checked: propTypes.bool,
-    disabled: propTypes.bool,
-    valid: propTypes.bool,
-    warning: propTypes.bool,
-    error: propTypes.bool,
-    focus: propTypes.bool,
-}
+)
 
 class Switch extends Component {
     ref = createRef()
