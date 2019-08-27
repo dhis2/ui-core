@@ -4,9 +4,9 @@ import React from 'react'
 import { statusPropType } from '../common-prop-types'
 import { LabelFilled, LabelOutlined } from '../FieldLabel'
 import { theme } from '../theme.js'
-import { Input } from './Input.js'
+import { InternalInput } from './InternalInput.js'
 
-class InputField extends React.Component {
+class Input extends React.Component {
     state = {
         focus: this.props.initialFocus,
     }
@@ -59,7 +59,7 @@ class InputField extends React.Component {
                 dense={dense}
                 className={className}
             >
-                <Input
+                <InternalInput
                     focus={focus}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
@@ -89,13 +89,13 @@ class InputField extends React.Component {
     }
 }
 
-InputField.defaultProps = {
+Input.defaultProps = {
     type: 'text',
     onBlur: () => {},
     onFocus: () => {},
 }
 
-InputField.propTypes = {
+Input.propTypes = {
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
@@ -121,4 +121,4 @@ InputField.propTypes = {
     type: propTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
 }
 
-export { InputField }
+export { Input }
