@@ -15,7 +15,3 @@ export const sizePropType = mutuallyExclusive(
     ['small', 'large'],
     propTypes.bool
 )
-
-export const iconPropType = {
-    className: propTypes.string,
-}

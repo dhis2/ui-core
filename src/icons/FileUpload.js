@@ -1,6 +1,5 @@
 import React from 'react'
-import { iconPropType } from '../common-prop-types'
-import { styles } from './styles.js'
+import propTypes from 'prop-types'
 
 export function FileUpload({ className }) {
     return (
@@ -10,9 +9,19 @@ export function FileUpload({ className }) {
             className={className}
         >
             <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
-            <style jsx>{styles}</style>
+            <style jsx>{`
+                svg {
+                    fill: inherit;
+                    height: 24px;
+                    width: 24px;
+                    vertical-align: middle;
+                    pointer-events: none;
+                }
+            `}</style>
         </svg>
     )
 }
 
-FileUpload.propTypes = iconPropType
+FileUpload.propTypes = {
+    className: propTypes.string,
+}

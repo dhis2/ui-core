@@ -1,6 +1,5 @@
 import React from 'react'
-import { iconPropType } from '../common-prop-types'
-import { styles } from './styles.js'
+import propTypes from 'prop-types'
 
 export function ArrowDown({ className }) {
     return (
@@ -10,11 +9,21 @@ export function ArrowDown({ className }) {
             className={className}
         >
             <path d="M14 20l10 10 10-10z" />
-            <style jsx>{styles}</style>
+            <style jsx>{`
+                svg {
+                    fill: inherit;
+                    height: 24px;
+                    width: 24px;
+                    vertical-align: middle;
+                    pointer-events: none;
+                }
+            `}</style>
         </svg>
     )
 }
-ArrowDown.propTypes = iconPropType
+ArrowDown.propTypes = {
+    className: propTypes.string,
+}
 
 export function ArrowUp({ className }) {
     return (
@@ -24,8 +33,18 @@ export function ArrowUp({ className }) {
             className={className}
         >
             <path d="M14 28l10-10 10 10z" />
-            <style jsx>{styles}</style>
+            <style jsx>{`
+                svg {
+                    fill: inherit;
+                    height: 24px;
+                    width: 24px;
+                    vertical-align: middle;
+                    pointer-events: none;
+                }
+            `}</style>
         </svg>
     )
 }
-ArrowUp.propTypes = iconPropType
+ArrowUp.propTypes = {
+    className: propTypes.string,
+}
