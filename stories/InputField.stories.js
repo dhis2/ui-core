@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/react'
-import { resolve } from 'styled-jsx/css'
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import { Input, Help } from '../src'
-import { colors } from '../src/theme'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
