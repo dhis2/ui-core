@@ -31,14 +31,6 @@ storiesOf('ButtonStrip', module)
             <Button>Save</Button>
         </ButtonStrip>
     ))
-    .add('Compact', () => (
-        <ButtonStrip compact>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-        </ButtonStrip>
-    ))
     .add('Default - aligned middle', () => (
         <ButtonStrip middle>
             <Button>Save</Button>
@@ -47,24 +39,8 @@ storiesOf('ButtonStrip', module)
             <Button>Save</Button>
         </ButtonStrip>
     ))
-    .add('Compact - aligned middle', () => (
-        <ButtonStrip middle compact>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-        </ButtonStrip>
-    ))
     .add('Default - aligned right', () => (
         <ButtonStrip end>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-            <Button>Save</Button>
-        </ButtonStrip>
-    ))
-    .add('Compact - aligned right', () => (
-        <ButtonStrip end compact>
             <Button>Save</Button>
             <Button>Save</Button>
             <Button>Save</Button>
