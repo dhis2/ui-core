@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 
 import { Button } from '../Button'
-import { ButtonStrip } from '../ButtonStrip'
 import { buttonVariantPropType } from '../common-prop-types'
 import { DropMenu } from '../DropMenu'
 import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
@@ -31,25 +30,17 @@ class SplitButton extends Component {
 
         return (
             <div ref={this.anchorRef}>
-                <ButtonStrip compact>
-                    <Button
-                        {...this.props}
-                        className={cx(this.props.className)}
-                    >
-                        {this.props.children}
-                    </Button>
+                <Button {...this.props} className={cx(this.props.className)}>
+                    {this.props.children}
+                </Button>
 
-                    <Button
-                        {...this.props}
-                        onClick={this.onToggle}
-                        className={cx(
-                            this.props.className,
-                            rightButton.className
-                        )}
-                    >
-                        {icon}
-                    </Button>
-                </ButtonStrip>
+                <Button
+                    {...this.props}
+                    onClick={this.onToggle}
+                    className={cx(this.props.className, rightButton.className)}
+                >
+                    {icon}
+                </Button>
 
                 {open && (
                     <DropMenu
@@ -67,6 +58,26 @@ class SplitButton extends Component {
                         color: inherit;
                         white-space: nowrap;
                     }
+
+                    div > :global(button:first-child) {
+                        margin-left: 0;
+                    }
+
+                    div > :global(button:not(:first-child):not(:last-child)) {
+                        border-radius: 0;
+                        border-right: 0;
+                    }
+
+                    div > :global(button:first-child) {
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+                        border-right: 0;
+                    }
+
+                    div > :global(button:last-child) {
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                    }
                 `}</style>
             </div>
         )
@@ -74,6 +85,7 @@ class SplitButton extends Component {
 }
 
 SplitButton.propTypes = {
+    children: propTypes.string,
     component: propTypes.element.isRequired,
 
     onClick: propTypes.func,
