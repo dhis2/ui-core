@@ -6,7 +6,7 @@ import { Button } from '../Button'
 import { theme, spacers } from '../theme'
 import { Upload } from '../icons/Upload'
 
-class FileField extends PureComponent {
+class FileInput extends PureComponent {
     ref = createRef()
 
     onClick = () => {
@@ -75,7 +75,7 @@ class FileField extends PureComponent {
     }
 }
 
-FileField.propTypes = {
+FileInput.propTypes = {
     error: propTypes.bool,
     label: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
@@ -85,4 +85,4 @@ FileField.propTypes = {
     warning: propTypes.bool,
 }
 
-export { FileField }
+export { FileInput }
