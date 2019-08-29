@@ -37,12 +37,13 @@ const SelectedFile = ({
                 display: flex;
                 margin: 0;
                 padding-top: ${spacers.dp8};
+                line-height: 14px;
             }
             .icon > :global(svg) {
                 width: 12px;
                 height: 12px;
+                line-height: 12px;
                 margin-right: 4px;
-                margin-top: 2px;
                 flex-grow: 0;
                 flex-shrink: 0;
             }
@@ -58,7 +59,8 @@ const SelectedFile = ({
             }
             .action {
                 font-size: 12px;
-                margin-top: 2px;
+                line-height: 12px;
+                margin-top: 0;
                 text-decoration: underline;
                 cursor: pointer;
                 color: ${colors.grey700};
