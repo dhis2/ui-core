@@ -28,6 +28,7 @@ createStory('Select: Filled', {
     label: 'Default label',
     onChange: logger,
     filled: true,
+    indent: true,
 })
 
 function createStory(name, props) {
