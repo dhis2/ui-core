@@ -10,7 +10,7 @@ const styles = css`
         background: none;
         border: 0;
         color: ${colors.grey900};
-        font-size: 16px;
+        font-size: inherit;
         height: 100%;
         left: 0;
         outline: 0;
