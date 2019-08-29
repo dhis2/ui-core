@@ -34,6 +34,9 @@ class FileInput extends PureComponent {
             accept,
             multiple,
             children,
+            small,
+            large,
+            disabled,
         } = this.props
 
         return (
@@ -46,6 +49,7 @@ class FileInput extends PureComponent {
                     onChange={this.onChange}
                     accept={accept}
                     multiple={multiple}
+                    disabled={disabled}
                 />
 
                 <div className="button-container">
@@ -53,6 +57,9 @@ class FileInput extends PureComponent {
                         onClick={this.onClick}
                         type="button"
                         icon={<Upload />}
+                        small={small}
+                        large={large}
+                        disabled={disabled}
                     >
                         {buttonLabel}
                     </Button>
@@ -126,6 +133,7 @@ FileInput.propTypes = {
     large: sizePropType,
 
     required: propTypes.bool,
+    disabled: propTypes.bool,
 
     accept: propTypes.string,
     multiple: propTypes.bool,
