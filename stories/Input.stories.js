@@ -5,7 +5,7 @@ import { Input, Help } from '../src'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
-createStory('Input: Outlined', {
+createStory('Input: Regular', {
     label: 'Default label',
     name: 'Default',
     onChange: logger,
@@ -16,6 +16,7 @@ createStory('Input: Filled', {
     label: 'Default label',
     onChange: logger,
     filled: true,
+    indent: true,
 })
 
 function createStory(name, props) {
@@ -29,7 +30,10 @@ function createStory(name, props) {
         .add('With Help text', () => (
             <>
                 <Input {...props} placeholder="Hold the place" />
-                <Help {...props}>A helpful text.</Help>
+                <Help {...props}>
+                    This is some help text to advice what this input actually
+                    is.
+                </Help>
             </>
         ))
 
@@ -51,7 +55,16 @@ function createStory(name, props) {
         ))
 
         .add('Status: Error', () => (
-            <Input {...props} value="This value produces an error" error />
+            <>
+                <Input {...props} value="This value produces an error" error />
+                <Help {...props}>
+                    This is some help text to advice what this input actually
+                    is.
+                </Help>
+                <Help error {...props}>
+                    This describes the error, if a message is supplied.
+                </Help>
+            </>
         ))
 
         .add('Status: Loading', () => (
