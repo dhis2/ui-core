@@ -12,6 +12,7 @@ const styles = css`
         line-height: ${inputHeight}px;
         min-width: 0;
         position: relative;
+        font-size: 16px;
     }
 
     .focus,

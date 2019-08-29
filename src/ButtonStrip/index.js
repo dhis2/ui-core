@@ -5,8 +5,8 @@ import { instanceOfComponent, mutuallyExclusive } from '@dhis2/prop-types'
 import { Button } from '../Button'
 import styles from './styles'
 
-const ButtonStrip = ({ className, children, compact, start, middle, end }) => (
-    <div className={cx(className, { compact, start, middle, end })}>
+const ButtonStrip = ({ className, children, start, middle, end }) => (
+    <div className={cx(className, { start, middle, end })}>
         {children}
 
         <style jsx>{styles}</style>
@@ -21,7 +21,6 @@ const alignmentPropType = mutuallyExclusive(
 ButtonStrip.propTypes = {
     className: propTypes.string,
     children: propTypes.arrayOf(instanceOfComponent(Button)),
-    compact: propTypes.bool,
     start: alignmentPropType,
     middle: alignmentPropType,
     end: alignmentPropType,
