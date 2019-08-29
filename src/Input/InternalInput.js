@@ -23,11 +23,6 @@ const styles = css`
         padding: 13px 0 11px 15px;
     }
 
-    :global(.label-outlined) input {
-        box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.25),
-            inset 0 1px 2px 0 rgba(102, 113, 123, 0.21);
-    }
-
     .dense {
         padding-top: 9px;
         padding-bottom: 9px;

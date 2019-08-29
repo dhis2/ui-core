@@ -18,15 +18,13 @@ const Help = ({ children, valid, error, warning, className, indent }) => (
 
         <style jsx>{`
             p {
-                height: 20px;
-                padding-top: ${spacers.dp8};
+                margin-top: ${spacers.dp4};
+                margin-right: 0;
+                margin-bottom: 0;
+                margin-left: 0;
                 font-size: 12px;
-                line-height: 12px;
-                margin: 0;
+                line-height: 14px;
                 color: ${theme.default};
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
                 cursor: help;
             }
 
@@ -56,10 +54,6 @@ Help.propTypes = {
     valid: statusPropType,
     warning: statusPropType,
     indent: propTypes.bool,
-}
-
-Help.defaultProps = {
-    indent: true,
 }
 
 export { Help }

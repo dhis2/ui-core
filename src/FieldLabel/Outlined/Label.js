@@ -1,27 +1,16 @@
 import React from 'react'
 import css from 'styled-jsx/css'
-import cx from 'classnames'
+import propTypes from 'prop-types'
 
-import {
-    borderRadius,
-    inputHeight,
-    inputHeightDense,
-    shrinkedLabelFontSize,
-} from '../constants.js'
-
-import { colors, theme, spacers } from '../../theme.js'
+import { spacers } from '../../theme.js'
 
 const styles = css`
     label {
         display: block;
         box-sizing: border-box;
-        height: 24px;
         font-size: 14px;
-        line-height: 20px;
-        padding: 0 ${spacers.dp16} ${spacers.dp4};
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        line-height: 24px;
+        padding: 0;
     }
 
     .disabled {
@@ -51,3 +40,16 @@ export const Label = props => (
         <style jsx>{styles}</style>
     </label>
 )
+
+Label.propTypes = {
+    htmlFor: propTypes.string,
+    label: propTypes.string,
+    focus: propTypes.bool,
+    required: propTypes.bool,
+    valid: propTypes.bool,
+    warning: propTypes.bool,
+    error: propTypes.bool,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    value: propTypes.string,
+}
