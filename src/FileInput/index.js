@@ -3,6 +3,7 @@ import propTypes from 'prop-types'
 import cx from 'classnames'
 import { instanceOfComponent } from '@dhis2/prop-types'
 
+import { statusPropType, sizePropType } from '../common-prop-types'
 import { Button } from '../Button'
 import { Help } from '../Help'
 import { spacers, colors } from '../theme'
@@ -98,7 +99,11 @@ class FileInput extends PureComponent {
 }
 
 const childPropType = propTypes.oneOfType([
-    instanceOfComponent(SelectedFile),
+    propTypes.oneOfType([
+        instanceOfComponent(SelectedFile),
+        propTypes.arrayOf(instanceOfComponent(SelectedFile)),
+    ]),
+    instanceOfComponent(Placeholder),
     instanceOfComponent(Help),
 ])
 
@@ -113,9 +118,12 @@ FileInput.propTypes = {
         propTypes.arrayOf(childPropType),
     ]),
 
-    error: propTypes.bool,
-    valid: propTypes.bool,
-    warning: propTypes.bool,
+    error: statusPropType,
+    valid: statusPropType,
+    warning: statusPropType,
+
+    small: sizePropType,
+    large: sizePropType,
 
     required: propTypes.bool,
 
