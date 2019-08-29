@@ -2,7 +2,7 @@ import { mutuallyExclusive } from '@dhis2/prop-types'
 import propTypes from 'prop-types'
 
 export const statusPropType = mutuallyExclusive(
-    ['success', 'warning', 'critical'],
+    ['valid', 'warning', 'error'],
     propTypes.bool
 )
 
