@@ -17,7 +17,7 @@ const options = [
     </option>,
 ]
 
-createStory('Select: Outlined', {
+createStory('Select: Regular', {
     name: 'Default',
     label: 'Default label',
     onChange: logger,

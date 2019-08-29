@@ -11,7 +11,7 @@ import { InputContainer } from './InputContainer'
 import { Label } from './Label'
 
 const styles = css`
-    .label-outlined {
+    .label-regular {
         position: relative;
         color: ${colors.grey700};
     }
@@ -72,7 +72,7 @@ const styles = css`
     }
 `
 
-export const Outlined = ({
+export const Regular = ({
     children,
     disabled,
     focus,
@@ -89,7 +89,7 @@ export const Outlined = ({
     className,
 }) => (
     <div
-        className={cx('label-outlined', className, {
+        className={cx('label-regular', className, {
             disabled,
             focus,
             dense,
@@ -128,7 +128,7 @@ export const Outlined = ({
     </div>
 )
 
-Outlined.propTypes = {
+Regular.propTypes = {
     label: propTypes.string.isRequired,
     htmlFor: propTypes.string.isRequired,
 

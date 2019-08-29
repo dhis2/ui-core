@@ -57,7 +57,6 @@ export class InternalInput extends Component {
         const classes = cx({
             dense,
             filled,
-            outlined: !filled,
             disabled,
         })
 

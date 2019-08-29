@@ -5,7 +5,7 @@ import { Input, Help } from '../src'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
-createStory('Input: Outlined', {
+createStory('Input: Regular', {
     label: 'Default label',
     name: 'Default',
     onChange: logger,

@@ -2,7 +2,7 @@ import propTypes from 'prop-types'
 import React from 'react'
 
 import { statusPropType } from '../common-prop-types'
-import { LabelFilled, LabelOutlined } from '../FieldLabel'
+import { LabelFilled, LabelRegular } from '../FieldLabel'
 import { ArrowDown } from '../icons/Arrow'
 import { InternalSelect } from './InternalSelect'
 
@@ -63,7 +63,7 @@ class Select extends React.Component {
         } = this.props
         const { focus } = this.state
 
-        const Container = filled ? LabelFilled : LabelOutlined
+        const Container = filled ? LabelFilled : LabelRegular
 
         return (
             <Container
