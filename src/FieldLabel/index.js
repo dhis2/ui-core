@@ -1,2 +1,2 @@
 export { Filled as LabelFilled } from './Filled'
-export { Outlined as LabelOutlined } from './Outlined'
+export { Regular as LabelRegular } from './Regular'
