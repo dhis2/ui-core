@@ -2,7 +2,7 @@ import propTypes from 'prop-types'
 import React from 'react'
 
 import { statusPropType } from '../common-prop-types'
-import { LabelFilled, LabelOutlined } from '../FieldLabel'
+import { LabelFilled, LabelRegular } from '../FieldLabel'
 import { theme } from '../theme.js'
 import { InternalInput } from './InternalInput.js'
 
@@ -42,7 +42,7 @@ class Input extends React.Component {
         } = this.props
         const { focus } = this.state
 
-        const Container = filled ? LabelFilled : LabelOutlined
+        const Container = filled ? LabelFilled : LabelRegular
 
         return (
             <Container
