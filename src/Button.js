@@ -63,6 +63,8 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
+    /** The label of the button */
+    children: propTypes.string,
     onClick: propTypes.func,
 
     className: propTypes.string,
@@ -71,11 +73,19 @@ Button.propTypes = {
     value: propTypes.string,
     type: propTypes.oneOf(['submit', 'reset', 'button']),
 
+    /** `small`, and `large` are mutually exclusive boolean props */
     small: sizePropType,
+
+    /** `small`, and `large` are mutually exclusive boolean props */
     large: sizePropType,
 
+    /** `primary`, `secondary`, and `destructive` are mutually exclusive boolean props */
     primary: buttonVariantPropType,
+
+    /** `primary`, `secondary`, and `destructive` are mutually exclusive boolean props */
     secondary: buttonVariantPropType,
+
+    /** `primary`, `secondary`, and `destructive` are mutually exclusive boolean props */
     destructive: buttonVariantPropType,
 
     disabled: propTypes.bool,
