@@ -53,6 +53,7 @@
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
+|children|`string`|||The label of the button|
 |onClick|`func`||||
 |className|`string`||||
 |icon|`element`||||
