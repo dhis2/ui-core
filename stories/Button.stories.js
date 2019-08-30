@@ -1,8 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Button, Divider } from '../src'
-
-import markdown from './info/atoms/button.md'
+import { Button } from '../src'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
@@ -35,12 +33,6 @@ createStory('Button: Destructive', {
 
 function createStory(name, props) {
     storiesOf(name, module)
-        .addParameters({
-            notes: {
-                markdown,
-            },
-        })
-
         .add('Default', () => <Button {...props}>Label me!</Button>)
 
         .add('Disabled', () => (

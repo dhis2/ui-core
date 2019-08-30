@@ -3,8 +3,6 @@ import { storiesOf } from '@storybook/react'
 import { AlertBar } from '../src'
 import { Indeterminate } from '../src/icons/Checkbox'
 
-import markdown from './info/molecules/alertBar.md'
-
 const Wrapper = fn => (
     <div
         style={{
@@ -20,11 +18,6 @@ const Wrapper = fn => (
 )
 
 storiesOf('AlertBar', module)
-    .addParameters({
-        notes: {
-            markdown,
-        },
-    })
     .addDecorator(Wrapper)
     .add('Default', () => <AlertBar>Default - I will autohide</AlertBar>)
     .add('States', () => (

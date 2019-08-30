@@ -3,8 +3,6 @@ import { storiesOf } from '@storybook/react'
 import { TabBar, Tab, ScrollBar } from '../src'
 import { Indeterminate } from '../src/icons/Checkbox'
 
-import markdown from './info/molecules/tabs.md'
-
 const Wrapper = fn => (
     <div
         style={{
@@ -17,11 +15,6 @@ const Wrapper = fn => (
 )
 
 storiesOf('Tabs', module)
-    .addParameters({
-        notes: {
-            markdown,
-        },
-    })
     .addDecorator(Wrapper)
     .add('Default (fluid)', () => (
         <TabBar>
