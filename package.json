@@ -52,7 +52,7 @@
   "dependencies": {
     "@dhis2/prop-types": "^1.0.4",
     "classnames": "^2.2.6",
-    "styled-jsx": "^3.2.1"
+    "styled-jsx": "^3.2.2"
   },
   "files": [
     "build"
