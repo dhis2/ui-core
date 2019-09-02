@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-import { CssReset } from '../src'
+import { CssReset } from '../src/index.js'
 
 const CssResetWrapper = fn => (
     <Fragment>
