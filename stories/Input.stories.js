@@ -9,7 +9,7 @@ createStory('Input: Regular', {
     label: 'Default label',
     name: 'Default',
     onChange: logger,
-})
+}).add('No label', () => <Input name="Default" onChange={logger} />)
 
 createStory('Input: Filled', {
     name: 'Default',
@@ -20,7 +20,7 @@ createStory('Input: Filled', {
 })
 
 function createStory(name, props) {
-    storiesOf(name, module)
+    return storiesOf(name, module)
         .add('No placeholder, no value', () => <Input {...props} />)
 
         .add('Placeholder, no value', () => (
