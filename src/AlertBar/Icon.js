@@ -1,8 +1,9 @@
 import propTypes from 'prop-types'
 import React from 'react'
 
-import { statusPropType } from '../common-prop-types'
-import { Error, Info, Valid, Warning } from '../icons/Status'
+import { statusPropType } from '../common-prop-types.js'
+
+import { Error, Info, Valid, Warning } from '../icons/Status.js'
 import { spacers } from '../theme.js'
 
 const Icon = ({ icon, success, warning, critical }) => {
