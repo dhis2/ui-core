@@ -4,7 +4,7 @@ import React from 'react'
 import { resolve } from 'styled-jsx/css'
 
 import { Card } from '../Card'
-import { sizePropType } from '../common-prop-types'
+import { sizePropType } from '../common-prop-types.js'
 import { spacers } from '../theme.js'
 
 const cardBoxStyle = resolve`
