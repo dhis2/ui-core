@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { spacers } from '../theme.js'
-import { Close } from '../icons/Close'
+import { Close } from '../icons/Close.js'
 
 const Dismiss = ({ onClick }) => (
     <div onClick={onClick}>

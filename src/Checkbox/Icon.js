@@ -3,8 +3,8 @@ import propTypes from 'prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 
-import { statusPropType } from '../common-prop-types'
-import { Checked, Indeterminate, Unchecked } from '../icons/Checkbox'
+import { statusPropType } from '../common-prop-types.js'
+import { Checked, Indeterminate, Unchecked } from '../icons/Checkbox.js'
 import { colors, theme } from '../theme.js'
 
 const icons = resolve`
