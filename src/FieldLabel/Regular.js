@@ -7,7 +7,6 @@ import { statusPropType } from '../common-prop-types.js'
 import { StatusIconNoDefault } from '../icons/Status.js'
 import { colors, spacers, theme } from '../theme.js'
 
-import { borderRadius, inputHeight, inputHeightDense } from './constants.js'
 import { InputContainer } from './Regular/InputContainer.js'
 import { Label } from './Regular/Label.js'
 
@@ -81,7 +80,6 @@ export const Regular = ({
     valid,
     warning,
     error,
-    onClick,
     htmlFor,
     value,
     required,
@@ -100,18 +98,20 @@ export const Regular = ({
             value,
         })}
     >
-        <Label
-            focus={focus}
-            required={required}
-            valid={valid}
-            warning={warning}
-            error={error}
-            dense={dense}
-            disabled={disabled}
-            value={focus || value}
-            label={label}
-            htmlFor={htmlFor}
-        />
+        {label ? (
+            <Label
+                focus={focus}
+                required={required}
+                valid={valid}
+                warning={warning}
+                error={error}
+                dense={dense}
+                disabled={disabled}
+                value={focus || value}
+                label={label}
+                htmlFor={htmlFor}
+            />
+        ) : null}
 
         <div className="content">
             <InputContainer dense={dense}>{children}</InputContainer>
@@ -130,10 +130,9 @@ export const Regular = ({
 )
 
 Regular.propTypes = {
-    label: propTypes.string.isRequired,
     htmlFor: propTypes.string.isRequired,
-
-    onClick: propTypes.func,
+    children: propTypes.node.isRequired,
+    label: propTypes.string,
 
     focus: propTypes.bool,
     value: propTypes.bool,

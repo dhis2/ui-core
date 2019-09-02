@@ -99,7 +99,7 @@ Input.defaultProps = {
 Input.propTypes = {
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
-    label: propTypes.string.isRequired,
+    label: propTypes.string,
 
     className: propTypes.string,
     placeholder: propTypes.string,
