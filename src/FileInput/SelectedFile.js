@@ -54,7 +54,7 @@ const SelectedFile = ({
             .label {
                 font-size: 14px;
                 color: ${colors.grey900};
-                word-break: break-word;
+                word-break: break-all;
             }
             .label::after {
                 content: ' ';
