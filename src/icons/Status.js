@@ -4,7 +4,7 @@ import propTypes from 'prop-types'
 import { theme, spacers } from '../theme.js'
 
 /**
- * @param {Object} props
+ * @param {object} props
  * @param {string} props.className
  * @returns {ReactNode}
  */
