@@ -54,8 +54,12 @@ const SelectedFile = ({
             .label {
                 font-size: 14px;
                 color: ${colors.grey900};
-                margin-right: 12px;
                 word-break: break-word;
+            }
+            .label::after {
+                content: ' ';
+                display: inline-block;
+                width: 12px;
             }
             .action {
                 font-size: 12px;
