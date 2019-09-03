@@ -1,9 +1,9 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
-import { colors, spacers } from '../theme'
-import { AttachFile } from '../icons/AttachFile'
-import { Loading } from '../icons/Status'
+import { colors, spacers } from '../theme.js'
+import { AttachFile } from '../icons/AttachFile.js'
+import { Loading } from '../icons/Status.js'
 
 const SelectedFile = ({
     label,
