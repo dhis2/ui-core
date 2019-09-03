@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { colors, spacers } from '../theme'
+import { colors, spacers } from '../theme.js'
 
 const Placeholder = ({ children }) => (
     <p>
