@@ -3,14 +3,14 @@ import propTypes from 'prop-types'
 import cx from 'classnames'
 import { instanceOfComponent } from '@dhis2/prop-types'
 
-import { statusPropType, sizePropType } from '../common-prop-types'
-import { Button } from '../Button'
-import { Help } from '../Help'
-import { spacers, colors } from '../theme'
-import { Upload } from '../icons/Upload'
-import { StatusIconNoDefault } from '../icons/Status'
-import { SelectedFile } from './SelectedFile'
-import { Placeholder } from './Placeholder'
+import { statusPropType, sizePropType } from './common-prop-types.js'
+import { Button } from './Button.js'
+import { Help } from './Help.js'
+import { spacers, colors } from './theme.js'
+import { Upload } from './icons/Upload.js'
+import { StatusIconNoDefault } from './icons/Status.js'
+import { SelectedFile } from './FileInput/SelectedFile.js'
+import { Placeholder } from './FileInput/Placeholder.js'
 
 class FileInput extends PureComponent {
     ref = createRef()
