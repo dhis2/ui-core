@@ -12,16 +12,11 @@ const tableRowStyles = css`
     }
 `
 
-export const TableRow = ({ children, dense }) => (
+export const TableRow = ({ children }) => (
     <tr>
         {children}
 
         <style jsx>{tableRowStyles}</style>
-        <style jsx>{`
-            tr {
-                height: ${dense ? '36px' : '45px'};
-            }
-        `}</style>
     </tr>
 )
 
@@ -31,7 +26,6 @@ const childPropType = propTypes.oneOfType([
 ])
 
 TableRow.propTypes = {
-    dense: propTypes.bool,
     children: propTypes.oneOfType([
         childPropType,
         propTypes.arrayOf(childPropType),
