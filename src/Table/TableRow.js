@@ -19,7 +19,7 @@ export const TableRow = ({ children, dense }) => (
         <style jsx>{tableRowStyles}</style>
         <style jsx>{`
             tr {
-                min-height: ${dense ? '36px' : '45px'};
+                height: ${dense ? '36px' : '45px'};
             }
         `}</style>
     </tr>
