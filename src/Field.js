@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 
 import { spacers } from './theme.js'
 
-const FormControl = ({ children }) => (
+const Field = ({ children }) => (
     <div>
         {children}
         <style jsx>{`
@@ -14,8 +14,8 @@ const FormControl = ({ children }) => (
     </div>
 )
 
-FormControl.propTypes = {
+Field.propTypes = {
     children: propTypes.node.isRequired,
 }
 
-export { FormControl }
+export { Field }
