@@ -1,11 +1,13 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import cx from 'classnames'
 
 import { colors, spacers } from '../theme.js'
 import { AttachFile } from '../icons/AttachFile.js'
 import { Loading } from '../icons/Status.js'
 
 const SelectedFile = ({
+    className,
     label,
     onRemove,
     removeText,
@@ -13,7 +15,7 @@ const SelectedFile = ({
     onCancel,
     cancelText,
 }) => (
-    <p>
+    <p className={cx('selected-file', className)}>
         <span className="icon">{loading ? <Loading /> : <AttachFile />}</span>
 
         <span className="text">
@@ -36,8 +38,8 @@ const SelectedFile = ({
             p {
                 display: flex;
                 margin: 0;
-                padding-top: ${spacers.dp8};
-                line-height: 14px;
+                padding-top: ${spacers.dp4};
+                line-height: 18px;
             }
             .icon > :global(svg) {
                 width: 12px;
@@ -74,6 +76,7 @@ const SelectedFile = ({
 )
 
 SelectedFile.propTypes = {
+    className: propTypes.string,
     label: propTypes.string.isRequired,
     onRemove: propTypes.func.isRequired,
     removeText: propTypes.string.isRequired,

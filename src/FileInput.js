@@ -25,6 +25,7 @@ class FileInput extends PureComponent {
 
     render() {
         const {
+            className,
             label,
             buttonLabel,
             error,
@@ -40,7 +41,7 @@ class FileInput extends PureComponent {
         } = this.props
 
         return (
-            <div>
+            <div className={cx('container', className)}>
                 {label && <p className={cx('label', { required })}>{label}</p>}
 
                 <input
@@ -92,6 +93,7 @@ class FileInput extends PureComponent {
                     .button-container {
                         display: flex;
                         align-items: center;
+                        padding-bottom: ${spacers.dp4};
                     }
 
                     .button-container > :global(svg) {
@@ -115,6 +117,7 @@ const childPropType = propTypes.oneOfType([
 ])
 
 FileInput.propTypes = {
+    className: propTypes.string,
     onChange: propTypes.func.isRequired,
 
     label: propTypes.string,
