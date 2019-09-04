@@ -5,35 +5,28 @@ import css from 'styled-jsx/css'
 const tableCellStyles = css`
     td {
         border-bottom: 1px solid #e8edf2;
-        padding-left: 12px;
-        padding-right: 12px;
-        height: 45px;
         font-size: 14px;
         line-height: 18px;
     }
-
-    :global(tbody) td {
-        padding-top: 13px;
-        padding-bottom: 13px;
-    }
-
-    :global(tfoot) td {
-        height: 36px;
-        padding-top: 9px;
-        padding-bottom: 9px;
-    }
 `
 
-export const TableCell = ({ children, colSpan, rowSpan }) => (
+export const TableCell = ({ children, colSpan, rowSpan, dense }) => (
     <td colSpan={colSpan} rowSpan={rowSpan}>
         {children}
 
         <style jsx>{tableCellStyles}</style>
+        <style jsx>{`
+            td {
+                padding: ${dense ? '9px 12px' : '13px 12px'};
+                height: ${dense ? '36px' : '45px'};
+            }
+        `}</style>
     </td>
 )
 
 TableCell.propTypes = {
     colSpan: propTypes.string,
+    dense: propTypes.bool,
     rowSpan: propTypes.string,
     children: propTypes.node,
 }

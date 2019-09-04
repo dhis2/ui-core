@@ -39,14 +39,14 @@ storiesOf('Table', module).add('Static layout', () => (
     <Table>
         <TableHead>
             <TableRowHead>
-                <TableCellHead>First name</TableCellHead>
-                <TableCellHead>Last name</TableCellHead>
-                <TableCellHead>Incident date</TableCellHead>
-                <TableCellHead>Last updated</TableCellHead>
-                <TableCellHead>Age</TableCellHead>
-                <TableCellHead>Registering unit</TableCellHead>
-                <TableCellHead>Assigned user</TableCellHead>
-                <TableCellHead>Status</TableCellHead>
+                <TableCellHead dense>First name</TableCellHead>
+                <TableCellHead dense>Last name</TableCellHead>
+                <TableCellHead dense>Incident date</TableCellHead>
+                <TableCellHead dense>Last updated</TableCellHead>
+                <TableCellHead dense>Age</TableCellHead>
+                <TableCellHead dense>Registering unit</TableCellHead>
+                <TableCellHead dense>Assigned user</TableCellHead>
+                <TableCellHead dense>Status</TableCellHead>
             </TableRowHead>
         </TableHead>
         <TableBody>
@@ -153,7 +153,7 @@ storiesOf('Table', module).add('Static layout', () => (
         </TableBody>
         <TableFoot>
             <TableRow>
-                <TableCell colSpan="8">
+                <TableCell dense colSpan="8">
                     <TableFooterButton />
                 </TableCell>
             </TableRow>
