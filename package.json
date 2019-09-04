@@ -16,7 +16,7 @@
     "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
     "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
     "build": "NODE_ENV=production yarn build:commonjs && NODE_ENV=production yarn build:modules",
-    "build:docs": "d2-utils-docsite build ./docs -o ./build/docs",
+    "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src/*.js --jsdoc-output-file api.md",
     "build:demo": "build-storybook -c .storybook -o ./build/docs/demo",
     "start:demo": "start-storybook --port 5000",
     "start": "yarn start:demo"
@@ -30,7 +30,7 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "@dhis2/cli-style": "4.1.1",
-    "@dhis2/cli-utils-docsite": "^1.0.4",
+    "@dhis2/cli-utils-docsite": "^1.1.0",
     "@storybook/addons": "^5.1.8",
     "@storybook/components": "^5.1.10",
     "@storybook/react": "^5.1.11",

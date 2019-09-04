@@ -4,6 +4,14 @@ import cx from 'classnames'
 
 import { colors } from './theme.js'
 
+/**
+ * @module Card
+ * @param {PropTypes} props
+ * @returns {React.Component}
+ * @example import { Card } from '@dhis2/ui-core'
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/card.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/card--default|Storybook}
+ */
 const Card = ({ className, children }) => (
     <div className={cx(className)}>
         {children}
@@ -25,6 +33,12 @@ const Card = ({ className, children }) => (
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ *
+ * @prop {string} [className]
+ * @prop {Node} [children]
+ */
 Card.propTypes = {
     className: propTypes.string,
     children: propTypes.node,

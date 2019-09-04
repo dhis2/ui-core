@@ -7,23 +7,35 @@ import { instanceOfComponent, mutuallyExclusive } from '@dhis2/prop-types'
 import { Button } from './Button.js'
 import styles from './ButtonStrip/styles.js'
 
-const ButtonStrip = ({ className, children, start, middle, end }) => (
-    <div className={cx(className, { start, middle, end })}>
+/**
+ * @module ButtonStrip
+ * @param {PropTypes} props
+ * @returns {React.Component}
+ * @example import { ButtonStrip } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/buttonstrip--default|Storybook}
+ */
+const ButtonStrip = ({ className, children, middle, end }) => (
+    <div className={cx(className, { middle, end })}>
         {children}
 
         <style jsx>{styles}</style>
     </div>
 )
 
-const alignmentPropType = mutuallyExclusive(
-    ['start', 'middle', 'end'],
-    propTypes.bool
-)
+const alignmentPropType = mutuallyExclusive(['middle', 'end'], propTypes.bool)
 
+/**
+ * @typedef {Object} PropTypes
+ *
+ * @prop {string} [className]
+ * @prop {Array.<Button>} [children]
+ * @prop {boolean} [middle] - The props `middle`, and `end` are
+ * mutually exlusive
+ * @prop {boolean} [end]
+ */
 ButtonStrip.propTypes = {
     className: propTypes.string,
     children: propTypes.arrayOf(instanceOfComponent(Button)),
-    start: alignmentPropType,
     middle: alignmentPropType,
     end: alignmentPropType,
 }

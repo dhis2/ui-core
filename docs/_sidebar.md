@@ -1,6 +1,2 @@
 - [**Getting started**](getting-started)
-- [**Components**](components/)
-    - [Button](components/button)
-    - [Card](components/card)
-    - [Checkbox](components/checkbox)
 - [**API**](api)

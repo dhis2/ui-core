@@ -5,6 +5,17 @@ import React, { Component, createRef } from 'react'
 import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
 import styles from './Button/styles.js'
 
+/**
+ * @module Button
+ *
+ * @param {PropTypes} props
+ *
+ * @returns {React.Component}
+ *
+ * @example import { Button } from @dhis2/ui-core
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/button-basic--default|Storybook}
+ */
 export class Button extends Component {
     buttonRef = createRef()
 
@@ -62,8 +73,29 @@ Button.defaultProps = {
     type: 'button',
 }
 
+/**
+ * @typedef {Object} PropTypes
+ *
+ * @prop {string} [children] The string to show as the label text for a
+ * button
+ * @prop {function} [onClick] The click handler
+ *
+ * @prop {boolean} [small] - `small` and `large` are mutually exclusive
+ * @prop {boolean} [large]
+ * @prop {string} [type=button] Type of button: `submit`, `reset`, or
+ * `button`
+ *
+ * @prop {boolean } [primary] - `primary`, `secondary`, and
+ * `destructive` are mutually exclusive boolean props
+ * @prop {boolean } [secondary]
+ * @prop {boolean } [destructive]
+ *
+ * @prop {boolean} [disabled] Disable the button
+ *
+ * @prop {boolean} [initialFocus] Grants the button the initial focus
+ * state
+ */
 Button.propTypes = {
-    /** The label of the button */
     children: propTypes.string,
     onClick: propTypes.func,
 
@@ -73,19 +105,11 @@ Button.propTypes = {
     value: propTypes.string,
     type: propTypes.oneOf(['submit', 'reset', 'button']),
 
-    /** `small`, and `large` are mutually exclusive boolean props */
     small: sizePropType,
-
-    /** `small`, and `large` are mutually exclusive boolean props */
     large: sizePropType,
 
-    /** `primary`, `secondary`, and `destructive` are mutually exclusive boolean props */
     primary: buttonVariantPropType,
-
-    /** `primary`, `secondary`, and `destructive` are mutually exclusive boolean props */
     secondary: buttonVariantPropType,
-
-    /** `primary`, `secondary`, and `destructive` are mutually exclusive boolean props */
     destructive: buttonVariantPropType,
 
     disabled: propTypes.bool,

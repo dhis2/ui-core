@@ -7,6 +7,15 @@ import { Content } from './Chip/Content.js'
 import { Icon } from './Chip/Icon.js'
 import { Remove } from './Chip/Remove.js'
 
+/**
+ * @module Chip
+ * @param {PropTypes} props
+ * @returns {React.PureComponent}
+ *
+ * @example import { Chip } from @dhis2/ui-core
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/chip.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/chip--default|Storybook}
+ */
 class Chip extends PureComponent {
     onClick = e => {
         if (!this.props.disabled && this.props.onClick) {
@@ -34,7 +43,7 @@ class Chip extends PureComponent {
                 })}
             >
                 <Icon icon={this.props.icon} />
-                <Content overflow={overflow} children={children} />
+                <Content overflow={overflow}>{children}</Content>
                 <Remove onRemove={this.props.onRemove} />
 
                 <style jsx>{`
@@ -91,6 +100,12 @@ class Chip extends PureComponent {
     }
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @prop {string} children
+ * @prop {string} [className]
+ * @prop {Element} [icon]
+ */
 Chip.propTypes = {
     children: propTypes.string.isRequired,
     className: propTypes.string,

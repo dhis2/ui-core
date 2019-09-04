@@ -10,6 +10,14 @@ import { Icon } from './Checkbox/Icon.js'
 import { Input } from './Checkbox/Input.js'
 import { Label } from './Checkbox/Label.js'
 
+/**
+ * @module Checkbox
+ * @param {PropTypes} props
+ * @returns {React.Component}
+ * @example import { Checkbox } from @dhis2/ui-core
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/checkbox.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/checkbox--default|Storybook}
+ */
 class Checkbox extends Component {
     constructor(props) {
         super(props)
@@ -116,6 +124,31 @@ class Checkbox extends Component {
     }
 }
 
+/**
+ * @typedef {Object} PropTypes
+ *
+ * @prop {function} onChange - The handler which is triggered when the
+ * component changes
+ * @prop {string} value
+ * @prop {string} name
+ * @prop {string} label
+ *
+ * @prop {string} [tabIndex]
+ * @prop {string} [className]
+ * @prop {function} [onFocus]
+ * @prop {function} [onBlur]
+ *
+ * @prop {Element} [icon]
+ * @prop {boolean} [indeterminate]
+ * @prop {boolean} [required]
+ * @prop {boolean} [checked]
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [initialFocus]
+ * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are
+ * mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ */
 Checkbox.propTypes = {
     onChange: propTypes.func.isRequired,
 
