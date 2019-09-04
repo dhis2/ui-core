@@ -1,10 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FormControl, Input, Help } from '../src'
+import { Field, Input, Help } from '../src'
 
 import markdown from './info/atoms/formControl.md'
 
-storiesOf('FormControl', module)
+storiesOf('Field', module)
     .addParameters({
         notes: {
             markdown,
@@ -12,7 +12,7 @@ storiesOf('FormControl', module)
     })
     .add('Default', () => (
         <>
-            <FormControl>
+            <Field>
                 <Input
                     onChange={() => {
                         console.log('Nothing happens')
@@ -21,8 +21,8 @@ storiesOf('FormControl', module)
                     label="An input"
                 />
                 <Help>A helpful text</Help>
-            </FormControl>
-            <FormControl>
+            </Field>
+            <Field>
                 <Input
                     onChange={() => {
                         console.log('Nothing happens')
@@ -31,6 +31,6 @@ storiesOf('FormControl', module)
                     label="An second input"
                 />
                 <Help>A helpful text</Help>
-            </FormControl>
+            </Field>
         </>
     ))
