@@ -113,7 +113,6 @@ class FileInput extends PureComponent {
 
 const childPropType = propTypes.oneOfType([
     instanceOfComponent(FileList),
-    instanceOfComponent(Placeholder),
     instanceOfComponent(Help),
 ])
 
