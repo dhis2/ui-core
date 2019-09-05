@@ -7,23 +7,15 @@ import { TableCell } from './TableCell.js'
 import { TableCellHead } from './TableCellHead.js'
 
 const tableRowStyles = css`
-    tr {
-        min-height: 45px;
-    }
-
     tr:nth-child(even) {
         background: #fbfcfd;
-    }
-
-    :global(thead) tr,
-    :global(tbody) tr {
-        min-height: 36px;
     }
 `
 
 export const TableRow = ({ children }) => (
     <tr>
         {children}
+
         <style jsx>{tableRowStyles}</style>
     </tr>
 )
