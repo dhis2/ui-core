@@ -127,28 +127,30 @@ storiesOf('FileInput', module)
                 label="Upload something"
                 buttonLabel="Upload file"
             >
-                <FileInput.SelectedFile
-                    label="picture1.jpg"
-                    onRemove={onRemove}
-                    onCancel={onCancel}
-                    cancelText="Cancel"
-                    removeText="Remove"
-                />
-                <FileInput.SelectedFile
-                    label="image_that_is_uploading.jpg"
-                    onRemove={onRemove}
-                    onCancel={onCancel}
-                    cancelText="Cancel"
-                    removeText="Remove"
-                    loading
-                />
-                <FileInput.SelectedFile
-                    label="image_file_name_is_to_long_to_display_on_one_line.jpg"
-                    onRemove={onRemove}
-                    onCancel={onCancel}
-                    cancelText="Cancel"
-                    removeText="Remove"
-                />
+                <FileInput.FileList>
+                    <FileInput.FileListItem
+                        label="picture1.jpg"
+                        onRemove={onRemove}
+                        onCancel={onCancel}
+                        cancelText="Cancel"
+                        removeText="Remove"
+                    />
+                    <FileInput.FileListItem
+                        label="image_that_is_uploading.jpg"
+                        onRemove={onRemove}
+                        onCancel={onCancel}
+                        cancelText="Cancel"
+                        removeText="Remove"
+                        loading
+                    />
+                    <FileInput.FileListItem
+                        label="image_file_name_is_to_long_to_display_on_one_line.jpg"
+                        onRemove={onRemove}
+                        onCancel={onCancel}
+                        cancelText="Cancel"
+                        removeText="Remove"
+                    />
+                </FileInput.FileList>
             </FileInput>
             <br />
             <p style={{ color: 'grey' }}>
@@ -190,20 +192,22 @@ storiesOf('FileInput', module)
                 Something went wrong (error second)
             </Help>
 
-            <FileInput.SelectedFile
-                label="picture1.jpg"
-                onRemove={onRemove}
-                onCancel={onCancel}
-                cancelText="Cancel"
-                removeText="Remove"
-            />
-            <FileInput.SelectedFile
-                label="picture2.jpg"
-                onRemove={onRemove}
-                onCancel={onCancel}
-                cancelText="Cancel"
-                removeText="Remove"
-                loading
-            />
+            <FileInput.FileList>
+                <FileInput.FileListItem
+                    label="picture1.jpg"
+                    onRemove={onRemove}
+                    onCancel={onCancel}
+                    cancelText="Cancel"
+                    removeText="Remove"
+                />
+                <FileInput.FileListItem
+                    label="picture2.jpg"
+                    onRemove={onRemove}
+                    onCancel={onCancel}
+                    cancelText="Cancel"
+                    removeText="Remove"
+                    loading
+                />
+            </FileInput.FileList>
         </FileInput>
     ))
