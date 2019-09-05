@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FileInput, Help, FormControl } from '../src'
+import { FileInput, Help, Field } from '../src'
 
 import markdown from './info/atoms/fileInput.md'
 
@@ -56,57 +56,57 @@ storiesOf('FileInput', module)
     ))
     .add('Sizes', () => (
         <>
-            <FormControl>
+            <Field>
                 <FileInput
                     onChange={onChange}
                     label="upload something"
                     buttonLabel="Default size"
                 />
-            </FormControl>
-            <FormControl>
+            </Field>
+            <Field>
                 <FileInput
                     onChange={onChange}
                     label="upload something"
                     buttonLabel="Small"
                     small
                 />
-            </FormControl>
-            <FormControl>
+            </Field>
+            <Field>
                 <FileInput
                     onChange={onChange}
                     label="upload something"
                     buttonLabel="Large"
                     large
                 />
-            </FormControl>
+            </Field>
         </>
     ))
     .add('Statuses', () => (
         <>
-            <FormControl>
+            <Field>
                 <FileInput
                     onChange={onChange}
                     label="upload something"
                     buttonLabel="Default"
                 />
-            </FormControl>
-            <FormControl>
+            </Field>
+            <Field>
                 <FileInput
                     onChange={onChange}
                     label="upload something"
                     buttonLabel="Valid"
                     valid
                 />
-            </FormControl>
-            <FormControl>
+            </Field>
+            <Field>
                 <FileInput
                     onChange={onChange}
                     label="upload something"
                     buttonLabel="Warning"
                     warning
                 />
-            </FormControl>
-            <FormControl>
+            </Field>
+            <Field>
                 <FileInput
                     onChange={onChange}
                     label="upload something"
@@ -117,7 +117,7 @@ storiesOf('FileInput', module)
                         Something went wrong
                     </Help>
                 </FileInput>
-            </FormControl>
+            </Field>
         </>
     ))
     .add('File list', () => (
