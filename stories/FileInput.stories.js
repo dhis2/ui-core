@@ -164,9 +164,11 @@ storiesOf('FileInput', module)
             label="Upload something"
             buttonLabel="Upload file"
         >
-            <FileInput.Placeholder>
-                No file(s) selected yet
-            </FileInput.Placeholder>
+            <FileInput.FileList>
+                <FileInput.Placeholder>
+                    No file(s) selected yet
+                </FileInput.Placeholder>
+            </FileInput.FileList>
         </FileInput>
     ))
     .add('Help text', () => (
@@ -208,6 +210,27 @@ storiesOf('FileInput', module)
                     removeText="Remove"
                     loading
                 />
+            </FileInput.FileList>
+        </FileInput>
+    ))
+    .add('Design system stacking order - empty file list', () => (
+        <FileInput
+            onChange={onChange}
+            label="upload something"
+            buttonLabel="Upload file"
+        >
+            <Help indent={false}>
+                Please select any type of file (help-text first)
+            </Help>
+
+            <Help indent={false} error>
+                Something went wrong (error second)
+            </Help>
+
+            <FileInput.FileList>
+                <FileInput.Placeholder>
+                    No file(s) selected yet
+                </FileInput.Placeholder>
             </FileInput.FileList>
         </FileInput>
     ))

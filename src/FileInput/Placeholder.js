@@ -8,7 +8,7 @@ const Placeholder = ({ children }) => (
         <style jsx>{`
             p {
                 margin: 0;
-                padding-top: ${spacers.dp8};
+                padding-top: ${spacers.dp4};
                 font-size: 14px;
                 color: ${colors.grey700};
             }
