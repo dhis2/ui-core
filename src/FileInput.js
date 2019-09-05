@@ -9,7 +9,8 @@ import { Help } from './Help.js'
 import { spacers, colors } from './theme.js'
 import { Upload } from './icons/Upload.js'
 import { StatusIconNoDefault } from './icons/Status.js'
-import { SelectedFile } from './FileInput/SelectedFile.js'
+import { FileList } from './FileInput/FileList.js'
+import { FileListItem } from './FileInput/FileListItem.js'
 import { Placeholder } from './FileInput/Placeholder.js'
 
 class FileInput extends PureComponent {
@@ -21,6 +22,9 @@ class FileInput extends PureComponent {
 
     onChange = () => {
         this.props.onChange(this.ref.current.files)
+        // reset the file input so it won't prevent on-change
+        // if the same file was added in a second attempt
+        this.ref.current.value = ''
     }
 
     render() {
@@ -71,7 +75,7 @@ class FileInput extends PureComponent {
                     />
                 </div>
 
-                {children}
+                <div>{children}</div>
 
                 <style jsx>{`
                     input {
@@ -108,10 +112,7 @@ class FileInput extends PureComponent {
 }
 
 const childPropType = propTypes.oneOfType([
-    propTypes.oneOfType([
-        instanceOfComponent(SelectedFile),
-        propTypes.arrayOf(instanceOfComponent(SelectedFile)),
-    ]),
+    instanceOfComponent(FileList),
     instanceOfComponent(Placeholder),
     instanceOfComponent(Help),
 ])
@@ -146,7 +147,8 @@ FileInput.defaultProps = {
     accept: '*',
 }
 
-FileInput.SelectedFile = SelectedFile
+FileInput.FileList = FileList
+FileInput.FileListItem = FileListItem
 FileInput.Placeholder = Placeholder
 
 export { FileInput }
