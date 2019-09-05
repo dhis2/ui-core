@@ -3,6 +3,7 @@ import propTypes from 'prop-types'
 import { instanceOfComponent } from '@dhis2/prop-types'
 
 import { FileListItem } from './FileListItem'
+import { Placeholder } from './Placeholder'
 
 const FileList = ({ children, className }) => (
     <div className={className}>
@@ -20,6 +21,7 @@ const FileList = ({ children, className }) => (
 
 FileList.propTypes = {
     children: propTypes.oneOfType([
+        instanceOfComponent(Placeholder),
         instanceOfComponent(FileListItem),
         propTypes.arrayOf(instanceOfComponent(FileListItem)),
     ]),
