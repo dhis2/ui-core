@@ -1,3 +1,10 @@
+## [3.9.1](https://github.com/dhis2/ui/compare/v3.9.0...v3.9.1) (2019-09-05)
+
+
+### Bug Fixes
+
+* **menu item:** pass value to on click ([#405](https://github.com/dhis2/ui/issues/405)) ([d371475](https://github.com/dhis2/ui/commit/d371475))
+
 # [3.9.0](https://github.com/dhis2/ui/compare/v3.8.0...v3.9.0) (2019-08-22)
 
 
