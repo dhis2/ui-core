@@ -35,7 +35,12 @@ const SubMenu = ({ children, className }) => (
     <div className={className}>{children}</div>
 )
 
-const createOnClickHandler = onClick => evt => {
+SubMenu.propTypes = {
+    className: propTypes.string,
+    children: propTypes.element,
+}
+
+const createOnClickHandler = (onClick, value) => evt => {
     if (onClick) {
         evt.preventDefault()
         evt.stopPropagation()
@@ -62,7 +67,7 @@ const MenuItem = ({
 
     if (isClickable) {
         linkElementProps.href = href
-        linkElementProps.onClick = createOnClickHandler(onClick)
+        linkElementProps.onClick = createOnClickHandler(onClick, value)
     }
 
     return (
