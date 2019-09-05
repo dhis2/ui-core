@@ -6,7 +6,7 @@ import { colors, spacers } from '../theme.js'
 import { AttachFile } from '../icons/AttachFile.js'
 import { Loading } from '../icons/Status.js'
 
-const SelectedFile = ({
+const FileListItem = ({
     className,
     label,
     onRemove,
@@ -75,7 +75,7 @@ const SelectedFile = ({
     </p>
 )
 
-SelectedFile.propTypes = {
+FileListItem.propTypes = {
     className: propTypes.string,
     label: propTypes.string.isRequired,
     onRemove: propTypes.func.isRequired,
@@ -85,4 +85,4 @@ SelectedFile.propTypes = {
     cancelText: propTypes.string,
 }
 
-export { SelectedFile }
+export { FileListItem }
