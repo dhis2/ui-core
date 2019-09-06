@@ -20,7 +20,20 @@ const Progress = ({ amount }) => {
         </div>
     )
 }
+Progress.propTypes = {
+    amount: propTypes.number.isRequired,
+}
 
+/**
+ * @module
+ * @param {LinearLoader.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { LinearLoader } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/loading.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/linearloader--determinate|Storybook}
+ */
 const LinearLoader = ({ amount, width, margin, className }) => {
     return (
         <div role="progressbar" className={className}>
@@ -50,13 +63,19 @@ LinearLoader.defaultProps = {
     width: '300px',
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} [className]
+ * @prop {number} [amount] - The progression in percent without the '%' sign
+ * @prop {string} [margin=spacers.dp12] - The margin around the loader, can be a full shorthand
+ * @prop {string} [width=300px] - The width of the entire indicator, e.g. '100%' or '300px'
+ */
 LinearLoader.propTypes = {
     className: propTypes.string,
-    /** set the progression in percentage (without the % suffix) */
     amount: propTypes.number.isRequired,
-    /** set the margin around the loader, can be a full shorthand */
     margin: propTypes.string,
-    /** set the width of the entire indicator, e.g. '100%' or '300px'. */
     width: propTypes.string,
 }
 

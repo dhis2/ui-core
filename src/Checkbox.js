@@ -11,8 +11,8 @@ import { Input } from './Checkbox/Input.js'
 import { Label } from './Checkbox/Label.js'
 
 /**
- * @module Checkbox
- * @param {PropTypes} props
+ * @module
+ * @param {Checkbox.PropTypes} props
  * @returns {React.Component}
  * @example import { Checkbox } from @dhis2/ui-core
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/checkbox.md|Design system}
@@ -126,6 +126,7 @@ class Checkbox extends Component {
 
 /**
  * @typedef {Object} PropTypes
+ * @static
  *
  * @prop {function} onChange - The handler which is triggered when the
  * component changes
@@ -144,8 +145,7 @@ class Checkbox extends Component {
  * @prop {boolean} [checked]
  * @prop {boolean} [disabled]
  * @prop {boolean} [initialFocus]
- * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are
- * mutually exclusive
+ * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
  * @prop {boolean} [warning]
  * @prop {boolean} [error]
  */

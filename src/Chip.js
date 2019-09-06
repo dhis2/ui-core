@@ -8,10 +8,9 @@ import { Icon } from './Chip/Icon.js'
 import { Remove } from './Chip/Remove.js'
 
 /**
- * @module Chip
- * @param {PropTypes} props
+ * @module
+ * @param {Chip.PropTypes} props
  * @returns {React.PureComponent}
- *
  * @example import { Chip } from @dhis2/ui-core
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/chip.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/chip--default|Storybook}
@@ -102,6 +101,7 @@ class Chip extends PureComponent {
 
 /**
  * @typedef {Object} PropTypes
+ * @static
  * @prop {string} children
  * @prop {string} [className]
  * @prop {Element} [icon]

@@ -6,9 +6,8 @@ import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
 import styles from './Button/styles.js'
 
 /**
- * @module Button
- *
- * @param {PropTypes} props
+ * @module
+ * @param {Button.PropTypes} props
  *
  * @returns {React.Component}
  *
@@ -75,6 +74,7 @@ Button.defaultProps = {
 
 /**
  * @typedef {Object} PropTypes
+ * @static
  *
  * @prop {string} [children] The string to show as the label text for a
  * button
@@ -91,6 +91,7 @@ Button.defaultProps = {
  * @prop {boolean } [destructive]
  *
  * @prop {boolean} [disabled] Disable the button
+ * @prop {Element} [icon]
  *
  * @prop {boolean} [initialFocus] Grants the button the initial focus
  * state

@@ -5,8 +5,8 @@ import cx from 'classnames'
 import { colors } from './theme.js'
 
 /**
- * @module Card
- * @param {PropTypes} props
+ * @module
+ * @param {Card.PropTypes} props
  * @returns {React.Component}
  * @example import { Card } from '@dhis2/ui-core'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/card.md|Design system}
@@ -35,6 +35,7 @@ const Card = ({ className, children }) => (
 
 /**
  * @typedef {Object} PropTypes
+ * @static
  *
  * @prop {string} [className]
  * @prop {Node} [children]

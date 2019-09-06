@@ -8,8 +8,8 @@ import { Button } from './Button.js'
 import styles from './ButtonStrip/styles.js'
 
 /**
- * @module ButtonStrip
- * @param {PropTypes} props
+ * @module
+ * @param {ButtonStrip.PropTypes} props
  * @returns {React.Component}
  * @example import { ButtonStrip } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/buttonstrip--default|Storybook}
@@ -26,6 +26,7 @@ const alignmentPropType = mutuallyExclusive(['middle', 'end'], propTypes.bool)
 
 /**
  * @typedef {Object} PropTypes
+ * @static
  *
  * @prop {string} [className]
  * @prop {Array.<Button>} [children]

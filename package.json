@@ -16,9 +16,10 @@
     "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
     "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
     "build": "NODE_ENV=production yarn build:commonjs && NODE_ENV=production yarn build:modules",
-    "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src/*.js --jsdoc-output-file api.md",
     "build:demo": "build-storybook -c .storybook -o ./build/docs/demo",
+    "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
     "start:demo": "start-storybook --port 5000",
+    "start:docs": "d2-utils-docsite serve ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
     "start": "yarn start:demo"
   },
   "devDependencies": {

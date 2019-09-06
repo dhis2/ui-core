@@ -10,9 +10,8 @@ import { Message } from './AlertBar/Message.js'
 import styles, { ANIMATION_TIME } from './AlertBar/styles.js'
 
 /**
- * @module AlertBar
- *
- * @param {PropTypes} props
+ * @module
+ * @param {AlertBar.PropTypes} props
  *
  * @returns {React.PureComponent}
  *
@@ -139,6 +138,7 @@ const alertTypePropType = mutuallyExclusive(
 
 /**
  * @typedef {Object} PropTypes
+ * @static
  *
  * @prop {string} children - The message string for the alert
  * @prop {string} [className]
@@ -151,8 +151,7 @@ const alertTypePropType = mutuallyExclusive(
  *
  * @prop {number} [duration]
  * @prop {boolean} [permanent]
- * @prop {Array} [actions] An array of 0-2 action objects with the shape:
- * `{ label: {string}, onClick: {function} }`
+ * @prop {Array} [actions] An array of 0-2 action objects with the shape: `{ label: {string}, onClick: {function} }`
  * @prop {function} [onHidden]
  */
 AlertBar.propTypes = {
