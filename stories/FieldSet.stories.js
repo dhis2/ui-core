@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FieldSet, FormControl, Radio, Help, Legend } from '../src'
+import { FieldSet, Radio, Help, Legend } from '../src'
 
 import markdown from './info/atoms/fieldSet.md'
 
@@ -23,33 +23,27 @@ storiesOf('FieldSet', module)
     .add('Usage example - a radio button group with error status', () => (
         <FieldSet>
             <Legend required>Choose an option</Legend>
-            <FormControl>
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="first"
-                    label="First"
-                    error
-                />
-            </FormControl>
-            <FormControl>
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="second"
-                    label="Second"
-                    error
-                />
-            </FormControl>
-            <FormControl>
-                <Radio
-                    onChange={onChange}
-                    name="radio"
-                    value="third"
-                    label="Third"
-                    error
-                />
-            </FormControl>
+            <Radio
+                onChange={onChange}
+                name="radio"
+                value="first"
+                label="First"
+                error
+            />
+            <Radio
+                onChange={onChange}
+                name="radio"
+                value="second"
+                label="Second"
+                error
+            />
+            <Radio
+                onChange={onChange}
+                name="radio"
+                value="third"
+                label="Third"
+                error
+            />
             <Help error indent={false}>
                 You really have to choose something!
             </Help>
