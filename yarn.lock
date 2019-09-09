@@ -606,10 +606,10 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-transform-react-constant-elements@^7.0.0", "@babel/plugin-transform-react-constant-elements@^7.2.0", "@babel/plugin-transform-react-constant-elements@^7.5.0":
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-constant-elements/-/plugin-transform-react-constant-elements-7.5.0.tgz#4d6ae4033bc38f8a65dfca2b6235c44522a422fc"
-  integrity sha512-c5Ba8cpybZFp1Izkf2sWGuNjOxoQ32tFgBvvYvwGhi4+9f6vGiSK9Gex4uVuO/Va6YJFu41aAh1MzMjUWkp0IQ==
+"@babel/plugin-transform-react-constant-elements@^7.0.0", "@babel/plugin-transform-react-constant-elements@^7.2.0", "@babel/plugin-transform-react-constant-elements@^7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-constant-elements/-/plugin-transform-react-constant-elements-7.6.0.tgz#13b8434fb817d30feebd811256eb402c9a245c9e"
+  integrity sha512-np/nPuII8DHOZWB3u8u+NSeKlEz0eBrOlnVksIQog4C9NGVzXO+NLxMcXn4Eu4GMFzOw2W6Tyo6L3+Wv8z9Y5w==
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.0.0"
     "@babel/helper-plugin-utils" "^7.0.0"
