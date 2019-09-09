@@ -32,6 +32,17 @@ const Content = ({ children }) => (
     </div>
 )
 
+/**
+ * @module
+ *
+ * @param {ScreenCover.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { ScreenCover } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking|Design system}
+ * @see Live demo: {@link /demo/?path=/story/screencover--defaultStorybook}
+ */
 const ScreenCover = ({ children, onClick, className }) => (
     <div className={className}>
         <Backdrop onClick={onClick} />
@@ -52,6 +63,13 @@ const ScreenCover = ({ children, onClick, className }) => (
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {function} [onClick]
+ * @prop {string} [className]
+ * @prop {Node} [children]
+ */
 ScreenCover.propTypes = {
     onClick: propTypes.func,
     className: propTypes.string,
