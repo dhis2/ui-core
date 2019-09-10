@@ -1,8 +1,7 @@
 import cx from 'classnames'
 import propTypes from 'prop-types'
 import React, { PureComponent } from 'react'
-
-import { statusPropType } from './common-prop-types.js'
+import { mutuallyExclusive } from '@dhis2/prop-types'
 
 import { Actions, actionsPropType } from './AlertBar/Actions.js'
 import { Dismiss } from './AlertBar/Dismiss.js'
@@ -121,12 +120,17 @@ class AlertBar extends PureComponent {
     }
 }
 
+const alertTypePropType = mutuallyExclusive(
+    ['success', 'warning', 'critical'],
+    propTypes.bool
+)
+
 AlertBar.propTypes = {
     className: propTypes.string,
     children: propTypes.string.isRequired,
-    success: statusPropType,
-    warning: statusPropType,
-    critical: statusPropType,
+    success: alertTypePropType,
+    warning: alertTypePropType,
+    critical: alertTypePropType,
     icon: iconPropType,
     duration: propTypes.number,
     permanent: propTypes.bool,
