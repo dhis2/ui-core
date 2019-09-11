@@ -50,7 +50,7 @@
     "react-dom": "^16.3"
   },
   "dependencies": {
-    "@dhis2/prop-types": "^1.0.4",
+    "@dhis2/prop-types": "^1.1.0",
     "classnames": "^2.2.6",
     "styled-jsx": "^3.2.2"
   },
