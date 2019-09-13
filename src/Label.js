@@ -1,150 +1,55 @@
-import cx from 'classnames'
-import propTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
+import propTypes from 'prop-types'
 
-import { statusPropType } from './common-prop-types.js'
-import { StatusIconNoDefault } from './icons/Status.js'
-import { colors, spacers, theme } from './theme.js'
-
-import { InputContainer } from './Label/InputContainer.js'
-import { Label as InternalLabel } from './Label/Label.js'
+import { spacers } from './theme.js'
 
 const styles = css`
-    .label-regular {
-        position: relative;
-        color: ${colors.grey700};
+    label {
+        display: block;
+        box-sizing: border-box;
+        font-size: 14px;
+        line-height: 24px;
+        padding: 0;
     }
 
     .disabled {
         cursor: not-allowed;
     }
 
-    .content {
-        align-items: center;
-        box-sizing: border-box;
-        display: flex;
-        height: 42px;
-        left: 1px;
-        position: relative;
-        border: 1px solid ${theme.default};
-        border-radius: 4px;
-    }
-
-    .dense .content {
-        height: 34px;
-    }
-
-    .focus .content {
-        border-color: ${colors.teal400};
-    }
-
-    .valid .content {
-        border-color: ${theme.valid};
-    }
-
-    .warning .content {
-        border-color: ${theme.warning};
-    }
-
-    .error .content {
-        border-color: ${theme.error};
-    }
-
-    .disabled .content {
-        border-color: ${theme.disabled};
-    }
-
-    .status-icon {
-        flex-shrink: 0;
-        width: 24px;
-        height: 24px;
-        margin-right: ${spacers.dp4};
-        margin-left: ${spacers.dp12};
-    }
-
-    .status-icon:empty {
-        display: none;
-    }
-
-    .status-icon:last-child {
-        margin-right: ${spacers.dp12};
+    .required span::after {
+        padding-left: ${spacers.dp4};
+        content: '*';
     }
 `
 
-export const Label = ({
-    children,
-    disabled,
-    focus,
-    dense,
-    valid,
-    warning,
-    error,
-    htmlFor,
-    value,
-    required,
-    label,
-    loading,
-    className,
-}) => (
-    <div
-        className={cx('label-regular', className, {
-            disabled,
-            focus,
-            dense,
-            valid,
-            warning,
-            error,
-            value,
-        })}
-    >
-        {label ? (
-            <InternalLabel
-                focus={focus}
-                required={required}
-                valid={valid}
-                warning={warning}
-                error={error}
-                dense={dense}
-                disabled={disabled}
-                value={focus || value}
-                label={label}
-                htmlFor={htmlFor}
-            />
-        ) : null}
+const constructClassName = props => ({
+    focus: props.focus,
+    required: props.required,
+    valid: props.valid,
+    warning: props.warning,
+    error: props.error,
+    dense: props.dense,
+    disabled: props.disabled,
+    value: props.value,
+})
 
-        <div className="content">
-            <InputContainer dense={dense}>{children}</InputContainer>
-            <div className="status-icon">
-                <StatusIconNoDefault
-                    error={error}
-                    valid={valid}
-                    loading={loading}
-                    warning={warning}
-                />
-            </div>
-        </div>
-
+export const Label = props => (
+    <label htmlFor={props.htmlFor} className={constructClassName(props)}>
+        {props.label}
         <style jsx>{styles}</style>
-    </div>
+    </label>
 )
 
 Label.propTypes = {
-    htmlFor: propTypes.string.isRequired,
-    children: propTypes.node.isRequired,
+    htmlFor: propTypes.string,
     label: propTypes.string,
-
     focus: propTypes.bool,
-    value: propTypes.bool,
-    disabled: propTypes.bool,
     required: propTypes.bool,
-
-    valid: statusPropType,
-    error: statusPropType,
-    warning: statusPropType,
-    loading: propTypes.bool,
-
+    valid: propTypes.bool,
+    warning: propTypes.bool,
+    error: propTypes.bool,
     dense: propTypes.bool,
-
-    className: propTypes.string,
+    disabled: propTypes.bool,
+    value: propTypes.string,
 }

@@ -139,6 +139,9 @@ SelectField.propTypes = {
     className: propTypes.string,
     tabIndex: propTypes.string,
 
+    helpText: propTypes.string,
+    validationText: propTypes.string,
+
     children: propTypes.oneOfType([
         propTypes.arrayOf(
             propTypes.shape({

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 
-import { InputField, Help } from '../src'
+import { InputField } from '../src'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
@@ -20,13 +20,11 @@ function createStory(name, props) {
         ))
 
         .add('With Help text', () => (
-            <>
-                <InputField {...props} placeholder="Hold the place" />
-                <Help {...props}>
-                    This is some help text to advice what this input actually
-                    is.
-                </Help>
-            </>
+            <InputField
+                {...props}
+                placeholder="Hold the place"
+                helpText="With some helping text to guide the user along"
+            />
         ))
 
         .add('With value', () => (
@@ -43,20 +41,21 @@ function createStory(name, props) {
         ))
 
         .add('Status: Warning', () => (
-            <InputField {...props} value="This value produces a warning" warning />
+            <InputField
+                {...props}
+                value="This value produces a warning"
+                warning
+            />
         ))
 
         .add('Status: Error', () => (
-            <>
-                <InputField {...props} value="This value produces an error" error />
-                <Help {...props}>
-                    This is some help text to advice what this input actually
-                    is.
-                </Help>
-                <Help error {...props}>
-                    This describes the error, if a message is supplied.
-                </Help>
-            </>
+            <InputField
+                {...props}
+                error
+                value="This value produces an error"
+                helpText="This is some help text to advice what this input actually is."
+                validationText="This describes the error, if a message is supplied."
+            />
         ))
 
         .add('Status: Loading', () => (

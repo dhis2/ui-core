@@ -1,11 +1,82 @@
 import propTypes from 'prop-types'
 import React from 'react'
+import cx from 'classnames'
+import css from 'styled-jsx/css'
 
 import { statusPropType } from './common-prop-types.js'
+import { StatusIconNoDefault } from './icons/Status.js'
 
+import { theme, colors, spacers } from './theme.js'
+
+import { Field } from './Field.js'
 import { Label } from './Label.js'
-import { theme } from './theme.js'
 import { Input } from './Input.js'
+import { Help } from './Help.js'
+
+const styles = css`
+    div :global(.disabled),
+    div :global(.disabled::placeholder) {
+        color: ${theme.disabled};
+        cursor: not-allowed;
+    }
+
+    .label {
+        position: relative;
+        color: ${colors.grey700};
+    }
+
+    .content {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        height: 42px;
+        left: 1px;
+        position: relative;
+        border: 1px solid ${theme.default};
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .dense .content {
+        height: 34px;
+    }
+
+    .focus .content {
+        border-color: ${colors.teal400};
+    }
+
+    .valid .content {
+        border-color: ${theme.valid};
+    }
+
+    .warning .content {
+        border-color: ${theme.warning};
+    }
+
+    .error .content {
+        border-color: ${theme.error};
+    }
+
+    .disabled .content {
+        border-color: ${theme.disabled};
+    }
+
+    .status-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        margin-right: ${spacers.dp4};
+        margin-left: ${spacers.dp12};
+    }
+
+    .status-icon:empty {
+        display: none;
+    }
+
+    .status-icon:last-child {
+        margin-right: ${spacers.dp12};
+    }
+`
 
 /**
  * @module
@@ -49,49 +120,79 @@ class InputField extends React.Component {
             loading,
             value,
             tabIndex,
+            helpText,
+            validationText,
         } = this.props
         const { focus } = this.state
 
         return (
-            <Label
-                focus={focus}
-                label={label}
-                value={!!value || !!placeholder}
-                htmlFor={name}
-                required={required}
-                disabled={disabled}
-                valid={valid}
-                warning={warning}
-                error={error}
-                loading={loading}
-                dense={dense}
-                className={className}
-            >
-                <Input
-                    focus={focus}
-                    onFocus={this.onFocus}
-                    onBlur={this.onBlur}
-                    onChange={onChange}
-                    name={name}
-                    type={type}
-                    value={value || ''}
-                    placeholder={placeholder}
-                    disabled={disabled}
-                    valid={valid}
-                    warning={warning}
-                    error={error}
-                    loading={loading}
-                    dense={dense}
-                    tabIndex={tabIndex}
-                />
-                <style jsx>{`
-                    div :global(.disabled),
-                    div :global(.disabled::placeholder) {
-                        color: ${theme.disabled};
-                        cursor: not-allowed;
-                    }
-                `}</style>
-            </Label>
+            <Field>
+                <div
+                    className={cx(className, {
+                        disabled,
+                        focus,
+                        dense,
+                        valid,
+                        warning,
+                        error,
+                        value,
+                    })}
+                >
+                    {label ? (
+                        <Label
+                            focus={focus}
+                            required={required}
+                            valid={valid}
+                            warning={warning}
+                            error={error}
+                            dense={dense}
+                            disabled={disabled}
+                            value={focus || value}
+                            label={label}
+                            htmlFor={name}
+                        />
+                    ) : null}
+
+                    <div className="content">
+                        <Input
+                            focus={focus}
+                            onFocus={this.onFocus}
+                            onBlur={this.onBlur}
+                            onChange={onChange}
+                            name={name}
+                            type={type}
+                            value={value || ''}
+                            placeholder={placeholder}
+                            disabled={disabled}
+                            valid={valid}
+                            warning={warning}
+                            error={error}
+                            loading={loading}
+                            dense={dense}
+                            tabIndex={tabIndex}
+                        />
+
+                        <div className="status-icon">
+                            <StatusIconNoDefault
+                                error={error}
+                                valid={valid}
+                                loading={loading}
+                                warning={warning}
+                            />
+                        </div>
+                    </div>
+
+                    {helpText ? <Help>{helpText}</Help> : null}
+
+                    {validationText ? (
+                        <Help error={error} warning={warning} valid={valid}>
+                            {validationText}
+                        </Help>
+                    ) : null}
+                </div>
+
+                <style jsx>{styles}</style>
+            </Field>
         )
     }
 }
@@ -132,6 +233,8 @@ InputField.propTypes = {
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
     label: propTypes.string,
+    helpText: propTypes.string,
+    validationText: propTypes.string,
 
     className: propTypes.string,
     placeholder: propTypes.string,
