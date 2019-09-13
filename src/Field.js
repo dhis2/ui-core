@@ -3,6 +3,13 @@ import propTypes from 'prop-types'
 
 import { spacers } from './theme.js'
 
+/**
+ * @module
+ * @param {Field.PropTypes} props
+ * @returns {React.Component}
+ * @example import { Field } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/field--default|Storybook}
+ */
 const Field = ({ children }) => (
     <div>
         {children}
@@ -14,6 +21,11 @@ const Field = ({ children }) => (
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Node} children
+ */
 Field.propTypes = {
     children: propTypes.node.isRequired,
 }

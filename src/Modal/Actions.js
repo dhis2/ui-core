@@ -3,6 +3,12 @@ import propTypes from 'prop-types'
 
 import { spacers } from '../theme.js'
 
+/**
+ * @module
+ *
+ * @param {Actions.PropTypes} props
+ * @returns {React.Component}
+ */
 export const Actions = ({ children }) => (
     <div>
         {children}
@@ -17,6 +23,11 @@ export const Actions = ({ children }) => (
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Object} children - Accepts one or more `Element`s
+ */
 Actions.propTypes = {
     children: propTypes.oneOfType([
         propTypes.element,

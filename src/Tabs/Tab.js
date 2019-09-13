@@ -3,6 +3,16 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { colors, theme } from '../theme.js'
 
+/**
+ * @module
+ * @param {Tab.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { Tab } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tab.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/tabs--default-fluid|Storybook}
+ */
 const Tab = ({ icon, onClick, selected, disabled, children }) => (
     <button
         className={`${cx('tab', {
@@ -109,6 +119,16 @@ const Tab = ({ icon, onClick, selected, disabled, children }) => (
     </button>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Element} [icon]
+ * @prop {function} [onClick]
+ * @prop {function} [addTabRef]
+ * @prop {boolean} [selected]
+ * @prop {boolean} [disabled]
+ * @prop {Node} [children]
+ */
 Tab.propTypes = {
     icon: PropTypes.element,
     onClick: PropTypes.func,

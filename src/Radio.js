@@ -58,6 +58,17 @@ const Input = React.forwardRef((props, ref) => (
 ))
 Input.displayName = 'Input'
 
+/**
+ * @module
+ *
+ * @param {Radio.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { Radio } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/radio.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/radio--default|Storybook}
+ */
 class Radio extends Component {
     ref = createRef()
 
@@ -155,6 +166,30 @@ class Radio extends Component {
     }
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {function} onChange
+ * @prop {string} name
+ * @prop {string} value
+ * @prop {string} [className]
+ * @prop {string} [label]
+ * @prop {string} [tabIndex]
+ * @prop {Element} [icon]
+ *
+ * @prop {boolean} [required]
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [checked]
+ * @prop {boolean} [initialFocus]
+ *
+ * @prop {boolean} [valid] - `valid`, `warning`, and `error` are
+ * mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ *
+ * @prop {function} [onFocus]
+ * @prop {function} [onBlur]
+ */
 Radio.propTypes = {
     onChange: propTypes.func.isRequired,
 

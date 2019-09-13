@@ -15,6 +15,9 @@ const Backdrop = ({ onClick }) => (
         `}</style>
     </div>
 )
+Backdrop.propTypes = {
+    onClick: propTypes.func,
+}
 
 const Content = ({ children }) => (
     <div>
@@ -31,7 +34,21 @@ const Content = ({ children }) => (
         `}</style>
     </div>
 )
+Content.propTypes = {
+    children: propTypes.node,
+}
 
+/**
+ * @module
+ *
+ * @param {ScreenCover.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { ScreenCover } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking|Design system}
+ * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
+ */
 const ScreenCover = ({ children, onClick, className }) => (
     <div className={className}>
         <Backdrop onClick={onClick} />
@@ -52,6 +69,13 @@ const ScreenCover = ({ children, onClick, className }) => (
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {function} [onClick]
+ * @prop {string} [className]
+ * @prop {Node} [children]
+ */
 ScreenCover.propTypes = {
     onClick: propTypes.func,
     className: propTypes.string,

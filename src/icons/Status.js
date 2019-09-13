@@ -4,10 +4,10 @@ import propTypes from 'prop-types'
 import { theme, spacers } from '../theme.js'
 
 /**
- * @param {object} props
- * @param {string} props.className
- * @returns {ReactNode}
+ * @module
+ * @private
  */
+
 export function Valid({ className }) {
     return (
         <svg
@@ -29,15 +29,11 @@ export function Valid({ className }) {
         </svg>
     )
 }
+
 Valid.propTypes = {
     className: propTypes.string,
 }
 
-/**
- * @param {Object} props
- * @param {string} props.className
- * @returns {ReactNode}
- */
 export function Warning({ className }) {
     return (
         <svg
@@ -59,15 +55,11 @@ export function Warning({ className }) {
         </svg>
     )
 }
+
 Warning.propTypes = {
     className: propTypes.string,
 }
 
-/**
- * @param {Object} props
- * @param {string} props.className
- * @returns {ReactNode}
- */
 export function Error({ className }) {
     return (
         <svg
@@ -89,15 +81,11 @@ export function Error({ className }) {
         </svg>
     )
 }
+
 Error.propTypes = {
     className: propTypes.string,
 }
 
-/**
- * @param {Object} props
- * @param {string} props.className
- * @returns {ReactNode}
- */
 export function Info({ className }) {
     return (
         <svg
@@ -119,15 +107,11 @@ export function Info({ className }) {
         </svg>
     )
 }
+
 Info.propTypes = {
     className: propTypes.string,
 }
 
-/**
- * @param {Object} props
- * @param {string} props.className
- * @returns {ReactNode}
- */
 export function Loading({ className }) {
     return (
         <svg
@@ -184,16 +168,11 @@ export function Loading({ className }) {
         </svg>
     )
 }
+
 Loading.propTypes = {
     className: propTypes.string,
 }
 
-/**
- * @param {Object} props
- * @param {string} props.status
- * @param {string} props.className
- * @returns {ReactNode}
- */
 export const StatusIconNoDefault = ({
     error,
     warning,
