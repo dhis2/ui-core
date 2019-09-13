@@ -6,6 +6,16 @@ import { colors } from '../theme'
 import { detectHorizontalScrollbarHeight } from './detectHorizontalScrollbarHeight'
 import { animatedSideScroll } from './animatedSideScroll'
 
+/**
+ * @module
+ * @param {ScrollBar.PropTypes} props
+ * @returns {React.PureComponent}
+ *
+ * @example import { ScrollBar } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tab.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/tabs--tabs-with-scroller|Storybook}
+ */
 class ScrollBar extends PureComponent {
     scrollBox = createRef()
     scrollArea = createRef()
@@ -201,6 +211,11 @@ class ScrollBar extends PureComponent {
     }
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Node} children
+ */
 ScrollBar.propTypes = {
     children: propTypes.node.isRequired,
 }

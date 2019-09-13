@@ -4,6 +4,11 @@ import cx from 'classnames'
 
 import { spacers } from '../theme.js'
 
+/**
+ * @module
+ * @param {Title.PropTypes} props
+ * @returns {React.Component}
+ */
 export const Title = ({ children }) => (
     <h1 className={cx('title')}>
         {children}
@@ -20,6 +25,11 @@ export const Title = ({ children }) => (
     </h1>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} children
+ */
 Title.propTypes = {
     children: propTypes.string.isRequired,
 }

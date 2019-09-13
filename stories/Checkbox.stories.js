@@ -1,9 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Checkbox, Help } from '../src'
-import css from 'styled-jsx/css'
-
-import markdown from './info/atoms/checkbox.md'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.checked}`)
 
@@ -44,12 +41,6 @@ export const FolderOpen = () => (
 )
 
 storiesOf('Checkbox', module)
-    .addParameters({
-        notes: {
-            markdown,
-        },
-    })
-
     .add('Default', () => (
         <Checkbox value="ex" name="ex" label="Checkbox" onChange={logger} />
     ))
@@ -88,7 +79,7 @@ storiesOf('Checkbox', module)
     .add('With Help', () => (
         <div>
             <Checkbox value="ex" name="Ex" label="Checkbox" onChange={logger} />
-            <Help>A lil' help text</Help>
+            <Help>A lil&apos; help text</Help>
         </div>
     ))
 

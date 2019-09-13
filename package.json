@@ -16,10 +16,11 @@
     "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
     "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
     "build": "NODE_ENV=production yarn build:commonjs && NODE_ENV=production yarn build:modules",
-    "postbuild": "NODE_ENV=production yarn build-storybook",
-    "build-storybook": "build-storybook -c .storybook -o ./build/docs && cp -r ./stories/info/images ./build/docs",
-    "start-storybook": "start-storybook --port 5000 -s ./stories/info",
-    "start": "yarn start-storybook"
+    "build:demo": "build-storybook -c .storybook -o ./build/docs/demo",
+    "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
+    "start:demo": "start-storybook --port 5000",
+    "start:docs": "d2-utils-docsite serve ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
+    "start": "yarn start:demo"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
@@ -30,15 +31,17 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "@dhis2/cli-style": "4.1.1",
-    "@storybook/addon-notes": "^5.1.11",
+    "@dhis2/cli-utils-docsite": "^1.1.1",
     "@storybook/addons": "^5.1.8",
     "@storybook/components": "^5.1.10",
     "@storybook/react": "^5.1.11",
+    "@wertarbyte/react-props-md-table": "^1.1.1",
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
     "eslint-plugin-react": "^7.14.3",
     "react": "16.3",
     "react-dev-utils": "^9.0.3",
+    "react-docgen": "^4.1.1",
     "react-dom": "16.3",
     "storybook-addon-jsx": "^7.1.6",
     "storybook-addon-react-docgen": "^1.2.7",
@@ -55,6 +58,7 @@
     "styled-jsx": "^3.2.2"
   },
   "files": [
-    "build"
+    "build",
+    "docs"
   ]
 }

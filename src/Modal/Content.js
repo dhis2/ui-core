@@ -1,11 +1,16 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import cx from 'classnames'
 
 import { spacers } from '../theme.js'
 
-export const Content = ({ children, scrollable }) => (
-    <div className={cx({ scrollable })}>
+/**
+ * @module
+ *
+ * @param {Content.PropTypes} props
+ * @returns {React.Component}
+ */
+export const Content = ({ children, className }) => (
+    <div className={className}>
         {children}
 
         <style jsx>{`
@@ -23,6 +28,13 @@ export const Content = ({ children, scrollable }) => (
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Node} children
+ * @prop {string} [className]
+ */
 Content.propTypes = {
     children: propTypes.node.isRequired,
+    className: propTypes.string,
 }

@@ -5,6 +5,16 @@ import React, { Component, createRef } from 'react'
 import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
 import styles from './Button/styles.js'
 
+/**
+ * @module
+ * @param {Button.PropTypes} props
+ *
+ * @returns {React.Component}
+ *
+ * @example import { Button } from @dhis2/ui-core
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/button-basic--default|Storybook}
+ */
 export class Button extends Component {
     buttonRef = createRef()
 
@@ -62,7 +72,32 @@ Button.defaultProps = {
     type: 'button',
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} [children] The string to show as the label text for a
+ * button
+ * @prop {function} [onClick] The click handler
+ *
+ * @prop {boolean} [small] - `small` and `large` are mutually exclusive
+ * @prop {boolean} [large]
+ * @prop {string} [type=button] Type of button: `submit`, `reset`, or
+ * `button`
+ *
+ * @prop {boolean } [primary] - `primary`, `secondary`, and
+ * `destructive` are mutually exclusive boolean props
+ * @prop {boolean } [secondary]
+ * @prop {boolean } [destructive]
+ *
+ * @prop {boolean} [disabled] Disable the button
+ * @prop {Element} [icon]
+ *
+ * @prop {boolean} [initialFocus] Grants the button the initial focus
+ * state
+ */
 Button.propTypes = {
+    children: propTypes.string,
     onClick: propTypes.func,
 
     className: propTypes.string,
