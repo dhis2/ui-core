@@ -9,15 +9,15 @@ import { InternalInput } from './Input/InternalInput.js'
 
 /**
  * @module
- * @param {Input.PropTypes} props
+ * @param {InputField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { Input } from '@dhis2/ui-core'
+ * @example import { InputField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/inputfield.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/input-regular--no-placeholder-no-value|Storybook}
  */
-class Input extends React.Component {
+class InputField extends React.Component {
     state = {
         focus: this.props.initialFocus,
     }
@@ -96,7 +96,7 @@ class Input extends React.Component {
     }
 }
 
-Input.defaultProps = {
+InputField.defaultProps = {
     type: 'text',
     onBlur: () => {},
     onFocus: () => {},
@@ -128,7 +128,7 @@ Input.defaultProps = {
  * @prop {boolean} [error]
  * @prop {boolean} [loading]
  */
-Input.propTypes = {
+InputField.propTypes = {
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
     label: propTypes.string,
@@ -153,4 +153,4 @@ Input.propTypes = {
     type: propTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
 }
 
-export { Input }
+export { InputField }

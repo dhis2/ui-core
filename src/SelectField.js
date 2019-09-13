@@ -23,15 +23,15 @@ const TailIcon = () => (
 /**
  * @module
  *
- * @param {Select.PropTypes} props
+ * @param {SelectField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { Select } from '@dhis2/ui-core'
+ * @example import { SelectField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/select-regular--no-value|Storybook}
  */
-class Select extends React.Component {
+class SelectField extends React.Component {
     state = {
         focus: this.props.initialFocus,
     }
@@ -130,7 +130,7 @@ class Select extends React.Component {
  * @prop {function} [onFocus]
  * @prop {function} [onBlur]
  */
-Select.propTypes = {
+SelectField.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     label: propTypes.string.isRequired,
@@ -163,4 +163,4 @@ Select.propTypes = {
     onBlur: propTypes.func,
 }
 
-export { Select }
+export { SelectField }
