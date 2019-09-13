@@ -1,4 +1,4 @@
-import React, { Component, Fragment, createRef } from 'react'
+import React, { Component, createRef } from 'react'
 import propTypes from 'prop-types'
 
 export class Input extends Component {
@@ -52,6 +52,7 @@ export class Input extends Component {
 Input.propTypes = {
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
+    value: propTypes.string,
 
     tabIndex: propTypes.string,
 
