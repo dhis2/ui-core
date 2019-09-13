@@ -7,6 +7,13 @@ import { theme } from './theme.js'
  * - https://github.com/necolas/normalize.css
  * - https://www.paulirish.com/2012/box-sizing-border-box-ftw/
  */
+
+/**
+ * @module
+ * @returns {React.Component}
+ * @example import { CssReset } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/cssreset--default|Storybook}
+ */
 const CssReset = () => (
     <style jsx global>{`
         html {

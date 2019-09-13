@@ -5,6 +5,12 @@ import propTypes from 'prop-types'
 import { getPosition } from './DropMenu/getPosition'
 import { layers } from './theme.js'
 
+/**
+ * @module
+ * @param {DropMenu.PropTypes} props
+ * @returns {React.PureComponent}
+ * @example import { DropMenu } from @dhis2/ui-core
+ */
 class DropMenu extends PureComponent {
     state = {
         top: 'auto',
@@ -59,15 +65,23 @@ class DropMenu extends PureComponent {
     }
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} [className]
+ * @prop {Element} [component] - The element to show as the dropdown
+ * @prop {function} [onClose] - Function to trigger when click happens outside of the DOM element
+ * @prop {boolean} [stayOpen] - Decides if the menu should call the onClose function or not
+ * @prop {Object} [anchorEl] - DOM node to position itself against,
+ * needs to have the `getBoundingClientRect` function on its
+ * `prototype`.
+ */
 DropMenu.propTypes = {
     className: propTypes.string,
-    /** The component to use as the dropdown component */
     component: propTypes.element,
-    /** Function to trigger when click happens outside of the DOM element */
     onClose: propTypes.func,
-    /** Decides if the menu should call the onClose function or not */
     stayOpen: propTypes.bool,
-    /** DOM node to position itself against */
+    /**  */
     anchorEl: propTypes.shape({
         getBoundingClientRect: propTypes.func.isRequired,
     }),

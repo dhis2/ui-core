@@ -3,17 +3,11 @@ import { storiesOf } from '@storybook/react'
 import { Modal } from '../src/Modal'
 import { Button } from '../src/Button'
 
-import markdown from './info/molecules/modal.md'
 import { ButtonStrip } from '../src'
 
 const say = something => () => alert(something)
 
 storiesOf('Modal', module)
-    .addParameters({
-        notes: {
-            markdown,
-        },
-    })
     .add('Small: Title, Content, Action', () => (
         <Modal open small>
             <Modal.Title>
@@ -263,8 +257,8 @@ storiesOf('Modal', module)
     .add('Small: Long title', () => (
         <Modal open small>
             <Modal.Title>
-                This headline should break into multiple lines because it's way
-                too long for one!
+                This headline should break into multiple lines because it&apos;s
+                way too long for one!
             </Modal.Title>
 
             <Modal.Content>

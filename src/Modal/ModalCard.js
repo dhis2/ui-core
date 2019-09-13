@@ -26,6 +26,13 @@ const cardBoxStyle = resolve`
     .large { width: 800px; }
 `
 
+/**
+ * @module
+ * @private
+ *
+ * @param {ModalCard.PropTypes} props
+ * @returns {React.Component}
+ */
 export const ModalCard = ({ children, small, large }) => {
     return (
         <Card
@@ -40,8 +47,14 @@ export const ModalCard = ({ children, small, large }) => {
     )
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Element} children - Can be Modal.Title; Must be Modal.Content and Modal.Actions
+ * @prop {boolean} [small] - `small` and `large` are mutually exclusive
+ * @prop {boolean} [large]
+ */
 ModalCard.propTypes = {
-    // Can be Modal.Title; Must be Modal.Content and Modal.Actions
     children: propTypes.oneOfType([
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
