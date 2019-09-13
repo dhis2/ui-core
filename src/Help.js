@@ -5,6 +5,13 @@ import React from 'react'
 import { statusPropType } from './common-prop-types.js'
 import { spacers, theme } from './theme.js'
 
+/**
+ * @module
+ * @param {Help.PropTypes} props
+ * @returns {React.Component}
+ * @example import { Help } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/help--default|Storybook}
+ */
 const Help = ({ children, valid, error, warning, className, indent }) => (
     <p
         className={cx(className, {
@@ -47,6 +54,16 @@ const Help = ({ children, valid, error, warning, className, indent }) => (
     </p>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} children
+ * @prop {string} [className]
+ * @prop {boolean} [indent] - Indents the text
+ * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ */
 Help.propTypes = {
     className: propTypes.string,
     children: propTypes.string.isRequired,

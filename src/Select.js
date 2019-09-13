@@ -20,6 +20,17 @@ const TailIcon = () => (
     </div>
 )
 
+/**
+ * @module
+ *
+ * @param {Select.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { Select } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/select-regular--no-value|Storybook}
+ */
 class Select extends React.Component {
     state = {
         focus: this.props.initialFocus,
@@ -101,6 +112,29 @@ class Select extends React.Component {
     }
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} name
+ * @prop {function} onChange
+ * @prop {string} label
+ * @prop {string} [value]
+ * @prop {string} [className]
+ * @prop {string} [tabIndex]
+ * @prop {Array|Object} [children]
+ * @prop {boolean} [required]
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [filled]
+ * @prop {boolean} [dense]
+ * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are
+ * mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ * @prop {boolean} [loading]
+ * @prop {function} [onFocus]
+ * @prop {function} [onBlur]
+ */
 Select.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,

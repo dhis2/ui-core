@@ -4,6 +4,15 @@ import cx from 'classnames'
 
 import { theme, spacers } from './theme.js'
 
+/**
+ * @module
+ * @param {Legend.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { Legend } from '@dhis2/ui-core'
+ *
+ * @see Live demo: {@link /demo/?path=/story/legend--default|Storybook}
+ */
 const Legend = ({ className, children, required }) => (
     <legend className={cx(className, { required })}>
         {children}
@@ -21,6 +30,13 @@ const Legend = ({ className, children, required }) => (
     </legend>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Node} children
+ * @prop {string} [className]
+ * @prop {boolean} [required]
+ */
 Legend.propTypes = {
     className: propTypes.string,
     children: propTypes.node.isRequired,

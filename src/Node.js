@@ -22,6 +22,10 @@ const Contents = ({ children, open }) => (
         `}</style>
     </div>
 )
+Contents.propTypes = {
+    children: propTypes.node,
+    open: propTypes.bool,
+}
 
 const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
     const arrowIcon = hasLeaves ? <ArrowDown /> : <span />
@@ -84,6 +88,16 @@ const Content = ({ open, children, label }) => (
     </div>
 )
 
+/**
+ * @module
+ *
+ * @param {Node.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { Node } from '@dhis2/ui-core'
+ *
+ * @see Live demo: {@link /demo/?path=/story/node--multiple-roots|Storybook}
+ */
 export const Node = ({ open, component, children, onOpen, onClose }) => {
     const hasLeaves = !!React.Children.toArray(children).filter(i => i).length
     const className = cx('tree', {
@@ -100,7 +114,9 @@ export const Node = ({ open, component, children, onOpen, onClose }) => {
                 onClose={onClose}
             />
 
-            <Content open={open} label={component} children={children} />
+            <Content open={open} label={component}>
+                {children}
+            </Content>
 
             <style jsx>{`
                 div {
@@ -111,6 +127,14 @@ export const Node = ({ open, component, children, onOpen, onClose }) => {
     )
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Element} component
+ * @prop {boolean} [open]
+ * @prop {function} [onOpen]
+ * @prop {funtion} [onClose]
+ */
 Node.propTypes = {
     component: propTypes.element.isRequired,
     open: propTypes.bool,

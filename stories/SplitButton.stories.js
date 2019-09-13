@@ -3,9 +3,6 @@ import { storiesOf } from '@storybook/react'
 import { SplitButton } from '../src'
 
 import { Menu, MenuItem, Divider, Switch } from '../src'
-import markdown from './info/atoms/button.md'
-
-const options = []
 
 const componentMenu = (
     <Menu>
@@ -102,12 +99,6 @@ createStory('SplitButton: Destructive', {
 
 function createStory(name, props) {
     storiesOf(name, module)
-        .addParameters({
-            notes: {
-                markdown,
-            },
-        })
-
         .add('Default', () => <SplitButton {...props}>Label me!</SplitButton>)
 
         .add('Disabled', () => (
