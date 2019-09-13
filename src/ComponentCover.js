@@ -2,6 +2,13 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { layers } from './theme.js'
 
+/**
+ * @module
+ * @param {ComponentCover.PropTypes} props
+ * @returns {React.Component}
+ * @example import { ComponentCover } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/componentcover--circularloader|Storybook}
+ */
 const ComponentCover = ({ children, className }) => (
     <div className={className}>
         {children}
@@ -23,6 +30,12 @@ const ComponentCover = ({ children, className }) => (
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} [className]
+ * @prop {Node} [children]
+ */
 ComponentCover.propTypes = {
     children: propTypes.node,
     className: propTypes.string,

@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 
 import { Help, Radio } from '../src'
-import markdown from './info/atoms/radio.md'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
@@ -43,12 +42,6 @@ export const FolderOpen = () => (
 )
 
 storiesOf('Radio', module)
-    .addParameters({
-        notes: {
-            markdown,
-        },
-    })
-
     .add('Default', () => (
         <Radio name="Ex" label="Radio" value="default" onChange={logger} />
     ))
@@ -92,7 +85,7 @@ storiesOf('Radio', module)
                 value="with-help"
                 onChange={logger}
             />
-            <Help>A lil' help text</Help>
+            <Help>A lil&apos; help text</Help>
         </div>
     ))
 

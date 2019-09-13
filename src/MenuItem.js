@@ -48,6 +48,16 @@ const createOnClickHandler = (onClick, value) => evt => {
     }
 }
 
+/**
+ * @module
+ * @param {MenuItem.PropTypes}
+ * @returns {React.Component}
+ *
+ * @example import { MenuItem } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/menu--default|Storybook}
+ */
 const MenuItem = ({
     href,
     value,
@@ -96,12 +106,26 @@ const MenuItem = ({
     )
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string|Node} label
+ * @prop {string} [value]
+ * @prop {string} [href]
+ * @prop {function} [onClick] - Click handler called with `value` as the sole argument
+ * @prop {string} [className]
+ * @prop {Element} [children]
+ * @prop {Element} [icon]
+ * @prop {boolean} [dense]
+ * @prop {boolean} [active]
+ * @prop {boolean} [disabled]
+ */
 MenuItem.propTypes = {
-    label: propTypes.oneOfType([propTypes.string, propTypes.object]).isRequired,
+    label: propTypes.oneOfType([propTypes.string, propTypes.node]).isRequired,
 
-    value: propTypes.any,
+    value: propTypes.string,
     href: propTypes.string,
-    /** handler function called with `value` as the sole argument */
     onClick: propTypes.func,
 
     className: propTypes.string,
