@@ -3,12 +3,12 @@ import propTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
-import { statusPropType } from '../common-prop-types.js'
-import { StatusIconNoDefault } from '../icons/Status.js'
-import { colors, spacers, theme } from '../theme.js'
+import { statusPropType } from './common-prop-types.js'
+import { StatusIconNoDefault } from './icons/Status.js'
+import { colors, spacers, theme } from './theme.js'
 
-import { InputContainer } from './Regular/InputContainer.js'
-import { Label } from './Regular/Label.js'
+import { InputContainer } from './Label/InputContainer.js'
+import { Label as InternalLabel } from './Label/Label.js'
 
 const styles = css`
     .label-regular {
@@ -72,7 +72,7 @@ const styles = css`
     }
 `
 
-export const Regular = ({
+export const Label = ({
     children,
     disabled,
     focus,
@@ -99,7 +99,7 @@ export const Regular = ({
         })}
     >
         {label ? (
-            <Label
+            <InternalLabel
                 focus={focus}
                 required={required}
                 valid={valid}
@@ -129,7 +129,7 @@ export const Regular = ({
     </div>
 )
 
-Regular.propTypes = {
+Label.propTypes = {
     htmlFor: propTypes.string.isRequired,
     children: propTypes.node.isRequired,
     label: propTypes.string,

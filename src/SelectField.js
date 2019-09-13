@@ -2,10 +2,10 @@ import propTypes from 'prop-types'
 import React from 'react'
 
 import { statusPropType } from './common-prop-types.js'
-import { LabelRegular } from './FieldLabel.js'
+import { Label } from './Label.js'
 import { ArrowDown } from './icons/Arrow.js'
 
-import { InternalSelect } from './Select/InternalSelect.js'
+import { Select } from './Select.js'
 
 const TailIcon = () => (
     <div>
@@ -75,7 +75,7 @@ class SelectField extends React.Component {
         const { focus } = this.state
 
         return (
-            <LabelRegular
+            <Label
                 focus={focus}
                 label={label}
                 value={!!value}
@@ -88,7 +88,7 @@ class SelectField extends React.Component {
                 loading={loading}
                 dense={dense}
             >
-                <InternalSelect
+                <Select
                     focus={focus}
                     name={name}
                     value={value}
@@ -100,10 +100,10 @@ class SelectField extends React.Component {
                     onBlur={this.onBlur}
                 >
                     {children}
-                </InternalSelect>
+                </Select>
 
                 <TailIcon />
-            </LabelRegular>
+            </Label>
         )
     }
 }

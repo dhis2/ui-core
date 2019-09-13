@@ -3,7 +3,7 @@ import React, { Component, createRef } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme } from '../theme.js'
+import { colors, theme } from './theme.js'
 
 const styles = css`
     select {
@@ -42,7 +42,7 @@ const styles = css`
     }
 `
 
-export class InternalSelect extends Component {
+export class Select extends Component {
     selectRef = createRef()
 
     componentDidMount() {
@@ -88,7 +88,7 @@ export class InternalSelect extends Component {
     }
 }
 
-InternalSelect.propTypes = {
+Select.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
 

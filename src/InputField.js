@@ -3,9 +3,9 @@ import React from 'react'
 
 import { statusPropType } from './common-prop-types.js'
 
-import { LabelRegular } from './FieldLabel.js'
+import { Label } from './Label.js'
 import { theme } from './theme.js'
-import { InternalInput } from './Input/InternalInput.js'
+import { Input } from './Input.js'
 
 /**
  * @module
@@ -53,7 +53,7 @@ class InputField extends React.Component {
         const { focus } = this.state
 
         return (
-            <LabelRegular
+            <Label
                 focus={focus}
                 label={label}
                 value={!!value || !!placeholder}
@@ -67,7 +67,7 @@ class InputField extends React.Component {
                 dense={dense}
                 className={className}
             >
-                <InternalInput
+                <Input
                     focus={focus}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
@@ -91,7 +91,7 @@ class InputField extends React.Component {
                         cursor: not-allowed;
                     }
                 `}</style>
-            </LabelRegular>
+            </Label>
         )
     }
 }

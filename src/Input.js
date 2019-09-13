@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme } from '../theme.js'
+import { colors, theme } from './theme.js'
 
 const styles = css`
     input {
@@ -34,7 +34,7 @@ const styles = css`
     }
 `
 
-export class InternalInput extends Component {
+export class Input extends Component {
     inputRef = React.createRef()
 
     componentDidMount() {
@@ -73,7 +73,7 @@ export class InternalInput extends Component {
     }
 }
 
-InternalInput.propTypes = {
+Input.propTypes = {
     name: propTypes.string.isRequired,
     type: propTypes.string.isRequired,
 

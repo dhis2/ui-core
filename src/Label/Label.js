@@ -2,7 +2,7 @@ import React from 'react'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
 
-import { spacers } from '../../theme.js'
+import { spacers } from '../theme.js'
 
 const styles = css`
     label {
