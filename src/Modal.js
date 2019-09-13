@@ -12,7 +12,25 @@ import { ModalCard } from './Modal/ModalCard.js'
 import { Title } from './Modal/Title.js'
 
 /**
- * Modal provides a UI to prompt the user to respond to a question
+ * @module
+ * @param {Modal.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { Modal } from @dhis2/ui-core
+ * @example
+ *  <Modal>
+ *      <Modal.Title>Hello</Modal.Title>
+ *      <Modal.Content>Some content here</Modal.Content>
+ *      <Modal.Actions>
+ *          <Button primary>My action</Button>
+ *      </Modal.Actions>
+ *  </Modal>
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/modal.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/modal--small-title-content-action|Storybook}
+ */
+
+/* Modal provides a UI to prompt the user to respond to a question
  * or a note to the user.
  *
  * Use Model with the following Components:
@@ -47,6 +65,9 @@ Modal.Title = Title
 Modal.Content = Content
 Modal.Actions = Actions
 
+/**
+ *
+ */
 Modal.propTypes = {
     // Can contain Modal.Title; Must contain Modal.Content and Modal.Actions
     children: propTypes.oneOfType([

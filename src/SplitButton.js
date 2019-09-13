@@ -17,6 +17,17 @@ const rightButton = css.resolve`
     }
 `
 
+/**
+ * @module
+ *
+ * @param {SplitButton.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { SplitButton } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/splitbutton-basic--default|Storybook}
+ */
 class SplitButton extends Component {
     state = {
         open: false,
@@ -86,6 +97,24 @@ class SplitButton extends Component {
     }
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Element} component
+ * @prop {string} [children]
+ * @prop {string} [className]
+ * @prop {string} [name]
+ * @prop {string} [value]
+ * @prop {function} [onClick]
+ * @prop {Element} [icon]
+ * @prop {boolean} [small] - `small` and `large` are mutually exclusive
+ * @prop {boolean} [large]
+ * @prop {boolean } [primary] - `primary`, `secondary`, and
+ * `destructive` are mutually exclusive boolean props
+ * @prop {boolean } [secondary]
+ * @prop {boolean } [destructive]
+ * @prop {boolean } [disabled]
+ */
 SplitButton.propTypes = {
     children: propTypes.string,
     component: propTypes.element.isRequired,

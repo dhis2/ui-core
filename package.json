@@ -13,13 +13,14 @@
   },
   "scripts": {
     "prebuild": "rm -rf ./build/*",
+    "build": "NODE_ENV=production yarn build:commonjs && NODE_ENV=production yarn build:modules",
     "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
     "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
-    "build": "NODE_ENV=production yarn build:commonjs && NODE_ENV=production yarn build:modules",
-    "postbuild": "NODE_ENV=production yarn build-storybook",
-    "build-storybook": "build-storybook -c .storybook -o ./build/docs && cp -r ./stories/info/images ./build/docs",
-    "start-storybook": "start-storybook -s ./stories/info",
-    "start": "yarn start-storybook --port 5000",
+    "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
+    "build:demo": "build-storybook -c .storybook -o ./build/docs/demo",
+    "start": "yarn start:demo",
+    "start:docs": "d2-utils-docsite serve ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
+    "start:demo": "start-storybook -s ./stories/info --port 5000",
     "start:testing": "STORYBOOK_INCLUDE_TESTING=1 yarn start --port $PORT --ci",
     "cypress:browser": "cypress open --config baseUrl=http://localhost:$PORT",
     "cypress:ci": "NO_COLOR=1 cypress run -b $BROWSER --config baseUrl=http://localhost:$PORT",
@@ -39,6 +40,8 @@
     "@storybook/addons": "^5.2.4",
     "@storybook/components": "^5.2.0",
     "@storybook/react": "^5.2.6",
+    "@dhis2/cli-utils-docsite": "^1.1.1",
+    "@wertarbyte/react-props-md-table": "^1.1.1",
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
     "concurrently": "^5.0.0",
@@ -47,6 +50,7 @@
     "eslint-plugin-react": "^7.16.0",
     "react": "16.3",
     "react-dev-utils": "^9.1.0",
+    "react-docgen": "^4.1.1",
     "react-dom": "16.3",
     "storybook-addon-jsx": "^7.1.13",
     "storybook-addon-react-docgen": "^1.2.28",
@@ -64,7 +68,8 @@
     "styled-jsx": "^3.2.4"
   },
   "files": [
-    "build"
+    "build",
+    "docs"
   ],
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true

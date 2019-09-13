@@ -2,18 +2,11 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { FieldSet, Field, Radio, Help, Legend } from '../src'
 
-import markdown from './info/atoms/fieldSet.md'
-
 const onChange = () => {
     console.log('Radio was clicked, nothing else will happen')
 }
 
 storiesOf('FieldSet', module)
-    .addParameters({
-        notes: {
-            markdown,
-        },
-    })
     .add('Default', () => (
         <FieldSet>
             It renders something in a fieldset element without the browser

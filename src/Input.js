@@ -7,6 +7,16 @@ import { LabelFilled, LabelRegular } from './FieldLabel.js'
 import { theme } from './theme.js'
 import { InternalInput } from './Input/InternalInput.js'
 
+/**
+ * @module
+ * @param {Input.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { Input } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/inputfield.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/input-regular--no-placeholder-no-value|Storybook}
+ */
 class Input extends React.Component {
     state = {
         focus: this.props.initialFocus,
@@ -96,6 +106,33 @@ Input.defaultProps = {
     onFocus: () => {},
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} name
+ * @prop {string} [type=text]
+ * @prop {function} onChange
+ * @prop {function} [onBlur=() => {}]
+ * @prop {function} [onFocus=() => {}]
+ * @prop {string} [label]
+ * @prop {string} [className]
+ * @prop {string} [placeholder]
+ * @prop {string} [value]
+ * @prop {string} [tabIndex]
+ *
+ * @prop {boolean} [required]
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [filled] - Use the deprecated filled input style
+ * @prop {boolean} [dense] - Compact mode
+ * @prop {boolean} [initialFocus]
+ *
+ * @prop {boolean} [valid] - `valid`, `warning`, `error`, and `loading`
+ * are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ * @prop {boolean} [loading]
+ */
 Input.propTypes = {
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
