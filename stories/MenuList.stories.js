@@ -47,7 +47,6 @@ storiesOf('MenuList', module)
     .add('Default', () => (
         <MenuList>
             <MenuItem
-                icon={<FolderOpen />}
                 label={
                     <Switch
                         label="Yahoo"

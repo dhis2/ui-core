@@ -9,6 +9,17 @@ import { Icon, iconPropType } from './AlertBar/Icon.js'
 import { Message } from './AlertBar/Message.js'
 import styles, { ANIMATION_TIME } from './AlertBar/styles.js'
 
+/**
+ * @module
+ * @param {AlertBar.PropTypes} props
+ *
+ * @returns {React.PureComponent}
+ *
+ * @example import { AlertBar } from @dhis2/ui-core
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/alertbar.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/alertbar--default|Storybook}
+ */
 class AlertBar extends PureComponent {
     state = {
         visible: false,
@@ -125,9 +136,27 @@ const alertTypePropType = mutuallyExclusive(
     propTypes.bool
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} children - The message string for the alert
+ * @prop {string} [className]
+ * @prop {boolean} [success] - `success`, `warning`, and `critical` are
+ * mutually exclusive props.
+ * @prop {boolean} [warning]
+ * @prop {boolean} [critical]
+ *
+ * @prop {(Element|boolean)} [icon=true]
+ *
+ * @prop {number} [duration]
+ * @prop {boolean} [permanent]
+ * @prop {Array} [actions] An array of 0-2 action objects with the shape: `{ label: {string}, onClick: {function} }`
+ * @prop {function} [onHidden]
+ */
 AlertBar.propTypes = {
-    className: propTypes.string,
     children: propTypes.string.isRequired,
+    className: propTypes.string,
     success: alertTypePropType,
     warning: alertTypePropType,
     critical: alertTypePropType,

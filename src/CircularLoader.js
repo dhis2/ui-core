@@ -5,6 +5,14 @@ import React from 'react'
 import { sizePropType } from './common-prop-types.js'
 import styles from './CircularLoader/styles.js'
 
+/**
+ * @module
+ * @param {CircularLoader.PropTypes} props
+ * @returns {React.Component}
+ * @example import { CircularLoader } from @dhis2/ui-core
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/loading.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/circularloader--default|Storybook}
+ */
 const CircularLoader = ({ small, large, className }) => (
     <div
         role="progressbar"
@@ -27,6 +35,13 @@ const CircularLoader = ({ small, large, className }) => (
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} [className]
+ * @prop {boolean} [small] - `small` and `large` are mutually exclusive.
+ * @prop {boolean} [large]
+ */
 CircularLoader.propTypes = {
     className: propTypes.string,
     small: sizePropType,

@@ -3,6 +3,12 @@ import propTypes from 'prop-types'
 
 import { colors, spacers } from './theme.js'
 
+/**
+ * @module
+ * @param {Divider.PropTypes} props
+ * @returns {React.Component}
+ * @example import { Divider } from @dhis2/ui-core
+ */
 const Divider = ({ margin, className }) => (
     <div className={className}>
         <style jsx>{`
@@ -25,6 +31,12 @@ Divider.defaultProps = {
     margin: `${spacers.dp8} 0`,
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} [className]
+ * @prop {string} [margin="${spacers.dp8} 0"] - A CSS shorthand declaration for margin
+ */
 Divider.propTypes = {
     className: propTypes.string,
     margin: propTypes.string,

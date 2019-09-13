@@ -49,6 +49,16 @@ SwitchIcon.propTypes = {
     focus: propTypes.bool,
 }
 
+/**
+ * @module
+ * @param {Switch.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { Switch } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/switch.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/switch--default|Storybook}
+ */
 class Switch extends Component {
     ref = createRef()
     state = {
@@ -126,6 +136,26 @@ class Switch extends Component {
     }
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {function} onChange
+ * @prop {string} name
+ * @prop {string} [className]
+ * @prop {string} [label]
+ * @prop {boolean} [required]
+ * @prop {boolean} [checked]
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [initialFocus]
+ *
+ * @prop {function} [onFocus]
+ * @prop {function} [onBlur]
+ *
+ * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ */
 Switch.propTypes = {
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,

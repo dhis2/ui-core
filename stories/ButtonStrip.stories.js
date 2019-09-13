@@ -2,8 +2,6 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { ButtonStrip, Button } from '../src'
 
-import markdown from './info/atoms/buttonStrip.md'
-
 const Wrapper = fn => (
     <div
         style={{
@@ -17,11 +15,6 @@ const Wrapper = fn => (
 )
 
 storiesOf('ButtonStrip', module)
-    .addParameters({
-        notes: {
-            markdown,
-        },
-    })
     .addDecorator(Wrapper)
     .add('Default', () => (
         <ButtonStrip>
