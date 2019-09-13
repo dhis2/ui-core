@@ -23,14 +23,6 @@ createStory('Select: Regular', {
     onChange: logger,
 })
 
-createStory('Select: Filled', {
-    name: 'Default',
-    label: 'Default label',
-    onChange: logger,
-    filled: true,
-    indent: true,
-})
-
 function createStory(name, props) {
     storiesOf(name, module)
         .add('No value', () => <Select {...props}>{options}</Select>)

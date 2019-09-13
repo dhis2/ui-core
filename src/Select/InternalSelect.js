@@ -3,7 +3,7 @@ import React, { Component, createRef } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme, spacers } from '../theme.js'
+import { colors, theme } from '../theme.js'
 
 const styles = css`
     select {
@@ -32,15 +32,6 @@ const styles = css`
         font-size: 14px;
     }
 
-    .filled {
-        padding-top: ${spacers.dp24};
-        padding-left: ${spacers.dp16};
-    }
-
-    .filled.dense {
-        padding-top: ${spacers.dp24};
-    }
-
     option:not(:checked) {
         color: black;
     }
@@ -63,7 +54,6 @@ export class InternalSelect extends Component {
     render() {
         const {
             dense,
-            filled,
             disabled,
             onChange,
             onFocus,
@@ -75,7 +65,6 @@ export class InternalSelect extends Component {
         } = this.props
         const className = cx({
             dense,
-            filled,
             disabled,
         })
 
@@ -121,7 +110,6 @@ InternalSelect.propTypes = {
     ]),
 
     disabled: propTypes.bool,
-    filled: propTypes.bool,
     dense: propTypes.bool,
     focus: propTypes.bool,
 }

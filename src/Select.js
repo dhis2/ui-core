@@ -2,7 +2,7 @@ import propTypes from 'prop-types'
 import React from 'react'
 
 import { statusPropType } from './common-prop-types.js'
-import { LabelFilled, LabelRegular } from './FieldLabel.js'
+import { LabelRegular } from './FieldLabel.js'
 import { ArrowDown } from './icons/Arrow.js'
 
 import { InternalSelect } from './Select/InternalSelect.js'
@@ -58,7 +58,6 @@ class Select extends React.Component {
 
     render() {
         const {
-            filled,
             dense,
             required,
             label,
@@ -75,10 +74,8 @@ class Select extends React.Component {
         } = this.props
         const { focus } = this.state
 
-        const Container = filled ? LabelFilled : LabelRegular
-
         return (
-            <Container
+            <LabelRegular
                 focus={focus}
                 label={label}
                 value={!!value}
@@ -96,7 +93,6 @@ class Select extends React.Component {
                     name={name}
                     value={value}
                     disabled={disabled}
-                    filled={filled}
                     dense={dense}
                     tabIndex={tabIndex}
                     onChange={onChange}
@@ -107,7 +103,7 @@ class Select extends React.Component {
                 </InternalSelect>
 
                 <TailIcon />
-            </Container>
+            </LabelRegular>
         )
     }
 }
@@ -125,7 +121,6 @@ class Select extends React.Component {
  * @prop {Array|Object} [children]
  * @prop {boolean} [required]
  * @prop {boolean} [disabled]
- * @prop {boolean} [filled]
  * @prop {boolean} [dense]
  * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are
  * mutually exclusive
@@ -157,7 +152,6 @@ Select.propTypes = {
 
     required: propTypes.bool,
     disabled: propTypes.bool,
-    filled: propTypes.bool,
     dense: propTypes.bool,
     valid: statusPropType,
     warning: statusPropType,

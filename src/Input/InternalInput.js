@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme, spacers } from '../theme.js'
+import { colors, theme } from '../theme.js'
 
 const styles = css`
     input {
@@ -32,14 +32,6 @@ const styles = css`
         color: ${theme.disabled};
         cursor: not-allowed;
     }
-
-    .filled {
-        padding: ${spacers.dp32} 0 ${spacers.dp8} ${spacers.dp16};
-    }
-
-    .filled.dense {
-        padding: ${spacers.dp24} 0 ${spacers.dp4} ${spacers.dp16};
-    }
 `
 
 export class InternalInput extends Component {
@@ -52,11 +44,10 @@ export class InternalInput extends Component {
     }
 
     render() {
-        const { dense, filled, disabled } = this.props
+        const { dense, disabled } = this.props
 
         const classes = cx({
             dense,
-            filled,
             disabled,
         })
 
@@ -97,6 +88,5 @@ InternalInput.propTypes = {
 
     focus: propTypes.bool,
     disabled: propTypes.bool,
-    filled: propTypes.bool,
     dense: propTypes.bool,
 }
