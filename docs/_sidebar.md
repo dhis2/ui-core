@@ -1,2 +1,3 @@
 - [**Getting started**](getting-started)
 - [**API**](api)
+- [**Live demo**](/demo)
