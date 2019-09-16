@@ -21,10 +21,10 @@ createStory('SelectField', {
     name: 'Default',
     label: 'Default label',
     onChange: logger,
-})
+}).add('No label', () => <SelectField name="Default" onChange={logger} />)
 
 function createStory(name, props) {
-    storiesOf(name, module)
+    return storiesOf(name, module)
         .add('No value', () => <SelectField {...props}>{options}</SelectField>)
 
         .add('With value', () => (
