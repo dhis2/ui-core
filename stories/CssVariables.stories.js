@@ -7,13 +7,13 @@ const App = ({ children }) => <div>{children}</div>
 
 storiesOf('CssVariables', module).add('Default', () => (
     <App>
-        <CssVariables />
+        <CssVariables variables={{ 'color-red': '#a83c32' }} />
 
         <p>
-            This <span style={{ color: 'var(--colors-blue500)' }}>text</span>{' '}
-            uses the{' '}
-            <span style={{ color: 'var(--colors-red500)' }}>colors</span> from
-            our theme with vanilla css custom properties.
+            This <span style={{ color: 'var(--color-red)' }}>text</span> uses
+            the vanilla CSS{' '}
+            <span style={{ color: 'var(--color-red)' }}>--color-red</span>{' '}
+            custom property set by the CssVariables component.
         </p>
     </App>
 ))
