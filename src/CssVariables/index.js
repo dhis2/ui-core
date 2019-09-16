@@ -30,7 +30,7 @@ const CssVariables = ({ variables }) => {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {object} [variables] - An object with the variables to insert
+ * @prop {object} - An object with the variables to insert
  */
 CssVariables.propTypes = {
     variables: propTypes.objectOf(
