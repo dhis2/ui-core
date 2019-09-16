@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { SelectField, Help } from '../src'
+import { SelectField } from '../src'
 
 const logger = ({ target }) =>
     console.info(`${target.name}: ${target.value}`, target)
@@ -34,26 +34,43 @@ function createStory(name, props) {
         ))
 
         .add('With Help text', () => (
-            <>
-                <SelectField {...props}>{options}</SelectField>
-                <Help {...props}>A helpful text.</Help>
-            </>
+            <SelectField {...props} helpText="A helpful text.">
+                {options}
+            </SelectField>
         ))
 
         .add('With valid status', () => (
-            <SelectField {...props} value="1" valid>
+            <SelectField
+                {...props}
+                helpText="A helpful text."
+                validationText="Totally valid"
+                value="1"
+                valid
+            >
                 {options}
             </SelectField>
         ))
 
         .add('With warning status', () => (
-            <SelectField {...props} value="1" warning>
+            <SelectField
+                {...props}
+                helpText="A helpful text."
+                validationText="Hm, not quite, I warn thee!"
+                value="1"
+                warning
+            >
                 {options}
             </SelectField>
         ))
 
         .add('With error status', () => (
-            <SelectField {...props} value="2" error>
+            <SelectField
+                {...props}
+                helpText="A helpful text."
+                validationText="NO! TOTALLY WRONG!"
+                value="2"
+                error
+            >
                 {options}
             </SelectField>
         ))

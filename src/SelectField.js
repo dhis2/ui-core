@@ -1,11 +1,83 @@
 import propTypes from 'prop-types'
 import React from 'react'
+import cx from 'classnames'
+import css from 'styled-jsx/css'
 
 import { statusPropType } from './common-prop-types.js'
-import { Label } from './Label.js'
 import { ArrowDown } from './icons/Arrow.js'
+import { StatusIconNoDefault } from './icons/Status.js'
 
+import { theme, colors, spacers } from './theme.js'
+
+import { Field } from './Field.js'
+import { Label } from './Label.js'
+import { Help } from './Help.js'
 import { Select } from './Select.js'
+
+const styles = css`
+    div :global(.disabled),
+    div :global(.disabled::placeholder) {
+        color: ${theme.disabled};
+        cursor: not-allowed;
+    }
+
+    .label {
+        position: relative;
+        color: ${colors.grey700};
+    }
+
+    .content {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        height: 42px;
+        left: 1px;
+        position: relative;
+        border: 1px solid ${theme.default};
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .dense .content {
+        height: 34px;
+    }
+
+    .focus .content {
+        border-color: ${colors.teal400};
+    }
+
+    .valid .content {
+        border-color: ${theme.valid};
+    }
+
+    .warning .content {
+        border-color: ${theme.warning};
+    }
+
+    .error .content {
+        border-color: ${theme.error};
+    }
+
+    .disabled .content {
+        border-color: ${theme.disabled};
+    }
+
+    .status-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        margin-right: ${spacers.dp4};
+        margin-left: ${spacers.dp12};
+    }
+
+    .status-icon:empty {
+        display: none;
+    }
+
+    .status-icon:last-child {
+        margin-right: ${spacers.dp32};
+    }
+`
 
 const TailIcon = () => (
     <div>
@@ -58,6 +130,8 @@ class SelectField extends React.Component {
 
     render() {
         const {
+            className,
+            onChange,
             dense,
             required,
             label,
@@ -67,43 +141,79 @@ class SelectField extends React.Component {
             error,
             warning,
             loading,
-            children,
             value,
             tabIndex,
-            onChange,
+            helpText,
+            validationText,
+            children,
         } = this.props
         const { focus } = this.state
 
         return (
-            <Label
-                focus={focus}
-                label={label}
-                value={!!value}
-                htmlFor={name}
-                required={required}
-                disabled={disabled}
-                valid={valid}
-                warning={warning}
-                error={error}
-                loading={loading}
-                dense={dense}
-            >
-                <Select
-                    focus={focus}
-                    name={name}
-                    value={value}
-                    disabled={disabled}
-                    dense={dense}
-                    tabIndex={tabIndex}
-                    onChange={onChange}
-                    onFocus={this.onFocus}
-                    onBlur={this.onBlur}
+            <Field>
+                <div
+                    className={cx(className, {
+                        disabled,
+                        focus,
+                        dense,
+                        valid,
+                        warning,
+                        error,
+                        value,
+                    })}
                 >
-                    {children}
-                </Select>
+                    {label ? (
+                        <Label
+                            focus={focus}
+                            required={required}
+                            valid={valid}
+                            warning={warning}
+                            error={error}
+                            dense={dense}
+                            disabled={disabled}
+                            value={focus || value}
+                            label={label}
+                            htmlFor={name}
+                        />
+                    ) : null}
 
-                <TailIcon />
-            </Label>
+                    <div className="content">
+                        <Select
+                            focus={focus}
+                            name={name}
+                            value={value}
+                            disabled={disabled}
+                            dense={dense}
+                            tabIndex={tabIndex}
+                            onChange={onChange}
+                            onFocus={this.onFocus}
+                            onBlur={this.onBlur}
+                        >
+                            {children}
+                        </Select>
+
+                        <div className="status-icon">
+                            <TailIcon />
+
+                            <StatusIconNoDefault
+                                error={error}
+                                valid={valid}
+                                loading={loading}
+                                warning={warning}
+                            />
+                        </div>
+                    </div>
+
+                    {helpText ? <Help>{helpText}</Help> : null}
+
+                    {validationText ? (
+                        <Help error={error} warning={warning} valid={valid}>
+                            {validationText}
+                        </Help>
+                    ) : null}
+                </div>
+                <style jsx>{styles}</style>
+            </Field>
         )
     }
 }
@@ -129,12 +239,16 @@ class SelectField extends React.Component {
  * @prop {boolean} [loading]
  * @prop {function} [onFocus]
  * @prop {function} [onBlur]
+ *
+ * @prop {string} [validationText]
+ * @prop {string} [helpText]
+ * @prop {Object|Array} [children]
  */
 SelectField.propTypes = {
     name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
-    label: propTypes.string.isRequired,
 
+    label: propTypes.string,
     value: propTypes.string,
     className: propTypes.string,
     tabIndex: propTypes.string,

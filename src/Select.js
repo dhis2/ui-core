@@ -12,12 +12,9 @@ const styles = css`
         color: ${colors.grey900};
         font-size: inherit;
         height: 100%;
-        left: 0;
         outline: 0;
         /** 15px => 16px inner spacing - 1px of the border**/
         padding: 0 12px 0 15px;
-        position: absolute;
-        top: 0;
         width: 100%;
         -webkit-appearance: none;
         -moz-appearance: none;

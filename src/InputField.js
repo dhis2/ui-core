@@ -228,6 +228,9 @@ InputField.defaultProps = {
  * @prop {boolean} [warning]
  * @prop {boolean} [error]
  * @prop {boolean} [loading]
+ *
+ * @prop {string} [validationText]
+ * @prop {string} [helpText]
  */
 InputField.propTypes = {
     onChange: propTypes.func.isRequired,
