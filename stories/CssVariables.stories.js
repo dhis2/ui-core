@@ -1,4 +1,5 @@
 import React from 'react'
+import propTypes from 'prop-types'
 import { storiesOf } from '@storybook/react'
 import { CssVariables } from '../src'
 
@@ -9,9 +10,14 @@ storiesOf('CssVariables', module).add('Default', () => (
         <CssVariables />
 
         <p>
-            The <code>CssVariables</code> component injects CSS variables in
-            the root of the document for all our theme values. This allows
-            users that do not use CSS-in-JS to still use our theme values.
+            This <span style={{ color: 'var(--colors-blue500)' }}>text</span>{' '}
+            uses the{' '}
+            <span style={{ color: 'var(--colors-red500)' }}>colors</span> from
+            our theme with vanilla css custom properties.
         </p>
     </App>
 ))
+
+App.propTypes = {
+    children: propTypes.any.isRequired,
+}

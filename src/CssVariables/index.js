@@ -1,34 +1,59 @@
 import React from 'react'
+import propTypes from 'prop-types'
 import * as theme from '../theme.js'
 
 /**
- * Maps over each theme value in a section and converts it to a css custom property (variable)
- * definition. It uses the export name as a prefix, and suffixes that with the key.
+ * @module
+ * @description Injects our theme as CSS custom properties
+ * @param {CssVariables.PropTypes} props
+ * @returns {React.Component}
+ * @example import { CssVariables } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/cssvariables--default|Storybook}
  */
-const renderThemeSection = ([sectionKey, section]) => {
-    const variables = Object.entries(section)
+const CssVariables = ({ variables }) => {
+    const variableString = Object.entries(variables)
+        .map(([key, value]) => `--${key}: ${value};`)
+        .join('\n')
 
-    return variables.map(([ varKey, varVal ]) => (`--${sectionKey}-${varKey}: ${varVal};`)).join('\n')
+    return (
+        <style jsx global>{`
+            html {
+                ${variableString}
+            }
+        `}</style>
+    )
 }
 
 /**
- * Maps over the exported sections of the theme
+ * @kind function
+ * @description Flattens the sections of our theme, uses the exported name as a prefix for the
+ * properties of each section.
  */
-const renderTheme = () => {
-    const sections = Object.entries(theme)
+const flattenTheme = theme => {
+    const flattened = {}
 
-    return sections.map(renderThemeSection).join('\n')
+    Object.entries(theme).forEach(([prefix, variables]) => {
+        Object.entries(variables).forEach(([key, value]) => {
+            flattened[`${prefix}-${key}`] = value
+        })
+    })
+
+    return flattened
 }
 
-/*
- * Inject theme values as CSS variables for users that are using vanilla css.
+CssVariables.defaultProps = {
+    variables: flattenTheme(theme),
+}
+
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {object} [variables] - An object with the variables to insert
  */
-const CssVariables = () => (
-    <style jsx global>{`
-        html {
-            ${renderTheme()}
-        }
-    `}</style>
-)
+CssVariables.propTypes = {
+    variables: propTypes.objectOf(
+        propTypes.oneOfType([propTypes.string, propTypes.number])
+    ),
+}
 
 export { CssVariables }
