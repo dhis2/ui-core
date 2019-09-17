@@ -1,8 +1,9 @@
 import React from 'react'
+import cx from 'classnames'
 import css from 'styled-jsx/css'
 import propTypes from 'prop-types'
 
-import { spacers } from '../../theme.js'
+import { spacers } from './theme.js'
 
 const styles = css`
     label {
@@ -23,33 +24,22 @@ const styles = css`
     }
 `
 
-const constructClassName = props => ({
-    focus: props.focus,
-    required: props.required,
-    valid: props.valid,
-    warning: props.warning,
-    error: props.error,
-    dense: props.dense,
-    disabled: props.disabled,
-    value: props.value,
-})
+const constructClassName = props =>
+    cx({
+        required: props.required,
+        disabled: props.disabled,
+    })
 
 export const Label = props => (
     <label htmlFor={props.htmlFor} className={constructClassName(props)}>
-        {props.label}
+        <span>{props.children}</span>
         <style jsx>{styles}</style>
     </label>
 )
 
 Label.propTypes = {
     htmlFor: propTypes.string,
-    label: propTypes.string,
-    focus: propTypes.bool,
+    children: propTypes.string,
     required: propTypes.bool,
-    valid: propTypes.bool,
-    warning: propTypes.bool,
-    error: propTypes.bool,
-    dense: propTypes.bool,
     disabled: propTypes.bool,
-    value: propTypes.string,
 }
