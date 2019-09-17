@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import * as theme from '../theme'
+import * as theme from './theme'
 
 const toPrefixedThemeSection = themeSectionKey =>
     Object.entries(theme[themeSectionKey]).reduce((prefixed, [key, value]) => {
