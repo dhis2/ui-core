@@ -12,13 +12,12 @@ import { spacers, theme } from './theme.js'
  * @example import { Help } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/help--default|Storybook}
  */
-const Help = ({ children, valid, error, warning, className, indent }) => (
+const Help = ({ children, valid, error, warning, className }) => (
     <p
         className={cx(className, {
             valid,
             error,
             warning,
-            indent,
         })}
     >
         {children}
@@ -33,10 +32,6 @@ const Help = ({ children, valid, error, warning, className, indent }) => (
                 line-height: 14px;
                 color: ${theme.default};
                 cursor: help;
-            }
-
-            .indent {
-                padding-left: ${spacers.dp16};
             }
 
             .valid {
@@ -59,7 +54,6 @@ const Help = ({ children, valid, error, warning, className, indent }) => (
  * @static
  * @prop {string} children
  * @prop {string} [className]
- * @prop {boolean} [indent] - Indents the text
  * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
  * @prop {boolean} [warning]
  * @prop {boolean} [error]
@@ -70,7 +64,6 @@ Help.propTypes = {
     error: statusPropType,
     valid: statusPropType,
     warning: statusPropType,
-    indent: propTypes.bool,
 }
 
 export { Help }
