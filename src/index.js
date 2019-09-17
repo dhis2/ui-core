@@ -1,7 +1,6 @@
 /* global */
 export { CssReset } from './CssReset'
 export { CssVariables } from './CssVariables'
-export { ThemeCssVariables } from './ThemeCssVariables'
 
 /* atoms */
 export { AlertBar } from './AlertBar'
