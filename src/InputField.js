@@ -1,85 +1,12 @@
 import propTypes from 'prop-types'
 import React from 'react'
-import cx from 'classnames'
-import css from 'styled-jsx/css'
 
 import { statusPropType } from './common-prop-types.js'
-import { StatusIconNoDefault } from './icons/Status.js'
-
-import { theme, colors, spacers } from './theme.js'
 
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Input } from './Input.js'
 import { Help } from './Help.js'
-
-const styles = css`
-    div :global(.disabled),
-    div :global(.disabled::placeholder) {
-        color: ${theme.disabled};
-        cursor: not-allowed;
-    }
-
-    .label {
-        position: relative;
-        color: ${colors.grey700};
-    }
-
-    .content {
-        align-items: center;
-        box-sizing: border-box;
-        display: flex;
-        height: 42px;
-        left: 1px;
-        position: relative;
-        border: 1px solid ${colors.grey500};
-        border-radius: 3px;
-        font-size: 14px;
-        box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
-            inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
-    }
-
-    .dense .content {
-        height: 34px;
-    }
-
-    .focus .content {
-        border-color: ${colors.teal400};
-    }
-
-    .valid .content {
-        border-color: ${theme.valid};
-    }
-
-    .warning .content {
-        border-color: ${theme.warning};
-    }
-
-    .error .content {
-        border-color: ${theme.error};
-    }
-
-    .disabled .content {
-        border-color: ${theme.disabled};
-        background-color: ${colors.grey100};
-    }
-
-    .status-icon {
-        flex-shrink: 0;
-        width: 24px;
-        height: 24px;
-        margin-right: ${spacers.dp4};
-        margin-left: ${spacers.dp12};
-    }
-
-    .status-icon:empty {
-        display: none;
-    }
-
-    .status-icon:last-child {
-        margin-right: ${spacers.dp12};
-    }
-`
 
 /**
  * @module
@@ -92,20 +19,6 @@ const styles = css`
  * @see Live demo: {@link /demo/?path=/story/input-regular--no-placeholder-no-value|Storybook}
  */
 class InputField extends React.Component {
-    state = {
-        focus: this.props.initialFocus,
-    }
-
-    onFocus = e => {
-        this.setState({ focus: true })
-        this.props.onFocus(e)
-    }
-
-    onBlur = e => {
-        this.setState({ focus: false })
-        this.props.onBlur(e)
-    }
-
     render() {
         const {
             className,
@@ -126,75 +39,49 @@ class InputField extends React.Component {
             helpText,
             validationText,
         } = this.props
-        const { focus } = this.state
 
         return (
-            <Field>
-                <div
-                    className={cx(className, {
-                        disabled,
-                        focus,
-                        dense,
-                        valid,
-                        warning,
-                        error,
-                        value,
-                    })}
-                >
-                    {label ? (
-                        <Label
-                            focus={focus}
-                            required={required}
-                            valid={valid}
-                            warning={warning}
-                            error={error}
-                            dense={dense}
-                            disabled={disabled}
-                            value={focus || value}
-                            label={label}
-                            htmlFor={name}
-                        />
-                    ) : null}
+            <Field className={className}>
+                {label ? (
+                    <Label
+                        focus={focus}
+                        required={required}
+                        valid={valid}
+                        warning={warning}
+                        error={error}
+                        dense={dense}
+                        disabled={disabled}
+                        value={focus || value}
+                        label={label}
+                        htmlFor={name}
+                    />
+                ) : null}
 
-                    <div className="content">
-                        <Input
-                            focus={focus}
-                            onFocus={this.onFocus}
-                            onBlur={this.onBlur}
-                            onChange={onChange}
-                            name={name}
-                            type={type}
-                            value={value || ''}
-                            placeholder={placeholder}
-                            disabled={disabled}
-                            valid={valid}
-                            warning={warning}
-                            error={error}
-                            loading={loading}
-                            dense={dense}
-                            tabIndex={tabIndex}
-                        />
+                <Input
+                    focus={focus}
+                    onFocus={this.onFocus}
+                    onBlur={this.onBlur}
+                    onChange={onChange}
+                    name={name}
+                    type={type}
+                    value={value || ''}
+                    placeholder={placeholder}
+                    disabled={disabled}
+                    valid={valid}
+                    warning={warning}
+                    error={error}
+                    loading={loading}
+                    dense={dense}
+                    tabIndex={tabIndex}
+                />
 
-                        <div className="status-icon">
-                            <StatusIconNoDefault
-                                error={error}
-                                valid={valid}
-                                loading={loading}
-                                warning={warning}
-                            />
-                        </div>
-                    </div>
+                {helpText ? <Help>{helpText}</Help> : null}
 
-                    {helpText ? <Help>{helpText}</Help> : null}
-
-                    {validationText ? (
-                        <Help error={error} warning={warning} valid={valid}>
-                            {validationText}
-                        </Help>
-                    ) : null}
-                </div>
-
-                <style jsx>{styles}</style>
+                {validationText ? (
+                    <Help error={error} warning={warning} valid={valid}>
+                        {validationText}
+                    </Help>
+                ) : null}
             </Field>
         )
     }

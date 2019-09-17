@@ -1,16 +1,69 @@
 import propTypes from 'prop-types'
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { colors, theme } from './theme.js'
+import { statusPropType } from './common-prop-types.js'
+import { theme, colors, spacers } from './theme.js'
+import { StatusIconNoDefault } from './icons/Status.js'
 
 const styles = css`
+    .input {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        height: 42px;
+        left: 1px;
+        position: relative;
+        border: 1px solid ${colors.grey500};
+        border-radius: 3px;
+        font-size: 14px;
+        box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
+            inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
+    }
+
+    .input.dense {
+        height: 34px;
+    }
+
+    .input.focus {
+        border-color: ${colors.teal400};
+    }
+
+    .input.valid {
+        border-color: ${theme.valid};
+    }
+
+    .input.warning {
+        border-color: ${theme.warning};
+    }
+
+    .input.error {
+        border-color: ${theme.error};
+    }
+
+    .status-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        margin-right: ${spacers.dp4};
+        margin-left: ${spacers.dp12};
+    }
+
+    .status-icon:empty {
+        display: none;
+    }
+
+    .status-icon:last-child {
+        margin-right: ${spacers.dp12};
+    }
+
     input {
         display: block;
         color: ${colors.grey900};
         background-color: transparent;
         border: 0;
+        border-radius: 3px;
         box-sizing: border-box;
         font-size: inherit;
         height: 100%;
@@ -22,19 +75,31 @@ const styles = css`
         padding: 13px 0 11px 11px;
     }
 
-    .dense {
-        padding-top: 9px;
-        padding-bottom: 9px;
-    }
-
-    .disabled {
-        color: ${theme.disabled};
+    .disabled,
+    .disabled input {
         cursor: not-allowed;
+        border-color: ${theme.disabled};
+        color: ${theme.disabled};
+        background-color: ${colors.grey100};
     }
 `
 
 export class Input extends Component {
     inputRef = React.createRef()
+
+    state = {
+        focus: this.props.initialFocus,
+    }
+
+    onFocus = e => {
+        this.setState({ focus: true })
+        this.props.onFocus(e)
+    }
+
+    onBlur = e => {
+        this.setState({ focus: false })
+        this.props.onBlur(e)
+    }
 
     componentDidMount() {
         if (this.props.focus) {
@@ -43,31 +108,60 @@ export class Input extends Component {
     }
 
     render() {
-        const { dense, disabled } = this.props
-
-        const classes = cx({
+        const {
+            className,
+            onChange,
+            type,
             dense,
             disabled,
-        })
+            placeholder,
+            name,
+            valid,
+            error,
+            warning,
+            loading,
+            value,
+            tabIndex,
+        } = this.props
+
+        const { focus } = this.state
 
         return (
-            <Fragment>
+            <div
+                className={cx('input', className, {
+                    dense,
+                    disabled,
+                    error,
+                    valid,
+                    warning,
+                    focus,
+                })}
+            >
                 <input
-                    id={this.props.name}
-                    name={this.props.name}
-                    className={classes}
-                    placeholder={this.props.placeholder}
+                    id={name}
+                    name={name}
+                    placeholder={placeholder}
                     ref={this.inputRef}
-                    type={this.props.type}
-                    value={this.props.value}
+                    type={type}
+                    value={value}
                     disabled={disabled}
-                    tabIndex={this.props.tabIndex}
-                    onFocus={this.props.onFocus}
-                    onBlur={this.props.onBlur}
-                    onChange={this.props.onChange}
+                    tabIndex={tabIndex}
+                    onFocus={this.onFocus}
+                    onBlur={this.onBlur}
+                    onChange={onChange}
                 />
+
+                <div className="status-icon">
+                    <StatusIconNoDefault
+                        error={error}
+                        valid={valid}
+                        loading={loading}
+                        warning={warning}
+                    />
+                </div>
+
                 <style jsx>{styles}</style>
-            </Fragment>
+            </div>
         )
     }
 }
@@ -76,16 +170,24 @@ Input.propTypes = {
     name: propTypes.string.isRequired,
     type: propTypes.string.isRequired,
 
+    className: propTypes.string,
+
     onChange: propTypes.func.isRequired,
+    onFocus: propTypes.func,
+    onBlur: propTypes.func,
 
     value: propTypes.string,
     placeholder: propTypes.string,
     tabIndex: propTypes.string,
 
-    onFocus: propTypes.func,
-    onBlur: propTypes.func,
-
     focus: propTypes.bool,
     disabled: propTypes.bool,
     dense: propTypes.bool,
+
+    valid: statusPropType,
+    warning: statusPropType,
+    error: statusPropType,
+    loading: propTypes.bool,
+
+    initialFocus: propTypes.bool,
 }
