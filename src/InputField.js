@@ -44,17 +44,12 @@ class InputField extends React.Component {
             <Field className={className}>
                 {label ? (
                     <Label
-                        focus={focus}
                         required={required}
-                        valid={valid}
-                        warning={warning}
-                        error={error}
-                        dense={dense}
                         disabled={disabled}
-                        value={focus || value}
-                        label={label}
                         htmlFor={name}
-                    />
+                    >
+                        {label}
+                    </Label>
                 ) : null}
 
                 <Input

@@ -1,99 +1,12 @@
 import propTypes from 'prop-types'
 import React from 'react'
-import cx from 'classnames'
-import css from 'styled-jsx/css'
 
 import { statusPropType } from './common-prop-types.js'
-import { ArrowDown } from './icons/Arrow.js'
-import { StatusIconNoDefault } from './icons/Status.js'
-
-import { theme, colors, spacers } from './theme.js'
 
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Help } from './Help.js'
 import { Select } from './Select.js'
-
-const styles = css`
-    div :global(.disabled),
-    div :global(.disabled::placeholder) {
-        color: ${theme.disabled};
-        cursor: not-allowed;
-    }
-
-    .label {
-        position: relative;
-        color: ${colors.grey700};
-    }
-
-    .content {
-        align-items: center;
-        box-sizing: border-box;
-        display: flex;
-        height: 42px;
-        left: 1px;
-        position: relative;
-        border: 1px solid ${colors.grey500};
-        border-radius: 3px;
-        box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
-            inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
-        font-size: 14px;
-    }
-
-    .dense .content {
-        height: 34px;
-    }
-
-    .focus .content {
-        border-color: ${colors.teal400};
-    }
-
-    .valid .content {
-        border-color: ${theme.valid};
-    }
-
-    .warning .content {
-        border-color: ${theme.warning};
-    }
-
-    .error .content {
-        border-color: ${theme.error};
-    }
-
-    .disabled .content {
-        border-color: ${theme.disabled};
-        background-color: ${colors.grey100};
-    }
-
-    .status-icon {
-        flex-shrink: 0;
-        width: 24px;
-        height: 24px;
-        margin-right: ${spacers.dp4};
-        margin-left: ${spacers.dp12};
-    }
-
-    .status-icon:empty {
-        display: none;
-    }
-
-    .status-icon:last-child {
-        margin-right: ${spacers.dp32};
-    }
-`
-
-const TailIcon = () => (
-    <div>
-        <ArrowDown />
-        <style jsx>{`
-            div {
-                pointer-events: none;
-                position: absolute;
-                right: 4px;
-            }
-        `}</style>
-    </div>
-)
 
 /**
  * @module
@@ -107,34 +20,12 @@ const TailIcon = () => (
  * @see Live demo: {@link /demo/?path=/story/select-regular--no-value|Storybook}
  */
 class SelectField extends React.Component {
-    state = {
-        focus: this.props.initialFocus,
-    }
-
-    onFocus = e => {
-        this.setState({ focus: true })
-
-        if (this.props.onFocus) {
-            this.props.onFocus(e)
-        }
-    }
-
-    onBlur = e => {
-        this.setState({ focus: false })
-
-        if (this.props.onBlur) {
-            this.props.onBlur(e)
-        }
-    }
-
-    isFocused() {
-        return this.state.focus
-    }
-
     render() {
         const {
             className,
             onChange,
+            onFocus,
+            onBlur,
             dense,
             required,
             label,
@@ -150,72 +41,41 @@ class SelectField extends React.Component {
             validationText,
             children,
         } = this.props
-        const { focus } = this.state
 
         return (
-            <Field>
-                <div
-                    className={cx(className, {
-                        disabled,
-                        focus,
-                        dense,
-                        valid,
-                        warning,
-                        error,
-                        value,
-                    })}
+            <Field className={className}>
+                {label ? (
+                    <Label
+                        required={required}
+                        disabled={disabled}
+                        htmlFor={name}
+                    >
+                        {label}
+                    </Label>
+                ) : null}
+
+                <Select
+                    focus={focus}
+                    name={name}
+                    value={value}
+                    disabled={disabled}
+                    dense={dense}
+                    tabIndex={tabIndex}
+                    onChange={onChange}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    loading={loading}
                 >
-                    {label ? (
-                        <Label
-                            focus={focus}
-                            required={required}
-                            valid={valid}
-                            warning={warning}
-                            error={error}
-                            dense={dense}
-                            disabled={disabled}
-                            value={focus || value}
-                            label={label}
-                            htmlFor={name}
-                        />
-                    ) : null}
+                    {children}
+                </Select>
 
-                    <div className="content">
-                        <Select
-                            focus={focus}
-                            name={name}
-                            value={value}
-                            disabled={disabled}
-                            dense={dense}
-                            tabIndex={tabIndex}
-                            onChange={onChange}
-                            onFocus={this.onFocus}
-                            onBlur={this.onBlur}
-                        >
-                            {children}
-                        </Select>
+                {helpText ? <Help>{helpText}</Help> : null}
 
-                        <div className="status-icon">
-                            <TailIcon />
-
-                            <StatusIconNoDefault
-                                error={error}
-                                valid={valid}
-                                loading={loading}
-                                warning={warning}
-                            />
-                        </div>
-                    </div>
-
-                    {helpText ? <Help>{helpText}</Help> : null}
-
-                    {validationText ? (
-                        <Help error={error} warning={warning} valid={valid}>
-                            {validationText}
-                        </Help>
-                    ) : null}
-                </div>
-                <style jsx>{styles}</style>
+                {validationText ? (
+                    <Help error={error} warning={warning} valid={valid}>
+                        {validationText}
+                    </Help>
+                ) : null}
             </Field>
         )
     }
