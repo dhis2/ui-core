@@ -1,6 +1,6 @@
 {
   "name": "@dhis2/ui-core",
-  "version": "3.9.1",
+  "version": "3.10.0",
   "main": "./build/cjs/index.js",
   "module": "./build/es/index.js",
   "sideEffects": false,
@@ -32,19 +32,16 @@
     "@babel/preset-react": "^7.0.0",
     "@dhis2/cli-style": "4.1.1",
     "@dhis2/cli-utils-docsite": "^1.1.1",
-    "@storybook/addons": "^5.1.8",
-    "@storybook/components": "^5.1.10",
-    "@storybook/react": "^5.1.11",
-    "@wertarbyte/react-props-md-table": "^1.1.1",
+    "@storybook/addons": "^5.2.0",
+    "@storybook/components": "^5.2.0",
+    "@storybook/react": "^5.2.0",
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
     "eslint-plugin-react": "^7.14.3",
     "react": "16.3",
     "react-dev-utils": "^9.0.3",
-    "react-docgen": "^4.1.1",
     "react-dom": "16.3",
     "storybook-addon-jsx": "^7.1.6",
-    "storybook-addon-react-docgen": "^1.2.7",
     "typeface-roboto": "^0.0.75"
   },
   "peerDependencies": {
@@ -53,7 +50,7 @@
     "react-dom": "^16.3"
   },
   "dependencies": {
-    "@dhis2/prop-types": "^1.0.4",
+    "@dhis2/prop-types": "^1.1.0",
     "classnames": "^2.2.6",
     "styled-jsx": "^3.2.2"
   },

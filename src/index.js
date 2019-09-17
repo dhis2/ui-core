@@ -12,6 +12,7 @@
 
 /* global */
 export { CssReset } from './CssReset.js'
+export { CssVariables } from './CssVariables.js'
 
 /* atoms */
 export { AlertBar } from './AlertBar.js'
