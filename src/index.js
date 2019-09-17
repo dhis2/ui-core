@@ -1,5 +1,6 @@
 /* global */
 export { CssReset } from './CssReset'
+export { CssVariables } from './CssVariables'
 
 /* atoms */
 export { AlertBar } from './AlertBar'
