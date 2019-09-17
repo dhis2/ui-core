@@ -2,16 +2,12 @@ import React from 'react'
 import propTypes from 'prop-types'
 import * as theme from '../theme'
 
-const toPrefixedThemeSection = themeSectionKey => {
-    return Object.entries(theme[themeSectionKey]).reduce(
-        (prefixed, [key, value]) => {
-            prefixed[`${themeSectionKey}-${key}`] = value
+const toPrefixedThemeSection = themeSectionKey =>
+    Object.entries(theme[themeSectionKey]).reduce((prefixed, [key, value]) => {
+        prefixed[`${themeSectionKey}-${key}`] = value
 
-            return prefixed
-        },
-        {}
-    )
-}
+        return prefixed
+    }, {})
 
 const toCustomPropertyString = themeSection =>
     Object.entries(themeSection)
