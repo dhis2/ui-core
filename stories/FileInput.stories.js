@@ -2,8 +2,6 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { FileInput, Help, Field } from '../src'
 
-import markdown from './info/atoms/fileInput.md'
-
 const onChange = () => {
     console.log('onChange')
 }
@@ -15,11 +13,6 @@ const onCancel = () => {
 }
 
 storiesOf('FileInput', module)
-    .addParameters({
-        notes: {
-            markdown,
-        },
-    })
     .add('Default', () => (
         <FileInput onChange={onChange} buttonLabel="Upload file" />
     ))
