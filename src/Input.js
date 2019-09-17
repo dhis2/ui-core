@@ -19,8 +19,7 @@ const styles = css`
         user-select: text;
         width: 100%;
 
-        /** 15px => 16px inner spacing - 1px for border**/
-        padding: 13px 0 11px 15px;
+        padding: 13px 0 11px 11px;
     }
 
     .dense {

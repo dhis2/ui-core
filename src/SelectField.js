@@ -33,8 +33,10 @@ const styles = css`
         height: 42px;
         left: 1px;
         position: relative;
-        border: 1px solid ${theme.default};
-        border-radius: 4px;
+        border: 1px solid ${colors.grey500};
+        border-radius: 3px;
+        box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
+            inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
         font-size: 14px;
     }
 
@@ -60,6 +62,7 @@ const styles = css`
 
     .disabled .content {
         border-color: ${theme.disabled};
+        background-color: ${colors.grey100};
     }
 
     .status-icon {
