@@ -1,3 +1,10 @@
+# [3.10.0](https://github.com/dhis2/ui/compare/v3.9.1...v3.10.0) (2019-09-17)
+
+
+### Features
+
+* **css-variables:** add css variable injection component ([#421](https://github.com/dhis2/ui/issues/421)) ([0bd20ee](https://github.com/dhis2/ui/commit/0bd20ee))
+
 ## [3.9.1](https://github.com/dhis2/ui/compare/v3.9.0...v3.9.1) (2019-09-05)
 
 
