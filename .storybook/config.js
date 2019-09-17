@@ -1,6 +1,5 @@
 import { configure, addDecorator } from '@storybook/react'
 import { jsxDecorator } from 'storybook-addon-jsx'
-import { withPropsTable } from 'storybook-addon-react-docgen'
 import { CssResetWrapper } from './css-reset-decorator'
 import { FrameStylesWrapper } from './frame-styles-decorator'
 
