@@ -1,23 +1,92 @@
 import propTypes from 'prop-types'
-import React from 'react'
+import React, { Component } from 'react'
+import css from 'styled-jsx/css'
+import cx from 'classnames'
 
 import { statusPropType } from './common-prop-types.js'
+import { theme, colors, spacers } from './theme.js'
+import { StatusIconNoDefault } from './icons/Status.js'
 
-import { LabelFilled, LabelRegular } from './FieldLabel.js'
-import { theme } from './theme.js'
-import { InternalInput } from './Input/InternalInput.js'
+const styles = css`
+    .input {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        height: 42px;
+        left: 1px;
+        position: relative;
+        border: 1px solid ${colors.grey500};
+        border-radius: 3px;
+        font-size: 14px;
+        box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
+            inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
+    }
 
-/**
- * @module
- * @param {Input.PropTypes} props
- * @returns {React.Component}
- *
- * @example import { Input } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/inputfield.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/input-regular--no-placeholder-no-value|Storybook}
- */
-class Input extends React.Component {
+    .input.dense {
+        height: 34px;
+    }
+
+    .input.focus {
+        border-color: ${colors.teal400};
+    }
+
+    .input.valid {
+        border-color: ${theme.valid};
+    }
+
+    .input.warning {
+        border-color: ${theme.warning};
+    }
+
+    .input.error {
+        border-color: ${theme.error};
+    }
+
+    .status-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        margin-right: ${spacers.dp4};
+        margin-left: ${spacers.dp12};
+    }
+
+    .status-icon:empty {
+        display: none;
+    }
+
+    .status-icon:last-child {
+        margin-right: ${spacers.dp12};
+    }
+
+    input {
+        display: block;
+        color: ${colors.grey900};
+        background-color: transparent;
+        border: 0;
+        border-radius: 3px;
+        box-sizing: border-box;
+        font-size: inherit;
+        height: 100%;
+        line-height: 16px;
+        outline: 0;
+        user-select: text;
+        width: 100%;
+
+        padding: 13px 0 11px 11px;
+    }
+
+    .disabled,
+    .disabled input {
+        cursor: not-allowed;
+        border-color: ${theme.disabled};
+        color: ${theme.disabled};
+        background-color: ${colors.grey100};
+    }
+`
+
+export class Input extends Component {
+    inputRef = React.createRef()
+
     state = {
         focus: this.props.initialFocus,
     }
@@ -32,15 +101,18 @@ class Input extends React.Component {
         this.props.onBlur(e)
     }
 
+    componentDidMount() {
+        if (this.props.focus) {
+            this.inputRef.current.focus()
+        }
+    }
+
     render() {
         const {
             className,
             onChange,
             type,
-            filled,
             dense,
-            required,
-            label,
             disabled,
             placeholder,
             name,
@@ -51,112 +123,71 @@ class Input extends React.Component {
             value,
             tabIndex,
         } = this.props
+
         const { focus } = this.state
 
-        const Container = filled ? LabelFilled : LabelRegular
-
         return (
-            <Container
-                focus={focus}
-                label={label}
-                value={!!value || !!placeholder}
-                htmlFor={name}
-                required={required}
-                disabled={disabled}
-                valid={valid}
-                warning={warning}
-                error={error}
-                loading={loading}
-                dense={dense}
-                className={className}
+            <div
+                className={cx('input', className, {
+                    dense,
+                    disabled,
+                    error,
+                    valid,
+                    warning,
+                    focus,
+                })}
             >
-                <InternalInput
-                    focus={focus}
+                <input
+                    id={name}
+                    name={name}
+                    placeholder={placeholder}
+                    ref={this.inputRef}
+                    type={type}
+                    value={value}
+                    disabled={disabled}
+                    tabIndex={tabIndex}
                     onFocus={this.onFocus}
                     onBlur={this.onBlur}
                     onChange={onChange}
-                    name={name}
-                    type={type}
-                    value={value || ''}
-                    placeholder={placeholder}
-                    filled={filled}
-                    disabled={disabled}
-                    valid={valid}
-                    warning={warning}
-                    error={error}
-                    loading={loading}
-                    dense={dense}
-                    tabIndex={tabIndex}
                 />
-                <style jsx>{`
-                    div :global(.disabled),
-                    div :global(.disabled::placeholder) {
-                        color: ${theme.disabled};
-                        cursor: not-allowed;
-                    }
-                `}</style>
-            </Container>
+
+                <div className="status-icon">
+                    <StatusIconNoDefault
+                        error={error}
+                        valid={valid}
+                        loading={loading}
+                        warning={warning}
+                    />
+                </div>
+
+                <style jsx>{styles}</style>
+            </div>
         )
     }
 }
 
-Input.defaultProps = {
-    type: 'text',
-    onBlur: () => {},
-    onFocus: () => {},
-}
-
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string} name
- * @prop {string} [type=text]
- * @prop {function} onChange
- * @prop {function} [onBlur=() => {}]
- * @prop {function} [onFocus=() => {}]
- * @prop {string} [label]
- * @prop {string} [className]
- * @prop {string} [placeholder]
- * @prop {string} [value]
- * @prop {string} [tabIndex]
- *
- * @prop {boolean} [required]
- * @prop {boolean} [disabled]
- * @prop {boolean} [filled] - Use the deprecated filled input style
- * @prop {boolean} [dense] - Compact mode
- * @prop {boolean} [initialFocus]
- *
- * @prop {boolean} [valid] - `valid`, `warning`, `error`, and `loading`
- * are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
- * @prop {boolean} [loading]
- */
 Input.propTypes = {
-    onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
-    label: propTypes.string,
+    type: propTypes.string.isRequired,
 
     className: propTypes.string,
-    placeholder: propTypes.string,
+
+    onChange: propTypes.func.isRequired,
+    onFocus: propTypes.func,
+    onBlur: propTypes.func,
+
     value: propTypes.string,
+    placeholder: propTypes.string,
     tabIndex: propTypes.string,
 
-    required: propTypes.bool,
+    focus: propTypes.bool,
     disabled: propTypes.bool,
-    filled: propTypes.bool,
     dense: propTypes.bool,
+
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
     loading: propTypes.bool,
+
     initialFocus: propTypes.bool,
-
-    onBlur: propTypes.func,
-    onFocus: propTypes.func,
-
-    type: propTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
 }
-
-export { Input }
