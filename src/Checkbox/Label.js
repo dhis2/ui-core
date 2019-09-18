@@ -33,6 +33,7 @@ export const Label = ({ disabled, required, children }) => {
 }
 
 Label.propTypes = {
+    children: propTypes.string,
     disabled: propTypes.bool,
     required: propTypes.bool,
 }

@@ -97,7 +97,7 @@ Button.defaultProps = {
  * state
  */
 Button.propTypes = {
-    children: propTypes.string,
+    children: propTypes.node,
     onClick: propTypes.func,
 
     className: propTypes.string,
