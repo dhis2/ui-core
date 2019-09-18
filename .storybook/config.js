@@ -6,7 +6,6 @@ import { FrameStylesWrapper } from './frame-styles-decorator'
 import 'typeface-roboto'
 
 addDecorator(jsxDecorator)
-addDecorator(withPropsTable)
 addDecorator(CssResetWrapper)
 addDecorator(FrameStylesWrapper)
 
