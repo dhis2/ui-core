@@ -1,18 +1,20 @@
 import React, { createRef, PureComponent } from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import { instanceOfComponent } from '@dhis2/prop-types'
 
 import { statusPropType, sizePropType } from './common-prop-types.js'
 import { Button } from './Button.js'
-import { Help } from './Help.js'
-import { spacers, colors } from './theme.js'
+import { spacers } from './theme.js'
 import { Upload } from './icons/Upload.js'
 import { StatusIconNoDefault } from './icons/Status.js'
-import { FileList } from './FileInput/FileList.js'
-import { FileListItem } from './FileInput/FileListItem.js'
-import { Placeholder } from './FileInput/Placeholder.js'
 
+/**
+ * @module
+ * @param {FileInput.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { FileInput } from '@dhis2/ui-core'
+ */
 class FileInput extends PureComponent {
     ref = createRef()
 
@@ -30,24 +32,20 @@ class FileInput extends PureComponent {
     render() {
         const {
             className,
-            label,
             buttonLabel,
             error,
             valid,
             warning,
-            required,
             accept,
             multiple,
-            children,
             small,
             large,
             disabled,
+            tabIndex,
         } = this.props
 
         return (
-            <div className={cx('container', className)}>
-                {label && <p className={cx('label', { required })}>{label}</p>}
-
+            <div className={cx('file-input', className)}>
                 <input
                     type="file"
                     ref={this.ref}
@@ -56,51 +54,35 @@ class FileInput extends PureComponent {
                     multiple={multiple}
                     disabled={disabled}
                 />
-
-                <div className="button-container">
-                    <Button
-                        onClick={this.onClick}
-                        type="button"
-                        icon={<Upload />}
-                        small={small}
-                        large={large}
-                        disabled={disabled}
-                    >
-                        {buttonLabel}
-                    </Button>
-                    <StatusIconNoDefault
-                        error={error}
-                        valid={valid}
-                        warning={warning}
-                    />
-                </div>
-
-                <div>{children}</div>
+                <Button
+                    onClick={this.onClick}
+                    type="button"
+                    icon={<Upload />}
+                    small={small}
+                    large={large}
+                    disabled={disabled}
+                    tabIndex={tabIndex}
+                >
+                    {buttonLabel}
+                </Button>
+                <StatusIconNoDefault
+                    error={error}
+                    valid={valid}
+                    warning={warning}
+                />
 
                 <style jsx>{`
                     input {
                         display: none;
                     }
 
-                    .label {
-                        font-size: 14px;
-                        margin: 0;
-                        padding-bottom: ${spacers.dp8};
-                        color: ${colors.grey900};
-                    }
-
-                    .label.required::after {
-                        padding-left: ${spacers.dp4};
-                        content: '*';
-                    }
-
-                    .button-container {
+                    .file-input {
                         display: flex;
                         align-items: center;
                         padding-bottom: ${spacers.dp4};
                     }
 
-                    .button-container > :global(svg) {
+                    .file-input > :global(svg) {
                         width: 18px;
                         height: 18px;
                         margin-left: ${spacers.dp8};
@@ -111,31 +93,43 @@ class FileInput extends PureComponent {
     }
 }
 
-const childPropType = propTypes.oneOfType([
-    instanceOfComponent(FileList),
-    instanceOfComponent(Help),
-])
-
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} name
+ * @prop {function} onChange
+ * @prop {string} [buttonLabel]
+ * @prop {string} [className]
+ * @prop {string} [tabIndex]
+ *
+ * @prop {boolean} [disabled]
+ *
+ * @prop {boolean} [valid] - `valid`, `warning` and `error` are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ *
+ * @prop {boolean} [small] - `small` and `large` are mutually exclusive
+ * @prop {boolean} [large]
+ *
+ * @prop {string} [accept=*] - the `accept` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
+ * @prop {boolean} [multiple] - the `multiple` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
+ */
 FileInput.propTypes = {
-    className: propTypes.string,
     onChange: propTypes.func.isRequired,
-
-    label: propTypes.string,
+    name: propTypes.string.isRequired,
     buttonLabel: propTypes.string,
+    helpText: propTypes.string,
+    validationText: propTypes.string,
 
-    children: propTypes.oneOfType([
-        childPropType,
-        propTypes.arrayOf(childPropType),
-    ]),
+    className: propTypes.string,
+    tabIndex: propTypes.string,
 
     error: statusPropType,
     valid: statusPropType,
     warning: statusPropType,
-
     small: sizePropType,
     large: sizePropType,
-
-    required: propTypes.bool,
     disabled: propTypes.bool,
 
     accept: propTypes.string,
@@ -145,9 +139,5 @@ FileInput.propTypes = {
 FileInput.defaultProps = {
     accept: '*',
 }
-
-FileInput.FileList = FileList
-FileInput.FileListItem = FileListItem
-FileInput.Placeholder = Placeholder
 
 export { FileInput }
