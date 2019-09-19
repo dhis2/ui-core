@@ -31,6 +31,7 @@ export class Button extends Component {
             icon,
             name,
             value,
+            tabIndex,
             disabled,
             onClick,
             className,
@@ -58,6 +59,7 @@ export class Button extends Component {
                 name={name}
                 value={value}
                 ref={this.buttonRef}
+                tabIndex={tabIndex}
             >
                 {icon && <span className="button-icon">{icon}</span>}
                 {children}
@@ -105,6 +107,7 @@ Button.propTypes = {
     name: propTypes.string,
     value: propTypes.string,
     type: propTypes.oneOf(['submit', 'reset', 'button']),
+    tabIndex: propTypes.string,
 
     small: sizePropType,
     large: sizePropType,
