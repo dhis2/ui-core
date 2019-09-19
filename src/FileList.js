@@ -2,8 +2,8 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { instanceOfComponent } from '@dhis2/prop-types'
 
-import { FileListItem } from './FileListItem'
-import { Placeholder } from './Placeholder'
+import { FileListItem } from './FileList/FileListItem'
+import { FileListPlaceholder } from './FileList/FileListPlaceholder'
 
 const FileList = ({ children, className }) => (
     <div className={className}>
@@ -12,7 +12,7 @@ const FileList = ({ children, className }) => (
             div {
                 padding-top: 4px;
             }
-            div:first-child {
+            :global(.file-input) + div {
                 padding-top: 0;
             }
         `}</style>
@@ -21,11 +21,11 @@ const FileList = ({ children, className }) => (
 
 FileList.propTypes = {
     children: propTypes.oneOfType([
-        instanceOfComponent(Placeholder),
+        instanceOfComponent(FileListPlaceholder),
         instanceOfComponent(FileListItem),
         propTypes.arrayOf(instanceOfComponent(FileListItem)),
     ]),
     className: propTypes.string,
 }
 
-export { FileList }
+export { FileList, FileListItem, FileListPlaceholder }
