@@ -2,6 +2,13 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { colors, spacers } from '../theme.js'
 
+/**
+ * @module
+ * @param {FileListPlaceholder.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { FileListPlaceholder } from '@dhis2/ui-core'
+ */
 const FileListPlaceholder = ({ children }) => (
     <p>
         {children}
@@ -16,6 +23,12 @@ const FileListPlaceholder = ({ children }) => (
     </p>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} [children]
+ */
 FileListPlaceholder.propTypes = {
     children: propTypes.string,
 }

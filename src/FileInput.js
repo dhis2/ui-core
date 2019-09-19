@@ -8,6 +8,13 @@ import { spacers } from './theme.js'
 import { Upload } from './icons/Upload.js'
 import { StatusIconNoDefault } from './icons/Status.js'
 
+/**
+ * @module
+ * @param {FileInput.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { FileInput } from '@dhis2/ui-core'
+ */
 class FileInput extends PureComponent {
     ref = createRef()
 
@@ -17,6 +24,8 @@ class FileInput extends PureComponent {
 
     onChange = () => {
         this.props.onChange(this.ref.current.files)
+        // reset the file input so it won't prevent on-change
+        // if the same file was added in a second attempt
         this.ref.current.value = ''
     }
 
@@ -84,6 +93,28 @@ class FileInput extends PureComponent {
     }
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} name
+ * @prop {function} onChange
+ * @prop {string} [buttonLabel]
+ * @prop {string} [className]
+ * @prop {string} [tabIndex]
+ *
+ * @prop {boolean} [disabled]
+ *
+ * @prop {boolean} [valid] - `valid`, `warning` and `error` are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ *
+ * @prop {boolean} [small] - `small` and `large` are mutually exclusive
+ * @prop {boolean} [large]
+ *
+ * @prop {string} [accept=*] - the `accept` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
+ * @prop {boolean} [multiple] - the `multiple` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
+ */
 FileInput.propTypes = {
     onChange: propTypes.func.isRequired,
     name: propTypes.string.isRequired,
@@ -92,7 +123,6 @@ FileInput.propTypes = {
     validationText: propTypes.string,
 
     className: propTypes.string,
-    placeholder: propTypes.string,
     tabIndex: propTypes.string,
 
     error: statusPropType,

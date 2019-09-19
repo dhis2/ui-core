@@ -5,6 +5,13 @@ import { instanceOfComponent } from '@dhis2/prop-types'
 import { FileListItem } from './FileList/FileListItem'
 import { FileListPlaceholder } from './FileList/FileListPlaceholder'
 
+/**
+ * @module
+ * @param {FileList.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { FileList } from '@dhis2/ui-core'
+ */
 const FileList = ({ children, className }) => (
     <div className={className}>
         {children}
@@ -19,6 +26,13 @@ const FileList = ({ children, className }) => (
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} [className]
+ * @prop {FileListPlaceholder|FileListItem|Array.<FileListItem>} [children]
+ */
 FileList.propTypes = {
     children: propTypes.oneOfType([
         instanceOfComponent(FileListPlaceholder),
