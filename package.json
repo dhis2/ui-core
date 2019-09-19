@@ -20,7 +20,8 @@
     "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
     "start:demo": "start-storybook --port 5000",
     "start:docs": "d2-utils-docsite serve ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
-    "start": "yarn start:demo"
+    "start": "yarn start:demo",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
@@ -37,7 +38,10 @@
     "@storybook/react": "^5.2.1",
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint-plugin-react": "^7.14.3",
+    "jest": "^24.9.0",
     "react": "16.3",
     "react-dev-utils": "^9.0.3",
     "react-dom": "16.3",
@@ -57,5 +61,10 @@
   "files": [
     "build",
     "docs"
-  ]
+  ],
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/setupTests.js"
+    ]
+  }
 }
