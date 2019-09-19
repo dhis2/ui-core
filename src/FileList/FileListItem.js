@@ -6,6 +6,16 @@ import { colors, spacers } from '../theme.js'
 import { AttachFile } from '../icons/AttachFile.js'
 import { Loading } from '../icons/Status.js'
 
+/**
+ * @module
+ * @param {FileListItem.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { FileListItem } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/fileinput.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/fileinputfield--file-list|Storybook}
+ */
 const FileListItem = ({
     className,
     label,
@@ -75,11 +85,23 @@ const FileListItem = ({
     </p>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} label
+ * @prop {function} onRemove
+ * @prop {string} removeText
+ * @prop {string} [className]
+ * @prop {boolean} [loading]
+ * @prop {function} [onCancel]
+ * @prop {string} [cancelText]
+ */
 FileListItem.propTypes = {
-    className: propTypes.string,
     label: propTypes.string.isRequired,
     onRemove: propTypes.func.isRequired,
     removeText: propTypes.string.isRequired,
+    className: propTypes.string,
     loading: propTypes.bool,
     onCancel: propTypes.func,
     cancelText: propTypes.string,
