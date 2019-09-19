@@ -40,6 +40,7 @@
     "babel-loader": "^8.0.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
     "eslint-plugin-react": "^7.14.3",
     "jest": "^24.9.0",
     "react": "16.3",
@@ -65,6 +66,7 @@
   "jest": {
     "setupFilesAfterEnv": [
       "<rootDir>/test/setupTests.js"
-    ]
+    ],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   }
 }

@@ -1,3 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Checkbox> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<Checkbox> renders correctly 1`] = `
+<Fragment>
+  <label
+    className="jsx-1861485737 base"
+  >
+    <Input
+      checked={false}
+      name="name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+    />
+    <Icon
+      checked={false}
+    />
+    <Label>
+      label
+    </Label>
+    <JSXStyle
+      dynamic={
+        Array [
+          "#6e7a8a",
+        ]
+      }
+      id="261820537"
+    >
+      label.__jsx-style-dynamic-selector{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;cursor:pointer;pointer-events:all;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}.disabled.__jsx-style-dynamic-selector{cursor:not-allowed;color:#6e7a8a;}.focus.__jsx-style-dynamic-selector{outline:1px;}
+    </JSXStyle>
+  </label>
+</Fragment>
+`;
