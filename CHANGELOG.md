@@ -1,3 +1,45 @@
+# [3.10.0](https://github.com/dhis2/ui/compare/v3.9.1...v3.10.0) (2019-09-17)
+
+
+### Features
+
+* **css-variables:** add css variable injection component ([#421](https://github.com/dhis2/ui/issues/421)) ([0bd20ee](https://github.com/dhis2/ui/commit/0bd20ee))
+
+## [3.9.1](https://github.com/dhis2/ui/compare/v3.9.0...v3.9.1) (2019-09-05)
+
+
+### Bug Fixes
+
+* **menu item:** pass value to on click ([#405](https://github.com/dhis2/ui/issues/405)) ([d371475](https://github.com/dhis2/ui/commit/d371475))
+
+# [3.9.0](https://github.com/dhis2/ui/compare/v3.8.0...v3.9.0) (2019-08-22)
+
+
+### Features
+
+* **radio-group:** introduce RadioGroup component ([#381](https://github.com/dhis2/ui/issues/381)) ([6a88a58](https://github.com/dhis2/ui/commit/6a88a58))
+
+# [3.8.0](https://github.com/dhis2/ui/compare/v3.7.3...v3.8.0) (2019-08-22)
+
+
+### Features
+
+* **form-control:** introduce FormControl component ([#382](https://github.com/dhis2/ui/issues/382)) ([0dfab15](https://github.com/dhis2/ui/commit/0dfab15))
+
+## [3.7.3](https://github.com/dhis2/ui/compare/v3.7.2...v3.7.3) (2019-08-22)
+
+
+### Bug Fixes
+
+* **help:** spacing ([#380](https://github.com/dhis2/ui/issues/380)) ([c9fd20a](https://github.com/dhis2/ui/commit/c9fd20a))
+
+## [3.7.2](https://github.com/dhis2/ui/compare/v3.7.1...v3.7.2) (2019-08-19)
+
+
+### Bug Fixes
+
+* use correct disabled style & fix checkbox and radio disabled style ([#379](https://github.com/dhis2/ui/issues/379)) ([8755a04](https://github.com/dhis2/ui/commit/8755a04)), closes [dhis2/design-system#6](https://github.com/dhis2/design-system/issues/6)
+
 ## [3.7.1](https://github.com/dhis2/ui/compare/v3.7.0...v3.7.1) (2019-08-01)
 
 

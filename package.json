@@ -1,6 +1,6 @@
 {
   "name": "@dhis2/ui-core",
-  "version": "3.7.1",
+  "version": "3.10.0",
   "main": "./build/cjs/index.js",
   "module": "./build/es/index.js",
   "sideEffects": false,
@@ -22,25 +22,26 @@
     "start": "yarn start-storybook"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-    "@babel/plugin-transform-react-constant-elements": "^7.5.0",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/plugin-transform-react-constant-elements": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "@dhis2/cli-style": "4.1.1",
-    "@storybook/addon-notes": "^5.1.11",
-    "@storybook/addons": "^5.1.8",
-    "@storybook/components": "^5.1.10",
-    "@storybook/react": "^5.1.11",
+    "@storybook/addon-notes": "^5.2.0",
+    "@storybook/addons": "^5.2.0",
+    "@storybook/components": "^5.2.0",
+    "@storybook/react": "^5.2.1",
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
+    "eslint-plugin-react": "^7.14.3",
     "react": "16.3",
     "react-dev-utils": "^9.0.3",
     "react-dom": "16.3",
-    "storybook-addon-jsx": "^7.1.5",
-    "storybook-addon-react-docgen": "^1.2.3",
+    "storybook-addon-jsx": "^7.1.6",
+    "storybook-addon-react-docgen": "^1.2.15",
     "typeface-roboto": "^0.0.75"
   },
   "peerDependencies": {
@@ -49,9 +50,9 @@
     "react-dom": "^16.3"
   },
   "dependencies": {
-    "@dhis2/prop-types": "^1.0.3",
+    "@dhis2/prop-types": "^1.1.0",
     "classnames": "^2.2.6",
-    "styled-jsx": "^3.2.1"
+    "styled-jsx": "^3.2.2"
   },
   "files": [
     "build"
