@@ -78,8 +78,7 @@ Button.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {string} [children] The string to show as the label text for a
- * button
+ * @prop {Node} [children] The children to render in the button
  * @prop {function} [onClick] The click handler
  *
  * @prop {boolean} [small] - `small` and `large` are mutually exclusive
@@ -99,7 +98,7 @@ Button.defaultProps = {
  * state
  */
 Button.propTypes = {
-    children: propTypes.string,
+    children: propTypes.node,
     onClick: propTypes.func,
 
     className: propTypes.string,

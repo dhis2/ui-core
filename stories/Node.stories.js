@@ -1,7 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { Chevron } from '../src/icons/Chevron'
 import { Checkbox } from '../src/Checkbox'
 import { Node } from '../src/Node'
 

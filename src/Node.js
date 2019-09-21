@@ -81,12 +81,25 @@ const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
     )
 }
 
+Arrow.propTypes = {
+    hasLeaves: propTypes.bool,
+    open: propTypes.bool,
+    onOpen: propTypes.func,
+    onClose: propTypes.func,
+}
+
 const Content = ({ open, children, label }) => (
     <div>
         {label}
         <Contents open={open}>{children}</Contents>
     </div>
 )
+
+Content.propTypes = {
+    open: propTypes.bool,
+    children: propTypes.node,
+    label: propTypes.node,
+}
 
 /**
  * @module
@@ -130,12 +143,14 @@ export const Node = ({ open, component, children, onOpen, onClose }) => {
 /**
  * @typedef {Object} PropTypes
  * @static
+ * @prop {Node} [children]
  * @prop {Element} component
  * @prop {boolean} [open]
  * @prop {function} [onOpen]
  * @prop {funtion} [onClose]
  */
 Node.propTypes = {
+    children: propTypes.node,
     component: propTypes.element.isRequired,
     open: propTypes.bool,
     onOpen: propTypes.func,

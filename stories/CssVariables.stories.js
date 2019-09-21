@@ -1,8 +1,8 @@
 import React from 'react'
-import propTypes from 'prop-types'
 import { storiesOf } from '@storybook/react'
 import { CssVariables } from '../src'
 
+// eslint-disable-next-line react/prop-types
 const App = ({ children }) => <div>{children}</div>
 
 storiesOf('CssVariables', module).add('Default', () => (
@@ -30,7 +30,3 @@ storiesOf('CssVariables', module).add('All', () => (
         </p>
     </App>
 ))
-
-App.propTypes = {
-    children: propTypes.any.isRequired,
-}
