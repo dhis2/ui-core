@@ -23,6 +23,8 @@ class InputField extends React.Component {
         const {
             className,
             onChange,
+            onFocus,
+            onBlur,
             type,
             dense,
             required,
@@ -54,8 +56,8 @@ class InputField extends React.Component {
 
                 <Input
                     focus={focus}
-                    onFocus={this.onFocus}
-                    onBlur={this.onBlur}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
                     onChange={onChange}
                     name={name}
                     type={type}
