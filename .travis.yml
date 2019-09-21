@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - lts/*
 script:
+- npx d2-style js check --all
 - yarn build
 deploy:
 - provider: script
