@@ -1,4 +1,5 @@
 import React from 'react'
+import propTypes from 'prop-types'
 
 export function Upload({ className }) {
     return (
@@ -16,4 +17,8 @@ export function Upload({ className }) {
             `}</style>
         </svg>
     )
+}
+
+Upload.propTypes = {
+    className: propTypes.string,
 }

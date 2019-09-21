@@ -25,5 +25,6 @@ export const Content = ({ children, overflow }) => (
 )
 
 Content.propTypes = {
+    children: propTypes.oneOfType([propTypes.string, propTypes.number]),
     overflow: propTypes.bool,
 }

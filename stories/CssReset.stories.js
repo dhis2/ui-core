@@ -2,6 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { CssReset } from '../src'
 
+// eslint-disable-next-line react/prop-types
 const App = ({ children }) => <div>{children}</div>
 
 storiesOf('CssReset', module).add('Default', () => (
