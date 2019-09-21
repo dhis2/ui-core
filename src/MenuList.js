@@ -33,12 +33,12 @@ const MenuList = ({ children, className }) => (
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {Element} children
+ * @prop {Node} children
  * @prop {string} [className]
  */
 MenuList.propTypes = {
     className: propTypes.string,
-    children: propTypes.element.isRequired,
+    children: propTypes.node.isRequired,
 }
 
 export { MenuList }
