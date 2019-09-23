@@ -25,8 +25,8 @@ const tableStyles = css`
  * @example import { Table } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const Table = ({ children }) => (
-    <table>
+export const Table = ({ children, className }) => (
+    <table className={className}>
         {children}
 
         <style jsx>{tableStyles}</style>
@@ -43,10 +43,12 @@ const childPropType = propTypes.oneOfType([
  * @typedef {Object} PropTypes
  * @static
  * @prop {TableHead|TableBody|TableFoot|Array.<TableHead|TableBody|TableFoot>} children
+ * @prop {string} [className]
  */
 Table.propTypes = {
     children: propTypes.oneOfType([
         childPropType,
         propTypes.arrayOf(childPropType),
     ]).isRequired,
+    className: propTypes.string,
 }

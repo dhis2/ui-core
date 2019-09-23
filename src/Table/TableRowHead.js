@@ -12,7 +12,9 @@ import { TableRow } from './TableRow.js'
  * @example import { TableRowHead } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableRowHead = props => <TableRow {...props} />
+export const TableRowHead = ({ children, className }) => (
+    <TableRow className={className}>{children}</TableRow>
+)
 
 const childPropType = instanceOfComponent(TableCellHead)
 
@@ -20,10 +22,12 @@ const childPropType = instanceOfComponent(TableCellHead)
  * @typedef {Object} PropTypes
  * @static
  * @prop {TableCellHead|Array.<TableCellHead>} children
+ * @prop {string} [className]
  */
 TableRowHead.propTypes = {
     children: propTypes.oneOfType([
         childPropType,
         propTypes.arrayOf(childPropType),
     ]).isRequired,
+    className: propTypes.string,
 }

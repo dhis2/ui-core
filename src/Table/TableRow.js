@@ -19,8 +19,8 @@ const tableRowStyles = css`
  * @example import { TableRow } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableRow = ({ children }) => (
-    <tr>
+export const TableRow = ({ children, className }) => (
+    <tr className={className}>
         {children}
 
         <style jsx>{tableRowStyles}</style>
@@ -36,10 +36,12 @@ const childPropType = propTypes.oneOfType([
  * @typedef {Object} PropTypes
  * @static
  * @prop {TableCell|TableCellHead|Array.<TableCell|TableCellHead>} children
+ * @prop {string} [className]
  */
 TableRow.propTypes = {
     children: propTypes.oneOfType([
         childPropType,
         propTypes.arrayOf(childPropType),
     ]).isRequired,
+    className: propTypes.string,
 }

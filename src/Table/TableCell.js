@@ -25,8 +25,12 @@ const tableCellStyles = css`
  * @example import { TableCell } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableCell = ({ children, colSpan, rowSpan, dense }) => (
-    <td colSpan={colSpan} rowSpan={rowSpan} className={cx({ dense })}>
+export const TableCell = ({ className, children, colSpan, rowSpan, dense }) => (
+    <td
+        colSpan={colSpan}
+        rowSpan={rowSpan}
+        className={cx({ dense }, className)}
+    >
         {children}
 
         <style jsx>{tableCellStyles}</style>
@@ -40,10 +44,12 @@ export const TableCell = ({ children, colSpan, rowSpan, dense }) => (
  * @prop {string} [rowSpan]
  * @prop {bool} [dense]
  * @prop {Node} [children]
+ * @prop {string} [className]
  */
 TableCell.propTypes = {
     colSpan: propTypes.string,
     rowSpan: propTypes.string,
-    children: propTypes.node,
     dense: propTypes.bool,
+    children: propTypes.node,
+    className: propTypes.string,
 }

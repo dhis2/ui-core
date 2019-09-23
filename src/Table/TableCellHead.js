@@ -25,8 +25,18 @@ const tableCellHeadStyles = css`
  * @example import { TableCellHead } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableCellHead = ({ children, colSpan, rowSpan, dense }) => (
-    <th colSpan={colSpan} rowSpan={rowSpan} className={cx({ dense })}>
+export const TableCellHead = ({
+    colSpan,
+    rowSpan,
+    dense,
+    children,
+    className,
+}) => (
+    <th
+        colSpan={colSpan}
+        rowSpan={rowSpan}
+        className={cx({ dense }, className)}
+    >
         {children}
 
         <style jsx>{tableCellHeadStyles}</style>
@@ -41,6 +51,7 @@ export const TableCellHead = ({ children, colSpan, rowSpan, dense }) => (
  * @prop {string} [rowSpan]
  * @prop {bool} [dense]
  * @prop {Node} [children]
+ * @prop {string} [className]
  */
 TableCellHead.propTypes = {
     label: propTypes.string,
@@ -48,4 +59,5 @@ TableCellHead.propTypes = {
     rowSpan: propTypes.string,
     dense: propTypes.bool,
     children: propTypes.node,
+    className: propTypes.string,
 }
