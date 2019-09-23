@@ -8,4 +8,7 @@ module.exports = {
             version: '16.3',
         },
     },
+    rules: {
+        'react/no-unused-prop-types': 'error',
+    },
 }
