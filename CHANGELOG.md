@@ -1,3 +1,10 @@
+# [3.11.0](https://github.com/dhis2/ui/compare/v3.10.0...v3.11.0) (2019-09-23)
+
+
+### Features
+
+* add static table component ([#378](https://github.com/dhis2/ui/issues/378)) ([0209aab](https://github.com/dhis2/ui/commit/0209aab))
+
 # [3.10.0](https://github.com/dhis2/ui/compare/v3.9.1...v3.10.0) (2019-09-17)
 
 
