@@ -102,7 +102,7 @@ export class Input extends Component {
     }
 
     componentDidMount() {
-        if (this.props.focus) {
+        if (this.props.initialFocus) {
             this.inputRef.current.focus()
         }
     }
