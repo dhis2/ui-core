@@ -14,3 +14,10 @@ export const sizePropType = propTypes.mutuallyExclusive(
     ['small', 'large'],
     propTypes.bool
 )
+
+export const singleSelectedPropType = propTypes.shape({
+    label: propTypes.string,
+    value: propTypes.string,
+})
+
+export const multiSelectedPropType = propTypes.arrayOf(singleSelectedPropType)
