@@ -25,6 +25,7 @@ class InputField extends React.Component {
             onChange,
             onFocus,
             onBlur,
+            initialFocus,
             type,
             dense,
             required,
@@ -55,7 +56,6 @@ class InputField extends React.Component {
                 ) : null}
 
                 <Input
-                    focus={focus}
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onChange={onChange}
@@ -70,6 +70,7 @@ class InputField extends React.Component {
                     loading={loading}
                     dense={dense}
                     tabIndex={tabIndex}
+                    initialFocus={initialFocus}
                 />
 
                 {helpText ? <Help>{helpText}</Help> : null}
