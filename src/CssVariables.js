@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import * as theme from './theme.js'
 
 const toPrefixedThemeSection = themeSectionKey =>
@@ -22,10 +22,11 @@ const toCustomPropertyString = themeSection =>
  * @example import { CssVariables } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/cssvariables--default|Storybook}
  */
-const CssVariables = props => {
-    const variables = Object.keys(props)
+const CssVariables = ({ colors, theme, layers, spacers, elevations }) => {
+    const allowedProps = { colors, theme, layers, spacers, elevations }
+    const variables = Object.keys(allowedProps)
         // Filter all props that are false
-        .filter(prop => props[prop])
+        .filter(prop => allowedProps[prop])
         // Map props to corresponding theme section and prefixes keys with section name
         .map(toPrefixedThemeSection)
         // Map each section to a single string of css custom property declarations
@@ -59,12 +60,12 @@ CssVariables.defaultProps = {
  * @prop {boolean} [spacers]
  * @prop {boolean} [elevations]
  */
-CssVariables.propTypes = {
+CssVariables.propTypes = propTypes.forbidUnknowProps({
     colors: propTypes.bool,
     theme: propTypes.bool,
     layers: propTypes.bool,
     spacers: propTypes.bool,
     elevations: propTypes.bool,
-}
+})
 
 export { CssVariables }
