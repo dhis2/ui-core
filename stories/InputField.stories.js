@@ -74,19 +74,19 @@ function createStory(name, props) {
             <InputField {...props} value="This field is dense" dense />
         ))
 
-        .add('Label too long', () => (
+        .add('Label text overflow', () => (
             <InputField
                 {...props}
-                label="This label is too long in order to show on a single line of the input field. It should be cropped, not in an extra line. It should always be shorter than this!"
+                label="This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!"
                 dense
                 warning
             />
         ))
 
-        .add('Value too long', () => (
+        .add('Value text overflow', () => (
             <InputField
                 {...props}
-                value="This value is too long in order to show on a single line of the input field. It should stay on one line, not in an extra line and which wouldn't look like a std input"
+                value="This value is too long in order to show on a single line of the input field. It should stay on one line, not in an extra line and which wouldn't look like a standard input"
                 dense
                 warning
             />
