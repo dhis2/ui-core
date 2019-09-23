@@ -8,8 +8,8 @@ module.exports = {
             version: '16.3',
         },
         propWrapperFunctions: [
-            'forbidUnknowProps',
-            { property: 'forbidUnknownProps', object: 'propTypes' },
+            'whitelistProps',
+            { property: 'whitelistProps', object: 'propTypes' },
         ],
     },
 }

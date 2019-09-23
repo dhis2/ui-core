@@ -60,7 +60,7 @@ CssVariables.defaultProps = {
  * @prop {boolean} [spacers]
  * @prop {boolean} [elevations]
  */
-CssVariables.propTypes = propTypes.forbidUnknownProps({
+CssVariables.propTypes = propTypes.whitelistProps({
     colors: propTypes.bool,
     theme: propTypes.bool,
     layers: propTypes.bool,
