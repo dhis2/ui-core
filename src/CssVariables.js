@@ -60,12 +60,12 @@ CssVariables.defaultProps = {
  * @prop {boolean} [spacers]
  * @prop {boolean} [elevations]
  */
-CssVariables.propTypes = propTypes.whitelistProps({
+CssVariables.propTypes = {
     colors: propTypes.bool,
     theme: propTypes.bool,
     layers: propTypes.bool,
     spacers: propTypes.bool,
     elevations: propTypes.bool,
-})
+}
 
 export { CssVariables }
