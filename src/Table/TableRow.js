@@ -12,6 +12,13 @@ const tableRowStyles = css`
     }
 `
 
+/**
+ * @module
+ * @param {TableRow.PropTypes} props
+ * @returns {React.Component}
+ * @example import { TableRow } from '@dhis2/ui-core'
+ * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ */
 export const TableRow = ({ children }) => (
     <tr>
         {children}
@@ -25,6 +32,11 @@ const childPropType = propTypes.oneOfType([
     instanceOfComponent(TableCellHead),
 ])
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {TableCell|TableCellHead|Array.<TableCell|TableCellHead>} children
+ */
 TableRow.propTypes = {
     children: propTypes.oneOfType([
         childPropType,

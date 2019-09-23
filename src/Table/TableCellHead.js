@@ -18,6 +18,13 @@ const tableCellHeadStyles = css`
     }
 `
 
+/**
+ * @module
+ * @param {TableCellHead.PropTypes} props
+ * @returns {React.Component}
+ * @example import { TableCellHead } from '@dhis2/ui-core'
+ * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ */
 export const TableCellHead = ({ children, colSpan, rowSpan, dense }) => (
     <th colSpan={colSpan} rowSpan={rowSpan} className={cx({ dense })}>
         {children}
@@ -26,10 +33,19 @@ export const TableCellHead = ({ children, colSpan, rowSpan, dense }) => (
     </th>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} [label]
+ * @prop {string} [colSpan]
+ * @prop {string} [rowSpan]
+ * @prop {bool} [dense]
+ * @prop {Node} [children]
+ */
 TableCellHead.propTypes = {
-    colSpan: propTypes.string,
-    dense: propTypes.bool,
-    rowSpan: propTypes.string,
     label: propTypes.string,
+    colSpan: propTypes.string,
+    rowSpan: propTypes.string,
+    dense: propTypes.bool,
     children: propTypes.node,
 }

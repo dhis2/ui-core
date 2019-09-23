@@ -18,6 +18,13 @@ const tableCellStyles = css`
     }
 `
 
+/**
+ * @module
+ * @param {TableCell.PropTypes} props
+ * @returns {React.Component}
+ * @example import { TableCell } from '@dhis2/ui-core'
+ * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ */
 export const TableCell = ({ children, colSpan, rowSpan, dense }) => (
     <td colSpan={colSpan} rowSpan={rowSpan} className={cx({ dense })}>
         {children}
@@ -26,9 +33,17 @@ export const TableCell = ({ children, colSpan, rowSpan, dense }) => (
     </td>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} [colSpan]
+ * @prop {string} [rowSpan]
+ * @prop {bool} [dense]
+ * @prop {Node} [children]
+ */
 TableCell.propTypes = {
     colSpan: propTypes.string,
-    dense: propTypes.bool,
     rowSpan: propTypes.string,
     children: propTypes.node,
+    dense: propTypes.bool,
 }

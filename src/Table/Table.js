@@ -17,6 +17,14 @@ const tableStyles = css`
         vertical-align: top;
     }
 `
+
+/**
+ * @module
+ * @param {Table.PropTypes} props
+ * @returns {React.Component}
+ * @example import { Table } from '@dhis2/ui-core'
+ * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ */
 export const Table = ({ children }) => (
     <table>
         {children}
@@ -31,6 +39,11 @@ const childPropType = propTypes.oneOfType([
     instanceOfComponent(TableFoot),
 ])
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {TableHead|TableBody|TableFoot|Array.<TableHead|TableBody|TableFoot>} children
+ */
 Table.propTypes = {
     children: propTypes.oneOfType([
         childPropType,
