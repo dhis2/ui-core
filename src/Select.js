@@ -1,203 +1,197 @@
-import propTypes from '@dhis2/prop-types'
-import React, { Component, createRef } from 'react'
-import css from 'styled-jsx/css'
-import cx from 'classnames'
+import React, { Component } from 'react'
+import propTypes from 'prop-types'
+import {
+    statusPropType,
+    singleSelectedPropType,
+    multiSelectedPropType,
+} from './common-prop-types.js'
+import { InputWrapper } from './Select/InputWrapper.js'
+import { MenuWrapper } from './Select/MenuWrapper.js'
 
-import { statusPropType } from './common-prop-types.js'
-import { theme, colors, spacers } from './theme.js'
-
-import { ArrowDown } from './icons/Arrow.js'
-import { StatusIcon } from './icons/Status.js'
-
-const TailIcon = () => (
-    <div>
-        <ArrowDown />
-
-        <style jsx>{`
-            div {
-                pointer-events: none;
-                position: absolute;
-                right: 4px;
-            }
-        `}</style>
-    </div>
-)
-
-const styles = css`
-    select {
-        background: none;
-        border: 0;
-        color: ${colors.grey900};
-        font-size: inherit;
-        height: 100%;
-        outline: 0;
-        /** 15px => 16px inner spacing - 1px of the border**/
-        padding: 0 12px 0 15px;
-        width: 100%;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-    }
-
-    .select {
-        align-items: center;
-        box-sizing: border-box;
-        display: flex;
-        height: 42px;
-        left: 1px;
-        position: relative;
-        border: 1px solid ${colors.grey500};
-        border-radius: 3px;
-        box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
-            inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
-        font-size: 14px;
-    }
-
-    option:not(:checked) {
-        color: black;
-    }
-
-    select:-moz-focusring {
-        color: transparent;
-        text-shadow: 0 0 0 #000;
-    }
-
-    .select.dense {
-        height: 34px;
-    }
-
-    .select.focus {
-        border-color: ${colors.teal400};
-    }
-
-    .select.valid {
-        border-color: ${theme.valid};
-    }
-
-    .select.warning {
-        border-color: ${theme.warning};
-    }
-
-    .select.error {
-        border-color: ${theme.error};
-    }
-
-    .disabled,
-    .disabled-select {
-        border-color: ${theme.disabled};
-        background-color: ${colors.grey100};
-        color: ${theme.disabled};
-        cursor: not-allowed;
-    }
-
-    .status-icon {
-        flex-shrink: 0;
-        width: 24px;
-        height: 24px;
-        margin-right: ${spacers.dp4};
-        margin-left: ${spacers.dp12};
-    }
-
-    .status-icon:empty {
-        display: none;
-    }
-
-    .status-icon:last-child {
-        margin-right: ${spacers.dp32};
-    }
-`
+// Keycodes for the keypress event handlers
+const ESCAPE_KEY = 27
+const SPACE_KEY = 32
+const UP_KEY = 38
+const DOWN_KEY = 40
 
 export class Select extends Component {
-    selectRef = createRef()
-
     state = {
-        focus: this.props.initialFocus,
+        open: false,
+    }
+
+    selectRef = React.createRef()
+    inputRef = React.createRef()
+    menuRef = React.createRef()
+
+    componentDidMount() {
+        if (this.props.initialFocus) {
+            this.inputRef.current.focus()
+        }
+
+        document.addEventListener('click', this.onOutsideClick)
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.onOutsideClick)
+    }
+
+    handleFocusInput = () => {
+        this.inputRef.current.focus()
+    }
+
+    handleOpen = () => {
+        this.setState({ open: true })
+    }
+
+    handleClose = () => {
+        this.setState({ open: false })
     }
 
     onFocus = e => {
-        this.setState({ focus: true })
+        const { onFocus, disabled } = this.props
 
-        if (this.props.onFocus) {
-            this.props.onFocus(e)
+        if (disabled) {
+            return
+        }
+
+        if (onFocus) {
+            onFocus(e)
         }
     }
 
-    onBlur = e => {
-        this.setState({ focus: false })
+    onToggle = e => {
+        if (this.props.disabled) {
+            return
+        }
 
-        if (this.props.onBlur) {
-            this.props.onBlur(e)
+        e.stopPropagation()
+
+        this.setState(prevState => ({ open: !prevState.open }))
+    }
+
+    /**
+     * Note that since this event handler is attached to the document, events that have been
+     * stopped from bubbling in the react hierarchy might still call this handler through
+     * regular event bubbling.
+     *
+     * https://github.com/facebook/react/issues/12518#issuecomment-377954226
+     */
+    onOutsideClick = e => {
+        const { onBlur, disabled } = this.props
+        const { open } = this.state
+
+        if (!open || disabled) {
+            return
+        }
+
+        const isInsideSelect = this.selectRef.current.contains(e.target)
+        const isInsideMenu =
+            this.menuRef.current && this.menuRef.current.contains(e.target)
+        const isInsideClick = isInsideSelect || (open && isInsideMenu)
+
+        if (!isInsideClick) {
+            if (onBlur) {
+                onBlur(e)
+            }
+
+            this.handleClose()
         }
     }
 
-    isFocused() {
-        return this.state.focus
-    }
+    onKeyDown = e => {
+        if (this.props.disabled) {
+            return
+        }
 
-    componentDidMount() {
-        if (this.props.focus) {
-            this.selectRef.current.focus()
+        e.stopPropagation()
+
+        const { open } = this.state
+        const { keyCode } = e
+        const shouldOpen =
+            !open &&
+            (keyCode === SPACE_KEY ||
+                keyCode === UP_KEY ||
+                keyCode === DOWN_KEY)
+        const shouldClose = open && keyCode === ESCAPE_KEY
+
+        if (shouldClose) {
+            return this.handleClose()
+        }
+
+        if (shouldOpen) {
+            return this.handleOpen()
         }
     }
 
     render() {
+        const { open } = this.state
         const {
-            dense,
-            disabled,
-            onChange,
-            value,
             children,
-            name,
-            tabIndex,
-            valid,
-            warning,
-            error,
-            loading,
             className,
+            selected,
+            onChange,
+            tabIndex,
+            maxHeight,
+            error,
+            warning,
+            valid,
+            disabled,
+            dense,
         } = this.props
 
-        const { focus } = this.state
+        // Create the input
+        const inputProps = {
+            selected,
+            onChange,
+            options: children,
+            disabled,
+        }
+        const input = React.cloneElement(this.props.input, inputProps)
+
+        // Create the menu
+        const menuProps = {
+            selected,
+            onChange,
+            options: children,
+            handleClose: this.handleClose,
+            handleFocusInput: this.handleFocusInput,
+        }
+        const menu = React.cloneElement(this.props.menu, menuProps)
 
         return (
             <div
-                className={cx('select', className, {
-                    dense,
-                    disabled,
-                    focus,
-                    valid,
-                    warning,
-                    error,
-                })}
+                className={className}
+                ref={this.selectRef}
+                onFocus={this.onFocus}
+                onKeyDown={this.onKeyDown}
             >
-                <select
-                    onChange={onChange}
-                    value={value || -1}
-                    disabled={disabled}
-                    onFocus={this.onFocus}
-                    onBlur={this.onBlur}
-                    ref={this.selectRef}
-                    name={name}
+                <InputWrapper
+                    onToggle={this.onToggle}
+                    inputRef={this.inputRef}
                     tabIndex={tabIndex}
+                    error={error}
+                    warning={warning}
+                    valid={valid}
+                    disabled={disabled}
+                    dense={dense}
                 >
-                    <option
-                        key="hidden-default-value"
-                        hidden
-                        disabled
-                        value="-1"
-                    />
-                    {children}
-                </select>
+                    {input}
+                </InputWrapper>
+                {open && (
+                    <MenuWrapper
+                        maxHeight={maxHeight}
+                        selectRef={this.selectRef}
+                        menuRef={this.menuRef}
+                    >
+                        {menu}
+                    </MenuWrapper>
+                )}
 
-                <div className="status-icon">
-                    <TailIcon />
-
-                    <StatusIcon
-                        error={error}
-                        valid={valid}
-                        loading={loading}
-                        warning={warning}
-                    />
-                </div>
-                <style jsx>{styles}</style>
+                <style jsx>{`
+                    div {
+                        position: relative;
+                    }
+                `}</style>
             </div>
         )
     }
@@ -205,34 +199,22 @@ export class Select extends Component {
 
 Select.propTypes = {
     className: propTypes.string,
-
-    name: propTypes.string.isRequired,
+    initialFocus: propTypes.bool,
     onChange: propTypes.func.isRequired,
-
-    value: propTypes.string,
-    tabIndex: propTypes.string,
-
+    selected: propTypes.oneOfType([
+        singleSelectedPropType,
+        multiSelectedPropType,
+    ]).isRequired,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
-
-    children: propTypes.oneOfType([
-        propTypes.arrayOf(
-            propTypes.shape({
-                tagName: propTypes.oneOf(['OPTION', 'OPTGROUP']),
-            })
-        ),
-        propTypes.shape({
-            tagName: propTypes.oneOf(['OPTION', 'OPTGROUP']),
-        }),
-    ]),
-
-    disabled: propTypes.bool,
-    dense: propTypes.bool,
-    focus: propTypes.bool,
-    initialFocus: propTypes.bool,
-
+    children: propTypes.node,
+    input: propTypes.element.isRequired,
+    menu: propTypes.element.isRequired,
+    tabIndex: propTypes.string,
+    maxHeight: propTypes.string,
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
-    loading: propTypes.bool,
+    disabled: propTypes.bool,
+    dense: propTypes.bool,
 }
