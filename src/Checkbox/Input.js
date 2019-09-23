@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 
 export class Input extends Component {
     ref = createRef()

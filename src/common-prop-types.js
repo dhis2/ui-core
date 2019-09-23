@@ -1,17 +1,16 @@
-import { mutuallyExclusive } from '@dhis2/prop-types'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 
-export const statusPropType = mutuallyExclusive(
+export const statusPropType = propTypes.mutuallyExclusive(
     ['valid', 'warning', 'error'],
     propTypes.bool
 )
 
-export const buttonVariantPropType = mutuallyExclusive(
+export const buttonVariantPropType = propTypes.mutuallyExclusive(
     ['primary', 'secondary', 'destructive'],
     propTypes.bool
 )
 
-export const sizePropType = mutuallyExclusive(
+export const sizePropType = propTypes.mutuallyExclusive(
     ['small', 'large'],
     propTypes.bool
 )
