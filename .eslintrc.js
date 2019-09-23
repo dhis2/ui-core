@@ -9,7 +9,7 @@ module.exports = {
         },
         propWrapperFunctions: [
             'forbidUnknowProps',
-            { property: 'forbidUnknowProps', object: 'propTypes' },
+            { property: 'forbidUnknownProps', object: 'propTypes' },
         ],
     },
 }
