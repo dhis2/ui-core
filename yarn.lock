@@ -1071,10 +1071,12 @@
     semver "^6.2.0"
     yargs "^13.3.0"
 
-"@dhis2/prop-types@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.1.0.tgz#6144470f336fbcf0fd9142c5ea402d03dfb92c2a"
-  integrity sha512-hHbkoqEbi7vcWcJG1VdBkjKBUFZGWj7VRkwr2GvRU3g1j7AXW5WzsrGGgd/4ejK4nQMardlkZmCrzw7+mkTcRg==
+"@dhis2/prop-types@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.1.1.tgz#a70dd59e56cff13f6e49470677a4def0ac78ff6f"
+  integrity sha512-ILyRcpPjFVtfxuZhyZ2yBp5NkIiTKBF/KfTtr6cSGqXnBIeV9XqHR+IT+C9jwcB96hxhuxBKmvfiaFQFT8uU6g==
+  dependencies:
+    prop-types "^15"
 
 "@emotion/cache@^10.0.15":
   version "10.0.15"
@@ -7764,7 +7766,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
