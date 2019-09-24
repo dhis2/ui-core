@@ -1,4 +1,4 @@
-let horizontalScrollbarHeight
+let scrollbarSize
 const className = '__vertical-scrollbar-height-test__'
 const styles = `
     .${className} {
@@ -13,9 +13,11 @@ const styles = `
     }
 `
 
-export function detectHorizontalScrollbarHeight() {
-    if (horizontalScrollbarHeight) {
-        return horizontalScrollbarHeight
+// This function assumes horizontal and vertical scrollbars
+// are always the same for a given browser/OS combo
+export function detectScrollbarSize() {
+    if (scrollbarSize) {
+        return scrollbarSize
     }
 
     const style = document.createElement('style')
@@ -27,10 +29,10 @@ export function detectHorizontalScrollbarHeight() {
     document.body.appendChild(style)
     document.body.appendChild(el)
 
-    horizontalScrollbarHeight = el.offsetHeight - el.clientHeight
+    scrollbarSize = el.offsetHeight - el.clientHeight
 
     document.body.removeChild(style)
     document.body.removeChild(el)
 
-    return horizontalScrollbarHeight
+    return scrollbarSize
 }
