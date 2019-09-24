@@ -1,8 +1,6 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-
-import { instanceOfComponent, mutuallyExclusive } from '@dhis2/prop-types'
 
 import { Button } from './Button.js'
 import styles from './ButtonStrip/styles.js'
@@ -22,7 +20,10 @@ const ButtonStrip = ({ className, children, middle, end }) => (
     </div>
 )
 
-const alignmentPropType = mutuallyExclusive(['middle', 'end'], propTypes.bool)
+const alignmentPropType = propTypes.mutuallyExclusive(
+    ['middle', 'end'],
+    propTypes.bool
+)
 
 /**
  * @typedef {Object} PropTypes
@@ -36,7 +37,7 @@ const alignmentPropType = mutuallyExclusive(['middle', 'end'], propTypes.bool)
  */
 ButtonStrip.propTypes = {
     className: propTypes.string,
-    children: propTypes.arrayOf(instanceOfComponent(Button)),
+    children: propTypes.arrayOf(propTypes.instanceOfComponent(Button)),
     middle: alignmentPropType,
     end: alignmentPropType,
 }
