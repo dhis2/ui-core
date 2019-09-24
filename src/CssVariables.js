@@ -61,13 +61,11 @@ CssVariables.defaultProps = {
  * @prop {boolean} [elevations]
  */
 CssVariables.propTypes = {
-    /* eslint-disable react/no-unused-prop-types */
     colors: propTypes.bool,
     theme: propTypes.bool,
     layers: propTypes.bool,
     spacers: propTypes.bool,
     elevations: propTypes.bool,
-    /* eslint-enable */
 }
 
 export { CssVariables }
