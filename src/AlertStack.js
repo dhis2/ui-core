@@ -1,8 +1,7 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import { instanceOfComponent } from '@dhis2/prop-types'
 
 import styles from './AlertStack/styles.js'
 import { AlertBar } from './AlertBar.js'
@@ -31,7 +30,7 @@ const AlertStack = ({ className, children }) =>
  */
 AlertStack.propTypes = {
     className: propTypes.string,
-    children: propTypes.arrayOf(instanceOfComponent(AlertBar)),
+    children: propTypes.arrayOf(propTypes.instanceOfComponent(AlertBar)),
 }
 
 export { AlertStack }

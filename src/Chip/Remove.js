@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import { resolve } from 'styled-jsx/css'
 
 import { Cancel } from '../icons/Cancel'
