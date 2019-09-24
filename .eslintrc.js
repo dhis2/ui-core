@@ -7,9 +7,5 @@ module.exports = {
         react: {
             version: '16.3',
         },
-        propWrapperFunctions: [
-            'whitelistProps',
-            { property: 'whitelistProps', object: 'propTypes' },
-        ],
     },
 }
