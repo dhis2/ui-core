@@ -1,5 +1,5 @@
 import React, { createRef, PureComponent } from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 import { statusPropType, sizePropType } from './common-prop-types.js'

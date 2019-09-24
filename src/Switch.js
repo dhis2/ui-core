@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import React, { Component, createRef } from 'react'
 
 import { statusPropType } from './common-prop-types.js'

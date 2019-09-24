@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import css from 'styled-jsx/css'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 
 import { spacers } from './theme.js'
 
