@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 
 import { LogoSvg } from './Logo/LogoSvg'
 import { LogoIconSvg } from './Logo/LogoIconSvg'
