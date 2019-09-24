@@ -124,7 +124,6 @@ const Tab = ({ icon, onClick, selected, disabled, children }) => (
  * @static
  * @prop {Element} [icon]
  * @prop {function} [onClick]
- * @prop {function} [addTabRef]
  * @prop {boolean} [selected]
  * @prop {boolean} [disabled]
  * @prop {Node} [children]
@@ -132,7 +131,6 @@ const Tab = ({ icon, onClick, selected, disabled, children }) => (
 Tab.propTypes = {
     icon: PropTypes.element,
     onClick: PropTypes.func,
-    addTabRef: PropTypes.func,
     selected: PropTypes.bool,
     disabled: PropTypes.bool,
     children: PropTypes.node,

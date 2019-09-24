@@ -97,7 +97,6 @@ class FileInput extends PureComponent {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {string} name
  * @prop {function} onChange
  * @prop {string} [buttonLabel]
  * @prop {string} [className]
@@ -117,10 +116,7 @@ class FileInput extends PureComponent {
  */
 FileInput.propTypes = {
     onChange: propTypes.func.isRequired,
-    name: propTypes.string.isRequired,
     buttonLabel: propTypes.string,
-    helpText: propTypes.string,
-    validationText: propTypes.string,
 
     className: propTypes.string,
     tabIndex: propTypes.string,
