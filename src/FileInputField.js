@@ -1,6 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
-import { instanceOfComponent } from '@dhis2/prop-types'
+import propTypes from '@dhis2/prop-types'
 
 import { statusPropType, sizePropType } from './common-prop-types'
 import { FileInput } from './FileInput.js'
@@ -123,8 +122,8 @@ FileInputField.propTypes = {
     tabIndex: propTypes.string,
 
     children: propTypes.oneOfType([
-        instanceOfComponent(FileListItem),
-        propTypes.arrayOf(instanceOfComponent(FileListItem)),
+        propTypes.instanceOfComponent(FileListItem),
+        propTypes.arrayOf(propTypes.instanceOfComponent(FileListItem)),
     ]),
 
     error: statusPropType,

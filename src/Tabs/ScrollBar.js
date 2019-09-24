@@ -1,5 +1,5 @@
 import React, { PureComponent, createRef } from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { ChevronLeft, ChevronRight } from '../icons/Chevron'
 import { colors } from '../theme'
