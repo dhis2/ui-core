@@ -1,6 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
-import { arrayWithLength } from '@dhis2/prop-types'
+import propTypes from '@dhis2/prop-types'
 
 import { Action } from './Action.js'
 import { spacers } from '../theme.js'
@@ -25,7 +24,7 @@ const Actions = ({ actions, hide }) => {
     )
 }
 
-const actionsPropType = arrayWithLength(
+const actionsPropType = propTypes.arrayWithLength(
     0,
     2,
     propTypes.shape({
