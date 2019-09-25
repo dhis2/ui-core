@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { layers } from './theme.js'
-import { Menu } from './Menu.js'
+import { layers } from '../theme.js'
+import { Menu } from '../Menu.js'
 
 /**
  * @module
@@ -9,13 +9,14 @@ import { Menu } from './Menu.js'
  * @returns {React.Component}
  * @example import { SelectMenu } from @dhis2/ui-core
  */
-const SelectMenu = ({ children, onOptionClick }) => (
+const SelectMenu = ({ children, onOptionClick, currentValue }) => (
     <div>
         <Menu>
             {React.Children.map(children, child => {
                 return React.cloneElement(child, {
                     ...child.props,
                     onClick: onOptionClick,
+                    active: child.props.value === currentValue,
                 })
             })}
         </Menu>
@@ -45,6 +46,7 @@ const SelectMenu = ({ children, onOptionClick }) => (
 SelectMenu.propTypes = {
     children: propTypes.node.isRequired,
     onOptionClick: propTypes.func.isRequired,
+    currentValue: propTypes.string,
 }
 
 export { SelectMenu }
