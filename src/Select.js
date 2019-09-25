@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 import { ArrowDown, ArrowUp } from './icons/Arrow.js'
 import { colors } from './theme.js'
-import { SelectMenu } from './SelectMenu.js'
+import { SelectMenu } from './Select/SelectMenu.js'
 
 export class Select extends Component {
     state = {
@@ -12,11 +12,11 @@ export class Select extends Component {
     containerRef = React.createRef()
 
     componentDidMount() {
-        document.addEventListener('click', this.handleOutsideClick)
+        document.addEventListener('click', this.handleBlur)
     }
 
     componentWillUnmount() {
-        document.removeEventListener('click', this.handleOutsideClick)
+        document.removeEventListener('click', this.handleBlur)
     }
 
     handleOpen = () => {
@@ -28,11 +28,19 @@ export class Select extends Component {
     }
 
     handleFocus = e => {
-        if (this.props.onFocus) {
-            this.props.onFocus(e)
-        }
-
+        this.props.onFocus(e)
         this.handleOpen()
+    }
+
+    handleBlur = e => {
+        const hasRef = this.containerRef.current
+        const isInsideClick =
+            hasRef && this.containerRef.current.contains(e.target)
+
+        if (!isInsideClick) {
+            this.props.onBlur(e)
+            this.handleClose()
+        }
     }
 
     handleOptionClick = value => {
@@ -40,17 +48,21 @@ export class Select extends Component {
         this.handleClose()
     }
 
-    handleOutsideClick = e => {
-        const hasRef = this.containerRef.current
-        const isInsideClick = hasRef && this.containerRef.current.contains(e.target)
+    // Render the label for a selection if there is one, otherwise return placeholder
+    renderValue = () => {
+        const { placeholder, value, children } = this.props
+        const currentOption =
+            value && children.find(child => child.props.value === value)
 
-        if (!isInsideClick) {
-            this.handleClose()
+        if (currentOption) {
+            return currentOption.props.label
         }
+
+        return placeholder
     }
 
     render() {
-        const { children, tabIndex, placeholder } = this.props
+        const { children, tabIndex, value } = this.props
         const Arrow = this.state.open ? ArrowUp : ArrowDown
 
         return (
@@ -60,11 +72,14 @@ export class Select extends Component {
                     tabIndex={tabIndex}
                     onFocus={this.handleFocus}
                 >
-                    <div>{placeholder}</div>
+                    <div>{this.renderValue()}</div>
                     <Arrow className="arrow" />
                 </div>
                 {this.state.open && (
-                    <SelectMenu onOptionClick={this.handleOptionClick}>
+                    <SelectMenu
+                        onOptionClick={this.handleOptionClick}
+                        currentValue={value}
+                    >
                         {children}
                     </SelectMenu>
                 )}
