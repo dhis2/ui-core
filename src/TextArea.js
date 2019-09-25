@@ -139,7 +139,7 @@ export class TextArea extends PureComponent {
         this.setHasScrollBar()
 
         if (this.shouldDoAutoHeight() && prevProps.value !== this.props.value) {
-            this.updateHeight()
+            this.setHeight()
         }
     }
 
@@ -165,7 +165,7 @@ export class TextArea extends PureComponent {
         return this.props.autoHeight && !this.userHasResized
     }
 
-    updateHeight() {
+    setHeight() {
         const textarea = this.textareaRef.current
         const offset = textarea.offsetHeight - textarea.clientHeight
         const height = textarea.scrollHeight + offset + 'px'
