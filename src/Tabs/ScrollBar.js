@@ -23,7 +23,7 @@ class ScrollBar extends PureComponent {
         scrolledToStart: false,
         scrolledToEnd: false,
     }
-    horizontalScrollBarHeight = detectScrollbarSize()
+    horizontalScrollBarHeight = detectScrollbarSize(true)
 
     componentDidMount() {
         this.scrollSelectedTabIntoView()

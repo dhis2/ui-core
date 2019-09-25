@@ -42,6 +42,7 @@ export { ScreenCover } from './ScreenCover.js'
 export { Select } from './Select.js'
 export { SelectField } from './SelectField.js'
 export { Switch } from './Switch.js'
+export { TextArea } from './TextArea.js'
 
 /* molecules */
 export { ButtonStrip } from './ButtonStrip.js'

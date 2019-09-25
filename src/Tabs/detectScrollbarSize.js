@@ -1,6 +1,6 @@
 let scrollbarSize
 const className = '__vertical-scrollbar-height-test__'
-const styles = `
+const baseCSS = `
     .${className} {
         position: absolute;
         top: -9999px;
@@ -8,6 +8,9 @@ const styles = `
         height: 100px;
         overflow-x: scroll;
     }
+`
+const hiddenScrollbarCSS = `
+    ${baseCSS}
     .${className}::-webkit-scrollbar {
         display: none;
     }
@@ -15,13 +18,13 @@ const styles = `
 
 // This function assumes horizontal and vertical scrollbars
 // are always the same for a given browser/OS combo
-export function detectScrollbarSize() {
+export function detectScrollbarSize(tryHiding) {
     if (scrollbarSize) {
         return scrollbarSize
     }
 
     const style = document.createElement('style')
-    style.innerHTML = styles
+    style.innerHTML = tryHiding ? hiddenScrollbarCSS : baseCSS
 
     const el = document.createElement('div')
     el.classList.add(className)
