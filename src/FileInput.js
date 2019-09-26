@@ -32,6 +32,7 @@ class FileInput extends PureComponent {
     render() {
         const {
             className,
+            name,
             buttonLabel,
             error,
             valid,
@@ -47,6 +48,8 @@ class FileInput extends PureComponent {
         return (
             <div className={cx('file-input', className)}>
                 <input
+                    id={name}
+                    name={name}
                     type="file"
                     ref={this.ref}
                     onChange={this.onChange}
@@ -115,6 +118,7 @@ class FileInput extends PureComponent {
  * @prop {boolean} [multiple] - the `multiple` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
  */
 FileInput.propTypes = {
+    name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     buttonLabel: propTypes.string,
 
