@@ -1,11 +1,12 @@
-import React, { Component, Fragment } from 'react'
-import propTypes from 'prop-types'
 import cx from 'classnames'
+import propTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
 
+import { statusPropType } from '../common-prop-types'
 import { theme } from '../theme.js'
 import { Icon } from './Icon'
-import { Label } from './Label'
 import { Input } from './Input'
+import { Label } from './Label'
 
 class Checkbox extends Component {
     constructor(props) {
@@ -83,7 +84,9 @@ class Checkbox extends Component {
 
                     {icon}
 
-                    <Label required={required}>{label}</Label>
+                    <Label required={required} disabled={disabled}>
+                        {label}
+                    </Label>
 
                     <style jsx>{`
                         label {
@@ -129,9 +132,9 @@ Checkbox.propTypes = {
     required: propTypes.bool,
     checked: propTypes.bool,
     disabled: propTypes.bool,
-    valid: propTypes.bool,
-    warning: propTypes.bool,
-    error: propTypes.bool,
+    valid: statusPropType,
+    warning: statusPropType,
+    error: statusPropType,
     initialFocus: propTypes.bool,
 }
 

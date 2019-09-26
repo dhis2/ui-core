@@ -1,8 +1,9 @@
+import cx from 'classnames'
+import propTypes from 'prop-types'
 import React from 'react'
 import { createPortal } from 'react-dom'
-import propTypes from 'prop-types'
-import cx from 'classnames'
 
+import { sizePropType } from '../common-prop-types'
 import { ScreenCover } from '../ScreenCover'
 import { Actions } from './Actions'
 import { Content } from './Content'
@@ -56,6 +57,6 @@ Modal.propTypes = {
     onClose: propTypes.func,
 
     open: propTypes.bool,
-    small: propTypes.bool,
-    large: propTypes.bool,
+    small: sizePropType,
+    large: sizePropType,
 }

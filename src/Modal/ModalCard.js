@@ -1,11 +1,11 @@
-import React from 'react'
-import propTypes from 'prop-types'
-import { resolve } from 'styled-jsx/css'
 import cx from 'classnames'
-
-import { spacers } from '../theme.js'
+import propTypes from 'prop-types'
+import React from 'react'
+import { resolve } from 'styled-jsx/css'
 
 import { Card } from '../Card'
+import { sizePropType } from '../common-prop-types'
+import { spacers } from '../theme.js'
 
 const cardBoxStyle = resolve`
     .modal-card {
@@ -46,6 +46,6 @@ ModalCard.propTypes = {
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
     ]).isRequired,
-    small: propTypes.bool,
-    large: propTypes.bool,
+    small: sizePropType,
+    large: sizePropType,
 }
