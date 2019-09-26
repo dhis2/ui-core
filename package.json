@@ -25,7 +25,8 @@
     "cypress:browser": "cypress open --config baseUrl=http://localhost:$PORT",
     "cypress:ci": "NO_COLOR=1 cypress run -b $BROWSER --config baseUrl=http://localhost:$PORT",
     "cypress:open": "PORT=12345 concurrently --kill-others -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:$PORT && yarn cypress:browser'",
-    "cypress:run": "PORT=12345 concurrently --kill-others --success first -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:$PORT && yarn cypress:ci'"
+    "cypress:run": "PORT=12345 concurrently --kill-others --success first -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:$PORT && yarn cypress:ci'",
+    "lint:js": "d2-style js check --all"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",

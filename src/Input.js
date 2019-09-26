@@ -180,7 +180,6 @@ Input.propTypes = {
     placeholder: propTypes.string,
     tabIndex: propTypes.string,
 
-    focus: propTypes.bool,
     disabled: propTypes.bool,
     dense: propTypes.bool,
 
