@@ -14,7 +14,6 @@ class TestTextArea extends React.Component {
             <TextArea
                 minLength={200}
                 name="test"
-                valid
                 rows={4}
                 value={this.state.value}
                 onChange={this.updateValue}
