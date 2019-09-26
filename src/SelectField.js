@@ -26,6 +26,7 @@ class SelectField extends React.Component {
             onChange,
             onFocus,
             onBlur,
+            initialFocus,
             dense,
             required,
             label,
@@ -65,6 +66,7 @@ class SelectField extends React.Component {
                     onFocus={onFocus}
                     onBlur={onBlur}
                     loading={loading}
+                    initialFocus={initialFocus}
                 >
                     {children}
                 </Select>
@@ -102,6 +104,7 @@ class SelectField extends React.Component {
  * @prop {boolean} [loading]
  * @prop {function} [onFocus]
  * @prop {function} [onBlur]
+ * @prop {boolean} [initialFocus]
  *
  * @prop {string} [validationText]
  * @prop {string} [helpText]
