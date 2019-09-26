@@ -20,7 +20,8 @@
     "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
     "start:demo": "start-storybook --port 5000",
     "start:docs": "d2-utils-docsite serve ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
-    "start": "yarn start:demo"
+    "start": "yarn start:demo",
+    "lint:js": "d2-style js check --all"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
