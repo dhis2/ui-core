@@ -43,6 +43,7 @@ export { Select } from './Select.js'
 export { SelectField } from './SelectField.js'
 export { Switch } from './Switch.js'
 export { TextArea } from './TextArea.js'
+export { TextAreaField } from './TextAreaField.js'
 
 /* molecules */
 export { ButtonStrip } from './ButtonStrip.js'
