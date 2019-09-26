@@ -43,6 +43,7 @@ class FileInput extends PureComponent {
             large,
             disabled,
             tabIndex,
+            name,
         } = this.props
 
         return (
@@ -100,6 +101,7 @@ class FileInput extends PureComponent {
  * @typedef {Object} PropTypes
  * @static
  *
+ * @prop {string} name
  * @prop {function} onChange
  * @prop {string} [buttonLabel]
  * @prop {string} [className]
