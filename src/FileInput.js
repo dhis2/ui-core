@@ -43,7 +43,6 @@ class FileInput extends PureComponent {
             large,
             disabled,
             tabIndex,
-            name,
         } = this.props
 
         return (
