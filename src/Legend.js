@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { theme, spacers } from './theme.js'
+import { colors, spacers } from './theme.js'
 
 /**
  * @module
@@ -18,9 +18,9 @@ const Legend = ({ className, children, required }) => (
         {children}
         <style jsx>{`
             legend {
-                font-size: 16px;
-                color: ${theme.default};
-                margin: ${spacers.dp12} 0 ${spacers.dp12};
+                font-size: 14px;
+                line-height: 16px;
+                color: ${colors.grey900};
             }
             legend.required::after {
                 padding-left: ${spacers.dp4};
