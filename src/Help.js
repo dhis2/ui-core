@@ -12,7 +12,7 @@ import { spacers, theme } from './theme.js'
  * @example import { Help } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/help--default|Storybook}
  */
-const Help = ({ children, valid, error, warning, className }) => (
+const Help = ({ children, valid, error, warning, icon, className }) => (
     <p
         className={cx(className, {
             valid,
@@ -20,6 +20,8 @@ const Help = ({ children, valid, error, warning, className }) => (
             warning,
         })}
     >
+        {icon && <span className="help-icon">{icon}</span>}
+
         {children}
 
         <style jsx>{`
@@ -32,6 +34,7 @@ const Help = ({ children, valid, error, warning, className }) => (
                 line-height: 14px;
                 color: ${theme.default};
                 cursor: help;
+                display: flex;
             }
 
             .valid {
@@ -45,6 +48,20 @@ const Help = ({ children, valid, error, warning, className }) => (
             .warning {
                 color: ${theme.warning};
             }
+
+            .help-icon {
+                display: inline-block;
+                height: 14px;
+                margin-right: ${spacers.dp4};
+                color: inherit;
+                fill: inherit;
+                pointer-events: none;
+            }
+            .help-icon :global(svg) {
+                width: 18px;
+                height: 18px;
+                transform: translateY(-3px);
+            }
         `}</style>
     </p>
 )
@@ -57,6 +74,7 @@ const Help = ({ children, valid, error, warning, className }) => (
  * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
  * @prop {boolean} [warning]
  * @prop {boolean} [error]
+ * @prop {Element} [icon]
  */
 Help.propTypes = {
     className: propTypes.string,
@@ -64,6 +82,7 @@ Help.propTypes = {
     error: statusPropType,
     valid: statusPropType,
     warning: statusPropType,
+    icon: propTypes.element,
 }
 
 export { Help }
