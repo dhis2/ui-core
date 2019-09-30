@@ -4,6 +4,7 @@ import React from 'react'
 
 import { statusPropType } from './common-prop-types.js'
 import { spacers, theme } from './theme.js'
+import { StatusIconNoDefault } from './icons/Status'
 
 /**
  * @module
@@ -12,7 +13,7 @@ import { spacers, theme } from './theme.js'
  * @example import { Help } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/help--default|Storybook}
  */
-const Help = ({ children, valid, error, warning, icon, className }) => (
+const Help = ({ children, valid, error, warning, loading, className }) => (
     <p
         className={cx(className, {
             valid,
@@ -20,7 +21,16 @@ const Help = ({ children, valid, error, warning, icon, className }) => (
             warning,
         })}
     >
-        {icon && <span className="help-icon">{icon}</span>}
+        {(valid || error || warning || loading) && (
+            <span className="help-icon">
+                <StatusIconNoDefault
+                    error={error}
+                    valid={valid}
+                    warning={warning}
+                    loading={loading}
+                />
+            </span>
+        )}
 
         {children}
 
@@ -35,6 +45,7 @@ const Help = ({ children, valid, error, warning, icon, className }) => (
                 color: ${theme.default};
                 cursor: help;
                 display: flex;
+                align-items: center;
             }
 
             .valid {
@@ -57,6 +68,7 @@ const Help = ({ children, valid, error, warning, icon, className }) => (
                 fill: inherit;
                 pointer-events: none;
             }
+
             .help-icon :global(svg) {
                 width: 18px;
                 height: 18px;
@@ -71,10 +83,10 @@ const Help = ({ children, valid, error, warning, icon, className }) => (
  * @static
  * @prop {string} children
  * @prop {string} [className]
- * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
+ * @prop {boolean} [valid] - `valid`, `warning`, `error`, and `loading` are mutually exclusive
  * @prop {boolean} [warning]
  * @prop {boolean} [error]
- * @prop {Element} [icon]
+ * @prop {boolean} [loading]
  */
 Help.propTypes = {
     className: propTypes.string,
@@ -82,7 +94,7 @@ Help.propTypes = {
     error: statusPropType,
     valid: statusPropType,
     warning: statusPropType,
-    icon: propTypes.element,
+    loading: statusPropType,
 }
 
 export { Help }
