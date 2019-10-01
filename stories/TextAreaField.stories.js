@@ -106,8 +106,31 @@ storiesOf('TextAreaField', module)
             onChange={() => {}}
             name="textarea"
             label="This label is too long to show on a single line of the input field's label. We just let it flow to the next line so the user can still read it. However, we should always aim to keep it shorter than this!"
-            dense
-            warning
+        />
+    ))
+
+    .add('Textarea text overflow', () => (
+        <TextAreaField
+            onChange={() => {}}
+            name="textarea"
+            label="I have a scrollbar"
+            value={[
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+                'A line of text',
+            ].join('\n')}
         />
     ))
 
