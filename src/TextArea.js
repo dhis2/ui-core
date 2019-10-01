@@ -4,7 +4,6 @@ import cx from 'classnames'
 
 import { statusPropType } from './common-prop-types.js'
 import { StatusIconNoDefault } from './icons/Status.js'
-import { detectScrollbarSize } from './Tabs/detectScrollbarSize.js'
 
 import { styles } from './TextArea/styles.js'
 
@@ -15,11 +14,9 @@ export class TextArea extends PureComponent {
         this.textareaRef = React.createRef()
 
         this.state = {
-            hasScrollbar: false,
             height: 'auto',
         }
 
-        this.scrollbarSize = detectScrollbarSize()
         this.textareaDimensions = { width: 0, height: 0 }
         this.userHasResized = false
 
@@ -29,7 +26,6 @@ export class TextArea extends PureComponent {
 
     componentDidMount() {
         this.attachResizeListener()
-        this.setHasScrollBar()
 
         if (this.props.initialFocus) {
             this.textareaRef.current.focus()
@@ -41,8 +37,6 @@ export class TextArea extends PureComponent {
     }
 
     componentDidUpdate() {
-        this.setHasScrollBar()
-
         if (this.shouldDoAutoGrow()) {
             this.setHeight()
         }
@@ -58,12 +52,6 @@ export class TextArea extends PureComponent {
         const textarea = this.textareaRef.current
         textarea.removeEventListener('mousedown', this.setTextareaDimensions)
         textarea.removeEventListener('mouseup', this.hasUserResized)
-    }
-
-    setHasScrollBar() {
-        const textarea = this.textareaRef.current
-        const hasScrollbar = textarea.scrollHeight > textarea.clientHeight
-        this.setState({ hasScrollbar })
     }
 
     setHeight() {
@@ -96,14 +84,7 @@ export class TextArea extends PureComponent {
         if (userHasResized) {
             this.userHasResized = true
             this.removeResizeListener()
-            this.setHasScrollBar()
         }
-    }
-
-    getIconRightPosition() {
-        const base = 2
-        const right = this.state.hasScrollbar ? base + this.scrollbarSize : base
-        return `${right}px`
     }
 
     render() {
@@ -127,6 +108,7 @@ export class TextArea extends PureComponent {
             width,
             resize,
         } = this.props
+        const { height } = this.state
 
         return (
             <div className={cx('container', className)}>
@@ -165,11 +147,8 @@ export class TextArea extends PureComponent {
                 <style jsx>{`
                     .textarea {
                         width: ${width};
-                        height: ${this.state.height};
+                        height: ${height};
                         resize: ${resize};
-                    }
-                    .status-icon :global(svg) {
-                        right: ${this.getIconRightPosition()};
                     }
                 `}</style>
             </div>
