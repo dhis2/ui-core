@@ -6,6 +6,7 @@ import { SelectInput } from './Select/SelectInput.js'
 export class Select extends Component {
     state = {
         open: false,
+        label: '',
     }
 
     containerRef = React.createRef()
@@ -26,6 +27,10 @@ export class Select extends Component {
         this.setState({ open: false })
     }
 
+    handleLabelChange = label => {
+        this.setState({ label })
+    }
+
     handleFocus = e => {
         this.props.onFocus(e)
     }
@@ -41,14 +46,15 @@ export class Select extends Component {
         }
     }
 
-    handleOptionClick = value => {
+    handleOptionClick = label => value => {
+        this.handleLabelChange(label)
         this.props.onChange(value)
         this.handleClose()
     }
 
     render() {
         const { children, tabIndex, value, placeholder } = this.props
-        const { open } = this.state.open
+        const { open, label } = this.state
 
         return (
             <div
@@ -60,7 +66,7 @@ export class Select extends Component {
             >
                 <SelectInput
                     placeholder={placeholder}
-                    selected={value}
+                    selected={label}
                     open={open}
                 />
                 {open && (
