@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { ArrowDown, ArrowUp } from './icons/Arrow.js'
-import { colors } from './theme.js'
-import { SelectMenu } from './Select/SelectMenu.js'
+import { SelectDropdown } from './Select/SelectDropdown.js'
+import { SelectInput } from './Select/SelectInput.js'
 
 export class Select extends Component {
     state = {
@@ -29,7 +28,6 @@ export class Select extends Component {
 
     handleFocus = e => {
         this.props.onFocus(e)
-        this.handleOpen()
     }
 
     handleBlur = e => {
@@ -48,62 +46,36 @@ export class Select extends Component {
         this.handleClose()
     }
 
-    // Render the label for a selection if there is one, otherwise return placeholder
-    renderValue = () => {
-        const { placeholder, value, children } = this.props
-        const currentOption =
-            value && children.find(child => child.props.value === value)
-
-        if (currentOption) {
-            return currentOption.props.label
-        }
-
-        return placeholder
-    }
-
     render() {
-        const { children, tabIndex, value } = this.props
-        const Arrow = this.state.open ? ArrowUp : ArrowDown
+        const { children, tabIndex, value, placeholder } = this.props
+        const { open } = this.state.open
 
         return (
-            <div className="container" ref={this.containerRef}>
-                <div
-                    className="input"
-                    tabIndex={tabIndex}
-                    onFocus={this.handleFocus}
-                >
-                    <div>{this.renderValue()}</div>
-                    <Arrow className="arrow" />
-                </div>
-                {this.state.open && (
-                    <SelectMenu
-                        onOptionClick={this.handleOptionClick}
-                        currentValue={value}
+            <div
+                className="container"
+                ref={this.containerRef}
+                tabIndex={tabIndex}
+                onFocus={this.handleFocus}
+                onClick={this.handleOpen}
+            >
+                <SelectInput
+                    placeholder={placeholder}
+                    selected={value}
+                    open={open}
+                />
+                {open && (
+                    <SelectDropdown
+                        onClick={this.handleOptionClick}
+                        value={value}
                     >
                         {children}
-                    </SelectMenu>
+                    </SelectDropdown>
                 )}
 
                 <style jsx>{`
                     .container {
                         position: relative;
-                    }
-
-                    .input {
-                        border: 1px solid ${colors.grey500};
-                        display: flex;
-                        align-items: center;
-                        padding: 0 10px;
-                        height: 42px;
-                        border-radius: 3px;
-                        font-size: 14px;
-                        line-height: 16px;
-                        box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
-                            inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
-                    }
-
-                    .arrow {
-                        margin-left: auto;
+                        outline: 0;
                     }
                 `}</style>
             </div>
