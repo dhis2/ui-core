@@ -109,6 +109,7 @@ export class TextArea extends PureComponent {
             resize,
         } = this.props
         const { height } = this.state
+        const textareaWidth = typeof width === 'number' ? `${width}px` : width
 
         return (
             <div className={cx('container', className)}>
@@ -146,7 +147,7 @@ export class TextArea extends PureComponent {
                 <style jsx>{styles}</style>
                 <style jsx>{`
                     .textarea {
-                        width: ${width};
+                        width: ${textareaWidth};
                         height: ${height};
                         resize: ${resize};
                     }
