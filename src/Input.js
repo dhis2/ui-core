@@ -9,97 +9,81 @@ import { StatusIconNoDefault } from './icons/Status.js'
 
 const styles = css`
     .input {
-        align-items: center;
-        box-sizing: border-box;
         display: flex;
-        height: 42px;
-        left: 1px;
-        position: relative;
+        align-items: center;
+    }
+
+    input {
+        box-sizing: border-box;
+
+        font-size: 14px;
+        line-height: 16px;
+        user-select: text;
+
+        color: ${colors.grey900};
+        background-color: transparent;
+
+        padding: 12px 11px 10px;
+
+        outline: 0;
         border: 1px solid ${colors.grey500};
         border-radius: 3px;
-        font-size: 14px;
         box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
             inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
     }
 
-    .input.dense {
-        height: 34px;
+    input.dense {
+        padding: 8px 11px 6px;
     }
 
-    .input.focus {
+    input:focus {
         border-color: ${colors.teal400};
     }
 
-    .input.valid {
+    input.valid {
         border-color: ${theme.valid};
     }
 
-    .input.warning {
+    input.warning {
         border-color: ${theme.warning};
     }
 
-    .input.error {
+    input.error {
         border-color: ${theme.error};
     }
 
-    .status-icon {
-        flex-shrink: 0;
-        width: 24px;
-        height: 24px;
-        margin-right: ${spacers.dp4};
-        margin-left: ${spacers.dp12};
+    input.read-only {
+        background-color: ${colors.grey100};
+        cursor: text;
+        border-color: ${colors.grey500};
     }
 
-    .status-icon:empty {
-        display: none;
-    }
-
-    .status-icon:last-child {
-        margin-right: ${spacers.dp12};
-    }
-
-    input {
-        display: block;
-        color: ${colors.grey900};
-        background-color: transparent;
-        border: 0;
-        border-radius: 3px;
-        box-sizing: border-box;
-        font-size: inherit;
-        height: 100%;
-        line-height: 16px;
-        outline: 0;
-        user-select: text;
-        width: 100%;
-
-        padding: 13px 0 11px 11px;
-    }
-
-    .disabled,
-    .disabled input {
+    input.disabled {
         cursor: not-allowed;
         border-color: ${theme.disabled};
         color: ${theme.disabled};
         background-color: ${colors.grey100};
     }
+
+    .status-icon {
+        flex-shrink: 0;
+        flex-grow: 0;
+        margin-left: ${spacers.dp4};
+    }
 `
 
+/**
+ * @module
+ * @param {Input.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { Input } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/inputfield.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/inputfield--default|Storybook}
+ */
 export class Input extends Component {
     inputRef = React.createRef()
-
-    state = {
-        focus: this.props.initialFocus,
-    }
-
-    onFocus = e => {
-        this.setState({ focus: true })
-        this.props.onFocus(e)
-    }
-
-    onBlur = e => {
-        this.setState({ focus: false })
-        this.props.onBlur(e)
-    }
 
     componentDidMount() {
         if (this.props.initialFocus) {
@@ -111,9 +95,12 @@ export class Input extends Component {
         const {
             className,
             onChange,
+            onFocus,
+            onBlur,
             type,
             dense,
             disabled,
+            readOnly,
             placeholder,
             name,
             valid,
@@ -122,21 +109,12 @@ export class Input extends Component {
             loading,
             value,
             tabIndex,
+            width,
         } = this.props
-
-        const { focus } = this.state
+        const inputWidth = typeof width === 'number' ? `${width}px` : width
 
         return (
-            <div
-                className={cx('input', className, {
-                    dense,
-                    disabled,
-                    error,
-                    valid,
-                    warning,
-                    focus,
-                })}
-            >
+            <div className={cx('input', className)}>
                 <input
                     id={name}
                     name={name}
@@ -146,9 +124,17 @@ export class Input extends Component {
                     value={value}
                     disabled={disabled}
                     tabIndex={tabIndex}
-                    onFocus={this.onFocus}
-                    onBlur={this.onBlur}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
                     onChange={onChange}
+                    className={cx({
+                        dense,
+                        disabled,
+                        error,
+                        valid,
+                        warning,
+                        'read-only': readOnly,
+                    })}
                 />
 
                 <div className="status-icon">
@@ -161,11 +147,47 @@ export class Input extends Component {
                 </div>
 
                 <style jsx>{styles}</style>
+                <style jsx>{`
+                    input {
+                        width: ${inputWidth};
+                    }
+                `}</style>
             </div>
         )
     }
 }
 
+Input.defaultProps = {
+    type: 'text',
+    width: '100%',
+}
+
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} name
+ * @prop {string} [type=text]
+ * @prop {function} onChange
+ * @prop {function} [onBlur]
+ * @prop {function} [onFocus]
+ * @prop {string} [className]
+ * @prop {string} [placeholder]
+ * @prop {string} [value]
+ * @prop {string} [tabIndex]
+ * @prop {string|number} [width]
+ *
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [readOnly]
+ * @prop {boolean} [dense] - Compact mode
+ * @prop {boolean} [initialFocus]
+ *
+ * @prop {boolean} [valid] - `valid`, `warning`, `error`, and `loading`
+ * are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ * @prop {boolean} [loading]
+ */
 Input.propTypes = {
     name: propTypes.string.isRequired,
     type: propTypes.string.isRequired,
@@ -179,8 +201,10 @@ Input.propTypes = {
     value: propTypes.string,
     placeholder: propTypes.string,
     tabIndex: propTypes.string,
+    width: propTypes.oneOfType([propTypes.string, propTypes.number]),
 
     disabled: propTypes.bool,
+    readOnly: propTypes.bool,
     dense: propTypes.bool,
 
     valid: statusPropType,
