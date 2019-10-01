@@ -152,8 +152,6 @@ TextArea.defaultProps = {
     rows: 4,
     width: '100%',
     resize: 'vertical',
-    onBlur: () => {},
-    onFocus: () => {},
 }
 
 /**
