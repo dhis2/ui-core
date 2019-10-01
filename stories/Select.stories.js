@@ -27,4 +27,4 @@ class StatefulSelect extends React.Component {
     }
 }
 
-storiesOf('Select', module).add('Default', () => <StatefulSelect />)
+storiesOf('Select', module).add('Single select', () => <StatefulSelect />)

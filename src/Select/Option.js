@@ -11,16 +11,6 @@ const createOnClickHandler = (onClick, value) => evt => {
     }
 }
 
-/**
- * @module
- * @param {Option.PropTypes}
- * @returns {React.Component}
- *
- * @example import { Option } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/menu--default|Storybook}
- */
 const Option = ({ value, label, icon, active, disabled, dense, onClick }) => {
     const isClickable = onClick
     const LinkElement = isClickable ? 'a' : 'span'
@@ -48,20 +38,6 @@ const Option = ({ value, label, icon, active, disabled, dense, onClick }) => {
     )
 }
 
-/**
- * @typedef {Object} PropTypes
- * @static
- *
- * @prop {string|Node} label
- * @prop {string} [value]
- * @prop {function} [onClick] - Click handler called with `value` as the sole argument
- * @prop {string} [className]
- * @prop {Element} [children]
- * @prop {Element} [icon]
- * @prop {boolean} [dense]
- * @prop {boolean} [active]
- * @prop {boolean} [disabled]
- */
 Option.propTypes = {
     label: propTypes.oneOfType([propTypes.string, propTypes.node]).isRequired,
 
