@@ -9112,10 +9112,10 @@ storybook-addon-jsx@^7.1.6:
     prismjs "^1.15.0"
     react-element-to-jsx-string "^14.0.3"
 
-storybook-addon-react-docgen@^1.2.15:
-  version "1.2.15"
-  resolved "https://registry.yarnpkg.com/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.15.tgz#da00cfdaa4abd2b842a2181392dee872879f3372"
-  integrity sha512-g89Wao3Oew86AxxWuhDLaU4opwY4kvAJURnCOIvG/C2bIP5OSG5IReCxtmkTF2UCEKWFSxAPVTURrKfsIRhOtg==
+storybook-addon-react-docgen@^1.2.28:
+  version "1.2.28"
+  resolved "https://registry.yarnpkg.com/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.28.tgz#4e68630523af2568934f2d8665e227dccb49e0b7"
+  integrity sha512-/GcyDBHiP6VmJeU9CQwsBSMwpqWznFOvPWOXiGnKrrcZukBcU1MVSbyCa9JTKIWAoXiVNAlFwgt504+n9mavWA==
   dependencies:
     nested-object-assign "^1.0.3"
     prop-types "^15.6.2"
