@@ -8,21 +8,12 @@ import { StatusIconNoDefault } from './icons/Status.js'
 import { styles } from './TextArea/styles.js'
 
 export class TextArea extends PureComponent {
-    constructor(props) {
-        super(props)
-
-        this.textareaRef = React.createRef()
-
-        this.state = {
-            height: 'auto',
-        }
-
-        this.textareaDimensions = { width: 0, height: 0 }
-        this.userHasResized = false
-
-        this.setTextareaDimensions = this.setTextareaDimensions.bind(this)
-        this.hasUserResized = this.hasUserResized.bind(this)
+    textareaRef = React.createRef()
+    state = {
+        height: 'auto',
     }
+    textareaDimensions = { width: 0, height: 0 }
+    userHasResized = false
 
     componentDidMount() {
         this.attachResizeListener()
@@ -61,7 +52,7 @@ export class TextArea extends PureComponent {
         this.setState({ height })
     }
 
-    setTextareaDimensions() {
+    setTextareaDimensions = () => {
         const textarea = this.textareaRef.current
         this.textareaDimensions = {
             width: textarea.clientWidth,
@@ -73,7 +64,7 @@ export class TextArea extends PureComponent {
         return this.props.autoGrow && !this.userHasResized
     }
 
-    hasUserResized() {
+    hasUserResized = () => {
         const { width: oldWidth, height: oldHeight } = this.textareaDimensions
 
         this.setTextareaDimensions()
