@@ -43,8 +43,6 @@ storiesOf('FieldSet', module)
                     error
                 />
             </Field>
-            <Help error indent={false}>
-                You really have to choose something!
-            </Help>
+            <Help error>You really have to choose something!</Help>
         </FieldSet>
     ))
