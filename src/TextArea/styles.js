@@ -6,10 +6,6 @@ export const styles = css`
         display: flex;
     }
     textarea {
-        /* Never smaller than icon + border x 2  */
-        min-width: 28px;
-        min-height: 28px;
-
         box-sizing: border-box;
         padding: 8px 12px;
 
