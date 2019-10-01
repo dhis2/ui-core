@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { theme, spacers } from '../theme.js'
+import { theme } from '../theme.js'
 
 /**
  * @module
@@ -22,7 +22,6 @@ export function Valid({ className }) {
                     width: 24px;
                     vertical-align: middle;
                     pointer-events: none;
-                    margin-right: ${spacers.dp4};
                     fill: ${theme.valid};
                 }
             `}</style>
@@ -48,7 +47,6 @@ export function Warning({ className }) {
                     width: 24px;
                     vertical-align: middle;
                     pointer-events: none;
-                    margin-right: ${spacers.dp4};
                     fill: ${theme.warning};
                 }
             `}</style>
@@ -74,7 +72,6 @@ export function Error({ className }) {
                     width: 24px;
                     vertical-align: middle;
                     pointer-events: none;
-                    margin-right: ${spacers.dp4};
                     fill: ${theme.error};
                 }
             `}</style>
@@ -100,7 +97,6 @@ export function Info({ className }) {
                     width: 24px;
                     vertical-align: middle;
                     pointer-events: none;
-                    margin-right: ${spacers.dp4};
                     fill: ${theme.info};
                 }
             `}</style>
@@ -133,7 +129,6 @@ export function Loading({ className }) {
                     color: ${theme.primary600};
                     width: 24px;
                     height: 24px;
-                    margin-right: ${spacers.dp4};
                     animation: anim-rotate 1.4s linear infinite;
                 }
 
