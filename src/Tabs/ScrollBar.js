@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { ChevronLeft, ChevronRight } from '../icons/Chevron'
 import { colors } from '../theme'
-import { detectScrollbarSize } from './detectScrollbarSize'
+import { detectHorizontalScrollbarHeight } from './detectHorizontalScrollbarHeight'
 import { animatedSideScroll } from './animatedSideScroll'
 
 /**
@@ -23,7 +23,7 @@ class ScrollBar extends PureComponent {
         scrolledToStart: false,
         scrolledToEnd: false,
     }
-    horizontalScrollBarHeight = detectScrollbarSize(true)
+    horizontalScrollBarHeight = detectHorizontalScrollbarHeight()
 
     componentDidMount() {
         this.scrollSelectedTabIntoView()
