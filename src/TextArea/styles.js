@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { colors, theme } from '../theme.js'
+import { colors, theme, spacers } from '../theme.js'
 
 export const styles = css`
     .container {
@@ -61,13 +61,7 @@ export const styles = css`
 
     .status-icon {
         flex-grow: 0;
-        width: 0;
-        position: relative;
-    }
-    .status-icon :global(svg) {
-        position: absolute;
-        top: 2px;
-        z-index: 1;
-        margin-right: 0;
+        flex-shrink: 0;
+        margin-left: ${spacers.dp4};
     }
 `
