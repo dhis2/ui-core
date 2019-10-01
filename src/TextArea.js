@@ -103,7 +103,7 @@ export class TextArea extends PureComponent {
         const textareaWidth = typeof width === 'number' ? `${width}px` : width
 
         return (
-            <div className={cx('container', className)}>
+            <div className={cx('textarea', className)}>
                 <textarea
                     id={name}
                     name={name}
@@ -116,7 +116,7 @@ export class TextArea extends PureComponent {
                     onBlur={onBlur}
                     onChange={onChange}
                     rows={rows}
-                    className={cx('textarea', className, {
+                    className={cx({
                         dense,
                         disabled,
                         error,
@@ -137,7 +137,7 @@ export class TextArea extends PureComponent {
 
                 <style jsx>{styles}</style>
                 <style jsx>{`
-                    .textarea {
+                    textarea {
                         width: ${textareaWidth};
                         height: ${height};
                         resize: ${resize};

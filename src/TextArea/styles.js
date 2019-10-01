@@ -2,10 +2,10 @@ import css from 'styled-jsx/css'
 import { colors, theme, spacers } from '../theme.js'
 
 export const styles = css`
-    .container {
+    .textarea {
         display: flex;
     }
-    .textarea {
+    textarea {
         /* Never smaller than icon + border x 2  */
         min-width: 28px;
         min-height: 28px;
@@ -27,36 +27,37 @@ export const styles = css`
         user-select: text;
     }
 
-    .textarea.dense {
+    textarea.dense {
         padding: 4px 12px;
     }
 
-    .textarea:focus {
+    textarea:focus {
         border-color: ${colors.teal400};
     }
 
-    .textarea.valid {
+    textarea.valid {
         border-color: ${theme.valid};
     }
 
-    .textarea.warning {
+    textarea.warning {
         border-color: ${theme.warning};
     }
 
-    .textarea.error {
+    textarea.error {
         border-color: ${theme.error};
     }
 
-    .textarea.disabled {
+    textarea.read-only {
+        background-color: ${colors.grey100};
+        cursor: text;
+        border-color: ${colors.grey500};
+    }
+
+    textarea.disabled {
         cursor: not-allowed;
         border-color: ${theme.disabled};
         color: ${theme.disabled};
         background-color: ${colors.grey100};
-    }
-
-    .textarea.read-only {
-        background-color: ${colors.grey100};
-        cursor: text;
     }
 
     .status-icon {
