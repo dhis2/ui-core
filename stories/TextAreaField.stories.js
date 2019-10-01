@@ -152,6 +152,23 @@ storiesOf('TextAreaField', module)
         />
     ))
 
+    .add('Input width', () => (
+        <>
+            <TextAreaField
+                onChange={() => {}}
+                name="textarea"
+                label="My textarea has a width of 100 (number)"
+                inputWidth={100}
+            />
+            <TextAreaField
+                onChange={() => {}}
+                name="textarea"
+                label="My textarea has a width of 220px (string)"
+                inputWidth="220px"
+            />
+        </>
+    ))
+
     .add('Resize', () => (
         <>
             <TextAreaField
