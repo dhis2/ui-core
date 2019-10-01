@@ -134,7 +134,7 @@ storiesOf('TextAreaField', module)
             <TextAreaField
                 onChange={() => {}}
                 name="textarea1"
-                label="Default value for resize is vertical"
+                label="Resize: vertical (default)"
             />
             <TextAreaField
                 onChange={() => {}}
