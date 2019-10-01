@@ -44,6 +44,7 @@ class TextAreaField extends React.Component {
             readOnly,
             resize,
             rows,
+            inputWidth,
         } = this.props
 
         return (
@@ -77,6 +78,7 @@ class TextAreaField extends React.Component {
                     readOnly={readOnly}
                     resize={resize}
                     rows={rows}
+                    width={inputWidth}
                 />
 
                 {helpText ? <Help>{helpText}</Help> : null}
@@ -156,6 +158,7 @@ TextAreaField.propTypes = {
     autoGrow: propTypes.bool,
     resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
     rows: propTypes.number,
+    inputWidth: propTypes.oneOfType([propTypes.string, propTypes.number]),
 }
 
 export { TextAreaField }
