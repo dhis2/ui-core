@@ -9,7 +9,7 @@ const SelectDropdown = ({ children, onClick, value }) => (
             {React.Children.map(children, child => {
                 return React.cloneElement(child, {
                     ...child.props,
-                    onClick,
+                    onClick: onClick(child.props.label),
                     active: child.props.value === value,
                 })
             })}
