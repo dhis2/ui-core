@@ -18,80 +18,70 @@ import { Help } from './Help.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/update-input/atoms/inputfield.md#textarea|Design system}
  * @see Live demo: {@link /demo/?path=/story/textareafield--default|Storybook}
  */
-class TextAreaField extends React.Component {
-    render() {
-        const {
-            className,
-            onChange,
-            onFocus,
-            onBlur,
-            initialFocus,
-            dense,
-            required,
-            label,
-            disabled,
-            placeholder,
-            name,
-            valid,
-            error,
-            warning,
-            loading,
-            value,
-            tabIndex,
-            helpText,
-            validationText,
-            autoGrow,
-            readOnly,
-            resize,
-            rows,
-            inputWidth,
-        } = this.props
+const TextAreaField = ({
+    className,
+    onChange,
+    onFocus,
+    onBlur,
+    initialFocus,
+    dense,
+    required,
+    label,
+    disabled,
+    placeholder,
+    name,
+    valid,
+    error,
+    warning,
+    loading,
+    value,
+    tabIndex,
+    helpText,
+    validationText,
+    autoGrow,
+    readOnly,
+    resize,
+    rows,
+    inputWidth,
+}) => (
+    <Field className={className}>
+        {label ? (
+            <Label required={required} disabled={disabled} htmlFor={name}>
+                {label}
+            </Label>
+        ) : null}
 
-        return (
-            <Field className={className}>
-                {label ? (
-                    <Label
-                        required={required}
-                        disabled={disabled}
-                        htmlFor={name}
-                    >
-                        {label}
-                    </Label>
-                ) : null}
+        <TextArea
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onChange={onChange}
+            name={name}
+            value={value || ''}
+            placeholder={placeholder}
+            disabled={disabled}
+            valid={valid}
+            warning={warning}
+            error={error}
+            loading={loading}
+            dense={dense}
+            tabIndex={tabIndex}
+            initialFocus={initialFocus}
+            autoGrow={autoGrow}
+            readOnly={readOnly}
+            resize={resize}
+            rows={rows}
+            width={inputWidth}
+        />
 
-                <TextArea
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onChange={onChange}
-                    name={name}
-                    value={value || ''}
-                    placeholder={placeholder}
-                    disabled={disabled}
-                    valid={valid}
-                    warning={warning}
-                    error={error}
-                    loading={loading}
-                    dense={dense}
-                    tabIndex={tabIndex}
-                    initialFocus={initialFocus}
-                    autoGrow={autoGrow}
-                    readOnly={readOnly}
-                    resize={resize}
-                    rows={rows}
-                    width={inputWidth}
-                />
+        {helpText ? <Help>{helpText}</Help> : null}
 
-                {helpText ? <Help>{helpText}</Help> : null}
-
-                {validationText ? (
-                    <Help error={error} warning={warning} valid={valid}>
-                        {validationText}
-                    </Help>
-                ) : null}
-            </Field>
-        )
-    }
-}
+        {validationText ? (
+            <Help error={error} warning={warning} valid={valid}>
+                {validationText}
+            </Help>
+        ) : null}
+    </Field>
+)
 
 TextAreaField.defaultProps = TextArea.defaultProps
 
