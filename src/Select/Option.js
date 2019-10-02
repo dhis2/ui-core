@@ -9,14 +9,13 @@ const createOnClickHandler = (onClick, option) => evt => {
     onClick(option)
 }
 
-const Option = ({ value, label, active, disabled, dense, onClick }) => {
+const Option = ({ value, label, active, disabled, onClick }) => {
     const handleClicks = createOnClickHandler(onClick, { value, label })
 
     return (
         <li
             className={cx({
                 disabled,
-                dense,
                 active,
             })}
         >
@@ -33,7 +32,6 @@ Option.propTypes = {
     label: propTypes.string.isRequired,
     value: propTypes.string.isRequired,
     onClick: propTypes.func.isRequired,
-    dense: propTypes.bool,
     active: propTypes.bool,
     disabled: propTypes.bool,
 }
