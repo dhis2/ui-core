@@ -46,8 +46,19 @@ export class Select extends Component {
         this.handleClose()
     }
 
+    handleClear = e => {
+        e.stopPropagation()
+        this.props.onChange({})
+    }
+
     render() {
-        const { children, tabIndex, selected, placeholder } = this.props
+        const {
+            children,
+            tabIndex,
+            selected,
+            placeholder,
+            clearable,
+        } = this.props
         const { open } = this.state
 
         return (
@@ -61,6 +72,8 @@ export class Select extends Component {
                 <SelectInput
                     placeholder={placeholder}
                     selected={selected}
+                    clearable={clearable}
+                    onClear={this.handleClear}
                     open={open}
                 />
                 {open && (
@@ -84,6 +97,7 @@ export class Select extends Component {
 }
 
 Select.defaultProps = {
+    clearable: false,
     tabIndex: 0,
     onFocus: () => {},
     onBlur: () => {},
@@ -92,6 +106,7 @@ Select.defaultProps = {
 
 Select.propTypes = {
     onChange: propTypes.func.isRequired,
+    clearable: propTypes.bool,
     selected: propTypes.object.isRequired,
     children: propTypes.node.isRequired,
     tabIndex: propTypes.number,

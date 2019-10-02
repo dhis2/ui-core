@@ -14,6 +14,8 @@ class StatefulSelect extends React.Component {
     render() {
         return (
             <Select
+                // eslint-disable-next-line
+                clearable={this.props.clearable}
                 onChange={this.setSelected}
                 selected={this.state.selected}
                 placeholder="Please select a value"
@@ -27,4 +29,6 @@ class StatefulSelect extends React.Component {
     }
 }
 
-storiesOf('Select', module).add('Single select', () => <StatefulSelect />)
+storiesOf('Select', module)
+    .add('Single select', () => <StatefulSelect />)
+    .add('Clearable single select', () => <StatefulSelect clearable />)
