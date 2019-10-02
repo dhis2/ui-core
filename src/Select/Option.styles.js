@@ -4,7 +4,7 @@ import { colors, spacers } from '../theme.js'
 export default css`
     li {
         position: relative;
-        height: 48px;
+        height: 32px;
         padding: 0;
         cursor: pointer;
         list-style: none;
@@ -23,26 +23,12 @@ export default css`
         background-color: ${colors.grey400};
     }
 
-    .dense {
-        height: 32px;
-        padding: 0 ${spacers.dp24} 0 ${spacers.dp12};
-    }
-
-    .dense .label {
-        font-size: 14px;
-    }
-
-    .dense .icon {
-        font-size: 20px;
-    }
-
     .disabled {
         cursor: not-allowed;
         pointer-events: none;
         user-select: none;
     }
 
-    .disabled .icon,
     .disabled .label {
         color: rgba(0, 0, 0, 0.3);
     }
@@ -59,7 +45,7 @@ export default css`
 
     .label {
         color: ${colors.grey900};
-        font-size: 15px;
+        font-size: 14px;
 
         white-space: nowrap;
         overflow: hidden;
@@ -67,15 +53,5 @@ export default css`
 
         user-select: none;
         padding-right: ${spacers.dp12};
-    }
-
-    .icon {
-        box-sizing: border-box;
-
-        margin-right: ${spacers.dp16};
-        color: #404040;
-        font-size: 24px;
-        pointer-events: none;
-        user-select: none;
     }
 `
