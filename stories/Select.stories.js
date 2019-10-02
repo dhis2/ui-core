@@ -4,18 +4,18 @@ import { Select, Option } from '../src'
 
 class StatefulSelect extends React.Component {
     state = {
-        value: '',
+        selected: {},
     }
 
-    setValue = value => {
-        this.setState({ value })
+    setSelected = selected => {
+        this.setState({ selected })
     }
 
     render() {
         return (
             <Select
-                onChange={this.setValue}
-                value={this.state.value}
+                onChange={this.setSelected}
+                selected={this.state.selected}
                 placeholder="Please select a value"
             >
                 <Option label="one" value="1" />

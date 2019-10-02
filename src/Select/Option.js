@@ -3,22 +3,14 @@ import propTypes from 'prop-types'
 import cx from 'classnames'
 import styles from './Option.styles.js'
 
-const createOnClickHandler = (onClick, value) => evt => {
-    if (onClick) {
-        evt.preventDefault()
-        evt.stopPropagation()
-        onClick(value)
-    }
+const createOnClickHandler = (onClick, option) => evt => {
+    evt.preventDefault()
+    evt.stopPropagation()
+    onClick(option)
 }
 
-const Option = ({ value, label, icon, active, disabled, dense, onClick }) => {
-    const isClickable = onClick
-    const LinkElement = isClickable ? 'a' : 'span'
-    const linkElementProps = {}
-
-    if (isClickable) {
-        linkElementProps.onClick = createOnClickHandler(onClick, value)
-    }
+const Option = ({ value, label, active, disabled, dense, onClick }) => {
+    const handleClicks = createOnClickHandler(onClick, { value, label })
 
     return (
         <li
@@ -28,10 +20,9 @@ const Option = ({ value, label, icon, active, disabled, dense, onClick }) => {
                 active,
             })}
         >
-            <LinkElement className="link" {...linkElementProps}>
-                {icon}
+            <a className="link" onClick={handleClicks}>
                 <div className="label">{label}</div>
-            </LinkElement>
+            </a>
 
             <style jsx>{styles}</style>
         </li>
@@ -39,15 +30,9 @@ const Option = ({ value, label, icon, active, disabled, dense, onClick }) => {
 }
 
 Option.propTypes = {
-    label: propTypes.oneOfType([propTypes.string, propTypes.node]).isRequired,
-
-    value: propTypes.string,
-    href: propTypes.string,
-    onClick: propTypes.func,
-
-    className: propTypes.string,
-    icon: propTypes.element,
-
+    label: propTypes.string.isRequired,
+    value: propTypes.string.isRequired,
+    onClick: propTypes.func.isRequired,
     dense: propTypes.bool,
     active: propTypes.bool,
     disabled: propTypes.bool,

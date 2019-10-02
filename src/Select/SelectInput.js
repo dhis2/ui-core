@@ -9,7 +9,7 @@ const SelectInput = ({ placeholder, selected, open }) => {
     return (
         <React.Fragment>
             <div className="input">
-                {selected ? selected : placeholder}
+                {'label' in selected ? selected.label : placeholder}
                 <Arrow className="arrow" />
             </div>
 
@@ -40,7 +40,7 @@ const SelectInput = ({ placeholder, selected, open }) => {
 
 SelectInput.propTypes = {
     placeholder: propTypes.string.isRequired,
-    selected: propTypes.string.isRequired,
+    selected: propTypes.object.isRequired,
     open: propTypes.bool.isRequired,
 }
 
