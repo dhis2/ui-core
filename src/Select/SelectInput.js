@@ -1,15 +1,19 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import cx from 'classnames'
 import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
 import { colors } from '../theme.js'
 
 const SelectInput = ({ placeholder, selected, open }) => {
     const Arrow = open ? ArrowUp : ArrowDown
+    const hasLabel = 'label' in selected
 
     return (
         <React.Fragment>
             <div className="input">
-                {'label' in selected ? selected.label : placeholder}
+                <span className={cx({ placeholder: !hasLabel })}>
+                    {hasLabel ? selected.label : placeholder}
+                </span>
                 <Arrow className="arrow" />
             </div>
 
@@ -28,6 +32,10 @@ const SelectInput = ({ placeholder, selected, open }) => {
                     position: relative;
                     box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
                         inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
+                }
+
+                .placeholder {
+                    color: ${colors.grey500};
                 }
 
                 .arrow {
