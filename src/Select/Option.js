@@ -4,7 +4,6 @@ import cx from 'classnames'
 import styles from './Option.styles.js'
 
 const createOnClickHandler = (onClick, option) => evt => {
-    evt.preventDefault()
     evt.stopPropagation()
     onClick(option)
 }
@@ -31,7 +30,7 @@ const Option = ({ value, label, active, disabled, onClick }) => {
 Option.propTypes = {
     label: propTypes.string.isRequired,
     value: propTypes.string.isRequired,
-    onClick: propTypes.func.isRequired,
+    onClick: propTypes.func,
     active: propTypes.bool,
     disabled: propTypes.bool,
 }

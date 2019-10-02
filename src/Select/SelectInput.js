@@ -4,17 +4,24 @@ import cx from 'classnames'
 import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
 import { colors } from '../theme.js'
 
-const SelectInput = ({ placeholder, selected, open }) => {
+const SelectInput = ({ placeholder, selected, open, clearable, onClear }) => {
     const Arrow = open ? ArrowUp : ArrowDown
-    const hasLabel = 'label' in selected
+    const hasSelection = 'label' in selected
 
     return (
         <React.Fragment>
             <div className="input">
-                <span className={cx({ placeholder: !hasLabel })}>
-                    {hasLabel ? selected.label : placeholder}
+                <span className={cx({ placeholder: !hasSelection })}>
+                    {hasSelection ? selected.label : placeholder}
                 </span>
-                <Arrow className="arrow" />
+                <span className="right">
+                    {clearable && hasSelection && (
+                        <a className="clear" onClick={onClear}>
+                            Clear
+                        </a>
+                    )}
+                    <Arrow />
+                </span>
             </div>
 
             <style jsx>{`
@@ -38,8 +45,16 @@ const SelectInput = ({ placeholder, selected, open }) => {
                     color: ${colors.grey500};
                 }
 
-                .arrow {
+                .right {
                     margin-left: auto;
+                }
+
+                .clear {
+                    color: ${colors.grey700};
+                    text-decoration: underline;
+                    font-size: 14px;
+                    cursor: pointer;
+                    padding-right: 8px;
                 }
             `}</style>
         </React.Fragment>
@@ -47,6 +62,8 @@ const SelectInput = ({ placeholder, selected, open }) => {
 }
 
 SelectInput.propTypes = {
+    clearable: propTypes.bool.isRequired,
+    onClear: propTypes.func.isRequired,
     placeholder: propTypes.string.isRequired,
     selected: propTypes.object.isRequired,
     open: propTypes.bool.isRequired,
