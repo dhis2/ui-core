@@ -3,14 +3,25 @@ import propTypes from 'prop-types'
 import { layers } from '../theme.js'
 import { SelectMenu } from './SelectMenu.js'
 
-const SelectDropdown = ({ children, onClick, value }) => (
+const SelectDropdown = ({ children, onClick, selected }) => (
     <React.Fragment>
         <SelectMenu className="select-menu">
             {React.Children.map(children, child => {
+                const { value, label } = child.props
+                const hasValue = 'value' in selected
+                const hasLabel = 'label' in selected
+
+                let active = false
+
+                if (hasValue && hasLabel) {
+                    active =
+                        value === selected.value && label === selected.label
+                }
+
                 return React.cloneElement(child, {
                     ...child.props,
-                    onClick: onClick(child.props.label),
-                    active: child.props.value === value,
+                    onClick,
+                    active,
                 })
             })}
         </SelectMenu>
@@ -29,7 +40,7 @@ const SelectDropdown = ({ children, onClick, value }) => (
 SelectDropdown.propTypes = {
     children: propTypes.node.isRequired,
     onClick: propTypes.func.isRequired,
-    value: propTypes.string.isRequired,
+    selected: propTypes.object.isRequired,
 }
 
 export { SelectDropdown }
