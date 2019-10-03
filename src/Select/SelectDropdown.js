@@ -3,6 +3,8 @@ import propTypes from 'prop-types'
 import { layers } from '../theme.js'
 import { SelectMenu } from './SelectMenu.js'
 
+const noop = () => {}
+
 const SelectDropdown = ({ children, onClick, selected }) => (
     <React.Fragment>
         <SelectMenu className="select-menu">
@@ -20,7 +22,7 @@ const SelectDropdown = ({ children, onClick, selected }) => (
 
                 return React.cloneElement(child, {
                     ...child.props,
-                    onClick,
+                    onClick: active ? noop : onClick,
                     active,
                 })
             })}
