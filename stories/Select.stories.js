@@ -30,6 +30,31 @@ storiesOf('Select', module)
             <Option label="four" value="4" />
         </Select>
     ))
+    .add('Label', () => (
+        <Select
+            onChange={({ value }) => alert(`Value changed to ${value}`)}
+            selected={{}}
+            label="Sort by"
+        >
+            <Option label="one" value="1" />
+            <Option label="two" value="2" />
+            <Option label="three" value="3" />
+            <Option label="four" value="4" />
+        </Select>
+    ))
+    .add('Label with selected option', () => (
+        <Select
+            onChange={({ value }) => alert(`Value changed to ${value}`)}
+            selected={{ label: 'one', value: '1' }}
+            label="Sort by"
+        >
+            <Option label="one" value="1" />
+            <Option label="two" value="2" />
+            <Option label="three" value="3" />
+            <Option label="four" value="4" />
+        </Select>
+    ))
+
     .add('Wrapping long option', () => (
         <Select
             onChange={({ value }) => alert(`Value changed to ${value}`)}
