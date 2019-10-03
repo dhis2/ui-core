@@ -1,21 +1,32 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import cx from 'classnames'
 import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
-import { colors } from '../theme.js'
+import { colors, spacers } from '../theme.js'
 
-const SelectInput = ({ placeholder, selected, open, clearable, onClear }) => {
+const SelectInput = ({
+    placeholder,
+    selected,
+    open,
+    clearable,
+    onClear,
+    label,
+}) => {
     const Arrow = open ? ArrowUp : ArrowDown
-    const hasSelection = 'label' in selected
+    const showSelection = 'label' in selected
+    const showLabel = label
+    const showPlaceholder = !showLabel && !showSelection
+    const showClear = clearable && showSelection
 
     return (
         <React.Fragment>
             <div className="container">
-                <span className={cx('input', { placeholder: !hasSelection })}>
-                    {hasSelection ? selected.label : placeholder}
-                </span>
+                {showLabel && <span className="label">{label}</span>}
+                {showPlaceholder && (
+                    <span className="placeholder">{placeholder}</span>
+                )}
+                {showSelection && selected.label}
                 <span className="right">
-                    {clearable && hasSelection && (
+                    {showClear && (
                         <a className="clear" onClick={onClear}>
                             Clear
                         </a>
@@ -41,6 +52,12 @@ const SelectInput = ({ placeholder, selected, open, clearable, onClear }) => {
                         inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
                 }
 
+                .label {
+                    color: ${colors.grey600};
+                    padding-right: ${spacers.dp4};
+                    font-size: 14px;
+                }
+
                 .input {
                     flex-grow: 1;
                     flex-basis: 0;
@@ -61,7 +78,7 @@ const SelectInput = ({ placeholder, selected, open, clearable, onClear }) => {
                     text-decoration: underline;
                     font-size: 14px;
                     cursor: pointer;
-                    padding-right: 8px;
+                    padding-right: ${spacers.dp8};
                 }
             `}</style>
         </React.Fragment>
@@ -70,6 +87,7 @@ const SelectInput = ({ placeholder, selected, open, clearable, onClear }) => {
 
 SelectInput.propTypes = {
     clearable: propTypes.bool.isRequired,
+    label: propTypes.string,
     onClear: propTypes.func.isRequired,
     placeholder: propTypes.string.isRequired,
     selected: propTypes.object.isRequired,
