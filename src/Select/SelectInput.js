@@ -44,6 +44,8 @@ const SelectInput = ({ placeholder, selected, open, clearable, onClear }) => {
                 .input {
                     flex-grow: 1;
                     flex-basis: 0;
+                    overflow-wrap: break-word;
+                    overflow: auto;
                 }
 
                 .placeholder {
