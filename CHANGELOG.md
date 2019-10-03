@@ -1,3 +1,10 @@
+## [3.11.2](https://github.com/dhis2/ui/compare/v3.11.1...v3.11.2) (2019-10-03)
+
+
+### Bug Fixes
+
+* **radiogroup:** make the label optional ([#475](https://github.com/dhis2/ui/issues/475)) ([57d017c](https://github.com/dhis2/ui/commit/57d017c))
+
 ## [3.11.1](https://github.com/dhis2/ui/compare/v3.11.0...v3.11.1) (2019-09-30)
 
 
