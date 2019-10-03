@@ -45,6 +45,17 @@ storiesOf('RadioGroup', module)
             required
         />
     ))
+    .add('Without label', () => (
+        <RadioGroup
+            name="choice"
+            value="red"
+            options={[
+                { label: 'The red pill', value: 'red' },
+                { label: 'The blue pill', value: 'blue' },
+            ]}
+            required
+        />
+    ))
     .add('Statuses', () => (
         <>
             <RadioGroup

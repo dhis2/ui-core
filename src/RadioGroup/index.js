@@ -32,9 +32,13 @@ const RadioGroup = ({
 
     return (
         <>
-            <span className={cx('group-label', { ...statusProps, required })}>
-                {label}
-            </span>
+            {label && (
+                <span
+                    className={cx('group-label', { ...statusProps, required })}
+                >
+                    {label}
+                </span>
+            )}
             <div className={cx('group', { inline })}>
                 {options.map(option => (
                     <Radio
@@ -91,7 +95,6 @@ const RadioGroup = ({
 }
 
 RadioGroup.propTypes = {
-    label: propTypes.string.isRequired,
     name: propTypes.string.isRequired,
     options: propTypes.arrayOf(
         propTypes.shape({
@@ -99,7 +102,7 @@ RadioGroup.propTypes = {
             value: propTypes.any.isRequired,
         })
     ).isRequired,
-
+    label: propTypes.string,
     className: propTypes.string,
     error: statusPropType,
     helpText: propTypes.string,
