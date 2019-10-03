@@ -110,7 +110,8 @@ export class TextArea extends PureComponent {
                     placeholder={placeholder}
                     ref={this.textareaRef}
                     value={value}
-                    disabled={disabled || readOnly}
+                    disabled={disabled}
+                    readOnly={readOnly}
                     tabIndex={tabIndex}
                     onFocus={onFocus}
                     onBlur={onBlur}
