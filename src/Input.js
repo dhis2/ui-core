@@ -123,6 +123,7 @@ export class Input extends Component {
                     type={type}
                     value={value}
                     disabled={disabled}
+                    readOnly={readOnly}
                     tabIndex={tabIndex}
                     onFocus={onFocus}
                     onBlur={onBlur}
