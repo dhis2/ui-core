@@ -38,7 +38,7 @@
     "babel-loader": "^8.0.6",
     "eslint-plugin-react": "^7.15.1",
     "react": "16.3",
-    "react-dev-utils": "^9.0.4",
+    "react-dev-utils": "^9.1.0",
     "react-dom": "16.3",
     "storybook-addon-jsx": "^7.1.6",
     "storybook-addon-react-docgen": "^1.2.28",
