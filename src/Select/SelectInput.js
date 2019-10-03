@@ -10,8 +10,8 @@ const SelectInput = ({ placeholder, selected, open, clearable, onClear }) => {
 
     return (
         <React.Fragment>
-            <div className="input">
-                <span className={cx({ placeholder: !hasSelection })}>
+            <div className="container">
+                <span className={cx('input', { placeholder: !hasSelection })}>
                     {hasSelection ? selected.label : placeholder}
                 </span>
                 <span className="right">
@@ -25,7 +25,7 @@ const SelectInput = ({ placeholder, selected, open, clearable, onClear }) => {
             </div>
 
             <style jsx>{`
-                .input {
+                .container {
                     align-items: center;
                     border-radius: 3px;
                     border: 1px solid ${colors.grey500};
@@ -33,12 +33,17 @@ const SelectInput = ({ placeholder, selected, open, clearable, onClear }) => {
                     color: ${colors.grey900};
                     display: flex;
                     font-size: 14px;
-                    height: 34px;
+                    min-height: 34px;
                     line-height: 16px;
                     padding: 13px 0 11px 11px;
                     position: relative;
                     box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
                         inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
+                }
+
+                .input {
+                    flex-grow: 1;
+                    flex-basis: 0;
                 }
 
                 .placeholder {
