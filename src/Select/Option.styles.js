@@ -21,6 +21,7 @@ export default css`
     li:active,
     li.active {
         background-color: ${colors.grey400};
+        cursor: auto;
     }
 
     .disabled {
