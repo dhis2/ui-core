@@ -46,7 +46,7 @@ const SelectInput = ({
                     font-size: 14px;
                     min-height: 34px;
                     line-height: 16px;
-                    padding: 13px 0 11px 11px;
+                    padding: 3px 0 3px 11px;
                     position: relative;
                     box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
                         inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
