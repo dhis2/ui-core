@@ -11,16 +11,20 @@ addDecorator(withPropsTable)
 addDecorator(CssResetWrapper)
 addDecorator(FrameStylesWrapper)
 
-const includeStateful = 'STORYBOOK_INCLUDE_STATEFUL' in process.env
+const includeTesting = 'STORYBOOK_INCLUDE_TESTING' in process.env
 
 function loadStories() {
     const req = require.context('../stories', false, /\.stories\.js$/)
     req.keys().forEach(filename => req(filename))
 }
 
-function loadStoriesWithStateful() {
-    const req = require.context('../stories', true, /\.stories\.js$/)
+function loadStoriesInclTesting() {
+    const req = require.context(
+        '../stories',
+        true,
+        /(\.testing)?\.stories\.js$/
+    )
     req.keys().forEach(filename => req(filename))
 }
 
-configure(includeStateful ? loadStoriesWithStateful : loadStories, module)
+configure(includeTesting ? loadStoriesInclTesting : loadStories, module)
