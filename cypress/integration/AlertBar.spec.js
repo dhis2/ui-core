@@ -26,7 +26,7 @@ describe('AlertBar - Functional', () => {
     })
 
     describe('Clearing on action click', () => {
-        it('hides the alertbar when clicking on an action', () => {
+        it('should hide the alertbar when clicking on an action', () => {
             cy.visit('localhost:5000/iframe.html?id=alertbar--with-actions')
                 .get('.info')
                 .should('be.visible')
@@ -48,12 +48,12 @@ describe('AlertBar - Visual', () => {
     it('should suports icons', () => {
         cy.visit('localhost:5000/iframe.html?id=alertbar--icons')
             .get('.info')
-            .matchScreenshot('AlertBar states')
+            .matchScreenshot('AlertBar icons')
     })
 
     it('should wrap text', () => {
         cy.visit('localhost:5000/iframe.html?id=alertbar--text-overflow')
             .get('.info')
-            .matchScreenshot('AlertBar states')
+            .matchScreenshot('AlertBar text wrap')
     })
 })
