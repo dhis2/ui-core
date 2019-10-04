@@ -11,9 +11,16 @@ addDecorator(withPropsTable)
 addDecorator(CssResetWrapper)
 addDecorator(FrameStylesWrapper)
 
+const includeStateful = 'STORYBOOK_INCLUDE_STATEFUL' in process.env
+
 function loadStories() {
+    const req = require.context('../stories', false, /\.stories\.js$/)
+    req.keys().forEach(filename => req(filename))
+}
+
+function loadStoriesWithStateful() {
     const req = require.context('../stories', true, /\.stories\.js$/)
     req.keys().forEach(filename => req(filename))
 }
 
-configure(loadStories, module)
+configure(includeStateful ? loadStoriesWithStateful : loadStories, module)
