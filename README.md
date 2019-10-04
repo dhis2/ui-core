@@ -69,6 +69,24 @@ automatically determine the next version.
 
 **Never push straight to master, always go through a PR!**
 
+## Testing
+
+In order to run the cypress tests:
+1. Run `yarn start:test`
+(This will start the storybook, including testing stories
+and doesn't launch the browser)
+2. Run `yarn cypress:open`
+
+Once the storybook is available, you can run the tests from within
+the cypress application that has been launched in step 2.
+
+### Storybook stories for testing
+
+Sometimes it's required to add stateful stories to test certain behavior.
+That's why you can add files with the following file name format: `*.testing.stories.js`
+These stories will not be used when generating the docs storybook and can
+contain more sophicistacted scenarios for testing.
+
 ## FAQ
 
 ### How to avoid a global style rule from affecting a ui-core component?
