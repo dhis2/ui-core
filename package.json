@@ -36,6 +36,8 @@
     "@storybook/react": "^5.2.1",
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
+    "cypress": "^3.4.1",
+    "cypress-cucumber-preprocessor": "^1.16.0",
     "eslint-plugin-react": "^7.15.1",
     "react": "16.3",
     "react-dev-utils": "^9.1.0",
@@ -56,5 +58,8 @@
   },
   "files": [
     "build"
-  ]
+  ],
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
 }
