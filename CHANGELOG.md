@@ -1,3 +1,17 @@
+## [3.11.2](https://github.com/dhis2/ui/compare/v3.11.1...v3.11.2) (2019-10-03)
+
+
+### Bug Fixes
+
+* **radiogroup:** make the label optional ([#475](https://github.com/dhis2/ui/issues/475)) ([57d017c](https://github.com/dhis2/ui/commit/57d017c))
+
+## [3.11.1](https://github.com/dhis2/ui/compare/v3.11.0...v3.11.1) (2019-09-30)
+
+
+### Bug Fixes
+
+* don't use dynamic re-exports ([#459](https://github.com/dhis2/ui/issues/459)) ([7f0a5da](https://github.com/dhis2/ui/commit/7f0a5da)), closes [/github.com/dhis2/app-platform/blob/master/cli/config/rollup.config.js#L77](https://github.com//github.com/dhis2/app-platform/blob/master/cli/config/rollup.config.js/issues/L77) [/github.com/rollup/rollup-plugin-commonjs/issues/211#issuecomment-337897124](https://github.com//github.com/rollup/rollup-plugin-commonjs/issues/211/issues/issuecomment-337897124)
+
 # [3.11.0](https://github.com/dhis2/ui/compare/v3.10.0...v3.11.0) (2019-09-23)
 
 
