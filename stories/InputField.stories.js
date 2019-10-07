@@ -13,6 +13,8 @@ createStory('InputField', {
 
 function createStory(name, props) {
     return storiesOf(name, module)
+        .add('Default', () => <InputField {...props} label={undefined} />)
+
         .add('No placeholder, no value', () => <InputField {...props} />)
 
         .add('Placeholder, no value', () => (
@@ -70,8 +72,27 @@ function createStory(name, props) {
             <InputField {...props} value="This field is disabled" disabled />
         ))
 
+        .add('Read only', () => (
+            <InputField {...props} value="This field is disabled" readOnly />
+        ))
+
         .add('Dense', () => (
             <InputField {...props} value="This field is dense" dense />
+        ))
+
+        .add('Input width', () => (
+            <>
+                <InputField
+                    name="input1"
+                    label="My textarea has a width of 100 (number)"
+                    inputWidth={100}
+                />
+                <InputField
+                    name="input2"
+                    label="My textarea has a width of 220px (string)"
+                    inputWidth="220px"
+                />
+            </>
         ))
 
         .add('Label text overflow', () => (
