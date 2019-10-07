@@ -16,7 +16,7 @@ import { Help } from './Help.js'
  * @example import { InputField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/inputfield.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/input-regular--no-placeholder-no-value|Storybook}
+ * @see Live demo: {@link /demo/?path=/story/inputfield--no-placeholder-no-value|Storybook}
  */
 class InputField extends React.Component {
     render() {
@@ -31,6 +31,7 @@ class InputField extends React.Component {
             required,
             label,
             disabled,
+            readOnly,
             placeholder,
             name,
             valid,
@@ -41,6 +42,7 @@ class InputField extends React.Component {
             tabIndex,
             helpText,
             validationText,
+            inputWidth,
         } = this.props
 
         return (
@@ -71,6 +73,8 @@ class InputField extends React.Component {
                     dense={dense}
                     tabIndex={tabIndex}
                     initialFocus={initialFocus}
+                    readOnly={readOnly}
+                    width={inputWidth}
                 />
 
                 {helpText ? <Help>{helpText}</Help> : null}
@@ -85,12 +89,6 @@ class InputField extends React.Component {
     }
 }
 
-InputField.defaultProps = {
-    type: 'text',
-    onBlur: () => {},
-    onFocus: () => {},
-}
-
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -98,16 +96,18 @@ InputField.defaultProps = {
  * @prop {string} name
  * @prop {string} [type=text]
  * @prop {function} onChange
- * @prop {function} [onBlur=() => {}]
- * @prop {function} [onFocus=() => {}]
+ * @prop {function} [onBlur]
+ * @prop {function} [onFocus]
  * @prop {string} [label]
  * @prop {string} [className]
  * @prop {string} [placeholder]
  * @prop {string} [value]
  * @prop {string} [tabIndex]
+ * @prop {string|number} [inputWidth]
  *
  * @prop {boolean} [required]
  * @prop {boolean} [disabled]
+ * @prop {boolean} [readOnly]
  * @prop {boolean} [dense] - Compact mode
  * @prop {boolean} [initialFocus]
  *
@@ -134,6 +134,7 @@ InputField.propTypes = {
 
     required: propTypes.bool,
     disabled: propTypes.bool,
+    readOnly: propTypes.bool,
     dense: propTypes.bool,
     valid: statusPropType,
     warning: statusPropType,
@@ -145,6 +146,7 @@ InputField.propTypes = {
     onFocus: propTypes.func,
 
     type: propTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
+    inputWidth: propTypes.oneOfType([propTypes.string, propTypes.number]),
 }
 
 export { InputField }
