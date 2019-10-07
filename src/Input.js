@@ -54,15 +54,15 @@ const styles = css`
 
     input.read-only {
         background-color: ${colors.grey100};
-        cursor: text;
         border-color: ${colors.grey500};
+        cursor: text;
     }
 
     input.disabled {
-        cursor: not-allowed;
-        border-color: ${theme.disabled};
-        color: ${theme.disabled};
         background-color: ${colors.grey100};
+        border-color: ${colors.grey500};
+        color: ${theme.disabled};
+        cursor: not-allowed;
     }
 
     .status-icon {
