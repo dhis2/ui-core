@@ -9,11 +9,11 @@ createStory('InputField', {
     label: 'Default label',
     name: 'Default',
     onChange: logger,
-}).add('No label', () => <InputField name="Default" onChange={logger} />)
+})
 
 function createStory(name, props) {
     return storiesOf(name, module)
-        .add('Default', () => <InputField {...props} label={undefined} />)
+        .add('Default', () => <InputField name="nolabel" onChange={logger} />)
 
         .add('No placeholder, no value', () => <InputField {...props} />)
 
