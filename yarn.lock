@@ -1106,10 +1106,10 @@
     live-server "^1.2.1"
     match-all "^1.2.5"
 
-"@dhis2/prop-types@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.1.1.tgz#a70dd59e56cff13f6e49470677a4def0ac78ff6f"
-  integrity sha512-ILyRcpPjFVtfxuZhyZ2yBp5NkIiTKBF/KfTtr6cSGqXnBIeV9XqHR+IT+C9jwcB96hxhuxBKmvfiaFQFT8uU6g==
+"@dhis2/prop-types@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.2.0.tgz#a773afa6763d02be355ee0f46750baa6eb7eb651"
+  integrity sha512-HjKIaNJLS3cjU+fc1+oXDdFRV1RQd0rmRdzsOa4GZWId+gW1LnBa6kdaMnTnT+JpMma8R7P365Of5NC5T7/Dug==
   dependencies:
     prop-types "^15"
 
