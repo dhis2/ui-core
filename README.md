@@ -85,7 +85,7 @@ the cypress application that has been launched in step 2.
 Sometimes it's required to add stateful stories to test certain behavior.
 That's why you can add files with the following file name format: `*.testing.stories.js`
 These stories will not be used when generating the docs storybook and can
-contain more sophicistacted scenarios for testing.
+contain more sophisticated scenarios for testing.
 
 ## FAQ
 
