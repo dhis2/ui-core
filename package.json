@@ -19,7 +19,8 @@
     "postbuild": "NODE_ENV=production yarn build-storybook",
     "build-storybook": "build-storybook -c .storybook -o ./build/docs && cp -r ./stories/info/images ./build/docs",
     "start-storybook": "start-storybook --port 5000 -s ./stories/info",
-    "start": "yarn start-storybook"
+    "start": "yarn start-storybook",
+    "cypress:open": "cypress open"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
@@ -36,6 +37,7 @@
     "@storybook/react": "^5.2.3",
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
+    "cypress": "^3.4.1",
     "eslint-plugin-react": "^7.16.0",
     "react": "16.3",
     "react-dev-utils": "^9.1.0",
