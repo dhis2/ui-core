@@ -2,6 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
 import { colors, spacers } from '../theme.js'
+import { Button } from '../Button.js'
 
 const SelectInput = ({
     placeholder,
@@ -27,9 +28,9 @@ const SelectInput = ({
                 {showSelection && selected.label}
                 <span className="right">
                     {showClear && (
-                        <a className="clear" onClick={onClear}>
+                        <Button small onClick={onClear} type="button">
                             Clear
-                        </a>
+                        </Button>
                     )}
                     <Arrow />
                 </span>
@@ -72,21 +73,13 @@ const SelectInput = ({
                 .right {
                     margin-left: auto;
                 }
-
-                .clear {
-                    color: ${colors.grey700};
-                    text-decoration: underline;
-                    font-size: 14px;
-                    cursor: pointer;
-                    padding-right: ${spacers.dp8};
-                }
             `}</style>
         </React.Fragment>
     )
 }
 
 SelectInput.propTypes = {
-    clearable: propTypes.bool.isRequired,
+    clearable: propTypes.bool,
     label: propTypes.string,
     onClear: propTypes.func.isRequired,
     placeholder: propTypes.string.isRequired,
