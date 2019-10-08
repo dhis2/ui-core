@@ -5,15 +5,14 @@ import { Select, Option } from '../src'
 
 // eslint-disable-next-line react/prop-types
 const CustomOption = ({ value, label, active, onClick }) => (
-    <li className={cx({ active })}>
-        <a
-            onClick={e => {
-                e.stopPropagation()
-                onClick({ value, label })
-            }}
-        >
-            {label}
-        </a>
+    <a
+        className={cx({ active })}
+        onClick={e => {
+            e.stopPropagation()
+            onClick({ value, label })
+        }}
+    >
+        {label}
 
         <style jsx>{`
             a {
@@ -23,16 +22,16 @@ const CustomOption = ({ value, label, active, onClick }) => (
                 cursor: pointer;
             }
 
-            .active a {
-                background: blue;
-                cursor: auto;
-            }
-
             a:hover {
                 background: black;
             }
+
+            a.active {
+                background: blue;
+                cursor: auto;
+            }
         `}</style>
-    </li>
+    </a>
 )
 
 const longLabel =

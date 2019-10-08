@@ -1,11 +1,11 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { SelectMenu } from './SelectMenu.js'
+import { SelectDropdownCard } from './SelectDropdownCard.js'
 
 const noop = () => {}
 
 const SelectDropdown = ({ children, onClick, selected, maxHeight }) => (
-    <SelectMenu maxHeight={maxHeight}>
+    <SelectDropdownCard maxHeight={maxHeight}>
         {React.Children.map(children, child => {
             const { value, label } = child.props
             const hasValue = 'value' in selected
@@ -23,7 +23,7 @@ const SelectDropdown = ({ children, onClick, selected, maxHeight }) => (
                 active,
             })
         })}
-    </SelectMenu>
+    </SelectDropdownCard>
 )
 
 SelectDropdown.propTypes = {
