@@ -2,11 +2,11 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card.js'
-import { spacers } from '../theme.js'
+import { layers } from '../theme.js'
 import { SelectMenuList } from './SelectMenuList.js'
 
 const SelectMenu = ({ children, maxHeight }) => {
-    // Override some Card styles to allow a max-height
+    // Override Card styles to allow a max-height
     const { styles, className } = resolve`
         height: auto;
         max-height: ${maxHeight};
@@ -14,9 +14,9 @@ const SelectMenu = ({ children, maxHeight }) => {
     `
 
     return (
-        <div>
+        <div className="container">
             <Card className={className}>
-                <div className="select-menu-list-wrapper">
+                <div>
                     <SelectMenuList>{children}</SelectMenuList>
                 </div>
             </Card>
@@ -24,8 +24,11 @@ const SelectMenu = ({ children, maxHeight }) => {
             {styles}
 
             <style jsx>{`
-                .select-menu-list-wrapper {
-                    padding: ${spacers.dp4} 0;
+                .container {
+                    position: absolute;
+                    z-index: ${layers.applicationTop};
+                    left: 0;
+                    right: 0;
                 }
             `}</style>
         </div>

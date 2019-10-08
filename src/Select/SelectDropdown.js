@@ -1,42 +1,29 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { layers } from '../theme.js'
 import { SelectMenu } from './SelectMenu.js'
 
 const noop = () => {}
 
 const SelectDropdown = ({ children, onClick, selected, maxHeight }) => (
-    <React.Fragment>
-        <SelectMenu className="select-menu" maxHeight={maxHeight}>
-            {React.Children.map(children, child => {
-                const { value, label } = child.props
-                const hasValue = 'value' in selected
-                const hasLabel = 'label' in selected
+    <SelectMenu maxHeight={maxHeight}>
+        {React.Children.map(children, child => {
+            const { value, label } = child.props
+            const hasValue = 'value' in selected
+            const hasLabel = 'label' in selected
 
-                let active = false
+            let active = false
 
-                if (hasValue && hasLabel) {
-                    active =
-                        value === selected.value && label === selected.label
-                }
-
-                return React.cloneElement(child, {
-                    ...child.props,
-                    onClick: active ? noop : onClick,
-                    active,
-                })
-            })}
-        </SelectMenu>
-
-        <style jsx>{`
-            .select-menu {
-                position: absolute;
-                z-index: ${layers.applicationTop};
-                left: 0;
-                right: 0;
+            if (hasValue && hasLabel) {
+                active = value === selected.value && label === selected.label
             }
-        `}</style>
-    </React.Fragment>
+
+            return React.cloneElement(child, {
+                ...child.props,
+                onClick: active ? noop : onClick,
+                active,
+            })
+        })}
+    </SelectMenu>
 )
 
 SelectDropdown.propTypes = {

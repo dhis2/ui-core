@@ -1,8 +1,9 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import { spacers } from '../theme.js'
 
-const SelectMenuList = ({ children, className }) => (
-    <ul className={className}>
+const SelectMenuList = ({ children }) => (
+    <ul>
         {children}
 
         <style jsx>{`
@@ -11,8 +12,8 @@ const SelectMenuList = ({ children, className }) => (
                 position: relative;
                 width: 100%;
                 margin: 0;
+                padding: ${spacers.dp4} 0;
 
-                padding: 0;
                 user-select: none;
             }
         `}</style>
@@ -20,7 +21,6 @@ const SelectMenuList = ({ children, className }) => (
 )
 
 SelectMenuList.propTypes = {
-    className: propTypes.string,
     children: propTypes.node.isRequired,
 }
 
