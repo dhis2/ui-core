@@ -62,6 +62,18 @@ storiesOf('Select', module)
             <Option label="four" value="4" />
         </Select>
     ))
+    .add('With a disabled option', () => (
+        <Select
+            onChange={({ value }) => alert(`Value changed to ${value}`)}
+            selected={{ label: 'one', value: '1' }}
+            placeholder="Please select a value"
+        >
+            <Option label="one" value="1" />
+            <Option disabled label="two" value="2" />
+            <Option label="three" value="3" />
+            <Option label="four" value="4" />
+        </Select>
+    ))
     .add('Displaying selected option with exact duplicates', () => (
         <Select
             onChange={({ value }) => alert(`Value changed to ${value}`)}
