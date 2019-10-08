@@ -58,8 +58,5 @@
   },
   "files": [
     "build"
-  ],
-  "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
-  }
+  ]
 }
