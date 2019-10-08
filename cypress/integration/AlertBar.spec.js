@@ -2,7 +2,7 @@
 
 import { AlertBar } from '../../src'
 
-describe('AlertBar - Functional', () => {
+describe('AlertBar', () => {
     describe('Autohiding', () => {
         it('should hide the .fifth alert bar after the default time', () => {
             cy.visit('localhost:5000/iframe.html?id=alertbar--auto-hiding')
@@ -35,25 +35,5 @@ describe('AlertBar - Functional', () => {
                 .get('.info')
                 .should('not.exist')
         })
-    })
-})
-
-describe('AlertBar - Visual', () => {
-    it('should have different states', () => {
-        cy.visit('localhost:5000/iframe.html?id=alertbar--states')
-            .get('.info')
-            .matchScreenshot('AlertBar states')
-    })
-
-    it('should suports icons', () => {
-        cy.visit('localhost:5000/iframe.html?id=alertbar--icons')
-            .get('.info')
-            .matchScreenshot('AlertBar icons')
-    })
-
-    it('should wrap text', () => {
-        cy.visit('localhost:5000/iframe.html?id=alertbar--text-overflow')
-            .get('.info')
-            .matchScreenshot('AlertBar text wrap')
     })
 })

@@ -38,7 +38,6 @@
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
     "cypress": "^3.4.1",
-    "cypress-match-screenshot": "^1.1.0",
     "eslint-plugin-react": "^7.15.1",
     "react": "16.3",
     "react-dev-utils": "^9.1.0",
