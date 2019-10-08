@@ -27,16 +27,24 @@ export class Select extends Component {
     }
 
     handleFocus = e => {
-        this.props.onFocus(e)
+        const { onFocus } = this.props
+
+        if (onFocus) {
+            onFocus(e)
+        }
     }
 
     handleBlur = e => {
+        const { onBlur } = this.props
         const hasRef = this.containerRef.current
         const isInsideClick =
             hasRef && this.containerRef.current.contains(e.target)
 
         if (!isInsideClick) {
-            this.props.onBlur(e)
+            if (onBlur) {
+                onBlur(e)
+            }
+
             this.handleClose()
         }
     }
@@ -99,10 +107,7 @@ export class Select extends Component {
 }
 
 Select.defaultProps = {
-    clearable: false,
     tabIndex: 0,
-    onFocus: () => {},
-    onBlur: () => {},
     placeholder: '',
 }
 
