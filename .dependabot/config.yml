@@ -13,12 +13,3 @@ update_configs:
       - match:
           dependency_name: "react-dom"
           version_requirement: ">=16.4.x"
-  - package_manager: "java:maven"
-    directory: "/"
-    update_schedule: "monthly"
-  - package_manager: "docker"
-    directory: "/"
-    update_schedule: "weekly"
-  - package_manager: "submodules"
-    directory: "/"
-    update_schedule: "weekly"
