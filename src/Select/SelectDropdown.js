@@ -1,35 +1,41 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { SelectDropdownCard } from './SelectDropdownCard.js'
+import { resolve } from 'styled-jsx/css'
+import { Card } from '../Card.js'
+import { layers } from '../theme.js'
 
-const noop = () => {}
+const SelectDropdown = ({ children, maxHeight }) => {
+    // Override Card styles to allow a max-height
+    const { styles, className } = resolve`
+        height: auto;
+        max-height: ${maxHeight};
+        overflow: auto;
+    `
 
-const SelectDropdown = ({ children, onClick, selected, maxHeight }) => (
-    <SelectDropdownCard maxHeight={maxHeight}>
-        {React.Children.map(children, child => {
-            const { value, label } = child.props
-            const hasValue = 'value' in selected
-            const hasLabel = 'label' in selected
+    return (
+        <div className="container">
+            <Card className={className}>{children}</Card>
 
-            let active = false
+            {styles}
 
-            if (hasValue && hasLabel) {
-                active = value === selected.value && label === selected.label
-            }
+            <style jsx>{`
+                .container {
+                    position: absolute;
+                    z-index: ${layers.applicationTop};
+                    left: 0;
+                    right: 0;
+                }
+            `}</style>
+        </div>
+    )
+}
 
-            return React.cloneElement(child, {
-                ...child.props,
-                onClick: active ? noop : onClick,
-                active,
-            })
-        })}
-    </SelectDropdownCard>
-)
+SelectDropdown.defaultProps = {
+    maxHeight: '280px',
+}
 
 SelectDropdown.propTypes = {
     children: propTypes.node.isRequired,
-    onClick: propTypes.func.isRequired,
-    selected: propTypes.object.isRequired,
     maxHeight: propTypes.string,
 }
 
