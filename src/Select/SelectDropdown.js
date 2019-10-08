@@ -5,9 +5,9 @@ import { SelectMenu } from './SelectMenu.js'
 
 const noop = () => {}
 
-const SelectDropdown = ({ children, onClick, selected }) => (
+const SelectDropdown = ({ children, onClick, selected, maxHeight }) => (
     <React.Fragment>
-        <SelectMenu className="select-menu">
+        <SelectMenu className="select-menu" maxHeight={maxHeight}>
             {React.Children.map(children, child => {
                 const { value, label } = child.props
                 const hasValue = 'value' in selected
@@ -43,6 +43,7 @@ SelectDropdown.propTypes = {
     children: propTypes.node.isRequired,
     onClick: propTypes.func.isRequired,
     selected: propTypes.object.isRequired,
+    maxHeight: propTypes.string,
 }
 
 export { SelectDropdown }

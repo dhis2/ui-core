@@ -66,6 +66,7 @@ export class Select extends Component {
             selected,
             placeholder,
             clearable,
+            maxHeight,
             label,
         } = this.props
         const { open } = this.state
@@ -90,6 +91,7 @@ export class Select extends Component {
                     <SelectDropdown
                         onClick={this.handleOptionClick}
                         selected={selected}
+                        maxHeight={maxHeight}
                     >
                         {children}
                     </SelectDropdown>
@@ -115,6 +117,7 @@ Select.propTypes = {
     onChange: propTypes.func.isRequired,
     clearable: propTypes.bool,
     label: propTypes.string,
+    maxHeight: propTypes.string,
     selected: propTypes.object.isRequired,
     children: propTypes.node.isRequired,
     tabIndex: propTypes.number,
