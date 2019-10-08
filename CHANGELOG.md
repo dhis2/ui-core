@@ -1,3 +1,10 @@
+# [3.12.0](https://github.com/dhis2/ui/compare/v3.11.2...v3.12.0) (2019-10-07)
+
+
+### Features
+
+* **radio-group:** add disabled prop ([#479](https://github.com/dhis2/ui/issues/479)) ([e98d348](https://github.com/dhis2/ui/commit/e98d348))
+
 ## [3.11.2](https://github.com/dhis2/ui/compare/v3.11.1...v3.11.2) (2019-10-03)
 
 
