@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 import { SelectDropdown } from './Select/SelectDropdown.js'
 import { SelectInput } from './Select/SelectInput.js'
+import { DecorateChildren } from './Select/DecorateChildren.js'
 
 export class Select extends Component {
     state = {
@@ -88,12 +89,13 @@ export class Select extends Component {
                     open={open}
                 />
                 {open && (
-                    <SelectDropdown
-                        onClick={this.handleOptionClick}
-                        selected={selected}
-                        maxHeight={maxHeight}
-                    >
-                        {children}
+                    <SelectDropdown maxHeight={maxHeight}>
+                        <DecorateChildren
+                            onClick={this.handleOptionClick}
+                            selected={selected}
+                        >
+                            {children}
+                        </DecorateChildren>
                     </SelectDropdown>
                 )}
 
