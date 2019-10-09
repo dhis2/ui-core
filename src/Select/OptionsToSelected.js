@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import { Selected } from './Selected.js'
 
 const OptionsToSelected = ({ options, selected }) => {
     const selectedOption = React.Children.toArray(options).find(option => {
@@ -9,14 +10,7 @@ const OptionsToSelected = ({ options, selected }) => {
         return matchesValue && matchesLabel
     })
 
-    const Icon = selectedOption.props.icon
-
-    return (
-        <span>
-            {Icon && <Icon />}
-            {selected.label}
-        </span>
-    )
+    return <Selected icon={selectedOption.props.icon} label={selected.label} />
 }
 
 OptionsToSelected.propTypes = {
