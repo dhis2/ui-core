@@ -26,8 +26,9 @@ const RadioGroup = ({
     valid,
     value,
     warning,
+    disabled,
 }) => {
-    const statusProps = { error, warning, valid }
+    const statusProps = { error, warning, valid, disabled }
     const radioStyle = inline ? inlineRadio : stackedRadio
 
     return (
@@ -89,6 +90,9 @@ const RadioGroup = ({
                 .error {
                     color: ${theme.error};
                 }
+                .disabled {
+                    color: ${theme.disabled};
+                }
             `}</style>
         </>
     )
@@ -112,6 +116,7 @@ RadioGroup.propTypes = {
     valid: statusPropType,
     value: propTypes.any,
     warning: statusPropType,
+    disabled: propTypes.bool,
 }
 
 RadioGroup.defaultProps = {

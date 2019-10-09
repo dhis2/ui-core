@@ -90,5 +90,16 @@ storiesOf('RadioGroup', module)
                 ]}
                 error
             />
+            <br />
+            <RadioGroup
+                name="disabled"
+                label="Disabled"
+                value="red"
+                options={[
+                    { label: 'The red pill', value: 'red' },
+                    { label: 'The blue pill', value: 'blue' },
+                ]}
+                disabled
+            />
         </>
     ))

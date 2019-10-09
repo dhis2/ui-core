@@ -7,6 +7,7 @@ import markdown from './info/molecules/alertBar.md'
 
 const Wrapper = fn => (
     <div
+        className="alert-bars"
         style={{
             width: '100%',
             position: 'fixed',
@@ -29,27 +30,35 @@ storiesOf('AlertBar', module)
     .add('Default', () => <AlertBar>Default - I will autohide</AlertBar>)
     .add('States', () => (
         <React.Fragment>
-            <AlertBar permanent>Default (info)</AlertBar>
-            <AlertBar permanent success>
+            <AlertBar className="first" permanent>
+                Default (info)
+            </AlertBar>
+            <AlertBar className="second" permanent success>
                 Success
             </AlertBar>
-            <AlertBar permanent warning>
+            <AlertBar className="thrid" permanent warning>
                 Warning
             </AlertBar>
-            <AlertBar permanent critical>
+            <AlertBar className="fourth" permanent critical>
                 Critical
             </AlertBar>
         </React.Fragment>
     ))
     .add('Auto hiding', () => (
         <React.Fragment>
-            <AlertBar permanent>Permanent never auto-hides</AlertBar>
-            <AlertBar warning>Warning never auto-hides</AlertBar>
-            <AlertBar critical>Critial never auto-hides</AlertBar>
-            <AlertBar duration={10000}>
-                Custom duration, hides after 10s
+            <AlertBar className="first" permanent>
+                Permanent never auto-hides
             </AlertBar>
-            <AlertBar>Default auto-hides after 5s</AlertBar>
+            <AlertBar className="second" warning>
+                Warning never auto-hides
+            </AlertBar>
+            <AlertBar className="third" critical>
+                Critial never auto-hides
+            </AlertBar>
+            <AlertBar className="fourth" duration={2000}>
+                Custom duration, hides after 2s
+            </AlertBar>
+            <AlertBar className="fifth">Default auto-hides after 8s</AlertBar>
         </React.Fragment>
     ))
     .add('With actions', () => (
