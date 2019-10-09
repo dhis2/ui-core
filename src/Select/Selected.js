@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import { spacers } from '../theme.js'
 
 const Selected = ({ icon: Icon, label }) => {
     return (
@@ -18,9 +19,9 @@ const Selected = ({ icon: Icon, label }) => {
                 }
 
                 .icon {
-                    margin-right: 1em;
-                    width: 1.5em;
-                    height: 1.5em;
+                    margin-right: ${spacers.dp8};
+                    width: ${spacers.dp16};
+                    height: ${spacers.dp16};
                 }
             `}</style>
         </div>
