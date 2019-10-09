@@ -3,6 +3,18 @@ import { storiesOf } from '@storybook/react'
 import cx from 'classnames'
 import { Select, Option } from '../src'
 
+const Icon = () => (
+    <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+    >
+        <path d="M0 32h16v-32h-16v32zM10 4h4v4h-4v-4zM10 12h4v4h-4v-4zM10 20h4v4h-4v-4zM2 4h4v4h-4v-4zM2 12h4v4h-4v-4zM2 20h4v4h-4v-4zM18 10h14v2h-14zM18 32h4v-8h6v8h4v-18h-14z"></path>
+    </svg>
+)
+
 // eslint-disable-next-line react/prop-types
 const CustomOption = ({ value, label, active, onClick }) => (
     <a
@@ -165,5 +177,16 @@ storiesOf('Select', module)
             <CustomOption label="two" value="2" />
             <CustomOption label="three" value="3" />
             <CustomOption label="four" value="4" />
+        </Select>
+    ))
+    .add('Using custom option components with icons', () => (
+        <Select
+            onChange={({ value }) => alert(`Value changed to ${value}`)}
+            selected={{ label: 'two', value: '2' }}
+        >
+            <CustomOption label="one" value="1" icon={Icon} />
+            <CustomOption label="two" value="2" icon={Icon} />
+            <CustomOption label="three" value="3" icon={Icon} />
+            <CustomOption label="four" value="4" icon={Icon} />
         </Select>
     ))

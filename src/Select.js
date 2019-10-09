@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 import { SelectDropdown } from './Select/SelectDropdown.js'
 import { SelectInput } from './Select/SelectInput.js'
-import { DecorateChildren } from './Select/DecorateChildren.js'
+import { DecorateOptions } from './Select/DecorateOptions.js'
+import { OptionsToSelected } from './Select/OptionsToSelected.js'
 
 export class Select extends Component {
     state = {
@@ -83,19 +84,22 @@ export class Select extends Component {
                 <SelectInput
                     placeholder={placeholder}
                     selected={selected}
+                    options={children}
                     label={label}
                     clearable={clearable}
                     onClear={this.handleClear}
                     open={open}
-                />
+                >
+                    <OptionsToSelected options={children} selected={selected} />
+                </SelectInput>
                 {open && (
                     <SelectDropdown maxHeight={maxHeight}>
-                        <DecorateChildren
+                        <DecorateOptions
                             onClick={this.handleOptionClick}
                             selected={selected}
                         >
                             {children}
-                        </DecorateChildren>
+                        </DecorateOptions>
                     </SelectDropdown>
                 )}
 

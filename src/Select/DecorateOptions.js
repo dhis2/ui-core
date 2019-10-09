@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 
 const noop = () => {}
 
-const DecorateChildren = ({ children, onClick, selected }) => (
+const DecorateOptions = ({ children, onClick, selected }) => (
     <React.Fragment>
         {React.Children.map(children, child => {
             const { value, label } = child.props
@@ -25,10 +25,10 @@ const DecorateChildren = ({ children, onClick, selected }) => (
     </React.Fragment>
 )
 
-DecorateChildren.propTypes = {
+DecorateOptions.propTypes = {
     children: propTypes.node.isRequired,
     onClick: propTypes.func.isRequired,
     selected: propTypes.object.isRequired,
 }
 
-export { DecorateChildren }
+export { DecorateOptions }
