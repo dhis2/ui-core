@@ -11,6 +11,7 @@ const SelectInput = ({
     clearable,
     onClear,
     label,
+    children,
 }) => {
     const Arrow = open ? ArrowUp : ArrowDown
     const showSelection = 'label' in selected
@@ -25,7 +26,7 @@ const SelectInput = ({
                 {showPlaceholder && (
                     <span className="placeholder">{placeholder}</span>
                 )}
-                {showSelection && selected.label}
+                {showSelection && children}
                 <span className="right">
                     {showClear && (
                         <Button small onClick={onClear} type="button">
@@ -79,6 +80,7 @@ const SelectInput = ({
 }
 
 SelectInput.propTypes = {
+    children: propTypes.node,
     clearable: propTypes.bool,
     label: propTypes.string,
     onClear: propTypes.func.isRequired,
