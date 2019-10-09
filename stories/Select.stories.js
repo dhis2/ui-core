@@ -57,7 +57,7 @@ const CustomOption = ({
                 display: flex;
                 align-items: center;
                 cursor: pointer;
-                padding: 0.5rem 1rem;
+                padding: 8px 16px;
             }
 
             .option:hover {
@@ -70,9 +70,9 @@ const CustomOption = ({
             }
 
             .option-icon {
-                margin-right: 1em;
-                width: 1.5em;
-                height: 1.5em;
+                margin-right: 16px;
+                width: 16px;
+                height: 16px;
             }
 
             .text {
@@ -81,9 +81,10 @@ const CustomOption = ({
             }
 
             .label {
+                font-family: sans-serif;
                 font-size: 14px;
                 margin-top: 0;
-                margin-bottom: 0.25em;
+                margin-bottom: 4px;
             }
 
             .description {
@@ -93,8 +94,8 @@ const CustomOption = ({
 
             .active-icon {
                 margin-left: auto;
-                width: 1em;
-                height: 1em;
+                width: 16px;
+                height: 16px;
             }
         `}</style>
     </a>
