@@ -10,6 +10,10 @@ const OptionsToSelected = ({ options, selected }) => {
         return matchesValue && matchesLabel
     })
 
+    if (!selectedOption) {
+        return null
+    }
+
     return <Selected icon={selectedOption.props.icon} label={selected.label} />
 }
 

@@ -3,10 +3,27 @@ import propTypes from 'prop-types'
 
 const Selected = ({ icon: Icon, label }) => {
     return (
-        <span>
-            {Icon && <Icon />}
+        <div className="selected">
+            {Icon && (
+                <div className="icon">
+                    <Icon />
+                </div>
+            )}
             {label}
-        </span>
+
+            <style jsx>{`
+                .selected {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .icon {
+                    margin-right: 1em;
+                    width: 1.5em;
+                    height: 1.5em;
+                }
+            `}</style>
+        </div>
     )
 }
 
