@@ -110,6 +110,53 @@ CustomOption.propTypes = {
     onClick: propTypes.func,
 }
 
+const CustomEmpty = () => (
+    <div className="wrapper">
+        <svg
+            version="1.1"
+            className="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+        >
+            <path d="M14 9.5c0-0.825 0.675-1.5 1.5-1.5h1c0.825 0 1.5 0.675 1.5 1.5v1c0 0.825-0.675 1.5-1.5 1.5h-1c-0.825 0-1.5-0.675-1.5-1.5v-1z"></path>
+            <path d="M20 24h-8v-2h2v-6h-2v-2h6v8h2z"></path>
+            <path d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z"></path>
+        </svg>
+        <div className="message">No programs found.</div>
+        <a className="action" href="#">
+            Add a new program
+        </a>
+
+        <style jsx>{`
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 16px;
+                font-size: 14px;
+                color: #6e7a8a;
+            }
+
+            .icon {
+                width: 16px;
+                height: 16px;
+                margin-bottom: 8px;
+                fill: currentColor;
+            }
+
+            .message {
+                margin-bottom: 8px;
+            }
+
+            .action {
+                color: #6e7a8a;
+            }
+        `}</style>
+    </div>
+)
+
 const longLabel =
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas quibusdam est debitis odio, earum explicabo error magni. Expedita voluptatem accusantium nostrum minus, voluptate mollitia placeat perspiciatis quibusdam dicta, fugiat dolor quisquam alias, impedit commodi? Inventore, laboriosam, molestias. Non quod odit eum adipisci, tempora rerum perferendis, incidunt consectetur nesciunt. Qui voluptatibus asperiores dicta doloremque est vitae tempora sapiente dignissimos maiores saepe, animi necessitatibus modi laboriosam quae blanditiis voluptatem recusandae. Praesentium ipsum dolores voluptatum repudiandae cumque, tempore tempora, excepturi numquam atque reiciendis suscipit alias? Architecto dignissimos enim blanditiis laborum'
 
@@ -280,5 +327,23 @@ storiesOf('Select', module)
                     icon={ExampleIcon}
                 />
             </Select>
+        )
+    )
+    .add('Select without options renders "No data" by default', () => (
+        <Select
+            onChange={({ value }) => alert(`Value changed to ${value}`)}
+            selected={{}}
+            placeholder="Please select a value"
+        ></Select>
+    ))
+    .add(
+        'Select without options renders component in empty prop if it exists',
+        () => (
+            <Select
+                onChange={({ value }) => alert(`Value changed to ${value}`)}
+                selected={{}}
+                placeholder="Please select a value"
+                empty={CustomEmpty}
+            ></Select>
         )
     )
