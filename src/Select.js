@@ -6,6 +6,7 @@ import { DecorateOptions } from './Select/DecorateOptions.js'
 import { OptionsToSelected } from './Select/OptionsToSelected.js'
 import { Empty } from './Select/Empty.js'
 
+// Keycodes for the keypress event handlers
 const ESCAPE_KEY = 27
 const SPACE_KEY = 32
 const UP_KEY = 38
@@ -19,11 +20,11 @@ export class Select extends Component {
     containerRef = React.createRef()
 
     componentDidMount() {
-        document.addEventListener('click', this.handleBlur)
+        document.addEventListener('click', this.handleOutsideClick)
     }
 
     componentWillUnmount() {
-        document.removeEventListener('click', this.handleBlur)
+        document.removeEventListener('click', this.handleOutsideClick)
     }
 
     handleOpen = () => {
@@ -42,7 +43,7 @@ export class Select extends Component {
         }
     }
 
-    handleBlur = e => {
+    handleOutsideClick = e => {
         const { onBlur } = this.props
         const hasRef = this.containerRef.current
         const isInsideClick =
@@ -62,6 +63,12 @@ export class Select extends Component {
         this.handleClose()
     }
 
+    handleInputClick = e => {
+        e.stopPropagation()
+
+        this.state.open ? this.handleClose() : this.handleOpen()
+    }
+
     handleClear = e => {
         e.stopPropagation()
         this.props.onChange({})
@@ -70,17 +77,15 @@ export class Select extends Component {
     handleKeyPress = e => {
         const { open } = this.state
         const { keyCode } = e
+        const shouldOpen =
+            keyCode === SPACE_KEY || keyCode === UP_KEY || keyCode === DOWN_KEY
+        const shouldClose = keyCode === ESCAPE_KEY
 
-        if (keyCode === ESCAPE_KEY && open) {
+        if (shouldClose && open) {
             this.handleClose()
         }
 
-        if (
-            (keyCode === SPACE_KEY ||
-                keyCode === UP_KEY ||
-                keyCode === DOWN_KEY) &&
-            !open
-        ) {
+        if (shouldOpen && !open) {
             this.handleOpen()
         }
     }
@@ -120,7 +125,6 @@ export class Select extends Component {
                 className="container"
                 ref={this.containerRef}
                 onFocus={this.handleFocus}
-                onClick={this.handleOpen}
                 onKeyDown={this.handleKeyPress}
             >
                 <SelectInput
@@ -130,6 +134,7 @@ export class Select extends Component {
                     options={children}
                     label={label}
                     clearable={clearable}
+                    onClick={this.handleInputClick}
                     onClear={this.handleClear}
                     open={open}
                 >
