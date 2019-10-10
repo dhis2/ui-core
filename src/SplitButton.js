@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
-import css from 'styled-jsx/css'
+import { resolve } from 'styled-jsx/css'
 
 import { buttonVariantPropType } from './common-prop-types.js'
 
@@ -11,8 +11,16 @@ import { ArrowDown, ArrowUp } from './icons/Arrow.js'
 
 import { spacers } from './theme.js'
 
-const rightButton = css.resolve`
-    button {
+const buttonStyles = resolve`
+    button.start {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: 0;
+    }
+
+    button.end {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
         padding: 0 ${spacers.dp8};
     }
 `
@@ -42,15 +50,18 @@ class SplitButton extends Component {
         const icon = open ? <ArrowUp /> : <ArrowDown />
 
         return (
-            <div ref={this.anchorRef}>
-                <Button {...this.props} className={cx(this.props.className)}>
+            <div ref={this.anchorRef} className={cx(this.props.className)}>
+                <Button
+                    {...this.props}
+                    className={cx(buttonStyles.className, 'start')}
+                >
                     {this.props.children}
                 </Button>
 
                 <Button
                     {...this.props}
                     onClick={this.onToggle}
-                    className={cx(this.props.className, rightButton.className)}
+                    className={cx(buttonStyles.className, 'end')}
                 >
                     {icon}
                 </Button>
@@ -63,33 +74,13 @@ class SplitButton extends Component {
                     />
                 )}
 
-                {rightButton.styles}
+                {buttonStyles.styles}
                 <style jsx>{`
                     div {
                         display: inline-flex;
                         position: relative;
                         color: inherit;
                         white-space: nowrap;
-                    }
-
-                    div > :global(button:first-child) {
-                        margin-left: 0;
-                    }
-
-                    div > :global(button:not(:first-child):not(:last-child)) {
-                        border-radius: 0;
-                        border-right: 0;
-                    }
-
-                    div > :global(button:first-child) {
-                        border-top-right-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-right: 0;
-                    }
-
-                    div > :global(button:last-child) {
-                        border-top-left-radius: 0;
-                        border-bottom-left-radius: 0;
                     }
                 `}</style>
             </div>
