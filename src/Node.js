@@ -1,12 +1,24 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import { resolve } from 'styled-jsx/css'
 
 import { ArrowDown } from './icons/Arrow.js'
 import { colors } from './theme.js'
 
+const iconStyles = resolve`
+    svg.closed {
+        vertical-align: top;
+        transform: rotate(-90deg);
+    }
+    svg.open {
+        transform: rotate(0);
+    }
+
+`
+
 const Contents = ({ children, open }) => (
-    <div className={cx('tree__contents', { open })}>
+    <div className={cx('tree__contents', { open, closed: !open })}>
         {children}
 
         <style jsx>{`
@@ -28,7 +40,13 @@ Contents.propTypes = {
 }
 
 const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
-    const arrowIcon = hasLeaves ? <ArrowDown /> : <span />
+    const arrowIcon = hasLeaves ? (
+        <ArrowDown
+            className={cx(iconStyles.className, { open, closed: !open })}
+        />
+    ) : (
+        <span />
+    )
     const onClick = open ? onClose : onOpen
 
     return (
@@ -39,7 +57,7 @@ const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
             })}
         >
             <span onClick={onClick}>{arrowIcon}</span>
-
+            {iconStyles.styles}
             <style jsx>{`
                 div {
                     width: 24px;
@@ -66,15 +84,6 @@ const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
                     position: relative;
                     z-index: 2;
                     fill: ${colors.grey700};
-                }
-
-                div :global(svg) {
-                    vertical-align: top;
-                    transform: rotate(-90deg);
-                }
-
-                .open :global(svg) {
-                    transform: rotate(0);
                 }
             `}</style>
         </div>
