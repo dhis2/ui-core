@@ -1,7 +1,23 @@
-import css from 'styled-jsx/css'
+import React from 'react' // eslint-disable-line no-unused-vars
+import css, { resolve } from 'styled-jsx/css'
 import { colors, spacers, elevations } from '../theme.js'
 
 export const ANIMATION_TIME = 350
+
+export const iconStyles = resolve`
+    svg,
+    svg.dismiss,
+    svg.white, {
+        fill: ${colors.white};
+    }
+    svg.yellow {
+        fill: ${colors.yellow900};
+    }
+    svg.dismiss {
+        width: 18px;
+        height: 18px;
+    }
+`
 
 export default css`
     div {

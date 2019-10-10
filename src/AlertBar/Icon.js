@@ -1,21 +1,16 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
-import { resolve } from 'styled-jsx/css'
-
-import { statusPropType } from '../common-prop-types.js'
-import { colors, spacers } from '../theme.js'
-
+import cx from 'classnames'
 import { StatusIconNoDefault } from '../icons/Status.js'
-
-const whiteIcon = resolve`svg { fill: ${colors.white}; }`
-const yellowIcon = resolve`svg { fill: ${colors.yellow900}; }`
+import { spacers } from '../theme.js'
+import { iconStyles } from './styles.js'
 
 const Icon = ({ icon, success, warning, critical, info }) => {
     if (icon === false) {
         return null
     }
 
-    const { className, styles } = warning ? yellowIcon : whiteIcon
+    const colorClassName = warning ? 'yellow' : 'white'
 
     return (
         <div>
@@ -27,10 +22,10 @@ const Icon = ({ icon, success, warning, critical, info }) => {
                     error={critical}
                     warning={warning}
                     info={info}
-                    className={className}
+                    className={cx(iconStyles.className, colorClassName)}
                 />
             )}
-            {styles}
+            {iconStyles.styles}
             <style jsx>{`
                 div {
                     margin-right: ${spacers.dp16};
@@ -41,13 +36,17 @@ const Icon = ({ icon, success, warning, critical, info }) => {
 }
 
 const iconPropType = propTypes.oneOfType([propTypes.bool, propTypes.element])
+const alertIconStatePropType = propTypes.mutuallyExclusive(
+    ['success', 'warning', 'critical', 'info'],
+    propTypes.bool
+)
 
 Icon.propTypes = {
     icon: iconPropType,
-    success: statusPropType,
-    warning: statusPropType,
-    critical: statusPropType,
-    info: statusPropType,
+    success: alertIconStatePropType,
+    warning: alertIconStatePropType,
+    critical: alertIconStatePropType,
+    info: alertIconStatePropType,
 }
 
 export { Icon, iconPropType }
