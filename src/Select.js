@@ -96,7 +96,6 @@ export class Select extends Component {
     render() {
         const {
             children,
-            tabIndex,
             selected,
             placeholder,
             clearable,
@@ -109,7 +108,6 @@ export class Select extends Component {
             <div
                 className="container"
                 ref={this.containerRef}
-                tabIndex={tabIndex}
                 onFocus={this.handleFocus}
                 onClick={this.handleOpen}
                 onKeyDown={this.handleKeyPress}
@@ -134,7 +132,6 @@ export class Select extends Component {
                 <style jsx>{`
                     .container {
                         position: relative;
-                        outline: 0;
                     }
                 `}</style>
             </div>
@@ -143,7 +140,6 @@ export class Select extends Component {
 }
 
 Select.defaultProps = {
-    tabIndex: 0,
     placeholder: '',
     empty: Empty,
 }
@@ -155,7 +151,6 @@ Select.propTypes = {
     maxHeight: propTypes.string,
     selected: propTypes.object.isRequired,
     children: propTypes.node,
-    tabIndex: propTypes.number,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
     placeholder: propTypes.string,
