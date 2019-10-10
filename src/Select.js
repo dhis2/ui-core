@@ -8,6 +8,8 @@ import { Empty } from './Select/Empty.js'
 
 const ESCAPE_KEY = 27
 const SPACE_KEY = 32
+const UP_KEY = 38
+const DOWN_KEY = 40
 
 export class Select extends Component {
     state = {
@@ -66,11 +68,19 @@ export class Select extends Component {
     }
 
     handleKeyPress = e => {
-        if (e.keyCode === ESCAPE_KEY && this.state.open) {
+        const { open } = this.state
+        const { keyCode } = e
+
+        if (keyCode === ESCAPE_KEY && open) {
             this.handleClose()
         }
 
-        if (e.keyCode === SPACE_KEY && !this.state.open) {
+        if (
+            (keyCode === SPACE_KEY ||
+                keyCode === UP_KEY ||
+                keyCode === DOWN_KEY) &&
+            !open
+        ) {
             this.handleOpen()
         }
     }
