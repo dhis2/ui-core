@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { Children, cloneElement } from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import { resolve } from 'styled-jsx/css'
 
+import { spacers } from './theme.js'
 import { Button } from './Button.js'
-import styles from './ButtonStrip/styles.js'
+
+const buttonStyles = resolve`
+    .start {
+        margin-left: ${spacers.dp16};
+    }
+    .middle {
+        margin-left: ${spacers.dp8};
+        margin-right: ${spacers.dp8};
+    }
+    .end {
+        margin-right: ${spacers.dp16};
+    }
+`
 
 /**
  * @module
@@ -14,9 +28,27 @@ import styles from './ButtonStrip/styles.js'
  */
 const ButtonStrip = ({ className, children, middle, end }) => (
     <div className={cx(className, { middle, end })}>
-        {children}
-
-        <style jsx>{styles}</style>
+        {Children.map(children, child =>
+            cloneElement(child, {
+                className: cx(child.props.className, buttonStyles.className, {
+                    start: !middle && !end,
+                    middle,
+                    end,
+                }),
+            })
+        )}
+        {buttonStyles.styles}
+        <style jsx>{`
+            div {
+                display: flex;
+            }
+            div.middle {
+                justify-content: center;
+            }
+            div.end {
+                justify-content: flex-end;
+            }
+        `}</style>
     </div>
 )
 
