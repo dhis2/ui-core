@@ -3,6 +3,10 @@ import propTypes from 'prop-types'
 import { Selected } from './Selected.js'
 
 const OptionsToSelected = ({ options, selected }) => {
+    if (!options) {
+        return null
+    }
+
     const selectedOption = React.Children.toArray(options).find(option => {
         const matchesValue = selected.value === option.props.value
         const matchesLabel = selected.label === option.props.label
@@ -18,7 +22,7 @@ const OptionsToSelected = ({ options, selected }) => {
 }
 
 OptionsToSelected.propTypes = {
-    options: propTypes.node.isRequired,
+    options: propTypes.node,
     selected: propTypes.object.isRequired,
 }
 
