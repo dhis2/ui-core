@@ -105,7 +105,7 @@ CustomOption.propTypes = {
     value: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     description: propTypes.string,
-    icon: propTypes.element,
+    icon: propTypes.elementType,
     active: propTypes.bool,
     onClick: propTypes.func,
 }

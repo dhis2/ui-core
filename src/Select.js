@@ -6,6 +6,8 @@ import { DecorateOptions } from './Select/DecorateOptions.js'
 import { OptionsToSelected } from './Select/OptionsToSelected.js'
 import { Empty } from './Select/Empty.js'
 
+const ESCAPE_KEY = 27
+
 export class Select extends Component {
     state = {
         open: false,
@@ -62,6 +64,12 @@ export class Select extends Component {
         this.props.onChange({})
     }
 
+    handleKeyPress = e => {
+        if (e.keyCode === ESCAPE_KEY && this.state.open) {
+            this.handleClose()
+        }
+    }
+
     renderDropdownChildren = () => {
         const { empty: Empty, selected, children } = this.props
         const hasChildren = React.Children.count(children) > 0
@@ -99,6 +107,7 @@ export class Select extends Component {
                 tabIndex={tabIndex}
                 onFocus={this.handleFocus}
                 onClick={this.handleOpen}
+                onKeyDown={this.handleKeyPress}
             >
                 <SelectInput
                     placeholder={placeholder}
@@ -140,10 +149,10 @@ Select.propTypes = {
     label: propTypes.string,
     maxHeight: propTypes.string,
     selected: propTypes.object.isRequired,
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     tabIndex: propTypes.number,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
     placeholder: propTypes.string,
-    empty: propTypes.node,
+    empty: propTypes.elementType,
 }

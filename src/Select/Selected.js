@@ -29,7 +29,7 @@ const Selected = ({ icon: Icon, label }) => {
 }
 
 Selected.propTypes = {
-    icon: propTypes.element,
+    icon: propTypes.elementType,
     label: propTypes.string.isRequired,
 }
 
