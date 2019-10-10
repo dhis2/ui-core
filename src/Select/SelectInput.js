@@ -11,6 +11,7 @@ const SelectInput = ({
     clearable,
     onClear,
     label,
+    tabIndex,
     children,
 }) => {
     const Arrow = open ? ArrowUp : ArrowDown
@@ -21,7 +22,7 @@ const SelectInput = ({
 
     return (
         <React.Fragment>
-            <div className="container" tabIndex="0">
+            <div className="container" tabIndex={tabIndex}>
                 {showLabel && <span className="label">{label}</span>}
                 {showPlaceholder && (
                     <span className="placeholder">{placeholder}</span>
@@ -93,6 +94,7 @@ SelectInput.propTypes = {
     placeholder: propTypes.string.isRequired,
     selected: propTypes.object.isRequired,
     open: propTypes.bool.isRequired,
+    tabIndex: propTypes.string.isRequired,
 }
 
 export { SelectInput }
