@@ -1,39 +1,39 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
+import { resolve } from 'styled-jsx/css'
 
 import { statusPropType } from '../common-prop-types.js'
+import { colors, spacers } from '../theme.js'
 
-import { Error, Info, Valid, Warning } from '../icons/Status.js'
-import { spacers } from '../theme.js'
+import { StatusIconNoDefault } from '../icons/Status.js'
 
-const Icon = ({ icon, success, warning, critical }) => {
+const whiteIcon = resolve`svg { fill: ${colors.white}; }`
+const yellowIcon = resolve`svg { fill: ${colors.yellow900}; }`
+
+const Icon = ({ icon, success, warning, critical, info }) => {
     if (icon === false) {
         return null
     }
 
-    let IconComponent
-    if (React.isValidElement(icon)) {
-        IconComponent = icon
-    } else if (critical) {
-        IconComponent = <Error />
-    } else if (warning) {
-        IconComponent = <Warning />
-    } else if (success) {
-        IconComponent = <Valid />
-    } else {
-        IconComponent = <Info />
-    }
+    const { className, styles } = warning ? yellowIcon : whiteIcon
 
     return (
         <div>
-            {IconComponent}
+            {React.isValidElement(icon) ? (
+                icon
+            ) : (
+                <StatusIconNoDefault
+                    valid={success}
+                    error={critical}
+                    warning={warning}
+                    info={info}
+                    className={className}
+                />
+            )}
+            {styles}
             <style jsx>{`
                 div {
                     margin-right: ${spacers.dp16};
-                }
-                div :global(svg) {
-                    width: 24px;
-                    height: 24px;
                 }
             `}</style>
         </div>
@@ -47,6 +47,7 @@ Icon.propTypes = {
     success: statusPropType,
     warning: statusPropType,
     critical: statusPropType,
+    info: statusPropType,
 }
 
 export { Icon, iconPropType }
