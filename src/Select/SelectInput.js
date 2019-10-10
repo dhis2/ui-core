@@ -21,7 +21,7 @@ const SelectInput = ({
 
     return (
         <React.Fragment>
-            <div className="container">
+            <div className="container" tabIndex="0">
                 {showLabel && <span className="label">{label}</span>}
                 {showPlaceholder && (
                     <span className="placeholder">{placeholder}</span>
@@ -52,6 +52,12 @@ const SelectInput = ({
                     position: relative;
                     box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
                         inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
+                }
+
+                .container:focus,
+                .container:active {
+                    border-color: ${colors.teal400};
+                    outline: 0;
                 }
 
                 .label {
