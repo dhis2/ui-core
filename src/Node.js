@@ -7,18 +7,18 @@ import { ArrowDown } from './icons/Arrow.js'
 import { colors } from './theme.js'
 
 const iconStyles = resolve`
-    svg.closed {
+    svg.node-arrow-icon {
         vertical-align: top;
         transform: rotate(-90deg);
     }
-    svg.open {
+    svg.node-arrow-icon.open {
         transform: rotate(0);
     }
 
 `
 
 const Contents = ({ children, open }) => (
-    <div className={cx('tree__contents', { open, closed: !open })}>
+    <div className={cx('tree__contents', { open })}>
         {children}
 
         <style jsx>{`
@@ -42,7 +42,7 @@ Contents.propTypes = {
 const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
     const arrowIcon = hasLeaves ? (
         <ArrowDown
-            className={cx(iconStyles.className, { open, closed: !open })}
+            className={cx(iconStyles.className, 'node-arrow-icon', { open })}
         />
     ) : (
         <span />
