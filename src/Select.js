@@ -100,6 +100,7 @@ export class Select extends Component {
             placeholder,
             clearable,
             maxHeight,
+            tabIndex,
             label,
         } = this.props
         const { open } = this.state
@@ -115,6 +116,7 @@ export class Select extends Component {
                 <SelectInput
                     placeholder={placeholder}
                     selected={selected}
+                    tabIndex={tabIndex}
                     options={children}
                     label={label}
                     clearable={clearable}
@@ -140,11 +142,13 @@ export class Select extends Component {
 }
 
 Select.defaultProps = {
+    tabIndex: '0',
     placeholder: '',
     empty: Empty,
 }
 
 Select.propTypes = {
+    tabIndex: propTypes.string,
     onChange: propTypes.func.isRequired,
     clearable: propTypes.bool,
     label: propTypes.string,
