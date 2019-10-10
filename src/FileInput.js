@@ -1,5 +1,6 @@
 import React, { createRef, PureComponent } from 'react'
 import propTypes from '@dhis2/prop-types'
+import { resolve } from 'styled-jsx/css'
 import cx from 'classnames'
 
 import { statusPropType, sizePropType } from './common-prop-types.js'
@@ -7,6 +8,14 @@ import { Button } from './Button.js'
 import { spacers } from './theme.js'
 import { Upload } from './icons/Upload.js'
 import { StatusIconNoDefault } from './icons/Status.js'
+
+const iconStyles = resolve`
+    svg.file-input {
+        width: 18px;
+        height: 18px;
+        margin-left: ${spacers.dp8};
+    }
+`
 
 /**
  * @module
@@ -72,23 +81,17 @@ class FileInput extends PureComponent {
                     error={error}
                     valid={valid}
                     warning={warning}
+                    className={cx(iconStyles.className, 'file-input')}
                 />
-
+                {iconStyles.styles}
                 <style jsx>{`
                     input {
                         display: none;
                     }
-
                     .file-input {
                         display: flex;
                         align-items: center;
                         padding-bottom: ${spacers.dp4};
-                    }
-
-                    .file-input > :global(svg) {
-                        width: 18px;
-                        height: 18px;
-                        margin-left: ${spacers.dp8};
                     }
                 `}</style>
             </div>
