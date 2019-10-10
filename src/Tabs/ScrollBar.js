@@ -1,10 +1,25 @@
 import React, { PureComponent, createRef } from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import { resolve } from 'styled-jsx/css'
 import { ChevronLeft, ChevronRight } from '../icons/Chevron'
 import { colors } from '../theme'
 import { detectHorizontalScrollbarHeight } from './detectHorizontalScrollbarHeight'
 import { animatedSideScroll } from './animatedSideScroll'
+
+const scrollIconStyles = resolve`
+    svg.scroll-button-icon {
+        width: 20px;
+        height: 20px;
+        fill: ${colors.grey600};
+        transition: opacity 150ms ease-in-out;
+        opacity: 1;
+    }
+
+    svg.scroll-button-icon.disabled {
+        fill: ${colors.grey500};
+    }
+`
 
 /**
  * @module
@@ -109,7 +124,13 @@ class ScrollBar extends PureComponent {
                         disabled: scrolledToStart,
                     })}
                 >
-                    <ChevronLeft />
+                    <ChevronLeft
+                        className={cx(
+                            scrollIconStyles.className,
+                            'scroll-button-icon',
+                            { disabled: scrolledToStart }
+                        )}
+                    />
                 </button>
                 <div className="scroll-box-clipper">
                     <div className="scroll-box" ref={this.scrollBox}>
@@ -124,8 +145,16 @@ class ScrollBar extends PureComponent {
                         disabled: scrolledToEnd,
                     })}
                 >
-                    <ChevronRight />
+                    <ChevronRight
+                        className={cx(
+                            scrollIconStyles.className,
+                            'scroll-button-icon',
+                            { disabled: scrolledToEnd }
+                        )}
+                    />
                 </button>
+
+                {scrollIconStyles.styles}
 
                 <style jsx>{`
                     .scroll-box {
@@ -153,14 +182,6 @@ class ScrollBar extends PureComponent {
                         cursor: pointer;
                     }
 
-                    .scroll-button :global(svg) {
-                        width: 20px;
-                        height: 20px;
-                        fill: ${colors.grey600};
-                        transition: opacity 150ms ease-in-out;
-                        opacity: 1;
-                    }
-
                     .scroll-button:hover {
                         background-color: ${colors.grey100};
                     }
@@ -176,10 +197,6 @@ class ScrollBar extends PureComponent {
 
                     .scroll-button.disabled:hover {
                         background-color: transparent;
-                    }
-
-                    .scroll-button.disabled :global(svg) {
-                        fill: ${colors.grey500};
                     }
 
                     .scroll-box-clipper {
