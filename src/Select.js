@@ -4,6 +4,7 @@ import { SelectDropdown } from './Select/SelectDropdown.js'
 import { SelectInput } from './Select/SelectInput.js'
 import { DecorateOptions } from './Select/DecorateOptions.js'
 import { OptionsToSelected } from './Select/OptionsToSelected.js'
+import { Empty } from './Select/Empty.js'
 
 export class Select extends Component {
     state = {
@@ -61,6 +62,24 @@ export class Select extends Component {
         this.props.onChange({})
     }
 
+    renderDropdownChildren = () => {
+        const { empty: Empty, selected, children } = this.props
+        const hasChildren = React.Children.count(children) > 0
+
+        if (hasChildren) {
+            return (
+                <DecorateOptions
+                    onClick={this.handleOptionClick}
+                    selected={selected}
+                >
+                    {children}
+                </DecorateOptions>
+            )
+        }
+
+        return <Empty />
+    }
+
     render() {
         const {
             children,
@@ -94,12 +113,7 @@ export class Select extends Component {
                 </SelectInput>
                 {open && (
                     <SelectDropdown maxHeight={maxHeight}>
-                        <DecorateOptions
-                            onClick={this.handleOptionClick}
-                            selected={selected}
-                        >
-                            {children}
-                        </DecorateOptions>
+                        {this.renderDropdownChildren()}
                     </SelectDropdown>
                 )}
 
@@ -117,6 +131,7 @@ export class Select extends Component {
 Select.defaultProps = {
     tabIndex: 0,
     placeholder: '',
+    empty: Empty,
 }
 
 Select.propTypes = {
@@ -130,4 +145,5 @@ Select.propTypes = {
     onFocus: propTypes.func,
     onBlur: propTypes.func,
     placeholder: propTypes.string,
+    empty: propTypes.node,
 }
