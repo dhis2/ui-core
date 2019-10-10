@@ -5,7 +5,6 @@ import { colors, spacers, elevations } from '../theme.js'
 export const ANIMATION_TIME = 350
 
 export const iconStyles = resolve`
-    svg,
     svg.dismiss,
     svg.white, {
         fill: ${colors.white};
