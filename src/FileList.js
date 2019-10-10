@@ -18,7 +18,8 @@ const FileList = ({ children, className }) => (
             div {
                 padding-top: 4px;
             }
-            :global(.file-input) + div {
+            div:nth-child(2):nth-of-type(2),
+            div:nth-child(3):nth-of-type(2) {
                 padding-top: 0;
             }
         `}</style>
