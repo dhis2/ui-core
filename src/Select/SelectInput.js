@@ -42,6 +42,7 @@ const SelectInput = ({
             <style jsx>{`
                 .container {
                     align-items: center;
+                    user-select: none;
                     border-radius: 3px;
                     border: 1px solid ${colors.grey500};
                     box-sizing: border-box;
