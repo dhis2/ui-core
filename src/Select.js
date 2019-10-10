@@ -7,6 +7,7 @@ import { OptionsToSelected } from './Select/OptionsToSelected.js'
 import { Empty } from './Select/Empty.js'
 
 const ESCAPE_KEY = 27
+const SPACE_KEY = 32
 
 export class Select extends Component {
     state = {
@@ -67,6 +68,10 @@ export class Select extends Component {
     handleKeyPress = e => {
         if (e.keyCode === ESCAPE_KEY && this.state.open) {
             this.handleClose()
+        }
+
+        if (e.keyCode === SPACE_KEY && !this.state.open) {
+            this.handleOpen()
         }
     }
 
