@@ -1,10 +1,22 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
+import { resolve } from 'styled-jsx/css'
 
 import { colors, spacers } from '../theme.js'
 import { AttachFile } from '../icons/AttachFile.js'
 import { Loading } from '../icons/Status.js'
+
+const iconStyles = resolve`
+    svg.file-list-item {
+        width: 12px;
+        height: 12px;
+        line-height: 12px;
+        margin-right: 4px;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+`
 
 /**
  * @module
@@ -26,7 +38,17 @@ const FileListItem = ({
     cancelText,
 }) => (
     <p className={cx('selected-file', className)}>
-        <span className="icon">{loading ? <Loading /> : <AttachFile />}</span>
+        <span className="icon">
+            {loading ? (
+                <Loading
+                    className={cx(iconStyles.className, 'file-list-item')}
+                />
+            ) : (
+                <AttachFile
+                    className={cx(iconStyles.className, 'file-list-item')}
+                />
+            )}
+        </span>
 
         <span className="text">
             <span className="label">{label}</span>
@@ -43,21 +65,13 @@ const FileListItem = ({
                 </span>
             )}
         </span>
-
+        {iconStyles.styles}
         <style jsx>{`
             p {
                 display: flex;
                 margin: 0;
                 padding-top: ${spacers.dp4};
                 line-height: 18px;
-            }
-            .icon > :global(svg) {
-                width: 12px;
-                height: 12px;
-                line-height: 12px;
-                margin-right: 4px;
-                flex-grow: 0;
-                flex-shrink: 0;
             }
             .text {
                 flex-grow: 1;
