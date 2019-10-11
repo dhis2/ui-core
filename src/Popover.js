@@ -1,18 +1,10 @@
 import { createPortal } from 'react-dom'
 import React, { Component, createRef } from 'react'
 import propTypes from 'prop-types'
-import css from 'styled-jsx/css'
-import cx from 'classnames'
 
-import { reactRef } from '../prop-validators/reactRef'
-import { Content } from './Content'
-import {
-    arePositionsEqual,
-    getPosition,
-    getScrollAndClientOffset,
-    propPosition,
-} from './helpers'
-import { layers } from '../theme'
+import { reactRef } from './prop-validators/reactRef'
+import { Content } from './Popover/Content'
+import { arePositionsEqual, getPosition } from './Popover/helpers'
 
 class Popover extends Component {
     ref = createRef()
@@ -24,6 +16,7 @@ class Popover extends Component {
     componentDidMount() {
         document.addEventListener('click', this.onDocClick)
         window.addEventListener('resize', this.updatePosition)
+
         this.updatePosition()
     }
 
@@ -58,7 +51,7 @@ class Popover extends Component {
     render() {
         if (!this.props.open) return null
 
-        const { side, children, onClose, noArrow } = this.props
+        const { side, children, noArrow } = this.props
         const { position, adjustment } = this.state
 
         return createPortal(
@@ -66,16 +59,22 @@ class Popover extends Component {
                 ref={this.ref}
                 side={side}
                 position={position}
-                children={children}
                 noArrow={noArrow}
                 adjustment={adjustment}
-            />,
+            >
+                {children}
+            </Content>,
             document.body
         )
     }
 }
 
 Popover.propTypes = {
+    children: propTypes.oneOfTypes([
+        propTypes.element,
+        propTypes.arrayOf(propTypes.element),
+    ]).isRequired,
+
     /**
      * Must be created with `React.createRef()`
      */

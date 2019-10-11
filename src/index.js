@@ -43,6 +43,7 @@ export { Node } from './Node'
 export { Modal } from './Modal'
 export { SplitButton } from './SplitButton'
 export { Tab, TabBar, ScrollBar } from './Tabs'
+export { Popover } from './Popover'
 
 /* constants */
 export { theme, colors } from './theme.js'

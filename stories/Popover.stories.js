@@ -1,14 +1,9 @@
 import React, { Component, Fragment, forwardRef } from 'react'
-import { storiesOf, addDecorator, addParameters } from '@storybook/react'
+import { storiesOf } from '@storybook/react'
 
-import { Button } from '../src/Button'
-import { Popover } from '../src/Popover'
-import { Menu } from '../src/Menu'
-import { MenuItem } from '../src/MenuItem'
-import markdown from './info/molecules/popover.md'
+import { Popover } from '../src'
 
-addParameters({ notes: markdown })
-
+// eslint-disable-next-line
 const Btn = forwardRef(({ styles = {}, ...props }, ref) => (
     <div style={{ ...styles, width: 'fit-content' }}>
         <button
@@ -29,7 +24,7 @@ const createPopoverContent = () => (
         <br />
         It could contain any content,
         <br />
-        but for now it's nothing but text.
+        but for now it&apos;s nothing but text.
         <br />
         There might a be few extra lines,
         <br />
@@ -73,7 +68,8 @@ const createWrapper = (styles, displayName = '') => {
                         Anchor
                     </Btn>
 
-                    {React.Children.map(this.props.children, child =>
+                    {// eslint-disable-next-line
+                    React.Children.map(this.props.children, child =>
                         React.cloneElement(child, {
                             anchorRef: this.ref1,
                         })
