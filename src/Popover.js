@@ -70,7 +70,7 @@ class Popover extends Component {
 }
 
 Popover.propTypes = {
-    children: propTypes.oneOfTypes([
+    children: propTypes.oneOfType([
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
     ]).isRequired,
