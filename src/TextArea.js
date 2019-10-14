@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 import cx from 'classnames'
 
 import { statusPropType } from './common-prop-types.js'
-import { StatusIconNoDefault } from './icons/Status.js'
+import { StatusIcon } from './icons/Status.js'
 
 import { styles } from './TextArea/styles.js'
 
@@ -128,7 +128,7 @@ export class TextArea extends PureComponent {
                 />
 
                 <div className="status-icon">
-                    <StatusIconNoDefault
+                    <StatusIcon
                         error={error}
                         valid={valid}
                         loading={loading}
