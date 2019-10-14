@@ -105,7 +105,7 @@ class AlertBar extends PureComponent {
         }
 
         const info = !critical && !success && !warning
-        const iconProps = { icon, critical, success, warning }
+        const iconProps = { icon, critical, success, warning, info }
 
         return (
             <div
