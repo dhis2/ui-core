@@ -7,7 +7,7 @@ import { statusPropType } from './common-prop-types.js'
 import { theme, colors, spacers } from './theme.js'
 
 import { ArrowDown } from './icons/Arrow.js'
-import { StatusIconNoDefault } from './icons/Status.js'
+import { StatusIcon } from './icons/Status.js'
 
 const TailIcon = () => (
     <div>
@@ -190,7 +190,7 @@ export class Select extends Component {
                 <div className="status-icon">
                     <TailIcon />
 
-                    <StatusIconNoDefault
+                    <StatusIcon
                         error={error}
                         valid={valid}
                         loading={loading}

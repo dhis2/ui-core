@@ -6,7 +6,7 @@ import { statusPropType, sizePropType } from './common-prop-types.js'
 import { Button } from './Button.js'
 import { spacers } from './theme.js'
 import { Upload } from './icons/Upload.js'
-import { StatusIconNoDefault } from './icons/Status.js'
+import { StatusIcon } from './icons/Status.js'
 
 /**
  * @module
@@ -68,11 +68,7 @@ class FileInput extends PureComponent {
                 >
                     {buttonLabel}
                 </Button>
-                <StatusIconNoDefault
-                    error={error}
-                    valid={valid}
-                    warning={warning}
-                />
+                <StatusIcon error={error} valid={valid} warning={warning} />
 
                 <style jsx>{`
                     input {

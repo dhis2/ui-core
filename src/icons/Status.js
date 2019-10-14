@@ -168,7 +168,7 @@ Loading.propTypes = {
     className: propTypes.string,
 }
 
-export const StatusIconNoDefault = ({
+export const StatusIcon = ({
     error,
     warning,
     valid,
@@ -191,11 +191,11 @@ export const StatusIconNoDefault = ({
         defaultTo
     )
 
-StatusIconNoDefault.defaultProps = {
+StatusIcon.defaultProps = {
     defaultTo: null,
 }
 
-StatusIconNoDefault.propTypes = {
+StatusIcon.propTypes = {
     valid: propTypes.bool,
     error: propTypes.bool,
     warning: propTypes.bool,
