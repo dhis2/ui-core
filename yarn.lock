@@ -1100,10 +1100,10 @@
     semver "^6.3.0"
     yargs "^14.0.0"
 
-"@dhis2/prop-types@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.2.0.tgz#a773afa6763d02be355ee0f46750baa6eb7eb651"
-  integrity sha512-HjKIaNJLS3cjU+fc1+oXDdFRV1RQd0rmRdzsOa4GZWId+gW1LnBa6kdaMnTnT+JpMma8R7P365Of5NC5T7/Dug==
+"@dhis2/prop-types@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.2.1.tgz#acd62fc65f7c2f55126844289e601e2b842d3421"
+  integrity sha512-L3y0x8TOFwn12oBin4pkfTOn7CqGrKIN73Q4qLooA4/lM1qlM6GE3Qm7zB5p1Ko8rCThjEiHKSb9CfMGoo/GzQ==
   dependencies:
     prop-types "^15"
 
