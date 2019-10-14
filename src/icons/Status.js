@@ -173,7 +173,9 @@ export const StatusIconNoDefault = ({
     warning,
     valid,
     loading,
+    info,
     className,
+    defaultTo,
 }) =>
     valid ? (
         <Valid className={className} />
@@ -183,12 +185,22 @@ export const StatusIconNoDefault = ({
         <Error className={className} />
     ) : loading ? (
         <Loading className={className} />
-    ) : null
+    ) : info ? (
+        <Info className={className} />
+    ) : (
+        defaultTo
+    )
+
+StatusIconNoDefault.defaultProps = {
+    defaultTo: null,
+}
 
 StatusIconNoDefault.propTypes = {
     valid: propTypes.bool,
     error: propTypes.bool,
     warning: propTypes.bool,
     loading: propTypes.bool,
+    info: propTypes.bool,
     className: propTypes.string,
+    defaultTo: propTypes.element,
 }
