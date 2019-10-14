@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import { statusPropType } from './common-prop-types.js'
 import { theme, colors, spacers } from './theme.js'
-import { StatusIconNoDefault } from './icons/Status.js'
+import { StatusIcon } from './icons/Status.js'
 
 const styles = css`
     .input {
@@ -141,7 +141,7 @@ export class Input extends Component {
                 />
 
                 <div className="status-icon">
-                    <StatusIconNoDefault
+                    <StatusIcon
                         error={error}
                         valid={valid}
                         loading={loading}
