@@ -73,15 +73,6 @@ class SplitButton extends Component {
                     }
 
                     div > :global(button:first-child) {
-                        margin-left: 0;
-                    }
-
-                    div > :global(button:not(:first-child):not(:last-child)) {
-                        border-radius: 0;
-                        border-right: 0;
-                    }
-
-                    div > :global(button:first-child) {
                         border-top-right-radius: 0;
                         border-bottom-right-radius: 0;
                         border-right: 0;
