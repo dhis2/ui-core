@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { statusPropType, sizePropType } from './common-prop-types'
+import { sizePropType } from './common-prop-types'
 import { FileInput } from './FileInput.js'
 import { FileList, FileListItem, FileListPlaceholder } from './FileList.js'
 import { Field } from './Field.js'
@@ -29,9 +29,7 @@ const FileInputField = ({
     placeholder,
     tabIndex,
     children,
-    error,
-    valid,
-    warning,
+    status,
     small,
     large,
     required,
@@ -50,9 +48,7 @@ const FileInputField = ({
             onChange={onChange}
             className={className}
             buttonLabel={buttonLabel}
-            error={error}
-            valid={valid}
-            warning={warning}
+            status={status}
             accept={accept}
             multiple={multiple}
             small={small}
@@ -64,11 +60,7 @@ const FileInputField = ({
 
         {helpText ? <Help>{helpText}</Help> : null}
 
-        {validationText ? (
-            <Help error={error} warning={warning} valid={valid}>
-                {validationText}
-            </Help>
-        ) : null}
+        {validationText ? <Help status={status}>{validationText}</Help> : null}
 
         <FileList>
             {!children && placeholder ? (
@@ -126,9 +118,7 @@ FileInputField.propTypes = {
         propTypes.arrayOf(propTypes.instanceOfComponent(FileListItem)),
     ]),
 
-    error: statusPropType,
-    valid: statusPropType,
-    warning: statusPropType,
+    status: propTypes.oneOf(['warning', 'error', 'valid']),
     small: sizePropType,
     large: sizePropType,
     required: propTypes.bool,

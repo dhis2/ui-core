@@ -37,11 +37,11 @@ export default css`
     div.info :global(path) {
         fill: ${colors.white};
     }
-    div.success {
+    div.valid {
         background-color: ${colors.green800};
         color: ${colors.white};
     }
-    div.success :global(path) {
+    div.valid :global(path) {
         fill: ${colors.white};
     }
     div.warning {
@@ -51,11 +51,11 @@ export default css`
     div.warning :global(path) {
         fill: ${colors.yellow900};
     }
-    div.critical {
+    div.error {
         background-color: ${colors.red800};
         color: ${colors.white};
     }
-    div.critical :global(path) {
+    div.error :global(path) {
         fill: ${colors.white};
     }
 

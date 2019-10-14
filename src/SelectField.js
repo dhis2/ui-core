@@ -1,8 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from './common-prop-types.js'
-
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Help } from './Help.js'
@@ -32,10 +30,7 @@ class SelectField extends React.Component {
             label,
             disabled,
             name,
-            valid,
-            error,
-            warning,
-            loading,
+            status,
             value,
             tabIndex,
             helpText,
@@ -65,7 +60,7 @@ class SelectField extends React.Component {
                     onChange={onChange}
                     onFocus={onFocus}
                     onBlur={onBlur}
-                    loading={loading}
+                    status={status}
                     initialFocus={initialFocus}
                 >
                     {children}
@@ -74,9 +69,7 @@ class SelectField extends React.Component {
                 {helpText ? <Help>{helpText}</Help> : null}
 
                 {validationText ? (
-                    <Help error={error} warning={warning} valid={valid}>
-                        {validationText}
-                    </Help>
+                    <Help status={status}>{validationText}</Help>
                 ) : null}
             </Field>
         )
@@ -136,10 +129,7 @@ SelectField.propTypes = {
     required: propTypes.bool,
     disabled: propTypes.bool,
     dense: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
-    loading: propTypes.bool,
+    status: propTypes.oneOf(['warning', 'error', 'loading', 'valid']),
     initialFocus: propTypes.bool,
 
     onFocus: propTypes.func,

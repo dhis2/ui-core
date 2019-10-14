@@ -2,8 +2,6 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component, Fragment } from 'react'
 
-import { statusPropType } from './common-prop-types.js'
-
 import { theme } from './theme.js'
 
 import { Icon } from './Checkbox/Icon.js'
@@ -48,7 +46,6 @@ class Checkbox extends Component {
             checked = false,
             className,
             disabled,
-            error,
             icon,
             indeterminate,
             label,
@@ -56,9 +53,8 @@ class Checkbox extends Component {
             onChange,
             required,
             tabIndex,
-            valid,
             value,
-            warning,
+            status,
         } = this.props
         const { focus } = this.state
 
@@ -86,9 +82,7 @@ class Checkbox extends Component {
                         focus={focus}
                         checked={checked}
                         disabled={disabled}
-                        valid={valid}
-                        error={error}
-                        warning={warning}
+                        status={status}
                         indeterminate={indeterminate}
                     />
 
@@ -167,9 +161,7 @@ Checkbox.propTypes = {
     required: propTypes.bool,
     checked: propTypes.bool,
     disabled: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
+    status: propTypes.oneOfType(['valid', 'error', 'warning']),
     initialFocus: propTypes.bool,
 }
 

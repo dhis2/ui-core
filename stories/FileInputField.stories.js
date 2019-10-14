@@ -92,21 +92,21 @@ storiesOf('FileInputField', module)
                 label="upload something"
                 buttonLabel="Valid"
                 name="valid"
-                valid
+                status="valid"
             />
             <FileInputField
                 onChange={onChange}
                 label="upload something"
                 buttonLabel="Warning"
                 name="warning"
-                warning
+                status="warning"
             />
             <FileInputField
                 onChange={onChange}
                 label="upload something"
                 buttonLabel="Error"
                 name="error"
-                error
+                status="error"
                 validationText="Something went wrong"
             />
         </>

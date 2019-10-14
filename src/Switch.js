@@ -2,7 +2,6 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component, createRef } from 'react'
 
-import { statusPropType } from './common-prop-types.js'
 import { styles, switchIconStyles } from './Switch/styles.js'
 
 const Input = React.forwardRef((props, ref) => (
@@ -20,13 +19,10 @@ const Input = React.forwardRef((props, ref) => (
 ))
 Input.displayName = 'Input'
 
-const SwitchIcon = ({ checked, valid, warning, error, disabled, focus }) => {
-    const classes = cx({
+const SwitchIcon = ({ status, checked, disabled, focus }) => {
+    const classes = cx(status, {
         checked,
         disabled,
-        valid,
-        error,
-        warning,
         focus,
     })
 
@@ -43,9 +39,7 @@ const SwitchIcon = ({ checked, valid, warning, error, disabled, focus }) => {
 SwitchIcon.propTypes = {
     checked: propTypes.bool,
     disabled: propTypes.bool,
-    valid: propTypes.bool,
-    warning: propTypes.bool,
-    error: propTypes.bool,
+    status: propTypes.oneOfType(['valid', 'warning', 'error']),
     focus: propTypes.bool,
 }
 
@@ -96,9 +90,7 @@ class Switch extends Component {
             required,
             checked = false,
             disabled,
-            valid,
-            warning,
-            error,
+            status,
         } = this.props
         const { focus } = this.state
 
@@ -122,9 +114,7 @@ class Switch extends Component {
                 <SwitchIcon
                     checked={checked}
                     disabled={disabled}
-                    valid={valid}
-                    warning={warning}
-                    error={error}
+                    status={status}
                     focus={focus}
                 />
 
@@ -166,9 +156,7 @@ Switch.propTypes = {
     required: propTypes.bool,
     checked: propTypes.bool,
     disabled: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
+    status: propTypes.oneOfType(['valid', 'warning', 'error']),
     initialFocus: propTypes.bool,
 
     onFocus: propTypes.func,

@@ -23,22 +23,22 @@ storiesOf('AlertBar', module)
     .add('States', () => (
         <React.Fragment>
             <AlertBar permanent>Default (info)</AlertBar>
-            <AlertBar permanent success>
-                Success
+            <AlertBar permanent status="valid">
+                Valid
             </AlertBar>
-            <AlertBar permanent warning>
+            <AlertBar permanent status="warning">
                 Warning
             </AlertBar>
-            <AlertBar permanent critical>
-                Critical
+            <AlertBar permanent status="error">
+                Error
             </AlertBar>
         </React.Fragment>
     ))
     .add('Auto hiding', () => (
         <React.Fragment>
             <AlertBar permanent>Permanent never auto-hides</AlertBar>
-            <AlertBar warning>Warning never auto-hides</AlertBar>
-            <AlertBar critical>Critial never auto-hides</AlertBar>
+            <AlertBar status="warning">Warning never auto-hides</AlertBar>
+            <AlertBar status="error">Error never auto-hides</AlertBar>
             <AlertBar duration={10000}>
                 Custom duration, hides after 10s
             </AlertBar>

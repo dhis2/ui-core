@@ -3,7 +3,6 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 import { resolve } from 'styled-jsx/css'
 
-import { statusPropType } from '../common-prop-types.js'
 import { Checked, Indeterminate, Unchecked } from '../icons/Checkbox.js'
 import { colors, theme } from '../theme.js'
 
@@ -40,22 +39,15 @@ const icons = resolve`
     }
 `
 
-export const Icon = ({
-    focus,
-    checked,
-    disabled,
-    valid,
-    error,
-    warning,
-    indeterminate,
-}) => {
-    const classes = cx(icons.className, {
+export const Icon = ({ focus, checked, disabled, status, indeterminate }) => {
+    const valid = status === 'valid'
+    const error = status === 'error'
+    const warning = status === 'warning'
+
+    const classes = cx(icons.className, status, {
         checked: checked && !valid && !error && !warning,
         focus,
         disabled,
-        valid,
-        error,
-        warning,
     })
 
     return (
@@ -91,9 +83,7 @@ export const Icon = ({
 Icon.propTypes = {
     checked: propTypes.bool,
     disabled: propTypes.bool,
-    valid: statusPropType,
-    error: statusPropType,
-    warning: statusPropType,
+    status: propTypes.oneOfType(['valid', 'error', 'warning']),
     indeterminate: propTypes.bool,
     focus: propTypes.bool,
 }

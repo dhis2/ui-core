@@ -168,27 +168,25 @@ Loading.propTypes = {
     className: propTypes.string,
 }
 
-export const StatusIconNoDefault = ({
-    error,
-    warning,
-    valid,
-    loading,
-    className,
-}) =>
-    valid ? (
-        <Valid className={className} />
-    ) : warning ? (
-        <Warning className={className} />
-    ) : error ? (
-        <Error className={className} />
-    ) : loading ? (
-        <Loading className={className} />
-    ) : null
+export const StatusIcon = ({ status, defaultTo: DefaultTo, className }) => {
+    switch (status) {
+        case 'info':
+            return <Info className={className} />
+        case 'warning':
+            return <Warning className={className} />
+        case 'loading':
+            return <Loading className={className} />
+        case 'error':
+            return <Error className={className} />
+        case 'valid':
+            return <Valid className={className} />
+        default:
+            return DefaultTo ? <DefaultTo className={className} /> : null
+    }
+}
 
-StatusIconNoDefault.propTypes = {
-    valid: propTypes.bool,
-    error: propTypes.bool,
-    warning: propTypes.bool,
-    loading: propTypes.bool,
+StatusIcon.propTypes = {
+    status: propTypes.oneOf(['info', 'warning', 'error', 'loading', 'valid']),
+    defaultTo: propTypes.elementType,
     className: propTypes.string,
 }

@@ -41,7 +41,7 @@ storiesOf('TextAreaField', module)
             onChange={() => {}}
             name="textarea"
             value="This value is valid"
-            valid
+            status="valid"
         />
     ))
 
@@ -50,7 +50,7 @@ storiesOf('TextAreaField', module)
             onChange={() => {}}
             name="textarea"
             value="This value produces a warning"
-            warning
+            status="warning"
         />
     ))
 
@@ -58,7 +58,7 @@ storiesOf('TextAreaField', module)
         <TextAreaField
             onChange={() => {}}
             name="textarea"
-            error
+            status="error"
             value="This value produces an error"
             helpText="This is some help text to advice what this input actually is."
             validationText="This describes the error, if a message is supplied."
@@ -70,7 +70,7 @@ storiesOf('TextAreaField', module)
             onChange={() => {}}
             name="textarea"
             value="This value produces a loading state"
-            loading
+            status="loading"
         />
     ))
 

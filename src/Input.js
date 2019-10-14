@@ -3,9 +3,8 @@ import React, { Component } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { statusPropType } from './common-prop-types.js'
 import { theme, colors, spacers } from './theme.js'
-import { StatusIconNoDefault } from './icons/Status.js'
+import { StatusIcon } from './icons/Status.js'
 
 const styles = css`
     .input {
@@ -105,10 +104,7 @@ export class Input extends Component {
             readOnly,
             placeholder,
             name,
-            valid,
-            error,
-            warning,
-            loading,
+            status,
             value,
             tabIndex,
             width,
@@ -130,23 +126,15 @@ export class Input extends Component {
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onChange={onChange}
-                    className={cx({
+                    className={cx(status, {
                         dense,
                         disabled,
-                        error,
-                        valid,
-                        warning,
                         'read-only': readOnly,
                     })}
                 />
 
                 <div className="status-icon">
-                    <StatusIconNoDefault
-                        error={error}
-                        valid={valid}
-                        loading={loading}
-                        warning={warning}
-                    />
+                    <StatusIcon status={status} />
                 </div>
 
                 <style jsx>{styles}</style>
@@ -210,10 +198,7 @@ Input.propTypes = {
     readOnly: propTypes.bool,
     dense: propTypes.bool,
 
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
-    loading: propTypes.bool,
+    status: propTypes.oneOf(['warning', 'error', 'loading', 'valid']),
 
     initialFocus: propTypes.bool,
 }

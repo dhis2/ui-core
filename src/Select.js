@@ -3,11 +3,10 @@ import React, { Component, createRef } from 'react'
 import css from 'styled-jsx/css'
 import cx from 'classnames'
 
-import { statusPropType } from './common-prop-types.js'
 import { theme, colors, spacers } from './theme.js'
 
 import { ArrowDown } from './icons/Arrow.js'
-import { StatusIconNoDefault } from './icons/Status.js'
+import { StatusIcon } from './icons/Status.js'
 
 const TailIcon = () => (
     <div>
@@ -148,10 +147,7 @@ export class Select extends Component {
             children,
             name,
             tabIndex,
-            valid,
-            warning,
-            error,
-            loading,
+            status,
             className,
         } = this.props
 
@@ -159,13 +155,10 @@ export class Select extends Component {
 
         return (
             <div
-                className={cx('select', className, {
+                className={cx('select', className, status, {
                     dense,
                     disabled,
                     focus,
-                    valid,
-                    warning,
-                    error,
                 })}
             >
                 <select
@@ -189,13 +182,7 @@ export class Select extends Component {
 
                 <div className="status-icon">
                     <TailIcon />
-
-                    <StatusIconNoDefault
-                        error={error}
-                        valid={valid}
-                        loading={loading}
-                        warning={warning}
-                    />
+                    <StatusIcon status={status} />
                 </div>
                 <style jsx>{styles}</style>
             </div>
@@ -231,8 +218,5 @@ Select.propTypes = {
     focus: propTypes.bool,
     initialFocus: propTypes.bool,
 
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
-    loading: propTypes.bool,
+    status: propTypes.oneOf(['warning', 'error', 'loading', 'valid']),
 }

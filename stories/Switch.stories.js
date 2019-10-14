@@ -40,7 +40,7 @@ storiesOf('Switch', module)
         <Switch
             name="Ex"
             checked
-            valid
+            status="valid"
             initialFocus
             label="Switch"
             onChange={logger}
@@ -51,7 +51,7 @@ storiesOf('Switch', module)
         <Switch
             name="Ex"
             checked
-            warning
+            status="warning"
             initialFocus
             label="Switch"
             onChange={logger}
@@ -62,7 +62,7 @@ storiesOf('Switch', module)
         <Switch
             name="Ex"
             checked
-            error
+            status="error"
             initialFocus
             label="Switch"
             onChange={logger}
@@ -74,13 +74,31 @@ storiesOf('Switch', module)
     ))
 
     .add('Valid', () => (
-        <Switch name="Ex" label="Switch" checked valid onChange={logger} />
+        <Switch
+            name="Ex"
+            label="Switch"
+            checked
+            status="valid"
+            onChange={logger}
+        />
     ))
 
     .add('Warning', () => (
-        <Switch name="Ex" label="Switch" checked warning onChange={logger} />
+        <Switch
+            name="Ex"
+            label="Switch"
+            checked
+            status="warning"
+            onChange={logger}
+        />
     ))
 
     .add('Error', () => (
-        <Switch name="Ex" label="Switch" checked error onChange={logger} />
+        <Switch
+            name="Ex"
+            label="Switch"
+            checked
+            status="error"
+            onChange={logger}
+        />
     ))

@@ -39,21 +39,21 @@ function createStory(name, props) {
         .add('Focus', () => <InputField {...props} initialFocus />)
 
         .add('Status: Valid', () => (
-            <InputField {...props} value="This value is valid" valid />
+            <InputField {...props} value="This value is valid" status="valid" />
         ))
 
         .add('Status: Warning', () => (
             <InputField
                 {...props}
                 value="This value produces a warning"
-                warning
+                status="warning"
             />
         ))
 
         .add('Status: Error', () => (
             <InputField
                 {...props}
-                error
+                status="error"
                 value="This value produces an error"
                 helpText="This is some help text to advice what this input actually is."
                 validationText="This describes the error, if a message is supplied."
@@ -64,7 +64,7 @@ function createStory(name, props) {
             <InputField
                 {...props}
                 value="This value produces a loading state"
-                loading
+                status="loading"
             />
         ))
 

@@ -6,10 +6,14 @@ storiesOf('Help', module)
     .add('Default', () => <Help>Allow me to be of assistance</Help>)
 
     .add('Status: Warning', () => (
-        <Help warning>Allow me to be of assistance</Help>
+        <Help status="warning">Allow me to be of assistance</Help>
     ))
-    .add('Status: Valid', () => <Help valid>Allow me to be of assistance</Help>)
-    .add('Status: Error', () => <Help error>Allow me to be of assistance</Help>)
+    .add('Status: Valid', () => (
+        <Help status="valid">Allow me to be of assistance</Help>
+    ))
+    .add('Status: Error', () => (
+        <Help status="error">Allow me to be of assistance</Help>
+    ))
     .add('Text overflow', () => (
         <div style={{ width: 200 }}>
             <Help>I take up more space than my container</Help>

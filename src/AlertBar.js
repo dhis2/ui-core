@@ -84,42 +84,31 @@ class AlertBar extends PureComponent {
     }
 
     shouldAutoHide() {
-        const { permanent, warning, critical } = this.props
-        return !(permanent || warning || critical)
+        const { permanent, status } = this.props
+
+        const warning = status === 'warning'
+        const error = status === 'error'
+
+        return !(permanent || warning || error)
     }
 
     render() {
-        const {
-            className,
-            children,
-            success,
-            warning,
-            critical,
-            icon,
-            actions,
-        } = this.props
+        const { className, children, status, icon, actions } = this.props
         const { visible, hidden } = this.state
 
         if (hidden) {
             return null
         }
 
-        const info = !critical && !success && !warning
-        const iconProps = { icon, critical, success, warning }
-
         return (
             <div
-                className={cx(className, {
-                    info,
-                    success,
-                    warning,
-                    critical,
+                className={cx(className, status, {
                     visible,
                 })}
                 onMouseEnter={this.stopDisplayTimeOut}
                 onMouseLeave={this.startDisplayTimeout}
             >
-                <Icon {...iconProps} />
+                <Icon icon={icon} status={status} />
                 <Message>{children}</Message>
                 <Actions actions={actions} hide={this.hide} />
                 <Dismiss onClick={this.hide} />
@@ -129,11 +118,6 @@ class AlertBar extends PureComponent {
         )
     }
 }
-
-const alertTypePropType = propTypes.mutuallyExclusive(
-    ['success', 'warning', 'critical'],
-    propTypes.bool
-)
 
 /**
  * @typedef {Object} PropTypes
@@ -156,9 +140,7 @@ const alertTypePropType = propTypes.mutuallyExclusive(
 AlertBar.propTypes = {
     children: propTypes.string.isRequired,
     className: propTypes.string,
-    success: alertTypePropType,
-    warning: alertTypePropType,
-    critical: alertTypePropType,
+    status: propTypes.oneOfType(['valid', 'warning', 'error', 'info']),
     icon: iconPropType,
     duration: propTypes.number,
     permanent: propTypes.bool,
@@ -167,6 +149,7 @@ AlertBar.propTypes = {
 }
 
 AlertBar.defaultProps = {
+    status: 'info',
     icon: true,
     duration: 8000,
 }

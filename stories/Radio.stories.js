@@ -123,7 +123,7 @@ storiesOf('Radio', module)
         <Radio
             name="Ex"
             label="Radio"
-            valid
+            status="valid"
             checked
             value="valid"
             onChange={logger}
@@ -134,7 +134,7 @@ storiesOf('Radio', module)
         <Radio
             name="Ex"
             label="Radio"
-            warning
+            status="warning"
             checked
             value="warning"
             onChange={logger}
@@ -145,7 +145,7 @@ storiesOf('Radio', module)
         <Radio
             name="Ex"
             label="Radio"
-            error
+            status="error"
             checked
             value="error"
             onChange={logger}

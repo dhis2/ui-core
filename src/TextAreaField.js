@@ -1,8 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from './common-prop-types.js'
-
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { TextArea } from './TextArea.js'
@@ -30,10 +28,7 @@ const TextAreaField = ({
     disabled,
     placeholder,
     name,
-    valid,
-    error,
-    warning,
-    loading,
+    status,
     value,
     tabIndex,
     helpText,
@@ -59,10 +54,7 @@ const TextAreaField = ({
             value={value || ''}
             placeholder={placeholder}
             disabled={disabled}
-            valid={valid}
-            warning={warning}
-            error={error}
-            loading={loading}
+            status={status}
             dense={dense}
             tabIndex={tabIndex}
             initialFocus={initialFocus}
@@ -75,11 +67,7 @@ const TextAreaField = ({
 
         {helpText ? <Help>{helpText}</Help> : null}
 
-        {validationText ? (
-            <Help error={error} warning={warning} valid={valid}>
-                {validationText}
-            </Help>
-        ) : null}
+        {validationText ? <Help status={status}>{validationText}</Help> : null}
     </Field>
 )
 
@@ -136,10 +124,7 @@ TextAreaField.propTypes = {
     readOnly: propTypes.bool,
 
     dense: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
-    loading: propTypes.bool,
+    status: propTypes.oneOf(['warning', 'error', 'loading', 'valid']),
     initialFocus: propTypes.bool,
 
     onBlur: propTypes.func,

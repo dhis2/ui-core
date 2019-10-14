@@ -128,7 +128,7 @@ storiesOf('Checkbox', module)
             value="ex"
             name="Ex"
             label="Checkbox"
-            valid
+            status="valid"
             checked
             onChange={logger}
         />
@@ -139,7 +139,7 @@ storiesOf('Checkbox', module)
             value="ex"
             name="Ex"
             label="Checkbox"
-            warning
+            status="warning"
             checked
             onChange={logger}
         />
@@ -150,7 +150,7 @@ storiesOf('Checkbox', module)
             value="ex"
             name="Ex"
             label="Checkbox"
-            error
+            status="error"
             checked
             onChange={logger}
         />

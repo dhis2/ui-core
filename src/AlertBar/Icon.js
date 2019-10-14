@@ -1,12 +1,10 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from '../common-prop-types.js'
-
 import { Error, Info, Valid, Warning } from '../icons/Status.js'
 import { spacers } from '../theme.js'
 
-const Icon = ({ icon, success, warning, critical }) => {
+const Icon = ({ icon, status }) => {
     if (icon === false) {
         return null
     }
@@ -14,11 +12,11 @@ const Icon = ({ icon, success, warning, critical }) => {
     let IconComponent
     if (React.isValidElement(icon)) {
         IconComponent = icon
-    } else if (critical) {
+    } else if (status === 'error') {
         IconComponent = <Error />
-    } else if (warning) {
+    } else if (status === 'warning') {
         IconComponent = <Warning />
-    } else if (success) {
+    } else if (status === 'valid') {
         IconComponent = <Valid />
     } else {
         IconComponent = <Info />
@@ -44,9 +42,7 @@ const iconPropType = propTypes.oneOfType([propTypes.bool, propTypes.element])
 
 Icon.propTypes = {
     icon: iconPropType,
-    success: statusPropType,
-    warning: statusPropType,
-    critical: statusPropType,
+    status: propTypes.oneOfType(['valid', 'warning', 'error', 'info']),
 }
 
 export { Icon, iconPropType }

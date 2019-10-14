@@ -45,7 +45,7 @@ function createStory(name, props) {
                 helpText="A helpful text."
                 validationText="Totally valid"
                 value="1"
-                valid
+                status="valid"
             >
                 {options}
             </SelectField>
@@ -57,7 +57,7 @@ function createStory(name, props) {
                 helpText="A helpful text."
                 validationText="Hm, not quite, I warn thee!"
                 value="1"
-                warning
+                status="warning"
             >
                 {options}
             </SelectField>
@@ -69,14 +69,14 @@ function createStory(name, props) {
                 helpText="A helpful text."
                 validationText="NO! TOTALLY WRONG!"
                 value="2"
-                error
+                status="error"
             >
                 {options}
             </SelectField>
         ))
 
         .add('With loading status', () => (
-            <SelectField {...props} value="1" loading>
+            <SelectField {...props} value="1" status="loading">
                 {options}
             </SelectField>
         ))

@@ -2,11 +2,11 @@ import React, { createRef, PureComponent } from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { statusPropType, sizePropType } from './common-prop-types.js'
+import { sizePropType } from './common-prop-types.js'
 import { Button } from './Button.js'
 import { spacers } from './theme.js'
 import { Upload } from './icons/Upload.js'
-import { StatusIconNoDefault } from './icons/Status.js'
+import { StatusIcon } from './icons/Status.js'
 
 /**
  * @module
@@ -34,13 +34,11 @@ class FileInput extends PureComponent {
             className,
             name,
             buttonLabel,
-            error,
-            valid,
-            warning,
             accept,
             multiple,
             small,
             large,
+            status,
             disabled,
             tabIndex,
         } = this.props
@@ -68,11 +66,7 @@ class FileInput extends PureComponent {
                 >
                     {buttonLabel}
                 </Button>
-                <StatusIconNoDefault
-                    error={error}
-                    valid={valid}
-                    warning={warning}
-                />
+                <StatusIcon status={status} />
 
                 <style jsx>{`
                     input {
@@ -126,9 +120,7 @@ FileInput.propTypes = {
     className: propTypes.string,
     tabIndex: propTypes.string,
 
-    error: statusPropType,
-    valid: statusPropType,
-    warning: statusPropType,
+    status: propTypes.oneOf(['warning', 'error', 'valid']),
     small: sizePropType,
     large: sizePropType,
     disabled: propTypes.bool,

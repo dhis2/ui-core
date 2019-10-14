@@ -1,8 +1,6 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from './common-prop-types.js'
-
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Input } from './Input.js'
@@ -34,10 +32,7 @@ class InputField extends React.Component {
             readOnly,
             placeholder,
             name,
-            valid,
-            error,
-            warning,
-            loading,
+            status,
             value,
             tabIndex,
             helpText,
@@ -66,10 +61,7 @@ class InputField extends React.Component {
                     value={value || ''}
                     placeholder={placeholder}
                     disabled={disabled}
-                    valid={valid}
-                    warning={warning}
-                    error={error}
-                    loading={loading}
+                    status={status}
                     dense={dense}
                     tabIndex={tabIndex}
                     initialFocus={initialFocus}
@@ -80,9 +72,7 @@ class InputField extends React.Component {
                 {helpText ? <Help>{helpText}</Help> : null}
 
                 {validationText ? (
-                    <Help error={error} warning={warning} valid={valid}>
-                        {validationText}
-                    </Help>
+                    <Help status={status}>{validationText}</Help>
                 ) : null}
             </Field>
         )
@@ -136,10 +126,7 @@ InputField.propTypes = {
     disabled: propTypes.bool,
     readOnly: propTypes.bool,
     dense: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
-    loading: propTypes.bool,
+    status: propTypes.oneOf(['warning', 'error', 'loading', 'valid']),
     initialFocus: propTypes.bool,
 
     onBlur: propTypes.func,

@@ -3,7 +3,6 @@ import propTypes from '@dhis2/prop-types'
 import React, { Component, createRef } from 'react'
 import css from 'styled-jsx/css'
 
-import { statusPropType } from './common-prop-types.js'
 import { Checked, Unchecked } from './icons/Radio.js'
 import { colors, theme } from './theme.js'
 
@@ -107,25 +106,23 @@ class Radio extends Component {
             checked = false,
             className,
             disabled,
-            error,
             icon,
             label,
             name,
             onChange,
             required,
             tabIndex,
-            valid,
             value,
-            warning,
+            status,
         } = this.props
         const { focus } = this.state
+        const valid = status === 'valid'
+        const error = status === 'error'
+        const warning = status === 'warning'
 
-        const classes = cx(icons.className, {
+        const classes = cx(icons.className, status, {
             checked: checked && !valid && !error && !warning,
             disabled,
-            valid,
-            error,
-            warning,
             focus,
         })
 
@@ -207,9 +204,7 @@ Radio.propTypes = {
     required: propTypes.bool,
     checked: propTypes.bool,
     disabled: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
+    status: propTypes.oneOfType(['valid', 'error', 'warning']),
     initialFocus: propTypes.bool,
 }
 

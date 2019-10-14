@@ -2,7 +2,6 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from './common-prop-types.js'
 import { spacers, theme } from './theme.js'
 
 /**
@@ -12,14 +11,8 @@ import { spacers, theme } from './theme.js'
  * @example import { Help } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/help--default|Storybook}
  */
-const Help = ({ children, valid, error, warning, className }) => (
-    <p
-        className={cx(className, {
-            valid,
-            error,
-            warning,
-        })}
-    >
+const Help = ({ children, status, className }) => (
+    <p className={cx(className, status)}>
         {children}
 
         <style jsx>{`
@@ -61,9 +54,7 @@ const Help = ({ children, valid, error, warning, className }) => (
 Help.propTypes = {
     className: propTypes.string,
     children: propTypes.string.isRequired,
-    error: statusPropType,
-    valid: statusPropType,
-    warning: statusPropType,
+    status: propTypes.oneOf(['warning', 'error', 'valid']),
 }
 
 export { Help }

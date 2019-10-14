@@ -2,8 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import React, { PureComponent } from 'react'
 import cx from 'classnames'
 
-import { statusPropType } from './common-prop-types.js'
-import { StatusIconNoDefault } from './icons/Status.js'
+import { StatusIcon } from './icons/Status.js'
 
 import { styles } from './TextArea/styles.js'
 
@@ -89,10 +88,7 @@ export class TextArea extends PureComponent {
             readOnly,
             placeholder,
             name,
-            valid,
-            error,
-            warning,
-            loading,
+            status,
             value,
             tabIndex,
             rows,
@@ -117,23 +113,15 @@ export class TextArea extends PureComponent {
                     onBlur={onBlur}
                     onChange={onChange}
                     rows={rows}
-                    className={cx({
+                    className={cx(status, {
                         dense,
                         disabled,
-                        error,
-                        valid,
-                        warning,
                         'read-only': readOnly,
                     })}
                 />
 
                 <div className="status-icon">
-                    <StatusIconNoDefault
-                        error={error}
-                        valid={valid}
-                        loading={loading}
-                        warning={warning}
-                    />
+                    <StatusIcon status={status} />
                 </div>
 
                 <style jsx>{styles}</style>
@@ -202,10 +190,7 @@ TextArea.propTypes = {
     readOnly: propTypes.bool,
     dense: propTypes.bool,
 
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
-    loading: propTypes.bool,
+    status: propTypes.oneOf(['warning', 'error', 'loading', 'valid']),
 
     initialFocus: propTypes.bool,
 
