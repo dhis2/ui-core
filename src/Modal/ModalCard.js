@@ -36,7 +36,7 @@ const cardBoxStyle = resolve`
 export const ModalCard = ({ children, small, large }) => {
     return (
         <Card
-            className={cx(cardBoxStyle.className, 'modal-card', {
+            className={cx('modal-card', cardBoxStyle.className, {
                 small,
                 large,
             })}

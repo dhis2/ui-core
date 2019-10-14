@@ -7,7 +7,7 @@ import { iconStyles } from './styles.js'
 
 const Dismiss = ({ onClick }) => (
     <div onClick={onClick}>
-        <Close className={cx(iconStyles.className, 'dismiss')} />
+        <Close className={cx('dismiss', iconStyles.className)} />
         {iconStyles.styles}
         <style jsx>{`
             div {

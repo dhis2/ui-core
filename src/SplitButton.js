@@ -53,7 +53,7 @@ class SplitButton extends Component {
             <div ref={this.anchorRef} className={cx(this.props.className)}>
                 <Button
                     {...this.props}
-                    className={cx(buttonStyles.className, 'start')}
+                    className={cx('start', buttonStyles.className)}
                 >
                     {this.props.children}
                 </Button>
@@ -61,7 +61,7 @@ class SplitButton extends Component {
                 <Button
                     {...this.props}
                     onClick={this.onToggle}
-                    className={cx(buttonStyles.className, 'end')}
+                    className={cx('end', buttonStyles.className)}
                 >
                     {icon}
                 </Button>

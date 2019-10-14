@@ -42,7 +42,7 @@ Contents.propTypes = {
 const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
     const arrowIcon = hasLeaves ? (
         <ArrowDown
-            className={cx(iconStyles.className, 'node-arrow-icon', { open })}
+            className={cx('node-arrow-icon', iconStyles.className, { open })}
         />
     ) : (
         <span />

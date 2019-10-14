@@ -81,7 +81,7 @@ class FileInput extends PureComponent {
                     error={error}
                     valid={valid}
                     warning={warning}
-                    className={cx(iconStyles.className, 'file-input')}
+                    className={cx('file-input', iconStyles.className)}
                 />
                 {iconStyles.styles}
                 <style jsx>{`

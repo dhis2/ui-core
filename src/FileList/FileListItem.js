@@ -41,11 +41,11 @@ const FileListItem = ({
         <span className="icon">
             {loading ? (
                 <Loading
-                    className={cx(iconStyles.className, 'file-list-item')}
+                    className={cx('file-list-item', iconStyles.className)}
                 />
             ) : (
                 <AttachFile
-                    className={cx(iconStyles.className, 'file-list-item')}
+                    className={cx('file-list-item', iconStyles.className)}
                 />
             )}
         </span>
