@@ -193,7 +193,8 @@ Input.defaultProps = {
  */
 Input.propTypes = {
     name: propTypes.string.isRequired,
-    type: propTypes.string.isRequired,
+    type: propTypes.oneOf('text', 'number', 'password', 'email', 'url', 'tel')
+        .isRequired,
 
     className: propTypes.string,
 
