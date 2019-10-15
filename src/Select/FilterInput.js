@@ -12,6 +12,7 @@ const FilterInput = ({ value, onChange }) => (
             type="text"
             name="filter"
             placeholder="Type to filter options"
+            initialFocus
         />
 
         <style jsx>{`
