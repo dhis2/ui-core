@@ -17,7 +17,7 @@ const ProcessOptions = ({ children, onClick, selected, filter }) => (
             }
 
             if (filter && !child.props.label.includes(filter)) {
-                return null;
+                return null
             }
 
             return React.cloneElement(child, {
@@ -33,7 +33,7 @@ ProcessOptions.propTypes = {
     children: propTypes.node.isRequired,
     onClick: propTypes.func.isRequired,
     selected: propTypes.object.isRequired,
-    filter: propTypes.string
+    filter: propTypes.string,
 }
 
 export { ProcessOptions }
