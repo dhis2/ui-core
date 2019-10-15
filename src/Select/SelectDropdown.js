@@ -1,42 +1,63 @@
-import React from 'react'
+import React, { Component } from 'react'
 import propTypes from 'prop-types'
-import { resolve } from 'styled-jsx/css'
-import { Card } from '../Card.js'
-import { layers } from '../theme.js'
+import { ProcessOptions } from './ProcessOptions.js'
+import { FilterInput } from './FilterInput.js'
+import { Dropdown } from './Dropdown.js'
 
-const SelectDropdown = ({ children, maxHeight }) => {
-    // Override Card styles to allow a max-height
-    const { styles, className } = resolve`
-        height: auto;
-        max-height: ${maxHeight};
-        overflow: auto;
-    `
+export class SelectDropdown extends Component {
+    state = {
+        filter: '',
+    }
 
-    return (
-        <div className="container">
-            <Card className={className}>{children}</Card>
+    handleFilterChange = e => {
+        const filter = e.target.value
+        this.setState({ filter })
+    }
 
-            {styles}
+    render() {
+        const {
+            maxHeight,
+            empty: Empty,
+            options,
+            selected,
+            onOptionClick,
+            filterable,
+        } = this.props
+        const { filter } = this.state
+        const hasOptions = React.Children.count(options) > 0
 
-            <style jsx>{`
-                .container {
-                    position: absolute;
-                    z-index: ${layers.applicationTop};
-                    left: 0;
-                    right: 0;
-                }
-            `}</style>
-        </div>
-    )
-}
+        if (hasOptions) {
+            return (
+                <Dropdown maxHeight={maxHeight}>
+                    {filterable && (
+                        <FilterInput
+                            value={filter}
+                            onChange={this.handleFilterChange}
+                        />
+                    )}
+                    <ProcessOptions
+                        onClick={onOptionClick}
+                        selected={selected}
+                        options={options}
+                        filter={filterable && filter}
+                    />
+                </Dropdown>
+            )
+        }
 
-SelectDropdown.defaultProps = {
-    maxHeight: '280px',
+        return (
+            <Dropdown maxHeight={maxHeight}>
+                <Empty />
+            </Dropdown>
+        )
+    }
 }
 
 SelectDropdown.propTypes = {
-    children: propTypes.node.isRequired,
     maxHeight: propTypes.string,
+    options: propTypes.node,
+    empty: propTypes.elementType,
+    selected: propTypes.object,
+    onOptionClick: propTypes.func,
+    filterable: propTypes.bool,
 }
-
-export { SelectDropdown }

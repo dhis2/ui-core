@@ -3,9 +3,9 @@ import propTypes from 'prop-types'
 
 const noop = () => {}
 
-const ProcessOptions = ({ children, onClick, selected, filter }) => (
+const ProcessOptions = ({ options, onClick, selected, filter }) => (
     <React.Fragment>
-        {React.Children.map(children, child => {
+        {React.Children.map(options, child => {
             const { value, label } = child.props
             const hasValue = 'value' in selected
             const hasLabel = 'label' in selected
@@ -16,7 +16,7 @@ const ProcessOptions = ({ children, onClick, selected, filter }) => (
                 active = value === selected.value && label === selected.label
             }
 
-            if (filter && !child.props.label.includes(filter)) {
+            if (filter && !label.includes(filter)) {
                 return null
             }
 
@@ -30,7 +30,7 @@ const ProcessOptions = ({ children, onClick, selected, filter }) => (
 )
 
 ProcessOptions.propTypes = {
-    children: propTypes.node.isRequired,
+    options: propTypes.node.isRequired,
     onClick: propTypes.func.isRequired,
     selected: propTypes.object.isRequired,
     filter: propTypes.string,
