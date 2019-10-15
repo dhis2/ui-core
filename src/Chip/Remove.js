@@ -1,13 +1,21 @@
 import React, { PureComponent } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { resolve } from 'styled-jsx/css'
+import { css, resolve } from 'styled-jsx/css'
 
 import { Cancel } from '../icons/Cancel'
-import { colors, spacers } from '../theme.js'
+import { colors } from '../theme.js'
+
+const containerStyle = css`
+    span {
+        display: block;
+        height: 18px;
+        width: 18px;
+        margin-right: 4px;
+    }
+`
 
 const removeIcon = resolve`
     svg {
-        margin-right: ${spacers.dp4};
         color: ${colors.grey700};
 		height: 18px;
 		width: 18px;
@@ -36,6 +44,8 @@ export class Remove extends PureComponent {
             <span onClick={this.onRemove}>
                 <Cancel className={removeIcon.className} />
                 {removeIcon.styles}
+
+                <style jsx>{containerStyle}</style>
             </span>
         )
     }
