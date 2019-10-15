@@ -145,7 +145,7 @@ InputField.propTypes = {
     onBlur: propTypes.func,
     onFocus: propTypes.func,
 
-    type: propTypes.oneOf(['text', 'email', 'number', 'password', 'url']),
+    type: Input.propTypes.type,
     inputWidth: propTypes.oneOfType([propTypes.string, propTypes.number]),
 }
 
