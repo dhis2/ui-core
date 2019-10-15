@@ -176,20 +176,21 @@ export const StatusIcon = ({
     info,
     className,
     defaultTo,
-}) =>
-    valid ? (
-        <Valid className={className} />
-    ) : warning ? (
-        <Warning className={className} />
-    ) : error ? (
-        <Error className={className} />
-    ) : loading ? (
-        <Loading className={className} />
-    ) : info ? (
-        <Info className={className} />
-    ) : (
-        defaultTo
-    )
+}) => {
+    if (error) {
+        return <Error className={className} />
+    } else if (warning) {
+        return <Warning className={className} />
+    } else if (valid) {
+        return <Valid className={className} />
+    } else if (loading) {
+        return <Loading className={className} />
+    } else if (info) {
+        return <Info className={className} />
+    } else {
+        return defaultTo
+    }
+}
 
 StatusIcon.defaultProps = {
     defaultTo: null,
