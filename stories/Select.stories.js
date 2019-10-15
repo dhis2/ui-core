@@ -347,3 +347,16 @@ storiesOf('Select', module)
             ></Select>
         )
     )
+    .add('Can filter options', () => (
+        <Select
+            onChange={({ value }) => alert(`Value changed to ${value}`)}
+            selected={{}}
+            placeholder="Please select a value"
+            filterable
+        >
+            <Option label="one" value="1" />
+            <Option label="two" value="2" />
+            <Option label="three" value="3" />
+            <Option label="four" value="4" />
+        </Select>
+    ))
