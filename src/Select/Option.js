@@ -23,7 +23,7 @@ const Option = ({ value, label, active, disabled, onClick }) => (
                 font-size: 14px;
                 text-decoration: none;
                 color: ${colors.grey900};
-                padding: ${spacers.dp8} ${spacers.dp24};
+                padding: ${spacers.dp8} ${spacers.dp12};
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;

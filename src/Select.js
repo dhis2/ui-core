@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { Input } from './Input.js'
 import { SelectDropdown } from './Select/SelectDropdown.js'
 import { SelectInput } from './Select/SelectInput.js'
+import { FilterInput } from './Select/FilterInput.js'
 import { ProcessOptions } from './Select/ProcessOptions.js'
 import { OptionsToSelected } from './Select/OptionsToSelected.js'
 import { Empty } from './Select/Empty.js'
@@ -153,12 +153,9 @@ export class Select extends Component {
                 {open && (
                     <SelectDropdown maxHeight={maxHeight}>
                         {filterable && (
-                            <Input
-                                dense
+                            <FilterInput
                                 value={filter}
                                 onChange={this.handleFilterChange}
-                                type="text"
-                                name="filter"
                             />
                         )}
                         {this.renderDropdownChildren()}
