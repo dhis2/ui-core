@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 
 const noop = () => {}
 
-const DecorateOptions = ({ children, onClick, selected }) => (
+const ProcessOptions = ({ children, onClick, selected, filter }) => (
     <React.Fragment>
         {React.Children.map(children, child => {
             const { value, label } = child.props
@@ -16,6 +16,10 @@ const DecorateOptions = ({ children, onClick, selected }) => (
                 active = value === selected.value && label === selected.label
             }
 
+            if (filter && !child.props.label.includes(filter)) {
+                return null;
+            }
+
             return React.cloneElement(child, {
                 ...child.props,
                 onClick: active ? noop : onClick,
@@ -25,10 +29,11 @@ const DecorateOptions = ({ children, onClick, selected }) => (
     </React.Fragment>
 )
 
-DecorateOptions.propTypes = {
+ProcessOptions.propTypes = {
     children: propTypes.node.isRequired,
     onClick: propTypes.func.isRequired,
     selected: propTypes.object.isRequired,
+    filter: propTypes.string
 }
 
-export { DecorateOptions }
+export { ProcessOptions }
