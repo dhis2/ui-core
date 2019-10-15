@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 import { SelectDropdown } from './Select/SelectDropdown.js'
 import { SelectInput } from './Select/SelectInput.js'
-import { FilterInput } from './Select/FilterInput.js'
-import { ProcessOptions } from './Select/ProcessOptions.js'
 import { OptionsToSelected } from './Select/OptionsToSelected.js'
 import { Empty } from './Select/Empty.js'
 
@@ -16,7 +14,6 @@ const DOWN_KEY = 40
 export class Select extends Component {
     state = {
         open: false,
-        filter: '',
     }
 
     containerRef = React.createRef()
@@ -27,11 +24,6 @@ export class Select extends Component {
 
     componentWillUnmount() {
         document.removeEventListener('click', this.handleOutsideClick)
-    }
-
-    handleFilterChange = e => {
-        const filter = e.target.value
-        this.setState({ filter })
     }
 
     handleOpen = () => {
@@ -97,26 +89,6 @@ export class Select extends Component {
         }
     }
 
-    renderDropdownChildren = () => {
-        const { empty: Empty, selected, children, filterable } = this.props
-        const { filter } = this.state
-        const hasChildren = React.Children.count(children) > 0
-
-        if (hasChildren) {
-            return (
-                <ProcessOptions
-                    onClick={this.handleOptionClick}
-                    selected={selected}
-                    filter={filterable && filter}
-                >
-                    {children}
-                </ProcessOptions>
-            )
-        }
-
-        return <Empty />
-    }
-
     render() {
         const {
             children,
@@ -126,9 +98,10 @@ export class Select extends Component {
             maxHeight,
             tabIndex,
             label,
+            empty,
             filterable,
         } = this.props
-        const { open, filter } = this.state
+        const { open } = this.state
 
         return (
             <div
@@ -151,15 +124,14 @@ export class Select extends Component {
                     <OptionsToSelected options={children} selected={selected} />
                 </SelectInput>
                 {open && (
-                    <SelectDropdown maxHeight={maxHeight}>
-                        {filterable && (
-                            <FilterInput
-                                value={filter}
-                                onChange={this.handleFilterChange}
-                            />
-                        )}
-                        {this.renderDropdownChildren()}
-                    </SelectDropdown>
+                    <SelectDropdown
+                        maxHeight={maxHeight}
+                        options={children}
+                        empty={empty}
+                        selected={selected}
+                        onOptionClick={this.handleOptionClick}
+                        filterable={filterable}
+                    />
                 )}
 
                 <style jsx>{`
