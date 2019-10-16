@@ -31,7 +31,7 @@ const SelectInput = ({
                 {showSelection && children}
                 <span className="right">
                     {showClear && (
-                        <Button small onClick={onClear} type="button">
+                        <Button small secondary onClick={onClear} type="button">
                             Clear
                         </Button>
                     )}
