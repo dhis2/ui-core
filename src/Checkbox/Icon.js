@@ -71,17 +71,13 @@ export const Icon = ({
             {icons.styles}
             <style jsx>{`
                 div {
-                    position: relative;
+                    border: 2px solid transparent;
+                    border-radius: 4px;
                     margin: 0 6px 0 0;
                 }
 
-                .focus:before {
-                    content: '';
-                    position: absolute;
-                    border: 2px solid ${colors.blue600};
-                    border-radius: 4px;
-                    width: 100%;
-                    height: 100%;
+                div.focus {
+                    border-color: ${colors.blue600};
                 }
             `}</style>
         </div>
