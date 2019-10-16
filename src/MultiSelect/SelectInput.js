@@ -28,7 +28,7 @@ const SelectInput = ({
                 {showPlaceholder && (
                     <span className="placeholder">{placeholder}</span>
                 )}
-                {showSelection && children}
+                <div>{showSelection && children}</div>
                 <span className="right">
                     {showClear && (
                         <Button small secondary onClick={onClear} type="button">

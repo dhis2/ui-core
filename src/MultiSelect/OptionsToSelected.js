@@ -32,6 +32,7 @@ const OptionsToSelected = ({ options, selected, onOptionRemove }) => {
                             label: option.props.label,
                         })
                     }
+                    overflow
                 >
                     {option.props.label}
                 </Chip>
