@@ -358,5 +358,11 @@ storiesOf('Select', module)
             <Option label="two" value="2" />
             <Option label="three" value="3" />
             <Option label="four" value="4" />
+            <Option label="five" value="5" />
+            <Option label="six" value="6" />
+            <Option label="seven" value="7" />
+            <Option label="eight" value="8" />
+            <Option label="nine" value="9" />
+            <Option label="ten" value="10" />
         </Select>
     ))
