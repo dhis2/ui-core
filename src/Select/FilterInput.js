@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { Input } from '../Input.js'
-import { spacers } from '../theme.js'
+import { spacers, colors } from '../theme.js'
 
 const FilterInput = ({ value, onChange }) => (
     <div className="container">
@@ -17,6 +17,9 @@ const FilterInput = ({ value, onChange }) => (
 
         <style jsx>{`
             .container {
+                position: sticky;
+                top: 0;
+                background: ${colors.white};
                 padding: ${spacers.dp8} ${spacers.dp8} ${spacers.dp4}
                     ${spacers.dp8};
             }
