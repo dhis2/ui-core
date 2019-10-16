@@ -338,5 +338,11 @@ storiesOf('MultiSelect', module)
             <MultiOption label="two" value="2" />
             <MultiOption label="three" value="3" />
             <MultiOption label="four" value="4" />
+            <MultiOption label="five" value="5" />
+            <MultiOption label="six" value="6" />
+            <MultiOption label="seven" value="7" />
+            <MultiOption label="eight" value="8" />
+            <MultiOption label="nine" value="9" />
+            <MultiOption label="ten" value="10" />
         </MultiSelect>
     ))
