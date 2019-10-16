@@ -1,6 +1,7 @@
 {
-  "screenshots": {
-    "screenshotOnRunFailure": false
-  },
-  "projectId": "65oh1u"
+    "testFiles": "**/*.feature",
+    "screenshots": {
+        "screenshotOnRunFailure": false
+    },
+    "projectId": "65oh1u"
 }

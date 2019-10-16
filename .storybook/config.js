@@ -14,7 +14,7 @@ addDecorator(FrameStylesWrapper)
 const includeTesting = 'STORYBOOK_INCLUDE_TESTING' in process.env
 
 function loadStories() {
-    const req = require.context('../stories', false, /\.stories\.js$/)
+    const req = require.context('../stories', true, /\.stories\.js$/)
     req.keys().forEach(filename => req(filename))
 }
 
@@ -22,7 +22,7 @@ function loadStoriesInclTesting() {
     const req = require.context(
         '../stories',
         true,
-        /(\.testing)?\.stories\.js$/
+        /\.stories(\.testing)?\.js$/
     )
     req.keys().forEach(filename => req(filename))
 }
