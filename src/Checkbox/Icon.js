@@ -71,13 +71,12 @@ export const Icon = ({
             {icons.styles}
             <style jsx>{`
                 div {
-                    border: 2px solid transparent;
                     border-radius: 4px;
                     margin: 0 6px 0 0;
                 }
 
                 div.focus {
-                    border-color: ${colors.blue600};
+                    box-shadow: inset 0 0 0 2px ${colors.blue600};
                 }
             `}</style>
         </div>
