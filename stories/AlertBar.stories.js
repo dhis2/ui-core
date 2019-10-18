@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { AlertBar } from '../src'
-import { Indeterminate } from '../src/icons/Checkbox'
+import { AttachFile } from '../src/icons/AttachFile'
 
 const Wrapper = fn => (
     <div
@@ -71,7 +71,7 @@ storiesOf('AlertBar', module)
             <AlertBar permanent icon={false}>
                 No icon
             </AlertBar>
-            <AlertBar permanent icon={<Indeterminate />}>
+            <AlertBar permanent icon={<AttachFile />}>
                 Custom icon
             </AlertBar>
         </React.Fragment>
