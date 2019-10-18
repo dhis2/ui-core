@@ -18,15 +18,13 @@
         "build": "NODE_ENV=production yarn build:commonjs && NODE_ENV=production yarn build:modules",
         "postbuild": "NODE_ENV=production yarn build-storybook",
         "build-storybook": "build-storybook -c .storybook -o ./build/docs && cp -r ./stories/info/images ./build/docs",
-        "start-storybook": "start-storybook --port 5000 -s ./stories/info",
-        "start": "yarn start-storybook",
-        "cypress:open": "cypress open",
-
-        "start:testing": "STORYBOOK_INCLUDE_TESTING=1 yarn start --ci",
-        "cypress:browser": "cypress open",
-        "cypress:ci": "NO_COLOR=1 cypress run -b $BROWSER --config video=false",
-        "cypress:open": "node scripts/cypress_open.js",
-        "cypress:run": "node scripts/cypress_run.js"
+        "start-storybook": "start-storybook -s ./stories/info",
+        "start": "yarn start-storybook --port 5000",
+        "start:testing": "STORYBOOK_INCLUDE_TESTING=1 yarn start --port $PORT --ci",
+        "cypress:browser": "cypress open --config baseUrl=http://localhost:$PORT --env PORT=$PORT",
+        "cypress:ci": "NO_COLOR=1 cypress run -b $BROWSER --config baseUrl=http://localhost:$PORT --env PORT=$PORT",
+        "cypress:open": "PORT=12345 concurrently --kill-others -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:$PORT && yarn cypress:browser'",
+        "cypress:run": "PORT=12345 concurrently --kill-others --success first -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:$PORT && yarn cypress:ci'"
     },
     "devDependencies": {
         "@babel/cli": "^7.6.4",
@@ -43,6 +41,7 @@
         "@storybook/react": "^5.2.5",
         "babel-eslint": "10.x",
         "babel-loader": "^8.0.6",
+        "concurrently": "^5.0.0",
         "cypress": "^3.4.1",
         "cypress-cucumber-preprocessor": "^1.16.2",
         "eslint-plugin-react": "^7.16.0",
@@ -51,7 +50,8 @@
         "react-dom": "16.3",
         "storybook-addon-jsx": "^7.1.6",
         "storybook-addon-react-docgen": "^1.2.28",
-        "typeface-roboto": "^0.0.75"
+        "typeface-roboto": "^0.0.75",
+        "wait-on": "^3.3.0"
     },
     "peerDependencies": {
         "prop-types": "^15",

@@ -2,7 +2,7 @@ import '../common/index'
 import { Given, When } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an AlertBar has a "Cancel" action', () => {
-    cy.visit('localhost:5000/iframe.html?id=alertbar--with-actions')
+    cy.visitStory('AlertBar', 'With actions')
         .get('.info')
         .as('AlertBar')
 
