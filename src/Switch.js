@@ -3,54 +3,12 @@ import propTypes from '@dhis2/prop-types'
 import React, { Component, createRef } from 'react'
 
 import { statusPropType } from './common-prop-types.js'
-import { styles, switchIconStyles } from './Switch/styles.js'
-
-const Input = React.forwardRef((props, ref) => (
-    <div>
-        <input type="checkbox" ref={ref} {...props} />
-
-        <style jsx>{`
-            div {
-                height: 0;
-                width: 0;
-                overflow: hidden;
-            }
-        `}</style>
-    </div>
-))
-Input.displayName = 'Input'
-
-const SwitchIcon = ({ checked, valid, warning, error, disabled, focus }) => {
-    const classes = cx({
-        checked,
-        disabled,
-        valid,
-        error,
-        warning,
-        focus,
-    })
-
-    return (
-        <div className={classes}>
-            <span className="path" />
-            <span className="toggle" />
-
-            <style jsx>{switchIconStyles}</style>
-        </div>
-    )
-}
-
-SwitchIcon.propTypes = {
-    checked: propTypes.bool,
-    disabled: propTypes.bool,
-    valid: propTypes.bool,
-    warning: propTypes.bool,
-    error: propTypes.bool,
-    focus: propTypes.bool,
-}
+import { Regular } from './icons/Switch.js'
+import { colors, theme } from './theme.js'
 
 /**
  * @module
+ *
  * @param {Switch.PropTypes} props
  * @returns {React.Component}
  *
@@ -61,76 +19,123 @@ SwitchIcon.propTypes = {
  */
 class Switch extends Component {
     ref = createRef()
-    state = {
-        focus: this.props.initialFocus,
-    }
 
     componentDidMount() {
-        if (this.state.focus) {
+        if (this.props.initialFocus) {
             this.ref.current.focus()
-        }
-    }
-
-    onFocus = e => {
-        this.setState({ focus: true })
-
-        if (this.props.onFocus) {
-            this.props.onFocus(e)
-        }
-    }
-
-    onBlur = e => {
-        this.setState({ focus: false })
-
-        if (this.props.onBlur) {
-            this.props.onBlur(e)
         }
     }
 
     render() {
         const {
-            onChange,
-            name,
-            className,
-            label,
-            required,
             checked = false,
+            className,
+            disabled,
+            error,
+            label,
+            name,
+            onChange,
+            tabIndex,
+            valid,
+            value,
+            warning,
+            onFocus,
+            onBlur,
+            dense,
+        } = this.props
+
+        const classes = cx({
+            checked,
             disabled,
             valid,
-            warning,
             error,
-        } = this.props
-        const { focus } = this.state
+            warning,
+            dense,
+        })
 
         return (
             <label
                 className={cx(className, {
                     disabled,
-                    focus,
+                    dense,
                 })}
             >
-                <Input
+                <input
+                    type="switch"
                     ref={this.ref}
                     name={name}
-                    onBlur={this.onBlur}
-                    onFocus={this.onFocus}
+                    value={value}
                     checked={checked}
                     disabled={disabled}
+                    tabIndex={tabIndex}
                     onChange={onChange}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
                 />
 
-                <SwitchIcon
-                    checked={checked}
-                    disabled={disabled}
-                    valid={valid}
-                    warning={warning}
-                    error={error}
-                    focus={focus}
-                />
+                <div className={cx('icon', { dense })}>
+                    <Regular className={classes} />
+                </div>
 
-                <span className={cx({ required, disabled })}>{label}</span>
+                {label}
 
-                <style jsx>{styles}</style>
+                <style jsx>{`
+                    label {
+                        position: relative;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        cursor: pointer;
+                        pointer-events: all;
+                        user-select: none;
+                        color: ${colors.grey900};
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
+
+                    label.grouped,
+                    label.grouped.dense:first-of-type {
+                        padding-top: 4px;
+                    }
+
+                    label.grouped.dense {
+                        padding-top: 2px;
+                    }
+
+                    label.dense {
+                        font-size: 14px;
+                        line-height: 16px;
+                    }
+
+                    label.disabled {
+                        cursor: not-allowed;
+                        color: ${theme.disabled};
+                    }
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+
+                    .icon {
+                        pointer-events: none;
+                        user-select: none;
+                        margin-right: 5px;
+                        border: 2px solid transparent;
+                        padding: 1px;
+                        border-radius: 14px;
+                    }
+
+                    label.dense .icon {
+                        margin-right: 3px;
+                        border-radius: 12px;
+                    }
+
+                    input:focus + .icon {
+                        border-color: ${colors.blue600};
+                    }
+                `}</style>
             </label>
         )
     }
@@ -139,40 +144,48 @@ class Switch extends Component {
 /**
  * @typedef {Object} PropTypes
  * @static
- *
- * @prop {function} onChange
- * @prop {string} name
+ * @prop {string} value
+ * @prop {Node} label
+ * @prop {function} [onChange]
+ * @prop {string} [name]
  * @prop {string} [className]
- * @prop {string} [label]
- * @prop {boolean} [required]
- * @prop {boolean} [checked]
+ * @prop {string} [tabIndex]
+ *
  * @prop {boolean} [disabled]
+ * @prop {boolean} [checked]
  * @prop {boolean} [initialFocus]
+ *
+ * @prop {boolean} [valid] - `valid`, `warning`, and `error` are
+ * mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ *
+ * @prop {boolean} [dense]
  *
  * @prop {function} [onFocus]
  * @prop {function} [onBlur]
- *
- * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
- * @prop {boolean} [warning]
- * @prop {boolean} [error]
  */
 Switch.propTypes = {
-    onChange: propTypes.func.isRequired,
-    name: propTypes.string.isRequired,
+    value: propTypes.string,
+    label: propTypes.node.isRequired,
 
+    name: propTypes.string,
     className: propTypes.string,
-    label: propTypes.string,
+    tabIndex: propTypes.string,
 
-    required: propTypes.bool,
+    onChange: propTypes.func,
+    onFocus: propTypes.func,
+    onBlur: propTypes.func,
+
     checked: propTypes.bool,
     disabled: propTypes.bool,
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
-    initialFocus: propTypes.bool,
 
-    onFocus: propTypes.func,
-    onBlur: propTypes.func,
+    dense: propTypes.bool,
+
+    initialFocus: propTypes.bool,
 }
 
 export { Switch }
