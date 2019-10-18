@@ -1,125 +1,147 @@
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-import React, { Component, Fragment } from 'react'
+import React, { Component, createRef } from 'react'
 
 import { statusPropType } from './common-prop-types.js'
-
-import { theme } from './theme.js'
-
-import { Icon } from './Checkbox/Icon.js'
-import { Input } from './Checkbox/Input.js'
-import { Label } from './Checkbox/Label.js'
+import { Regular, Dense } from './icons/Checkbox.js'
+import { colors, theme } from './theme.js'
 
 /**
  * @module
+ *
  * @param {Checkbox.PropTypes} props
  * @returns {React.Component}
- * @example import { Checkbox } from @dhis2/ui-core
+ *
+ * @example import { Checkbox } from '@dhis2/ui-core'
+ *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/checkbox.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/checkbox--default|Storybook}
  */
 class Checkbox extends Component {
-    constructor(props) {
-        super(props)
+    ref = createRef()
 
-        this.state = {
-            focus: props.initialFocus,
-        }
-    }
-
-    onFocus = e => {
-        this.setState({ focus: true })
-
-        if (this.props.onFocus) {
-            this.props.onFocus(e)
-        }
-    }
-
-    onBlur = e => {
-        this.setState({ focus: false })
-
-        if (this.props.onBlur) {
-            this.props.onBlur(e)
+    componentDidMount() {
+        if (this.props.initialFocus) {
+            this.ref.current.focus()
         }
     }
 
     render() {
         const {
             checked = false,
+            indeterminate = false,
             className,
             disabled,
             error,
-            icon,
-            indeterminate,
             label,
             name,
             onChange,
-            required,
             tabIndex,
             valid,
             value,
             warning,
+            onFocus,
+            onBlur,
+            dense,
         } = this.props
-        const { focus } = this.state
+
+        const classes = cx({
+            checked,
+            indeterminate,
+            disabled,
+            valid,
+            error,
+            warning,
+        })
 
         return (
-            <Fragment>
-                <label
-                    className={cx('base', className, {
-                        disabled,
-                        focus,
-                    })}
-                >
-                    <Input
-                        name={name}
-                        value={value}
-                        checked={checked}
-                        disabled={disabled}
-                        focus={focus}
-                        onChange={onChange}
-                        onFocus={this.onFocus}
-                        onBlur={this.onBlur}
-                        tabIndex={tabIndex}
-                    />
+            <label
+                className={cx(className, {
+                    disabled,
+                    dense,
+                })}
+            >
+                <input
+                    type="checkbox"
+                    ref={this.ref}
+                    name={name}
+                    value={value}
+                    checked={checked}
+                    disabled={disabled}
+                    tabIndex={tabIndex}
+                    onChange={onChange}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                />
 
-                    <Icon
-                        focus={focus}
-                        checked={checked}
-                        disabled={disabled}
-                        valid={valid}
-                        error={error}
-                        warning={warning}
-                        indeterminate={indeterminate}
-                    />
+                <div className={cx('icon', { dense })}>
+                    {dense ? (
+                        <Dense className={classes} />
+                    ) : (
+                        <Regular className={classes} />
+                    )}
+                </div>
 
-                    {icon}
+                {label}
 
-                    <Label required={required} disabled={disabled}>
-                        {label}
-                    </Label>
+                <style jsx>{`
+                    label {
+                        position: relative;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        cursor: pointer;
+                        pointer-events: all;
+                        user-select: none;
+                        color: ${colors.grey900};
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
 
-                    <style jsx>{`
-                        label {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                            justify-content: flex-start;
-                            cursor: pointer;
-                            pointer-events: all;
-                            user-select: none;
-                        }
+                    label.grouped,
+                    label.grouped.dense:first-of-type {
+                        padding-top: 4px;
+                    }
 
-                        .disabled {
-                            cursor: not-allowed;
-                            color: ${theme.disabled};
-                        }
+                    label.grouped.dense {
+                        padding-top: 2px;
+                    }
 
-                        .focus {
-                            outline: 1px;
-                        }
-                    `}</style>
-                </label>
-            </Fragment>
+                    label.dense {
+                        font-size: 14px;
+                        line-height: 16px;
+                    }
+
+                    label.disabled {
+                        cursor: not-allowed;
+                        color: ${theme.disabled};
+                    }
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+
+                    .icon {
+                        pointer-events: none;
+                        user-select: none;
+                        margin-right: 5px;
+                        border: 2px solid transparent;
+                        padding: 1px;
+                        border-radius: 5px;
+                    }
+
+                    label.dense .icon {
+                        margin-right: 3px;
+                        border-radius: 4px;
+                    }
+
+                    input:focus + .icon {
+                        border-color: ${colors.blue600};
+                    }
+                `}</style>
+            </label>
         )
     }
 }
@@ -127,49 +149,54 @@ class Checkbox extends Component {
 /**
  * @typedef {Object} PropTypes
  * @static
- *
- * @prop {function} onChange - The handler which is triggered when the
- * component changes
  * @prop {string} value
- * @prop {string} name
- * @prop {string} label
- *
- * @prop {string} [tabIndex]
+ * @prop {Node} label
+ * @prop {function} [onChange]
+ * @prop {string} [name]
  * @prop {string} [className]
- * @prop {function} [onFocus]
- * @prop {function} [onBlur]
+ * @prop {string} [tabIndex]
  *
- * @prop {Element} [icon]
- * @prop {boolean} [indeterminate]
- * @prop {boolean} [required]
- * @prop {boolean} [checked]
  * @prop {boolean} [disabled]
+ * @prop {boolean} [checked]
  * @prop {boolean} [initialFocus]
- * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
+ *
+ * @prop {boolean} [valid] - `valid`, `warning`, and `error` are
+ * mutually exclusive
  * @prop {boolean} [warning]
  * @prop {boolean} [error]
+ *
+ * @prop {boolean} [dense]
+ *
+ * @prop {function} [onFocus]
+ * @prop {function} [onBlur]
  */
+
+const uniqueOnStatePropType = propTypes.mutuallyExclusive(
+    ['checked', 'indeterminate'],
+    propTypes.bool
+)
+
 Checkbox.propTypes = {
-    onChange: propTypes.func.isRequired,
-
     value: propTypes.string,
-    name: propTypes.string.isRequired,
-    label: propTypes.string.isRequired,
-    tabIndex: propTypes.string,
-    className: propTypes.string,
+    label: propTypes.node.isRequired,
 
+    name: propTypes.string,
+    className: propTypes.string,
+    tabIndex: propTypes.string,
+
+    onChange: propTypes.func,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 
-    icon: propTypes.element,
-
-    indeterminate: propTypes.bool,
-    required: propTypes.bool,
-    checked: propTypes.bool,
+    checked: uniqueOnStatePropType,
+    indeterminate: uniqueOnStatePropType,
     disabled: propTypes.bool,
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
+
+    dense: propTypes.bool,
+
     initialFocus: propTypes.bool,
 }
 

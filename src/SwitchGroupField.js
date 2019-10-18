@@ -2,29 +2,29 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { ToggleGroupField } from './ToggleGroupField.js'
-import { Radio } from './Radio.js'
+import { Switch } from './Switch.js'
 
 /**
  * @module
- * @param {RadioGroupField.PropTypes} props
+ * @param {SwitchGroupField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { RadioGroupField } from '@dhis2/ui-core'
+ * @example import { SwitchGroupField } from '@dhis2/ui-core'
  *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/radio.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/radiogroupfield--default|Storybook}
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/switch.md|Design system}
+ * @see Live demo: {@link /demo/?path=/story/switchgroupfield--default|Storybook}
  */
 
-const RadioGroupField = props => <ToggleGroupField {...props} />
+const SwitchGroupField = props => <ToggleGroupField {...props} />
 
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Array.<Radio>} children
+ * @prop {Array.<Switch>} children
  * @prop {function} onChange
  * @prop {string} name
  *
- * @prop {string} [value]
+ * @prop {Array.<String>} [value]
  * @prop {string} [className]
  *
  * @prop {boolean} [disabled]
@@ -39,11 +39,11 @@ const RadioGroupField = props => <ToggleGroupField {...props} />
  * @prop {string} [validationText]
  * @prop {boolean} [required]
  */
-RadioGroupField.propTypes = {
+SwitchGroupField.propTypes = {
     ...ToggleGroupField.propTypes,
-    children: propTypes.arrayOf(propTypes.instanceOfComponent(Radio))
+    children: propTypes.arrayOf(propTypes.instanceOfComponent(Switch))
         .isRequired,
-    value: propTypes.string,
+    value: propTypes.arrayOf(propTypes.string),
 }
 
-export { RadioGroupField }
+export { SwitchGroupField }

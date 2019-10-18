@@ -93,19 +93,22 @@ class Radio extends PureComponent {
                         pointer-events: all;
                         user-select: none;
                         color: ${colors.grey900};
-                        padding-top: 4px;
                         font-size: 16px;
                         line-height: 20px;
+                    }
+
+                    label.grouped,
+                    label.grouped.dense:first-of-type {
+                        padding-top: 4px;
+                    }
+
+                    label.grouped.dense {
+                        padding-top: 2px;
                     }
 
                     label.dense {
                         font-size: 14px;
                         line-height: 16px;
-                        padding-top: 2px;
-                    }
-
-                    label.dense:first-of-type {
-                        padding-top: 4px;
                     }
 
                     label.disabled {
