@@ -132,7 +132,7 @@ storiesOf('RadioGroupField', module)
                 name="disabled"
                 value="second"
                 disabled
-                helpText="Please help me, I am disabled"
+                helpText="I am disabled"
             >
                 <Radio value="first" label="First" />
                 <Radio value="second" label="Second" />
@@ -168,7 +168,7 @@ storiesOf('RadioGroupField', module)
                 name="error"
                 value="second"
                 error
-                validationText="I have an errors"
+                validationText="I have an error"
             >
                 <Radio value="first" label="First" />
                 <Radio value="second" label="Second" />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { TabBar, Tab, ScrollBar } from '../src'
-import { Indeterminate } from '../src/icons/Checkbox'
+import { AttachFile } from '../src/icons/AttachFile'
 
 const Wrapper = fn => (
     <div
@@ -75,14 +75,14 @@ storiesOf('Tabs', module)
     ))
     .add('Tab states - with icon', () => (
         <TabBar>
-            <Tab icon={<Indeterminate />}>Default</Tab>
-            <Tab icon={<Indeterminate />} selected>
+            <Tab icon={<AttachFile />}>Default</Tab>
+            <Tab icon={<AttachFile />} selected>
                 Selected
             </Tab>
-            <Tab icon={<Indeterminate />} disabled>
+            <Tab icon={<AttachFile />} disabled>
                 Disabled
             </Tab>
-            <Tab icon={<Indeterminate />}>
+            <Tab icon={<AttachFile />}>
                 Text overflow - This tab has a very long text and it exceeds the
                 maximum width of 320px
             </Tab>
