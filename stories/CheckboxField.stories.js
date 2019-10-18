@@ -1,57 +1,57 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 
-import { Checkbox } from '../src'
+import { CheckboxField } from '../src'
 
 const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
 
-storiesOf('Checkbox', module)
+storiesOf('CheckboxField', module)
     // Regular
     .add('Default', () => (
-        <Checkbox
+        <CheckboxField
             name="Ex"
-            label="Checkbox"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Focused unchecked', () => (
-        <Checkbox
+        <CheckboxField
             initialFocus
             name="Ex"
-            label="Checkbox"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Focused checked', () => (
-        <Checkbox
+        <CheckboxField
             initialFocus
             checked
             name="Ex"
-            label="Checkbox"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Checked', () => (
-        <Checkbox
+        <CheckboxField
             name="Ex"
-            label="Checkbox"
+            label="CheckboxField"
             checked
             value="checked"
             onChange={logger}
         />
     ))
 
-    .add('Indeterminate', () => (
-        <Checkbox
+    .add('Required', () => (
+        <CheckboxField
             name="Ex"
-            label="Checkbox"
-            indeterminate
+            label="CheckboxField"
+            required
             value="checked"
             onChange={logger}
         />
@@ -59,16 +59,16 @@ storiesOf('Checkbox', module)
 
     .add('Disabled', () => (
         <>
-            <Checkbox
+            <CheckboxField
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 disabled
                 value="disabled"
                 onChange={logger}
             />
-            <Checkbox
+            <CheckboxField
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 disabled
                 checked
                 value="disabled"
@@ -77,19 +77,42 @@ storiesOf('Checkbox', module)
         </>
     ))
 
+    .add('Help text', () => (
+        <>
+            <CheckboxField
+                name="Ex"
+                label="CheckboxField"
+                value="disabled"
+                onChange={logger}
+                helpText="Help text"
+            />
+            <CheckboxField
+                name="Ex"
+                label="CheckboxField"
+                error
+                validationText="Validation text (error state)"
+                helpText="Help text"
+                value="disabled"
+                onChange={logger}
+            />
+        </>
+    ))
+
     .add('Valid', () => (
         <>
-            <Checkbox
+            <CheckboxField
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 valid
+                validationText="I am a validation text"
                 value="valid"
                 onChange={logger}
             />
-            <Checkbox
+            <CheckboxField
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 valid
+                validationText="I am a validation text"
                 checked
                 value="valid"
                 onChange={logger}
@@ -99,17 +122,19 @@ storiesOf('Checkbox', module)
 
     .add('Warning', () => (
         <>
-            <Checkbox
+            <CheckboxField
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 warning
+                validationText="I am a validation text"
                 value="warning"
                 onChange={logger}
             />
-            <Checkbox
+            <CheckboxField
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 warning
+                validationText="I am a validation text"
                 checked
                 value="warning"
                 onChange={logger}
@@ -119,17 +144,19 @@ storiesOf('Checkbox', module)
 
     .add('Error', () => (
         <>
-            <Checkbox
+            <CheckboxField
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 error
+                validationText="I am a validation text"
                 value="error"
                 onChange={logger}
             />
-            <Checkbox
+            <CheckboxField
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 error
+                validationText="I am a validation text"
                 checked
                 value="error"
                 onChange={logger}
@@ -138,7 +165,7 @@ storiesOf('Checkbox', module)
     ))
 
     .add('Image label', () => (
-        <Checkbox
+        <CheckboxField
             name="Ex"
             label={<img src="https://picsum.photos/id/82/200/100" />}
             value="with-help"
@@ -148,55 +175,55 @@ storiesOf('Checkbox', module)
 
     // Dense
     .add('Default - Dense', () => (
-        <Checkbox
+        <CheckboxField
             dense
             name="Ex"
-            label="Checkbox"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Focused unchecked - Dense', () => (
-        <Checkbox
+        <CheckboxField
             dense
             initialFocus
             name="Ex"
-            label="Checkbox"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Focused checked - Dense', () => (
-        <Checkbox
+        <CheckboxField
             dense
             initialFocus
             checked
             name="Ex"
-            label="Checkbox"
+            label="CheckboxField"
             value="default"
             onChange={logger}
         />
     ))
 
     .add('Checked - Dense', () => (
-        <Checkbox
+        <CheckboxField
             dense
             name="Ex"
-            label="Checkbox"
+            label="CheckboxField"
             checked
             value="checked"
             onChange={logger}
         />
     ))
 
-    .add('Indeterminate - Dense', () => (
-        <Checkbox
+    .add('Required - Dense', () => (
+        <CheckboxField
             dense
             name="Ex"
-            label="Checkbox"
-            indeterminate
+            label="CheckboxField"
+            required
             value="checked"
             onChange={logger}
         />
@@ -204,18 +231,18 @@ storiesOf('Checkbox', module)
 
     .add('Disabled - Dense', () => (
         <>
-            <Checkbox
+            <CheckboxField
                 dense
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 disabled
                 value="disabled"
                 onChange={logger}
             />
-            <Checkbox
+            <CheckboxField
                 dense
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 disabled
                 checked
                 value="disabled"
@@ -226,19 +253,21 @@ storiesOf('Checkbox', module)
 
     .add('Valid - Dense', () => (
         <>
-            <Checkbox
+            <CheckboxField
                 dense
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 valid
+                validationText="I am a validation text"
                 value="valid"
                 onChange={logger}
             />
-            <Checkbox
+            <CheckboxField
                 dense
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 valid
+                validationText="I am a validation text"
                 checked
                 value="valid"
                 onChange={logger}
@@ -248,19 +277,21 @@ storiesOf('Checkbox', module)
 
     .add('Warning - Dense', () => (
         <>
-            <Checkbox
+            <CheckboxField
                 dense
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 warning
+                validationText="I am a validation text"
                 value="warning"
                 onChange={logger}
             />
-            <Checkbox
+            <CheckboxField
                 dense
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 warning
+                validationText="I am a validation text"
                 checked
                 value="warning"
                 onChange={logger}
@@ -270,19 +301,21 @@ storiesOf('Checkbox', module)
 
     .add('Error - Dense', () => (
         <>
-            <Checkbox
+            <CheckboxField
                 dense
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 error
+                validationText="I am a validation text"
                 value="error"
                 onChange={logger}
             />
-            <Checkbox
+            <CheckboxField
                 dense
                 name="Ex"
-                label="Checkbox"
+                label="CheckboxField"
                 error
+                validationText="I am a validation text"
                 checked
                 value="error"
                 onChange={logger}
@@ -291,7 +324,7 @@ storiesOf('Checkbox', module)
     ))
 
     .add('Image label - Dense', () => (
-        <Checkbox
+        <CheckboxField
             dense
             name="Ex"
             label={<img src="https://picsum.photos/id/82/200/100" />}
