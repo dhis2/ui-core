@@ -124,6 +124,7 @@ export class Select extends Component {
 
 Select.defaultProps = {
     tabIndex: '0',
+    maxHeight: '280px',
 }
 
 Select.propTypes = {
