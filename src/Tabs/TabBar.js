@@ -13,8 +13,8 @@ import cx from 'classnames'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tab.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/tabs--default-fluid|Storybook}
  */
-const TabBar = ({ fixed, children }) => (
-    <div className={cx('tab-bar', { fixed })}>
+const TabBar = ({ fixed, children, className }) => (
+    <div className={cx('tab-bar', className, { fixed })}>
         {children}
 
         <style jsx>{`
@@ -36,10 +36,12 @@ const TabBar = ({ fixed, children }) => (
  * @typedef {Object} PropTypes
  * @static
  * @prop {Node} children
+ * @prop {string} [className]
  * @prop {boolean} [fixed]
  */
 TabBar.propTypes = {
     children: propTypes.node.isRequired,
+    className: propTypes.string,
     fixed: propTypes.bool,
 }
 
