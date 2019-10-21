@@ -15,7 +15,7 @@ const Input = ({
     const hasSelection = 'label' in selected && 'value' in selected
     const showPlaceholder = !prefix && !hasSelection
     const showClear = clearable && hasSelection
-    const handleClick = e => {
+    const handleClear = e => {
         e.stopPropagation()
         onChange({})
     }
@@ -35,7 +35,7 @@ const Input = ({
                         className="right"
                         small
                         secondary
-                        onClick={handleClick}
+                        onClick={handleClear}
                         type="button"
                     >
                         Clear
