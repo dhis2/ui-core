@@ -12,6 +12,13 @@ import { ModalCard } from './Modal/ModalCard.js'
 import { Title } from './Modal/Title.js'
 
 /**
+ * Modal provides a UI to prompt the user to respond to a question
+ * or a note to the user.
+ *
+ * Use Model with the following Components:
+ * Model.Title (optional)
+ * Model.Content (required)
+ * Model.Actions (required)
  * @module
  * @param {Modal.PropTypes} props
  * @returns {React.Component}
@@ -28,15 +35,6 @@ import { Title } from './Modal/Title.js'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/modal.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/modal--small-title-content-action|Storybook}
- */
-
-/* Modal provides a UI to prompt the user to respond to a question
- * or a note to the user.
- *
- * Use Model with the following Components:
- * Model.Title (optional)
- * Model.Content (required)
- * Model.Actions (required)
  */
 export const Modal = ({ children, onClose, small, large, open }) => {
     return createPortal(
@@ -66,7 +64,15 @@ Modal.Content = Content
 Modal.Actions = Actions
 
 /**
+ * @typedef {Object} PropTypes
+ * @static
  *
+ * @prop {Node} children
+ * @prop {string} className
+ * @prop {Function} onClose
+ * @prop {bool} open
+ * @prop {bool} small
+ * @prop {bool} large
  */
 Modal.propTypes = {
     // Can contain Modal.Title; Must contain Modal.Content and Modal.Actions
