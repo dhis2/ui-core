@@ -24,16 +24,16 @@ const styles = css`
     }
 `
 
-const constructClassName = ({ required, disabled }) =>
-    cx({
+const constructClassName = ({ required, disabled, className }) =>
+    cx(className, {
         required: required,
         disabled: disabled,
     })
 
-export const Label = ({ htmlFor, children, required, disabled }) => (
+export const Label = ({ htmlFor, children, required, disabled, className }) => (
     <label
         htmlFor={htmlFor}
-        className={constructClassName({ required, disabled })}
+        className={constructClassName({ className, required, disabled })}
     >
         <span>{children}</span>
         <style jsx>{styles}</style>
@@ -43,6 +43,7 @@ export const Label = ({ htmlFor, children, required, disabled }) => (
 Label.propTypes = {
     htmlFor: propTypes.string,
     children: propTypes.string,
+    className: propTypes.string,
     required: propTypes.bool,
     disabled: propTypes.bool,
 }
