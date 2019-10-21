@@ -8,7 +8,7 @@ const Input = ({ selected, onChange, clearable, placeholder, prefix }) => {
     const hasSelection = selected.length > 0
     const showPlaceholder = !prefix && !hasSelection
     const showClear = clearable && hasSelection
-    const handleClick = e => {
+    const handleClear = e => {
         e.stopPropagation()
         onChange([])
     }
@@ -28,7 +28,7 @@ const Input = ({ selected, onChange, clearable, placeholder, prefix }) => {
                         className="right"
                         small
                         secondary
-                        onClick={handleClick}
+                        onClick={handleClear}
                         type="button"
                     >
                         Clear
