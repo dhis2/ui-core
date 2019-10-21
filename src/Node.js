@@ -111,15 +111,20 @@ Content.propTypes = {
  *
  * @see Live demo: {@link /demo/?path=/story/node--multiple-roots|Storybook}
  */
-export const Node = ({ open, component, children, onOpen, onClose }) => {
+export const Node = ({
+    open,
+    className,
+    component,
+    children,
+    onOpen,
+    onClose,
+}) => {
     const hasLeaves = !!React.Children.toArray(children).filter(i => i).length
-    const className = cx('tree', {
-        open,
-        'has-leaves': hasLeaves,
-    })
 
     return (
-        <div className={className}>
+        <div
+            className={cx('tree', className, { open, 'has-leaves': hasLeaves })}
+        >
             <Arrow
                 open={open}
                 hasLeaves={hasLeaves}
@@ -143,15 +148,17 @@ export const Node = ({ open, component, children, onOpen, onClose }) => {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Node} [children]
  * @prop {Element} component
+ * @prop {className} [string]
+ * @prop {Node} [children]
  * @prop {boolean} [open]
  * @prop {function} [onOpen]
  * @prop {funtion} [onClose]
  */
 Node.propTypes = {
-    children: propTypes.node,
     component: propTypes.element.isRequired,
+    children: propTypes.node,
+    className: propTypes.string,
     open: propTypes.bool,
     onOpen: propTypes.func,
     onClose: propTypes.func,
