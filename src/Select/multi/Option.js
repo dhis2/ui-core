@@ -9,13 +9,16 @@ const { styles, className } = resolve`
     padding: ${spacers.dp8} ${spacers.dp12};
 `
 
-const Option = ({ label, active, disabled, onClick }) => (
+const Option = ({ value, label, active, disabled, onClick }) => (
     <div>
         <Checkbox
+            name={label}
             className={className}
             checked={active}
             label={label}
-            onChange={onClick}
+            onChange={() => {
+                onClick({ value, label })
+            }}
             disabled={disabled}
         />
 
@@ -30,6 +33,7 @@ const Option = ({ label, active, disabled, onClick }) => (
 )
 
 Option.propTypes = {
+    value: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     onClick: propTypes.func,
     active: propTypes.bool,

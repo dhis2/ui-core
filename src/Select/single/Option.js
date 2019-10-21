@@ -9,8 +9,7 @@ const Option = ({ value, label, active, disabled, onClick }) => (
             disabled,
             active,
         })}
-        onClick={e => {
-            e.stopPropagation()
+        onClick={() => {
             onClick({ value, label })
         }}
     >
@@ -50,8 +49,8 @@ const Option = ({ value, label, active, disabled, onClick }) => (
 )
 
 Option.propTypes = {
-    label: propTypes.string.isRequired,
     value: propTypes.string.isRequired,
+    label: propTypes.string.isRequired,
     onClick: propTypes.func,
     active: propTypes.bool,
     disabled: propTypes.bool,
