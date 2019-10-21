@@ -24,13 +24,7 @@ const Input = ({ selected, onChange, clearable, placeholder, prefix }) => {
             )}
             {showClear && (
                 <div className="right">
-                    <Button
-                        className="right"
-                        small
-                        secondary
-                        onClick={handleClear}
-                        type="button"
-                    >
+                    <Button small secondary onClick={handleClear} type="button">
                         Clear
                     </Button>
                 </div>
