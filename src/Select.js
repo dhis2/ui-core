@@ -39,9 +39,6 @@ export class Select extends Component {
     }
 
     handleOutsideClick = e => {
-        e.stopPropagation()
-        e.preventDefault()
-
         const { onBlur } = this.props
         const hasRef = this.selectRef.current
         const isInsideClick =

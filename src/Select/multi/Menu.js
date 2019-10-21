@@ -2,7 +2,11 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { Empty } from '../common/Empty.js'
 
-const createHandler = ({ active, onChange, selected, value, label }) => () => {
+const createHandler = ({ active, onChange, selected }) => ({
+    value,
+    label,
+}) => {
+    // If the option is active, remove it from selected
     if (active) {
         const filtered = selected.filter(selection => {
             const matchesLabel = label === selection.label
@@ -12,6 +16,7 @@ const createHandler = ({ active, onChange, selected, value, label }) => () => {
         return onChange(filtered)
     }
 
+    // Otherwise, add it to selected
     return onChange(selected.concat([{ value, label }]))
 }
 
@@ -35,8 +40,6 @@ const Menu = ({ options, onChange, selected, empty }) => {
             active,
             onChange,
             selected,
-            value,
-            label,
         })
 
         return React.cloneElement(child, {

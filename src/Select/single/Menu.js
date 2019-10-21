@@ -9,18 +9,11 @@ const Menu = ({ options, onChange, selected, empty }) => {
 
     const children = React.Children.map(options, child => {
         const { value, label } = child.props
-        const hasValue = 'value' in selected
-        const hasLabel = 'label' in selected
-
-        let active = false
-
-        if (hasValue && hasLabel) {
-            active = value === selected.value && label === selected.label
-        }
+        const active = value === selected.value && label === selected.label
 
         return React.cloneElement(child, {
             ...child.props,
-            onClick: active ? () => {} : () => onChange({ value, label }),
+            onClick: active ? () => {} : option => onChange(option),
             active,
         })
     })
