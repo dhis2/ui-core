@@ -36,9 +36,9 @@ import { Title } from './Modal/Title.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/modal.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/modal--small-title-content-action|Storybook}
  */
-export const Modal = ({ children, onClose, small, large, open }) => {
+export const Modal = ({ children, onClose, small, large, open, className }) => {
     return createPortal(
-        <aside className={cx({ open })}>
+        <aside className={cx(className, { open })}>
             <ScreenCover onClick={onClose}>
                 <ModalCard small={small} large={large}>
                     {children}
@@ -80,6 +80,8 @@ Modal.propTypes = {
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
     ]).isRequired,
+
+    className: propTypes.string,
 
     // Callback used when clicking on the screen cover
     onClose: propTypes.func,
