@@ -13,9 +13,9 @@ import { colors, theme } from '../theme.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tab.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/tabs--default-fluid|Storybook}
  */
-const Tab = ({ icon, onClick, selected, disabled, children }) => (
+const Tab = ({ icon, onClick, selected, disabled, children, className }) => (
     <button
-        className={`${cx('tab', {
+        className={`${cx('tab', className, {
             selected,
             disabled,
         })}`}
@@ -127,6 +127,7 @@ const Tab = ({ icon, onClick, selected, disabled, children }) => (
  * @prop {boolean} [selected]
  * @prop {boolean} [disabled]
  * @prop {Node} [children]
+ * @prop {string} [className]
  */
 Tab.propTypes = {
     icon: PropTypes.element,
@@ -134,6 +135,7 @@ Tab.propTypes = {
     selected: PropTypes.bool,
     disabled: PropTypes.bool,
     children: PropTypes.node,
+    className: PropTypes.string,
 }
 
 export { Tab }

@@ -100,9 +100,9 @@ class ScrollBar extends PureComponent {
     render() {
         const { scrolledToStart, scrolledToEnd } = this.state
 
-        const { children } = this.props
+        const { children, className } = this.props
         return (
-            <div className="scroll-bar">
+            <div className={cx('scroll-bar', className)}>
                 <button
                     onClick={scrolledToStart ? undefined : this.scrollLeft}
                     className={cx('scroll-button', {
@@ -215,9 +215,11 @@ class ScrollBar extends PureComponent {
  * @typedef {Object} PropTypes
  * @static
  * @prop {Node} children
+ * @prop {string} [className]
  */
 ScrollBar.propTypes = {
     children: propTypes.node.isRequired,
+    className: propTypes.string,
 }
 
 export { ScrollBar }
