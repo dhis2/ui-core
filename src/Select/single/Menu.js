@@ -1,9 +1,12 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { NoMatch } from './NoMatch.js'
+import { Empty } from '../common/Empty.js'
 
-const ProcessOptions = ({ options, onClick, selected, filter }) => {
-    const noop = () => {}
+const Menu = ({ options, onChange, selected, empty }) => {
+    if (React.Children.count(options) === 0) {
+        return empty || <Empty />
+    }
+
     const children = React.Children.map(options, child => {
         const { value, label } = child.props
         const hasValue = 'value' in selected
@@ -15,29 +18,21 @@ const ProcessOptions = ({ options, onClick, selected, filter }) => {
             active = value === selected.value && label === selected.label
         }
 
-        if (filter && !label.includes(filter)) {
-            return null
-        }
-
         return React.cloneElement(child, {
             ...child.props,
-            onClick: active ? noop : onClick,
+            onClick: active ? () => {} : () => onChange({ value, label }),
             active,
         })
     })
 
-    if (filter && React.Children.count(children) === 0) {
-        return <NoMatch filter={filter} />
-    }
-
     return <React.Fragment>{children}</React.Fragment>
 }
 
-ProcessOptions.propTypes = {
+Menu.propTypes = {
+    empty: propTypes.node,
     options: propTypes.node.isRequired,
-    onClick: propTypes.func.isRequired,
+    onChange: propTypes.func.isRequired,
     selected: propTypes.object.isRequired,
-    filter: propTypes.string,
 }
 
-export { ProcessOptions }
+export { Menu }

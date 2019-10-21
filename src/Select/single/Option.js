@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import { colors, spacers } from '../theme.js'
+import { colors, spacers } from '../../theme.js'
 
 const Option = ({ value, label, active, disabled, onClick }) => (
     <a

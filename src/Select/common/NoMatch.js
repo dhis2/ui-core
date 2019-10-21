@@ -1,9 +1,10 @@
 import React from 'react'
-import { colors, spacers, theme } from '../theme.js'
+import propTypes from 'prop-types'
+import { colors, spacers, theme } from '../../theme.js'
 
-const Empty = () => (
+const NoMatch = ({ filter }) => (
     <div>
-        No data
+        Nothing found for &quot;{filter}&quot;
         <style jsx>{`
             div {
                 color: ${colors.grey700};
@@ -17,4 +18,8 @@ const Empty = () => (
     </div>
 )
 
-export { Empty }
+NoMatch.propTypes = {
+    filter: propTypes.string.isRequired,
+}
+
+export { NoMatch }
