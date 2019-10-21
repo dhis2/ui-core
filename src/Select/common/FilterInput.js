@@ -1,9 +1,9 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { Input } from '../Input.js'
-import { spacers, colors } from '../theme.js'
+import { Input } from '../../Input.js'
+import { spacers, colors } from '../../theme.js'
 
-const FilterInput = ({ value, onChange }) => (
+const FilterInput = ({ value, onChange, placeholder }) => (
     <div className="container">
         <Input
             dense
@@ -11,7 +11,7 @@ const FilterInput = ({ value, onChange }) => (
             onChange={onChange}
             type="text"
             name="filter"
-            placeholder="Type to filter options"
+            placeholder={placeholder}
             initialFocus
         />
 
@@ -30,6 +30,7 @@ const FilterInput = ({ value, onChange }) => (
 FilterInput.propTypes = {
     value: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
+    placeholder: propTypes.string.isRequired,
 }
 
 export { FilterInput }

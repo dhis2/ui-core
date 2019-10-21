@@ -1,11 +1,10 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { resolve } from 'styled-jsx/css'
-import { Card } from '../Card.js'
-import { layers } from '../theme.js'
+import { Card } from '../../Card.js'
+import { layers } from '../../theme.js'
 
-const Dropdown = ({ maxHeight, children }) => {
-    // Override Card styles to allow a max-height
+const MenuWrapper = ({ children, maxHeight }) => {
     const { styles, className } = resolve`
         height: auto;
         max-height: ${maxHeight};
@@ -13,13 +12,13 @@ const Dropdown = ({ maxHeight, children }) => {
     `
 
     return (
-        <div className="container">
+        <div className="dropdown">
             <Card className={className}>{children}</Card>
 
             {styles}
 
             <style jsx>{`
-                .container {
+                .dropdown {
                     position: absolute;
                     z-index: ${layers.applicationTop};
                     left: 0;
@@ -30,13 +29,9 @@ const Dropdown = ({ maxHeight, children }) => {
     )
 }
 
-Dropdown.defaultProps = {
-    maxHeight: '280px',
-}
-
-Dropdown.propTypes = {
-    maxHeight: propTypes.string,
+MenuWrapper.propTypes = {
     children: propTypes.node,
+    maxHeight: propTypes.string.isRequired,
 }
 
-export { Dropdown }
+export { MenuWrapper }

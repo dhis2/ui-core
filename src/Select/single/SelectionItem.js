@@ -1,21 +1,18 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { spacers } from '../theme.js'
+import { spacers } from '../../theme.js'
 
-const Selected = ({ icon: Icon, label }) => {
+const SelectionItem = ({ icon, label }) => {
     return (
         <div className="selected">
-            {Icon && (
-                <div className="icon">
-                    <Icon />
-                </div>
-            )}
+            {icon && <div className="icon">{icon}</div>}
             {label}
 
             <style jsx>{`
                 .selected {
                     display: flex;
                     align-items: center;
+                    user-select: none;
                 }
 
                 .icon {
@@ -28,9 +25,9 @@ const Selected = ({ icon: Icon, label }) => {
     )
 }
 
-Selected.propTypes = {
-    icon: propTypes.elementType,
+SelectionItem.propTypes = {
+    icon: propTypes.element,
     label: propTypes.string.isRequired,
 }
 
-export { Selected }
+export { SelectionItem }

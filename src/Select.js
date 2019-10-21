@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { SelectDropdown } from './Select/SelectDropdown.js'
-import { SelectInput } from './Select/SelectInput.js'
-import { OptionsToSelected } from './Select/OptionsToSelected.js'
-import { Empty } from './Select/Empty.js'
+import { InputWrapper } from './Select/common/InputWrapper.js'
+import { MenuWrapper } from './Select/common/MenuWrapper.js'
 
 // Keycodes for the keypress event handlers
 const ESCAPE_KEY = 27
@@ -16,7 +14,7 @@ export class Select extends Component {
         open: false,
     }
 
-    containerRef = React.createRef()
+    selectRef = React.createRef()
 
     componentDidMount() {
         document.addEventListener('click', this.handleOutsideClick)
@@ -24,14 +22,6 @@ export class Select extends Component {
 
     componentWillUnmount() {
         document.removeEventListener('click', this.handleOutsideClick)
-    }
-
-    handleOpen = () => {
-        this.setState({ open: true })
-    }
-
-    handleClose = () => {
-        this.setState({ open: false })
     }
 
     handleFocus = e => {
@@ -42,100 +32,91 @@ export class Select extends Component {
         }
     }
 
+    handleToggle = e => {
+        e.stopPropagation()
+
+        this.setState(prevState => ({ open: !prevState.open }))
+    }
+
     handleOutsideClick = e => {
+        e.stopPropagation()
+        e.preventDefault()
+
         const { onBlur } = this.props
-        const hasRef = this.containerRef.current
+        const hasRef = this.selectRef.current
         const isInsideClick =
-            hasRef && this.containerRef.current.contains(e.target)
+            hasRef && this.selectRef.current.contains(e.target)
 
         if (!isInsideClick) {
             if (onBlur) {
                 onBlur(e)
             }
 
-            this.handleClose()
+            this.setState({ open: false })
         }
-    }
-
-    handleOptionClick = selected => {
-        this.props.onChange(selected)
-        this.handleClose()
-    }
-
-    handleInputClick = e => {
-        e.stopPropagation()
-
-        this.state.open ? this.handleClose() : this.handleOpen()
-    }
-
-    handleClear = e => {
-        e.stopPropagation()
-        this.props.onChange({})
     }
 
     handleKeyPress = e => {
+        e.stopPropagation()
+
         const { open } = this.state
         const { keyCode } = e
         const shouldOpen =
-            keyCode === SPACE_KEY || keyCode === UP_KEY || keyCode === DOWN_KEY
-        const shouldClose = keyCode === ESCAPE_KEY
+            !open &&
+            (keyCode === SPACE_KEY ||
+                keyCode === UP_KEY ||
+                keyCode === DOWN_KEY)
+        const shouldClose = open && keyCode === ESCAPE_KEY
 
-        if (shouldClose && open) {
-            this.handleClose()
+        if (shouldClose) {
+            return this.setState({ open: false })
         }
 
-        if (shouldOpen && !open) {
-            this.handleOpen()
+        if (shouldOpen) {
+            return this.setState({ open: true })
         }
     }
 
     render() {
-        const {
-            children,
-            selected,
-            placeholder,
-            clearable,
-            maxHeight,
-            tabIndex,
-            label,
-            empty,
-            filterable,
-        } = this.props
         const { open } = this.state
+        const { children, selected, onChange, tabIndex, maxHeight } = this.props
+
+        // Create the input
+        const inputProps = {
+            selected,
+            onChange,
+            options: children,
+        }
+        const input = React.cloneElement(this.props.input, inputProps)
+
+        // Create the menu
+        const menuProps = {
+            selected,
+            onChange,
+            options: children,
+        }
+        const menu = React.cloneElement(this.props.menu, menuProps)
 
         return (
             <div
-                className="container"
-                ref={this.containerRef}
+                className="select"
+                ref={this.selectRef}
                 onFocus={this.handleFocus}
                 onKeyDown={this.handleKeyPress}
             >
-                <SelectInput
-                    placeholder={placeholder}
-                    selected={selected}
-                    tabIndex={tabIndex}
-                    options={children}
-                    label={label}
-                    clearable={clearable}
-                    onClick={this.handleInputClick}
-                    onClear={this.handleClear}
+                <InputWrapper
+                    onToggle={this.handleToggle}
                     open={open}
+                    tabIndex={tabIndex}
                 >
-                    <OptionsToSelected options={children} selected={selected} />
-                </SelectInput>
+                    {input}
+                </InputWrapper>
                 {open && (
-                    <SelectDropdown
-                        maxHeight={maxHeight}
-                        options={children}
-                        empty={empty}
-                        selected={selected}
-                        onOptionClick={this.handleOptionClick}
-                        filterable={filterable}
-                    />
+                    <MenuWrapper maxHeight={maxHeight}>{menu}</MenuWrapper>
                 )}
 
                 <style jsx>{`
-                    .container {
+                    .select {
                         position: relative;
                     }
                 `}</style>
@@ -146,21 +127,20 @@ export class Select extends Component {
 
 Select.defaultProps = {
     tabIndex: '0',
-    placeholder: '',
-    empty: Empty,
 }
 
 Select.propTypes = {
-    tabIndex: propTypes.string,
-    filterable: propTypes.bool,
+    selected: propTypes.any.isRequired,
     onChange: propTypes.func.isRequired,
-    clearable: propTypes.bool,
-    label: propTypes.string,
-    maxHeight: propTypes.string,
-    selected: propTypes.object.isRequired,
-    children: propTypes.node,
+
     onFocus: propTypes.func,
     onBlur: propTypes.func,
-    placeholder: propTypes.string,
-    empty: propTypes.elementType,
+
+    children: propTypes.node,
+
+    input: propTypes.element.isRequired,
+    menu: propTypes.element.isRequired,
+
+    tabIndex: propTypes.string,
+    maxHeight: propTypes.string,
 }

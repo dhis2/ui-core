@@ -1,9 +1,9 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { Selected } from './Selected.js'
+import { SelectionItem } from './SelectionItem.js'
 
-const OptionsToSelected = ({ options, selected }) => {
-    if (!options) {
+const SelectionList = ({ options, selected }) => {
+    if (React.Children.count(options) === 0) {
         return null
     }
 
@@ -18,12 +18,17 @@ const OptionsToSelected = ({ options, selected }) => {
         return null
     }
 
-    return <Selected icon={selectedOption.props.icon} label={selected.label} />
+    return (
+        <SelectionItem
+            icon={selectedOption.props.icon}
+            label={selected.label}
+        />
+    )
 }
 
-OptionsToSelected.propTypes = {
+SelectionList.propTypes = {
     options: propTypes.node,
     selected: propTypes.object.isRequired,
 }
 
-export { OptionsToSelected }
+export { SelectionList }
