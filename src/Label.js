@@ -30,6 +30,13 @@ const constructClassName = ({ required, disabled, className }) =>
         disabled: disabled,
     })
 
+/**
+ * @module
+ * @param {Label.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { Label } from '@dhis2/ui-core'
+ */
 export const Label = ({ htmlFor, children, required, disabled, className }) => (
     <label
         htmlFor={htmlFor}
@@ -40,6 +47,16 @@ export const Label = ({ htmlFor, children, required, disabled, className }) => (
     </label>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} [htmlFor]
+ * @prop {string} [children]
+ * @prop {string} [className]
+ * @prop {boolean} [required]
+ * @prop {boolean} [disabled]
+ */
 Label.propTypes = {
     htmlFor: propTypes.string,
     children: propTypes.string,
