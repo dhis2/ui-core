@@ -14,7 +14,9 @@ storiesOf('MultiSelectInput', module)
     .add('Selection', () => (
         <Select
             selected={[{ label: 'label', value: 'value' }]}
-            onChange={() => {}}
+            onChange={values =>
+                alert(`Selected ${JSON.stringify(values, null, 2)}`)
+            }
             input={<MultiSelectInput />}
             menu={<div>Dropdown items</div>}
         >
@@ -40,7 +42,9 @@ storiesOf('MultiSelectInput', module)
     .add('Prefix with selection', () => (
         <Select
             selected={[{ label: 'label', value: 'value' }]}
-            onChange={() => {}}
+            onChange={values =>
+                alert(`Selected ${JSON.stringify(values, null, 2)}`)
+            }
             input={<MultiSelectInput prefix="Prefix text" />}
             menu={<div>Dropdown items</div>}
         >
@@ -50,7 +54,9 @@ storiesOf('MultiSelectInput', module)
     .add('Clearable with selection', () => (
         <Select
             selected={[{ label: 'label', value: 'value' }]}
-            onChange={() => alert('Cleared')}
+            onChange={values =>
+                alert(`Selected ${JSON.stringify(values, null, 2)}`)
+            }
             input={<MultiSelectInput clearable />}
             menu={<div>Dropdown items</div>}
         >
