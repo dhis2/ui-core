@@ -34,7 +34,7 @@
     "@storybook/addon-notes": "^5.2.4",
     "@storybook/addons": "^5.2.4",
     "@storybook/components": "^5.2.0",
-    "@storybook/react": "^5.2.4",
+    "@storybook/react": "^5.2.5",
     "babel-eslint": "10.x",
     "babel-loader": "^8.0.6",
     "cypress": "^3.4.1",
