@@ -38,6 +38,10 @@ export class SelectWrapper extends Component {
         this.setState(prevState => ({ open: !prevState.open }))
     }
 
+    handleClose = () => {
+        this.setState({ open: false })
+    }
+
     handleOutsideClick = e => {
         const { onBlur } = this.props
         const hasRef = this.selectRef.current
@@ -91,6 +95,7 @@ export class SelectWrapper extends Component {
             selected,
             onChange,
             options: children,
+            handleClose: this.handleClose,
         }
         const menu = React.cloneElement(this.props.menu, menuProps)
 
