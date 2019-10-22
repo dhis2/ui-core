@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { Empty } from '../common/Empty.js'
 
-const Menu = ({ options, onChange, selected, empty }) => {
+const Menu = ({ options, onChange, selected, empty, handleClose }) => {
     if (React.Children.count(options) === 0) {
         return empty || <Empty />
     }
@@ -10,10 +10,14 @@ const Menu = ({ options, onChange, selected, empty }) => {
     const children = React.Children.map(options, child => {
         const { value, label } = child.props
         const active = value === selected.value && label === selected.label
+        const onClick = option => {
+            onChange(option)
+            handleClose()
+        }
 
         return React.cloneElement(child, {
             ...child.props,
-            onClick: active ? () => {} : option => onChange(option),
+            onClick: active ? () => {} : onClick,
             active,
         })
     })
@@ -26,6 +30,7 @@ Menu.propTypes = {
     options: propTypes.node.isRequired,
     onChange: propTypes.func.isRequired,
     selected: propTypes.object.isRequired,
+    handleClose: propTypes.func.isRequired,
 }
 
 export { Menu }
