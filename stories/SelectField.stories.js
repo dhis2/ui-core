@@ -58,7 +58,7 @@ storiesOf('SelectField', module)
         </SelectField>
     ))
     .add('Required', () => (
-        <SelectField {...defaultProps} required>
+        <SelectField {...defaultProps} selected={{}} required>
             {options}
         </SelectField>
     ))
