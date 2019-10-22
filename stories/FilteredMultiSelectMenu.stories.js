@@ -20,5 +20,13 @@ storiesOf('FilteredMultiSelectMenu', module)
         >
             <MultiSelectOption value="1" label="one" />
             <MultiSelectOption value="2" label="two" />
+            <MultiSelectOption value="3" label="three" />
+            <MultiSelectOption value="4" label="four" />
+            <MultiSelectOption value="5" label="five" />
+            <MultiSelectOption value="6" label="six" />
+            <MultiSelectOption value="7" label="seven" />
+            <MultiSelectOption value="8" label="eight" />
+            <MultiSelectOption value="9" label="nine" />
+            <MultiSelectOption value="10" label="ten" />
         </Select>
     ))
