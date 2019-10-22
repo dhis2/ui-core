@@ -4,6 +4,11 @@ import cx from 'classnames'
 import propTypes from 'prop-types'
 import { Select, MultiSelectMenu, MultiSelectOption } from '../src'
 
+const logSelection = values =>
+    alert(`Selected: ${JSON.stringify(values, null, 2)}`)
+const longLabel =
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas quibusdam est debitis odio, earum explicabo error magni. Expedita voluptatem accusantium nostrum minus, voluptate mollitia placeat perspiciatis quibusdam dicta, fugiat dolor quisquam alias, impedit commodi? Inventore, laboriosam, molestias. Non quod odit eum adipisci, tempora rerum perferendis, incidunt consectetur nesciunt. Qui voluptatibus asperiores dicta doloremque est vitae tempora sapiente dignissimos maiores saepe, animi necessitatibus modi laboriosam quae blanditiis voluptatem recusandae. Praesentium ipsum dolores voluptatum repudiandae cumque, tempore tempora, excepturi numquam atque reiciendis suscipit alias? Architecto dignissimos enim blanditiis laborum'
+
 const CheckIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
         <path d="M24 4C12.95 4 4 12.95 4 24c0 11.04 8.95 20 20 20 11.04 0 20-8.96 20-20 0-11.05-8.96-20-20-20zm-4 30L10 24l2.83-2.83L20 28.34l15.17-15.17L38 16 20 34z" />
@@ -110,9 +115,7 @@ storiesOf('MultiSelectMenu', module)
     .add('Options', () => (
         <Select
             selected={[]}
-            onChange={values =>
-                alert(`Selected ${JSON.stringify(values, null, 2)}`)
-            }
+            onChange={logSelection}
             input={<div>Input text</div>}
             menu={<MultiSelectMenu />}
         >
@@ -123,9 +126,7 @@ storiesOf('MultiSelectMenu', module)
     .add('Selection', () => (
         <Select
             selected={[{ label: 'one', value: '1' }]}
-            onChange={values =>
-                alert(`Selected ${JSON.stringify(values, null, 2)}`)
-            }
+            onChange={logSelection}
             input={<div>Input text</div>}
             menu={<MultiSelectMenu />}
         >
@@ -133,12 +134,23 @@ storiesOf('MultiSelectMenu', module)
             <MultiSelectOption value="2" label="two" />
         </Select>
     ))
+    .add('Long selection', () => (
+        <Select
+            selected={[{ label: longLabel, value: '1' }]}
+            onChange={logSelection}
+            input={<div>Input text</div>}
+            menu={<MultiSelectMenu />}
+        >
+            <MultiSelectOption value="1" label={longLabel} />
+            <MultiSelectOption value="2" label="two" />
+            <MultiSelectOption value="3" label="three" />
+            <MultiSelectOption value="4" label="four" />
+        </Select>
+    ))
     .add('Disabled option', () => (
         <Select
             selected={[]}
-            onChange={values =>
-                alert(`Selected ${JSON.stringify(values, null, 2)}`)
-            }
+            onChange={logSelection}
             input={<div>Input text</div>}
             menu={<MultiSelectMenu />}
         >
@@ -149,9 +161,7 @@ storiesOf('MultiSelectMenu', module)
     .add('Custom options', () => (
         <Select
             selected={[{ label: 'Tuberculosis Management', value: '1' }]}
-            onChange={values =>
-                alert(`Selected ${JSON.stringify(values, null, 2)}`)
-            }
+            onChange={logSelection}
             input={<div>Input text</div>}
             menu={<MultiSelectMenu />}
         >
