@@ -11,16 +11,22 @@ storiesOf('MultiSelectInput', module)
             menu={<div>Dropdown items</div>}
         />
     ))
-    .add('Selection', () => (
+    .add('Selections', () => (
         <Select
-            selected={[{ label: 'label', value: 'value' }]}
+            selected={[
+                { label: 'one', value: '1' },
+                { label: 'three', value: '3' },
+            ]}
             onChange={values =>
                 alert(`Selected ${JSON.stringify(values, null, 2)}`)
             }
             input={<MultiSelectInput />}
             menu={<div>Dropdown items</div>}
         >
-            <MultiSelectOption value="value" label="label" />
+            <MultiSelectOption value="1" label="one" />
+            <MultiSelectOption value="2" label="two" />
+            <MultiSelectOption value="3" label="three" />
+            <MultiSelectOption value="4" label="four" />
         </Select>
     ))
     .add('Placeholder', () => (
