@@ -48,6 +48,36 @@ storiesOf('MultiSelectInput', module)
             <MultiSelectOption value="4" label="four" />
         </Select>
     ))
+    .add('A lot of selections', () => (
+        <Select
+            selected={[
+                { label: 'one', value: '1' },
+                { label: 'two', value: '2' },
+                { label: 'three', value: '3' },
+                { label: 'four', value: '4' },
+                { label: 'five', value: '5' },
+                { label: 'six', value: '6' },
+                { label: 'seven', value: '7' },
+                { label: 'eight', value: '8' },
+                { label: 'nine', value: '9' },
+                { label: 'ten', value: '10' },
+            ]}
+            onChange={logSelection}
+            input={<MultiSelectInput />}
+            menu={<div>Dropdown items</div>}
+        >
+            <MultiSelectOption value="1" label="one" />
+            <MultiSelectOption value="2" label="two" />
+            <MultiSelectOption value="3" label="three" />
+            <MultiSelectOption value="4" label="four" />
+            <MultiSelectOption value="5" label="five" />
+            <MultiSelectOption value="6" label="six" />
+            <MultiSelectOption value="7" label="seven" />
+            <MultiSelectOption value="8" label="eight" />
+            <MultiSelectOption value="9" label="nine" />
+            <MultiSelectOption value="10" label="ten" />
+        </Select>
+    ))
     .add('Placeholder', () => (
         <Select
             selected={[]}
