@@ -31,7 +31,6 @@ class SelectField extends React.Component {
             onBlur,
             required,
             label,
-            name,
             valid,
             error,
             warning,
@@ -45,14 +44,9 @@ class SelectField extends React.Component {
 
         return (
             <Field className={className}>
-                {label && (
-                    <Label required={required} htmlFor={name}>
-                        {label}
-                    </Label>
-                )}
+                {label && <Label required={required}>{label}</Label>}
 
                 <SelectWrapper
-                    name={name}
                     selected={selected}
                     input={<Input />}
                     menu={<Menu />}
@@ -80,7 +74,6 @@ class SelectField extends React.Component {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {string} name
  * @prop {function} onChange
  * @prop {string} label
  * @prop {string} [value]
@@ -104,7 +97,6 @@ class SelectField extends React.Component {
  * @prop {Object|Array} [children]
  */
 SelectField.propTypes = {
-    name: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
 
     label: propTypes.string,
