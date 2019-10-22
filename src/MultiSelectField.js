@@ -39,6 +39,7 @@ class MultiSelectField extends React.Component {
             tabIndex,
             helpText,
             validationText,
+            maxHeight,
             children,
         } = this.props
 
@@ -51,6 +52,7 @@ class MultiSelectField extends React.Component {
                     input={<Input />}
                     menu={<Menu />}
                     tabIndex={tabIndex}
+                    maxHeight={maxHeight}
                     onChange={onChange}
                     onFocus={onFocus}
                     onBlur={onBlur}
@@ -103,6 +105,7 @@ MultiSelectField.propTypes = {
     selected: propTypes.object,
     className: propTypes.string,
     tabIndex: propTypes.string,
+    maxHeight: propTypes.string,
 
     helpText: propTypes.string,
     validationText: propTypes.string,
