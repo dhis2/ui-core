@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import propTypes from '@dhis2/prop-types'
+import propTypes from 'prop-types'
 import { InputWrapper } from './InputWrapper.js'
 import { MenuWrapper } from './MenuWrapper.js'
 
