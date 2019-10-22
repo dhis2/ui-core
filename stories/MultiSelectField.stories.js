@@ -1,64 +1,64 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { SelectField, SelectOption } from '../src'
+import { MultiSelectField, MultiSelectOption } from '../src'
 
 const defaultProps = {
     label: 'Default label',
-    selected: { value: '1', label: 'one' },
+    selected: [{ value: '1', label: 'one' }],
     onChange: () => {},
 }
 
 const options = [
-    <SelectOption key="1" value="1" label="one" />,
-    <SelectOption key="2" value="2" label="two" />,
+    <MultiSelectOption key="1" value="1" label="one" />,
+    <MultiSelectOption key="2" value="2" label="two" />,
 ]
 
-storiesOf('SelectField', module)
+storiesOf('MultiSelectField', module)
     .add('Default', () => (
-        <SelectField {...defaultProps}>{options}</SelectField>
+        <MultiSelectField {...defaultProps}>{options}</MultiSelectField>
     ))
     .add('With Help text', () => (
-        <SelectField {...defaultProps} helpText="A helpful text.">
+        <MultiSelectField {...defaultProps} helpText="A helpful text.">
             {options}
-        </SelectField>
+        </MultiSelectField>
     ))
     .add('With valid status', () => (
-        <SelectField
+        <MultiSelectField
             {...defaultProps}
             helpText="A helpful text."
             validationText="Totally valid"
             valid
         >
             {options}
-        </SelectField>
+        </MultiSelectField>
     ))
     .add('With warning status', () => (
-        <SelectField
+        <MultiSelectField
             {...defaultProps}
             helpText="A helpful text."
             validationText="Hm, not quite, I warn thee!"
             warning
         >
             {options}
-        </SelectField>
+        </MultiSelectField>
     ))
     .add('With error status', () => (
-        <SelectField
+        <MultiSelectField
             {...defaultProps}
             helpText="A helpful text."
             validationText="NO! TOTALLY WRONG!"
             error
         >
             {options}
-        </SelectField>
+        </MultiSelectField>
     ))
     .add('With loading status', () => (
-        <SelectField {...defaultProps} selected={{}} loading>
+        <MultiSelectField {...defaultProps} selected={[]} loading>
             {options}
-        </SelectField>
+        </MultiSelectField>
     ))
     .add('Required', () => (
-        <SelectField {...defaultProps} required>
+        <MultiSelectField {...defaultProps} required>
             {options}
-        </SelectField>
+        </MultiSelectField>
     ))
