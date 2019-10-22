@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
-import { InputWrapper } from './Select/common/InputWrapper.js'
-import { MenuWrapper } from './Select/common/MenuWrapper.js'
+import { InputWrapper } from './InputWrapper.js'
+import { MenuWrapper } from './MenuWrapper.js'
 
 // Keycodes for the keypress event handlers
 const ESCAPE_KEY = 27
@@ -9,7 +9,7 @@ const SPACE_KEY = 32
 const UP_KEY = 38
 const DOWN_KEY = 40
 
-export class Select extends Component {
+export class SelectWrapper extends Component {
     state = {
         open: false,
     }
@@ -122,12 +122,12 @@ export class Select extends Component {
     }
 }
 
-Select.defaultProps = {
+SelectWrapper.defaultProps = {
     tabIndex: '0',
     maxHeight: '280px',
 }
 
-Select.propTypes = {
+SelectWrapper.propTypes = {
     selected: propTypes.any.isRequired,
     onChange: propTypes.func.isRequired,
 
