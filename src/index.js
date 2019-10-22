@@ -65,6 +65,7 @@ export { Menu as MultiSelectMenu } from './Select/multi/Menu.js'
 export {
     FilteredMenu as FilteredMultiSelectMenu,
 } from './Select/multi/FilteredMenu.js'
+export { SelectField } from './SelectField.js'
 
 /* table */
 export { TableBody } from './Table/TableBody.js'
