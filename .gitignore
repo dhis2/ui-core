@@ -28,3 +28,4 @@ bundle.stats.json
 
 # cypress
 cypress/screenshots
+cypress/videos
