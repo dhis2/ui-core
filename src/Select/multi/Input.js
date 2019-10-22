@@ -20,7 +20,9 @@ const Input = ({ selected, onChange, clearable, placeholder, prefix }) => {
                 <div className="placeholder">{placeholder}</div>
             )}
             {hasSelection && (
-                <SelectionList selected={selected} onChange={onChange} />
+                <div>
+                    <SelectionList selected={selected} onChange={onChange} />
+                </div>
             )}
             {showClear && (
                 <div className="right">
