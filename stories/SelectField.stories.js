@@ -52,6 +52,11 @@ storiesOf('SelectField', module)
             {options}
         </SelectField>
     ))
+    .add('With loading status', () => (
+        <SelectField {...defaultProps} loading>
+            {options}
+        </SelectField>
+    ))
     .add('Required', () => (
         <SelectField {...defaultProps} required>
             {options}

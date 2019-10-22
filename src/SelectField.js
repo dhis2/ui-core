@@ -7,6 +7,7 @@ import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Help } from './Help.js'
 import { SelectWrapper } from './Select/common/SelectWrapper.js'
+import { Loading } from './Select/common/Loading.js'
 import { Menu } from './Select/single/Menu.js'
 import { Input } from './Select/single/Input.js'
 
@@ -34,6 +35,7 @@ class SelectField extends React.Component {
             valid,
             error,
             warning,
+            loading,
             selected,
             tabIndex,
             helpText,
@@ -59,7 +61,7 @@ class SelectField extends React.Component {
                     onFocus={onFocus}
                     onBlur={onBlur}
                 >
-                    {children}
+                    {loading ? <Loading /> : children}
                 </SelectWrapper>
 
                 {helpText && <Help>{helpText}</Help>}
@@ -119,6 +121,7 @@ SelectField.propTypes = {
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
+    loading: propTypes.bool,
 
     onFocus: propTypes.func,
     onBlur: propTypes.func,
