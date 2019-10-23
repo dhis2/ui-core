@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { spacers } from '../../theme.js'
+import { spacers } from '../theme.js'
 
 const SelectionItem = ({ icon, label }) => {
     return (

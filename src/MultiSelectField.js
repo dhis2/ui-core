@@ -6,10 +6,7 @@ import { statusPropType } from './common-prop-types.js'
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Help } from './Help.js'
-import { SelectWrapper } from './Select/common/SelectWrapper.js'
-import { Loading } from './Select/common/Loading.js'
-import { Menu } from './Select/multi/Menu.js'
-import { Input } from './Select/multi/Input.js'
+import { MultiSelect } from './MultiSelect.js'
 
 /**
  * @module
@@ -41,24 +38,36 @@ class MultiSelectField extends React.Component {
             validationText,
             maxHeight,
             children,
+            clearable,
+            filtered,
+            placeholder,
+            prefix,
+            empty,
         } = this.props
 
         return (
             <Field className={className}>
                 {label && <Label required={required}>{label}</Label>}
 
-                <SelectWrapper
+                <MultiSelect
                     selected={selected}
-                    input={<Input />}
-                    menu={<Menu />}
                     tabIndex={tabIndex}
                     maxHeight={maxHeight}
                     onChange={onChange}
                     onFocus={onFocus}
                     onBlur={onBlur}
+                    loading={loading}
+                    error={error}
+                    warning={warning}
+                    valid={valid}
+                    clearable={clearable}
+                    filtered={filtered}
+                    placeholder={placeholder}
+                    prefix={prefix}
+                    empty={empty}
                 >
-                    {loading ? <Loading /> : children}
-                </SelectWrapper>
+                    {children}
+                </MultiSelect>
 
                 {helpText && <Help>{helpText}</Help>}
 
@@ -106,6 +115,11 @@ MultiSelectField.propTypes = {
     className: propTypes.string,
     tabIndex: propTypes.string,
     maxHeight: propTypes.string,
+    clearable: propTypes.bool,
+    filtered: propTypes.bool,
+    placeholder: propTypes.string,
+    prefix: propTypes.string,
+    empty: propTypes.node,
 
     helpText: propTypes.string,
     validationText: propTypes.string,

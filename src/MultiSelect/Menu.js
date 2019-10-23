@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { Empty } from '../common/Empty.js'
+import { Empty } from '../Select/Empty.js'
 
 const createHandler = ({ active, onChange, selected }) => ({
     value,

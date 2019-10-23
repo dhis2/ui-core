@@ -1,23 +1,16 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { colors, spacers } from '../../theme.js'
-import { Button } from '../../Button.js'
+import { colors, spacers } from '../theme.js'
+import { Button } from '../Button.js'
 import { SelectionList } from './SelectionList.js'
 
-const Input = ({
-    selected,
-    onChange,
-    clearable,
-    placeholder,
-    prefix,
-    options,
-}) => {
-    const hasSelection = 'label' in selected && 'value' in selected
+const Input = ({ selected, onChange, clearable, placeholder, prefix }) => {
+    const hasSelection = selected.length > 0
     const showPlaceholder = !prefix && !hasSelection
     const showClear = clearable && hasSelection
     const handleClear = e => {
         e.stopPropagation()
-        onChange({})
+        onChange([])
     }
 
     return (
@@ -27,17 +20,13 @@ const Input = ({
                 <div className="placeholder">{placeholder}</div>
             )}
             {hasSelection && (
-                <SelectionList options={options} selected={selected} />
+                <div>
+                    <SelectionList selected={selected} onChange={onChange} />
+                </div>
             )}
             {showClear && (
                 <div className="right">
-                    <Button
-                        className="right"
-                        small
-                        secondary
-                        onClick={handleClear}
-                        type="button"
-                    >
+                    <Button small secondary onClick={handleClear} type="button">
                         Clear
                     </Button>
                 </div>
@@ -46,6 +35,7 @@ const Input = ({
             <style jsx>{`
                 .input {
                     display: flex;
+                    align-items: center;
                     color: ${colors.grey900};
                     font-size: 14px;
                     line-height: 16px;
@@ -72,10 +62,8 @@ const Input = ({
 }
 
 Input.propTypes = {
-    selected: propTypes.object.isRequired,
+    selected: propTypes.array.isRequired,
     onChange: propTypes.func.isRequired,
-
-    options: propTypes.node,
 
     clearable: propTypes.bool,
 

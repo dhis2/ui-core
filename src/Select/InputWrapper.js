@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { ArrowDown, ArrowUp } from '../../icons/Arrow.js'
-import { colors } from '../../theme.js'
+import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
+import { colors } from '../theme.js'
 
 const InputWrapper = ({ open, onToggle, children, tabIndex }) => {
     return (

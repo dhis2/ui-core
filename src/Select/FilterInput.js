@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { Input } from '../../Input.js'
-import { spacers, colors } from '../../theme.js'
+import { Input } from '../Input.js'
+import { spacers, colors } from '../theme.js'
 
 const FilterInput = ({ value, onChange, placeholder }) => (
     <div className="container">
