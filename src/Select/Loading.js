@@ -1,11 +1,12 @@
 import React from 'react'
+import propTypes from '@dhis2/prop-types'
 import { colors, spacers, theme } from '../theme.js'
 import { CircularLoader } from '../CircularLoader.js'
 
-const Loading = () => (
+const Loading = ({ message }) => (
     <div className="loading">
         <CircularLoader small />
-        Loading options
+        {message}
         <style jsx>{`
             .loading {
                 display: flex;
@@ -19,5 +20,9 @@ const Loading = () => (
         `}</style>
     </div>
 )
+
+Loading.propTypes = {
+    message: propTypes.string.isRequired,
+}
 
 export { Loading }

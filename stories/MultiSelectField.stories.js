@@ -7,6 +7,9 @@ const defaultProps = {
     selected: [{ value: '1', label: 'one' }],
     onChange: selected =>
         alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`),
+    empty: 'No data',
+    noMatchText: `No match found for "%%FILTER%%"`,
+    loadingText: 'Loading options',
 }
 
 const options = [
@@ -107,10 +110,11 @@ storiesOf('MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
+    .add('Empty', () => <MultiSelectField {...defaultProps} selected={[]} />)
     .add('Custom empty', () => (
         <MultiSelectField
             {...defaultProps}
             selected={[]}
-            empty="There are no options"
+            empty={<div>There are no options</div>}
         />
     ))

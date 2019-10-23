@@ -4,7 +4,13 @@ import { Empty } from '../Select/Empty.js'
 
 const Menu = ({ options, onChange, selected, empty, handleClose }) => {
     if (React.Children.count(options) === 0) {
-        return empty || <Empty />
+        // If it's a string, supply it to our <Empty> component so it looks better
+        if (typeof empty === 'string') {
+            return <Empty message={empty} />
+        }
+
+        // Otherwise just render the supplied markup
+        return empty
     }
 
     const children = React.Children.map(options, child => {

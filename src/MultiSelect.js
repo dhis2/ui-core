@@ -24,6 +24,8 @@ const MultiSelect = ({
     placeholder,
     prefix,
     empty,
+    loadingText,
+    noMatchText,
 }) => (
     <Select
         className={className}
@@ -36,7 +38,11 @@ const MultiSelect = ({
             />
         }
         menu={
-            filtered ? <FilteredMenu empty={empty} /> : <Menu empty={empty} />
+            filtered ? (
+                <FilteredMenu empty={empty} noMatchText={noMatchText} />
+            ) : (
+                <Menu empty={empty} />
+            )
         }
         tabIndex={tabIndex}
         maxHeight={maxHeight}
@@ -47,7 +53,7 @@ const MultiSelect = ({
         warning={warning}
         valid={valid}
     >
-        {loading ? <Loading /> : children}
+        {loading ? <Loading message={loadingText} /> : children}
     </Select>
 )
 
@@ -60,6 +66,8 @@ MultiSelect.propTypes = {
     maxHeight: propTypes.string,
     placeholder: propTypes.string,
     prefix: propTypes.string,
+    loadingText: propTypes.string.isRequired,
+    noMatchText: propTypes.string.isRequired,
 
     children: propTypes.node,
     empty: propTypes.node,

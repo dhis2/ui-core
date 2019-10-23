@@ -1,9 +1,10 @@
 import React from 'react'
+import propTypes from '@dhis2/prop-types'
 import { colors, spacers, theme } from '../theme.js'
 
-const Empty = () => (
+const Empty = ({ message }) => (
     <div>
-        No data
+        {message}
         <style jsx>{`
             div {
                 color: ${colors.grey700};
@@ -16,5 +17,9 @@ const Empty = () => (
         `}</style>
     </div>
 )
+
+Empty.propTypes = {
+    message: propTypes.string.isRequired,
+}
 
 export { Empty }
