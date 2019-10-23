@@ -69,7 +69,7 @@ const InputWrapper = ({
 }
 
 InputWrapper.propTypes = {
-    children: propTypes.node,
+    children: propTypes.element,
 
     open: propTypes.bool.isRequired,
     onToggle: propTypes.func.isRequired,
