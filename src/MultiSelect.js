@@ -66,7 +66,7 @@ MultiSelect.propTypes = {
     maxHeight: propTypes.string,
     placeholder: propTypes.string,
     prefix: propTypes.string,
-    loadingText: propTypes.string.isRequired,
+    loadingText: propTypes.string,
     noMatchText: propTypes.string.isRequired,
 
     children: propTypes.node,
