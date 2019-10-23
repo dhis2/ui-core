@@ -54,7 +54,7 @@ export class Select extends Component {
                 onBlur(e)
             }
 
-            this.setState({ open: false })
+            this.handleClose()
         }
     }
 
