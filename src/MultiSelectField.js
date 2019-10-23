@@ -43,6 +43,8 @@ class MultiSelectField extends React.Component {
             placeholder,
             prefix,
             empty,
+            loadingText,
+            noMatchText,
         } = this.props
 
         return (
@@ -65,6 +67,8 @@ class MultiSelectField extends React.Component {
                     placeholder={placeholder}
                     prefix={prefix}
                     empty={empty}
+                    loadingText={loadingText}
+                    noMatchText={noMatchText}
                 >
                     {children}
                 </MultiSelect>
@@ -119,10 +123,12 @@ MultiSelectField.propTypes = {
     filtered: propTypes.bool,
     placeholder: propTypes.string,
     prefix: propTypes.string,
-    empty: propTypes.node,
+    empty: propTypes.node.isRequired,
 
     helpText: propTypes.string,
     validationText: propTypes.string,
+    loadingText: propTypes.string.isRequired,
+    noMatchText: propTypes.string.isRequired,
 
     children: propTypes.node,
 

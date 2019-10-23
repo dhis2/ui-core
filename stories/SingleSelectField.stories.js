@@ -6,6 +6,9 @@ const defaultProps = {
     label: 'Default label',
     selected: { value: '1', label: 'one' },
     onChange: ({ label }) => alert(`Selected changed to: ${label}`),
+    empty: 'No data',
+    noMatchText: `No match found for "%%FILTER%%"`,
+    loadingText: 'Loading options',
 }
 
 const options = [
@@ -109,10 +112,11 @@ storiesOf('SingleSelectField', module)
             {options}
         </SingleSelectField>
     ))
+    .add('Empty', () => <SingleSelectField {...defaultProps} selected={{}} />)
     .add('Custom empty', () => (
         <SingleSelectField
             {...defaultProps}
             selected={{}}
-            empty="There are no options"
+            empty={<div>There are no options</div>}
         />
     ))

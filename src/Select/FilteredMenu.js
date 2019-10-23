@@ -20,6 +20,7 @@ export class FilteredMenu extends Component {
             selected,
             empty,
             placeholder,
+            noMatchText,
             Menu,
         } = this.props
         const { filter } = this.state
@@ -65,7 +66,7 @@ export class FilteredMenu extends Component {
                 {hasMatch ? (
                     <Menu {...menuProps} options={filtered} />
                 ) : (
-                    <NoMatch filter={filter} />
+                    <NoMatch message={noMatchText} filter={filter} />
                 )}
             </React.Fragment>
         )
@@ -79,4 +80,5 @@ FilteredMenu.propTypes = {
     onChange: propTypes.func.isRequired,
     selected: propTypes.object.isRequired,
     placeholder: propTypes.string.isRequired,
+    noMatchText: propTypes.string.isRequired,
 }
