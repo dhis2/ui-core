@@ -45,9 +45,7 @@ export class Select extends Component {
 
     handleOutsideClick = e => {
         const { onBlur } = this.props
-        const hasRef = this.selectRef.current
-        const isInsideClick =
-            hasRef && this.selectRef.current.contains(e.target)
+        const isInsideClick = this.selectRef.current.contains(e.target)
 
         if (!isInsideClick) {
             if (onBlur) {
