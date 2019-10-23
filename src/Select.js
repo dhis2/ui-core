@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
+import { statusPropType } from './common-prop-types.js'
 import { InputWrapper } from './Select/InputWrapper.js'
 import { MenuWrapper } from './Select/MenuWrapper.js'
 
@@ -80,7 +81,16 @@ export class Select extends Component {
 
     render() {
         const { open } = this.state
-        const { children, selected, onChange, tabIndex, maxHeight } = this.props
+        const {
+            children,
+            selected,
+            onChange,
+            tabIndex,
+            maxHeight,
+            error,
+            warning,
+            valid,
+        } = this.props
 
         // Create the input
         const inputProps = {
@@ -110,6 +120,9 @@ export class Select extends Component {
                     onToggle={this.handleToggle}
                     open={open}
                     tabIndex={tabIndex}
+                    error={error}
+                    warning={warning}
+                    valid={valid}
                 >
                     {input}
                 </InputWrapper>
@@ -146,4 +159,7 @@ Select.propTypes = {
 
     tabIndex: propTypes.string,
     maxHeight: propTypes.string,
+    valid: statusPropType,
+    warning: statusPropType,
+    error: statusPropType,
 }
