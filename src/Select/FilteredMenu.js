@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
-import { FilterInput } from '../common/FilterInput.js'
-import { NoMatch } from '../common/NoMatch.js'
+import { FilterInput } from '../Select/FilterInput.js'
+import { NoMatch } from '../Select/NoMatch.js'
 
 export class FilteredMenu extends Component {
     state = {

@@ -1,8 +1,8 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { resolve } from 'styled-jsx/css'
-import { Card } from '../../Card.js'
-import { layers } from '../../theme.js'
+import { Card } from '../Card.js'
+import { layers } from '../theme.js'
 
 const MenuWrapper = ({ children, maxHeight }) => {
     const { styles, className } = resolve`

@@ -1,15 +1,15 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { resolve } from 'styled-jsx/css'
-import { colors, spacers } from '../../theme.js'
-import { Checkbox } from '../../Checkbox.js'
+import { colors, spacers } from './theme.js'
+import { Checkbox } from './Checkbox.js'
 
 // Padding has to be set on the label, so that the entire area is clickable
 const { styles, className } = resolve`
     padding: ${spacers.dp8} ${spacers.dp12};
 `
 
-const Option = ({ value, label, active, disabled, onClick }) => (
+const MultiSelectOption = ({ value, label, active, disabled, onClick }) => (
     <div>
         <Checkbox
             name={label}
@@ -32,7 +32,7 @@ const Option = ({ value, label, active, disabled, onClick }) => (
     </div>
 )
 
-Option.propTypes = {
+MultiSelectOption.propTypes = {
     value: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     onClick: propTypes.func,
@@ -40,4 +40,4 @@ Option.propTypes = {
     disabled: propTypes.bool,
 }
 
-export { Option }
+export { MultiSelectOption }

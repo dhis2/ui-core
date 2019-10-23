@@ -1,6 +1,6 @@
 import React from 'react'
-import { colors, spacers, theme } from '../../theme.js'
-import { CircularLoader } from '../../CircularLoader.js'
+import { colors, spacers, theme } from '../theme.js'
+import { CircularLoader } from '../CircularLoader.js'
 
 const Loading = () => (
     <div className="loading">

@@ -52,21 +52,12 @@ export { TextArea } from './TextArea.js'
 export { TextAreaField } from './TextAreaField.js'
 
 /* Select */
-export { SelectWrapper as Select } from './Select/common/SelectWrapper.js'
-export { Option as SelectOption } from './Select/single/Option.js'
-export { Input as SelectInput } from './Select/single/Input.js'
-export { Menu as SelectMenu } from './Select/single/Menu.js'
-export {
-    FilteredMenu as FilteredSelectMenu,
-} from './Select/single/FilteredMenu.js'
-export { Option as MultiSelectOption } from './Select/multi/Option.js'
-export { Input as MultiSelectInput } from './Select/multi/Input.js'
-export { Menu as MultiSelectMenu } from './Select/multi/Menu.js'
-export {
-    FilteredMenu as FilteredMultiSelectMenu,
-} from './Select/multi/FilteredMenu.js'
-export { SelectField } from './SelectField.js'
+export { SingleSelect } from './SingleSelect.js'
+export { SingleSelectField } from './SingleSelectField.js'
+export { SingleSelectOption } from './SingleSelectOption.js'
+export { MultiSelect } from './MultiSelect.js'
 export { MultiSelectField } from './MultiSelectField.js'
+export { MultiSelectOption } from './MultiSelectOption.js'
 
 /* table */
 export { TableBody } from './Table/TableBody.js'

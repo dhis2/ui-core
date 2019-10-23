@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { Chip } from '../../Chip.js'
+import { Chip } from '../Chip.js'
 
 const createRemoveHandler = ({ selected, onChange, value, label }) => () => {
     const filtered = selected.filter(selection => {

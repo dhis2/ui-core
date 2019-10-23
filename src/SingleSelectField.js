@@ -6,23 +6,20 @@ import { statusPropType } from './common-prop-types.js'
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Help } from './Help.js'
-import { SelectWrapper } from './Select/common/SelectWrapper.js'
-import { Loading } from './Select/common/Loading.js'
-import { Menu } from './Select/single/Menu.js'
-import { Input } from './Select/single/Input.js'
+import { SingleSelect } from './SingleSelect.js'
 
 /**
  * @module
  *
- * @param {SelectField.PropTypes} props
+ * @param {SingleSelectField.PropTypes} props
  * @returns {React.Component}
  *
- * @example import { SelectField } from '@dhis2/ui-core'
+ * @example import { SingleSelectField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/select-regular--no-value|Storybook}
  */
-class SelectField extends React.Component {
+class SingleSelectField extends React.Component {
     render() {
         const {
             className,
@@ -41,24 +38,36 @@ class SelectField extends React.Component {
             validationText,
             maxHeight,
             children,
+            clearable,
+            filtered,
+            placeholder,
+            prefix,
+            empty,
         } = this.props
 
         return (
             <Field className={className}>
                 {label && <Label required={required}>{label}</Label>}
 
-                <SelectWrapper
+                <SingleSelect
                     selected={selected}
-                    input={<Input />}
-                    menu={<Menu />}
                     tabIndex={tabIndex}
                     maxHeight={maxHeight}
                     onChange={onChange}
                     onFocus={onFocus}
                     onBlur={onBlur}
+                    loading={loading}
+                    error={error}
+                    warning={warning}
+                    valid={valid}
+                    clearable={clearable}
+                    filtered={filtered}
+                    placeholder={placeholder}
+                    prefix={prefix}
+                    empty={empty}
                 >
-                    {loading ? <Loading /> : children}
-                </SelectWrapper>
+                    {children}
+                </SingleSelect>
 
                 {helpText && <Help>{helpText}</Help>}
 
@@ -98,7 +107,7 @@ class SelectField extends React.Component {
  * @prop {string} [helpText]
  * @prop {Object|Array} [children]
  */
-SelectField.propTypes = {
+SingleSelectField.propTypes = {
     onChange: propTypes.func.isRequired,
 
     label: propTypes.string,
@@ -106,6 +115,11 @@ SelectField.propTypes = {
     className: propTypes.string,
     tabIndex: propTypes.string,
     maxHeight: propTypes.string,
+    clearable: propTypes.bool,
+    filtered: propTypes.bool,
+    placeholder: propTypes.string,
+    prefix: propTypes.string,
+    empty: propTypes.node,
 
     helpText: propTypes.string,
     validationText: propTypes.string,
@@ -122,4 +136,4 @@ SelectField.propTypes = {
     onBlur: propTypes.func,
 }
 
-export { SelectField }
+export { SingleSelectField }

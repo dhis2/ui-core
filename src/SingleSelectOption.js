@@ -1,9 +1,9 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
-import { colors, spacers } from '../../theme.js'
+import { colors, spacers } from './theme.js'
 
-const Option = ({ value, label, active, disabled, onClick }) => (
+const SingleSelectOption = ({ value, label, active, disabled, onClick }) => (
     <a
         className={cx({
             disabled,
@@ -48,7 +48,7 @@ const Option = ({ value, label, active, disabled, onClick }) => (
     </a>
 )
 
-Option.propTypes = {
+SingleSelectOption.propTypes = {
     value: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     onClick: propTypes.func,
@@ -56,4 +56,4 @@ Option.propTypes = {
     disabled: propTypes.bool,
 }
 
-export { Option }
+export { SingleSelectOption }

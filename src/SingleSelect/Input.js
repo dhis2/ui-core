@@ -1,16 +1,23 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { colors, spacers } from '../../theme.js'
-import { Button } from '../../Button.js'
+import { colors, spacers } from '../theme.js'
+import { Button } from '../Button.js'
 import { SelectionList } from './SelectionList.js'
 
-const Input = ({ selected, onChange, clearable, placeholder, prefix }) => {
-    const hasSelection = selected.length > 0
+const Input = ({
+    selected,
+    onChange,
+    clearable,
+    placeholder,
+    prefix,
+    options,
+}) => {
+    const hasSelection = 'label' in selected && 'value' in selected
     const showPlaceholder = !prefix && !hasSelection
     const showClear = clearable && hasSelection
     const handleClear = e => {
         e.stopPropagation()
-        onChange([])
+        onChange({})
     }
 
     return (
@@ -20,13 +27,17 @@ const Input = ({ selected, onChange, clearable, placeholder, prefix }) => {
                 <div className="placeholder">{placeholder}</div>
             )}
             {hasSelection && (
-                <div>
-                    <SelectionList selected={selected} onChange={onChange} />
-                </div>
+                <SelectionList options={options} selected={selected} />
             )}
             {showClear && (
                 <div className="right">
-                    <Button small secondary onClick={handleClear} type="button">
+                    <Button
+                        className="right"
+                        small
+                        secondary
+                        onClick={handleClear}
+                        type="button"
+                    >
                         Clear
                     </Button>
                 </div>
@@ -35,7 +46,6 @@ const Input = ({ selected, onChange, clearable, placeholder, prefix }) => {
             <style jsx>{`
                 .input {
                     display: flex;
-                    align-items: center;
                     color: ${colors.grey900};
                     font-size: 14px;
                     line-height: 16px;
@@ -62,8 +72,10 @@ const Input = ({ selected, onChange, clearable, placeholder, prefix }) => {
 }
 
 Input.propTypes = {
-    selected: propTypes.array.isRequired,
+    selected: propTypes.object.isRequired,
     onChange: propTypes.func.isRequired,
+
+    options: propTypes.node,
 
     clearable: propTypes.bool,
 

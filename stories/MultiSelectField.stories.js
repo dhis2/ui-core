@@ -22,7 +22,7 @@ storiesOf('MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
-    .add('With valid status', () => (
+    .add('Status: Valid', () => (
         <MultiSelectField
             {...defaultProps}
             helpText="A helpful text."
@@ -32,7 +32,7 @@ storiesOf('MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
-    .add('With warning status', () => (
+    .add('Status: Warning', () => (
         <MultiSelectField
             {...defaultProps}
             helpText="A helpful text."
@@ -42,7 +42,7 @@ storiesOf('MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
-    .add('With error status', () => (
+    .add('Status: Error', () => (
         <MultiSelectField
             {...defaultProps}
             helpText="A helpful text."
@@ -52,7 +52,7 @@ storiesOf('MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
-    .add('With loading status', () => (
+    .add('Status: Loading', () => (
         <MultiSelectField {...defaultProps} selected={[]} loading>
             {options}
         </MultiSelectField>

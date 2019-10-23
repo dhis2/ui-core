@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { FilteredMenu as CommonFilteredMenu } from '../common/FilteredMenu.js'
+import { FilteredMenu as CommonFilteredMenu } from '../Select/FilteredMenu.js'
 import { Menu } from './Menu.js'
 
 const FilteredMenu = props => <CommonFilteredMenu {...props} Menu={Menu} />

@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { SelectField, SelectOption } from '../src'
+import { SingleSelectField, SingleSelectOption } from '../src'
 
 const defaultProps = {
     label: 'Default label',
@@ -9,56 +9,56 @@ const defaultProps = {
 }
 
 const options = [
-    <SelectOption key="1" value="1" label="one" />,
-    <SelectOption key="2" value="2" label="two" />,
+    <SingleSelectOption key="1" value="1" label="one" />,
+    <SingleSelectOption key="2" value="2" label="two" />,
 ]
 
-storiesOf('SelectField', module)
+storiesOf('SingleSelectField', module)
     .add('Default', () => (
-        <SelectField {...defaultProps}>{options}</SelectField>
+        <SingleSelectField {...defaultProps}>{options}</SingleSelectField>
     ))
     .add('With Help text', () => (
-        <SelectField {...defaultProps} helpText="A helpful text.">
+        <SingleSelectField {...defaultProps} helpText="A helpful text.">
             {options}
-        </SelectField>
+        </SingleSelectField>
     ))
-    .add('With valid status', () => (
-        <SelectField
+    .add('Status: Valid', () => (
+        <SingleSelectField
             {...defaultProps}
             helpText="A helpful text."
             validationText="Totally valid"
             valid
         >
             {options}
-        </SelectField>
+        </SingleSelectField>
     ))
-    .add('With warning status', () => (
-        <SelectField
+    .add('Status: Warning', () => (
+        <SingleSelectField
             {...defaultProps}
             helpText="A helpful text."
             validationText="Hm, not quite, I warn thee!"
             warning
         >
             {options}
-        </SelectField>
+        </SingleSelectField>
     ))
-    .add('With error status', () => (
-        <SelectField
+    .add('Status: Error', () => (
+        <SingleSelectField
             {...defaultProps}
             helpText="A helpful text."
             validationText="NO! TOTALLY WRONG!"
             error
         >
             {options}
-        </SelectField>
+        </SingleSelectField>
     ))
-    .add('With loading status', () => (
-        <SelectField {...defaultProps} selected={{}} loading>
+    .add('Status: Loading', () => (
+        <SingleSelectField {...defaultProps} selected={{}} loading>
             {options}
-        </SelectField>
+        </SingleSelectField>
     ))
     .add('Required', () => (
-        <SelectField {...defaultProps} required>
+        <SingleSelectField {...defaultProps} required>
             {options}
-        </SelectField>
+        </SingleSelectField>
     ))
