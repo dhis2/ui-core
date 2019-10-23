@@ -5,17 +5,47 @@ import { MultiSelectField, MultiSelectOption } from '../src'
 const defaultProps = {
     label: 'Default label',
     selected: [{ value: '1', label: 'one' }],
-    onChange: () => {},
+    onChange: selected =>
+        alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`),
 }
 
 const options = [
     <MultiSelectOption key="1" value="1" label="one" />,
     <MultiSelectOption key="2" value="2" label="two" />,
+    <MultiSelectOption key="3" value="3" label="three" />,
+    <MultiSelectOption key="4" value="4" label="four" />,
+    <MultiSelectOption key="5" value="5" label="five" />,
+    <MultiSelectOption key="6" value="6" label="six" />,
+    <MultiSelectOption key="7" value="7" label="seven" />,
 ]
 
 storiesOf('MultiSelectField', module)
     .add('Default', () => (
         <MultiSelectField {...defaultProps}>{options}</MultiSelectField>
+    ))
+    .add('No placeholder, no selected options', () => (
+        <MultiSelectField {...defaultProps} selected={[]}>
+            {options}
+        </MultiSelectField>
+    ))
+    .add('Placeholder, no selected options', () => (
+        <MultiSelectField
+            {...defaultProps}
+            placeholder="Placeholder text"
+            selected={[]}
+        >
+            {options}
+        </MultiSelectField>
+    ))
+    .add('Prefix, no selected options', () => (
+        <MultiSelectField {...defaultProps} prefix="Prefix text" selected={[]}>
+            {options}
+        </MultiSelectField>
+    ))
+    .add('Prefix, with selected options', () => (
+        <MultiSelectField {...defaultProps} prefix="Prefix text">
+            {options}
+        </MultiSelectField>
     ))
     .add('With Help text', () => (
         <MultiSelectField {...defaultProps} helpText="A helpful text.">
@@ -61,4 +91,26 @@ storiesOf('MultiSelectField', module)
         <MultiSelectField {...defaultProps} required>
             {options}
         </MultiSelectField>
+    ))
+    .add('Maximum height', () => (
+        <MultiSelectField {...defaultProps} maxHeight="100px">
+            {options}
+        </MultiSelectField>
+    ))
+    .add('Clearable', () => (
+        <MultiSelectField {...defaultProps} clearable>
+            {options}
+        </MultiSelectField>
+    ))
+    .add('Filtered', () => (
+        <MultiSelectField {...defaultProps} filtered>
+            {options}
+        </MultiSelectField>
+    ))
+    .add('Custom empty', () => (
+        <MultiSelectField
+            {...defaultProps}
+            selected={[]}
+            empty="There are no options"
+        />
     ))
