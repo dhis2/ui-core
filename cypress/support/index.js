@@ -1,1 +1,2 @@
+import './screenshots'
 import './visitStory'
