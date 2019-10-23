@@ -1,12 +1,24 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import cx from 'classnames'
+import { statusPropType } from '../common-prop-types.js'
 import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
-import { colors } from '../theme.js'
+import { colors, theme } from '../theme.js'
 
-const InputWrapper = ({ open, onToggle, children, tabIndex }) => {
+const InputWrapper = ({
+    open,
+    onToggle,
+    children,
+    tabIndex,
+    error,
+    warning,
+    valid,
+}) => {
+    const classNames = cx('input', { error, warning, valid })
+
     return (
         <React.Fragment>
-            <div className="input" onClick={onToggle} tabIndex={tabIndex}>
+            <div className={classNames} onClick={onToggle} tabIndex={tabIndex}>
                 <div className="children">{children}</div>
                 <div className="right">
                     {open ? <ArrowUp /> : <ArrowDown />}
@@ -32,6 +44,18 @@ const InputWrapper = ({ open, onToggle, children, tabIndex }) => {
                     outline: 0;
                 }
 
+                .input.valid {
+                    border-color: ${theme.valid};
+                }
+
+                .input.warning {
+                    border-color: ${theme.warning};
+                }
+
+                .input.error {
+                    border-color: ${theme.error};
+                }
+
                 .children {
                     flex-grow: 1;
                 }
@@ -51,6 +75,9 @@ InputWrapper.propTypes = {
     onToggle: propTypes.func.isRequired,
 
     tabIndex: propTypes.string.isRequired,
+    valid: statusPropType,
+    warning: statusPropType,
+    error: statusPropType,
 }
 
 export { InputWrapper }
