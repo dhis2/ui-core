@@ -9,7 +9,6 @@ const defaultProps = {
         alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`),
     empty: 'No data',
     noMatchText: `No match found for "%%FILTER%%"`,
-    loadingText: 'Loading options',
 }
 
 const options = [
@@ -87,6 +86,16 @@ storiesOf('MultiSelectField', module)
     ))
     .add('Status: Loading', () => (
         <MultiSelectField {...defaultProps} selected={[]} loading>
+            {options}
+        </MultiSelectField>
+    ))
+    .add('Status: Loading with text', () => (
+        <MultiSelectField
+            {...defaultProps}
+            selected={[]}
+            loading
+            loadingText="Loading options"
+        >
             {options}
         </MultiSelectField>
     ))

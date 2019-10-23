@@ -127,7 +127,7 @@ SingleSelectField.propTypes = {
 
     helpText: propTypes.string,
     validationText: propTypes.string,
-    loadingText: propTypes.string.isRequired,
+    loadingText: propTypes.string,
     noMatchText: propTypes.string.isRequired,
 
     children: propTypes.node,

@@ -22,7 +22,7 @@ const Loading = ({ message }) => (
 )
 
 Loading.propTypes = {
-    message: propTypes.string.isRequired,
+    message: propTypes.string,
 }
 
 export { Loading }

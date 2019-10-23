@@ -8,7 +8,6 @@ const defaultProps = {
     onChange: ({ label }) => alert(`Selected changed to: ${label}`),
     empty: 'No data',
     noMatchText: `No match found for "%%FILTER%%"`,
-    loadingText: 'Loading options',
 }
 
 const options = [
@@ -89,6 +88,16 @@ storiesOf('SingleSelectField', module)
     ))
     .add('Status: Loading', () => (
         <SingleSelectField {...defaultProps} selected={{}} loading>
+            {options}
+        </SingleSelectField>
+    ))
+    .add('Status: Loading with text', () => (
+        <SingleSelectField
+            {...defaultProps}
+            selected={{}}
+            loading
+            loadingText="Loading options"
+        >
             {options}
         </SingleSelectField>
     ))
