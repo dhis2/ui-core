@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
-import { statusPropType } from './common-prop-types.js'
+import {
+    statusPropType,
+    singleSelectedPropType,
+    multiSelectedPropType,
+} from './common-prop-types.js'
 import { InputWrapper } from './Select/InputWrapper.js'
 import { MenuWrapper } from './Select/MenuWrapper.js'
 
@@ -144,17 +148,16 @@ Select.defaultProps = {
 }
 
 Select.propTypes = {
-    selected: propTypes.any.isRequired,
     onChange: propTypes.func.isRequired,
-
+    selected: propTypes.oneOfType([
+        singleSelectedPropType,
+        multiSelectedPropType,
+    ]).isRequired,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
-
     children: propTypes.node,
-
     input: propTypes.element.isRequired,
     menu: propTypes.element.isRequired,
-
     tabIndex: propTypes.string,
     maxHeight: propTypes.string,
     valid: statusPropType,

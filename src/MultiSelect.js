@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import { multiSelectedPropType, statusPropType } from './common-prop-types.js'
 import { Select } from './Select.js'
 import { Input } from './MultiSelect/Input.js'
 import { Menu } from './MultiSelect/Menu.js'
@@ -59,8 +60,7 @@ const MultiSelect = ({
 
 MultiSelect.propTypes = {
     onChange: propTypes.func.isRequired,
-
-    selected: propTypes.object,
+    selected: multiSelectedPropType.isRequired,
     className: propTypes.string,
     tabIndex: propTypes.string,
     maxHeight: propTypes.string,
@@ -68,16 +68,14 @@ MultiSelect.propTypes = {
     prefix: propTypes.string,
     loadingText: propTypes.string,
     noMatchText: propTypes.string.isRequired,
-
     children: propTypes.node,
-    empty: propTypes.node,
+    empty: propTypes.node.isRequired,
     loading: propTypes.bool,
-    error: propTypes.bool,
-    warning: propTypes.bool,
-    valid: propTypes.bool,
+    valid: statusPropType,
+    warning: statusPropType,
+    error: statusPropType,
     clearable: propTypes.bool,
     filtered: propTypes.bool,
-
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 }

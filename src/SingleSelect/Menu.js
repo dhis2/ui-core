@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import { singleSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 
 const Menu = ({ options, onChange, selected, empty, handleClose }) => {
@@ -33,10 +34,10 @@ const Menu = ({ options, onChange, selected, empty, handleClose }) => {
 
 Menu.propTypes = {
     empty: propTypes.node,
-    options: propTypes.node.isRequired,
-    onChange: propTypes.func.isRequired,
-    selected: propTypes.object.isRequired,
-    handleClose: propTypes.func.isRequired,
+    options: propTypes.node,
+    onChange: propTypes.func,
+    selected: singleSelectedPropType,
+    handleClose: propTypes.func,
 }
 
 export { Menu }

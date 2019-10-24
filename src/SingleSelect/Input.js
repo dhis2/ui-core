@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import { singleSelectedPropType } from '../common-prop-types.js'
 import { colors, spacers } from '../theme.js'
 import { Button } from '../Button.js'
 import { SelectionList } from './SelectionList.js'
@@ -72,13 +73,10 @@ const Input = ({
 }
 
 Input.propTypes = {
-    selected: propTypes.object.isRequired,
-    onChange: propTypes.func.isRequired,
-
+    selected: singleSelectedPropType,
+    onChange: propTypes.func,
     options: propTypes.node,
-
     clearable: propTypes.bool,
-
     prefix: propTypes.string,
     placeholder: propTypes.string,
 }
