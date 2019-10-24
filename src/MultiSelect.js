@@ -21,7 +21,9 @@ const MultiSelect = ({
     valid,
     children,
     clearable,
+    clearText,
     filterable,
+    filterPlaceholder,
     placeholder,
     prefix,
     empty,
@@ -34,13 +36,18 @@ const MultiSelect = ({
         input={
             <Input
                 clearable={clearable}
+                clearText={clearText}
                 placeholder={placeholder}
                 prefix={prefix}
             />
         }
         menu={
             filterable ? (
-                <FilterableMenu empty={empty} noMatchText={noMatchText} />
+                <FilterableMenu
+                    empty={empty}
+                    noMatchText={noMatchText}
+                    placeholder={filterPlaceholder}
+                />
             ) : (
                 <Menu empty={empty} />
             )
@@ -68,6 +75,7 @@ MultiSelect.propTypes = {
     prefix: propTypes.string,
     loadingText: propTypes.string,
     noMatchText: propTypes.string.isRequired,
+    clearText: propTypes.string.isRequired,
     children: propTypes.node,
     empty: propTypes.node.isRequired,
     loading: propTypes.bool,
@@ -76,6 +84,7 @@ MultiSelect.propTypes = {
     error: statusPropType,
     clearable: propTypes.bool,
     filterable: propTypes.bool,
+    filterPlaceholder: propTypes.string,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 }

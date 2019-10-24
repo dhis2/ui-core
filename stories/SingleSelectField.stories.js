@@ -9,6 +9,8 @@ const defaultProps = {
     empty: 'No data',
     noMatchText: `No match found for "%%FILTER%%"`,
     tabIndex: '0',
+    clearText: 'Clear',
+    filterPlaceholder: 'Type to filter options',
 }
 
 const options = [
