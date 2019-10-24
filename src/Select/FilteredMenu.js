@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
+import {
+    singleSelectedPropType,
+    multiSelectedPropType,
+} from '../common-prop-types.js'
 import { FilterInput } from '../Select/FilterInput.js'
 import { NoMatch } from '../Select/NoMatch.js'
 
@@ -76,9 +80,12 @@ export class FilteredMenu extends Component {
 FilteredMenu.propTypes = {
     empty: propTypes.node,
     Menu: propTypes.elementType.isRequired,
-    options: propTypes.node.isRequired,
-    onChange: propTypes.func.isRequired,
-    selected: propTypes.object.isRequired,
-    placeholder: propTypes.string.isRequired,
+    options: propTypes.node,
+    onChange: propTypes.func,
+    selected: propTypes.oneOfType([
+        singleSelectedPropType,
+        multiSelectedPropType,
+    ]).isRequired,
+    placeholder: propTypes.string,
     noMatchText: propTypes.string.isRequired,
 }

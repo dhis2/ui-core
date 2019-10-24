@@ -1,7 +1,7 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from './common-prop-types.js'
+import { statusPropType, singleSelectedPropType } from './common-prop-types.js'
 
 import { Field } from './Field.js'
 import { Label } from './Label.js'
@@ -113,9 +113,8 @@ class SingleSelectField extends React.Component {
  */
 SingleSelectField.propTypes = {
     onChange: propTypes.func.isRequired,
-
     label: propTypes.string,
-    selected: propTypes.object,
+    selected: singleSelectedPropType.isRequired,
     className: propTypes.string,
     tabIndex: propTypes.string,
     maxHeight: propTypes.string,
@@ -124,20 +123,16 @@ SingleSelectField.propTypes = {
     placeholder: propTypes.string,
     prefix: propTypes.string,
     empty: propTypes.node.isRequired,
-
     helpText: propTypes.string,
     validationText: propTypes.string,
     loadingText: propTypes.string,
     noMatchText: propTypes.string.isRequired,
-
     children: propTypes.node,
-
     required: propTypes.bool,
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
     loading: propTypes.bool,
-
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import { singleSelectedPropType } from '../common-prop-types.js'
 import { SelectionItem } from './SelectionItem.js'
 
 const SelectionList = ({ options, selected }) => {
@@ -28,7 +29,7 @@ const SelectionList = ({ options, selected }) => {
 
 SelectionList.propTypes = {
     options: propTypes.node,
-    selected: propTypes.object.isRequired,
+    selected: singleSelectedPropType,
 }
 
 export { SelectionList }

@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import { multiSelectedPropType } from '../common-prop-types.js'
 import { colors, spacers } from '../theme.js'
 import { Button } from '../Button.js'
 import { SelectionList } from './SelectionList.js'
@@ -62,11 +63,9 @@ const Input = ({ selected, onChange, clearable, placeholder, prefix }) => {
 }
 
 Input.propTypes = {
-    selected: propTypes.array.isRequired,
-    onChange: propTypes.func.isRequired,
-
+    selected: multiSelectedPropType,
+    onChange: propTypes.func,
     clearable: propTypes.bool,
-
     prefix: propTypes.string,
     placeholder: propTypes.string,
 }

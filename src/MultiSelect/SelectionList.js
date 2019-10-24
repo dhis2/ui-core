@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import { multiSelectedPropType } from '../common-prop-types.js'
 import { Chip } from '../Chip.js'
 
 const createRemoveHandler = ({ selected, onChange, value, label }) => () => {
@@ -34,7 +35,7 @@ const SelectionList = ({ selected, onChange }) => {
 }
 
 SelectionList.propTypes = {
-    selected: propTypes.object.isRequired,
+    selected: multiSelectedPropType,
     onChange: propTypes.func.isRequired,
 }
 

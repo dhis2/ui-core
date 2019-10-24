@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import { multiSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 
 const createHandler = ({ active, onChange, selected }) => ({
@@ -60,9 +61,9 @@ const Menu = ({ options, onChange, selected, empty }) => {
 
 Menu.propTypes = {
     empty: propTypes.node,
-    options: propTypes.node.isRequired,
-    onChange: propTypes.func.isRequired,
-    selected: propTypes.array.isRequired,
+    options: propTypes.node,
+    onChange: propTypes.func,
+    selected: multiSelectedPropType,
 }
 
 export { Menu }
