@@ -17,6 +17,7 @@ const Input = ({
     prefix,
     options,
     className,
+    disabled,
 }) => {
     const hasSelection = 'label' in selected && 'value' in selected
     const handleClear = e => {
@@ -35,7 +36,7 @@ const Input = ({
                     <Selection selected={selected} options={options} />
                 </div>
             )}
-            {hasSelection && clearable && (
+            {hasSelection && clearable && !disabled && (
                 <div className="root-right">
                     <InputClearButton
                         handleClear={handleClear}
@@ -70,6 +71,7 @@ Input.propTypes = {
     clearText: propTypes.string.isRequired,
     prefix: propTypes.string,
     placeholder: propTypes.string,
+    disabled: propTypes.bool,
 }
 
 export { Input }

@@ -13,17 +13,22 @@ const createRemoveHandler = ({ selected, onChange, value, label }) => () => {
     onChange(filtered)
 }
 
-const SelectionList = ({ selected, onChange }) => (
+const SelectionList = ({ selected, onChange, disabled }) => (
     <React.Fragment>
         {selected.map(({ value, label }) => (
             <Chip
                 key={label}
-                onRemove={createRemoveHandler({
-                    selected,
-                    onChange,
-                    value,
-                    label,
-                })}
+                onRemove={
+                    disabled
+                        ? undefined
+                        : createRemoveHandler({
+                              selected,
+                              onChange,
+                              value,
+                              label,
+                          })
+                }
+                disabled={disabled}
                 overflow
             >
                 {label}
@@ -35,6 +40,7 @@ const SelectionList = ({ selected, onChange }) => (
 SelectionList.propTypes = {
     selected: multiSelectedPropType,
     onChange: propTypes.func.isRequired,
+    disabled: propTypes.bool,
 }
 
 export { SelectionList }

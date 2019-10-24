@@ -13,10 +13,16 @@ const InputWrapper = ({
     error,
     warning,
     valid,
+    disabled,
     className,
     inputRef,
 }) => {
-    const classNames = cx(className, 'root', { error, warning, valid })
+    const classNames = cx(className, 'root', {
+        error,
+        warning,
+        valid,
+        disabled,
+    })
 
     return (
         <React.Fragment>
@@ -63,6 +69,13 @@ const InputWrapper = ({
                     border-color: ${theme.error};
                 }
 
+                .root.disabled {
+                    background-color: ${colors.grey100};
+                    border-color: ${colors.grey500};
+                    color: ${theme.disabled};
+                    cursor: not-allowed;
+                }
+
                 .root-children {
                     flex-grow: 1;
                 }
@@ -87,6 +100,7 @@ InputWrapper.propTypes = {
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
+    disabled: propTypes.bool,
 }
 
 export { InputWrapper }
