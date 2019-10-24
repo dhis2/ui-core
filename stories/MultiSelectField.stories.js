@@ -9,6 +9,7 @@ const defaultProps = {
         alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`),
     empty: 'No data',
     noMatchText: `No match found for "%%FILTER%%"`,
+    tabIndex: '0',
 }
 
 const options = [

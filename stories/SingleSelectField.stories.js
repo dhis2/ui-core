@@ -8,6 +8,7 @@ const defaultProps = {
     onChange: ({ label }) => alert(`Selected changed to: ${label}`),
     empty: 'No data',
     noMatchText: `No match found for "%%FILTER%%"`,
+    tabIndex: '0',
 }
 
 const options = [
