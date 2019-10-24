@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { Button } from '../Button.js'
 
-const InputClearButton = ({ handleClear, className }) => (
+const InputClearButton = ({ handleClear, clearText, className }) => (
     <Button
         small
         secondary
@@ -10,13 +10,14 @@ const InputClearButton = ({ handleClear, className }) => (
         type="button"
         className={className}
     >
-        Clear
+        {clearText}
     </Button>
 )
 
 InputClearButton.propTypes = {
     className: propTypes.string,
     handleClear: propTypes.func.isRequired,
+    clearText: propTypes.string.isRequired,
 }
 
 export { InputClearButton }

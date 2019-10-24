@@ -12,6 +12,7 @@ const Input = ({
     selected,
     onChange,
     clearable,
+    clearText,
     placeholder,
     prefix,
     className,
@@ -35,7 +36,10 @@ const Input = ({
             )}
             {hasSelection && clearable && (
                 <div className="root-right">
-                    <InputClearButton handleClear={handleClear} />
+                    <InputClearButton
+                        handleClear={handleClear}
+                        clearText={clearText}
+                    />
                 </div>
             )}
 
@@ -61,6 +65,7 @@ Input.propTypes = {
     selected: multiSelectedPropType,
     onChange: propTypes.func,
     clearable: propTypes.bool,
+    clearText: propTypes.string.isRequired,
     prefix: propTypes.string,
     placeholder: propTypes.string,
 }
