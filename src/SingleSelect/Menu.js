@@ -16,6 +16,13 @@ const Menu = ({ options, onChange, selected, empty, handleClose }) => {
 
     const children = React.Children.map(options, child => {
         const { value, label } = child.props
+        const isValidOption = 'value' in child.props && 'label' in child.props
+
+        // Return early if the child isn't an option, to prevent attaching handlers etc.
+        if (!isValidOption) {
+            return child
+        }
+
         const active = value === selected.value && label === selected.label
         const onClick = option => {
             onChange(option)
