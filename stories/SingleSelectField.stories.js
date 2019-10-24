@@ -116,8 +116,8 @@ storiesOf('SingleSelectField', module)
             {options}
         </SingleSelectField>
     ))
-    .add('Filtered', () => (
-        <SingleSelectField {...defaultProps} filtered>
+    .add('Filterable', () => (
+        <SingleSelectField {...defaultProps} filterable>
             {options}
         </SingleSelectField>
     ))

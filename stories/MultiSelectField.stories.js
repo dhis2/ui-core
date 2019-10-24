@@ -114,8 +114,8 @@ storiesOf('MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
-    .add('Filtered', () => (
-        <MultiSelectField {...defaultProps} filtered>
+    .add('Filterable', () => (
+        <MultiSelectField {...defaultProps} filterable>
             {options}
         </MultiSelectField>
     ))

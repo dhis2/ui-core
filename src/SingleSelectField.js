@@ -39,7 +39,7 @@ class SingleSelectField extends React.Component {
             maxHeight,
             children,
             clearable,
-            filtered,
+            filterable,
             placeholder,
             prefix,
             empty,
@@ -63,7 +63,7 @@ class SingleSelectField extends React.Component {
                     warning={warning}
                     valid={valid}
                     clearable={clearable}
-                    filtered={filtered}
+                    filterable={filterable}
                     placeholder={placeholder}
                     prefix={prefix}
                     empty={empty}
@@ -119,7 +119,7 @@ SingleSelectField.propTypes = {
     tabIndex: propTypes.string,
     maxHeight: propTypes.string,
     clearable: propTypes.bool,
-    filtered: propTypes.bool,
+    filterable: propTypes.bool,
     placeholder: propTypes.string,
     prefix: propTypes.string,
     empty: propTypes.node.isRequired,

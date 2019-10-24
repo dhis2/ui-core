@@ -7,7 +7,7 @@ import {
 import { FilterInput } from '../Select/FilterInput.js'
 import { NoMatch } from '../Select/NoMatch.js'
 
-export class FilteredMenu extends Component {
+export class FilterableMenu extends Component {
     state = {
         filter: '',
     }
@@ -77,7 +77,7 @@ export class FilteredMenu extends Component {
     }
 }
 
-FilteredMenu.propTypes = {
+FilterableMenu.propTypes = {
     empty: propTypes.node,
     Menu: propTypes.elementType.isRequired,
     options: propTypes.node,

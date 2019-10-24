@@ -4,7 +4,7 @@ import { singleSelectedPropType, statusPropType } from './common-prop-types.js'
 import { Select } from './Select.js'
 import { Input } from './SingleSelect/Input.js'
 import { Menu } from './SingleSelect/Menu.js'
-import { FilteredMenu } from './SingleSelect/FilteredMenu.js'
+import { FilterableMenu } from './SingleSelect/FilterableMenu.js'
 import { Loading } from './Select/Loading.js'
 
 const SingleSelect = ({
@@ -21,7 +21,7 @@ const SingleSelect = ({
     valid,
     children,
     clearable,
-    filtered,
+    filterable,
     placeholder,
     prefix,
     empty,
@@ -39,8 +39,8 @@ const SingleSelect = ({
             />
         }
         menu={
-            filtered ? (
-                <FilteredMenu empty={empty} noMatchText={noMatchText} />
+            filterable ? (
+                <FilterableMenu empty={empty} noMatchText={noMatchText} />
             ) : (
                 <Menu empty={empty} />
             )
@@ -75,7 +75,7 @@ SingleSelect.propTypes = {
     warning: statusPropType,
     error: statusPropType,
     clearable: propTypes.bool,
-    filtered: propTypes.bool,
+    filterable: propTypes.bool,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 }

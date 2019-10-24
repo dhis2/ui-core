@@ -1,12 +1,12 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { singleSelectedPropType } from '../common-prop-types.js'
-import { FilteredMenu as CommonFilteredMenu } from '../Select/FilteredMenu.js'
+import { FilterableMenu as CommonFilterableMenu } from '../Select/FilterableMenu.js'
 import { Menu } from './Menu.js'
 
-const FilteredMenu = props => <CommonFilteredMenu {...props} Menu={Menu} />
+const FilterableMenu = props => <CommonFilterableMenu {...props} Menu={Menu} />
 
-FilteredMenu.propTypes = {
+FilterableMenu.propTypes = {
     empty: propTypes.node,
     options: propTypes.node,
     onChange: propTypes.func,
@@ -14,4 +14,4 @@ FilteredMenu.propTypes = {
     placeholder: propTypes.string,
 }
 
-export { FilteredMenu }
+export { FilterableMenu }
