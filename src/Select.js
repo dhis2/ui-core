@@ -35,7 +35,11 @@ export class Select extends Component {
     }
 
     handleFocus = e => {
-        const { onFocus } = this.props
+        const { onFocus, disabled } = this.props
+
+        if (disabled) {
+            return
+        }
 
         if (onFocus) {
             onFocus(e)
@@ -43,6 +47,10 @@ export class Select extends Component {
     }
 
     handleToggle = e => {
+        if (this.props.disabled) {
+            return
+        }
+
         e.stopPropagation()
 
         this.setState(prevState => ({ open: !prevState.open }))
@@ -53,8 +61,12 @@ export class Select extends Component {
     }
 
     handleOutsideClick = e => {
-        const { onBlur } = this.props
+        const { onBlur, disabled } = this.props
         const isInsideClick = this.selectRef.current.contains(e.target)
+
+        if (disabled) {
+            return
+        }
 
         if (!isInsideClick) {
             if (onBlur) {
@@ -66,6 +78,10 @@ export class Select extends Component {
     }
 
     handleKeyPress = e => {
+        if (this.props.disabled) {
+            return
+        }
+
         e.stopPropagation()
 
         const { open } = this.state
@@ -98,6 +114,7 @@ export class Select extends Component {
             error,
             warning,
             valid,
+            disabled,
         } = this.props
 
         // Create the input
@@ -105,6 +122,7 @@ export class Select extends Component {
             selected,
             onChange,
             options: children,
+            disabled,
         }
         const input = React.cloneElement(this.props.input, inputProps)
 
@@ -132,6 +150,7 @@ export class Select extends Component {
                     error={error}
                     warning={warning}
                     valid={valid}
+                    disabled={disabled}
                 >
                     {input}
                 </InputWrapper>
@@ -167,4 +186,5 @@ Select.propTypes = {
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
+    disabled: propTypes.bool,
 }

@@ -31,6 +31,7 @@ class SingleSelectField extends React.Component {
             valid,
             error,
             warning,
+            disabled,
             loading,
             selected,
             tabIndex,
@@ -65,6 +66,7 @@ class SingleSelectField extends React.Component {
                     error={error}
                     warning={warning}
                     valid={valid}
+                    disabled={disabled}
                     clearable={clearable}
                     clearText={clearText}
                     filterable={filterable}
@@ -140,6 +142,7 @@ SingleSelectField.propTypes = {
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
+    disabled: propTypes.bool,
     loading: propTypes.bool,
     onFocus: propTypes.func,
     onBlur: propTypes.func,

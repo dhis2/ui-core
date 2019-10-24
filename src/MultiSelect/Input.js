@@ -16,6 +16,7 @@ const Input = ({
     placeholder,
     prefix,
     className,
+    disabled,
 }) => {
     const hasSelection = selected.length > 0
     const handleClear = e => {
@@ -31,10 +32,14 @@ const Input = ({
             )}
             {hasSelection && (
                 <div>
-                    <SelectionList selected={selected} onChange={onChange} />
+                    <SelectionList
+                        selected={selected}
+                        onChange={onChange}
+                        disabled={disabled}
+                    />
                 </div>
             )}
-            {hasSelection && clearable && (
+            {hasSelection && clearable && !disabled && (
                 <div className="root-right">
                     <InputClearButton
                         handleClear={handleClear}
@@ -68,6 +73,7 @@ Input.propTypes = {
     clearText: propTypes.string.isRequired,
     prefix: propTypes.string,
     placeholder: propTypes.string,
+    disabled: propTypes.bool,
 }
 
 export { Input }

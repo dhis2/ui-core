@@ -19,6 +19,7 @@ const SingleSelect = ({
     error,
     warning,
     valid,
+    disabled,
     children,
     clearable,
     clearText,
@@ -61,6 +62,7 @@ const SingleSelect = ({
         error={error}
         warning={warning}
         valid={valid}
+        disabled={disabled}
         initialFocus={initialFocus}
     >
         {loading ? <Loading message={loadingText} /> : children}
@@ -84,6 +86,7 @@ SingleSelect.propTypes = {
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
+    disabled: propTypes.bool,
     clearable: propTypes.bool,
     filterable: propTypes.bool,
     filterPlaceholder: propTypes.string,
