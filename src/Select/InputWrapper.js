@@ -13,20 +13,21 @@ const InputWrapper = ({
     error,
     warning,
     valid,
+    className,
 }) => {
-    const classNames = cx('input', { error, warning, valid })
+    const classNames = cx(className, 'root', { error, warning, valid })
 
     return (
         <React.Fragment>
             <div className={classNames} onClick={onToggle} tabIndex={tabIndex}>
-                <div className="children">{children}</div>
-                <div className="right">
+                <div className="root-children">{children}</div>
+                <div className="root-right">
                     {open ? <ArrowUp /> : <ArrowDown />}
                 </div>
             </div>
 
             <style jsx>{`
-                .input {
+                .root {
                     align-items: center;
                     border-radius: 3px;
                     border: 1px solid ${colors.grey500};
@@ -38,29 +39,29 @@ const InputWrapper = ({
                         inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
                 }
 
-                .input:focus,
-                .input:active {
+                .root:focus,
+                .root:active {
                     border-color: ${colors.teal400};
                     outline: 0;
                 }
 
-                .input.valid {
+                .root.valid {
                     border-color: ${theme.valid};
                 }
 
-                .input.warning {
+                .root.warning {
                     border-color: ${theme.warning};
                 }
 
-                .input.error {
+                .root.error {
                     border-color: ${theme.error};
                 }
 
-                .children {
+                .root-children {
                     flex-grow: 1;
                 }
 
-                .right {
+                .root-right {
                     margin-left: auto;
                 }
             `}</style>
@@ -70,6 +71,7 @@ const InputWrapper = ({
 
 InputWrapper.propTypes = {
     children: propTypes.element,
+    className: propTypes.string,
 
     open: propTypes.bool.isRequired,
     onToggle: propTypes.func.isRequired,

@@ -1,9 +1,12 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import cx from 'classnames'
 import { singleSelectedPropType } from '../common-prop-types.js'
-import { colors, spacers } from '../theme.js'
-import { Button } from '../Button.js'
-import { SelectionList } from './SelectionList.js'
+import { colors } from '../theme.js'
+import { Selection } from './Selection.js'
+import { InputPlaceholder } from '../Select/InputPlaceholder.js'
+import { InputPrefix } from '../Select/InputPrefix.js'
+import { InputClearButton } from '../Select/InputClearButton.js'
 
 const Input = ({
     selected,
@@ -12,59 +15,41 @@ const Input = ({
     placeholder,
     prefix,
     options,
+    className,
 }) => {
     const hasSelection = 'label' in selected && 'value' in selected
-    const showPlaceholder = !prefix && !hasSelection
-    const showClear = clearable && hasSelection
     const handleClear = e => {
         e.stopPropagation()
         onChange({})
     }
 
     return (
-        <div className="input">
-            {prefix && <div className="prefix">{prefix}</div>}
-            {showPlaceholder && (
-                <div className="placeholder">{placeholder}</div>
+        <div className={cx('root', className)}>
+            <InputPrefix prefix={prefix} />
+            {!hasSelection && !prefix && (
+                <InputPlaceholder placeholder={placeholder} />
             )}
             {hasSelection && (
-                <SelectionList options={options} selected={selected} />
+                <div>
+                    <Selection selected={selected} options={options} />
+                </div>
             )}
-            {showClear && (
-                <div className="right">
-                    <Button
-                        className="right"
-                        small
-                        secondary
-                        onClick={handleClear}
-                        type="button"
-                    >
-                        Clear
-                    </Button>
+            {hasSelection && clearable && (
+                <div className="root-right">
+                    <InputClearButton handleClear={handleClear} />
                 </div>
             )}
 
             <style jsx>{`
-                .input {
+                .root {
                     display: flex;
+                    align-items: center;
                     color: ${colors.grey900};
                     font-size: 14px;
                     line-height: 16px;
                 }
 
-                .prefix {
-                    color: ${colors.grey600};
-                    padding-right: ${spacers.dp4};
-                    font-size: 14px;
-                    user-select: none;
-                }
-
-                .placeholder {
-                    color: ${colors.grey500};
-                    user-select: none;
-                }
-
-                .right {
+                .root-right {
                     margin-left: auto;
                 }
             `}</style>
@@ -73,6 +58,7 @@ const Input = ({
 }
 
 Input.propTypes = {
+    className: propTypes.string,
     selected: singleSelectedPropType,
     onChange: propTypes.func,
     options: propTypes.node,

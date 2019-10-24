@@ -13,26 +13,24 @@ const createRemoveHandler = ({ selected, onChange, value, label }) => () => {
     onChange(filtered)
 }
 
-const SelectionList = ({ selected, onChange }) => {
-    return (
-        <React.Fragment>
-            {selected.map(({ value, label }) => (
-                <Chip
-                    key={label}
-                    onRemove={createRemoveHandler({
-                        selected,
-                        onChange,
-                        value,
-                        label,
-                    })}
-                    overflow
-                >
-                    {label}
-                </Chip>
-            ))}
-        </React.Fragment>
-    )
-}
+const SelectionList = ({ selected, onChange }) => (
+    <React.Fragment>
+        {selected.map(({ value, label }) => (
+            <Chip
+                key={label}
+                onRemove={createRemoveHandler({
+                    selected,
+                    onChange,
+                    value,
+                    label,
+                })}
+                overflow
+            >
+                {label}
+            </Chip>
+        ))}
+    </React.Fragment>
+)
 
 SelectionList.propTypes = {
     selected: multiSelectedPropType,

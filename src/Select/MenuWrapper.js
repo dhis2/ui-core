@@ -4,21 +4,21 @@ import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card.js'
 import { layers } from '../theme.js'
 
-const MenuWrapper = ({ children, maxHeight }) => {
-    const { styles, className } = resolve`
+const MenuWrapper = ({ children, maxHeight, className }) => {
+    const { styles, className: cardClassName } = resolve`
         height: auto;
         max-height: ${maxHeight};
         overflow: auto;
     `
 
     return (
-        <div className="dropdown">
-            <Card className={className}>{children}</Card>
+        <div className={className}>
+            <Card className={cardClassName}>{children}</Card>
 
             {styles}
 
             <style jsx>{`
-                .dropdown {
+                div {
                     position: absolute;
                     z-index: ${layers.applicationTop};
                     left: 0;
@@ -34,6 +34,7 @@ MenuWrapper.defaultProps = {
 }
 
 MenuWrapper.propTypes = {
+    className: propTypes.string,
     children: propTypes.node,
     maxHeight: propTypes.string,
 }

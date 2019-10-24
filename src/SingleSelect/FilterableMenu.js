@@ -7,6 +7,7 @@ import { Menu } from './Menu.js'
 const FilterableMenu = props => <CommonFilterableMenu {...props} Menu={Menu} />
 
 FilterableMenu.propTypes = {
+    className: propTypes.string,
     empty: propTypes.node,
     options: propTypes.node,
     onChange: propTypes.func,

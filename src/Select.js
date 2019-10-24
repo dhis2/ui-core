@@ -85,6 +85,7 @@ export class Select extends Component {
         const { open } = this.state
         const {
             children,
+            className,
             selected,
             onChange,
             tabIndex,
@@ -113,7 +114,7 @@ export class Select extends Component {
 
         return (
             <div
-                className="select"
+                className={className}
                 ref={this.selectRef}
                 onFocus={this.handleFocus}
                 onKeyDown={this.handleKeyPress}
@@ -133,7 +134,7 @@ export class Select extends Component {
                 )}
 
                 <style jsx>{`
-                    .select {
+                    div {
                         position: relative;
                     }
                 `}</style>
@@ -143,6 +144,7 @@ export class Select extends Component {
 }
 
 Select.propTypes = {
+    className: propTypes.string,
     onChange: propTypes.func.isRequired,
     selected: propTypes.oneOfType([
         singleSelectedPropType,

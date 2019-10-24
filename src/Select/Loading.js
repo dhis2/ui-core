@@ -3,12 +3,12 @@ import propTypes from '@dhis2/prop-types'
 import { colors, spacers, theme } from '../theme.js'
 import { CircularLoader } from '../CircularLoader.js'
 
-const Loading = ({ message }) => (
-    <div className="loading">
+const Loading = ({ message, className }) => (
+    <div className={className}>
         <CircularLoader small />
         {message}
         <style jsx>{`
-            .loading {
+            div {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -22,6 +22,7 @@ const Loading = ({ message }) => (
 )
 
 Loading.propTypes = {
+    className: propTypes.string,
     message: propTypes.string,
 }
 
