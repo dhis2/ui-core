@@ -3,8 +3,8 @@ import propTypes from 'prop-types'
 import { Input } from '../Input.js'
 import { spacers, colors } from '../theme.js'
 
-const FilterInput = ({ value, onChange, placeholder }) => (
-    <div className="container">
+const FilterInput = ({ value, onChange, placeholder, className }) => (
+    <div className={className}>
         <Input
             dense
             value={value}
@@ -16,7 +16,7 @@ const FilterInput = ({ value, onChange, placeholder }) => (
         />
 
         <style jsx>{`
-            .container {
+            div {
                 position: sticky;
                 top: 0;
                 background: ${colors.white};
@@ -28,6 +28,7 @@ const FilterInput = ({ value, onChange, placeholder }) => (
 )
 
 FilterInput.propTypes = {
+    className: propTypes.string,
     value: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     placeholder: propTypes.string,

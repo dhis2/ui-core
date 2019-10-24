@@ -5,15 +5,22 @@ import { colors, spacers } from './theme.js'
 import { Checkbox } from './Checkbox.js'
 
 // Padding has to be set on the label, so that the entire area is clickable
-const { styles, className } = resolve`
+const { styles, className: checkboxClassname } = resolve`
     padding: ${spacers.dp8} ${spacers.dp12};
 `
 
-const MultiSelectOption = ({ value, label, active, disabled, onClick }) => (
-    <div>
+const MultiSelectOption = ({
+    value,
+    label,
+    active,
+    disabled,
+    onClick,
+    className,
+}) => (
+    <div className={className}>
         <Checkbox
             name={label}
-            className={className}
+            className={checkboxClassname}
             checked={active}
             label={label}
             onChange={() => {
@@ -33,6 +40,7 @@ const MultiSelectOption = ({ value, label, active, disabled, onClick }) => (
 )
 
 MultiSelectOption.propTypes = {
+    className: propTypes.string,
     value: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     onClick: propTypes.func,

@@ -3,9 +3,16 @@ import propTypes from 'prop-types'
 import cx from 'classnames'
 import { colors, spacers } from './theme.js'
 
-const SingleSelectOption = ({ value, label, active, disabled, onClick }) => (
+const SingleSelectOption = ({
+    value,
+    label,
+    active,
+    disabled,
+    onClick,
+    className,
+}) => (
     <a
-        className={cx({
+        className={cx(className, {
             disabled,
             active,
         })}
@@ -49,6 +56,7 @@ const SingleSelectOption = ({ value, label, active, disabled, onClick }) => (
 )
 
 SingleSelectOption.propTypes = {
+    className: propTypes.string,
     value: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     onClick: propTypes.func,
