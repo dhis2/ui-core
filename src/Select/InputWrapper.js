@@ -14,12 +14,18 @@ const InputWrapper = ({
     warning,
     valid,
     className,
+    inputRef,
 }) => {
     const classNames = cx(className, 'root', { error, warning, valid })
 
     return (
         <React.Fragment>
-            <div className={classNames} onClick={onToggle} tabIndex={tabIndex}>
+            <div
+                className={classNames}
+                onClick={onToggle}
+                tabIndex={tabIndex}
+                ref={inputRef}
+            >
                 <div className="root-children">{children}</div>
                 <div className="root-right">
                     {open ? <ArrowUp /> : <ArrowDown />}
@@ -77,6 +83,7 @@ InputWrapper.propTypes = {
     onToggle: propTypes.func.isRequired,
 
     tabIndex: propTypes.string.isRequired,
+    inputRef: propTypes.object.isRequired,
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,

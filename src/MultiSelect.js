@@ -29,6 +29,7 @@ const MultiSelect = ({
     empty,
     loadingText,
     noMatchText,
+    initialFocus,
 }) => (
     <Select
         className={className}
@@ -60,6 +61,7 @@ const MultiSelect = ({
         error={error}
         warning={warning}
         valid={valid}
+        initialFocus={initialFocus}
     >
         {loading ? <Loading message={loadingText} /> : children}
     </Select>
@@ -87,6 +89,7 @@ MultiSelect.propTypes = {
     filterPlaceholder: propTypes.string,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
+    initialFocus: propTypes.bool,
 }
 
 export { MultiSelect }

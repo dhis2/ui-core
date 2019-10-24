@@ -47,6 +47,7 @@ class MultiSelectField extends React.Component {
             empty,
             loadingText,
             noMatchText,
+            initialFocus,
         } = this.props
 
         return (
@@ -73,6 +74,7 @@ class MultiSelectField extends React.Component {
                     empty={empty}
                     loadingText={loadingText}
                     noMatchText={noMatchText}
+                    initialFocus={initialFocus}
                 >
                     {children}
                 </MultiSelect>
@@ -141,6 +143,7 @@ MultiSelectField.propTypes = {
     loading: propTypes.bool,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
+    initialFocus: propTypes.bool,
 }
 
 export { MultiSelectField }

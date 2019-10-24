@@ -130,3 +130,8 @@ storiesOf('MultiSelectField', module)
             empty={<div>There are no options</div>}
         />
     ))
+    .add('Initial focus', () => (
+        <MultiSelectField {...defaultProps} initialFocus>
+            {options}
+        </MultiSelectField>
+    ))
