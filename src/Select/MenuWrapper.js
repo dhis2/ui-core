@@ -29,9 +29,13 @@ const MenuWrapper = ({ children, maxHeight }) => {
     )
 }
 
+MenuWrapper.defaultProps = {
+    maxHeight: '280px',
+}
+
 MenuWrapper.propTypes = {
     children: propTypes.node,
-    maxHeight: propTypes.string.isRequired,
+    maxHeight: propTypes.string,
 }
 
 export { MenuWrapper }
