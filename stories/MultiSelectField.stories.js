@@ -140,3 +140,8 @@ storiesOf('MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
+    .add('Dense', () => (
+        <MultiSelectField {...defaultProps} dense>
+            {options}
+        </MultiSelectField>
+    ))

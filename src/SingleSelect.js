@@ -31,6 +31,7 @@ const SingleSelect = ({
     loadingText,
     noMatchText,
     initialFocus,
+    dense,
 }) => (
     <Select
         className={className}
@@ -64,6 +65,7 @@ const SingleSelect = ({
         valid={valid}
         disabled={disabled}
         initialFocus={initialFocus}
+        dense={dense}
     >
         {loading ? <Loading message={loadingText} /> : children}
     </Select>
@@ -93,6 +95,7 @@ SingleSelect.propTypes = {
     onFocus: propTypes.func,
     onBlur: propTypes.func,
     initialFocus: propTypes.bool,
+    dense: propTypes.bool,
 }
 
 export { SingleSelect }
