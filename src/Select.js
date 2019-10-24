@@ -115,6 +115,7 @@ export class Select extends Component {
             warning,
             valid,
             disabled,
+            dense,
         } = this.props
 
         // Create the input
@@ -151,6 +152,7 @@ export class Select extends Component {
                     warning={warning}
                     valid={valid}
                     disabled={disabled}
+                    dense={dense}
                 >
                     {input}
                 </InputWrapper>
@@ -187,4 +189,5 @@ Select.propTypes = {
     warning: statusPropType,
     error: statusPropType,
     disabled: propTypes.bool,
+    dense: propTypes.bool,
 }

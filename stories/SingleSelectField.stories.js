@@ -142,3 +142,8 @@ storiesOf('SingleSelectField', module)
             {options}
         </SingleSelectField>
     ))
+    .add('Dense', () => (
+        <SingleSelectField {...defaultProps} dense>
+            {options}
+        </SingleSelectField>
+    ))

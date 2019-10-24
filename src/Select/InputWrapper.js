@@ -14,6 +14,7 @@ const InputWrapper = ({
     warning,
     valid,
     disabled,
+    dense,
     className,
     inputRef,
 }) => {
@@ -22,6 +23,7 @@ const InputWrapper = ({
         warning,
         valid,
         disabled,
+        dense,
     })
 
     return (
@@ -46,7 +48,7 @@ const InputWrapper = ({
                     box-sizing: border-box;
                     display: flex;
                     min-height: 34px;
-                    padding: 3px 0 3px 11px;
+                    padding: 6px 12px;
                     box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
                         inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
                 }
@@ -76,6 +78,10 @@ const InputWrapper = ({
                     cursor: not-allowed;
                 }
 
+                .root.dense {
+                    padding: 4px 8px;
+                }
+
                 .root-children {
                     flex-grow: 1;
                 }
@@ -101,6 +107,7 @@ InputWrapper.propTypes = {
     warning: statusPropType,
     error: statusPropType,
     disabled: propTypes.bool,
+    dense: propTypes.bool,
 }
 
 export { InputWrapper }

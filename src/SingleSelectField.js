@@ -49,6 +49,7 @@ class SingleSelectField extends React.Component {
             loadingText,
             noMatchText,
             initialFocus,
+            dense,
         } = this.props
 
         return (
@@ -77,6 +78,7 @@ class SingleSelectField extends React.Component {
                     loadingText={loadingText}
                     noMatchText={noMatchText}
                     initialFocus={initialFocus}
+                    dense={dense}
                 >
                     {children}
                 </SingleSelect>
@@ -147,6 +149,7 @@ SingleSelectField.propTypes = {
     onFocus: propTypes.func,
     onBlur: propTypes.func,
     initialFocus: propTypes.bool,
+    dense: propTypes.bool,
 }
 
 export { SingleSelectField }
