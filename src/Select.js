@@ -20,8 +20,13 @@ export class Select extends Component {
     }
 
     selectRef = React.createRef()
+    inputRef = React.createRef()
 
     componentDidMount() {
+        if (this.props.initialFocus) {
+            this.inputRef.current.focus()
+        }
+
         document.addEventListener('click', this.handleOutsideClick)
     }
 
@@ -121,6 +126,7 @@ export class Select extends Component {
             >
                 <InputWrapper
                     onToggle={this.handleToggle}
+                    inputRef={this.inputRef}
                     open={open}
                     tabIndex={tabIndex}
                     error={error}
@@ -145,6 +151,7 @@ export class Select extends Component {
 
 Select.propTypes = {
     className: propTypes.string,
+    initialFocus: propTypes.bool,
     onChange: propTypes.func.isRequired,
     selected: propTypes.oneOfType([
         singleSelectedPropType,

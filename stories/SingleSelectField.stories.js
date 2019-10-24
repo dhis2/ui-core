@@ -132,3 +132,8 @@ storiesOf('SingleSelectField', module)
             empty={<div>There are no options</div>}
         />
     ))
+    .add('Initial focus', () => (
+        <SingleSelectField {...defaultProps} initialFocus>
+            {options}
+        </SingleSelectField>
+    ))
