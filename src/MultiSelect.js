@@ -4,7 +4,7 @@ import { multiSelectedPropType, statusPropType } from './common-prop-types.js'
 import { Select } from './Select.js'
 import { Input } from './MultiSelect/Input.js'
 import { Menu } from './MultiSelect/Menu.js'
-import { FilteredMenu } from './MultiSelect/FilteredMenu.js'
+import { FilterableMenu } from './MultiSelect/FilterableMenu.js'
 import { Loading } from './Select/Loading.js'
 
 const MultiSelect = ({
@@ -21,7 +21,7 @@ const MultiSelect = ({
     valid,
     children,
     clearable,
-    filtered,
+    filterable,
     placeholder,
     prefix,
     empty,
@@ -39,8 +39,8 @@ const MultiSelect = ({
             />
         }
         menu={
-            filtered ? (
-                <FilteredMenu empty={empty} noMatchText={noMatchText} />
+            filterable ? (
+                <FilterableMenu empty={empty} noMatchText={noMatchText} />
             ) : (
                 <Menu empty={empty} />
             )
@@ -75,7 +75,7 @@ MultiSelect.propTypes = {
     warning: statusPropType,
     error: statusPropType,
     clearable: propTypes.bool,
-    filtered: propTypes.bool,
+    filterable: propTypes.bool,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 }
