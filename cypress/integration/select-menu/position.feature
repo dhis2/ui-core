@@ -1,26 +1,23 @@
 Feature: Position of select menu dropdown
 
     Background:
-        # the default maximum
         Given the select menu dropdown has a height of 368px
-        # also the default maximum
         And the select menu dropdown has a width of 280px
-        And the select menu dropdown opens when the select is clicked
 
     Scenario: Default rendering
-        Given a select menu with more than 368px space below, before the end of the <body> element
-        When the select menu dropdown is rendered
+        Given the space below the select is more than its menu's height
+        When the menu is opened
         Then it is rendered below the select
         And it is left aligned with the select
 
     Scenario: Flipped rendering when insufficient space below
-        Given a select menu with less than 368px space below, before the end of the <body> element
-        When the select menu dropdown is rendered
+        Given the space below the select is less than its menu's height
+        When the menu is opened
         Then it is rendered above the select
         And it is left aligned with the select
 
     Scenario: A select with less than 368px available space below and above
-        Given a select menu with less than 368px space before the limits of the <body> element
-        When the select menu dropdown is rendered
+        Given the space below and above the select is less than its menu's height
+        When the menu is opened
         Then it is rendered below the select
         And the height of the select dropdown menu is reduced to fit within the <body> element

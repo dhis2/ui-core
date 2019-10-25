@@ -1,26 +1,28 @@
 Feature: Popover positioning
 
     Background:
-        Given a popover with a width of 360px and height of 200px
-        And an anchor element that renders a popover when a user clicks the anchor
+        Given the popover has a width of 360px and height of 200px
+
+    Scenario: Spacing between anchor and popover
+        When the anchor is clicked
+        Then there is some space between the anchor and the popover
 
     Scenario: Default positioning
-        Given the anchor has more than 200px above, before the limit of the <body> element
-        When the popover is rendered
+        Given the space above the anchor is more than the limit
+        When the anchor is clicked
         Then the popover is rendered above the the anchor
         And the popover is center aligned with the anchor
 
     Scenario: Flipped vertical
-        Given the anchor has less than 200px above, before the limit of the <body> element
-        When the popover is rendered
+        Given the space above the anchor is less than the limit
+        When the anchor is clicked
         Then the popover is rendered below the anchor
         And the popover is center aligned with the anchor
 
     Scenario: Adjusted width
-        Given the anchor has, measured from its center, less than 180px space to the right before the limit of the <body> element
-        When the popover is rendered
+        Given there is not enough horizontal space available on either side to render the popover
+        When the anchor is clicked
         Then the popover is rendered above the anchor
-        And the popover is offset by a top margin of 4px
         And the popover is centered aligned with the anchor
         And the popover width is reduced to fit in the available space
 
