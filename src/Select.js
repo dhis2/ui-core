@@ -157,14 +157,13 @@ export class Select extends Component {
                     {input}
                 </InputWrapper>
                 {open && (
-                    <MenuWrapper maxHeight={maxHeight}>{menu}</MenuWrapper>
+                    <MenuWrapper
+                        maxHeight={maxHeight}
+                        selectRef={this.selectRef}
+                    >
+                        {menu}
+                    </MenuWrapper>
                 )}
-
-                <style jsx>{`
-                    div {
-                        position: relative;
-                    }
-                `}</style>
             </div>
         )
     }
