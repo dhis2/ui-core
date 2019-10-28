@@ -2,9 +2,9 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { colors, spacers, theme } from '../theme.js'
 
-const NoMatch = ({ message, filter, className }) => (
+const NoMatch = ({ message, className }) => (
     <div className={className}>
-        {message.replace('%%FILTER%%', filter)}
+        {message}
 
         <style jsx>{`
             div {
@@ -22,7 +22,6 @@ const NoMatch = ({ message, filter, className }) => (
 NoMatch.propTypes = {
     className: propTypes.string,
     message: propTypes.string.isRequired,
-    filter: propTypes.string.isRequired,
 }
 
 export { NoMatch }

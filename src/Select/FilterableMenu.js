@@ -70,7 +70,7 @@ export class FilterableMenu extends Component {
                 {hasMatch ? (
                     <Menu {...menuProps} options={filtered} />
                 ) : (
-                    <NoMatch message={noMatchText} filter={filter} />
+                    <NoMatch message={noMatchText} />
                 )}
             </React.Fragment>
         )
