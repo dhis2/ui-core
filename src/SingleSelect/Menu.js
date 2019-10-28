@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import { singleSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 
-const Menu = ({ options, onChange, selected, empty, handleClose }) => {
+const Menu = ({ options, onChange, selected, empty, onClose }) => {
     if (React.Children.count(options) === 0) {
         // If it's a string, supply it to our <Empty> component so it looks better
         if (typeof empty === 'string') {
@@ -26,7 +26,7 @@ const Menu = ({ options, onChange, selected, empty, handleClose }) => {
         const active = value === selected.value && label === selected.label
         const onClick = option => {
             onChange(option)
-            handleClose()
+            onClose()
         }
 
         return React.cloneElement(child, {
@@ -44,7 +44,7 @@ Menu.propTypes = {
     options: propTypes.node,
     onChange: propTypes.func,
     selected: singleSelectedPropType,
-    handleClose: propTypes.func,
+    onClose: propTypes.func,
 }
 
 export { Menu }

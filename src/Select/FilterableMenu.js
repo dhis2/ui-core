@@ -12,7 +12,7 @@ export class FilterableMenu extends Component {
         filter: '',
     }
 
-    handleFilterChange = e => {
+    onFilterChange = e => {
         const filter = e.target.value
         this.setState({ filter })
     }
@@ -37,7 +37,7 @@ export class FilterableMenu extends Component {
                     <FilterInput
                         placeholder={placeholder}
                         value={filter}
-                        onChange={this.handleFilterChange}
+                        onChange={this.onFilterChange}
                     />
                     <Menu {...menuProps} options={options} />
                 </React.Fragment>
@@ -65,7 +65,7 @@ export class FilterableMenu extends Component {
                 <FilterInput
                     placeholder={placeholder}
                     value={filter}
-                    onChange={this.handleFilterChange}
+                    onChange={this.onFilterChange}
                 />
                 {hasMatch ? (
                     <Menu {...menuProps} options={filtered} />
