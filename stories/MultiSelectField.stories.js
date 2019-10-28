@@ -8,7 +8,7 @@ const defaultProps = {
     onChange: selected =>
         alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`),
     empty: 'No data',
-    noMatchText: `No match found for "%%FILTER%%"`,
+    noMatchText: `No match found for filter`,
     tabIndex: '0',
     clearText: 'Clear',
     filterPlaceholder: 'Type to filter options',
