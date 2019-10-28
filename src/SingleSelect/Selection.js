@@ -39,6 +39,7 @@ const Selection = ({ options, selected, className }) => {
                     margin-right: ${spacers.dp8};
                     width: ${spacers.dp16};
                     height: ${spacers.dp16};
+                    overflow: hidden;
                 }
             `}</style>
         </div>
