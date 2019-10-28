@@ -27,14 +27,14 @@ export class Select extends Component {
             this.inputRef.current.focus()
         }
 
-        document.addEventListener('click', this.handleOutsideClick)
+        document.addEventListener('click', this.onOutsideClick)
     }
 
     componentWillUnmount() {
-        document.removeEventListener('click', this.handleOutsideClick)
+        document.removeEventListener('click', this.onOutsideClick)
     }
 
-    handleFocus = e => {
+    onFocus = e => {
         const { onFocus, disabled } = this.props
 
         if (disabled) {
@@ -46,7 +46,7 @@ export class Select extends Component {
         }
     }
 
-    handleToggle = e => {
+    onToggle = e => {
         if (this.props.disabled) {
             return
         }
@@ -56,11 +56,11 @@ export class Select extends Component {
         this.setState(prevState => ({ open: !prevState.open }))
     }
 
-    handleClose = () => {
+    onClose = () => {
         this.setState({ open: false })
     }
 
-    handleOutsideClick = e => {
+    onOutsideClick = e => {
         const { onBlur, disabled } = this.props
         const isInsideClick = this.selectRef.current.contains(e.target)
 
@@ -73,11 +73,11 @@ export class Select extends Component {
                 onBlur(e)
             }
 
-            this.handleClose()
+            this.onClose()
         }
     }
 
-    handleKeyPress = e => {
+    onKeyDown = e => {
         if (this.props.disabled) {
             return
         }
@@ -132,7 +132,7 @@ export class Select extends Component {
             selected,
             onChange,
             options: children,
-            handleClose: this.handleClose,
+            onClose: this.onClose,
         }
         const menu = React.cloneElement(this.props.menu, menuProps)
 
@@ -140,11 +140,11 @@ export class Select extends Component {
             <div
                 className={className}
                 ref={this.selectRef}
-                onFocus={this.handleFocus}
-                onKeyDown={this.handleKeyPress}
+                onFocus={this.onFocus}
+                onKeyDown={this.onKeyDown}
             >
                 <InputWrapper
-                    onToggle={this.handleToggle}
+                    onToggle={this.onToggle}
                     inputRef={this.inputRef}
                     open={open}
                     tabIndex={tabIndex}

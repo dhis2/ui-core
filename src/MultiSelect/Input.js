@@ -19,7 +19,7 @@ const Input = ({
     disabled,
 }) => {
     const hasSelection = selected.length > 0
-    const handleClear = e => {
+    const onClear = e => {
         e.stopPropagation()
         onChange([])
     }
@@ -41,10 +41,7 @@ const Input = ({
             )}
             {hasSelection && clearable && !disabled && (
                 <div className="root-right">
-                    <InputClearButton
-                        handleClear={handleClear}
-                        clearText={clearText}
-                    />
+                    <InputClearButton onClear={onClear} clearText={clearText} />
                 </div>
             )}
 
