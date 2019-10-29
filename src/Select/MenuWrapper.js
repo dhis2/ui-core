@@ -12,6 +12,8 @@ class MenuWrapper extends Component {
         width: 'auto',
     }
 
+    requestId = null
+
     componentDidMount() {
         window.addEventListener('resize', this.updatePosition)
         this.updatePosition()
@@ -19,22 +21,33 @@ class MenuWrapper extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.updatePosition)
+
+        if (this.requestId) {
+            window.cancelAnimationFrame(this.requestId)
+        }
     }
 
     updatePosition = () => {
         const selectEl = this.props.selectRef.current
-        const rect = selectEl.getBoundingClientRect()
-        const top = rect.bottom + window.scrollY
-        const left = rect.left + window.scrollX
-        const width = rect.width
 
-        const sizing = {
-            top: `${top}px`,
-            left: `${left}px`,
-            width: `${width}px`,
+        if (this.requestId) {
+            window.cancelAnimationFrame(this.requestId)
         }
 
-        this.setState(sizing)
+        this.requestId = window.requestAnimationFrame(() => {
+            const rect = selectEl.getBoundingClientRect()
+            const top = rect.bottom + window.scrollY
+            const left = rect.left + window.scrollX
+            const width = rect.width
+
+            const sizing = {
+                top: `${top}px`,
+                left: `${left}px`,
+                width: `${width}px`,
+            }
+
+            this.setState(sizing)
+        })
     }
 
     render() {

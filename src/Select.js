@@ -164,6 +164,12 @@ export class Select extends Component {
                         {menu}
                     </MenuWrapper>
                 )}
+
+                <style jsx>{`
+                    div {
+                        position: relative;
+                    }
+                `}</style>
             </div>
         )
     }
