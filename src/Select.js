@@ -56,8 +56,9 @@ export class Select extends Component {
         this.setState(prevState => ({ open: !prevState.open }))
     }
 
-    onClose = () => {
+    onSingleSelectSelection = () => {
         this.setState({ open: false })
+        this.inputRef.current.focus()
     }
 
     onOutsideClick = e => {
@@ -73,7 +74,7 @@ export class Select extends Component {
                 onBlur(e)
             }
 
-            this.onClose()
+            this.setState({ open: false })
         }
     }
 
@@ -132,7 +133,7 @@ export class Select extends Component {
             selected,
             onChange,
             options: children,
-            onClose: this.onClose,
+            onSingleSelectSelection: this.onSingleSelectSelection,
         }
         const menu = React.cloneElement(this.props.menu, menuProps)
 
