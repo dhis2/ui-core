@@ -51,7 +51,7 @@ class MenuWrapper extends Component {
     }
 
     render() {
-        const { children, maxHeight, className } = this.props
+        const { children, maxHeight, className, menuRef } = this.props
         const { top, left, width } = this.state
         const { styles, className: cardClassName } = resolve`
             height: auto;
@@ -60,7 +60,7 @@ class MenuWrapper extends Component {
         `
 
         return ReactDOM.createPortal(
-            <div className={className}>
+            <div className={className} ref={menuRef}>
                 <Card className={cardClassName}>{children}</Card>
 
                 {styles}
@@ -89,6 +89,7 @@ MenuWrapper.propTypes = {
     children: propTypes.node,
     maxHeight: propTypes.string,
     selectRef: propTypes.object.isRequired,
+    menuRef: propTypes.object.isRequired,
 }
 
 export { MenuWrapper }

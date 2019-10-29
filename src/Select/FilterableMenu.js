@@ -23,12 +23,13 @@ export class FilterableMenu extends Component {
             onChange,
             selected,
             empty,
+            onSingleSelectSelection,
             placeholder,
             noMatchText,
             Menu,
         } = this.props
         const { filter } = this.state
-        const menuProps = { onChange, selected, empty }
+        const menuProps = { onChange, selected, empty, onSingleSelectSelection }
 
         // If there are no options or there's no filter, just pass everything through
         if (React.Children.count(options) === 0 || !filter) {
@@ -87,5 +88,6 @@ FilterableMenu.propTypes = {
         multiSelectedPropType,
     ]).isRequired,
     placeholder: propTypes.string,
+    onSingleSelectSelection: propTypes.func,
     noMatchText: propTypes.string.isRequired,
 }
