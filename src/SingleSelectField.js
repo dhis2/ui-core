@@ -17,7 +17,7 @@ import { SingleSelect } from './SingleSelect.js'
  * @example import { SingleSelectField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/select-regular--no-value|Storybook}
+ * @see Live demo: {@link /demo/?path=/story/singleselectfield--default|Storybook}
  */
 class SingleSelectField extends React.Component {
     render() {
@@ -101,25 +101,32 @@ class SingleSelectField extends React.Component {
  *
  * @prop {function} onChange
  * @prop {string} label
- * @prop {string} [value]
+ * @prop {Object} selected
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  * @prop {Array|Object} [children]
  * @prop {boolean} [required]
  * @prop {boolean} [disabled]
  * @prop {boolean} [dense]
- * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are
- * mutually exclusive
+ * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are mutually exclusive
  * @prop {boolean} [warning]
  * @prop {boolean} [error]
  * @prop {boolean} [loading]
  * @prop {function} [onFocus]
  * @prop {function} [onBlur]
  * @prop {boolean} [initialFocus]
- *
  * @prop {string} [validationText]
  * @prop {string} [helpText]
- * @prop {Object|Array} [children]
+ * @prop {string} clearText
+ * @prop {boolean} [clearable]
+ * @prop {Array|Object} empty
+ * @prop {string} filterPlaceholder
+ * @prop {boolean} [filterable]
+ * @prop {string} [loadingText]
+ * @prop {string} [maxHeight]
+ * @prop {string} noMatchText
+ * @prop {string} [placeholder]
+ * @prop {string} [prefix]
  */
 SingleSelectField.propTypes = {
     onChange: propTypes.func.isRequired,
@@ -127,29 +134,29 @@ SingleSelectField.propTypes = {
     selected: singleSelectedPropType.isRequired,
     className: propTypes.string,
     tabIndex: propTypes.string,
-    maxHeight: propTypes.string,
-    clearable: propTypes.bool,
-    filterable: propTypes.bool,
-    filterPlaceholder: propTypes.string,
-    placeholder: propTypes.string,
-    prefix: propTypes.string,
-    empty: propTypes.node.isRequired,
-    helpText: propTypes.string,
-    validationText: propTypes.string,
-    loadingText: propTypes.string,
-    noMatchText: propTypes.string.isRequired,
-    clearText: propTypes.string.isRequired,
     children: propTypes.node,
     required: propTypes.bool,
+    disabled: propTypes.bool,
+    dense: propTypes.bool,
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
-    disabled: propTypes.bool,
     loading: propTypes.bool,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
     initialFocus: propTypes.bool,
-    dense: propTypes.bool,
+    validationText: propTypes.string,
+    helpText: propTypes.string,
+    clearText: propTypes.string.isRequired,
+    clearable: propTypes.bool,
+    empty: propTypes.node.isRequired,
+    filterPlaceholder: propTypes.string,
+    filterable: propTypes.bool,
+    loadingText: propTypes.string,
+    maxHeight: propTypes.string,
+    noMatchText: propTypes.string.isRequired,
+    placeholder: propTypes.string,
+    prefix: propTypes.string,
 }
 
 export { SingleSelectField }
