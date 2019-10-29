@@ -9,23 +9,14 @@ const { styles, className: checkboxClassname } = resolve`
     padding: ${spacers.dp8} ${spacers.dp12};
 `
 
-const MultiSelectOption = ({
-    value,
-    label,
-    active,
-    disabled,
-    onClick,
-    className,
-}) => (
+const MultiSelectOption = ({ label, active, disabled, onClick, className }) => (
     <div className={className}>
         <Checkbox
             name={label}
             className={checkboxClassname}
             checked={active}
             label={label}
-            onChange={() => {
-                onClick({ value, label })
-            }}
+            onChange={onClick}
             disabled={disabled}
         />
 
@@ -41,6 +32,8 @@ const MultiSelectOption = ({
 
 MultiSelectOption.propTypes = {
     className: propTypes.string,
+    // This prop is used by the Select, so still necessary
+    // eslint-disable-next-line react/no-unused-prop-types
     value: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     onClick: propTypes.func,

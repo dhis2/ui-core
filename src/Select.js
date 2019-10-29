@@ -21,6 +21,7 @@ export class Select extends Component {
 
     selectRef = React.createRef()
     inputRef = React.createRef()
+    menuRef = React.createRef()
 
     componentDidMount() {
         if (this.props.initialFocus) {
@@ -56,18 +57,32 @@ export class Select extends Component {
         this.setState(prevState => ({ open: !prevState.open }))
     }
 
-    onSingleSelectSelection = () => {
+    onSingleSelectSelection = e => {
+        e.stopPropagation()
+
         this.setState({ open: false })
         this.inputRef.current.focus()
     }
 
+    /**
+     * Note that since this event handler is attached to the document, events that have been
+     * stopped from bubbling in the react hierarchy might still call this handler through
+     * regular event bubbling.
+     *
+     * https://github.com/facebook/react/issues/12518#issuecomment-377954226
+     */
     onOutsideClick = e => {
         const { onBlur, disabled } = this.props
-        const isInsideClick = this.selectRef.current.contains(e.target)
+        const { open } = this.state
 
-        if (disabled) {
+        if (!open || disabled) {
             return
         }
+
+        const isInsideSelect = this.selectRef.current.contains(e.target)
+        const isInsideMenu =
+            this.menuRef.current && this.menuRef.current.contains(e.target)
+        const isInsideClick = isInsideSelect || (open && isInsideMenu)
 
         if (!isInsideClick) {
             if (onBlur) {
@@ -161,6 +176,7 @@ export class Select extends Component {
                     <MenuWrapper
                         maxHeight={maxHeight}
                         selectRef={this.selectRef}
+                        menuRef={this.menuRef}
                     >
                         {menu}
                     </MenuWrapper>

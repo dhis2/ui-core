@@ -17,14 +17,8 @@ const CheckIcon = () => (
     </svg>
 )
 
-const CustomOption = ({ value, label, description, icon, active, onClick }) => (
-    <a
-        className={cx('option', { active })}
-        onClick={e => {
-            e.stopPropagation()
-            onClick({ value, label })
-        }}
-    >
+const CustomOption = ({ label, description, icon, active, onClick }) => (
+    <a className={cx('option', { active })} onClick={onClick}>
         {icon && <div className="option-icon">{icon}</div>}
         <div className="text">
             <h3 className="label">{label}</h3>
@@ -78,6 +72,8 @@ const CustomOption = ({ value, label, description, icon, active, onClick }) => (
 )
 
 CustomOption.propTypes = {
+    // This prop is used by the Select, so still necessary
+    // eslint-disable-next-line react/no-unused-prop-types
     value: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     description: propTypes.string,

@@ -3,6 +3,11 @@ import propTypes from 'prop-types'
 import { singleSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 
+const onActiveClick = e => {
+    e.stopPropagation()
+    e.preventDefault()
+}
+
 const Menu = ({
     options,
     onChange,
@@ -30,14 +35,14 @@ const Menu = ({
         }
 
         const active = value === selected.value && label === selected.label
-        const onClick = option => {
-            onChange(option)
-            onSingleSelectSelection()
+        const onClick = e => {
+            onChange({ value, label })
+            onSingleSelectSelection(e)
         }
 
         return React.cloneElement(child, {
             ...child.props,
-            onClick: active ? () => {} : onClick,
+            onClick: active ? onActiveClick : onClick,
             active,
         })
     })

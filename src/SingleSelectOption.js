@@ -4,7 +4,6 @@ import cx from 'classnames'
 import { colors, spacers } from './theme.js'
 
 const SingleSelectOption = ({
-    value,
     label,
     active,
     disabled,
@@ -16,9 +15,7 @@ const SingleSelectOption = ({
             disabled,
             active,
         })}
-        onClick={() => {
-            onClick({ value, label })
-        }}
+        onClick={onClick}
     >
         {label}
 
@@ -57,6 +54,8 @@ const SingleSelectOption = ({
 
 SingleSelectOption.propTypes = {
     className: propTypes.string,
+    // This prop is used by the Select, so still necessary
+    // eslint-disable-next-line react/no-unused-prop-types
     value: propTypes.string.isRequired,
     label: propTypes.string.isRequired,
     onClick: propTypes.func,

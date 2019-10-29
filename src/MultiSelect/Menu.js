@@ -3,10 +3,10 @@ import propTypes from 'prop-types'
 import { multiSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 
-const createHandler = ({ active, onChange, selected }) => ({
-    value,
-    label,
-}) => {
+const createHandler = ({ active, onChange, selected, value, label }) => e => {
+    e.stopPropagation()
+    e.preventDefault()
+
     // If the option is active, remove it from selected
     if (active) {
         const filtered = selected.filter(selection => {
@@ -53,6 +53,8 @@ const Menu = ({ options, onChange, selected, empty }) => {
             active,
             onChange,
             selected,
+            value,
+            label,
         })
 
         return React.cloneElement(child, {
