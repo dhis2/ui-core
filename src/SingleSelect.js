@@ -7,6 +7,16 @@ import { Menu } from './SingleSelect/Menu.js'
 import { FilterableMenu } from './SingleSelect/FilterableMenu.js'
 import { Loading } from './Select/Loading.js'
 
+/**
+ * @module
+ *
+ * @param {SingleSelect.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { SingleSelect } from '@dhis2/ui-core'
+ *
+ * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
+ */
 const SingleSelect = ({
     className,
     selected,
@@ -71,31 +81,60 @@ const SingleSelect = ({
     </Select>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {function} onChange
+ * @prop {Object} selected
+ * @prop {string} [className]
+ * @prop {string} [tabIndex]
+ * @prop {Array|Object} [children]
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [dense]
+ * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ * @prop {boolean} [loading]
+ * @prop {function} [onFocus]
+ * @prop {function} [onBlur]
+ * @prop {boolean} [initialFocus]
+ * @prop {string} clearText
+ * @prop {boolean} [clearable]
+ * @prop {Array|Object} empty
+ * @prop {string} filterPlaceholder
+ * @prop {boolean} [filterable]
+ * @prop {string} [loadingText]
+ * @prop {string} [maxHeight]
+ * @prop {string} noMatchText
+ * @prop {string} [placeholder]
+ * @prop {string} [prefix]
+ */
 SingleSelect.propTypes = {
     onChange: propTypes.func.isRequired,
     selected: singleSelectedPropType.isRequired,
     className: propTypes.string,
     tabIndex: propTypes.string,
-    maxHeight: propTypes.string,
-    placeholder: propTypes.string,
-    prefix: propTypes.string,
-    loadingText: propTypes.string,
-    noMatchText: propTypes.string.isRequired,
-    clearText: propTypes.string.isRequired,
     children: propTypes.node,
-    empty: propTypes.node.isRequired,
-    loading: propTypes.bool,
+    disabled: propTypes.bool,
+    dense: propTypes.bool,
     valid: statusPropType,
     warning: statusPropType,
     error: statusPropType,
-    disabled: propTypes.bool,
-    clearable: propTypes.bool,
-    filterable: propTypes.bool,
-    filterPlaceholder: propTypes.string,
+    loading: propTypes.bool,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
     initialFocus: propTypes.bool,
-    dense: propTypes.bool,
+    clearText: propTypes.string.isRequired,
+    clearable: propTypes.bool,
+    empty: propTypes.node.isRequired,
+    filterPlaceholder: propTypes.string,
+    filterable: propTypes.bool,
+    loadingText: propTypes.string,
+    maxHeight: propTypes.string,
+    noMatchText: propTypes.string.isRequired,
+    placeholder: propTypes.string,
+    prefix: propTypes.string,
 }
 
 export { SingleSelect }
