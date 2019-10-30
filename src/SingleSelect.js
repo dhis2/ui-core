@@ -42,44 +42,47 @@ const SingleSelect = ({
     noMatchText,
     initialFocus,
     dense,
-}) => (
-    <Select
-        className={className}
-        selected={selected}
-        input={
-            <Input
-                clearable={clearable}
-                clearText={clearText}
-                placeholder={placeholder}
-                prefix={prefix}
-            />
-        }
-        menu={
-            filterable ? (
-                <FilterableMenu
-                    empty={empty}
-                    noMatchText={noMatchText}
-                    placeholder={filterPlaceholder}
+}) => {
+    // If the select is filterable, use a filterable menu
+    const menu = filterable ? (
+        <FilterableMenu
+            empty={empty}
+            noMatchText={noMatchText}
+            placeholder={filterPlaceholder}
+        />
+    ) : (
+        <Menu empty={empty} />
+    )
+
+    return (
+        <Select
+            className={className}
+            selected={selected}
+            input={
+                <Input
+                    clearable={clearable}
+                    clearText={clearText}
+                    placeholder={placeholder}
+                    prefix={prefix}
                 />
-            ) : (
-                <Menu empty={empty} />
-            )
-        }
-        tabIndex={tabIndex}
-        maxHeight={maxHeight}
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        error={error}
-        warning={warning}
-        valid={valid}
-        disabled={disabled}
-        initialFocus={initialFocus}
-        dense={dense}
-    >
-        {loading ? <Loading message={loadingText} /> : children}
-    </Select>
-)
+            }
+            menu={menu}
+            tabIndex={tabIndex}
+            maxHeight={maxHeight}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            error={error}
+            warning={warning}
+            valid={valid}
+            disabled={disabled}
+            initialFocus={initialFocus}
+            dense={dense}
+        >
+            {loading ? <Loading message={loadingText} /> : children}
+        </Select>
+    )
+}
 
 SingleSelect.defaultProps = {
     selected: {},
