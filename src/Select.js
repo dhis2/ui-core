@@ -57,6 +57,11 @@ export class Select extends Component {
         this.setState(prevState => ({ open: !prevState.open }))
     }
 
+    /**
+     * We want selections to close the menu for a single select, and after closing the input
+     * should be focused again. This is different from a multi select, which doesn't close
+     * after selection.
+     */
     onSingleSelectSelection = e => {
         e.stopPropagation()
 
