@@ -95,13 +95,17 @@ class SingleSelectField extends React.Component {
     }
 }
 
+SingleSelectField.defaultProps = {
+    selected: {},
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
  *
  * @prop {function} onChange
  * @prop {string} label
- * @prop {Object} selected
+ * @prop {Object} [selected]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  * @prop {Array|Object} [children]
@@ -131,7 +135,7 @@ class SingleSelectField extends React.Component {
 SingleSelectField.propTypes = {
     onChange: propTypes.func.isRequired,
     label: propTypes.string,
-    selected: singleSelectedPropType.isRequired,
+    selected: singleSelectedPropType,
     className: propTypes.string,
     tabIndex: propTypes.string,
     children: propTypes.node,
