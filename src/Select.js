@@ -162,7 +162,6 @@ export class Select extends Component {
                 <InputWrapper
                     onToggle={this.onToggle}
                     inputRef={this.inputRef}
-                    open={open}
                     tabIndex={tabIndex}
                     error={error}
                     warning={warning}
