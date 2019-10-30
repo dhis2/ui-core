@@ -81,12 +81,16 @@ const SingleSelect = ({
     </Select>
 )
 
+SingleSelect.defaultProps = {
+    selected: {},
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
  *
  * @prop {function} onChange
- * @prop {Object} selected
+ * @prop {Object} [selected]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  * @prop {Array|Object} [children]
@@ -112,7 +116,7 @@ const SingleSelect = ({
  */
 SingleSelect.propTypes = {
     onChange: propTypes.func.isRequired,
-    selected: singleSelectedPropType.isRequired,
+    selected: singleSelectedPropType,
     className: propTypes.string,
     tabIndex: propTypes.string,
     children: propTypes.node,

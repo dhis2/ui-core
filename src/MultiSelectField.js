@@ -95,6 +95,10 @@ class MultiSelectField extends React.Component {
     }
 }
 
+MultiSelectField.defaultProps = {
+    selected: [],
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static

@@ -81,12 +81,16 @@ const MultiSelect = ({
     </Select>
 )
 
+MultiSelect.defaultProps = {
+    selected: [],
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
  *
  * @prop {function} onChange
- * @prop {Array} selected
+ * @prop {Array} [selected]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  * @prop {Array|Object} [children]
@@ -112,7 +116,7 @@ const MultiSelect = ({
  */
 MultiSelect.propTypes = {
     onChange: propTypes.func.isRequired,
-    selected: multiSelectedPropType.isRequired,
+    selected: multiSelectedPropType,
     className: propTypes.string,
     tabIndex: propTypes.string,
     children: propTypes.node,
