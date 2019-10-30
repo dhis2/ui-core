@@ -2,13 +2,11 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { multiSelectedPropType } from '../common-prop-types.js'
 import { Chip } from '../Chip.js'
+import { removeOption } from './remove-option.js'
 
 const createRemoveHandler = ({ selected, onChange, value, label }) => () => {
-    const filtered = selected.filter(selection => {
-        const matchesLabel = label === selection.label
-        const matchesValue = value === selection.value
-        return !matchesLabel && !matchesValue
-    })
+    const clickedOption = { value, label }
+    const filtered = removeOption(clickedOption, selected)
 
     onChange(filtered)
 }
