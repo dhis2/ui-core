@@ -4,21 +4,26 @@ import { multiSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 
 const createHandler = ({ active, onChange, selected, value, label }) => e => {
+    const clickedOption = { value, label }
+
     e.stopPropagation()
     e.preventDefault()
 
-    // If the option is active, remove it from selected
+    // If the option is active (i.e. currently selected), remove the option from the array of
+    // selected options
     if (active) {
-        const filtered = selected.filter(selection => {
-            const matchesLabel = label === selection.label
-            const matchesValue = value === selection.value
+        // Remove the clicked option from the currently selected options
+        const filtered = selected.filter(option => {
+            const matchesLabel = clickedOption.label === option.label
+            const matchesValue = clickedOption.value === option.value
             return !matchesLabel && !matchesValue
         })
+
         return onChange(filtered)
     }
 
     // Otherwise, add it to selected
-    return onChange(selected.concat([{ value, label }]))
+    return onChange(selected.concat([clickedOption]))
 }
 
 const Menu = ({ options, onChange, selected, empty }) => {
