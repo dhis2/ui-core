@@ -2,11 +2,10 @@ import React from 'react'
 import propTypes from 'prop-types'
 import cx from 'classnames'
 import { statusPropType } from '../common-prop-types.js'
-import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
+import { ArrowDown } from './ArrowDown.js'
 import { colors, theme } from '../theme.js'
 
 const InputWrapper = ({
-    open,
     onToggle,
     children,
     tabIndex,
@@ -36,7 +35,7 @@ const InputWrapper = ({
             >
                 <div className="root-children">{children}</div>
                 <div className="root-right">
-                    {open ? <ArrowUp /> : <ArrowDown />}
+                    <ArrowDown />
                 </div>
             </div>
 
@@ -98,7 +97,6 @@ InputWrapper.propTypes = {
     children: propTypes.element,
     className: propTypes.string,
 
-    open: propTypes.bool.isRequired,
     onToggle: propTypes.func.isRequired,
 
     tabIndex: propTypes.string.isRequired,
