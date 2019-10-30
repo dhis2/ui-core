@@ -44,7 +44,7 @@ const SingleSelectOption = ({
             }
 
             a.disabled {
-                color: rgba(0, 0, 0, 0.3);
+                color: ${colors.grey500};
                 cursor: not-allowed;
                 pointer-events: none;
                 user-select: none;
