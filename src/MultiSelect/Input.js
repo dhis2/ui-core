@@ -56,6 +56,7 @@ const Input = ({
 
                 .root-right {
                     margin-left: auto;
+                    margin-right: 10px;
                 }
             `}</style>
         </div>
