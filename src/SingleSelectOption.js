@@ -38,7 +38,8 @@ const SingleSelectOption = ({
 
             a:active,
             a.active {
-                background-color: ${colors.grey400};
+                background-color: ${colors.teal700};
+                color: ${colors.white};
                 cursor: auto;
             }
 
