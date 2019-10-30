@@ -13,7 +13,7 @@ const InputPlaceholder = ({ placeholder, className }) => {
 
             <style jsx>{`
                 div {
-                    color: ${colors.grey500};
+                    color: ${colors.grey600};
                     user-select: none;
                 }
             `}</style>
