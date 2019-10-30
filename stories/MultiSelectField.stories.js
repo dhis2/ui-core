@@ -71,3 +71,8 @@ storiesOf('MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
+    .add('Disabled', () => (
+        <MultiSelectField {...defaultProps} disabled>
+            {options}
+        </MultiSelectField>
+    ))

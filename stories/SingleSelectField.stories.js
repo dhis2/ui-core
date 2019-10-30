@@ -71,3 +71,8 @@ storiesOf('SingleSelectField', module)
             {options}
         </SingleSelectField>
     ))
+    .add('Disabled', () => (
+        <SingleSelectField {...defaultProps} disabled>
+            {options}
+        </SingleSelectField>
+    ))

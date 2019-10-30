@@ -54,7 +54,11 @@ class MultiSelectField extends React.Component {
 
         return (
             <Field className={className}>
-                {label && <Label required={required}>{label}</Label>}
+                {label && (
+                    <Label required={required} disabled={disabled}>
+                        {label}
+                    </Label>
+                )}
 
                 <MultiSelect
                     selected={selected}
