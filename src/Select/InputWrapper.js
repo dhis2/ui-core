@@ -26,17 +26,15 @@ const InputWrapper = ({
     })
 
     return (
-        <React.Fragment>
-            <div
-                className={classNames}
-                onClick={onToggle}
-                tabIndex={tabIndex}
-                ref={inputRef}
-            >
-                <div className="root-children">{children}</div>
-                <div className="root-right">
-                    <ArrowDown />
-                </div>
+        <div
+            className={classNames}
+            onClick={onToggle}
+            tabIndex={tabIndex}
+            ref={inputRef}
+        >
+            <div className="root-children">{children}</div>
+            <div className="root-right">
+                <ArrowDown />
             </div>
 
             <style jsx>{`
@@ -89,7 +87,7 @@ const InputWrapper = ({
                     margin-left: auto;
                 }
             `}</style>
-        </React.Fragment>
+        </div>
     )
 }
 
