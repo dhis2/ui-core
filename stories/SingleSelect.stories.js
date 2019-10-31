@@ -125,7 +125,15 @@ storiesOf('SingleSelect', module)
     .add('Disabled option', () => (
         <SingleSelect {...defaultProps}>
             <SingleSelectOption key="1" value="1" label="one" />
-            <SingleSelectOption disabled key="2" value="2" label="two" />
+            <SingleSelectOption key="2" value="2" label="two" />
+            <SingleSelectOption key="3" value="3" label="three" disabled />
+            <SingleSelectOption key="4" value="4" label="four" />
+            <SingleSelectOption key="5" value="5" label="five" />
+            <SingleSelectOption key="6" value="6" label="six" />
+            <SingleSelectOption key="7" value="7" label="seven" />
+            <SingleSelectOption key="8" value="8" label="eight" />
+            <SingleSelectOption key="9" value="9" label="nine" />
+            <SingleSelectOption key="10" value="10" label="ten" />
         </SingleSelect>
     ))
     .add('Custom options', () => (
