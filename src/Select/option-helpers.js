@@ -3,6 +3,10 @@ import React from 'react'
 // Find an option in an array of react children
 export const findOptionChild = (targetOption, optionChildren) =>
     React.Children.toArray(optionChildren).find(currentOption => {
+        if (!currentOption.props) {
+            return false
+        }
+
         const matchesLabel = targetOption.label === currentOption.props.label
         const matchesValue = targetOption.value === currentOption.props.value
 

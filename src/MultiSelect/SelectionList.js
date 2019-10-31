@@ -15,7 +15,8 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
     <React.Fragment>
         {selected.map(({ value, label }) => {
             const currentOption = findOptionChild({ value, label }, options)
-            const isDisabledOption = currentOption.props.disabled
+            const isDisabledOption =
+                currentOption && currentOption.props.disabled
 
             // The option should be disabled if it or the select are disabled
             const isDisabled = isDisabledOption || disabled
