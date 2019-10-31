@@ -233,3 +233,8 @@ storiesOf('SingleSelect', module)
             {options}
         </SingleSelect>
     ))
+    .add('Disabled', () => (
+        <SingleSelect {...defaultProps} disabled>
+            {options}
+        </SingleSelect>
+    ))
