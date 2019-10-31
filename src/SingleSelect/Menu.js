@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import { singleSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 
-const onActiveClick = e => {
+const onIgnoredClick = e => {
     e.stopPropagation()
     e.preventDefault()
 }
@@ -26,7 +26,7 @@ const Menu = ({
     }
 
     const children = React.Children.map(options, child => {
-        const { value, label } = child.props
+        const { value, label, disabled: isDisabled } = child.props
         const isValidOption = 'value' in child.props && 'label' in child.props
 
         // Return early if the child isn't an option, to prevent attaching handlers etc.
@@ -34,16 +34,20 @@ const Menu = ({
             return child
         }
 
-        const active = value === selected.value && label === selected.label
+        // Active means the option is currently selected
+        const isActive = value === selected.value && label === selected.label
         const onClick = e => {
             onChange({ value, label })
             onSingleSelectSelection(e)
         }
 
+        // Clicks on active options or disabled options should be ignored for the single select
+        const isIgnored = isActive || isDisabled
+
         return React.cloneElement(child, {
             ...child.props,
-            onClick: active ? onActiveClick : onClick,
-            active,
+            onClick: isIgnored ? onIgnoredClick : onClick,
+            active: isActive,
         })
     })
 

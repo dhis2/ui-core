@@ -4,14 +4,19 @@ import { multiSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 import { removeOption } from './remove-option.js'
 
-const createHandler = ({ active, onChange, selected, value, label }) => e => {
+const onDisabledClick = e => {
+    e.stopPropagation()
+    e.preventDefault()
+}
+
+const createHandler = ({ isActive, onChange, selected, value, label }) => e => {
     const clickedOption = { value, label }
 
     e.stopPropagation()
     e.preventDefault()
 
     // If the option is currently selected remove it from the array of selected options
-    if (active) {
+    if (isActive) {
         const filtered = removeOption(clickedOption, selected)
 
         return onChange(filtered)
@@ -33,7 +38,7 @@ const Menu = ({ options, onChange, selected, empty }) => {
     }
 
     const children = React.Children.map(options, child => {
-        const { value, label } = child.props
+        const { value, label, disabled: isDisabled } = child.props
         const isValidOption = 'value' in child.props && 'label' in child.props
 
         // Return early if the child isn't an option, to prevent attaching handlers etc.
@@ -41,26 +46,28 @@ const Menu = ({ options, onChange, selected, empty }) => {
             return child
         }
 
-        // Check if the current option is active
-        const active = !!selected.find(selection => {
+        // Active means the option is currently selected
+        const isActive = !!selected.find(selection => {
             const matchesLabel = label === selection.label
             const matchesValue = value === selection.value
             return matchesLabel && matchesValue
         })
 
-        // Create a click handler for the option
-        const onClick = createHandler({
-            active,
-            onChange,
-            selected,
-            value,
-            label,
-        })
+        // Create the appropriate click handler for the option
+        const onClick = isDisabled
+            ? onDisabledClick
+            : createHandler({
+                  isActive,
+                  onChange,
+                  selected,
+                  value,
+                  label,
+              })
 
         return React.cloneElement(child, {
             ...child.props,
             onClick,
-            active,
+            active: isActive,
         })
     })
 
