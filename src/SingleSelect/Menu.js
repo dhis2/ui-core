@@ -13,7 +13,8 @@ const Menu = ({
     onChange,
     selected,
     empty,
-    onSingleSelectSelection,
+    handleFocusInput,
+    handleClose,
 }) => {
     if (React.Children.count(options) === 0) {
         // If it's a string, supply it to our <Empty> component so it looks better
@@ -37,8 +38,11 @@ const Menu = ({
         // Active means the option is currently selected
         const isActive = value === selected.value && label === selected.label
         const onClick = e => {
+            e.stopPropagation()
+
             onChange({ value, label })
-            onSingleSelectSelection(e)
+            handleClose()
+            handleFocusInput()
         }
 
         // Clicks on active options or disabled options should be ignored for the single select
@@ -59,7 +63,8 @@ Menu.propTypes = {
     options: propTypes.node,
     onChange: propTypes.func,
     selected: singleSelectedPropType,
-    onSingleSelectSelection: propTypes.func,
+    handleFocusInput: propTypes.func,
+    handleClose: propTypes.func,
 }
 
 export { Menu }

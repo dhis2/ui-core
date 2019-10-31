@@ -35,6 +35,18 @@ export class Select extends Component {
         document.removeEventListener('click', this.onOutsideClick)
     }
 
+    handleFocusInput = () => {
+        this.inputRef.current.focus()
+    }
+
+    handleOpen = () => {
+        this.setState({ open: true })
+    }
+
+    handleClose = () => {
+        this.setState({ open: false })
+    }
+
     onFocus = e => {
         const { onFocus, disabled } = this.props
 
@@ -55,18 +67,6 @@ export class Select extends Component {
         e.stopPropagation()
 
         this.setState(prevState => ({ open: !prevState.open }))
-    }
-
-    /**
-     * We want selections to close the menu for a single select, and after closing the input
-     * should be focused again. This is different from a multi select, which doesn't close
-     * after selection.
-     */
-    onSingleSelectSelection = e => {
-        e.stopPropagation()
-
-        this.setState({ open: false })
-        this.inputRef.current.focus()
     }
 
     /**
@@ -94,7 +94,7 @@ export class Select extends Component {
                 onBlur(e)
             }
 
-            this.setState({ open: false })
+            this.handleClose()
         }
     }
 
@@ -115,11 +115,11 @@ export class Select extends Component {
         const shouldClose = open && keyCode === ESCAPE_KEY
 
         if (shouldClose) {
-            return this.setState({ open: false })
+            return this.handleClose()
         }
 
         if (shouldOpen) {
-            return this.setState({ open: true })
+            return this.handleOpen()
         }
     }
 
@@ -153,7 +153,8 @@ export class Select extends Component {
             selected,
             onChange,
             options: children,
-            onSingleSelectSelection: this.onSingleSelectSelection,
+            handleClose: this.handleClose,
+            handleFocusInput: this.handleFocusInput,
         }
         const menu = React.cloneElement(this.props.menu, menuProps)
 
