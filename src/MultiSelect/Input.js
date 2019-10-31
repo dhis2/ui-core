@@ -32,6 +32,7 @@ const Input = ({
             )}
             {hasSelection && (
                 <div>
+                    {/* the wrapper div above is necessary to enforce wrapping on overflow */}
                     <SelectionList
                         selected={selected}
                         onChange={onChange}
