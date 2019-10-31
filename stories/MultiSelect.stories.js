@@ -121,7 +121,15 @@ storiesOf('MultiSelect', module)
     .add('Disabled option', () => (
         <MultiSelect {...defaultProps}>
             <MultiSelectOption key="1" value="1" label="one" />
-            <MultiSelectOption disabled key="2" value="2" label="two" />
+            <MultiSelectOption key="2" value="2" label="two" />
+            <MultiSelectOption key="3" value="3" label="three" disabled />
+            <MultiSelectOption key="4" value="4" label="four" />
+            <MultiSelectOption key="5" value="5" label="five" />
+            <MultiSelectOption key="6" value="6" label="six" />
+            <MultiSelectOption key="7" value="7" label="seven" />
+            <MultiSelectOption key="8" value="8" label="eight" />
+            <MultiSelectOption key="9" value="9" label="nine" />
+            <MultiSelectOption key="10" value="10" label="ten" />
         </MultiSelect>
     ))
     .add('Custom options', () => (
