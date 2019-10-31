@@ -15,6 +15,7 @@ const Input = ({
     clearText,
     placeholder,
     prefix,
+    options,
     className,
     disabled,
 }) => {
@@ -36,6 +37,7 @@ const Input = ({
                     <SelectionList
                         selected={selected}
                         onChange={onChange}
+                        options={options}
                         disabled={disabled}
                     />
                 </div>
@@ -68,6 +70,7 @@ Input.propTypes = {
     className: propTypes.string,
     selected: multiSelectedPropType,
     onChange: propTypes.func,
+    options: propTypes.node,
     clearable: propTypes.bool,
     clearText: propTypes.string.isRequired,
     prefix: propTypes.string,
