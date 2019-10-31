@@ -46,12 +46,15 @@ export class FilterableMenu extends Component {
         }
 
         const filtered = React.Children.map(options, child => {
-            const { value, label } = child.props
+            const isValidOption =
+                child.props && 'value' in child.props && 'label' in child.props
 
             // Filter it out if it's an invalid option
-            if (!value || !label) {
+            if (!isValidOption) {
                 return null
             }
+
+            const { label } = child.props
 
             // Filter by label, because that's the part of an option that's displayed to the user
             const match = label.includes(filter)

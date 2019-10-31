@@ -27,13 +27,15 @@ const Menu = ({
     }
 
     const children = React.Children.map(options, child => {
-        const { value, label, disabled: isDisabled } = child.props
-        const isValidOption = 'value' in child.props && 'label' in child.props
+        const isValidOption =
+            child.props && 'value' in child.props && 'label' in child.props
 
         // Return early if the child isn't an option, to prevent attaching handlers etc.
         if (!isValidOption) {
             return child
         }
+
+        const { value, label, disabled: isDisabled } = child.props
 
         // Active means the option is currently selected
         const isActive = value === selected.value && label === selected.label
