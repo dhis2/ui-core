@@ -33,6 +33,7 @@ const Input = ({
             )}
             {hasSelection && (
                 <div>
+                    {/* the wrapper div above is necessary to enforce wrapping on overflow */}
                     <Selection selected={selected} options={options} />
                 </div>
             )}
