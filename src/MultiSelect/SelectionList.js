@@ -14,12 +14,18 @@ const createRemoveHandler = ({ selected, onChange, value, label }) => () => {
 const SelectionList = ({ selected, onChange, disabled, options }) => (
     <React.Fragment>
         {selected.map(({ value, label }) => {
-            const currentOption = findOptionChild({ value, label }, options)
-            const isDisabledOption =
-                currentOption && currentOption.props.disabled
+            const selectedOption = findOptionChild({ value, label }, options)
 
-            // The option should be disabled if it or the select are disabled
-            const isDisabled = isDisabledOption || disabled
+            if (!selectedOption) {
+                const message =
+                    'The selected option could not be found as a child of the select. ' +
+                    'Make sure that the value and label for all options passed to the ' +
+                    '`selected` prop matches an existing option.'
+                throw new Error(message)
+            }
+
+            // The chip should be disabled if the option or the select are disabled
+            const isDisabled = selectedOption.props.disabled || disabled
 
             // Create an onRemove handler, but only if it's not disabled
             const onRemove = isDisabled

@@ -13,7 +13,11 @@ const Selection = ({ options, selected, className }) => {
     const selectedOption = findOptionChild(selected, options)
 
     if (!selectedOption) {
-        return null
+        const message =
+            'The selected option could not be found as a child of the select. ' +
+            'Make sure that the value and label passed to the `selected` prop ' +
+            'match an existing option.'
+        throw new Error(message)
     }
 
     const icon = selectedOption.props.icon
