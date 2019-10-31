@@ -10,7 +10,7 @@ const SingleSelectOption = ({
     onClick,
     className,
 }) => (
-    <a
+    <div
         className={cx(className, {
             disabled,
             active,
@@ -20,8 +20,7 @@ const SingleSelectOption = ({
         {label}
 
         <style jsx>{`
-            a {
-                display: block;
+            div {
                 cursor: pointer;
                 font-size: 14px;
                 text-decoration: none;
@@ -32,25 +31,25 @@ const SingleSelectOption = ({
                 text-overflow: ellipsis;
             }
 
-            a:hover {
+            div:hover {
                 background-color: ${colors.grey200};
             }
 
-            a:active,
-            a.active {
+            div:active,
+            div.active {
                 background-color: ${colors.teal700};
                 color: ${colors.white};
                 cursor: auto;
             }
 
-            a.disabled {
+            div.disabled {
                 color: ${colors.grey500};
                 cursor: not-allowed;
                 pointer-events: none;
                 user-select: none;
             }
         `}</style>
-    </a>
+    </div>
 )
 
 SingleSelectOption.propTypes = {
