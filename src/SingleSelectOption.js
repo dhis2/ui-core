@@ -45,8 +45,11 @@ const SingleSelectOption = ({
             div.disabled {
                 color: ${colors.grey500};
                 cursor: not-allowed;
-                pointer-events: none;
                 user-select: none;
+            }
+
+            div.disabled:hover {
+                background-color: initial;
             }
         `}</style>
     </div>

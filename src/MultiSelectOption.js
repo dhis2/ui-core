@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import cx from 'classnames'
 import { resolve } from 'styled-jsx/css'
 import { colors, spacers } from './theme.js'
 import { Checkbox } from './Checkbox.js'
@@ -10,7 +11,7 @@ const { styles, className: checkboxClassname } = resolve`
 `
 
 const MultiSelectOption = ({ label, active, disabled, onClick, className }) => (
-    <div className={className}>
+    <div className={cx(className, { disabled })}>
         <Checkbox
             name={label}
             className={checkboxClassname}
@@ -25,6 +26,10 @@ const MultiSelectOption = ({ label, active, disabled, onClick, className }) => (
         <style jsx>{`
             div:hover {
                 background-color: ${colors.grey200};
+            }
+
+            div.disabled:hover {
+                background-color: initial;
             }
         `}</style>
     </div>
