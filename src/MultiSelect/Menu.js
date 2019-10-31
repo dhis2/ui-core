@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { multiSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
-import { removeOption } from './remove-option.js'
+import { removeOption, findOption } from '../Select/option-helpers.js'
 
 const onDisabledClick = e => {
     e.stopPropagation()
@@ -47,11 +47,7 @@ const Menu = ({ options, onChange, selected, empty }) => {
         }
 
         // Active means the option is currently selected
-        const isActive = !!selected.find(selection => {
-            const matchesLabel = label === selection.label
-            const matchesValue = value === selection.value
-            return matchesLabel && matchesValue
-        })
+        const isActive = !!findOption({ value, label }, selected)
 
         // Create the appropriate click handler for the option
         const onClick = isDisabled

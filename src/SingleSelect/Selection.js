@@ -3,18 +3,14 @@ import propTypes from 'prop-types'
 import cx from 'classnames'
 import { singleSelectedPropType } from '../common-prop-types.js'
 import { spacers } from '../theme.js'
+import { findOptionChild } from '../Select/option-helpers.js'
 
 const Selection = ({ options, selected, className }) => {
     if (React.Children.count(options) === 0) {
         return null
     }
 
-    const selectedOption = React.Children.toArray(options).find(option => {
-        const matchesValue = selected.value === option.props.value
-        const matchesLabel = selected.label === option.props.label
-
-        return matchesValue && matchesLabel
-    })
+    const selectedOption = findOptionChild(selected, options)
 
     if (!selectedOption) {
         return null
