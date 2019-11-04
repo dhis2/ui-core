@@ -84,7 +84,6 @@ class Radio extends PureComponent {
 
                 <style jsx>{`
                     label {
-                        position: relative;
                         display: flex;
                         flex-direction: row;
                         align-items: center;
@@ -116,9 +115,9 @@ class Radio extends PureComponent {
                         color: ${theme.disabled};
                     }
                     input {
-                        position: absolute;
                         opacity: 0;
                         pointer-events: none;
+                        position: absolute;
                     }
 
                     .icon {
