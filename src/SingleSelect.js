@@ -6,6 +6,8 @@ import { Input } from './SingleSelect/Input.js'
 import { Menu } from './SingleSelect/Menu.js'
 import { FilterableMenu } from './SingleSelect/FilterableMenu.js'
 import { Loading } from './Select/Loading.js'
+import { StatusIcon } from './icons/Status.js'
+import { spacers } from './theme.js'
 
 /**
  * @module
@@ -55,32 +57,49 @@ const SingleSelect = ({
     )
 
     return (
-        <Select
-            className={className}
-            selected={selected}
-            input={
-                <Input
-                    clearable={clearable}
-                    clearText={clearText}
-                    placeholder={placeholder}
-                    prefix={prefix}
-                />
-            }
-            menu={menu}
-            tabIndex={tabIndex}
-            maxHeight={maxHeight}
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            error={error}
-            warning={warning}
-            valid={valid}
-            disabled={disabled}
-            initialFocus={initialFocus}
-            dense={dense}
-        >
-            {loading ? <Loading message={loadingText} /> : children}
-        </Select>
+        <div className="root">
+            <div className="root-input">
+                <Select
+                    className={className}
+                    selected={selected}
+                    input={
+                        <Input
+                            clearable={clearable}
+                            clearText={clearText}
+                            placeholder={placeholder}
+                            prefix={prefix}
+                        />
+                    }
+                    menu={menu}
+                    tabIndex={tabIndex}
+                    maxHeight={maxHeight}
+                    onChange={onChange}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    error={error}
+                    warning={warning}
+                    valid={valid}
+                    disabled={disabled}
+                    initialFocus={initialFocus}
+                    dense={dense}
+                >
+                    {loading ? <Loading message={loadingText} /> : children}
+                </Select>
+            </div>
+            <StatusIcon error={error} valid={valid} warning={warning} />
+
+            <style jsx>{`
+                .root {
+                    align-items: center;
+                    display: flex;
+                }
+
+                .root-input {
+                    margin-right: ${spacers.dp4};
+                    flex: 1;
+                }
+            `}</style>
+        </div>
     )
 }
 
