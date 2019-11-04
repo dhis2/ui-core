@@ -81,7 +81,6 @@ class Switch extends Component {
 
                 <style jsx>{`
                     label {
-                        position: relative;
                         display: flex;
                         flex-direction: row;
                         align-items: center;
@@ -113,9 +112,9 @@ class Switch extends Component {
                         color: ${theme.disabled};
                     }
                     input {
-                        position: absolute;
                         opacity: 0;
                         pointer-events: none;
+                        position: absolute;
                     }
 
                     .icon {
