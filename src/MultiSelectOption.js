@@ -19,6 +19,7 @@ const MultiSelectOption = ({ label, active, disabled, onClick, className }) => (
             label={label}
             onChange={onClick}
             disabled={disabled}
+            dense
         />
 
         {styles}
