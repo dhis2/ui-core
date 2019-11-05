@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 import propTypes from '@dhis2/prop-types'
 
-import { getPosition } from './DropMenu/getPosition'
 import { layers } from './theme.js'
 
 /**
@@ -16,6 +15,8 @@ class DropMenu extends PureComponent {
         top: 'auto',
         left: 'auto',
     }
+
+    requestId = null
     elContainer = React.createRef()
 
     componentDidMount() {
@@ -27,10 +28,31 @@ class DropMenu extends PureComponent {
     componentWillUnmount() {
         document.removeEventListener('click', this.onDocClick)
         window.removeEventListener('resize', this.updatePosition)
+
+        if (this.requestId) {
+            window.cancelAnimationFrame(this.requestId)
+        }
     }
 
     updatePosition = () => {
-        this.setState(getPosition(this.props.anchorEl))
+        const anchorEl = this.props.anchorEl
+
+        if (this.requestId) {
+            window.cancelAnimationFrame(this.requestId)
+        }
+
+        this.requestId = window.requestAnimationFrame(() => {
+            const rect = anchorEl.getBoundingClientRect()
+            const top = rect.bottom + window.scrollY
+            const left = rect.left + window.scrollX
+
+            const sizing = {
+                top: `${top}px`,
+                left: `${left}px`,
+            }
+
+            this.setState(sizing)
+        })
     }
 
     onDocClick = evt => {
