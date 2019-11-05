@@ -1242,10 +1242,10 @@
     semver "^6.3.0"
     yargs "^14.0.0"
 
-"@dhis2/prop-types@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.2.1.tgz#acd62fc65f7c2f55126844289e601e2b842d3421"
-  integrity sha512-L3y0x8TOFwn12oBin4pkfTOn7CqGrKIN73Q4qLooA4/lM1qlM6GE3Qm7zB5p1Ko8rCThjEiHKSb9CfMGoo/GzQ==
+"@dhis2/prop-types@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.2.2.tgz#c3b1ef14b0f54897c6cf261ee54cc7f9c96c31d0"
+  integrity sha512-1W85cxCGFLhSEJzurQoRtYk2RDhdRYW+4NCv1SM9vaPbtmqDBjeRsbicN1ny9iJQIlHwu+MGaKU70hbe8eUofA==
   dependencies:
     prop-types "^15"
 
