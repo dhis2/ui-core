@@ -1,7 +1,9 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { colors } from '../theme'
 import cx from 'classnames'
+
+import { colors } from '../theme.js'
+import { Tab } from './Tab.js'
 
 /**
  * @module
@@ -35,12 +37,15 @@ const TabBar = ({ fixed, children, className }) => (
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Node} children
+ * @prop {Tab|Array.<Tab>} children
  * @prop {string} [className]
  * @prop {boolean} [fixed]
  */
 TabBar.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.oneOfType([
+        propTypes.instanceOfComponent(Tab),
+        propTypes.arrayOf(propTypes.instanceOfComponent(Tab)),
+    ]),
     className: propTypes.string,
     fixed: propTypes.bool,
 }
