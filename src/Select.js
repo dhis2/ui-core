@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import {
     statusPropType,
     singleSelectedPropType,
