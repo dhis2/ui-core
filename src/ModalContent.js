@@ -1,15 +1,15 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { spacers } from '../theme.js'
+import { spacers } from './theme.js'
 
 /**
  * @module
  *
- * @param {Content.PropTypes} props
+ * @param {ModalContent.PropTypes} props
  * @returns {React.Component}
  */
-export const Content = ({ children, className }) => (
+export const ModalContent = ({ children, className }) => (
     <div className={className}>
         {children}
 
@@ -34,7 +34,7 @@ export const Content = ({ children, className }) => (
  * @prop {Node} children
  * @prop {string} [className]
  */
-Content.propTypes = {
+ModalContent.propTypes = {
     children: propTypes.node.isRequired,
     className: propTypes.string,
 }
