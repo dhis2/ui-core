@@ -2,14 +2,14 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { spacers } from '../theme.js'
+import { spacers } from './theme.js'
 
 /**
  * @module
- * @param {Title.PropTypes} props
+ * @param {ModalTitle.PropTypes} props
  * @returns {React.Component}
  */
-export const Title = ({ children }) => (
+export const ModalTitle = ({ children }) => (
     <h1 className={cx('title')}>
         {children}
 
@@ -30,6 +30,6 @@ export const Title = ({ children }) => (
  * @static
  * @prop {string} children
  */
-Title.propTypes = {
+ModalTitle.propTypes = {
     children: propTypes.string.isRequired,
 }
