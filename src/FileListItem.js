@@ -2,9 +2,9 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { colors, spacers } from '../theme.js'
-import { AttachFile } from '../icons/AttachFile.js'
-import { Loading } from '../icons/Status.js'
+import { colors, spacers } from './theme.js'
+import { AttachFile } from './icons/AttachFile.js'
+import { Loading } from './icons/Status.js'
 
 /**
  * @module

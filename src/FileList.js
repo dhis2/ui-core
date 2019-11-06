@@ -1,8 +1,8 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { FileListItem } from './FileList/FileListItem'
-import { FileListPlaceholder } from './FileList/FileListPlaceholder'
+import { FileListItem } from './FileListItem'
+import { FileListPlaceholder } from './FileListPlaceholder'
 
 /**
  * @module
@@ -41,4 +41,4 @@ FileList.propTypes = {
     className: propTypes.string,
 }
 
-export { FileList, FileListItem, FileListPlaceholder }
+export { FileList }
