@@ -29,14 +29,6 @@ const TableFooterButton = () => (
 
 const TableButton = () => <Button primary>Table button</Button>
 
-const Actions = () => (
-    <div>
-        <a className="icon" href="#">
-            ...
-        </a>
-    </div>
-)
-
 storiesOf('Table', module).add('Static layout', () => (
     <Table>
         <TableHead>
