@@ -8,13 +8,9 @@ import { animatedSideScroll } from './animatedSideScroll'
 
 /**
  * @module
+ * @private
  * @param {ScrollBar.PropTypes} props
  * @returns {React.PureComponent}
- *
- * @example import { ScrollBar } from '@dhis2/ui-core'
- *
- * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tab.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/tabs--tabs-with-scroller|Storybook}
  */
 class ScrollBar extends PureComponent {
     scrollBox = createRef()

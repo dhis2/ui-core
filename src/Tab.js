@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from '@dhis2/prop-types'
 import cx from 'classnames'
-import { colors, theme } from '../theme.js'
+import { colors, theme } from './theme.js'
 
 /**
  * @module
