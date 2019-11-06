@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import { Input } from '../Input.js'
 import { spacers, colors } from '../theme.js'
 

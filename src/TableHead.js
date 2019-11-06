@@ -1,6 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
-import { instanceOfComponent } from '@dhis2/prop-types'
+import propTypes, { instanceOfComponent } from '@dhis2/prop-types'
 
 import { TableRowHead } from './TableRowHead.js'
 
