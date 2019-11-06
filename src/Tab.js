@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from '@dhis2/prop-types'
+import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { colors, theme } from './theme.js'
 
@@ -130,12 +130,12 @@ const Tab = ({ icon, onClick, selected, disabled, children, className }) => (
  * @prop {string} [className]
  */
 Tab.propTypes = {
-    icon: PropTypes.element,
-    onClick: PropTypes.func,
-    selected: PropTypes.bool,
-    disabled: PropTypes.bool,
-    children: PropTypes.node,
-    className: PropTypes.string,
+    icon: propTypes.element,
+    onClick: propTypes.func,
+    selected: propTypes.bool,
+    disabled: propTypes.bool,
+    children: propTypes.node,
+    className: propTypes.string,
 }
 
 export { Tab }

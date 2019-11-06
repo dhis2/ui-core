@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import { multiSelectedPropType } from '../common-prop-types.js'
 import { FilterableMenu as CommonFilterableMenu } from '../Select/FilterableMenu.js'
 import { Menu } from './Menu.js'

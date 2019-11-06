@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import { multiSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 import { removeOption, findOption } from '../Select/option-helpers.js'
