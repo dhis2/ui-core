@@ -46,7 +46,6 @@ export const TableCellHead = ({
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {string} [label]
  * @prop {string} [colSpan]
  * @prop {string} [rowSpan]
  * @prop {bool} [dense]
@@ -54,7 +53,6 @@ export const TableCellHead = ({
  * @prop {string} [className]
  */
 TableCellHead.propTypes = {
-    label: propTypes.string,
     colSpan: propTypes.string,
     rowSpan: propTypes.string,
     dense: propTypes.bool,
