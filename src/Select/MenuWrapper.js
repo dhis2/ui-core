@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card.js'
 import { layers } from '../theme.js'

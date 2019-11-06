@@ -1,7 +1,6 @@
 import React from 'react'
-import propTypes from 'prop-types'
 import css from 'styled-jsx/css'
-import { instanceOfComponent } from '@dhis2/prop-types'
+import propTypes, { instanceOfComponent } from '@dhis2/prop-types'
 
 import { TableBody } from './TableBody.js'
 import { TableFoot } from './TableFoot.js'
