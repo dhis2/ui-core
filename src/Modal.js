@@ -6,19 +6,16 @@ import { createPortal } from 'react-dom'
 import { sizePropType } from './common-prop-types.js'
 import { ScreenCover } from './ScreenCover.js'
 
-import { Actions } from './Modal/Actions.js'
-import { Content } from './Modal/Content.js'
 import { ModalCard } from './Modal/ModalCard.js'
-import { Title } from './Modal/Title.js'
 
 /**
  * Modal provides a UI to prompt the user to respond to a question
  * or a note to the user.
  *
  * Use Model with the following Components:
- * Model.Title (optional)
- * Model.Content (required)
- * Model.Actions (required)
+ * ModelTitle (optional)
+ * ModelContent (required)
+ * ModelActions (required)
  * @module
  * @param {Modal.PropTypes} props
  * @returns {React.Component}
@@ -26,11 +23,11 @@ import { Title } from './Modal/Title.js'
  * @example import { Modal } from @dhis2/ui-core
  * @example
  *  <Modal>
- *      <Modal.Title>Hello</Modal.Title>
- *      <Modal.Content>Some content here</Modal.Content>
- *      <Modal.Actions>
+ *      <ModalTitle>Hello</ModalTitle>
+ *      <ModalContent>Some content here</ModalContent>
+ *      <ModalActions>
  *          <Button primary>My action</Button>
- *      </Modal.Actions>
+ *      </ModalActions>
  *  </Modal>
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/modal.md|Design system}
@@ -59,10 +56,6 @@ export const Modal = ({ children, onClose, small, large, open, className }) => {
     )
 }
 
-Modal.Title = Title
-Modal.Content = Content
-Modal.Actions = Actions
-
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -75,7 +68,7 @@ Modal.Actions = Actions
  * @prop {bool} large
  */
 Modal.propTypes = {
-    // Can contain Modal.Title; Must contain Modal.Content and Modal.Actions
+    // Can contain ModalTitle; Must contain ModalContent and ModalActions
     children: propTypes.oneOfType([
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
