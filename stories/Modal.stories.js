@@ -1,20 +1,25 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Modal } from '../src/Modal'
-import { Button } from '../src/Button'
 
-import { ButtonStrip } from '../src'
+import {
+    Button,
+    ButtonStrip,
+    Modal,
+    ModalTitle,
+    ModalActions,
+    ModalContent,
+} from '../src'
 
 const say = something => () => alert(something)
 
 storiesOf('Modal', module)
     .add('Small: Title, Content, Action', () => (
         <Modal open small>
-            <Modal.Title>
+            <ModalTitle>
                 This is a small modal with title, content and primary action
-            </Modal.Title>
+            </ModalTitle>
 
-            <Modal.Content>
+            <ModalContent>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
@@ -25,9 +30,9 @@ storiesOf('Modal', module)
                 sed diam voluptua. At vero eos et accusam et justo duo dolores
                 et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
                 est Lorem ipsum dolor sit amet.
-            </Modal.Content>
+            </ModalContent>
 
-            <Modal.Actions>
+            <ModalActions>
                 <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
@@ -37,16 +42,16 @@ storiesOf('Modal', module)
                         Primary action
                     </Button>
                 </ButtonStrip>
-            </Modal.Actions>
+            </ModalActions>
         </Modal>
     ))
     .add('Medium: Title, Content, Action', () => (
         <Modal open>
-            <Modal.Title>
+            <ModalTitle>
                 This is a medium modal with title, content and primary action
-            </Modal.Title>
+            </ModalTitle>
 
-            <Modal.Content>
+            <ModalContent>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
@@ -57,9 +62,9 @@ storiesOf('Modal', module)
                 sed diam voluptua. At vero eos et accusam et justo duo dolores
                 et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
                 est Lorem ipsum dolor sit amet.
-            </Modal.Content>
+            </ModalContent>
 
-            <Modal.Actions>
+            <ModalActions>
                 <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
@@ -69,16 +74,16 @@ storiesOf('Modal', module)
                         Primary action
                     </Button>
                 </ButtonStrip>
-            </Modal.Actions>
+            </ModalActions>
         </Modal>
     ))
     .add('Large: Title, Content, Primary', () => (
         <Modal open large>
-            <Modal.Title>
+            <ModalTitle>
                 This is a large modal with title, content and primary action
-            </Modal.Title>
+            </ModalTitle>
 
-            <Modal.Content>
+            <ModalContent>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
@@ -89,9 +94,9 @@ storiesOf('Modal', module)
                 sed diam voluptua. At vero eos et accusam et justo duo dolores
                 et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
                 est Lorem ipsum dolor sit amet.
-            </Modal.Content>
+            </ModalContent>
 
-            <Modal.Actions>
+            <ModalActions>
                 <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
@@ -101,12 +106,12 @@ storiesOf('Modal', module)
                         Primary action
                     </Button>
                 </ButtonStrip>
-            </Modal.Actions>
+            </ModalActions>
         </Modal>
     ))
     .add('Small: Content & Primary', () => (
         <Modal open small>
-            <Modal.Content>
+            <ModalContent>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
@@ -117,9 +122,9 @@ storiesOf('Modal', module)
                 sed diam voluptua. At vero eos et accusam et justo duo dolores
                 et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
                 est Lorem ipsum dolor sit amet.
-            </Modal.Content>
+            </ModalContent>
 
-            <Modal.Actions>
+            <ModalActions>
                 <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
@@ -129,12 +134,12 @@ storiesOf('Modal', module)
                         Primary action
                     </Button>
                 </ButtonStrip>
-            </Modal.Actions>
+            </ModalActions>
         </Modal>
     ))
     .add('Small: Destructive Primary', () => (
         <Modal open small>
-            <Modal.Content>
+            <ModalContent>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
@@ -145,9 +150,9 @@ storiesOf('Modal', module)
                 sed diam voluptua. At vero eos et accusam et justo duo dolores
                 et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
                 est Lorem ipsum dolor sit amet.
-            </Modal.Content>
+            </ModalContent>
 
-            <Modal.Actions>
+            <ModalActions>
                 <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
@@ -157,22 +162,20 @@ storiesOf('Modal', module)
                         Primary action
                     </Button>
                 </ButtonStrip>
-            </Modal.Actions>
+            </ModalActions>
         </Modal>
     ))
     .add('Small: Clickable screen cover', () => (
         <Modal open small onClose={say('Clickable screen cover')}>
-            <Modal.Title>
-                This is a modal with clickable screen cover
-            </Modal.Title>
+            <ModalTitle>This is a modal with clickable screen cover</ModalTitle>
 
-            <Modal.Content>
+            <ModalContent>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua.
-            </Modal.Content>
+            </ModalContent>
 
-            <Modal.Actions>
+            <ModalActions>
                 <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
@@ -182,14 +185,14 @@ storiesOf('Modal', module)
                         Primary action
                     </Button>
                 </ButtonStrip>
-            </Modal.Actions>
+            </ModalActions>
         </Modal>
     ))
     .add('Small: scrollable', () => (
         <Modal open small onClose={say('Clickable screen cover')}>
-            <Modal.Title>This is a modal with scrollable content</Modal.Title>
+            <ModalTitle>This is a modal with scrollable content</ModalTitle>
 
-            <Modal.Content>
+            <ModalContent>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet,
@@ -239,9 +242,9 @@ storiesOf('Modal', module)
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
                 justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
                 takimata sanctus est Lorem ipsum dolor sit amet.
-            </Modal.Content>
+            </ModalContent>
 
-            <Modal.Actions>
+            <ModalActions>
                 <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
@@ -251,24 +254,24 @@ storiesOf('Modal', module)
                         Primary action
                     </Button>
                 </ButtonStrip>
-            </Modal.Actions>
+            </ModalActions>
         </Modal>
     ))
     .add('Small: Long title', () => (
         <Modal open small>
-            <Modal.Title>
+            <ModalTitle>
                 This headline should break into multiple lines because it&apos;s
                 way too long for one!
-            </Modal.Title>
+            </ModalTitle>
 
-            <Modal.Content>
+            <ModalContent>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
                 justo duo dolores et ea rebum.
-            </Modal.Content>
+            </ModalContent>
 
-            <Modal.Actions>
+            <ModalActions>
                 <ButtonStrip end>
                     <Button onClick={say('Button secondary')} secondary>
                         Secondary action
@@ -278,6 +281,6 @@ storiesOf('Modal', module)
                         Primary action
                     </Button>
                 </ButtonStrip>
-            </Modal.Actions>
+            </ModalActions>
         </Modal>
     ))
