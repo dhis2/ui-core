@@ -62,14 +62,14 @@ export { MultiSelectField } from './MultiSelectField.js'
 export { MultiSelectOption } from './MultiSelectOption.js'
 
 /* table */
-export { TableBody } from './Table/TableBody.js'
-export { TableCell } from './Table/TableCell.js'
-export { TableCellHead } from './Table/TableCellHead.js'
-export { Table } from './Table/Table.js'
-export { TableFoot } from './Table/TableFoot.js'
-export { TableHead } from './Table/TableHead.js'
-export { TableRow } from './Table/TableRow.js'
-export { TableRowHead } from './Table/TableRowHead.js'
+export { TableBody } from './TableBody.js'
+export { TableCell } from './TableCell.js'
+export { TableCellHead } from './TableCellHead.js'
+export { Table } from './Table.js'
+export { TableFoot } from './TableFoot.js'
+export { TableHead } from './TableHead.js'
+export { TableRow } from './TableRow.js'
+export { TableRowHead } from './TableRowHead.js'
 
 /* molecules */
 export { ButtonStrip } from './ButtonStrip.js'
