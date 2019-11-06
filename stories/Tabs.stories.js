@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { TabBar, Tab, ScrollBar } from '../src'
+import { TabBar, Tab } from '../src'
 import { AttachFile } from '../src/icons/AttachFile'
 
 const Wrapper = fn => (
@@ -14,7 +14,7 @@ const Wrapper = fn => (
     </div>
 )
 
-storiesOf('Tabs', module)
+storiesOf('TabBar', module)
     .addDecorator(Wrapper)
     .add('Default (fluid)', () => (
         <TabBar>
@@ -39,28 +39,26 @@ storiesOf('Tabs', module)
         </TabBar>
     ))
     .add('Tabs with scroller', () => (
-        <ScrollBar>
-            <TabBar>
-                <Tab>Tab A</Tab>
-                <Tab>Tab B</Tab>
-                <Tab>Tab C</Tab>
-                <Tab>Tab D</Tab>
-                <Tab>Tab E</Tab>
-                <Tab>Tab F</Tab>
-                <Tab>Tab G</Tab>
-                <Tab>Tab H</Tab>
-                <Tab>Tab I</Tab>
-                <Tab>Tab J</Tab>
-                <Tab>Tab K</Tab>
-                <Tab>Tab L</Tab>
-                <Tab selected>Tab M</Tab>
-                <Tab>Tab N</Tab>
-                <Tab>Tab O</Tab>
-                <Tab>Tab P</Tab>
-                <Tab>Tab Q</Tab>
-                <Tab>Tab R</Tab>
-            </TabBar>
-        </ScrollBar>
+        <TabBar scrollable>
+            <Tab>Tab A</Tab>
+            <Tab>Tab B</Tab>
+            <Tab>Tab C</Tab>
+            <Tab>Tab D</Tab>
+            <Tab>Tab E</Tab>
+            <Tab>Tab F</Tab>
+            <Tab>Tab G</Tab>
+            <Tab>Tab H</Tab>
+            <Tab>Tab I</Tab>
+            <Tab>Tab J</Tab>
+            <Tab>Tab K</Tab>
+            <Tab>Tab L</Tab>
+            <Tab selected>Tab M</Tab>
+            <Tab>Tab N</Tab>
+            <Tab>Tab O</Tab>
+            <Tab>Tab P</Tab>
+            <Tab>Tab Q</Tab>
+            <Tab>Tab R</Tab>
+        </TabBar>
     ))
     .add('Tab states', () => (
         <TabBar>

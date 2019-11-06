@@ -81,7 +81,8 @@ export { ModalActions } from './ModalActions.js'
 export { ModalContent } from './ModalContent.js'
 export { ModalTitle } from './ModalTitle.js'
 export { SplitButton } from './SplitButton.js'
-export { Tab, TabBar, ScrollBar } from './Tabs.js'
+export { Tab } from './Tab.js'
+export { TabBar } from './TabBar.js'
 
 /* constants */
 export { theme, colors } from './theme.js'
