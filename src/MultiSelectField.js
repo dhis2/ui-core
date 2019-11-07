@@ -127,7 +127,7 @@ MultiSelectField.defaultProps = {
  * @prop {string} [helpText]
  * @prop {string} clearText
  * @prop {boolean} [clearable]
- * @prop {Array|Object} empty
+ * @prop {Array|Object} [empty]
  * @prop {string} filterPlaceholder
  * @prop {boolean} [filterable]
  * @prop {string} [loadingText]
@@ -157,7 +157,7 @@ MultiSelectField.propTypes = {
     helpText: propTypes.string,
     clearText: propTypes.string.isRequired,
     clearable: propTypes.bool,
-    empty: propTypes.node.isRequired,
+    empty: propTypes.node,
     filterPlaceholder: propTypes.string.isRequired,
     filterable: propTypes.bool,
     loadingText: propTypes.string,
