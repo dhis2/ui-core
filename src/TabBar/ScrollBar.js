@@ -1,4 +1,4 @@
-import React, { PureComponent, createRef } from 'react'
+import React, { Component, createRef } from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { ChevronLeft, ChevronRight } from '../icons/Chevron'
@@ -10,9 +10,9 @@ import { animatedSideScroll } from './animatedSideScroll'
  * @module
  * @private
  * @param {ScrollBar.PropTypes} props
- * @returns {React.PureComponent}
+ * @returns {React.Component}
  */
-class ScrollBar extends PureComponent {
+class ScrollBar extends Component {
     scrollBox = createRef()
     scrollArea = createRef()
     state = {

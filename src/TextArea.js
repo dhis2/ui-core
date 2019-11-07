@@ -1,5 +1,5 @@
 import propTypes from '@dhis2/prop-types'
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import cx from 'classnames'
 
 import { statusPropType } from './common-prop-types.js'
@@ -7,7 +7,7 @@ import { StatusIcon } from './icons/Status.js'
 
 import { styles } from './TextArea/styles.js'
 
-export class TextArea extends PureComponent {
+export class TextArea extends Component {
     textareaRef = React.createRef()
     state = {
         height: 'auto',

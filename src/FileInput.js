@@ -1,4 +1,4 @@
-import React, { createRef, PureComponent } from 'react'
+import React, { createRef, Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
@@ -15,7 +15,7 @@ import { StatusIcon } from './icons/Status.js'
  *
  * @example import { FileInput } from '@dhis2/ui-core'
  */
-class FileInput extends PureComponent {
+class FileInput extends Component {
     ref = createRef()
 
     onClick = () => {
