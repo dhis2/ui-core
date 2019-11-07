@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 import { Button } from './Button.js'
-import styles from './ButtonStrip/styles.js'
+import { spacers } from './theme.js'
 
 /**
  * @module
@@ -16,7 +16,20 @@ const ButtonStrip = ({ className, children, middle, end }) => (
     <div className={cx(className, { middle, end })}>
         {children}
 
-        <style jsx>{styles}</style>
+        <style jsx>{`
+            div {
+                display: flex;
+            }
+            div.middle {
+                justify-content: center;
+            }
+            div.end {
+                justify-content: flex-end;
+            }
+            div > :global(button) {
+                margin-left: ${spacers.dp16};
+            }
+        `}</style>
     </div>
 )
 

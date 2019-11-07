@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import styles from './AlertStack/styles.js'
+import { layers } from './theme.js'
 import { AlertBar } from './AlertBar.js'
 
 /**
@@ -17,7 +17,23 @@ const AlertStack = ({ className, children }) =>
     createPortal(
         <div className={cx(className)}>
             {children}
-            <style jsx>{styles}</style>
+            <style jsx>{`
+                div {
+                    position: fixed;
+                    top: auto;
+                    right: auto;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+
+                    z-index: ${layers.alert};
+
+                    display: flex;
+                    flex-direction: column-reverse;
+
+                    pointer-events: none;
+                }
+            `}</style>
         </div>,
         document.body
     )
