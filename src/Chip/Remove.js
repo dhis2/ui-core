@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 import { css, resolve } from 'styled-jsx/css'
 
@@ -29,7 +29,7 @@ const removeIcon = resolve`
     }
 `
 
-export class Remove extends PureComponent {
+export class Remove extends Component {
     onRemove = e => {
         e.stopPropagation() // stop onRemove from triggering onClick on container
         this.props.onRemove(e)

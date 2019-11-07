@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 
 import { Actions, actionsPropType } from './AlertBar/Actions.js'
 import { Dismiss } from './AlertBar/Dismiss.js'
@@ -12,14 +12,14 @@ import styles, { ANIMATION_TIME } from './AlertBar/styles.js'
  * @module
  * @param {AlertBar.PropTypes} props
  *
- * @returns {React.PureComponent}
+ * @returns {React.Component}
  *
  * @example import { AlertBar } from @dhis2/ui-core
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/alertbar.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/alertbar--default|Storybook}
  */
-class AlertBar extends PureComponent {
+class AlertBar extends Component {
     state = {
         visible: false,
         hidden: false,
