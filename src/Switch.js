@@ -61,7 +61,7 @@ class Switch extends Component {
                 })}
             >
                 <input
-                    type="switch"
+                    type="checkbox"
                     ref={this.ref}
                     name={name}
                     value={value}
