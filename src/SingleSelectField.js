@@ -125,14 +125,14 @@ SingleSelectField.defaultProps = {
  * @prop {boolean} [initialFocus]
  * @prop {string} [validationText]
  * @prop {string} [helpText]
- * @prop {string} clearText
+ * @prop {string} [clearText] - Only required if clearable is true
  * @prop {boolean} [clearable]
  * @prop {Array|Object} [empty]
  * @prop {string} filterPlaceholder
  * @prop {boolean} [filterable]
  * @prop {string} [loadingText]
  * @prop {string} [maxHeight]
- * @prop {string} noMatchText
+ * @prop {string} [noMatchText] - Only required if filterable is true
  * @prop {string} [placeholder]
  * @prop {string} [prefix]
  */
@@ -155,14 +155,17 @@ SingleSelectField.propTypes = {
     initialFocus: propTypes.bool,
     validationText: propTypes.string,
     helpText: propTypes.string,
-    clearText: propTypes.string.isRequired,
+    clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
     clearable: propTypes.bool,
     empty: propTypes.node,
     filterPlaceholder: propTypes.string,
     filterable: propTypes.bool,
     loadingText: propTypes.string,
     maxHeight: propTypes.string,
-    noMatchText: propTypes.string.isRequired,
+    noMatchText: propTypes.requiredIf(
+        props => props.filterable,
+        propTypes.string
+    ),
     placeholder: propTypes.string,
     prefix: propTypes.string,
 }
