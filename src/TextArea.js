@@ -161,8 +161,8 @@ TextArea.defaultProps = {
  *
  * @prop {string} name
  * @prop {function} onChange
- * @prop {function} [onBlur=() => {}]
- * @prop {function} [onFocus=() => {}]
+ * @prop {function} [onBlur]
+ * @prop {function} [onFocus]
  * @prop {string} [className]
  * @prop {string} [placeholder]
  * @prop {string} [value]
@@ -180,9 +180,10 @@ TextArea.defaultProps = {
  *
  * @prop {boolean} [autoGrow]
  * @prop {boolean} [readOnly]
- * @prop {string} [resize=vertical] - rezise attribute on the textarea,
+ * @prop {string} [resize=vertical] - resize attribute on the textarea,
  * one of `none`, `both`, `horizontal`, `vertical`
  * @prop {number} [rows=4]
+ * @prop {string|number} [width]
  */
 
 TextArea.propTypes = {

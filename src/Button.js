@@ -81,6 +81,10 @@ Button.defaultProps = {
  * @prop {Node} [children] The children to render in the button
  * @prop {function} [onClick] The click handler
  *
+ * @prop {string} [className]
+ * @prop {string} [name]
+ * @prop {string} [value]
+ * @prop {string} [tabIndex]
  * @prop {boolean} [small] - `small` and `large` are mutually exclusive
  * @prop {boolean} [large]
  * @prop {string} [type=button] Type of button: `submit`, `reset`, or

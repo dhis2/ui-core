@@ -68,6 +68,31 @@ const ToggleField = ({
     </Field>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @private
+ *
+ * @prop {string} value
+ * @prop {Node} label
+ * @prop {string} [name]
+ * @prop {string} [className]
+ * @prop {string} [tabIndex]
+ * @prop {function} [onChange]
+ * @prop {function} [onFocus]
+ * @prop {function} [onBlur]
+ * @prop {boolean} [checked]
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ * @prop {boolean} [dense]
+ * @prop {boolean} [initialFocus]
+ * @prop {boolean} [required]
+ * @prop {string} [helpText]
+ * @prop {string} [validationText]
+ * @prop {function} toggleComponent
+ */
 const toggleFieldPropTypes = {
     value: propTypes.string.isRequired,
     label: propTypes.node.isRequired,
