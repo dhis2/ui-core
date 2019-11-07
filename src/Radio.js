@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-import React, { PureComponent, createRef } from 'react'
+import React, { Component, createRef } from 'react'
 
 import { statusPropType } from './common-prop-types.js'
 import { Regular, Dense } from './icons/Radio.js'
@@ -10,14 +10,14 @@ import { colors, theme } from './theme.js'
  * @module
  *
  * @param {Radio.PropTypes} props
- * @returns {React.PureComponent}
+ * @returns {React.Component}
  *
  * @example import { Radio } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/radio.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/radio--default|Storybook}
  */
-class Radio extends PureComponent {
+class Radio extends Component {
     ref = createRef()
 
     componentDidMount() {
