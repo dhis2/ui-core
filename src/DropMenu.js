@@ -6,6 +6,7 @@ import { layers } from './theme.js'
 
 /**
  * @module
+ * @private
  * @param {DropMenu.PropTypes} props
  * @returns {React.Component}
  * @example import { DropMenu } from @dhis2/ui-core
