@@ -10,6 +10,16 @@ const { styles, className: checkboxClassname } = resolve`
     padding: ${spacers.dp8} ${spacers.dp12};
 `
 
+/**
+ * @module
+ *
+ * @param {MultiSelectOption.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { MultiSelectOption } from '@dhis2/ui-core'
+ *
+ */
+
 const MultiSelectOption = ({ label, active, disabled, onClick, className }) => (
     <div className={cx(className, { disabled })}>
         <Checkbox
@@ -36,6 +46,18 @@ const MultiSelectOption = ({ label, active, disabled, onClick, className }) => (
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} value
+ * @prop {string} label
+ * @prop {function} [onChange]
+ * @prop {string} [className]
+ * @prop {function} [onClick]
+ * @prop {boolean} [active]
+ * @prop {boolean} [disabled]
+ */
 MultiSelectOption.propTypes = {
     className: propTypes.string,
     // This prop is used by the Select, so still necessary

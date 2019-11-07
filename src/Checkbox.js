@@ -157,6 +157,7 @@ class Checkbox extends Component {
  *
  * @prop {boolean} [disabled]
  * @prop {boolean} [checked]
+ * @prop {boolean} [indeterminate]
  * @prop {boolean} [initialFocus]
  *
  * @prop {boolean} [valid] - `valid`, `warning`, and `error` are

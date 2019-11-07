@@ -105,6 +105,12 @@ class Chip extends Component {
  * @prop {string} children
  * @prop {string} [className]
  * @prop {Element} [icon]
+ * @prop {function} [onClick]
+ * @prop {function} [onRemove]
+ * @prop {boolean} [selected]
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [dragging]
+ * @prop {boolean} [overflow]
  */
 Chip.propTypes = {
     children: propTypes.string.isRequired,
