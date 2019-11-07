@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import propTypes from '@dhis2/prop-types'
 
@@ -7,10 +7,10 @@ import { layers } from './theme.js'
 /**
  * @module
  * @param {DropMenu.PropTypes} props
- * @returns {React.PureComponent}
+ * @returns {React.Component}
  * @example import { DropMenu } from @dhis2/ui-core
  */
-class DropMenu extends PureComponent {
+class DropMenu extends Component {
     state = {
         top: 'auto',
         left: 'auto',
