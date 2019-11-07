@@ -127,7 +127,7 @@ MultiSelect.defaultProps = {
  * @prop {boolean} [initialFocus]
  * @prop {string} clearText
  * @prop {boolean} [clearable]
- * @prop {Array|Object} empty
+ * @prop {Array|Object} [empty]
  * @prop {string} filterPlaceholder
  * @prop {boolean} [filterable]
  * @prop {string} [loadingText]
@@ -153,7 +153,7 @@ MultiSelect.propTypes = {
     initialFocus: propTypes.bool,
     clearText: propTypes.string.isRequired,
     clearable: propTypes.bool,
-    empty: propTypes.node.isRequired,
+    empty: propTypes.node,
     filterPlaceholder: propTypes.string,
     filterable: propTypes.bool,
     loadingText: propTypes.string,

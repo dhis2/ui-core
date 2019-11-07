@@ -60,6 +60,10 @@ const Menu = ({
     return <React.Fragment>{children}</React.Fragment>
 }
 
+Menu.defaultProps = {
+    empty: '',
+}
+
 Menu.propTypes = {
     empty: propTypes.node,
     options: propTypes.node,
