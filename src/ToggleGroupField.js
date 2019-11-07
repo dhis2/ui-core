@@ -52,6 +52,27 @@ const ToggleGroupField = ({
     </Field>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @private
+ *
+ * @prop {Node} children
+ * @prop {function} onChange
+ * @prop {string} name
+ * @prop {string|Array.<String>} [value]
+ * @prop {string} [className]
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ * @prop {boolean} [dense]
+ *
+ * @prop {string} [label]
+ * @prop {string} [helpText]
+ * @prop {string} [validationText]
+ * @prop {boolean} [required]
+ */
 ToggleGroupField.propTypes = {
     ...ToggleGroup.propTypes,
     label: propTypes.string,

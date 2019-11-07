@@ -112,7 +112,7 @@ MultiSelectField.defaultProps = {
  * @prop {Array} selected
  * @prop {string} [className]
  * @prop {string} [tabIndex]
- * @prop {Array|Object} [children]
+ * @prop {Node} [children]
  * @prop {boolean} [required]
  * @prop {boolean} [disabled]
  * @prop {boolean} [dense]
@@ -127,7 +127,7 @@ MultiSelectField.defaultProps = {
  * @prop {string} [helpText]
  * @prop {string} [clearText] - Only required if clearable is true
  * @prop {boolean} [clearable]
- * @prop {Array|Object} [empty]
+ * @prop {Node} [empty]
  * @prop {string} filterPlaceholder
  * @prop {boolean} [filterable]
  * @prop {string} [loadingText]

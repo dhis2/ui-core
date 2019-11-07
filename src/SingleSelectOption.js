@@ -3,6 +3,16 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { colors, spacers } from './theme.js'
 
+/**
+ * @module
+ *
+ * @param {SingleSelectOption.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { SingleSelectOption } from '@dhis2/ui-core'
+ *
+ */
+
 const SingleSelectOption = ({
     label,
     active,
@@ -55,6 +65,17 @@ const SingleSelectOption = ({
     </div>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ *
+ * @prop {string} value
+ * @prop {string} label
+ * @prop {string} [className]
+ * @prop {function} [onClick]
+ * @prop {boolean} [active]
+ * @prop {boolean} [disabled]
+ */
 SingleSelectOption.propTypes = {
     className: propTypes.string,
     // This prop is used by the Select, so still necessary
