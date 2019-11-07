@@ -230,17 +230,6 @@ export default css`
         opacity: 0.33;
     }
 
-    /* IE11 hacks */
-    @media all and (-ms-high-contrast: none) {
-        /*
-       Graceful degradation: remove the rounded corners on all buttons apart from circle.
-       These are not rendered correctly in IE11, where they produce white pixels in the corners
-    */
-        button {
-            border-radius: 0;
-        }
-    }
-
     .button-icon {
         margin-right: ${spacers.dp12};
         color: inherit;
