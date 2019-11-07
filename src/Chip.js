@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
@@ -10,12 +10,12 @@ import { Remove } from './Chip/Remove.js'
 /**
  * @module
  * @param {Chip.PropTypes} props
- * @returns {React.PureComponent}
+ * @returns {React.Component}
  * @example import { Chip } from @dhis2/ui-core
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/chip.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/chip--default|Storybook}
  */
-class Chip extends PureComponent {
+class Chip extends Component {
     onClick = e => {
         if (!this.props.disabled && this.props.onClick) {
             this.props.onClick(e)
