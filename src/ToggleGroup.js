@@ -32,6 +32,22 @@ const ToggleGroup = ({
         })
     )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @private
+ *
+ * @prop {Node} children
+ * @prop {function} onChange
+ * @prop {string} name
+ * @prop {string|Array.<String>} [value]
+ * @prop {string} [className]
+ * @prop {boolean} [disabled]
+ * @prop {boolean} [valid] - `valid`, `warning`, `error`, `loading`, are mutually exclusive
+ * @prop {boolean} [warning]
+ * @prop {boolean} [error]
+ * @prop {boolean} [dense]
+ */
 ToggleGroup.propTypes = {
     children: propTypes.node.isRequired,
     onChange: propTypes.func.isRequired,

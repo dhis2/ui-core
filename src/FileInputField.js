@@ -1,7 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { statusPropType, sizePropType } from './common-prop-types'
 import { FileInput } from './FileInput.js'
 import { FileList } from './FileList.js'
 import { FileListItem } from './FileListItem.js'
@@ -112,32 +111,16 @@ const FileInputField = ({
  * @prop {boolean} [multiple] - the `multiple` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
  */
 FileInputField.propTypes = {
-    onChange: propTypes.func.isRequired,
-    name: propTypes.string.isRequired,
+    ...FileInput.propTypes,
     label: propTypes.string,
-    buttonLabel: propTypes.string,
+    required: propTypes.bool,
     helpText: propTypes.string,
     validationText: propTypes.string,
-
-    className: propTypes.string,
     placeholder: propTypes.string,
-    tabIndex: propTypes.string,
-
     children: propTypes.oneOfType([
         propTypes.instanceOfComponent(FileListItem),
         propTypes.arrayOf(propTypes.instanceOfComponent(FileListItem)),
     ]),
-
-    error: statusPropType,
-    valid: statusPropType,
-    warning: statusPropType,
-    small: sizePropType,
-    large: sizePropType,
-    required: propTypes.bool,
-    disabled: propTypes.bool,
-
-    accept: propTypes.string,
-    multiple: propTypes.bool,
 }
 
 FileInputField.defaultProps = {
