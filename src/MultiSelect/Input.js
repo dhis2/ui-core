@@ -72,7 +72,7 @@ Input.propTypes = {
     onChange: propTypes.func,
     options: propTypes.node,
     clearable: propTypes.bool,
-    clearText: propTypes.string.isRequired,
+    clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
     prefix: propTypes.string,
     placeholder: propTypes.string,
     disabled: propTypes.bool,

@@ -82,10 +82,7 @@ const defaultProps = {
     selected: [{ value: '1', label: 'one' }],
     onChange: selected =>
         alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`),
-    noMatchText: `No match found for filter`,
     tabIndex: '0',
-    clearText: 'Clear',
-    filterPlaceholder: 'Type to filter options',
 }
 
 const options = [
@@ -229,12 +226,17 @@ storiesOf('MultiSelect', module)
         </MultiSelect>
     ))
     .add('Clearable', () => (
-        <MultiSelect {...defaultProps} clearable>
+        <MultiSelect {...defaultProps} clearable clearText="Clear">
             {options}
         </MultiSelect>
     ))
     .add('Filterable', () => (
-        <MultiSelect {...defaultProps} filterable>
+        <MultiSelect
+            {...defaultProps}
+            filterable
+            noMatchText="No match found for filter"
+            filterPlaceholder="Type to filter options"
+        >
             {options}
         </MultiSelect>
     ))
