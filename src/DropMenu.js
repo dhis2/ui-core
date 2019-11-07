@@ -104,7 +104,6 @@ DropMenu.propTypes = {
     component: propTypes.element,
     onClose: propTypes.func,
     stayOpen: propTypes.bool,
-    /**  */
     anchorEl: propTypes.shape({
         getBoundingClientRect: propTypes.func.isRequired,
     }),
