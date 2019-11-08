@@ -30,7 +30,7 @@ const FilterInput = ({ value, onChange, placeholder, className }) => (
 FilterInput.propTypes = {
     className: propTypes.string,
     value: propTypes.string.isRequired,
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     placeholder: propTypes.string,
 }
 

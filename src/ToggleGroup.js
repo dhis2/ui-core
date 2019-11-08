@@ -38,7 +38,7 @@ const ToggleGroup = ({
  * @private
  *
  * @prop {Node} children
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {string} name
  * @prop {string|Array.<String>} [value]
  * @prop {string} [className]
@@ -50,7 +50,7 @@ const ToggleGroup = ({
  */
 ToggleGroup.propTypes = {
     children: propTypes.node.isRequired,
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     name: propTypes.string.isRequired,
 
     value: propTypes.oneOfType([

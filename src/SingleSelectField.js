@@ -107,7 +107,7 @@ SingleSelectField.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {string} label
  * @prop {Object} [selected]
  * @prop {string} [className]
@@ -137,7 +137,7 @@ SingleSelectField.defaultProps = {
  * @prop {string} [prefix]
  */
 SingleSelectField.propTypes = {
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     label: propTypes.string,
     selected: singleSelectedPropType,
     className: propTypes.string,
