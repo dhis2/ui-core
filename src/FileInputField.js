@@ -86,7 +86,7 @@ const FileInputField = ({
  * @static
  *
  * @prop {string} name
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {string} [label]
  * @prop {string} [buttonLabel]
  * @prop {string} [className]

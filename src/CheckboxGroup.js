@@ -21,7 +21,7 @@ const CheckboxGroup = props => <ToggleGroup {...props} />
  * @typedef {Object} PropTypes
  * @static
  * @prop {Array.<Checkbox>} children
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {string} name
  *
  * @prop {Array.<String>} [value]
