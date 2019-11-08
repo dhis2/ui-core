@@ -21,7 +21,7 @@ const RadioGroup = props => <ToggleGroup {...props} />
  * @typedef {Object} PropTypes
  * @static
  * @prop {Array.<Radio>} children
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {string} name
  *
  * @prop {string} [value]
