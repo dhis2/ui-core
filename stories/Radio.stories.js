@@ -3,7 +3,8 @@ import React from 'react'
 
 import { Radio } from '../src'
 
-const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
+const logger = ({ name, value, checked }) =>
+    console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
 
 storiesOf('Radio', module)
     // Regular
