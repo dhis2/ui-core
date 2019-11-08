@@ -18,12 +18,27 @@ import { StatusIcon } from './icons/Status.js'
 class FileInput extends Component {
     ref = createRef()
 
-    onClick = () => {
+    handleClick = () => {
         this.ref.current.click()
     }
 
-    onChange = () => {
-        this.props.onChange(this.ref.current.files)
+    handleChange = e => {
+        const { onChange, disabled } = this.props
+
+        if (disabled) {
+            return
+        }
+
+        if (onChange) {
+            onChange(
+                {
+                    files: e.target.files,
+                    name: this.props.name,
+                },
+                e
+            )
+        }
+
         // reset the file input so it won't prevent on-change
         // if the same file was added in a second attempt
         this.ref.current.value = ''
@@ -52,13 +67,13 @@ class FileInput extends Component {
                     name={name}
                     type="file"
                     ref={this.ref}
-                    onChange={this.onChange}
+                    onChange={this.handleChange}
                     accept={accept}
                     multiple={multiple}
                     disabled={disabled}
                 />
                 <Button
-                    onClick={this.onClick}
+                    onClick={this.handleClick}
                     type="button"
                     icon={<Upload />}
                     small={small}
@@ -97,7 +112,7 @@ class FileInput extends Component {
  * @static
  *
  * @prop {string} name
- * @prop {function} onChange
+ * @prop {function} [onChange] - called with the signature `object, event`
  * @prop {string} [buttonLabel]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
@@ -116,7 +131,7 @@ class FileInput extends Component {
  */
 FileInput.propTypes = {
     name: propTypes.string.isRequired,
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     buttonLabel: propTypes.string,
 
     className: propTypes.string,
