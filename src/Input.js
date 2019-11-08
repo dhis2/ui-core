@@ -93,12 +93,51 @@ export class Input extends Component {
         }
     }
 
+    handleChange = e => {
+        const { onChange, readOnly, disabled } = this.props
+
+        if (disabled || readOnly) {
+            return
+        }
+
+        if (onChange) {
+            onChange(
+                {
+                    value: e.target.value,
+                    name: this.props.name,
+                },
+                e
+            )
+        }
+    }
+
+    handleBlur = e => {
+        const { onBlur, disabled } = this.props
+
+        if (disabled) {
+            return
+        }
+
+        if (onBlur) {
+            onBlur(e)
+        }
+    }
+
+    handleFocus = e => {
+        const { onFocus, disabled } = this.props
+
+        if (disabled) {
+            return
+        }
+
+        if (onFocus) {
+            onFocus(e)
+        }
+    }
+
     render() {
         const {
             className,
-            onChange,
-            onFocus,
-            onBlur,
             type,
             dense,
             disabled,
@@ -127,9 +166,9 @@ export class Input extends Component {
                     disabled={disabled}
                     readOnly={readOnly}
                     tabIndex={tabIndex}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onChange={onChange}
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleBlur}
+                    onChange={this.handleChange}
                     className={cx({
                         dense,
                         disabled,
@@ -171,7 +210,7 @@ Input.defaultProps = {
  *
  * @prop {string} name
  * @prop {string} [type=text]
- * @prop {function} onChange
+ * @prop {function} [onChange] - called with the signature `object, event`
  * @prop {function} [onBlur]
  * @prop {function} [onFocus]
  * @prop {string} [className]
@@ -204,7 +243,7 @@ Input.propTypes = {
 
     className: propTypes.string,
 
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     onFocus: propTypes.func,
     onBlur: propTypes.func,
 
