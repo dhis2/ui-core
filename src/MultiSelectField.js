@@ -107,7 +107,7 @@ MultiSelectField.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {string} label
  * @prop {Array} selected
  * @prop {string} [className]
@@ -137,7 +137,7 @@ MultiSelectField.defaultProps = {
  * @prop {string} [prefix]
  */
 MultiSelectField.propTypes = {
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     label: propTypes.string,
     selected: multiSelectedPropType.isRequired,
     className: propTypes.string,

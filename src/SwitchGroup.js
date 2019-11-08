@@ -21,7 +21,7 @@ const SwitchGroup = props => <ToggleGroup {...props} />
  * @typedef {Object} PropTypes
  * @static
  * @prop {Array.<Switch>} children
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {string} name
  *
  * @prop {Array.<String>} [value]

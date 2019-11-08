@@ -95,7 +95,7 @@ class InputField extends React.Component {
  *
  * @prop {string} name
  * @prop {string} [type=text]
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {function} [onBlur]
  * @prop {function} [onFocus]
  * @prop {string} [label]
@@ -121,7 +121,7 @@ class InputField extends React.Component {
  * @prop {string} [helpText]
  */
 InputField.propTypes = {
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     name: propTypes.string.isRequired,
     label: propTypes.string,
     helpText: propTypes.string,

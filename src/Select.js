@@ -200,7 +200,7 @@ export class Select extends Component {
 Select.propTypes = {
     className: propTypes.string,
     initialFocus: propTypes.bool,
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     selected: propTypes.oneOfType([
         singleSelectedPropType,
         multiSelectedPropType,
