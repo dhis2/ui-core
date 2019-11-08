@@ -111,7 +111,7 @@ MultiSelect.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {Array} [selected]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
@@ -137,7 +137,7 @@ MultiSelect.defaultProps = {
  * @prop {string} [prefix]
  */
 MultiSelect.propTypes = {
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     selected: multiSelectedPropType,
     className: propTypes.string,
     tabIndex: propTypes.string,

@@ -111,7 +111,7 @@ SingleSelect.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {Object} [selected]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
@@ -137,7 +137,7 @@ SingleSelect.defaultProps = {
  * @prop {string} [prefix]
  */
 SingleSelect.propTypes = {
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     selected: singleSelectedPropType,
     className: propTypes.string,
     tabIndex: propTypes.string,
