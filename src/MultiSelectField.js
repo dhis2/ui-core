@@ -128,7 +128,7 @@ MultiSelectField.defaultProps = {
  * @prop {string} [clearText] - Only required if clearable is true
  * @prop {boolean} [clearable]
  * @prop {Node} [empty]
- * @prop {string} filterPlaceholder
+ * @prop {string} [filterPlaceholder]
  * @prop {boolean} [filterable]
  * @prop {string} [loadingText]
  * @prop {string} [maxHeight]
@@ -158,7 +158,7 @@ MultiSelectField.propTypes = {
     clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
     clearable: propTypes.bool,
     empty: propTypes.node,
-    filterPlaceholder: propTypes.string.isRequired,
+    filterPlaceholder: propTypes.string,
     filterable: propTypes.bool,
     loadingText: propTypes.string,
     maxHeight: propTypes.string,
