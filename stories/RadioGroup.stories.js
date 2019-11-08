@@ -3,7 +3,8 @@ import React from 'react'
 
 import { Radio, RadioGroup } from '../src'
 
-const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
+const logger = ({ name, value, checked }) =>
+    console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
 
 storiesOf('RadioGroup', module)
     .add('Default', () => (

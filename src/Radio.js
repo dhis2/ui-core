@@ -26,6 +26,49 @@ class Radio extends Component {
         }
     }
 
+    handleChange = e => {
+        const { onChange, disabled } = this.props
+
+        if (disabled) {
+            return
+        }
+
+        if (onChange) {
+            onChange(
+                {
+                    value: this.props.value,
+                    name: this.props.name,
+                    checked: !this.props.checked,
+                },
+                e
+            )
+        }
+    }
+
+    handleBlur = e => {
+        const { onBlur, disabled } = this.props
+
+        if (disabled) {
+            return
+        }
+
+        if (onBlur) {
+            onBlur(e)
+        }
+    }
+
+    handleFocus = e => {
+        const { onFocus, disabled } = this.props
+
+        if (disabled) {
+            return
+        }
+
+        if (onFocus) {
+            onFocus(e)
+        }
+    }
+
     render() {
         const {
             checked = false,
@@ -34,13 +77,10 @@ class Radio extends Component {
             error,
             label,
             name,
-            onChange,
             tabIndex,
             valid,
             value,
             warning,
-            onFocus,
-            onBlur,
             dense,
         } = this.props
 
@@ -67,9 +107,9 @@ class Radio extends Component {
                     checked={checked}
                     disabled={disabled}
                     tabIndex={tabIndex}
-                    onChange={onChange}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
+                    onChange={this.handleChange}
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleBlur}
                 />
 
                 <div className={cx('icon', { dense })}>
@@ -147,7 +187,7 @@ class Radio extends Component {
  * @static
  * @prop {string} value
  * @prop {Node} label
- * @prop {function} [onChange]
+ * @prop {function} [onChange] - called with the signature `object, event`
  * @prop {string} [name]
  * @prop {string} [className]
  * @prop {string} [tabIndex]

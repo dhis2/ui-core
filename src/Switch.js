@@ -185,8 +185,7 @@ class Switch extends Component {
  * @static
  * @prop {string} value
  * @prop {Node} label
- * @prop {function} [onChange] - called with `object, event` with props
- * on the first parameter for: `checked`, `value`, `name`.
+ * @prop {function} [onChange] - called with the signature `object, event`
  * @prop {string} [name]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
