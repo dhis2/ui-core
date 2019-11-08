@@ -58,7 +58,7 @@ const ToggleGroupField = ({
  * @private
  *
  * @prop {Node} children
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {string} name
  * @prop {string|Array.<String>} [value]
  * @prop {string} [className]

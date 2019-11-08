@@ -53,7 +53,7 @@ const SelectionList = ({ selected, onChange, disabled, options }) => (
 
 SelectionList.propTypes = {
     disabled: propTypes.bool,
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     options: propTypes.node,
     selected: multiSelectedPropType,
 }
