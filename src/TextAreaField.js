@@ -90,7 +90,7 @@ TextAreaField.defaultProps = TextArea.defaultProps
  * @static
  *
  * @prop {string} name
- * @prop {function} onChange
+ * @prop {function} [onChange]
  * @prop {function} [onBlur]
  * @prop {function} [onFocus]
  * @prop {string} [label]
@@ -121,7 +121,7 @@ TextAreaField.defaultProps = TextArea.defaultProps
  * @prop {string|number} [inputWidth]
  */
 TextAreaField.propTypes = {
-    onChange: propTypes.func.isRequired,
+    onChange: propTypes.func,
     name: propTypes.string.isRequired,
     label: propTypes.string,
     helpText: propTypes.string,
