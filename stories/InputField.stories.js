@@ -3,7 +3,7 @@ import React from 'react'
 
 import { InputField } from '../src'
 
-const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
+const logger = ({ name, value }) => console.info(`${name}: ${value}`)
 
 createStory('InputField', {
     label: 'Default label',
