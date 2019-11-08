@@ -85,4 +85,4 @@ export { Tab } from './Tab.js'
 export { TabBar } from './TabBar.js'
 
 /* constants */
-export { theme, colors } from './theme.js'
+export { theme, colors, spacers, elevations, layers } from './theme.js'
