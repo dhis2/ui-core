@@ -2,8 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { FileInputField, FileListItem } from '../src'
 
-const onChange = () => {
-    console.log('onChange')
+const onChange = obj => {
+    console.log('onChange', obj)
 }
 const onRemove = () => {
     console.log('onRemove')
