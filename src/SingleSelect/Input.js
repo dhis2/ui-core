@@ -22,7 +22,7 @@ const Input = ({
     const hasSelection = 'label' in selected && 'value' in selected
     const onClear = e => {
         e.stopPropagation()
-        onChange({})
+        onChange({}, e)
     }
 
     return (
