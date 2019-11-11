@@ -22,7 +22,7 @@ const Input = ({
     const hasSelection = selected.length > 0
     const onClear = e => {
         e.stopPropagation()
-        onChange([])
+        onChange([], e)
     }
 
     return (
