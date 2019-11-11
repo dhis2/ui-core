@@ -94,11 +94,7 @@ export class Input extends Component {
     }
 
     handleChange = e => {
-        const { onChange, readOnly, disabled } = this.props
-
-        if (disabled || readOnly) {
-            return
-        }
+        const { onChange } = this.props
 
         if (onChange) {
             onChange(
@@ -112,11 +108,7 @@ export class Input extends Component {
     }
 
     handleBlur = e => {
-        const { onBlur, disabled } = this.props
-
-        if (disabled) {
-            return
-        }
+        const { onBlur } = this.props
 
         if (onBlur) {
             onBlur(e)
@@ -124,11 +116,7 @@ export class Input extends Component {
     }
 
     handleFocus = e => {
-        const { onFocus, disabled } = this.props
-
-        if (disabled) {
-            return
-        }
+        const { onFocus } = this.props
 
         if (onFocus) {
             onFocus(e)

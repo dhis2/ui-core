@@ -23,11 +23,7 @@ class FileInput extends Component {
     }
 
     handleChange = e => {
-        const { onChange, disabled } = this.props
-
-        if (disabled) {
-            return
-        }
+        const { onChange } = this.props
 
         if (onChange) {
             onChange(
