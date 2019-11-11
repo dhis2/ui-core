@@ -27,11 +27,7 @@ class Switch extends Component {
     }
 
     handleChange = e => {
-        const { onChange, disabled } = this.props
-
-        if (disabled) {
-            return
-        }
+        const { onChange } = this.props
 
         if (onChange) {
             onChange(
@@ -46,11 +42,7 @@ class Switch extends Component {
     }
 
     handleBlur = e => {
-        const { onBlur, disabled } = this.props
-
-        if (disabled) {
-            return
-        }
+        const { onBlur } = this.props
 
         if (onBlur) {
             onBlur(e)
@@ -58,11 +50,7 @@ class Switch extends Component {
     }
 
     handleFocus = e => {
-        const { onFocus, disabled } = this.props
-
-        if (disabled) {
-            return
-        }
+        const { onFocus } = this.props
 
         if (onFocus) {
             onFocus(e)
