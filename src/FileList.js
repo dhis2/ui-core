@@ -1,9 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { FileListItem } from './FileListItem'
-import { FileListPlaceholder } from './FileListPlaceholder'
-
 /**
  * @module
  * @param {FileList.PropTypes} props
@@ -34,9 +31,8 @@ const FileList = ({ children, className }) => (
  */
 FileList.propTypes = {
     children: propTypes.oneOfType([
-        propTypes.instanceOfComponent(FileListPlaceholder),
-        propTypes.instanceOfComponent(FileListItem),
-        propTypes.arrayOf(propTypes.instanceOfComponent(FileListItem)),
+        propTypes.element,
+        propTypes.arrayOf(propTypes.element),
     ]),
     className: propTypes.string,
 }

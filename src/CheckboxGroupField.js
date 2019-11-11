@@ -2,7 +2,6 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { ToggleGroupField } from './ToggleGroupField.js'
-import { Checkbox } from './Checkbox.js'
 
 /**
  * @module
@@ -19,7 +18,7 @@ const CheckboxGroupField = props => <ToggleGroupField {...props} />
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Array.<Switch>} children
+ * @prop {Array.<Checkbox>} children
  * @prop {function} [onChange]
  * @prop {string} name
  *
@@ -40,8 +39,7 @@ const CheckboxGroupField = props => <ToggleGroupField {...props} />
  */
 CheckboxGroupField.propTypes = {
     ...ToggleGroupField.propTypes,
-    children: propTypes.arrayOf(propTypes.instanceOfComponent(Checkbox))
-        .isRequired,
+    children: propTypes.arrayOf(propTypes.element).isRequired,
     value: propTypes.arrayOf(propTypes.string),
 }
 
