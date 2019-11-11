@@ -42,7 +42,7 @@ const Menu = ({
         const onClick = e => {
             e.stopPropagation()
 
-            onChange({ value, label })
+            onChange({ value, label }, e)
             handleClose()
             handleFocusInput()
         }
