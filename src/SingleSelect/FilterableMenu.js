@@ -13,6 +13,9 @@ FilterableMenu.propTypes = {
     onChange: propTypes.func,
     selected: singleSelectedPropType,
     placeholder: propTypes.string,
+    handleClose: propTypes.func,
+    handleFocusInput: propTypes.func,
+    noMatchText: propTypes.string.isRequired,
 }
 
 export { FilterableMenu }
