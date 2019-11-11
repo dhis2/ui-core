@@ -226,7 +226,7 @@ TextArea.defaultProps = {
  */
 
 TextArea.propTypes = {
-    name: propTypes.string.isRequired,
+    name: propTypes.string,
 
     className: propTypes.string,
 

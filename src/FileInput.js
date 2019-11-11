@@ -130,7 +130,7 @@ class FileInput extends Component {
  * @prop {boolean} [multiple] - the `multiple` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
  */
 FileInput.propTypes = {
-    name: propTypes.string.isRequired,
+    name: propTypes.string,
     onChange: propTypes.func,
     buttonLabel: propTypes.string,
 
