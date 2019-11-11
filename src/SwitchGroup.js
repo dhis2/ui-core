@@ -2,7 +2,6 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { ToggleGroup } from './ToggleGroup.js'
-import { Switch } from './Switch.js'
 
 /**
  * @module
@@ -37,8 +36,7 @@ const SwitchGroup = props => <ToggleGroup {...props} />
  */
 SwitchGroup.propTypes = {
     ...ToggleGroup.propTypes,
-    children: propTypes.arrayOf(propTypes.instanceOfComponent(Switch))
-        .isRequired,
+    children: propTypes.arrayOf(propTypes.element).isRequired,
     value: propTypes.arrayOf(propTypes.string),
 }
 

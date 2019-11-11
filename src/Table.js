@@ -1,10 +1,6 @@
 import React from 'react'
 import css from 'styled-jsx/css'
-import propTypes, { instanceOfComponent } from '@dhis2/prop-types'
-
-import { TableBody } from './TableBody.js'
-import { TableFoot } from './TableFoot.js'
-import { TableHead } from './TableHead.js'
+import propTypes from '@dhis2/prop-types'
 
 const tableStyles = css`
     table {
@@ -32,12 +28,6 @@ export const Table = ({ children, className }) => (
     </table>
 )
 
-const childPropType = propTypes.oneOfType([
-    instanceOfComponent(TableHead),
-    instanceOfComponent(TableBody),
-    instanceOfComponent(TableFoot),
-])
-
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -46,8 +36,8 @@ const childPropType = propTypes.oneOfType([
  */
 Table.propTypes = {
     children: propTypes.oneOfType([
-        childPropType,
-        propTypes.arrayOf(childPropType),
+        propTypes.element,
+        propTypes.arrayOf(propTypes.element),
     ]).isRequired,
     className: propTypes.string,
 }
