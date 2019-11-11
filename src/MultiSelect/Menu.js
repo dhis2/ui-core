@@ -11,19 +11,17 @@ const onDisabledClick = e => {
 
 const createHandler = ({ isActive, onChange, selected, value, label }) => e => {
     const clickedOption = { value, label }
-
     e.stopPropagation()
     e.preventDefault()
 
     // If the option is currently selected remove it from the array of selected options
     if (isActive) {
         const filtered = removeOption(clickedOption, selected)
-
-        return onChange(filtered)
+        return onChange(filtered, e)
     }
 
     // Otherwise, add it to selected
-    return onChange(selected.concat([clickedOption]))
+    return onChange(selected.concat([clickedOption]), e)
 }
 
 const Menu = ({ options, onChange, selected, empty }) => {
