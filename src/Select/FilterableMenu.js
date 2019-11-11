@@ -12,9 +12,8 @@ export class FilterableMenu extends Component {
         filter: '',
     }
 
-    onFilterChange = e => {
-        const filter = e.target.value
-        this.setState({ filter })
+    onFilterChange = ({ value }) => {
+        this.setState({ filter: value })
     }
 
     render() {

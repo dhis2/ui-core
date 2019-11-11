@@ -4,11 +4,11 @@ import { multiSelectedPropType } from '../common-prop-types.js'
 import { Chip } from '../Chip.js'
 import { removeOption, findOptionChild } from '../Select/option-helpers.js'
 
-const createRemoveHandler = ({ selected, onChange, value, label }) => () => {
+const createRemoveHandler = ({ selected, onChange, value, label }) => e => {
     const clickedOption = { value, label }
     const filtered = removeOption(clickedOption, selected)
 
-    onChange(filtered)
+    onChange(filtered, e)
 }
 
 const SelectionList = ({ selected, onChange, disabled, options }) => (
