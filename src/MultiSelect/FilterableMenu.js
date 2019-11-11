@@ -13,6 +13,7 @@ FilterableMenu.propTypes = {
     onChange: propTypes.func,
     selected: multiSelectedPropType,
     placeholder: propTypes.string,
+    noMatchText: propTypes.string.isRequired,
 }
 
 export { FilterableMenu }
