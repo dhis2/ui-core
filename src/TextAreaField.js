@@ -122,7 +122,7 @@ TextAreaField.defaultProps = TextArea.defaultProps
  */
 TextAreaField.propTypes = {
     onChange: propTypes.func,
-    name: propTypes.string.isRequired,
+    name: propTypes.string,
     label: propTypes.string,
     helpText: propTypes.string,
     validationText: propTypes.string,
