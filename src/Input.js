@@ -231,7 +231,7 @@ Input.defaultProps = {
  * @prop {boolean} [loading]
  */
 Input.propTypes = {
-    name: propTypes.string.isRequired,
+    name: propTypes.string,
     type: propTypes.oneOf([
         'text',
         'number',
