@@ -35,7 +35,7 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@dhis2/cli-style": "4.2.0",
-    "@storybook/addon-notes": "^5.2.5",
+    "@storybook/addon-notes": "^5.2.6",
     "@storybook/addons": "^5.2.4",
     "@storybook/components": "^5.2.0",
     "@storybook/react": "^5.2.6",
