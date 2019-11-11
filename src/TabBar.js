@@ -3,7 +3,6 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 import { colors } from './theme.js'
-import { Tab } from './Tab.js'
 import { ScrollBar } from './TabBar/ScrollBar.js'
 
 /**
@@ -50,8 +49,8 @@ const TabBar = ({ fixed, children, className, scrollable }) => {
  */
 TabBar.propTypes = {
     children: propTypes.oneOfType([
-        propTypes.instanceOfComponent(Tab),
-        propTypes.arrayOf(propTypes.instanceOfComponent(Tab)),
+        propTypes.element,
+        propTypes.arrayOf(propTypes.element),
     ]),
     className: propTypes.string,
     fixed: propTypes.bool,

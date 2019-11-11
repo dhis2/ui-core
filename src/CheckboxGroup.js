@@ -2,7 +2,6 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { ToggleGroup } from './ToggleGroup.js'
-import { Checkbox } from './Checkbox.js'
 
 /**
  * @module
@@ -37,8 +36,7 @@ const CheckboxGroup = props => <ToggleGroup {...props} />
  */
 CheckboxGroup.propTypes = {
     ...ToggleGroup.propTypes,
-    children: propTypes.arrayOf(propTypes.instanceOfComponent(Checkbox))
-        .isRequired,
+    children: propTypes.arrayOf(propTypes.element).isRequired,
     value: propTypes.arrayOf(propTypes.string),
 }
 

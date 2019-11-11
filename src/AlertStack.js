@@ -4,7 +4,6 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 import { layers } from './theme.js'
-import { AlertBar } from './AlertBar.js'
 
 /**
  * @module
@@ -46,7 +45,7 @@ const AlertStack = ({ className, children }) =>
  */
 AlertStack.propTypes = {
     className: propTypes.string,
-    children: propTypes.arrayOf(propTypes.instanceOfComponent(AlertBar)),
+    children: propTypes.arrayOf(propTypes.element),
 }
 
 export { AlertStack }
