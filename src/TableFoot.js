@@ -1,7 +1,5 @@
 import React from 'react'
-import propTypes, { instanceOfComponent } from '@dhis2/prop-types'
-
-import { TableRow } from './TableRow.js'
+import propTypes from '@dhis2/prop-types'
 
 /**
  * @module
@@ -14,8 +12,6 @@ export const TableFoot = ({ children, className }) => (
     <tfoot className={className}>{children}</tfoot>
 )
 
-const childPropType = instanceOfComponent(TableRow)
-
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -24,8 +20,8 @@ const childPropType = instanceOfComponent(TableRow)
  */
 TableFoot.propTypes = {
     children: propTypes.oneOfType([
-        childPropType,
-        propTypes.arrayOf(childPropType),
+        propTypes.element,
+        propTypes.arrayOf(propTypes.element),
     ]).isRequired,
     className: propTypes.string,
 }

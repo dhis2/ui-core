@@ -2,7 +2,6 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { ToggleGroupField } from './ToggleGroupField.js'
-import { Radio } from './Radio.js'
 
 /**
  * @module
@@ -41,8 +40,7 @@ const RadioGroupField = props => <ToggleGroupField {...props} />
  */
 RadioGroupField.propTypes = {
     ...ToggleGroupField.propTypes,
-    children: propTypes.arrayOf(propTypes.instanceOfComponent(Radio))
-        .isRequired,
+    children: propTypes.arrayOf(propTypes.element).isRequired,
     value: propTypes.string,
 }
 

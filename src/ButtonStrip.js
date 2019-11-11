@@ -2,7 +2,6 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { Button } from './Button.js'
 import { spacers } from './theme.js'
 
 /**
@@ -50,7 +49,7 @@ const alignmentPropType = propTypes.mutuallyExclusive(
  */
 ButtonStrip.propTypes = {
     className: propTypes.string,
-    children: propTypes.arrayOf(propTypes.instanceOfComponent(Button)),
+    children: propTypes.arrayOf(propTypes.element),
     middle: alignmentPropType,
     end: alignmentPropType,
 }
