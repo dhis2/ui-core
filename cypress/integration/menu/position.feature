@@ -32,9 +32,9 @@ Feature: Position of a menu component
         And the heght of the menu is not reduced below 50px
 
     Scenario: Flipped horizontally
-        Given the anchor has less than 128px space to the left
+        Given the anchor has less than 128px space to the right
         When the menu is opened
-        Then the menu is right of the anchor
+        Then the menu is right aligned with the anchor
         And the menu is below the anchor
 
     # ¯\_(ツ)_/¯
@@ -42,5 +42,5 @@ Feature: Position of a menu component
     Scenario: Forced body overflow
         Given the anchor has less than 128px space to the left and the right
         When the menu is opened
-        Then the menu is left of the anchor
+        Then the menu is left aligned with the anchor
         And the menu is rendered below the anchor
