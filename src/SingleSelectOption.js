@@ -25,7 +25,7 @@ const SingleSelectOption = ({
             disabled,
             active,
         })}
-        onClick={onClick}
+        onClick={e => onClick({}, e)}
     >
         {label}
 
