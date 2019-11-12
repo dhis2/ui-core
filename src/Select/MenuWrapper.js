@@ -73,13 +73,15 @@ class MenuWrapper extends Component {
 
     render() {
         const { children, maxHeight, className, menuRef } = this.props
-        const { top, left, width } = this.state
+        const { /*top, left,*/ width } = this.state
         const { styles, className: cardClassName } = resolve`
             height: auto;
             max-height: ${maxHeight};
             overflow: auto;
         `
         const zIndex = this.getComputedZIndex() + layers.applicationTop
+
+        const modalCardEl = document.querySelector('.modal-card')
 
         return ReactDOM.createPortal(
             <div className={className} ref={menuRef}>
@@ -91,13 +93,16 @@ class MenuWrapper extends Component {
                     div {
                         position: absolute;
                         z-index: ${zIndex};
-                        top: ${top};
-                        left: ${left};
+                        top: 98px;
+                        left: 24px;
                         width: ${width};
+                    }
+                    :global(.modal-card) {
+                        overflow-y: hidden;
                     }
                 `}</style>
             </div>,
-            document.body
+            modalCardEl
         )
     }
 }
