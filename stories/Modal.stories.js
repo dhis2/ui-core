@@ -303,6 +303,21 @@ storiesOf('Modal', module)
                     <SingleSelectOption key="9" value="3" label="nine" />
                     <SingleSelectOption key="10" value="3" label="ten" />
                 </SingleSelectField>
+
+                <p>asdfasdfasdfasd</p>
+
+                <SingleSelectField>
+                    <SingleSelectOption key="1" value="1" label="one" />
+                    <SingleSelectOption key="2" value="2" label="two" />
+                    <SingleSelectOption key="3" value="3" label="three" />
+                    <SingleSelectOption key="4" value="3" label="four" />
+                    <SingleSelectOption key="5" value="3" label="five" />
+                    <SingleSelectOption key="6" value="3" label="six" />
+                    <SingleSelectOption key="7" value="3" label="seven" />
+                    <SingleSelectOption key="8" value="3" label="eight" />
+                    <SingleSelectOption key="9" value="3" label="nine" />
+                    <SingleSelectOption key="10" value="3" label="ten" />
+                </SingleSelectField>
             </ModalContent>
 
             <ModalActions>

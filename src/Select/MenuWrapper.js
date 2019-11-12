@@ -68,14 +68,12 @@ class MenuWrapper extends Component {
                 <style jsx>{`
                     div {
                         position: absolute;
-                        z-index: ${layers.applicationTop};
-                        top: ${top};
-                        left: ${left};
+                        z-index: 1;
                         width: ${width};
                     }
                 `}</style>
             </div>,
-            document.body
+            this.props.selectRef.current
         )
     }
 }
