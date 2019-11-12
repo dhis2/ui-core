@@ -21,8 +21,10 @@ const Input = ({
 }) => {
     const hasSelection = selected.length > 0
     const onClear = e => {
+        const data = { selected: [] }
+
         e.stopPropagation()
-        onChange([], e)
+        onChange(data, e)
     }
 
     return (
