@@ -28,23 +28,23 @@ class Checkbox extends Component {
 
     handleChange = e => {
         if (this.props.onChange) {
-            this.props.onChange(this.getHandlerObject(), e)
+            this.props.onChange(this.createHandlerPayload(), e)
         }
     }
 
     handleBlur = e => {
         if (this.props.onBlur) {
-            this.props.onBlur(this.getHandlerObject(), e)
+            this.props.onBlur(this.createHandlerPayload(), e)
         }
     }
 
     handleFocus = e => {
         if (this.props.onFocus) {
-            this.props.onFocus(this.getHandlerObject(), e)
+            this.props.onFocus(this.createHandlerPayload(), e)
         }
     }
 
-    getHandlerObject() {
+    createHandlerPayload() {
         return {
             value: this.props.value,
             name: this.props.name,
