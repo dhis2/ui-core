@@ -40,9 +40,10 @@ const Menu = ({
         // Active means the option is currently selected
         const isActive = value === selected.value && label === selected.label
         const onClick = e => {
+            const data = { selected: { value, label } }
             e.stopPropagation()
 
-            onChange({ value, label }, e)
+            onChange(data, e)
             handleClose()
             handleFocusInput()
         }
