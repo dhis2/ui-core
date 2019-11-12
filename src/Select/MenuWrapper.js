@@ -51,21 +51,24 @@ class MenuWrapper extends Component {
     }
 
     getZIndex(el) {
-        const zIndex = parseInt(
-            window.getComputedStyle(el).getPropertyValue('z-index')
-        )
-        return isNaN(zIndex) ? null : zIndex
+        const computedStyle = window.getComputedStyle(el)
+        const zIndex = parseInt(computedStyle.getPropertyValue('z-index'))
+
+        return isNaN(zIndex) ? 0 : zIndex
     }
 
     getComputedZIndex() {
         let el = this.props.selectRef.current
-        let zIndex = null
-        while (!zIndex && el.parentNode) {
-            zIndex = this.getZIndex(el)
+        let zIndex = 0
+        while (el.parentNode) {
+            const newZIndex = this.getZIndex(el)
+            if (newZIndex > zIndex) {
+                zIndex = newZIndex
+            }
             el = el.parentNode
         }
 
-        return zIndex || 0
+        return zIndex
     }
 
     render() {
