@@ -50,6 +50,24 @@ class MenuWrapper extends Component {
         })
     }
 
+    getZIndex(el) {
+        const zIndex = parseInt(
+            window.getComputedStyle(el).getPropertyValue('z-index')
+        )
+        return isNaN(zIndex) ? null : zIndex
+    }
+
+    getComputedZIndex() {
+        let el = this.props.selectRef.current
+        let zIndex = null
+        while (!zIndex && el.parentNode) {
+            zIndex = this.getZIndex(el)
+            el = el.parentNode
+        }
+
+        return zIndex || 0
+    }
+
     render() {
         const { children, maxHeight, className, menuRef } = this.props
         const { top, left, width } = this.state
@@ -58,6 +76,7 @@ class MenuWrapper extends Component {
             max-height: ${maxHeight};
             overflow: auto;
         `
+        const zIndex = this.getComputedZIndex() + layers.applicationTop
 
         return ReactDOM.createPortal(
             <div className={className} ref={menuRef}>
@@ -68,7 +87,7 @@ class MenuWrapper extends Component {
                 <style jsx>{`
                     div {
                         position: absolute;
-                        z-index: ${layers.applicationTop};
+                        z-index: ${zIndex};
                         top: ${top};
                         left: ${left};
                         width: ${width};
