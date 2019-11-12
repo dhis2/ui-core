@@ -39,7 +39,7 @@ const Menu = ({
 
         // Active means the option is currently selected
         const isActive = value === selected.value && label === selected.label
-        const onClick = e => {
+        const onClick = (unusedData, e) => {
             const data = { selected: { value, label } }
             e.stopPropagation()
 
