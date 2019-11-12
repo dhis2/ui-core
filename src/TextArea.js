@@ -79,32 +79,27 @@ export class TextArea extends Component {
     }
 
     handleChange = e => {
-        const { onChange } = this.props
-
-        if (onChange) {
-            onChange(
-                {
-                    value: e.target.value,
-                    name: this.props.name,
-                },
-                e
-            )
+        if (this.props.onChange) {
+            this.props.onChange(this.createHandlerPayload(e), e)
         }
     }
 
     handleBlur = e => {
-        const { onBlur } = this.props
-
-        if (onBlur) {
-            onBlur(e)
+        if (this.props.onBlur) {
+            this.props.onBlur(this.createHandlerPayload(e), e)
         }
     }
 
     handleFocus = e => {
-        const { onFocus } = this.props
+        if (this.props.onFocus) {
+            this.props.onFocus(this.createHandlerPayload(e), e)
+        }
+    }
 
-        if (onFocus) {
-            onFocus(e)
+    createHandlerPayload(e) {
+        return {
+            value: e.target.value,
+            name: this.props.name,
         }
     }
 
