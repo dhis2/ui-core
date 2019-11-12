@@ -11,7 +11,7 @@ const CheckIcon = () => (
 )
 
 const CustomOption = ({ label, description, icon, active, onClick }) => (
-    <a className={cx('option', { active })} onClick={onClick}>
+    <a className={cx('option', { active })} onClick={e => onClick({}, e)}>
         {icon && <div className="option-icon">{icon}</div>}
         <div className="text">
             <h3 className="label">{label}</h3>

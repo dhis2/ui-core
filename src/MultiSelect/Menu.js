@@ -9,7 +9,10 @@ const onDisabledClick = e => {
     e.preventDefault()
 }
 
-const createHandler = ({ isActive, onChange, selected, value, label }) => e => {
+const createHandler = ({ isActive, onChange, selected, value, label }) => (
+    unusedData,
+    e
+) => {
     const clickedOption = { value, label }
     e.stopPropagation()
     e.preventDefault()
