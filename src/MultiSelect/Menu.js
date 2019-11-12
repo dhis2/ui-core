@@ -17,11 +17,16 @@ const createHandler = ({ isActive, onChange, selected, value, label }) => e => {
     // If the option is currently selected remove it from the array of selected options
     if (isActive) {
         const filtered = removeOption(clickedOption, selected)
-        return onChange(filtered, e)
+        const data = { selected: filtered }
+
+        return onChange(data, e)
     }
 
     // Otherwise, add it to selected
-    return onChange(selected.concat([clickedOption]), e)
+    const data = {
+        selected: selected.concat([clickedOption]),
+    }
+    return onChange(data, e)
 }
 
 const Menu = ({ options, onChange, selected, empty }) => {

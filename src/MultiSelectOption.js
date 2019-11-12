@@ -27,8 +27,8 @@ const MultiSelectOption = ({ label, active, disabled, onClick, className }) => (
             className={checkboxClassname}
             checked={active}
             label={label}
-            onChange={(value, e) => {
-                // Discarding value here because onClick just expects the event
+            onChange={(data, e) => {
+                // Discarding data here because onClick just expects the event
                 onClick(e)
             }}
             disabled={disabled}

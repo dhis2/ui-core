@@ -7,8 +7,9 @@ import { removeOption, findOptionChild } from '../Select/option-helpers.js'
 const createRemoveHandler = ({ selected, onChange, value, label }) => e => {
     const clickedOption = { value, label }
     const filtered = removeOption(clickedOption, selected)
+    const data = { selected: filtered }
 
-    onChange(filtered, e)
+    onChange(data, e)
 }
 
 const SelectionList = ({ selected, onChange, disabled, options }) => (
