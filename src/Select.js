@@ -190,6 +190,7 @@ export class Select extends Component {
                 <style jsx>{`
                     div {
                         position: relative;
+                        z-index: 0;
                     }
                 `}</style>
             </div>
