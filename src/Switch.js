@@ -27,33 +27,28 @@ class Switch extends Component {
     }
 
     handleChange = e => {
-        const { onChange } = this.props
-
-        if (onChange) {
-            onChange(
-                {
-                    value: this.props.value,
-                    name: this.props.name,
-                    checked: !this.props.checked,
-                },
-                e
-            )
+        if (this.props.onChange) {
+            this.props.onChange(this.createHandlerPayload(), e)
         }
     }
 
     handleBlur = e => {
-        const { onBlur } = this.props
-
-        if (onBlur) {
-            onBlur(e)
+        if (this.props.onBlur) {
+            this.props.onBlur(this.createHandlerPayload(), e)
         }
     }
 
     handleFocus = e => {
-        const { onFocus } = this.props
+        if (this.props.onFocus) {
+            this.props.onFocus(this.createHandlerPayload(), e)
+        }
+    }
 
-        if (onFocus) {
-            onFocus(e)
+    createHandlerPayload() {
+        return {
+            value: this.props.value,
+            name: this.props.name,
+            checked: !this.props.checked,
         }
     }
 
