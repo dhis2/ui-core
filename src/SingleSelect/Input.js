@@ -21,8 +21,10 @@ const Input = ({
 }) => {
     const hasSelection = 'label' in selected && 'value' in selected
     const onClear = e => {
+        const data = { selected: {} }
+
         e.stopPropagation()
-        onChange({}, e)
+        onChange(data, e)
     }
 
     return (
