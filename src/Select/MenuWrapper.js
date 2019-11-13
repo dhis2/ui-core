@@ -62,7 +62,7 @@ class MenuWrapper extends Component {
 
         return ReactDOM.createPortal(
             <ZIndexConsumer
-                zIndex={zIndex}
+                propZIndex={zIndex}
                 defaultZIndex={layers.applicationTop}
             >
                 {computedZIndex => (
