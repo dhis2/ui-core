@@ -4,7 +4,7 @@ import propTypes from '@dhis2/prop-types'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card.js'
 import { layers } from '../theme.js'
-import { ZIndexContext } from '../ZIndexContext.js'
+import { ZIndexConsumer } from '../ZIndexContext.js'
 
 class MenuWrapper extends Component {
     state = {
@@ -61,32 +61,28 @@ class MenuWrapper extends Component {
         `
 
         return ReactDOM.createPortal(
-            <ZIndexContext.Consumer>
-                {({ contextZIndex, computeZIndex }) => {
-                    const computedZIndex = computeZIndex(
-                        zIndex,
-                        contextZIndex,
-                        layers.applicationTop
-                    )
-                    return (
-                        <div className={className} ref={menuRef}>
-                            <Card className={cardClassName}>{children}</Card>
+            <ZIndexConsumer
+                zIndex={zIndex}
+                defaultZIndex={layers.applicationTop}
+            >
+                {computedZIndex => (
+                    <div className={className} ref={menuRef}>
+                        <Card className={cardClassName}>{children}</Card>
 
-                            {styles}
+                        {styles}
 
-                            <style jsx>{`
-                                div {
-                                    position: absolute;
-                                    z-index: ${computedZIndex};
-                                    top: ${top};
-                                    left: ${left};
-                                    width: ${width};
-                                }
-                            `}</style>
-                        </div>
-                    )
-                }}
-            </ZIndexContext.Consumer>,
+                        <style jsx>{`
+                            div {
+                                position: absolute;
+                                z-index: ${computedZIndex};
+                                top: ${top};
+                                left: ${left};
+                                width: ${width};
+                            }
+                        `}</style>
+                    </div>
+                )}
+            </ZIndexConsumer>,
             document.body
         )
     }
