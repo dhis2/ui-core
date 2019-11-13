@@ -17,7 +17,13 @@ const DOWN_KEY = 40
 export class Select extends Component {
     state = {
         open: false,
+        menuTop: 'auto',
+        menuLeft: 'auto',
+        menuWidth: 'auto',
     }
+
+    // The requestAnimationFrame id for updating the menu position
+    menuRequestId = null
 
     selectRef = React.createRef()
     inputRef = React.createRef()
@@ -28,23 +34,23 @@ export class Select extends Component {
             this.inputRef.current.focus()
         }
 
+        this.updateMenuPosition()
+
         document.addEventListener('click', this.onOutsideClick)
+        window.addEventListener('resize', this.updateMenuPosition)
     }
 
     componentWillUnmount() {
         document.removeEventListener('click', this.onOutsideClick)
+        window.removeEventListener('resize', this.updateMenuPosition)
+
+        if (this.menuRequestId) {
+            window.cancelAnimationFrame(this.menuRequestId)
+        }
     }
 
     handleFocusInput = () => {
         this.inputRef.current.focus()
-    }
-
-    handleOpen = () => {
-        this.setState({ open: true })
-    }
-
-    handleClose = () => {
-        this.setState({ open: false })
     }
 
     onFocus = e => {
@@ -59,6 +65,41 @@ export class Select extends Component {
         }
     }
 
+    /**
+     * Menu related logic
+     */
+    updateMenuPosition = () => {
+        const selectEl = this.selectRef.current
+
+        // Debounce by cancelling the previously scheduled measurement
+        if (this.menuRequestId) {
+            window.cancelAnimationFrame(this.menuRequestId)
+        }
+
+        this.menuRequestId = window.requestAnimationFrame(() => {
+            const rect = selectEl.getBoundingClientRect()
+            const menuTop = rect.bottom + window.scrollY
+            const menuLeft = rect.left + window.scrollX
+            const menuWidth = rect.width
+
+            const sizing = {
+                menuTop: `${menuTop}px`,
+                menuLeft: `${menuLeft}px`,
+                menuWidth: `${menuWidth}px`,
+            }
+
+            this.setState(sizing)
+        })
+    }
+
+    handleOpen = () => {
+        this.setState({ open: true })
+    }
+
+    handleClose = () => {
+        this.setState({ open: false })
+    }
+
     onToggle = e => {
         if (this.props.disabled) {
             return
@@ -66,7 +107,7 @@ export class Select extends Component {
 
         e.stopPropagation()
 
-        this.setState(prevState => ({ open: !prevState.open }))
+        this.state.open ? this.handleClose() : this.handleOpen()
     }
 
     /**
@@ -124,7 +165,7 @@ export class Select extends Component {
     }
 
     render() {
-        const { open } = this.state
+        const { open, menuTop, menuLeft, menuWidth } = this.state
         const {
             children,
             className,
@@ -139,10 +180,17 @@ export class Select extends Component {
             dense,
         } = this.props
 
+        // We need to update the menu's position on selection because
+        // that can cause the input area to change size
+        const handleChange = (data, e) => {
+            this.updateMenuPosition()
+            onChange(data, e)
+        }
+
         // Create the input
         const inputProps = {
             selected,
-            onChange,
+            onChange: handleChange,
             options: children,
             disabled,
         }
@@ -151,7 +199,7 @@ export class Select extends Component {
         // Create the menu
         const menuProps = {
             selected,
-            onChange,
+            onChange: handleChange,
             options: children,
             handleClose: this.handleClose,
             handleFocusInput: this.handleFocusInput,
@@ -182,6 +230,9 @@ export class Select extends Component {
                         maxHeight={maxHeight}
                         selectRef={this.selectRef}
                         menuRef={this.menuRef}
+                        menuTop={menuTop}
+                        menuLeft={menuLeft}
+                        menuWidth={menuWidth}
                     >
                         {menu}
                     </MenuWrapper>
