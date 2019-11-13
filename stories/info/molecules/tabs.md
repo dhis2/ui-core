@@ -2,7 +2,7 @@
 
 Tabs act as containers for content. Tabs are used to divide content into categories.
 
-![](../images/tabs.jpg)
+![](images/tabs.jpg)
 
 [Design specs for building tabs](https://sketch.cloud/s/DwkDk/GmKbAL5)
 
@@ -29,14 +29,14 @@ Do not repeat a term across tabs. If tabs are used inside a 'Options' modal, it 
 ### Fluid vs. Fixed
 
 The default tab style is fluid, where each tab width is defined by its name:
-![](../images/tabs-fluid.jpg)
+![](images/tabs-fluid.jpg)
 
 Fixed tabs always fill the width of their container:
-![](../images/tabs-fixed.jpg)
+![](images/tabs-fixed.jpg)
 
 Fluid tabs should be used in most situations. Fixed tabs are useful when there is an either/or selection between two modes. For example, fixed tabs may give the user an option between 'Table' or 'Form' entry for the same data entry screen.
 
 ## Examples in use
 
-![](../images/tabs-example.jpg)
+![](images/tabs-example.jpg)
 _Tabs are used inside the 'Options' modal in Pivot Tables. Different categories of option are split into logical categories. Attempting to list all these options in a single screen would be overwhelming for a user._
