@@ -4,28 +4,18 @@ import propTypes from '@dhis2/prop-types'
 const ZIndexContext = React.createContext(0)
 const ZIndexProvider = ZIndexContext.Provider
 
-const computeZIndex = (propZIndex = 0, contextZIndex = 0, layerZIndex = 0) =>
-    propZIndex || contextZIndex + layerZIndex
-
-const ZIndexConsumer = ({ zIndex, defaultZIndex, children }) => (
+const ZIndexConsumer = ({ propZIndex = 0, defaultZIndex = 0, children }) => (
     <ZIndexContext.Consumer>
-        {contextZIndex => {
-            const computedZIndex = computeZIndex(
-                zIndex,
-                contextZIndex,
-                defaultZIndex
-            )
-            return typeof children === 'function'
-                ? children(computedZIndex)
-                : null
-        }}
+        {(contextZIndex = 0) =>
+            children(propZIndex || contextZIndex + defaultZIndex)
+        }
     </ZIndexContext.Consumer>
 )
 
 ZIndexConsumer.propTypes = {
-    children: propTypes.element,
-    zIndex: propTypes.number,
-    defaultZIndex: propTypes.number,
+    children: propTypes.func.isRequired,
+    propZIndex: propTypes.number,
+    defaultZIndex: propTypes.number.isRequired,
 }
 
 export { ZIndexProvider, ZIndexConsumer }
