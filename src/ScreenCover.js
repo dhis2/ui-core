@@ -2,6 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { layers } from './theme.js'
+import { ZIndexContext, createZIndexContext } from './ZIndexContext.js'
 
 const Backdrop = ({ onClick }) => (
     <div className="backdrop" onClick={onClick}>
@@ -50,23 +51,25 @@ Content.propTypes = {
  * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
  */
 const ScreenCover = ({ children, onClick, className }) => (
-    <div className={className}>
-        <Backdrop onClick={onClick} />
-        <Content>{children}</Content>
+    <ZIndexContext.Provider value={createZIndexContext(layers.blocking)}>
+        <div className={className}>
+            <Backdrop onClick={onClick} />
+            <Content>{children}</Content>
 
-        <style jsx>{`
-            div {
-                position: fixed;
-                height: 100%;
-                width: 100%;
+            <style jsx>{`
+                div {
+                    position: fixed;
+                    height: 100%;
+                    width: 100%;
 
-                left: 0;
-                top: 0;
+                    left: 0;
+                    top: 0;
 
-                z-index: ${layers.blocking};
-            }
-        `}</style>
-    </div>
+                    z-index: ${layers.blocking};
+                }
+            `}</style>
+        </div>
+    </ZIndexContext.Provider>
 )
 
 /**
