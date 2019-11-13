@@ -6,13 +6,13 @@ Info about AlertBar
 
 A floating alert that informs the user of some temporary information in the context of the current screen.
 
-![](../images/alertbar.png)
+![](images/alertbar.png)
 
 [Design specs for building alert bar](https://sketch.cloud/s/DwkDk/JnLkOWe)
 
 ## Composition
 
-![example spec for alertbar](../images/alertbar-comp.png)
+![example spec for alertbar](images/alertbar-comp.png)
 
 1. **Background, required:** background of the alert bar. The color is defined by the type.
 2. **Icon, optional:** an icon to help the user quickly understand the context of the alert.
@@ -41,7 +41,7 @@ It is important to use the correct type of alert bar. Users should not be overlo
 
 #### Info
 
-![info alert bar](../images/alertbar.png)
+![info alert bar](images/alertbar.png)
 
 The default alert bar that should be used in most situations. An information alert can be used to confirm minor actions instead of a success type. An info alert bar would be used, for example, for:
 
@@ -54,7 +54,7 @@ Info alert bars dismiss automatically after 5 seconds, so the message should not
 
 #### Success
 
-![info alert bar](../images/alertbar-success.png)
+![info alert bar](images/alertbar-success.png)
 
 Success alert bars should be used to confirm successful major actions. Not all successful actions need a success alert bar, only those that are considered "large tasks", such as defining a program or creating a dashboard. Some example success alert bars:
 
@@ -66,7 +66,7 @@ Success alerts dismiss automatically after 5 seconds, like info alert bars they 
 
 #### Warning
 
-![info alert bar](../images/alertbar-warning.png)
+![info alert bar](images/alertbar-warning.png)
 
 Warning alert bars warn users of potential problems. Ideally warnings should be shown before a problem occurs. If a problem has already occured, a critical type is probably a better choice. Example content for warning alert bars:
 
@@ -78,7 +78,7 @@ Warning alerts do not dismiss automatically. They disappear if the warning condi
 
 #### Critical
 
-![info alert bar](../images/alertbar-critical.png)
+![info alert bar](images/alertbar-critical.png)
 
 Critical alerts are used to highlight a severe problem. They should only be used to inform the user of broken functionality after it has occured. Critical alerts should be used where the user can still interact with the application even though there is an error. If there is a catastrophic error that requires blocking the application, use a [modal](modal.md) instead. Critical alert text should inform the user what happened and why. Sample critical alert bars:
 
@@ -106,5 +106,5 @@ Alert bar icons support the content and give the user a way of quickly understan
 
 ## Examples in use
 
-![](../images/alertbar-example.png)
+![](images/alertbar-example.png)
 _An alert bar confirms to the user that their dashboard was saved after they carried out changes. The changes might not be immediately visible, so it is useful to inform the user with an alert bar._
