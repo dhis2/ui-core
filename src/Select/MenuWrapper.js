@@ -4,7 +4,7 @@ import propTypes from '@dhis2/prop-types'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card.js'
 import { layers } from '../theme.js'
-import { ZIndexConsumer } from '../ZIndexContext.js'
+import { LayerConsumer } from '../LayerContext.js'
 
 class MenuWrapper extends Component {
     state = {
@@ -61,7 +61,7 @@ class MenuWrapper extends Component {
         `
 
         return ReactDOM.createPortal(
-            <ZIndexConsumer
+            <LayerConsumer
                 propZIndex={zIndex}
                 defaultZIndex={layers.applicationTop}
             >
@@ -82,7 +82,7 @@ class MenuWrapper extends Component {
                         `}</style>
                     </div>
                 )}
-            </ZIndexConsumer>,
+            </LayerConsumer>,
             document.body
         )
     }

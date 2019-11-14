@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { layers } from './theme.js'
-import { ZIndexProvider, ZIndexConsumer } from './ZIndexContext.js'
+import { LayerProvider, LayerConsumer } from './LayerContext.js'
 
 const Backdrop = ({ onClick }) => (
     <div className="backdrop" onClick={onClick}>
@@ -51,9 +51,9 @@ Content.propTypes = {
  * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
  */
 const ScreenCover = ({ children, onClick, className, zIndex }) => (
-    <ZIndexConsumer propZIndex={zIndex} defaultZIndex={layers.blocking}>
+    <LayerConsumer propZIndex={zIndex} defaultZIndex={layers.blocking}>
         {computedZIndex => (
-            <ZIndexProvider value={computedZIndex}>
+            <LayerProvider value={computedZIndex}>
                 <div className={className}>
                     <Backdrop onClick={onClick} />
                     <Content>{children}</Content>
@@ -71,9 +71,9 @@ const ScreenCover = ({ children, onClick, className, zIndex }) => (
                         }
                     `}</style>
                 </div>
-            </ZIndexProvider>
+            </LayerProvider>
         )}
-    </ZIndexConsumer>
+    </LayerConsumer>
 )
 
 /**
