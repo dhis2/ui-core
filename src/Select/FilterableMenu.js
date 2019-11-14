@@ -63,7 +63,7 @@ export class FilterableMenu extends Component {
             const { label } = child.props
 
             // Filter by label, because that's the part of an option that's displayed to the user
-            const match = label.includes(filter)
+            const match = label.toLowerCase().includes(filter.toLowerCase())
 
             return match ? child : null
         })
