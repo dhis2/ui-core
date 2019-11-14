@@ -24,6 +24,7 @@ const SingleSelect = ({
     selected,
     tabIndex,
     maxHeight,
+    inputMaxHeight,
     onChange,
     onFocus,
     onBlur,
@@ -68,6 +69,7 @@ const SingleSelect = ({
                             clearText={clearText}
                             placeholder={placeholder}
                             prefix={prefix}
+                            inputMaxHeight={inputMaxHeight}
                         />
                     }
                     menu={menu}
@@ -132,6 +134,7 @@ SingleSelect.defaultProps = {
  * @prop {boolean} [filterable]
  * @prop {string} [loadingText]
  * @prop {string} [maxHeight]
+ * @prop {string} [inputMaxHeight]
  * @prop {string} [noMatchText] - Only required if filterable is true
  * @prop {string} [placeholder]
  * @prop {string} [prefix]
@@ -158,6 +161,7 @@ SingleSelect.propTypes = {
     filterable: propTypes.bool,
     loadingText: propTypes.string,
     maxHeight: propTypes.string,
+    inputMaxHeight: propTypes.string,
     noMatchText: propTypes.requiredIf(
         props => props.filterable,
         propTypes.string
