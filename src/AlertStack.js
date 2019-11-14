@@ -4,6 +4,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 import { layers } from './theme.js'
+import { useLayerBasedZindex } from './LayerContext.js'
 
 /**
  * @module
@@ -12,8 +13,10 @@ import { layers } from './theme.js'
  * @example import { AlertStack } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/alertstack--default|Storybook}
  */
-const AlertStack = ({ className, children }) =>
-    createPortal(
+const AlertStack = ({ className, children, zIndex }) => {
+    const computedZIndex = useLayerBasedZindex(zIndex, layers.alert)
+
+    return createPortal(
         <div className={cx(className)}>
             {children}
             <style jsx>{`
@@ -25,7 +28,7 @@ const AlertStack = ({ className, children }) =>
                     left: 50%;
                     transform: translateX(-50%);
 
-                    z-index: ${layers.alert};
+                    z-index: ${computedZIndex};
 
                     display: flex;
                     flex-direction: column-reverse;
@@ -36,6 +39,7 @@ const AlertStack = ({ className, children }) =>
         </div>,
         document.body
     )
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -46,6 +50,7 @@ const AlertStack = ({ className, children }) =>
 AlertStack.propTypes = {
     className: propTypes.string,
     children: propTypes.arrayOf(propTypes.element),
+    zIndex: propTypes.number,
 }
 
 export { AlertStack }
