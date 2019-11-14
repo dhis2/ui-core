@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { layers } from './theme.js'
-import { ZIndexProvider } from './ZIndexContext.js'
+import { ZIndexProvider, ZIndexConsumer } from './ZIndexContext.js'
 
 const Backdrop = ({ onClick }) => (
     <div className="backdrop" onClick={onClick}>
@@ -50,26 +50,30 @@ Content.propTypes = {
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking|Design system}
  * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
  */
-const ScreenCover = ({ children, onClick, className }) => (
-    <ZIndexProvider value={layers.blocking}>
-        <div className={className}>
-            <Backdrop onClick={onClick} />
-            <Content>{children}</Content>
+const ScreenCover = ({ children, onClick, className, zIndex }) => (
+    <ZIndexConsumer propZIndex={zIndex} defaultZIndex={layers.blocking}>
+        {computedZIndex => (
+            <ZIndexProvider value={computedZIndex}>
+                <div className={className}>
+                    <Backdrop onClick={onClick} />
+                    <Content>{children}</Content>
 
-            <style jsx>{`
-                div {
-                    position: fixed;
-                    height: 100%;
-                    width: 100%;
+                    <style jsx>{`
+                        div {
+                            position: fixed;
+                            height: 100%;
+                            width: 100%;
 
-                    left: 0;
-                    top: 0;
+                            left: 0;
+                            top: 0;
 
-                    z-index: ${layers.blocking};
-                }
-            `}</style>
-        </div>
-    </ZIndexProvider>
+                            z-index: ${computedZIndex};
+                        }
+                    `}</style>
+                </div>
+            </ZIndexProvider>
+        )}
+    </ZIndexConsumer>
 )
 
 /**
@@ -83,6 +87,7 @@ ScreenCover.propTypes = {
     onClick: propTypes.func,
     className: propTypes.string,
     children: propTypes.node,
+    zIndex: propTypes.number,
 }
 
 export { ScreenCover }

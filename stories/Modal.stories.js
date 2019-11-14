@@ -318,3 +318,21 @@ storiesOf('Modal', module)
             </ModalActions>
         </Modal>
     ))
+    .add('Large: modal with more nested modals', () => (
+        <Modal open large>
+            <ModalTitle>LAYER 1</ModalTitle>
+            <ModalContent>
+                LAYER 1
+                <Modal open large>
+                    <ModalTitle>LAYER 2</ModalTitle>
+                    <ModalContent>
+                        LAYER 2
+                        <Modal open large>
+                            <ModalTitle>LAYER 3</ModalTitle>
+                            <ModalContent>LAYER 3</ModalContent>
+                        </Modal>
+                    </ModalContent>
+                </Modal>
+            </ModalContent>
+        </Modal>
+    ))
