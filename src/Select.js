@@ -7,6 +7,7 @@ import {
 } from './common-prop-types.js'
 import { InputWrapper } from './Select/InputWrapper.js'
 import { MenuWrapper } from './Select/MenuWrapper.js'
+import { ScreenCover } from './ScreenCover.js'
 
 // Keycodes for the keypress event handlers
 const ESCAPE_KEY = 27
@@ -35,13 +36,10 @@ export class Select extends Component {
         }
 
         this.updateMenuPosition()
-
-        document.addEventListener('click', this.onOutsideClick)
         window.addEventListener('resize', this.updateMenuPosition)
     }
 
     componentWillUnmount() {
-        document.removeEventListener('click', this.onOutsideClick)
         window.removeEventListener('resize', this.updateMenuPosition)
 
         if (this.menuRequestId) {
@@ -69,7 +67,7 @@ export class Select extends Component {
     updateMenuPosition = () => {
         const selectEl = this.selectRef.current
 
-        // Debounce by cancelling the previously scheduled measurement
+        // Debounce by canceling the previously scheduled measurement
         if (this.menuRequestId) {
             window.cancelAnimationFrame(this.menuRequestId)
         }
@@ -117,24 +115,16 @@ export class Select extends Component {
      */
     onOutsideClick = e => {
         const { onBlur, disabled, selected } = this.props
-        const { open } = this.state
 
-        if (!open || disabled) {
+        if (disabled) {
             return
         }
 
-        const isInsideSelect = this.selectRef.current.contains(e.target)
-        const isInsideMenu =
-            this.menuRef.current && this.menuRef.current.contains(e.target)
-        const isInsideClick = isInsideSelect || (open && isInsideMenu)
-
-        if (!isInsideClick) {
-            if (onBlur) {
-                onBlur({ selected }, e)
-            }
-
-            this.handleClose()
+        if (onBlur) {
+            onBlur({ selected }, e)
         }
+
+        this.handleClose()
     }
 
     onKeyDown = e => {
@@ -205,43 +195,47 @@ export class Select extends Component {
         const menu = React.cloneElement(this.props.menu, menuProps)
 
         return (
-            <div
-                className={className}
-                ref={this.selectRef}
-                onFocus={this.onFocus}
-                onKeyDown={this.onKeyDown}
-            >
-                <InputWrapper
-                    onToggle={this.onToggle}
-                    inputRef={this.inputRef}
-                    tabIndex={tabIndex}
-                    error={error}
-                    warning={warning}
-                    valid={valid}
-                    disabled={disabled}
-                    dense={dense}
-                >
-                    {input}
-                </InputWrapper>
+            <React.Fragment>
                 {open && (
-                    <MenuWrapper
-                        maxHeight={maxHeight}
-                        selectRef={this.selectRef}
-                        menuRef={this.menuRef}
-                        menuTop={menuTop}
-                        menuLeft={menuLeft}
-                        menuWidth={menuWidth}
-                    >
-                        {menu}
-                    </MenuWrapper>
+                    <ScreenCover onClick={this.onOutsideClick} transparent />
                 )}
-
+                <div
+                    className={className}
+                    ref={this.selectRef}
+                    onFocus={this.onFocus}
+                    onKeyDown={this.onKeyDown}
+                >
+                    <InputWrapper
+                        onToggle={this.onToggle}
+                        inputRef={this.inputRef}
+                        tabIndex={tabIndex}
+                        error={error}
+                        warning={warning}
+                        valid={valid}
+                        disabled={disabled}
+                        dense={dense}
+                    >
+                        {input}
+                    </InputWrapper>
+                    {open && (
+                        <MenuWrapper
+                            maxHeight={maxHeight}
+                            selectRef={this.selectRef}
+                            menuRef={this.menuRef}
+                            menuTop={menuTop}
+                            menuLeft={menuLeft}
+                            menuWidth={menuWidth}
+                        >
+                            {menu}
+                        </MenuWrapper>
+                    )}
+                </div>
                 <style jsx>{`
                     div {
                         position: relative;
                     }
                 `}</style>
-            </div>
+            </React.Fragment>
         )
     }
 }
