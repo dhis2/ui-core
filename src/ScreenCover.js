@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { layers } from './theme.js'
-import { LayerProvider, LayerConsumer } from './LayerContext.js'
+import { LayerProvider, useLayerBasedZindex } from './LayerContext.js'
 
 const Backdrop = ({ onClick }) => (
     <div className="backdrop" onClick={onClick}>
@@ -50,31 +50,31 @@ Content.propTypes = {
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking|Design system}
  * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
  */
-const ScreenCover = ({ children, onClick, className, zIndex }) => (
-    <LayerConsumer propZIndex={zIndex} defaultZIndex={layers.blocking}>
-        {computedZIndex => (
-            <LayerProvider value={computedZIndex}>
-                <div className={className}>
-                    <Backdrop onClick={onClick} />
-                    <Content>{children}</Content>
+const ScreenCover = ({ children, onClick, className, zIndex }) => {
+    const computedZIndex = useLayerBasedZindex(zIndex, layers.applicationTop)
 
-                    <style jsx>{`
-                        div {
-                            position: fixed;
-                            height: 100%;
-                            width: 100%;
+    return (
+        <LayerProvider value={computedZIndex}>
+            <div className={className}>
+                <Backdrop onClick={onClick} />
+                <Content>{children}</Content>
 
-                            left: 0;
-                            top: 0;
+                <style jsx>{`
+                    div {
+                        position: fixed;
+                        height: 100%;
+                        width: 100%;
 
-                            z-index: ${computedZIndex};
-                        }
-                    `}</style>
-                </div>
-            </LayerProvider>
-        )}
-    </LayerConsumer>
-)
+                        left: 0;
+                        top: 0;
+
+                        z-index: ${computedZIndex};
+                    }
+                `}</style>
+            </div>
+        </LayerProvider>
+    )
+}
 
 /**
  * @typedef {Object} PropTypes
