@@ -2,6 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { layers } from './theme.js'
+import { LayerProvider, useLayerBasedZindex } from './LayerContext.js'
 
 const Backdrop = ({ onClick, transparent }) => (
     <div className="backdrop" onClick={onClick}>
@@ -55,25 +56,31 @@ Content.propTypes = {
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking|Design system}
  * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
  */
-const ScreenCover = ({ children, onClick, className, transparent }) => (
-    <div className={className}>
-        <Backdrop onClick={onClick} transparent={transparent} />
-        <Content>{children}</Content>
+const ScreenCover = ({ children, onClick, className, transparent, zIndex }) => {
+    const computedZIndex = useLayerBasedZindex(zIndex, layers.applicationTop)
 
-        <style jsx>{`
-            div {
-                position: fixed;
-                height: 100%;
-                width: 100%;
+    return (
+        <LayerProvider value={computedZIndex}>
+            <div className={className}>
+                <Backdrop onClick={onClick} transparent={transparent} />
+                <Content>{children}</Content>
 
-                left: 0;
-                top: 0;
+                <style jsx>{`
+                    div {
+                        position: fixed;
+                        height: 100%;
+                        width: 100%;
 
-                z-index: ${layers.blocking};
-            }
-        `}</style>
-    </div>
-)
+                        left: 0;
+                        top: 0;
+
+                        z-index: ${computedZIndex};
+                    }
+                `}</style>
+            </div>
+        </LayerProvider>
+    )
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -88,6 +95,7 @@ ScreenCover.propTypes = {
     className: propTypes.string,
     children: propTypes.node,
     transparent: propTypes.bool,
+    zIndex: propTypes.number,
 }
 
 export { ScreenCover }
