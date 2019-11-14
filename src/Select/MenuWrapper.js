@@ -4,6 +4,10 @@ import propTypes from '@dhis2/prop-types'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card.js'
 import { layers } from '../theme.js'
+<<<<<<< HEAD
+=======
+import { LayerConsumer } from '../LayerContext.js'
+>>>>>>> refactor: rename z-index-context to layer-context
 
 <<<<<<< HEAD
 const MenuWrapper = ({
@@ -95,7 +99,7 @@ class MenuWrapper extends Component {
         `
 
         return ReactDOM.createPortal(
-            <ZIndexConsumer
+            <LayerConsumer
                 propZIndex={zIndex}
                 defaultZIndex={layers.applicationTop}
             >
@@ -116,7 +120,7 @@ class MenuWrapper extends Component {
                         `}</style>
                     </div>
                 )}
-            </ZIndexConsumer>,
+            </LayerConsumer>,
             document.body
         )
     }
