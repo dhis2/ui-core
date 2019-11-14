@@ -240,3 +240,13 @@ storiesOf('SingleSelect', module)
             {options}
         </SingleSelect>
     ))
+    .add('Input max height', () => (
+        <SingleSelect
+            {...defaultProps}
+            selected={{ value: '1', label: longLabel }}
+            inputMaxHeight="50px"
+        >
+            <SingleSelectOption key="1" value="1" label={longLabel} />
+            <SingleSelectOption key="2" value="2" label="two" />
+        </SingleSelect>
+    ))
