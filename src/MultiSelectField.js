@@ -38,6 +38,7 @@ class MultiSelectField extends React.Component {
             helpText,
             validationText,
             maxHeight,
+            inputMaxHeight,
             children,
             clearable,
             clearText,
@@ -64,6 +65,7 @@ class MultiSelectField extends React.Component {
                     selected={selected}
                     tabIndex={tabIndex}
                     maxHeight={maxHeight}
+                    inputMaxHeight={inputMaxHeight}
                     onChange={onChange}
                     onFocus={onFocus}
                     onBlur={onBlur}
@@ -132,6 +134,7 @@ MultiSelectField.defaultProps = {
  * @prop {boolean} [filterable]
  * @prop {string} [loadingText]
  * @prop {string} [maxHeight]
+ * @prop {string} [inputMaxHeight]
  * @prop {string} [noMatchText] - Only required if filterable is true
  * @prop {string} [placeholder]
  * @prop {string} [prefix]
@@ -162,6 +165,7 @@ MultiSelectField.propTypes = {
     filterable: propTypes.bool,
     loadingText: propTypes.string,
     maxHeight: propTypes.string,
+    inputMaxHeight: propTypes.string,
     noMatchText: propTypes.requiredIf(
         props => props.filterable,
         propTypes.string

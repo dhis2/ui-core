@@ -18,6 +18,7 @@ const Input = ({
     options,
     className,
     disabled,
+    inputMaxHeight,
 }) => {
     const hasSelection = 'label' in selected && 'value' in selected
     const onClear = e => {
@@ -34,7 +35,7 @@ const Input = ({
                 <InputPlaceholder placeholder={placeholder} />
             )}
             {hasSelection && (
-                <div>
+                <div className="root-input">
                     {/* the wrapper div above is necessary to enforce wrapping on overflow */}
                     <Selection selected={selected} options={options} />
                 </div>
@@ -54,13 +55,28 @@ const Input = ({
                     line-height: 16px;
                 }
 
+                .root-input {
+                    overflow-y: auto;
+                    flex: 1;
+                }
+
                 .root-right {
                     margin-left: auto;
                     margin-right: 10px;
                 }
             `}</style>
+
+            <style jsx>{`
+                .root-input {
+                    max-height: ${inputMaxHeight};
+                }
+            `}</style>
         </div>
     )
+}
+
+Input.defaultProps = {
+    inputMaxHeight: '100px',
 }
 
 Input.propTypes = {
@@ -73,6 +89,7 @@ Input.propTypes = {
     prefix: propTypes.string,
     placeholder: propTypes.string,
     disabled: propTypes.bool,
+    inputMaxHeight: propTypes.string,
 }
 
 export { Input }

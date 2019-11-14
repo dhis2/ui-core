@@ -264,3 +264,8 @@ storiesOf('MultiSelect', module)
             {options}
         </MultiSelect>
     ))
+    .add('Input max height', () => (
+        <MultiSelect {...defaultProps} inputMaxHeight="25px">
+            {options}
+        </MultiSelect>
+    ))
