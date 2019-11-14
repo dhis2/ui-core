@@ -4,6 +4,7 @@ import propTypes from '@dhis2/prop-types'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card.js'
 import { layers } from '../theme.js'
+import { useLayerBasedZindex } from '../LayerContext.js'
 
 const MenuWrapper = ({
     children,
@@ -13,12 +14,14 @@ const MenuWrapper = ({
     menuTop,
     menuLeft,
     menuWidth,
+    zIndex,
 }) => {
     const { styles, className: cardClassName } = resolve`
         height: auto;
         max-height: ${maxHeight};
         overflow: auto;
     `
+    const computedZIndex = useLayerBasedZindex(zIndex, layers.applicationTop)
 
     return ReactDOM.createPortal(
         <div className={className} ref={menuRef}>
@@ -29,7 +32,7 @@ const MenuWrapper = ({
             <style jsx>{`
                 div {
                     position: absolute;
-                    z-index: ${layers.applicationTop};
+                    z-index: ${computedZIndex};
                     top: ${menuTop};
                     left: ${menuLeft};
                     width: ${menuWidth};
@@ -53,6 +56,7 @@ MenuWrapper.propTypes = {
     menuTop: propTypes.string.isRequired,
     menuLeft: propTypes.string.isRequired,
     menuWidth: propTypes.string.isRequired,
+    zIndex: propTypes.number,
 }
 
 export { MenuWrapper }
