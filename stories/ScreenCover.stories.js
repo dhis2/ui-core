@@ -54,3 +54,9 @@ storiesOf('ScreenCover', module)
             </Menu>
         </ScreenCover>
     ))
+
+    .add('Transparent', () => (
+        <ScreenCover onClick={onClick} transparent>
+            With a transparent background
+        </ScreenCover>
+    ))
