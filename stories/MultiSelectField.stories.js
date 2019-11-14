@@ -7,7 +7,6 @@ const defaultProps = {
     selected: [{ value: '1', label: 'one' }],
     onChange: selected =>
         alert(`Selected changed to: ${JSON.stringify(selected, null, 2)}`),
-    tabIndex: '0',
 }
 
 const options = [
