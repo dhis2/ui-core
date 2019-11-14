@@ -91,6 +91,10 @@ const InputWrapper = ({
     )
 }
 
+InputWrapper.defaultProps = {
+    tabIndex: '0',
+}
+
 InputWrapper.propTypes = {
     children: propTypes.element,
     className: propTypes.string,
