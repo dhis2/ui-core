@@ -54,15 +54,13 @@ export class Select extends Component {
     }
 
     onFocus = e => {
-        const { onFocus, disabled } = this.props
+        const { onFocus, disabled, selected } = this.props
 
-        if (disabled) {
+        if (disabled || !onFocus) {
             return
         }
 
-        if (onFocus) {
-            onFocus(e)
-        }
+        onFocus({ selected }, e)
     }
 
     /**
@@ -118,7 +116,7 @@ export class Select extends Component {
      * https://github.com/facebook/react/issues/12518#issuecomment-377954226
      */
     onOutsideClick = e => {
-        const { onBlur, disabled } = this.props
+        const { onBlur, disabled, selected } = this.props
         const { open } = this.state
 
         if (!open || disabled) {
@@ -132,7 +130,7 @@ export class Select extends Component {
 
         if (!isInsideClick) {
             if (onBlur) {
-                onBlur(e)
+                onBlur({ selected }, e)
             }
 
             this.handleClose()
