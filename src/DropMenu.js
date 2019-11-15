@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import propTypes from '@dhis2/prop-types'
 
 import { layers } from './theme.js'
-import { useLayerBasedZindex } from './LayerContext.js'
+import { Layer } from './LayerContext.js'
 
 /**
  * @module
@@ -70,24 +70,24 @@ class DropMenu extends Component {
     render() {
         const { className, component, zIndex } = this.props
         const { top, left } = this.state
-        const computedZIndex = useLayerBasedZindex(
-            zIndex,
-            layers.applicationTop
-        )
 
         return ReactDOM.createPortal(
-            <div className={className} ref={this.elContainer}>
-                {component}
+            <Layer zIndex={zIndex} zIndexBase={layers.applicationTop}>
+                {zIndexComputed => (
+                    <div className={className} ref={this.elContainer}>
+                        {component}
 
-                <style jsx>{`
-                    div {
-                        z-index: ${computedZIndex};
-                        position: absolute;
-                        top: ${top};
-                        left: ${left};
-                    }
-                `}</style>
-            </div>,
+                        <style jsx>{`
+                            div {
+                                z-index: ${zIndexComputed};
+                                position: absolute;
+                                top: ${top};
+                                left: ${left};
+                            }
+                        `}</style>
+                    </div>
+                )}
+            </Layer>,
             document.body
         )
     }
