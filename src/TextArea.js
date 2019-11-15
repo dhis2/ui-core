@@ -122,7 +122,6 @@ export class TextArea extends Component {
             resize,
         } = this.props
         const { height } = this.state
-        const textareaWidth = typeof width === 'number' ? `${width}px` : width
 
         return (
             <div className={cx('textarea', className)}>
@@ -161,7 +160,7 @@ export class TextArea extends Component {
                 <style jsx>{styles}</style>
                 <style jsx>{`
                     textarea {
-                        width: ${textareaWidth};
+                        width: ${width};
                         height: ${height};
                         resize: ${resize};
                     }
@@ -205,7 +204,7 @@ TextArea.defaultProps = {
  * @prop {string} [resize=vertical] - resize attribute on the textarea,
  * one of `none`, `both`, `horizontal`, `vertical`
  * @prop {number} [rows=4]
- * @prop {string|number} [width]
+ * @prop {string} [width]
  */
 
 TextArea.propTypes = {
@@ -233,7 +232,7 @@ TextArea.propTypes = {
     initialFocus: propTypes.bool,
 
     rows: propTypes.number,
-    width: propTypes.oneOfType([propTypes.string, propTypes.number]),
+    width: propTypes.string,
     resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
     autoGrow: propTypes.bool,
 }
