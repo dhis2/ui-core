@@ -66,3 +66,14 @@ storiesOf('SingleSelectField', module)
             {options}
         </SingleSelectField>
     ))
+    .add('Set width', () => (
+        <SingleSelectField
+            {...defaultProps}
+            helpText="A helpful text."
+            validationText="NO! TOTALLY WRONG! SO EPICALLY WRONG! WHY ARE YOU SO WRONG ALL THE TIME?"
+            error
+            inputWidth="200px"
+        >
+            {options}
+        </SingleSelectField>
+    ))
