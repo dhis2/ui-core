@@ -7,7 +7,6 @@ import {
 } from './common-prop-types.js'
 import { InputWrapper } from './Select/InputWrapper.js'
 import { MenuWrapper } from './Select/MenuWrapper.js'
-import { ScreenCover } from './ScreenCover.js'
 
 // Keycodes for the keypress event handlers
 const ESCAPE_KEY = 27
@@ -120,11 +119,11 @@ export class Select extends Component {
             return
         }
 
+        this.handleClose()
+
         if (onBlur) {
             onBlur({ selected }, e)
         }
-
-        this.handleClose()
     }
 
     onKeyDown = e => {
@@ -196,9 +195,6 @@ export class Select extends Component {
 
         return (
             <React.Fragment>
-                {open && (
-                    <ScreenCover onClick={this.onOutsideClick} transparent />
-                )}
                 <div
                     className={className}
                     ref={this.selectRef}
@@ -219,6 +215,7 @@ export class Select extends Component {
                     </InputWrapper>
                     {open && (
                         <MenuWrapper
+                            onClick={this.onOutsideClick}
                             maxHeight={maxHeight}
                             selectRef={this.selectRef}
                             menuRef={this.menuRef}
