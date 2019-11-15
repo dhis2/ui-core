@@ -118,7 +118,7 @@ TextAreaField.defaultProps = TextArea.defaultProps
  * @prop {string} [resize=vertical] - resize attribute on the textarea,
  * one of `none`, `both`, `horizontal`, `vertical`
  * @prop {number} [rows=4]
- * @prop {string|number} [inputWidth]
+ * @prop {string} [inputWidth]
  */
 TextAreaField.propTypes = {
     onChange: propTypes.func,
@@ -149,7 +149,7 @@ TextAreaField.propTypes = {
     autoGrow: propTypes.bool,
     resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
     rows: propTypes.number,
-    inputWidth: propTypes.oneOfType([propTypes.string, propTypes.number]),
+    inputWidth: propTypes.string,
 }
 
 export { TextAreaField }

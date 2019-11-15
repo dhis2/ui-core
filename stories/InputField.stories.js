@@ -84,13 +84,13 @@ function createStory(name, props) {
             <>
                 <InputField
                     name="input1"
-                    label="My textarea has a width of 100 (number)"
-                    inputWidth={100}
+                    label="My textarea has a width of 100px"
+                    inputWidth="100px"
                     onChange={logger}
                 />
                 <InputField
                     name="input2"
-                    label="My textarea has a width of 220px (string)"
+                    label="My textarea has a width of 220px"
                     inputWidth="220px"
                     onChange={logger}
                 />

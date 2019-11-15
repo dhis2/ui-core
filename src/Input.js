@@ -135,7 +135,6 @@ export class Input extends Component {
             tabIndex,
             width,
         } = this.props
-        const inputWidth = typeof width === 'number' ? `${width}px` : width
 
         return (
             <div className={cx('input', className)}>
@@ -174,7 +173,7 @@ export class Input extends Component {
                 <style jsx>{styles}</style>
                 <style jsx>{`
                     input {
-                        width: ${inputWidth};
+                        width: ${width};
                     }
                 `}</style>
             </div>
@@ -200,7 +199,7 @@ Input.defaultProps = {
  * @prop {string} [placeholder]
  * @prop {string} [value]
  * @prop {string} [tabIndex]
- * @prop {string|number} [width]
+ * @prop {string} [width]
  *
  * @prop {boolean} [disabled]
  * @prop {boolean} [readOnly]
@@ -233,7 +232,7 @@ Input.propTypes = {
     value: propTypes.string,
     placeholder: propTypes.string,
     tabIndex: propTypes.string,
-    width: propTypes.oneOfType([propTypes.string, propTypes.number]),
+    width: propTypes.string,
 
     disabled: propTypes.bool,
     readOnly: propTypes.bool,

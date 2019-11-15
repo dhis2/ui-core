@@ -103,7 +103,7 @@ class InputField extends React.Component {
  * @prop {string} [placeholder]
  * @prop {string} [value]
  * @prop {string} [tabIndex]
- * @prop {string|number} [inputWidth]
+ * @prop {string} [inputWidth]
  *
  * @prop {boolean} [required]
  * @prop {boolean} [disabled]
@@ -146,7 +146,7 @@ InputField.propTypes = {
     onFocus: propTypes.func,
 
     type: Input.propTypes.type,
-    inputWidth: propTypes.oneOfType([propTypes.string, propTypes.number]),
+    inputWidth: propTypes.string,
 }
 
 export { InputField }
