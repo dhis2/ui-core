@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { layers } from './theme.js'
-import { LayerProvider, useLayerBasedZindex } from './LayerContext.js'
+import { Layer } from './LayerContext.js'
 
 const Backdrop = ({ onClick, transparent }) => (
     <div className="backdrop" onClick={onClick}>
@@ -57,28 +57,28 @@ Content.propTypes = {
  * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
  */
 const ScreenCover = ({ children, onClick, className, transparent, zIndex }) => {
-    const computedZIndex = useLayerBasedZindex(zIndex, layers.applicationTop)
-
     return (
-        <LayerProvider value={computedZIndex}>
-            <div className={className}>
-                <Backdrop onClick={onClick} transparent={transparent} />
-                <Content>{children}</Content>
+        <Layer zIndexBase={layers.blocking} zIndex={zIndex}>
+            {zIndexComputed => (
+                <div className={className}>
+                    <Backdrop onClick={onClick} transparent={transparent} />
+                    <Content>{children}</Content>
 
-                <style jsx>{`
-                    div {
-                        position: fixed;
-                        height: 100%;
-                        width: 100%;
+                    <style jsx>{`
+                        div {
+                            position: fixed;
+                            height: 100%;
+                            width: 100%;
 
-                        left: 0;
-                        top: 0;
+                            left: 0;
+                            top: 0;
 
-                        z-index: ${computedZIndex};
-                    }
-                `}</style>
-            </div>
-        </LayerProvider>
+                            z-index: ${zIndexComputed};
+                        }
+                    `}</style>
+                </div>
+            )}
+        </Layer>
     )
 }
 
