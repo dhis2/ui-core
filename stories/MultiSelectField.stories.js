@@ -66,3 +66,14 @@ storiesOf('MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
+    .add('Set width', () => (
+        <MultiSelectField
+            {...defaultProps}
+            helpText="A helpful text."
+            validationText="Hm, not quite, I warn thee! Consider yourself warned!"
+            inputWidth="200px"
+            warning
+        >
+            {options}
+        </MultiSelectField>
+    ))

@@ -249,3 +249,13 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption key="2" value="2" label="two" />
         </SingleSelect>
     ))
+    .add('Input width', () => (
+        <SingleSelect
+            {...defaultProps}
+            selected={{ value: '1', label: longLabel }}
+            inputWidth="200px"
+        >
+            <SingleSelectOption key="1" value="1" label={longLabel} />
+            <SingleSelectOption key="2" value="2" label="two" />
+        </SingleSelect>
+    ))
