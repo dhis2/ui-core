@@ -157,13 +157,13 @@ storiesOf('TextAreaField', module)
             <TextAreaField
                 onChange={() => {}}
                 name="textarea"
-                label="My textarea has a width of 100 (number)"
-                inputWidth={100}
+                label="My textarea has a width of 100px"
+                inputWidth="100px"
             />
             <TextAreaField
                 onChange={() => {}}
                 name="textarea"
-                label="My textarea has a width of 220px (string)"
+                label="My textarea has a width of 220px"
                 inputWidth="220px"
             />
         </>
