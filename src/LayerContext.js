@@ -37,12 +37,12 @@ const Layer = ({ children, zIndex, zIndexBase }) => {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Node} children
+ * @prop {function} children
  * @prop {number} zIndex
  * @prop {number} zIndexBase
  */
 Layer.propTypes = {
-    children: propTypes.node,
+    children: propTypes.func.isRequired,
     zIndexBase: propTypes.number,
     zIndex: propTypes.number,
 }
