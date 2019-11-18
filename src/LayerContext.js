@@ -1,19 +1,34 @@
 import React, { useContext } from 'react'
 import propTypes from '@dhis2/prop-types'
+import { layers } from './theme.js'
 
 const LayerContext = React.createContext(0)
+
+const getStackedLayer = (defaultLayer, context) => {
+    // Keep alert layer constant
+    if (defaultLayer === layers.alert) {
+        return layers.alert
+    }
+
+    // Differentiate between a stacked blocking and applicationTop layer
+    const layerIncrement = defaultLayer === layers.blocking ? 2 : 1
+    const layer = context + layerIncrement
+
+    // stay within stack layer boundaries defined by the design system
+    // https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking
+    if (layer >= layers.alert) {
+        return layers.alert - 1
+    }
+
+    return layer
+}
 
 const useLayer = (defaultLayer, customLayer) => {
     const context = useContext(LayerContext)
 
     if (customLayer) return customLayer
 
-    // stay within stack layer boundaries defined by the design system
-    // https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking
-    const capReached = context && context % 1000 === 999
-    if (capReached) return context
-
-    if (context) return context + 1
+    if (context) return getStackedLayer(defaultLayer, context)
 
     return defaultLayer
 }
