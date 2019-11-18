@@ -38,7 +38,9 @@ const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
                 'has-leaves': hasLeaves,
             })}
         >
-            <span onClick={onClick}>{arrowIcon}</span>
+            <span onClick={event => onClick({ open: !open }, event)}>
+                {arrowIcon}
+            </span>
 
             <style jsx>{`
                 div {
