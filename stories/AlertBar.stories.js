@@ -48,10 +48,25 @@ storiesOf('AlertBar', module)
             <AlertBar className="third" critical>
                 Critial never auto-hides
             </AlertBar>
-            <AlertBar className="fourth" duration={2000}>
+            <AlertBar
+                className="fourth"
+                duration={2000}
+                onHidden={(payload, event) => {
+                    console.log('onHidden payload', payload)
+                    console.log('onHidden event', event)
+                }}
+            >
                 Custom duration, hides after 2s
             </AlertBar>
-            <AlertBar className="fifth">Default auto-hides after 8s</AlertBar>
+            <AlertBar
+                className="fifth"
+                onHidden={(payload, event) => {
+                    console.log('onHidden payload', payload)
+                    console.log('onHidden event', event)
+                }}
+            >
+                Default auto-hides after 8s
+            </AlertBar>
         </React.Fragment>
     ))
     .add('With actions', () => (

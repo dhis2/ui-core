@@ -63,7 +63,7 @@ class DropMenu extends Component {
             !this.elContainer.current.contains(evt.target) &&
             !this.props.stayOpen
         ) {
-            this.props.onClose()
+            this.props.onClose({}, evt)
         }
     }
 
