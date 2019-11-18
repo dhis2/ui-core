@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-import { SingleSelect, SingleSelectOption } from '../src'
+import { Input, SingleSelect, SingleSelectOption } from '../src'
 
 const OptionIcon = () => (
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 32">
@@ -258,4 +258,13 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption key="1" value="1" label={longLabel} />
             <SingleSelectOption key="2" value="2" label="two" />
         </SingleSelect>
+    ))
+    .add('SingleSelect with Input in flex container', () => (
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+            <SingleSelect {...defaultProps} inputWidth="100px">
+                <SingleSelectOption key="1" value="1" label="one" />
+                <SingleSelectOption key="2" value="2" label="two" />
+            </SingleSelect>
+            <Input width="280px" />
+        </div>
     ))
