@@ -3,9 +3,9 @@ import propTypes from '@dhis2/prop-types'
 import { spacers } from '../theme.js'
 
 class Action extends Component {
-    onClick = () => {
-        this.props.onClick()
-        this.props.hide()
+    onClick = event => {
+        this.props.onClick(event)
+        this.props.hide(event)
     }
 
     render() {

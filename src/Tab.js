@@ -19,7 +19,7 @@ const Tab = ({ icon, onClick, selected, disabled, children, className }) => (
             selected,
             disabled,
         })}`}
-        onClick={disabled ? undefined : onClick}
+        onClick={disabled ? undefined : event => onClick({}, event)}
     >
         {icon}
         <span>{children}</span>

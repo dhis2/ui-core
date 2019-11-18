@@ -14,7 +14,10 @@ const Backdrop = ({ onClick, transparent, children, zIndex, className }) => {
     return (
         <Layer zIndex={zIndex}>
             {zIndexComputed => (
-                <div className={cx('backdrop', className)} onClick={onClick}>
+                <div
+                    className={cx('backdrop', className)}
+                    onClick={event => onClick({}, event)}
+                >
                     <div
                         onClick={e => {
                             // stop events from bubbling up through the

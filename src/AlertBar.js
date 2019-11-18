@@ -20,6 +20,8 @@ import styles, { ANIMATION_TIME } from './AlertBar/styles.js'
  * @see Live demo: {@link /demo/?path=/story/alertbar--default|Storybook}
  */
 class AlertBar extends Component {
+    // visible is used to control the show/hide animation
+    // hidden is used to stop rendering entirely after hide animation
     state = {
         visible: false,
         hidden: false,
@@ -54,7 +56,7 @@ class AlertBar extends Component {
     startDisplayTimeout = () => {
         if (this.shouldAutoHide()) {
             this.displayTimeout = setTimeout(() => {
-                this.hide()
+                this.hide(null)
             }, this.timeRemaining)
         }
     }
@@ -67,13 +69,15 @@ class AlertBar extends Component {
         }
     }
 
-    hide = () => {
+    hide = event => {
         clearTimeout(this.displayTimeout)
         this.setState({ visible: false })
 
         this.onHiddenTimeout = setTimeout(() => {
-            this.setState({ hidden: true })
-            this.props.onHidden && this.props.onHidden()
+            this.setState(
+                { hidden: true },
+                () => this.props.onHidden && this.props.onHidden({}, event)
+            )
         }, ANIMATION_TIME)
     }
 
