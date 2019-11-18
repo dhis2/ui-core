@@ -99,7 +99,8 @@ const MultiSelect = ({
 
                 .root-input {
                     margin-right: ${spacers.dp4};
-                    flex: ${inputWidth ? `0 0 ${inputWidth}` : '1'};
+                    flex: 1;
+                    max-width: ${inputWidth ? inputWidth : 'unset'};
                 }
             `}</style>
         </div>
