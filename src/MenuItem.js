@@ -44,7 +44,7 @@ const createOnClickHandler = (onClick, value) => evt => {
     if (onClick) {
         evt.preventDefault()
         evt.stopPropagation()
-        onClick(value)
+        onClick({ value }, evt)
     }
 }
 

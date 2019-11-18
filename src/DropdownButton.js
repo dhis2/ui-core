@@ -19,7 +19,13 @@ class DropdownButton extends Component {
     }
     anchorRef = React.createRef()
 
-    onToggle = () => this.setState({ open: !this.state.open })
+    onToggle = (_, event) => {
+        this.setState({ open: !this.state.open }, () => {
+            if (this.props.onClick) {
+                this.props.onClick({ open: this.state.open }, event)
+            }
+        })
+    }
 
     render() {
         const { open } = this.state
@@ -79,6 +85,8 @@ DropdownButton.propTypes = {
     component: propTypes.element.isRequired,
     icon: propTypes.element,
     children: propTypes.string,
+
+    onClick: propTypes.func,
 
     small: sizePropType,
     large: sizePropType,

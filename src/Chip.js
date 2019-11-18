@@ -18,7 +18,7 @@ import { Remove } from './Chip/Remove.js'
 class Chip extends Component {
     onClick = e => {
         if (!this.props.disabled && this.props.onClick) {
-            this.props.onClick(e)
+            this.props.onClick({}, e)
         }
     }
 
@@ -43,7 +43,7 @@ class Chip extends Component {
             >
                 <Icon icon={this.props.icon} />
                 <Content overflow={overflow}>{children}</Content>
-                <Remove onRemove={this.props.onRemove} />
+                <Remove onRemove={event => this.props.onRemove({}, event)} />
 
                 <style jsx>{`
                     span {
