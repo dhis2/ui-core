@@ -36,9 +36,6 @@ const SingleSelectOption = ({
                 text-decoration: none;
                 color: ${colors.grey900};
                 padding: ${spacers.dp8} ${spacers.dp12};
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
             }
 
             div:hover {
