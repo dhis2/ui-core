@@ -9,7 +9,9 @@ import {
     ModalActions,
     ModalContent,
     SingleSelectField,
+    MultiSelectField,
     SingleSelectOption,
+    MultiSelectOption,
 } from '../src'
 
 const say = something => () => alert(something)
@@ -286,7 +288,7 @@ storiesOf('Modal', module)
             </ModalActions>
         </Modal>
     ))
-    .add('Large: with Select component', () => (
+    .add('Large: with SingleSelectField component', () => (
         <Modal open large>
             <ModalTitle>Select opens on top of the Modal</ModalTitle>
 
@@ -303,6 +305,43 @@ storiesOf('Modal', module)
                     <SingleSelectOption key="9" value="3" label="nine" />
                     <SingleSelectOption key="10" value="3" label="ten" />
                 </SingleSelectField>
+            </ModalContent>
+
+            <ModalActions>
+                <ButtonStrip end>
+                    <Button onClick={say('Button secondary')} secondary>
+                        Secondary action
+                    </Button>
+
+                    <Button onClick={say('Button primary')} primary>
+                        Primary action
+                    </Button>
+                </ButtonStrip>
+            </ModalActions>
+        </Modal>
+    ))
+    .add('Large: with MultiSelectField component', () => (
+        <Modal open large>
+            <ModalTitle>Select opens on top of the Modal</ModalTitle>
+
+            <ModalContent>
+                <MultiSelectField
+                    selected={[{ value: '1', label: 'one' }]}
+                    onChange={({ selected }) =>
+                        alert(JSON.stringify(selected, null, 2))
+                    }
+                >
+                    <MultiSelectOption key="1" value="1" label="one" />
+                    <MultiSelectOption key="2" value="2" label="two" />
+                    <MultiSelectOption key="3" value="3" label="three" />
+                    <MultiSelectOption key="4" value="3" label="four" />
+                    <MultiSelectOption key="5" value="3" label="five" />
+                    <MultiSelectOption key="6" value="3" label="six" />
+                    <MultiSelectOption key="7" value="3" label="seven" />
+                    <MultiSelectOption key="8" value="3" label="eight" />
+                    <MultiSelectOption key="9" value="3" label="nine" />
+                    <MultiSelectOption key="10" value="3" label="ten" />
+                </MultiSelectField>
             </ModalContent>
 
             <ModalActions>
