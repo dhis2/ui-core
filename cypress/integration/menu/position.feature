@@ -2,7 +2,7 @@ Feature: Position of a menu component
 
     # default max width: 380px; default max height: 380px
     Background:
-        Given the menu component has a height and height of its default maximum
+        Given the menu component has a height and width of its default maximum
 
     Scenario: Default rendering
         Given there is enough space below the anchor to fit the default maximum
