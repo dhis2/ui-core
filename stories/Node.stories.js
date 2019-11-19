@@ -6,13 +6,26 @@ import { Node } from '../src/Node'
 
 const say = something => () => alert(something)
 
+window.onOpen = (payload, event) => {
+    console.log('onOpen payload', payload)
+    console.log('onOpen event', event)
+}
+
+window.onClose = (payload, event) => {
+    console.log('onClose payload', payload)
+    console.log('onClose event', event)
+}
+
+const onOpen = (...args) => window.onOpen(...args)
+const onClose = (...args) => window.onClose(...args)
+
 storiesOf('Node', module)
     .add('Multiple roots', () => (
         <div>
             <Node
                 open={false}
-                onOpen={say('open tree 1.1')}
-                onClose={say('close tree 1.1')}
+                onOpen={onOpen}
+                onClose={onClose}
                 component={
                     <Checkbox
                         label="Node label 1.1"
@@ -28,8 +41,8 @@ storiesOf('Node', module)
 
             <Node
                 open={false}
-                onOpen={say('open tree 1.2')}
-                onClose={say('close tree 1.2')}
+                onOpen={onOpen}
+                onClose={onClose}
                 component={
                     <Checkbox
                         label="Node label 1.2"
@@ -48,8 +61,8 @@ storiesOf('Node', module)
     .add('2 Levels open', () => (
         <Node
             open={true}
-            onOpen={say('open tree 1.1')}
-            onClose={say('close tree 1.1')}
+            onOpen={onOpen}
+            onClose={onClose}
             component={
                 <Checkbox
                     label="Node label"
@@ -62,8 +75,8 @@ storiesOf('Node', module)
         >
             <Node
                 open={true}
-                onOpen={say('open tree 2.1')}
-                onClose={say('close tree 2.1')}
+                onOpen={onOpen}
+                onClose={onClose}
                 component={
                     <Checkbox
                         label="Node label"
@@ -110,7 +123,7 @@ storiesOf('Node', module)
             </Node>
             <Node
                 open={false}
-                onOpen={say('open tree 2.2')}
+                onOpen={onOpen}
                 onCLose={say('close tree 2.2')}
                 component={
                     <Checkbox
@@ -158,8 +171,8 @@ storiesOf('Node', module)
             </Node>
             <Node
                 open={false}
-                onOpen={say('open tree 2.3')}
-                onClose={say('close tree 2.3')}
+                onOpen={onOpen}
+                onClose={onClose}
                 component={
                     <Checkbox
                         label="Node label"
@@ -172,8 +185,8 @@ storiesOf('Node', module)
             />
             <Node
                 open={false}
-                onOpen={say('open tree 2.4')}
-                onClose={say('close tree 2.4')}
+                onOpen={onOpen}
+                onClose={onClose}
                 component={
                     <Checkbox
                         label="Node label"
@@ -186,8 +199,8 @@ storiesOf('Node', module)
             />
             <Node
                 open={false}
-                onOpen={say('open tree 2.5')}
-                onClose={say('close tree 2.5')}
+                onOpen={onOpen}
+                onClose={onClose}
                 component={
                     <Checkbox
                         label="Node label"
@@ -200,8 +213,8 @@ storiesOf('Node', module)
             />
             <Node
                 open={false}
-                onOpen={say('open tree 2.5')}
-                onClose={say('close tree 2.5')}
+                onOpen={onOpen}
+                onClose={onClose}
                 component={
                     <Checkbox
                         label="Node label"
@@ -221,8 +234,8 @@ storiesOf('Node', module)
         <div>
             <Node
                 open={true}
-                onOpen={say('open tree level 1')}
-                onClose={say('close tree level 1')}
+                onOpen={onOpen}
+                onClose={onClose}
                 arrowTopOffset="10px"
                 component={
                     <h2>
@@ -242,8 +255,8 @@ storiesOf('Node', module)
                 <div className="sub-tree sub-tree--open">
                     <Node
                         open={true}
-                        onOpen={say('open tree level 2.1')}
-                        onClose={say('close tree level 2.1')}
+                        onOpen={onOpen}
+                        onClose={onClose}
                         component={
                             <h2>
                                 Lorem ipsum dolor sit amet, consetetur
@@ -266,8 +279,8 @@ storiesOf('Node', module)
                 <div className="sub-tree">
                     <Node
                         open={false}
-                        onOpen={say('open tree level 2.2')}
-                        onClose={say('close tree level 2.2')}
+                        onOpen={onOpen}
+                        onClose={onClose}
                         component={
                             <h2>
                                 Lorem ipsum dolor sit amet, consetetur
@@ -281,8 +294,8 @@ storiesOf('Node', module)
                 <div className="sub-tree">
                     <Node
                         open={false}
-                        onOpen={say('open tree level 2.3')}
-                        onClose={say('close tree level 2.3')}
+                        onOpen={onOpen}
+                        onClose={onClose}
                         component={
                             <h2>
                                 Lorem ipsum dolor sit amet, consetetur
@@ -296,8 +309,8 @@ storiesOf('Node', module)
                 <div className="sub-tree">
                     <Node
                         open={false}
-                        onOpen={say('open tree level 2.4')}
-                        onClose={say('close tree level 2.4')}
+                        onOpen={onOpen}
+                        onClose={onClose}
                         component={
                             <h2>
                                 Lorem ipsum dolor sit amet, consetetur
@@ -311,8 +324,8 @@ storiesOf('Node', module)
                 <div className="sub-tree">
                     <Node
                         open={false}
-                        onOpen={say('open tree level 2.5')}
-                        onClose={say('close tree level 2.5')}
+                        onOpen={onOpen}
+                        onClose={onClose}
                         component={
                             <h2>
                                 Lorem ipsum dolor sit amet, consetetur

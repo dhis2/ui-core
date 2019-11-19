@@ -14,9 +14,16 @@ import {
 
 const say = something => () => alert(something)
 
+window.onClose = (payload, event) => {
+    console.log('onClose payload', payload)
+    console.log('onClose event', event)
+}
+
+const onClose = (...args) => window.onClose(...args)
+
 storiesOf('Modal', module)
     .add('Small: Title, Content, Action', () => (
-        <Modal open small>
+        <Modal open small onClose={onClose}>
             <ModalTitle>
                 This is a small modal with title, content and primary action
             </ModalTitle>
