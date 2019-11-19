@@ -94,7 +94,7 @@ const ToggleField = ({
  * @prop {function} toggleComponent
  */
 const toggleFieldPropTypes = {
-    value: propTypes.string.isRequired,
+    value: propTypes.string,
     label: propTypes.node.isRequired,
 
     name: propTypes.string,
