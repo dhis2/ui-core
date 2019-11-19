@@ -2,6 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { Backdrop } from './Backdrop.js'
+import { layers } from './theme.js'
 
 const Content = ({ children }) => (
     <div>
@@ -35,7 +36,11 @@ Content.propTypes = {
  */
 const ScreenCover = ({ children, onClick, className, zIndex }) => {
     return (
-        <Backdrop onClick={onClick} zIndex={zIndex} className={className}>
+        <Backdrop
+            onClick={onClick}
+            zIndex={zIndex || layers.blocking}
+            className={className}
+        >
             <Content>{children}</Content>
         </Backdrop>
     )

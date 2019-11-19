@@ -4,7 +4,6 @@ import propTypes from '@dhis2/prop-types'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card.js'
 import { layers } from '../theme.js'
-import { Layer } from '../LayerContext.js'
 import { Backdrop } from '../Backdrop.js'
 
 const MenuWrapper = ({
@@ -24,27 +23,26 @@ const MenuWrapper = ({
         overflow: auto;
     `
     return ReactDOM.createPortal(
-        <Layer zIndexBase={layers.applicationTop} zIndex={zIndex}>
-            {zIndexComputed => (
-                <Backdrop onClick={onClick} transparent>
-                    <div className={className} ref={menuRef}>
-                        <Card className={cardClassName}>{children}</Card>
+        <Backdrop
+            onClick={onClick}
+            transparent
+            zIndex={zIndex || layers.applicationTop}
+        >
+            <div className={className} ref={menuRef}>
+                <Card className={cardClassName}>{children}</Card>
 
-                        {styles}
+                {styles}
 
-                        <style jsx>{`
-                            div {
-                                position: absolute;
-                                z-index: ${zIndexComputed};
-                                top: ${menuTop};
-                                left: ${menuLeft};
-                                width: ${menuWidth};
-                            }
-                        `}</style>
-                    </div>
-                </Backdrop>
-            )}
-        </Layer>,
+                <style jsx>{`
+                    div {
+                        position: absolute;
+                        top: ${menuTop};
+                        left: ${menuLeft};
+                        width: ${menuWidth};
+                    }
+                `}</style>
+            </div>
+        </Backdrop>,
         document.body
     )
 }
