@@ -72,7 +72,7 @@ class DropMenu extends Component {
         const { top, left } = this.state
 
         return ReactDOM.createPortal(
-            <Layer zIndex={zIndex || layers.applicationTop}>
+            <Layer zIndex={zIndex}>
                 {zIndexComputed => (
                     <div className={className} ref={this.elContainer}>
                         {component}
@@ -91,6 +91,10 @@ class DropMenu extends Component {
             document.body
         )
     }
+}
+
+DropMenu.defaultProps = {
+    zIndex: layers.appliationTop,
 }
 
 /**
