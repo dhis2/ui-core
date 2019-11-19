@@ -23,11 +23,7 @@ const MenuWrapper = ({
         overflow: auto;
     `
     return ReactDOM.createPortal(
-        <Backdrop
-            onClick={onClick}
-            transparent
-            zIndex={zIndex || layers.applicationTop}
-        >
+        <Backdrop onClick={onClick} transparent zIndex={zIndex}>
             <div className={className} ref={menuRef}>
                 <Card className={cardClassName}>{children}</Card>
 
@@ -49,6 +45,7 @@ const MenuWrapper = ({
 
 MenuWrapper.defaultProps = {
     maxHeight: '280px',
+    zIndex: layers.applicationTop,
 }
 
 MenuWrapper.propTypes = {
