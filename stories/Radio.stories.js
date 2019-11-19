@@ -3,34 +3,85 @@ import React from 'react'
 
 import { Radio } from '../src'
 
-const logger = ({ name, value, checked }) =>
-    console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
+window.onChange = (payload, event) => {
+    console.log('onChange payload', payload)
+    console.log('onChange event', event)
+}
+
+window.onFocus = (payload, event) => {
+    console.log('onFocus payload', payload)
+    console.log('onFocus event', event)
+}
+
+window.onBlur = (payload, event) => {
+    console.log('onBlur payload', payload)
+    console.log('onBlur event', event)
+}
+
+const onChange = (...args) => window.onChange(...args)
+const onFocus = (...args) => window.onFocus(...args)
+const onBlur = (...args) => window.onBlur(...args)
 
 storiesOf('Radio', module)
     // Regular
     .add('Default', () => (
-        <Radio name="Ex" label="Radio" value="default" onChange={logger} />
+        <Radio
+            name="Ex"
+            label="Radio"
+            value="default"
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+        />
     ))
 
     .add('Focused unchecked', () => (
-        <Radio
-            initialFocus
-            name="Ex"
-            label="Radio"
-            value="default"
-            onChange={logger}
-        />
+        <>
+            <Radio
+                initialFocus
+                name="Ex"
+                label="Radio"
+                value="default"
+                className="initially-focused"
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+            <Radio
+                name="Ex"
+                label="Radio"
+                value="default"
+                className="initially-unfocused"
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+        </>
     ))
 
     .add('Focused checked', () => (
-        <Radio
-            initialFocus
-            checked
-            name="Ex"
-            label="Radio"
-            value="default"
-            onChange={logger}
-        />
+        <>
+            <Radio
+                initialFocus
+                checked
+                name="Ex"
+                label="Radio"
+                value="default"
+                className="initially-focused"
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+            <Radio
+                name="Ex"
+                label="Radio"
+                value="default"
+                className="initially-unfocused"
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+        </>
     ))
 
     .add('Checked', () => (
@@ -39,7 +90,9 @@ storiesOf('Radio', module)
             label="Radio"
             checked
             value="checked"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -50,7 +103,9 @@ storiesOf('Radio', module)
                 label="Radio"
                 disabled
                 value="disabled"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Radio
                 name="Ex"
@@ -58,7 +113,9 @@ storiesOf('Radio', module)
                 disabled
                 checked
                 value="disabled"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -70,7 +127,9 @@ storiesOf('Radio', module)
                 label="Radio"
                 valid
                 value="valid"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Radio
                 name="Ex"
@@ -78,7 +137,9 @@ storiesOf('Radio', module)
                 valid
                 checked
                 value="valid"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -90,7 +151,9 @@ storiesOf('Radio', module)
                 label="Radio"
                 warning
                 value="warning"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Radio
                 name="Ex"
@@ -98,7 +161,9 @@ storiesOf('Radio', module)
                 warning
                 checked
                 value="warning"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -110,7 +175,9 @@ storiesOf('Radio', module)
                 label="Radio"
                 error
                 value="error"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Radio
                 name="Ex"
@@ -118,7 +185,9 @@ storiesOf('Radio', module)
                 error
                 checked
                 value="error"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -128,7 +197,9 @@ storiesOf('Radio', module)
             name="Ex"
             label={<img src="https://picsum.photos/id/82/200/100" />}
             value="with-help"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -139,7 +210,9 @@ storiesOf('Radio', module)
             name="Ex"
             label="Radio"
             value="default"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -150,7 +223,9 @@ storiesOf('Radio', module)
             name="Ex"
             label="Radio"
             value="default"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -162,7 +237,9 @@ storiesOf('Radio', module)
             name="Ex"
             label="Radio"
             value="default"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -173,7 +250,9 @@ storiesOf('Radio', module)
             label="Radio"
             checked
             value="checked"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -185,7 +264,9 @@ storiesOf('Radio', module)
                 label="Radio"
                 disabled
                 value="disabled"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Radio
                 dense
@@ -194,7 +275,9 @@ storiesOf('Radio', module)
                 disabled
                 checked
                 value="disabled"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -207,7 +290,9 @@ storiesOf('Radio', module)
                 label="Radio"
                 valid
                 value="valid"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Radio
                 dense
@@ -216,7 +301,9 @@ storiesOf('Radio', module)
                 valid
                 checked
                 value="valid"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -229,7 +316,9 @@ storiesOf('Radio', module)
                 label="Radio"
                 warning
                 value="warning"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Radio
                 dense
@@ -238,7 +327,9 @@ storiesOf('Radio', module)
                 warning
                 checked
                 value="warning"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -251,7 +342,9 @@ storiesOf('Radio', module)
                 label="Radio"
                 error
                 value="error"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Radio
                 dense
@@ -260,7 +353,9 @@ storiesOf('Radio', module)
                 error
                 checked
                 value="error"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -271,6 +366,8 @@ storiesOf('Radio', module)
             name="Ex"
             label={<img src="https://picsum.photos/id/82/200/100" />}
             value="with-help"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
