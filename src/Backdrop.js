@@ -3,7 +3,6 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 import { Layer } from './LayerContext.js'
-import { layers } from './theme.js'
 
 /**
  * @module
@@ -13,7 +12,7 @@ import { layers } from './theme.js'
  */
 const Backdrop = ({ onClick, transparent, children, zIndex, className }) => {
     return (
-        <Layer zIndexBase={layers.blocking} zIndex={zIndex}>
+        <Layer zIndex={zIndex}>
             {zIndexComputed => (
                 <div className={cx('backdrop', className)} onClick={onClick}>
                     <div
