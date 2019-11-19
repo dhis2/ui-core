@@ -4,6 +4,13 @@ import { DropdownButton } from '../src'
 
 import { Menu, MenuItem, Divider, Switch } from '../src'
 
+window.onClick = (payload, event) => {
+    console.log('onClick payload', payload)
+    console.log('onClick event', event)
+}
+
+const onClick = (...args) => window.onClick(...args)
+
 const componentMenu = (
     <Menu>
         <MenuItem
@@ -73,6 +80,7 @@ createStory('DropdownButton: Basic', {
     name: 'Button',
     value: 'default',
     component: Simple,
+    onClick,
 })
 
 createStory('DropdownButton: Primary', {
@@ -80,6 +88,7 @@ createStory('DropdownButton: Primary', {
     value: 'default',
     primary: true,
     component: Simple,
+    onClick,
 })
 
 createStory('DropdownButton: Secondary', {
@@ -87,6 +96,7 @@ createStory('DropdownButton: Secondary', {
     value: 'default',
     secondary: true,
     component: Simple,
+    onClick,
 })
 
 createStory('DropdownButton: Destructive', {
@@ -94,6 +104,7 @@ createStory('DropdownButton: Destructive', {
     value: 'default',
     destructive: true,
     component: Simple,
+    onClick,
 })
 
 function createStory(name, props) {

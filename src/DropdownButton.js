@@ -19,10 +19,17 @@ class DropdownButton extends Component {
     }
     anchorRef = React.createRef()
 
-    onToggle = (_, event) => {
+    onToggle = ({ name, value }, event) => {
         this.setState({ open: !this.state.open }, () => {
             if (this.props.onClick) {
-                this.props.onClick({ open: this.state.open }, event)
+                this.props.onClick(
+                    {
+                        name,
+                        value,
+                        open: this.state.open,
+                    },
+                    event
+                )
             }
         })
     }
@@ -34,7 +41,7 @@ class DropdownButton extends Component {
 
         return (
             <div ref={this.anchorRef}>
-                <Button onClick={this.onToggle} {...this.props}>
+                <Button {...this.props} onClick={this.onToggle}>
                     {this.props.children}
 
                     {ArrowIcon}
@@ -42,6 +49,7 @@ class DropdownButton extends Component {
 
                 {open && (
                     <DropMenu
+                        className="dropdown-button-dropmenu"
                         component={this.props.component}
                         onClose={() => this.setState({ open: false })}
                         anchorEl={this.anchorRef.current}
