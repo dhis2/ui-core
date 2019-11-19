@@ -4,6 +4,13 @@ import { SplitButton } from '../src'
 
 import { Menu, MenuItem, Divider, Switch } from '../src'
 
+window.onClick = (payload, event) => {
+    console.log('onClick payload', payload)
+    console.log('onClick event', event)
+}
+
+const onClick = (...args) => window.onClick(...args)
+
 const componentMenu = (
     <Menu>
         <MenuItem
@@ -65,36 +72,32 @@ const Simple = <span>Simplest thing</span>
 createStory('SplitButton: Basic', {
     name: 'Button',
     value: 'default',
-    onClick: e =>
-        alert(`Clicked button ${e.target.name} with ${e.target.value}`),
     component: Simple,
+    onClick,
 })
 
 createStory('SplitButton: Primary', {
     name: 'Button',
     value: 'default',
-    onClick: e =>
-        alert(`Clicked button ${e.target.name} with ${e.target.value}`),
     primary: true,
     component: Simple,
+    onClick,
 })
 
 createStory('SplitButton: Secondary', {
     name: 'Button',
     value: 'default',
-    onClick: e =>
-        alert(`Clicked button ${e.target.name} with ${e.target.value}`),
     secondary: true,
     component: Simple,
+    onClick,
 })
 
 createStory('SplitButton: Destructive', {
     name: 'Button',
     value: 'default',
-    onClick: e =>
-        alert(`Clicked button ${e.target.name} with ${e.target.value}`),
     destructive: true,
     component: Simple,
+    onClick,
 })
 
 function createStory(name, props) {

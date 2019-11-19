@@ -2,7 +2,12 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { CircularLoader, ScreenCover, Menu, MenuItem, Divider } from '../src'
 
-const onClick = () => alert('Clicked the backdrop')
+window.onClick = (payload, event) => {
+    console.log('onClick payload', payload)
+    console.log('onClick event', event)
+}
+
+const onClick = (...args) => window.onClick(...args)
 
 storiesOf('ScreenCover', module)
     .add('Default', () => <ScreenCover onClick={onClick} />)

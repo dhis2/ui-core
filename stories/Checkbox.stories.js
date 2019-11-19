@@ -3,8 +3,24 @@ import React from 'react'
 
 import { Checkbox } from '../src'
 
-const logger = ({ name, value, checked }) =>
-    console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
+window.onChange = (payload, event) => {
+    console.log('onClick payload', payload)
+    console.log('onClick event', event)
+}
+
+window.onFocus = (payload, event) => {
+    console.log('onFocus payload', payload)
+    console.log('onFocus event', event)
+}
+
+window.onBlur = (payload, event) => {
+    console.log('onBlur payload', payload)
+    console.log('onBlur event', event)
+}
+
+const onChange = (...args) => window.onChange(...args)
+const onFocus = (...args) => window.onFocus(...args)
+const onBlur = (...args) => window.onBlur(...args)
 
 storiesOf('Checkbox', module)
     // Regular
@@ -13,29 +29,58 @@ storiesOf('Checkbox', module)
             name="Ex"
             label="Checkbox"
             value="default"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
     .add('Focused unchecked', () => (
-        <Checkbox
-            initialFocus
-            name="Ex"
-            label="Checkbox"
-            value="default"
-            onChange={logger}
-        />
+        <>
+            <Checkbox
+                initialFocus
+                name="Ex"
+                label="Checkbox"
+                value="default"
+                className="initially-focused"
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+            <Checkbox
+                name="Ex2"
+                label="Checkbox"
+                value="default2"
+                className="initially-unfocused"
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+        </>
     ))
 
     .add('Focused checked', () => (
-        <Checkbox
-            initialFocus
-            checked
-            name="Ex"
-            label="Checkbox"
-            value="default"
-            onChange={logger}
-        />
+        <>
+            <Checkbox
+                initialFocus
+                checked
+                name="Ex"
+                label="Checkbox"
+                value="default"
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+            <Checkbox
+                checked
+                name="Ex2"
+                label="Checkbox"
+                value="default2"
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+        </>
     ))
 
     .add('Checked', () => (
@@ -44,7 +89,9 @@ storiesOf('Checkbox', module)
             label="Checkbox"
             checked
             value="checked"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -54,7 +101,9 @@ storiesOf('Checkbox', module)
             label="Checkbox"
             indeterminate
             value="checked"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -65,7 +114,9 @@ storiesOf('Checkbox', module)
                 label="Checkbox"
                 disabled
                 value="disabled"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Checkbox
                 name="Ex"
@@ -73,7 +124,9 @@ storiesOf('Checkbox', module)
                 disabled
                 checked
                 value="disabled"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -85,7 +138,9 @@ storiesOf('Checkbox', module)
                 label="Checkbox"
                 valid
                 value="valid"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Checkbox
                 name="Ex"
@@ -93,7 +148,9 @@ storiesOf('Checkbox', module)
                 valid
                 checked
                 value="valid"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -105,7 +162,9 @@ storiesOf('Checkbox', module)
                 label="Checkbox"
                 warning
                 value="warning"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Checkbox
                 name="Ex"
@@ -113,7 +172,9 @@ storiesOf('Checkbox', module)
                 warning
                 checked
                 value="warning"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -125,7 +186,9 @@ storiesOf('Checkbox', module)
                 label="Checkbox"
                 error
                 value="error"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Checkbox
                 name="Ex"
@@ -133,7 +196,9 @@ storiesOf('Checkbox', module)
                 error
                 checked
                 value="error"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -143,7 +208,9 @@ storiesOf('Checkbox', module)
             name="Ex"
             label={<img src="https://picsum.photos/id/82/200/100" />}
             value="with-help"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -154,7 +221,9 @@ storiesOf('Checkbox', module)
             name="Ex"
             label="Checkbox"
             value="default"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -165,7 +234,9 @@ storiesOf('Checkbox', module)
             name="Ex"
             label="Checkbox"
             value="default"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -177,7 +248,9 @@ storiesOf('Checkbox', module)
             name="Ex"
             label="Checkbox"
             value="default"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -188,7 +261,9 @@ storiesOf('Checkbox', module)
             label="Checkbox"
             checked
             value="checked"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -199,7 +274,9 @@ storiesOf('Checkbox', module)
             label="Checkbox"
             indeterminate
             value="checked"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))
 
@@ -211,7 +288,9 @@ storiesOf('Checkbox', module)
                 label="Checkbox"
                 disabled
                 value="disabled"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Checkbox
                 dense
@@ -220,7 +299,9 @@ storiesOf('Checkbox', module)
                 disabled
                 checked
                 value="disabled"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -233,7 +314,9 @@ storiesOf('Checkbox', module)
                 label="Checkbox"
                 valid
                 value="valid"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Checkbox
                 dense
@@ -242,7 +325,9 @@ storiesOf('Checkbox', module)
                 valid
                 checked
                 value="valid"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -255,7 +340,9 @@ storiesOf('Checkbox', module)
                 label="Checkbox"
                 warning
                 value="warning"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Checkbox
                 dense
@@ -264,7 +351,9 @@ storiesOf('Checkbox', module)
                 warning
                 checked
                 value="warning"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -277,7 +366,9 @@ storiesOf('Checkbox', module)
                 label="Checkbox"
                 error
                 value="error"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             <Checkbox
                 dense
@@ -286,7 +377,9 @@ storiesOf('Checkbox', module)
                 error
                 checked
                 value="error"
-                onChange={logger}
+                onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         </>
     ))
@@ -297,6 +390,8 @@ storiesOf('Checkbox', module)
             name="Ex"
             label={<img src="https://picsum.photos/id/82/200/100" />}
             value="with-help"
-            onChange={logger}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     ))

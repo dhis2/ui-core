@@ -2,25 +2,45 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Chip } from '../src'
 
+window.onClick = (payload, event) => {
+    console.log('onClick payload', payload)
+    console.log('onClick event', event)
+}
+
+window.onRemove = (payload, event) => {
+    console.log('onRemove payload', payload)
+    console.log('onRemove event', event)
+}
+
+const onClick = (...args) => window.onClick(...args)
+const onRemove = (...args) => window.onRemove(...args)
+
 storiesOf('Chip', module)
-    .add('Default', () => <Chip>Chippy</Chip>)
+    .add('Default', () => <Chip onClick={onClick}>Chippy</Chip>)
 
-    .add('Selected', () => <Chip selected>Chipmunk</Chip>)
-
-    .add('Overflow', () => (
-        <Chip selected>A super long chip which should definitely truncate</Chip>
-    ))
-
-    .add('Removable', () => (
-        <Chip
-            onClick={e => console.log('click', e)}
-            onRemove={e => console.log('remove', e)}
-        >
+    .add('Selected', () => (
+        <Chip selected onClick={onClick}>
             Chipmunk
         </Chip>
     ))
 
-    .add('Icon', () => <Chip icon={<Globe />}>With an icon</Chip>)
+    .add('Overflow', () => (
+        <Chip selected onClick={onClick}>
+            A super long chip which should definitely truncate
+        </Chip>
+    ))
+
+    .add('Removable', () => (
+        <Chip onClick={onClick} onRemove={onRemove}>
+            Chipmunk
+        </Chip>
+    ))
+
+    .add('Icon', () => (
+        <Chip onClick={onClick} icon={<Globe />}>
+            With an icon
+        </Chip>
+    ))
 
 const Globe = () => (
     <svg role="img" viewBox="0 0 24 24" height="100px" width="100px">
