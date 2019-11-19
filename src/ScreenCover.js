@@ -34,16 +34,16 @@ Content.propTypes = {
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking|Design system}
  * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
  */
-const ScreenCover = ({ children, onClick, className, zIndex }) => {
+const ScreenCover = ({ children, onClick, className }) => {
     return (
-        <Backdrop onClick={onClick} zIndex={zIndex} className={className}>
+        <Backdrop
+            onClick={onClick}
+            zIndex={layers.blocking}
+            className={className}
+        >
             <Content>{children}</Content>
         </Backdrop>
     )
-}
-
-ScreenCover.defaultProps = {
-    zIndex: layers.blocking,
 }
 
 /**
@@ -57,7 +57,6 @@ ScreenCover.propTypes = {
     onClick: propTypes.func,
     className: propTypes.string,
     children: propTypes.node,
-    zIndex: propTypes.number,
 }
 
 export { ScreenCover }
