@@ -33,17 +33,10 @@ export class Select extends Component {
         if (this.props.initialFocus) {
             this.inputRef.current.focus()
         }
-
-        this.updateMenuPosition()
-        window.addEventListener('resize', this.updateMenuPosition)
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.updateMenuPosition)
-
-        if (this.menuRequestId) {
-            window.cancelAnimationFrame(this.menuRequestId)
-        }
+        this.handleMeasurementStop()
     }
 
     handleFocusInput = () => {
@@ -73,8 +66,8 @@ export class Select extends Component {
 
         this.menuRequestId = window.requestAnimationFrame(() => {
             const rect = selectEl.getBoundingClientRect()
-            const menuTop = rect.bottom + window.scrollY
-            const menuLeft = rect.left + window.scrollX
+            const menuTop = rect.bottom
+            const menuLeft = rect.left
             const menuWidth = rect.width
 
             const sizing = {
@@ -87,12 +80,30 @@ export class Select extends Component {
         })
     }
 
+    handleMeasurementStart = () => {
+        this.updateMenuPosition()
+
+        window.addEventListener('resize', this.updateMenuPosition)
+        window.addEventListener('scroll', this.updateMenuPosition)
+    }
+
+    handleMeasurementStop = () => {
+        window.removeEventListener('resize', this.updateMenuPosition)
+        window.removeEventListener('scroll', this.updateMenuPosition)
+
+        if (this.menuRequestId) {
+            window.cancelAnimationFrame(this.menuRequestId)
+        }
+    }
+
     handleOpen = () => {
+        this.handleMeasurementStart()
         this.setState({ open: true })
     }
 
     handleClose = () => {
         this.setState({ open: false })
+        this.handleMeasurementStop()
     }
 
     onToggle = e => {
@@ -105,13 +116,6 @@ export class Select extends Component {
         this.state.open ? this.handleClose() : this.handleOpen()
     }
 
-    /**
-     * Note that since this event handler is attached to the document, events that have been
-     * stopped from bubbling in the react hierarchy might still call this handler through
-     * regular event bubbling.
-     *
-     * https://github.com/facebook/react/issues/12518#issuecomment-377954226
-     */
     onOutsideClick = e => {
         const { onBlur, disabled, selected } = this.props
 
@@ -194,45 +198,38 @@ export class Select extends Component {
         const menu = React.cloneElement(this.props.menu, menuProps)
 
         return (
-            <React.Fragment>
-                <div
-                    className={className}
-                    ref={this.selectRef}
-                    onFocus={this.onFocus}
-                    onKeyDown={this.onKeyDown}
+            <div
+                className={className}
+                ref={this.selectRef}
+                onFocus={this.onFocus}
+                onKeyDown={this.onKeyDown}
+            >
+                <InputWrapper
+                    onToggle={this.onToggle}
+                    inputRef={this.inputRef}
+                    tabIndex={tabIndex}
+                    error={error}
+                    warning={warning}
+                    valid={valid}
+                    disabled={disabled}
+                    dense={dense}
                 >
-                    <InputWrapper
-                        onToggle={this.onToggle}
-                        inputRef={this.inputRef}
-                        tabIndex={tabIndex}
-                        error={error}
-                        warning={warning}
-                        valid={valid}
-                        disabled={disabled}
-                        dense={dense}
+                    {input}
+                </InputWrapper>
+                {open && (
+                    <MenuWrapper
+                        onClick={this.onOutsideClick}
+                        maxHeight={maxHeight}
+                        selectRef={this.selectRef}
+                        menuRef={this.menuRef}
+                        menuTop={menuTop}
+                        menuLeft={menuLeft}
+                        menuWidth={menuWidth}
                     >
-                        {input}
-                    </InputWrapper>
-                    {open && (
-                        <MenuWrapper
-                            onClick={this.onOutsideClick}
-                            maxHeight={maxHeight}
-                            selectRef={this.selectRef}
-                            menuRef={this.menuRef}
-                            menuTop={menuTop}
-                            menuLeft={menuLeft}
-                            menuWidth={menuWidth}
-                        >
-                            {menu}
-                        </MenuWrapper>
-                    )}
-                </div>
-                <style jsx>{`
-                    div {
-                        position: relative;
-                    }
-                `}</style>
-            </React.Fragment>
+                        {menu}
+                    </MenuWrapper>
+                )}
+            </div>
         )
     }
 }
