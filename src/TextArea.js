@@ -27,8 +27,8 @@ export class TextArea extends Component {
         }
     }
 
-    componentDidUpdate() {
-        if (this.shouldDoAutoGrow()) {
+    componentDidUpdate(prevProps) {
+        if (this.shouldDoAutoGrow() && this.props.value !== prevProps.value) {
             this.setHeight()
         }
     }
