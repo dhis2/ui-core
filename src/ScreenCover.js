@@ -36,14 +36,14 @@ Content.propTypes = {
  */
 const ScreenCover = ({ children, onClick, className, zIndex }) => {
     return (
-        <Backdrop
-            onClick={onClick}
-            zIndex={zIndex || layers.blocking}
-            className={className}
-        >
+        <Backdrop onClick={onClick} zIndex={zIndex} className={className}>
             <Content>{children}</Content>
         </Backdrop>
     )
+}
+
+ScreenCover.defaultProps = {
+    zIndex: layers.blocking,
 }
 
 /**
