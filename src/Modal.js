@@ -34,13 +34,11 @@ import { ModalCard } from './Modal/ModalCard.js'
  */
 export const Modal = ({ children, onClose, small, large, className }) =>
     createPortal(
-        <aside className={className}>
-            <ScreenCover onClick={onClose}>
-                <ModalCard small={small} large={large}>
-                    {children}
-                </ModalCard>
-            </ScreenCover>
-        </aside>,
+        <ScreenCover onClick={onClose} className={className}>
+            <ModalCard small={small} large={large}>
+                {children}
+            </ModalCard>
+        </ScreenCover>,
         document.body
     )
 
