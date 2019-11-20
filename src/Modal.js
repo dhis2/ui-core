@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 import { createPortal } from 'react-dom'
@@ -33,24 +32,14 @@ import { ModalCard } from './Modal/ModalCard.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/modal.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/modal--small-title-content-action|Storybook}
  */
-export const Modal = ({ children, onClose, small, large, open, className }) => {
+export const Modal = ({ children, onClose, small, large, className }) => {
     return createPortal(
-        <aside className={cx(className, { open })}>
+        <aside className={className}>
             <ScreenCover onClick={onClose}>
                 <ModalCard small={small} large={large}>
                     {children}
                 </ModalCard>
             </ScreenCover>
-
-            <style jsx>{`
-                aside {
-                    display: none;
-                }
-
-                .open {
-                    display: block;
-                }
-            `}</style>
         </aside>,
         document.body
     )
@@ -63,7 +52,6 @@ export const Modal = ({ children, onClose, small, large, open, className }) => {
  * @prop {Node} children
  * @prop {string} className
  * @prop {Function} onClose
- * @prop {bool} open
  * @prop {bool} small
  * @prop {bool} large
  */
@@ -79,7 +67,6 @@ Modal.propTypes = {
     // Callback used when clicking on the screen cover
     onClose: propTypes.func,
 
-    open: propTypes.bool,
     small: sizePropType,
     large: sizePropType,
 }
