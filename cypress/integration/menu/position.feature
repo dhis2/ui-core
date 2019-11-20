@@ -8,13 +8,13 @@ Feature: Position of a menu component
         Given there is enough space below the anchor to fit the default maximum
         When the menu is opened
         Then the menu is below the anchor
-        And the menu is left aligned with the anchor
+        And the left of the menu is aligned with the left of the anchor
 
     Scenario: Flipped vertically
         Given there is not enough space below the anchor to fit the default maximum
         When the menu is opened
         Then the menu is above the anchor
-        And the menu is left aligned with the anchor
+        And the left of the menu is aligned with the left of the anchor
 
     Scenario: Less than 368px and more than 50px available space below and above anchor
         Given there is not enough space above and below the anchor to fit the default maximum
@@ -34,7 +34,7 @@ Feature: Position of a menu component
     Scenario: Flipped horizontally
         Given the anchor has less than 128px space to the right
         When the menu is opened
-        Then the menu is right aligned with the anchor
+        Then the right of the menu is aligned with the right of the anchor
         And the menu is below the anchor
 
     # ¯\_(ツ)_/¯
@@ -42,5 +42,5 @@ Feature: Position of a menu component
     Scenario: Forced body overflow
         Given the anchor has less than 128px space to the left and the right
         When the menu is opened
-        Then the menu is left aligned with the anchor
+        Then the left of the menu is aligned with the left of the anchor
         And the menu is rendered below the anchor

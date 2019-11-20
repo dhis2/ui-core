@@ -8,13 +8,13 @@ Feature: Position of select menu dropdown
         Given the space below the select is more than its menu's height
         When the menu is opened
         Then it is rendered below the select
-        And it is left aligned with the select
+        And the left of the select is aligned with the left of the anchor
 
     Scenario: Flipped rendering when insufficient space below
         Given the space below the select is less than its menu's height
         When the menu is opened
         Then it is rendered above the select
-        And it is left aligned with the select
+        And the left of the select is aligned with the left of the anchor
 
     Scenario: A select with less than 368px available space below and above
         Given the space below and above the select is less than its menu's height
