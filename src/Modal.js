@@ -32,8 +32,8 @@ import { ModalCard } from './Modal/ModalCard.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/modal.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/modal--small-title-content-action|Storybook}
  */
-export const Modal = ({ children, onClose, small, large, className }) => {
-    return createPortal(
+export const Modal = ({ children, onClose, small, large, className }) =>
+    createPortal(
         <aside className={className}>
             <ScreenCover onClick={onClose}>
                 <ModalCard small={small} large={large}>
@@ -43,7 +43,6 @@ export const Modal = ({ children, onClose, small, large, className }) => {
         </aside>,
         document.body
     )
-}
 
 /**
  * @typedef {Object} PropTypes
