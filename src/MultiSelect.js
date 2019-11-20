@@ -25,7 +25,7 @@ const MultiSelect = ({
     tabIndex,
     maxHeight,
     inputMaxHeight,
-    inputWidth,
+    inputMaxWidth,
     onChange,
     onFocus,
     onBlur,
@@ -100,7 +100,7 @@ const MultiSelect = ({
                 .root-input {
                     margin-right: ${spacers.dp4};
                     flex: 1;
-                    max-width: ${inputWidth ? inputWidth : 'unset'};
+                    max-width: ${inputMaxWidth ? inputMaxWidth : 'unset'};
                 }
             `}</style>
         </div>
@@ -137,7 +137,7 @@ MultiSelect.defaultProps = {
  * @prop {string} [loadingText]
  * @prop {string} [maxHeight]
  * @prop {string} [inputMaxHeight]
- * @prop {string} [inputWidth]
+ * @prop {string} [inputMaxWidth]
  * @prop {string} [noMatchText] - Only required if filterable is true
  * @prop {string} [placeholder]
  * @prop {string} [prefix]
@@ -165,7 +165,7 @@ MultiSelect.propTypes = {
     loadingText: propTypes.string,
     maxHeight: propTypes.string,
     inputMaxHeight: propTypes.string,
-    inputWidth: propTypes.string,
+    inputMaxWidth: propTypes.string,
     noMatchText: propTypes.requiredIf(
         props => props.filterable,
         propTypes.string

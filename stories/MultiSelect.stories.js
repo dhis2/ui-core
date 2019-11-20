@@ -268,7 +268,7 @@ storiesOf('MultiSelect', module)
             {options}
         </MultiSelect>
     ))
-    .add('Input width', () => (
+    .add('Input max width', () => (
         <MultiSelect
             {...defaultProps}
             selected={[
@@ -281,7 +281,7 @@ storiesOf('MultiSelect', module)
                 { value: '7', label: 'seven' },
                 { value: '8', label: 'eight' },
             ]}
-            inputWidth="200px"
+            inputMaxWidth="200px"
         >
             {options}
         </MultiSelect>
