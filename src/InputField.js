@@ -74,7 +74,7 @@ class InputField extends React.Component {
                     tabIndex={tabIndex}
                     initialFocus={initialFocus}
                     readOnly={readOnly}
-                    width={inputWidth}
+                    inputWidth={inputWidth}
                 />
 
                 {helpText ? <Help>{helpText}</Help> : null}

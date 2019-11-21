@@ -133,7 +133,7 @@ export class Input extends Component {
             loading,
             value,
             tabIndex,
-            width,
+            inputWidth,
         } = this.props
 
         return (
@@ -173,7 +173,7 @@ export class Input extends Component {
                 <style jsx>{styles}</style>
                 <style jsx>{`
                     input {
-                        width: ${width};
+                        width: ${inputWidth};
                     }
                 `}</style>
             </div>
@@ -183,7 +183,7 @@ export class Input extends Component {
 
 Input.defaultProps = {
     type: 'text',
-    width: '100%',
+    inputWidth: '100%',
 }
 
 /**
@@ -199,7 +199,7 @@ Input.defaultProps = {
  * @prop {string} [placeholder]
  * @prop {string} [value]
  * @prop {string} [tabIndex]
- * @prop {string} [width]
+ * @prop {string} [inputWidth]
  *
  * @prop {boolean} [disabled]
  * @prop {boolean} [readOnly]
@@ -232,7 +232,7 @@ Input.propTypes = {
     value: propTypes.string,
     placeholder: propTypes.string,
     tabIndex: propTypes.string,
-    width: propTypes.string,
+    inputWidth: propTypes.string,
 
     disabled: propTypes.bool,
     readOnly: propTypes.bool,
