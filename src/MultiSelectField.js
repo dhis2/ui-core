@@ -7,6 +7,7 @@ import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Help } from './Help.js'
 import { MultiSelect } from './MultiSelect.js'
+import { Constrictor } from './Constrictor.js'
 
 /**
  * @module
@@ -39,7 +40,7 @@ class MultiSelectField extends React.Component {
             validationText,
             maxHeight,
             inputMaxHeight,
-            inputMaxWidth,
+            inputWidth,
             children,
             clearable,
             clearText,
@@ -62,34 +63,35 @@ class MultiSelectField extends React.Component {
                     </Label>
                 )}
 
-                <MultiSelect
-                    selected={selected}
-                    tabIndex={tabIndex}
-                    maxHeight={maxHeight}
-                    inputMaxHeight={inputMaxHeight}
-                    inputMaxWidth={inputMaxWidth}
-                    onChange={onChange}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    loading={loading}
-                    error={error}
-                    warning={warning}
-                    valid={valid}
-                    disabled={disabled}
-                    clearable={clearable}
-                    clearText={clearText}
-                    filterable={filterable}
-                    filterPlaceholder={filterPlaceholder}
-                    placeholder={placeholder}
-                    prefix={prefix}
-                    empty={empty}
-                    loadingText={loadingText}
-                    noMatchText={noMatchText}
-                    initialFocus={initialFocus}
-                    dense={dense}
-                >
-                    {children}
-                </MultiSelect>
+                <Constrictor width={inputWidth} minWidth="100px">
+                    <MultiSelect
+                        selected={selected}
+                        tabIndex={tabIndex}
+                        maxHeight={maxHeight}
+                        inputMaxHeight={inputMaxHeight}
+                        onChange={onChange}
+                        onFocus={onFocus}
+                        onBlur={onBlur}
+                        loading={loading}
+                        error={error}
+                        warning={warning}
+                        valid={valid}
+                        disabled={disabled}
+                        clearable={clearable}
+                        clearText={clearText}
+                        filterable={filterable}
+                        filterPlaceholder={filterPlaceholder}
+                        placeholder={placeholder}
+                        prefix={prefix}
+                        empty={empty}
+                        loadingText={loadingText}
+                        noMatchText={noMatchText}
+                        initialFocus={initialFocus}
+                        dense={dense}
+                    >
+                        {children}
+                    </MultiSelect>
+                </Constrictor>
 
                 {helpText && <Help>{helpText}</Help>}
 
@@ -137,7 +139,7 @@ MultiSelectField.defaultProps = {
  * @prop {string} [loadingText]
  * @prop {string} [maxHeight]
  * @prop {string} [inputMaxHeight]
- * @prop {string} [inputMaxWidth]
+ * @prop {string} [inputWidth]
  * @prop {string} [noMatchText] - Only required if filterable is true
  * @prop {string} [placeholder]
  * @prop {string} [prefix]
@@ -169,7 +171,7 @@ MultiSelectField.propTypes = {
     loadingText: propTypes.string,
     maxHeight: propTypes.string,
     inputMaxHeight: propTypes.string,
-    inputMaxWidth: propTypes.string,
+    inputWidth: propTypes.string,
     noMatchText: propTypes.requiredIf(
         props => props.filterable,
         propTypes.string

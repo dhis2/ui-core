@@ -7,6 +7,7 @@ import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { TextArea } from './TextArea.js'
 import { Help } from './Help.js'
+import { Constrictor } from './Constrictor.js'
 
 /**
  * @module
@@ -51,27 +52,28 @@ const TextAreaField = ({
             </Label>
         ) : null}
 
-        <TextArea
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onChange={onChange}
-            name={name}
-            value={value || ''}
-            placeholder={placeholder}
-            disabled={disabled}
-            valid={valid}
-            warning={warning}
-            error={error}
-            loading={loading}
-            dense={dense}
-            tabIndex={tabIndex}
-            initialFocus={initialFocus}
-            autoGrow={autoGrow}
-            readOnly={readOnly}
-            resize={resize}
-            rows={rows}
-            width={inputWidth}
-        />
+        <Constrictor width={inputWidth} minWidth="100px">
+            <TextArea
+                onFocus={onFocus}
+                onBlur={onBlur}
+                onChange={onChange}
+                name={name}
+                value={value || ''}
+                placeholder={placeholder}
+                disabled={disabled}
+                valid={valid}
+                warning={warning}
+                error={error}
+                loading={loading}
+                dense={dense}
+                tabIndex={tabIndex}
+                initialFocus={initialFocus}
+                autoGrow={autoGrow}
+                readOnly={readOnly}
+                resize={resize}
+                rows={rows}
+            />
+        </Constrictor>
 
         {helpText ? <Help>{helpText}</Help> : null}
 

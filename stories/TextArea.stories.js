@@ -199,27 +199,6 @@ storiesOf('TextArea', module)
         />
     ))
 
-    .add('Input width', () => (
-        <>
-            <TextArea
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                name="textarea"
-                label="My textarea has a width of 100px"
-                inputWidth="100px"
-            />
-            <TextArea
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                name="textarea"
-                label="My textarea has a width of 220px"
-                inputWidth="220px"
-            />
-        </>
-    ))
-
     .add('Resize', () => (
         <>
             <TextArea

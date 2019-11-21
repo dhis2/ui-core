@@ -7,6 +7,7 @@ import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Input } from './Input.js'
 import { Help } from './Help.js'
+import { Constrictor } from './Constrictor.js'
 
 /**
  * @module
@@ -57,25 +58,26 @@ class InputField extends React.Component {
                     </Label>
                 ) : null}
 
-                <Input
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onChange={onChange}
-                    name={name}
-                    type={type}
-                    value={value || ''}
-                    placeholder={placeholder}
-                    disabled={disabled}
-                    valid={valid}
-                    warning={warning}
-                    error={error}
-                    loading={loading}
-                    dense={dense}
-                    tabIndex={tabIndex}
-                    initialFocus={initialFocus}
-                    readOnly={readOnly}
-                    inputWidth={inputWidth}
-                />
+                <Constrictor width={inputWidth} minWidth="100px">
+                    <Input
+                        onFocus={onFocus}
+                        onBlur={onBlur}
+                        onChange={onChange}
+                        name={name}
+                        type={type}
+                        value={value || ''}
+                        placeholder={placeholder}
+                        disabled={disabled}
+                        valid={valid}
+                        warning={warning}
+                        error={error}
+                        loading={loading}
+                        dense={dense}
+                        tabIndex={tabIndex}
+                        initialFocus={initialFocus}
+                        readOnly={readOnly}
+                    />
+                </Constrictor>
 
                 {helpText ? <Help>{helpText}</Help> : null}
 
