@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-import { SingleSelect, SingleSelectOption } from '../src'
+import { Input, SingleSelect, SingleSelectOption } from '../src'
 
 const OptionIcon = () => (
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 32">
@@ -258,4 +258,93 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption key="1" value="1" label={longLabel} />
             <SingleSelectOption key="2" value="2" label="two" />
         </SingleSelect>
+    ))
+    .add('SingleSelect with Input in flex container', () => (
+        <>
+            <p>Inputs: 100px</p>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '10px',
+                }}
+            >
+                <SingleSelect {...defaultProps} inputMaxWidth="100px">
+                    <SingleSelectOption key="1" value="1" label="one" />
+                    <SingleSelectOption key="2" value="2" label="two" />
+                </SingleSelect>
+                <Input inputWidth="100px" />
+            </div>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '10px',
+                }}
+            >
+                <Input inputWidth="100px" />
+                <SingleSelect {...defaultProps} inputMaxWidth="100px">
+                    <SingleSelectOption key="1" value="1" label="one" />
+                    <SingleSelectOption key="2" value="2" label="two" />
+                </SingleSelect>
+            </div>
+
+            <p>Inputs with status: 100px</p>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '10px',
+                }}
+            >
+                <SingleSelect {...defaultProps} inputMaxWidth="100px" error>
+                    <SingleSelectOption key="1" value="1" label="one" />
+                    <SingleSelectOption key="2" value="2" label="two" />
+                </SingleSelect>
+                <Input inputWidth="100px" error />
+            </div>
+
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '10px',
+                }}
+            >
+                <Input inputWidth="100px" error />
+                <SingleSelect {...defaultProps} inputMaxWidth="100px" error>
+                    <SingleSelectOption key="1" value="1" label="one" />
+                    <SingleSelectOption key="2" value="2" label="two" />
+                </SingleSelect>
+            </div>
+
+            <p>Inputs with mixed status: 100px</p>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '10px',
+                }}
+            >
+                <SingleSelect {...defaultProps} inputMaxWidth="100px" valid>
+                    <SingleSelectOption key="1" value="1" label="one" />
+                    <SingleSelectOption key="2" value="2" label="two" />
+                </SingleSelect>
+                <Input inputWidth="100px" />
+            </div>
+
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '10px',
+                }}
+            >
+                <Input inputWidth="100px" valid />
+                <SingleSelect {...defaultProps} inputMaxWidth="100px">
+                    <SingleSelectOption key="1" value="1" label="one" />
+                    <SingleSelectOption key="2" value="2" label="two" />
+                </SingleSelect>
+            </div>
+        </>
     ))
