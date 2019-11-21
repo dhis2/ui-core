@@ -2,26 +2,8 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { Backdrop } from './Backdrop.js'
+import { CoverCenter } from './CoverCenter.js'
 import { layers } from './theme.js'
-
-const Content = ({ children }) => (
-    <div>
-        {children}
-        <style jsx>{`
-            div {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: auto;
-                height: auto;
-                transform: translate(-50%, -50%);
-            }
-        `}</style>
-    </div>
-)
-Content.propTypes = {
-    children: propTypes.node,
-}
 
 /**
  * @module
@@ -41,7 +23,7 @@ const ScreenCover = ({ children, onClick, className }) => {
             zIndex={layers.blocking}
             className={className}
         >
-            <Content>{children}</Content>
+            <CoverCenter>{children}</CoverCenter>
         </Backdrop>
     )
 }
