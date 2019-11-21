@@ -25,7 +25,6 @@ const SingleSelect = ({
     tabIndex,
     maxHeight,
     inputMaxHeight,
-    inputMaxWidth,
     onChange,
     onFocus,
     onBlur,
@@ -100,7 +99,6 @@ const SingleSelect = ({
                 .root-input {
                     margin-right: ${spacers.dp4};
                     flex: 1;
-                    max-width: ${inputMaxWidth ? inputMaxWidth : 'unset'};
                 }
             `}</style>
         </div>
@@ -137,7 +135,6 @@ SingleSelect.defaultProps = {
  * @prop {string} [loadingText]
  * @prop {string} [maxHeight]
  * @prop {string} [inputMaxHeight]
- * @prop {string} [inputMaxWidth]
  * @prop {string} [noMatchText] - Only required if filterable is true
  * @prop {string} [placeholder]
  * @prop {string} [prefix]
@@ -165,7 +162,6 @@ SingleSelect.propTypes = {
     loadingText: propTypes.string,
     maxHeight: propTypes.string,
     inputMaxHeight: propTypes.string,
-    inputMaxWidth: propTypes.string,
     noMatchText: propTypes.requiredIf(
         props => props.filterable,
         propTypes.string
