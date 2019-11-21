@@ -66,3 +66,13 @@ storiesOf('MultiSelectField', module)
             {options}
         </MultiSelectField>
     ))
+    .add('Input width', () => (
+        <MultiSelectField
+            inputWidth="200px"
+            {...defaultProps}
+            label="A very long label indeed, well at least longer than the input field to show how it looks and works and stuff"
+            required
+        >
+            {options}
+        </MultiSelectField>
+    ))

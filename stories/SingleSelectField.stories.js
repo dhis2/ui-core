@@ -66,3 +66,13 @@ storiesOf('SingleSelectField', module)
             {options}
         </SingleSelectField>
     ))
+    .add('Input width', () => (
+        <SingleSelectField
+            inputWidth="200px"
+            {...defaultProps}
+            label="A very long label indeed, well at least longer than the input field to show how it looks and works and stuff"
+            required
+        >
+            {options}
+        </SingleSelectField>
+    ))

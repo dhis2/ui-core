@@ -13,6 +13,7 @@
 /* global */
 export { CssReset } from './CssReset.js'
 export { CssVariables } from './CssVariables.js'
+export { Constrictor } from './Constrictor.js'
 
 /* atoms */
 export { AlertBar } from './AlertBar.js'
