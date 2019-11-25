@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Button } from '../src'
 
-const logger = ({ target }) => console.info(`${target.name}: ${target.value}`)
+const logger = ({ name, value }) => console.info(`${name}: ${value}`)
 
 createStory('Button: Basic', {
     onClick: logger,
@@ -40,7 +40,7 @@ const onClick = (...args) => window.onClick(...args)
 function createStory(name, props) {
     storiesOf(name, module)
         .add('Default', () => (
-            <Button {...props} onClick={onClick}>
+            <Button {...props} onClick={undefined}>
                 Label me!
             </Button>
         ))

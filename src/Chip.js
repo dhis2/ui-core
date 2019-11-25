@@ -30,6 +30,7 @@ class Chip extends Component {
             overflow,
             className,
             children,
+            onRemove,
         } = this.props
 
         return (
@@ -43,7 +44,7 @@ class Chip extends Component {
             >
                 <Icon icon={this.props.icon} />
                 <Content overflow={overflow}>{children}</Content>
-                <Remove onRemove={event => this.props.onRemove({}, event)} />
+                <Remove onRemove={onRemove} />
 
                 <style jsx>{`
                     span {

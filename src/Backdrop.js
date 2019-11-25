@@ -16,7 +16,7 @@ const Backdrop = ({ onClick, transparent, children, zIndex, className }) => {
             {zIndexComputed => (
                 <div
                     className={cx('backdrop', className)}
-                    onClick={event => onClick({}, event)}
+                    onClick={event => onClick && onClick({}, event)}
                 >
                     <div
                         onClick={e => {

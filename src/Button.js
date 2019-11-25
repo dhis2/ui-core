@@ -45,7 +45,7 @@ export class Button extends Component {
         return (
             <button
                 disabled={disabled}
-                onClick={event => onClick({ name, value }, event)}
+                onClick={event => onClick && onClick({ name, value }, event)}
                 className={cx(className, {
                     primary,
                     secondary,
