@@ -52,7 +52,7 @@ const TextAreaField = ({
             </Label>
         ) : null}
 
-        <Constrictor width={inputWidth} minWidth="100px">
+        <Constrictor width={inputWidth} minWidth="220px">
             <TextArea
                 onFocus={onFocus}
                 onBlur={onBlur}
