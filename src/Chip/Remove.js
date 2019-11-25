@@ -32,7 +32,7 @@ const removeIcon = resolve`
 export class Remove extends Component {
     onRemove = e => {
         e.stopPropagation() // stop onRemove from triggering onClick on container
-        this.props.onRemove(e)
+        this.props.onRemove({}, e)
     }
 
     render() {

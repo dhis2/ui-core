@@ -38,7 +38,7 @@ const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
                 'has-leaves': hasLeaves,
             })}
         >
-            <span onClick={event => onClick({ open: !open }, event)}>
+            <span onClick={event => onClick && onClick({ open: !open }, event)}>
                 {arrowIcon}
             </span>
 
