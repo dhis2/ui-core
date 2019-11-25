@@ -58,7 +58,7 @@ class InputField extends React.Component {
                     </Label>
                 ) : null}
 
-                <Constrictor width={inputWidth} minWidth="100px">
+                <Constrictor width={inputWidth} minWidth="72px">
                     <Input
                         onFocus={onFocus}
                         onBlur={onBlur}
