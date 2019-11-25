@@ -1,6 +1,6 @@
 {
   "name": "@dhis2/ui-core",
-  "version": "3.12.0",
+  "version": "4.0.0",
   "main": "./build/cjs/index.js",
   "module": "./build/es/index.js",
   "sideEffects": false,
