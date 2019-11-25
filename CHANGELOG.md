@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/dhis2/ui/compare/v4.0.0...v4.0.1) (2019-11-25)
+
+
+### Bug Fixes
+
+* avoid unconditionally calling optional event handlers ([1c49662](https://github.com/dhis2/ui/commit/1c49662d19288e1b9a5f9da5a40169d594c4a2c2))
+
 # [4.0.0](https://github.com/dhis2/ui/compare/v3.12.0...v4.0.0) (2019-11-25)
 
 
