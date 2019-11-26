@@ -40,7 +40,7 @@ const onClick = (...args) => window.onClick(...args)
 function createStory(name, props) {
     storiesOf(name, module)
         .add('Default', () => (
-            <Button {...props} onClick={undefined}>
+            <Button {...props} onClick={onClick}>
                 Label me!
             </Button>
         ))
