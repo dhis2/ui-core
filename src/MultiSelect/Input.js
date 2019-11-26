@@ -21,7 +21,7 @@ const Input = ({
     inputMaxHeight,
 }) => {
     const hasSelection = selected.length > 0
-    const onClear = e => {
+    const onClear = (_, e) => {
         const data = { selected: [] }
 
         e.stopPropagation()
