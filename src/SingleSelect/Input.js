@@ -21,7 +21,7 @@ const Input = ({
     inputMaxHeight,
 }) => {
     const hasSelection = 'label' in selected && 'value' in selected
-    const onClear = e => {
+    const onClear = (_, e) => {
         const data = { selected: {} }
 
         e.stopPropagation()
