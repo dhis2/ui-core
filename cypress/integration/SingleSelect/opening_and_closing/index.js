@@ -1,16 +1,10 @@
+import '../common'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a closed SingleSelect with options is rendered', () => {
-    cy.visitStory('SingleSelect', 'With options')
-})
-
-Given('an open SingleSelect with options is rendered', () => {
-    cy.visitStory('SingleSelect', 'With options')
-    cy.get('.select [tabIndex="0"]').click()
-
-    cy.contains('option one')
-    cy.contains('option two')
-    cy.contains('option three')
+Given('the SingleSelect is closed', () => {
+    cy.contains('option one').should('not.exist')
+    cy.contains('option two').should('not.exist')
+    cy.contains('option three').should('not.exist')
 })
 
 Given('the SingleSelect is focused', () => {
@@ -42,13 +36,7 @@ When('the escape key is pressed on the focused element', () => {
 })
 
 Then('the options are displayed', () => {
-    cy.contains('option one')
-    cy.contains('option two')
-    cy.contains('option three')
-})
-
-Then('the options are not displayed', () => {
-    cy.contains('option one').should('not.exist')
-    cy.contains('option two').should('not.exist')
-    cy.contains('option three').should('not.exist')
+    cy.contains('option one').should('exist')
+    cy.contains('option two').should('exist')
+    cy.contains('option three').should('exist')
 })
