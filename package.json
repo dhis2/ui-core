@@ -23,7 +23,7 @@
     "start:demo": "start-storybook -s ./stories/info --port 5000",
     "start:testing": "STORYBOOK_INCLUDE_TESTING=1 yarn start --port $PORT --ci",
     "cypress:browser": "cypress open --config baseUrl=http://localhost:$PORT",
-    "cypress:ci": "NO_COLOR=1 cypress run -b $BROWSER --config baseUrl=http://localhost:$PORT",
+    "cypress:ci": "NO_COLOR=1 cypress run --browser chrome --config baseUrl=http://localhost:$PORT",
     "cypress:open": "PORT=12345 concurrently --kill-others -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:$PORT && yarn cypress:browser'",
     "cypress:run": "PORT=12345 concurrently --kill-others --success first -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:$PORT && yarn cypress:ci'",
     "lint:js": "d2-style js check --all"
