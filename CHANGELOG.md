@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/dhis2/ui/compare/v4.0.1...v4.0.2) (2019-11-26)
+
+
+### Bug Fixes
+
+* **select:** fix clear button callback to use new callback signature ([982e6cb](https://github.com/dhis2/ui/commit/982e6cb7ec42ddbdfcc008aa1a714d98b447f57d))
+
 ## [4.0.1](https://github.com/dhis2/ui/compare/v4.0.0...v4.0.1) (2019-11-25)
 
 
