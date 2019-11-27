@@ -13,6 +13,24 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('With placeholder', () => (
+        <SingleSelect className="select" placeholder="Placeholder text">
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
+    .add('With placeholder and selection', () => (
+        <SingleSelect
+            className="select"
+            selected={{ value: '1', label: 'option one' }}
+            placeholder="Placeholder text"
+        >
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
     .add('With disabled option', () => (
         <SingleSelect
             className="select"
