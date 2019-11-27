@@ -92,8 +92,8 @@ const CircularLoader = ({ small, large, className }) => (
  */
 CircularLoader.propTypes = {
     className: propTypes.string,
-    small: sizePropType,
     large: sizePropType,
+    small: sizePropType,
 }
 
 export { CircularLoader }

@@ -111,15 +111,15 @@ const FileInputField = ({
  */
 FileInputField.propTypes = {
     ...FileInput.propTypes,
-    label: propTypes.string,
-    required: propTypes.bool,
-    helpText: propTypes.string,
-    validationText: propTypes.string,
-    placeholder: propTypes.string,
     children: propTypes.oneOfType([
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
     ]),
+    helpText: propTypes.string,
+    label: propTypes.string,
+    placeholder: propTypes.string,
+    required: propTypes.bool,
+    validationText: propTypes.string,
 }
 
 FileInputField.defaultProps = {

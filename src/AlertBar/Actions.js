@@ -34,8 +34,8 @@ const actionsPropType = propTypes.arrayWithLength(
 )
 
 Actions.propTypes = {
-    actions: actionsPropType,
     hide: propTypes.func.isRequired,
+    actions: actionsPropType,
 }
 
 export { Actions, actionsPropType }

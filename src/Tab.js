@@ -130,12 +130,12 @@ const Tab = ({ icon, onClick, selected, disabled, children, className }) => (
  * @prop {string} [className]
  */
 Tab.propTypes = {
-    icon: propTypes.element,
-    onClick: propTypes.func,
-    selected: propTypes.bool,
-    disabled: propTypes.bool,
     children: propTypes.node,
     className: propTypes.string,
+    disabled: propTypes.bool,
+    icon: propTypes.element,
+    selected: propTypes.bool,
+    onClick: propTypes.func,
 }
 
 export { Tab }

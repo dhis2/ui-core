@@ -67,11 +67,11 @@ Menu.defaultProps = {
 
 Menu.propTypes = {
     empty: propTypes.node,
-    options: propTypes.node,
-    onChange: propTypes.func,
-    selected: singleSelectedPropType,
-    handleFocusInput: propTypes.func,
     handleClose: propTypes.func,
+    handleFocusInput: propTypes.func,
+    options: propTypes.node,
+    selected: singleSelectedPropType,
+    onChange: propTypes.func,
 }
 
 export { Menu }

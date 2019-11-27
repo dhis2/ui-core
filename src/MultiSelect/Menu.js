@@ -85,8 +85,8 @@ Menu.defaultProps = {
 Menu.propTypes = {
     empty: propTypes.node,
     options: propTypes.node,
-    onChange: propTypes.func,
     selected: multiSelectedPropType,
+    onChange: propTypes.func,
 }
 
 export { Menu }

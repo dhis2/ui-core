@@ -1,3 +1,3 @@
-- [**Getting started**](getting-started)
-- [**API**](api)
-- [**Live demos**](/demo/ ':ignore Live demos')
+-   [**Getting started**](getting-started)
+-   [**API**](api)
+-   [**Live demos**](/demo/ ':ignore Live demos')

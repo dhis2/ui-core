@@ -26,6 +26,6 @@ export function LogoIconSvg({ iconColor, className }) {
 }
 
 LogoIconSvg.propTypes = {
-    className: propTypes.string,
     iconColor: propTypes.string.isRequired,
+    className: propTypes.string,
 }

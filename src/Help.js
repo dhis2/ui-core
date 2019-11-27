@@ -59,8 +59,8 @@ const Help = ({ children, valid, error, warning, className }) => (
  * @prop {boolean} [error]
  */
 Help.propTypes = {
-    className: propTypes.string,
     children: propTypes.string.isRequired,
+    className: propTypes.string,
     error: statusPropType,
     valid: statusPropType,
     warning: statusPropType,

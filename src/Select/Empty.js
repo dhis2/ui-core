@@ -19,8 +19,8 @@ const Empty = ({ message, className }) => (
 )
 
 Empty.propTypes = {
-    className: propTypes.string,
     message: propTypes.string.isRequired,
+    className: propTypes.string,
 }
 
 export { Empty }

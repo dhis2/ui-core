@@ -53,9 +53,9 @@ export const TableCellHead = ({
  * @prop {string} [className]
  */
 TableCellHead.propTypes = {
-    colSpan: propTypes.string,
-    rowSpan: propTypes.string,
-    dense: propTypes.bool,
     children: propTypes.node,
     className: propTypes.string,
+    colSpan: propTypes.string,
+    dense: propTypes.bool,
+    rowSpan: propTypes.string,
 }

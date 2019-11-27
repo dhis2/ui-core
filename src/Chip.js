@@ -116,15 +116,15 @@ class Chip extends Component {
 Chip.propTypes = {
     children: propTypes.string.isRequired,
     className: propTypes.string,
+    disabled: propTypes.bool,
+
+    dragging: propTypes.bool,
     icon: propTypes.element,
 
+    overflow: propTypes.bool,
+    selected: propTypes.bool,
     onClick: propTypes.func,
     onRemove: propTypes.func,
-
-    selected: propTypes.bool,
-    disabled: propTypes.bool,
-    dragging: propTypes.bool,
-    overflow: propTypes.bool,
 }
 
 export { Chip }

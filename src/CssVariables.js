@@ -62,10 +62,10 @@ CssVariables.defaultProps = {
  */
 CssVariables.propTypes = {
     colors: propTypes.bool,
-    theme: propTypes.bool,
+    elevations: propTypes.bool,
     layers: propTypes.bool,
     spacers: propTypes.bool,
-    elevations: propTypes.bool,
+    theme: propTypes.bool,
 }
 
 export { CssVariables }

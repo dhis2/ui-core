@@ -208,31 +208,31 @@ TextArea.defaultProps = {
  */
 
 TextArea.propTypes = {
-    name: propTypes.string,
+    autoGrow: propTypes.bool,
 
     className: propTypes.string,
 
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
-    onBlur: propTypes.func,
-
-    value: propTypes.string,
-    placeholder: propTypes.string,
-    tabIndex: propTypes.string,
-
-    disabled: propTypes.bool,
-    readOnly: propTypes.bool,
     dense: propTypes.bool,
-
-    valid: statusPropType,
-    warning: statusPropType,
+    disabled: propTypes.bool,
     error: statusPropType,
-    loading: propTypes.bool,
 
     initialFocus: propTypes.bool,
+    loading: propTypes.bool,
+    name: propTypes.string,
+
+    placeholder: propTypes.string,
+    readOnly: propTypes.bool,
+    resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
 
     rows: propTypes.number,
+    tabIndex: propTypes.string,
+    valid: statusPropType,
+    value: propTypes.string,
+
+    warning: statusPropType,
+
     width: propTypes.string,
-    resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
-    autoGrow: propTypes.bool,
+    onBlur: propTypes.func,
+    onChange: propTypes.func,
+    onFocus: propTypes.func,
 }

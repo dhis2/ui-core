@@ -34,8 +34,8 @@ export const Constrictor = ({ width, minWidth, maxWidth, children }) => (
  * @prop {string} [maxWidth]
  */
 Constrictor.propTypes = {
-    width: propTypes.string,
-    minWidth: propTypes.string,
-    maxWidth: propTypes.string,
     children: propTypes.node,
+    maxWidth: propTypes.string,
+    minWidth: propTypes.string,
+    width: propTypes.string,
 }

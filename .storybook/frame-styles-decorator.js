@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import css from 'styled-jsx/css'
 
 const FrameStylesWrapper = fn => (
     <Fragment>

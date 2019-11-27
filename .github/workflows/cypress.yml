@@ -1,7 +1,7 @@
 # For more options:
 # https://github.com/cypress-io/github-action
 
-name: "DHIS2: Cypress"
+name: 'DHIS2: Cypress'
 
 on: pull_request
 
@@ -21,10 +21,10 @@ jobs:
               with:
                   record: true
                   parallel: true
-                  start: "yarn start --quiet --ci"
-                  wait-on: "http://localhost:5000"
+                  start: 'yarn start --quiet --ci'
+                  wait-on: 'http://localhost:5000'
                   wait-on-timeout: 120
-                  group: "End-to-End"
+                  group: 'End-to-End'
               env:
                   STORYBOOK_INCLUDE_TESTING: true
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

@@ -66,12 +66,12 @@ const CustomOption = ({ label, description, icon, active, onClick }) => (
 
 CustomOption.propTypes = {
     // This prop is used by the Select, so still necessary
+    label: propTypes.string.isRequired,
     // eslint-disable-next-line react/no-unused-prop-types
     value: propTypes.string.isRequired,
-    label: propTypes.string.isRequired,
+    active: propTypes.bool,
     description: propTypes.string,
     icon: propTypes.element,
-    active: propTypes.bool,
     onClick: propTypes.func,
 }
 

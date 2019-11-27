@@ -44,8 +44,8 @@ const AlertStack = ({ className, children }) =>
  * @prop {Array.<AlertBar>} [children]
  */
 AlertStack.propTypes = {
-    className: propTypes.string,
     children: propTypes.arrayOf(propTypes.element),
+    className: propTypes.string,
 }
 
 export { AlertStack }

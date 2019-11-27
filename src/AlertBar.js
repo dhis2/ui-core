@@ -159,14 +159,14 @@ const alertTypePropType = propTypes.mutuallyExclusive(
  */
 AlertBar.propTypes = {
     children: propTypes.string.isRequired,
+    actions: actionsPropType,
     className: propTypes.string,
+    critical: alertTypePropType,
+    duration: propTypes.number,
+    icon: iconPropType,
+    permanent: propTypes.bool,
     success: alertTypePropType,
     warning: alertTypePropType,
-    critical: alertTypePropType,
-    icon: iconPropType,
-    duration: propTypes.number,
-    permanent: propTypes.bool,
-    actions: actionsPropType,
     onHidden: propTypes.func,
 }
 

@@ -20,8 +20,8 @@ const NoMatch = ({ message, className }) => (
 )
 
 NoMatch.propTypes = {
-    className: propTypes.string,
     message: propTypes.string.isRequired,
+    className: propTypes.string,
 }
 
 export { NoMatch }

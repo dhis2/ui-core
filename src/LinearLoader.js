@@ -73,8 +73,8 @@ LinearLoader.defaultProps = {
  * @prop {string} [width=300px] - The width of the entire indicator, e.g. '100%' or '300px'
  */
 LinearLoader.propTypes = {
-    className: propTypes.string,
     amount: propTypes.number.isRequired,
+    className: propTypes.string,
     margin: propTypes.string,
     width: propTypes.string,
 }

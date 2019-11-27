@@ -210,7 +210,20 @@ Input.defaultProps = {
  * @prop {boolean} [loading]
  */
 Input.propTypes = {
+    className: propTypes.string,
+    dense: propTypes.bool,
+
+    disabled: propTypes.bool,
+
+    error: statusPropType,
+    initialFocus: propTypes.bool,
+    loading: propTypes.bool,
+
     name: propTypes.string,
+    placeholder: propTypes.string,
+    readOnly: propTypes.bool,
+
+    tabIndex: propTypes.string,
     type: propTypes.oneOf([
         'text',
         'number',
@@ -219,25 +232,12 @@ Input.propTypes = {
         'url',
         'tel',
     ]),
-
-    className: propTypes.string,
-
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
-    onBlur: propTypes.func,
+    valid: statusPropType,
 
     value: propTypes.string,
-    placeholder: propTypes.string,
-    tabIndex: propTypes.string,
-
-    disabled: propTypes.bool,
-    readOnly: propTypes.bool,
-    dense: propTypes.bool,
-
-    valid: statusPropType,
     warning: statusPropType,
-    error: statusPropType,
-    loading: propTypes.bool,
+    onBlur: propTypes.func,
+    onChange: propTypes.func,
 
-    initialFocus: propTypes.bool,
+    onFocus: propTypes.func,
 }

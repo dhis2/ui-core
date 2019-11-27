@@ -41,11 +41,11 @@ const alertStatePropType = propTypes.mutuallyExclusive(
 )
 
 Icon.propTypes = {
+    critical: alertStatePropType,
     icon: iconPropType,
+    info: alertStatePropType,
     success: alertStatePropType,
     warning: alertStatePropType,
-    info: alertStatePropType,
-    critical: alertStatePropType,
 }
 
 export { Icon, iconPropType }

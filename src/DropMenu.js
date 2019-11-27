@@ -109,14 +109,14 @@ DropMenu.defaultProps = {
  * `prototype`.
  */
 DropMenu.propTypes = {
-    className: propTypes.string,
-    component: propTypes.element,
-    onClose: propTypes.func,
-    stayOpen: propTypes.bool,
     anchorEl: propTypes.shape({
         getBoundingClientRect: propTypes.func.isRequired,
     }),
+    className: propTypes.string,
+    component: propTypes.element,
+    stayOpen: propTypes.bool,
     zIndex: propTypes.number,
+    onClose: propTypes.func,
 }
 
 export { DropMenu }

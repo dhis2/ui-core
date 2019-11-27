@@ -47,9 +47,9 @@ export const TableCell = ({ className, children, colSpan, rowSpan, dense }) => (
  * @prop {string} [className]
  */
 TableCell.propTypes = {
-    colSpan: propTypes.string,
-    rowSpan: propTypes.string,
-    dense: propTypes.bool,
     children: propTypes.node,
     className: propTypes.string,
+    colSpan: propTypes.string,
+    dense: propTypes.bool,
+    rowSpan: propTypes.string,
 }
