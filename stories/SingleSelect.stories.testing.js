@@ -13,6 +13,17 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('With disabled option', () => (
+        <SingleSelect
+            className="select"
+            onChange={(...args) => window.onChange(...args)}
+        >
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+            <SingleSelectOption value="4" label="disabled option" disabled />
+        </SingleSelect>
+    ))
     .add('With options and a selection', () => (
         <SingleSelect
             className="select"

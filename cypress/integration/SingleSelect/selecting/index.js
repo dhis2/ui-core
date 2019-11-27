@@ -1,8 +1,16 @@
 import '../common'
-import { When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+
+Given('a SingleSelect with a disabled option is rendered', () => {
+    cy.visitStory('SingleSelect', 'With disabled option')
+})
 
 When('an option is clicked', () => {
     cy.contains('option one').click()
+})
+
+When('the disabled option is clicked', () => {
+    cy.contains('disabled option').click()
 })
 
 Then('the clicked option is selected', () => {
@@ -11,5 +19,11 @@ Then('the clicked option is selected', () => {
         expect(win.onChange).to.be.calledWith({
             selected: { label: 'option one', value: '1' },
         })
+    })
+})
+
+Then('the onchange handler is not called', () => {
+    cy.window().then(win => {
+        expect(win.onChange).to.not.be.called
     })
 })

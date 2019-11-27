@@ -13,6 +13,17 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('With disabled option', () => (
+        <MultiSelect
+            className="select"
+            onChange={(...args) => window.onChange(...args)}
+        >
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+            <MultiSelectOption value="4" label="disabled option" disabled />
+        </MultiSelect>
+    ))
     .add('With options and a selection', () => (
         <MultiSelect
             className="select"

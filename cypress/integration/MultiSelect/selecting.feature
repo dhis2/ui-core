@@ -26,3 +26,10 @@ Feature: Selecting options
         And an onChange handler is attached
         When the chip's X is clicked
         Then the selected option is deselected
+
+    Scenario: The user clicks a disabled option
+        Given a MultiSelect with a disabled option is rendered
+        And an onChange handler is attached
+        And the MultiSelect is open
+        When the disabled option is clicked
+        Then the onchange handler is not called
