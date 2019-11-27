@@ -13,6 +13,38 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('With more than ten options', () => (
+        <SingleSelect className="select">
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+            <SingleSelectOption value="4" label="option four" />
+            <SingleSelectOption value="5" label="option five" />
+            <SingleSelectOption value="6" label="option six" />
+            <SingleSelectOption value="7" label="option seven" />
+            <SingleSelectOption value="8" label="option eight" />
+            <SingleSelectOption value="9" label="option nine" />
+            <SingleSelectOption value="10" label="option ten" />
+            <SingleSelectOption value="11" label="option eleven" />
+            <SingleSelectOption value="12" label="option twelve" />
+        </SingleSelect>
+    ))
+    .add('With more than three options and a 100px max-height', () => (
+        <SingleSelect className="select" maxHeight="100px">
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+            <SingleSelectOption value="4" label="option four" />
+            <SingleSelectOption value="5" label="option five" />
+            <SingleSelectOption value="6" label="option six" />
+            <SingleSelectOption value="7" label="option seven" />
+            <SingleSelectOption value="8" label="option eight" />
+            <SingleSelectOption value="9" label="option nine" />
+            <SingleSelectOption value="10" label="option ten" />
+            <SingleSelectOption value="11" label="option eleven" />
+            <SingleSelectOption value="12" label="option twelve" />
+        </SingleSelect>
+    ))
     .add('With options, a selection and disabled', () => (
         <SingleSelect
             disabled

@@ -13,6 +13,38 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('With more than ten options', () => (
+        <MultiSelect className="select">
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+            <MultiSelectOption value="4" label="option four" />
+            <MultiSelectOption value="5" label="option five" />
+            <MultiSelectOption value="6" label="option six" />
+            <MultiSelectOption value="7" label="option seven" />
+            <MultiSelectOption value="8" label="option eight" />
+            <MultiSelectOption value="9" label="option nine" />
+            <MultiSelectOption value="10" label="option ten" />
+            <MultiSelectOption value="11" label="option eleven" />
+            <MultiSelectOption value="12" label="option twelve" />
+        </MultiSelect>
+    ))
+    .add('With more than three options and a 100px max-height', () => (
+        <MultiSelect className="select" maxHeight="100px">
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+            <MultiSelectOption value="4" label="option four" />
+            <MultiSelectOption value="5" label="option five" />
+            <MultiSelectOption value="6" label="option six" />
+            <MultiSelectOption value="7" label="option seven" />
+            <MultiSelectOption value="8" label="option eight" />
+            <MultiSelectOption value="9" label="option nine" />
+            <MultiSelectOption value="10" label="option ten" />
+            <MultiSelectOption value="11" label="option eleven" />
+            <MultiSelectOption value="12" label="option twelve" />
+        </MultiSelect>
+    ))
     .add('With options, a selection and disabled', () => (
         <MultiSelect
             disabled
