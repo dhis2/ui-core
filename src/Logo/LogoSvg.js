@@ -52,7 +52,7 @@ export function LogoSvg({ iconColor, textColor, className }) {
 }
 
 LogoSvg.propTypes = {
-    className: propTypes.string,
     iconColor: propTypes.string.isRequired,
     textColor: propTypes.string.isRequired,
+    className: propTypes.string,
 }

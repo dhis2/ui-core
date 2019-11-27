@@ -89,20 +89,20 @@ class DropdownButton extends Component {
  * @prop {boolean} [disabled] Disable the button
  */
 DropdownButton.propTypes = {
-    className: propTypes.string,
     component: propTypes.element.isRequired,
-    icon: propTypes.element,
     children: propTypes.string,
+    className: propTypes.string,
+    destructive: buttonVariantPropType,
 
-    onClick: propTypes.func,
+    disabled: propTypes.bool,
 
-    small: sizePropType,
+    icon: propTypes.element,
     large: sizePropType,
 
     primary: buttonVariantPropType,
     secondary: buttonVariantPropType,
-    destructive: buttonVariantPropType,
-    disabled: propTypes.bool,
+    small: sizePropType,
+    onClick: propTypes.func,
 }
 
 export { DropdownButton }

@@ -63,11 +63,11 @@ const Backdrop = ({ onClick, transparent, children, zIndex, className }) => {
  * @prop {string} className
  */
 Backdrop.propTypes = {
-    onClick: propTypes.func,
-    transparent: propTypes.bool,
     children: propTypes.node,
-    zIndex: propTypes.number,
     className: propTypes.string,
+    transparent: propTypes.bool,
+    zIndex: propTypes.number,
+    onClick: propTypes.func,
 }
 
 export { Backdrop }

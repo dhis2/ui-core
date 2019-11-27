@@ -86,15 +86,15 @@ Input.defaultProps = {
 
 Input.propTypes = {
     className: propTypes.string,
-    selected: multiSelectedPropType,
-    onChange: propTypes.func,
-    options: propTypes.node,
-    clearable: propTypes.bool,
     clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
-    prefix: propTypes.string,
-    placeholder: propTypes.string,
+    clearable: propTypes.bool,
     disabled: propTypes.bool,
     inputMaxHeight: propTypes.string,
+    options: propTypes.node,
+    placeholder: propTypes.string,
+    prefix: propTypes.string,
+    selected: multiSelectedPropType,
+    onChange: propTypes.func,
 }
 
 export { Input }

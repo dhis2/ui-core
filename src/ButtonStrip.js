@@ -48,10 +48,10 @@ const alignmentPropType = propTypes.mutuallyExclusive(
  * @prop {boolean} [end]
  */
 ButtonStrip.propTypes = {
-    className: propTypes.string,
     children: propTypes.arrayOf(propTypes.element),
-    middle: alignmentPropType,
+    className: propTypes.string,
     end: alignmentPropType,
+    middle: alignmentPropType,
 }
 
 export { ButtonStrip }

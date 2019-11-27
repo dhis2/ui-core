@@ -123,35 +123,35 @@ TextAreaField.defaultProps = TextArea.defaultProps
  * @prop {string} [inputWidth]
  */
 TextAreaField.propTypes = {
-    onChange: propTypes.func,
-    name: propTypes.string,
-    label: propTypes.string,
-    helpText: propTypes.string,
-    validationText: propTypes.string,
-
-    className: propTypes.string,
-    placeholder: propTypes.string,
-    value: propTypes.string,
-    tabIndex: propTypes.string,
-
-    required: propTypes.bool,
-    disabled: propTypes.bool,
-    readOnly: propTypes.bool,
-
-    dense: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
-    loading: propTypes.bool,
-    initialFocus: propTypes.bool,
-
-    onBlur: propTypes.func,
-    onFocus: propTypes.func,
-
     autoGrow: propTypes.bool,
+    className: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    error: statusPropType,
+
+    helpText: propTypes.string,
+    initialFocus: propTypes.bool,
+    inputWidth: propTypes.string,
+    label: propTypes.string,
+
+    loading: propTypes.bool,
+    name: propTypes.string,
+    placeholder: propTypes.string,
+
+    readOnly: propTypes.bool,
+    required: propTypes.bool,
     resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
     rows: propTypes.number,
-    inputWidth: propTypes.string,
+    tabIndex: propTypes.string,
+    valid: statusPropType,
+
+    validationText: propTypes.string,
+    value: propTypes.string,
+
+    warning: statusPropType,
+    onBlur: propTypes.func,
+    onChange: propTypes.func,
+    onFocus: propTypes.func,
 }
 
 export { TextAreaField }

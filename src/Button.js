@@ -103,22 +103,22 @@ Button.defaultProps = {
  */
 Button.propTypes = {
     children: propTypes.node,
-    onClick: propTypes.func,
-
     className: propTypes.string,
-    icon: propTypes.element,
-    name: propTypes.string,
-    value: propTypes.string,
-    type: propTypes.oneOf(['submit', 'reset', 'button']),
-    tabIndex: propTypes.string,
 
-    small: sizePropType,
+    destructive: buttonVariantPropType,
+    disabled: propTypes.bool,
+    icon: propTypes.element,
+    initialFocus: propTypes.bool,
     large: sizePropType,
+    name: propTypes.string,
 
     primary: buttonVariantPropType,
     secondary: buttonVariantPropType,
-    destructive: buttonVariantPropType,
 
-    disabled: propTypes.bool,
-    initialFocus: propTypes.bool,
+    small: sizePropType,
+    tabIndex: propTypes.string,
+    type: propTypes.oneOf(['submit', 'reset', 'button']),
+
+    value: propTypes.string,
+    onClick: propTypes.func,
 }

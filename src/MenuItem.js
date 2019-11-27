@@ -36,8 +36,8 @@ const SubMenu = ({ children, className }) => (
 )
 
 SubMenu.propTypes = {
-    className: propTypes.string,
     children: propTypes.element,
+    className: propTypes.string,
 }
 
 const createOnClickHandler = (onClick, value) => evt => {
@@ -124,17 +124,17 @@ const MenuItem = ({
 MenuItem.propTypes = {
     label: propTypes.oneOfType([propTypes.string, propTypes.node]).isRequired,
 
-    value: propTypes.string,
-    href: propTypes.string,
-    onClick: propTypes.func,
-
-    className: propTypes.string,
+    active: propTypes.bool,
     children: propTypes.element,
-    icon: propTypes.element,
+    className: propTypes.string,
 
     dense: propTypes.bool,
-    active: propTypes.bool,
     disabled: propTypes.bool,
+    href: propTypes.string,
+
+    icon: propTypes.element,
+    value: propTypes.string,
+    onClick: propTypes.func,
 }
 
 export { MenuItem }

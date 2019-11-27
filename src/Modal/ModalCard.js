@@ -59,6 +59,6 @@ ModalCard.propTypes = {
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
     ]).isRequired,
-    small: sizePropType,
     large: sizePropType,
+    small: sizePropType,
 }

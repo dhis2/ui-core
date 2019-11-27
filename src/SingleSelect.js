@@ -140,34 +140,34 @@ SingleSelect.defaultProps = {
  * @prop {string} [prefix]
  */
 SingleSelect.propTypes = {
-    onChange: propTypes.func,
-    selected: singleSelectedPropType,
-    className: propTypes.string,
-    tabIndex: propTypes.string,
     children: propTypes.node,
-    disabled: propTypes.bool,
-    dense: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
-    loading: propTypes.bool,
-    onFocus: propTypes.func,
-    onBlur: propTypes.func,
-    initialFocus: propTypes.bool,
+    className: propTypes.string,
     clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
     clearable: propTypes.bool,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
     empty: propTypes.node,
+    error: statusPropType,
     filterPlaceholder: propTypes.string,
     filterable: propTypes.bool,
+    initialFocus: propTypes.bool,
+    inputMaxHeight: propTypes.string,
+    loading: propTypes.bool,
     loadingText: propTypes.string,
     maxHeight: propTypes.string,
-    inputMaxHeight: propTypes.string,
     noMatchText: propTypes.requiredIf(
         props => props.filterable,
         propTypes.string
     ),
     placeholder: propTypes.string,
     prefix: propTypes.string,
+    selected: singleSelectedPropType,
+    tabIndex: propTypes.string,
+    valid: statusPropType,
+    warning: statusPropType,
+    onBlur: propTypes.func,
+    onChange: propTypes.func,
+    onFocus: propTypes.func,
 }
 
 export { SingleSelect }

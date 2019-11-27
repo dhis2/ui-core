@@ -38,8 +38,8 @@ const Legend = ({ className, children, required }) => (
  * @prop {boolean} [required]
  */
 Legend.propTypes = {
-    className: propTypes.string,
     children: propTypes.node.isRequired,
+    className: propTypes.string,
     required: propTypes.bool,
 }
 

@@ -125,24 +125,24 @@ class SplitButton extends Component {
  * @prop {boolean } [disabled]
  */
 SplitButton.propTypes = {
-    children: propTypes.string,
     component: propTypes.element.isRequired,
-
-    onClick: propTypes.func,
+    children: propTypes.string,
 
     className: propTypes.string,
-    name: propTypes.string,
-    value: propTypes.string,
 
-    icon: propTypes.element,
-
-    small: propTypes.bool,
-    large: propTypes.bool,
-
-    primary: buttonVariantPropType,
-    secondary: buttonVariantPropType,
     destructive: buttonVariantPropType,
     disabled: propTypes.bool,
+    icon: propTypes.element,
+
+    large: propTypes.bool,
+
+    name: propTypes.string,
+    primary: buttonVariantPropType,
+
+    secondary: buttonVariantPropType,
+    small: propTypes.bool,
+    value: propTypes.string,
+    onClick: propTypes.func,
 }
 
 export { SplitButton }

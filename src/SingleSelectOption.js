@@ -74,14 +74,14 @@ const SingleSelectOption = ({
  * @prop {boolean} [disabled]
  */
 SingleSelectOption.propTypes = {
-    className: propTypes.string,
+    label: propTypes.string.isRequired,
     // This prop is used by the Select, so still necessary
     // eslint-disable-next-line react/no-unused-prop-types
     value: propTypes.string.isRequired,
-    label: propTypes.string.isRequired,
-    onClick: propTypes.func,
     active: propTypes.bool,
+    className: propTypes.string,
     disabled: propTypes.bool,
+    onClick: propTypes.func,
 }
 
 export { SingleSelectOption }

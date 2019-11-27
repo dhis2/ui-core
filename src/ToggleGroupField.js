@@ -75,10 +75,10 @@ const ToggleGroupField = ({
  */
 ToggleGroupField.propTypes = {
     ...ToggleGroup.propTypes,
-    label: propTypes.string,
     helpText: propTypes.string,
-    validationText: propTypes.string,
+    label: propTypes.string,
     required: propTypes.bool,
+    validationText: propTypes.string,
 }
 
 export { ToggleGroupField }

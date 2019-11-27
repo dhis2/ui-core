@@ -49,14 +49,14 @@ MenuWrapper.defaultProps = {
 }
 
 MenuWrapper.propTypes = {
-    className: propTypes.string,
-    children: propTypes.node,
-    maxHeight: propTypes.string,
-    selectRef: propTypes.object.isRequired,
+    menuLeft: propTypes.string.isRequired,
     menuRef: propTypes.object.isRequired,
     menuTop: propTypes.string.isRequired,
-    menuLeft: propTypes.string.isRequired,
     menuWidth: propTypes.string.isRequired,
+    selectRef: propTypes.object.isRequired,
+    children: propTypes.node,
+    className: propTypes.string,
+    maxHeight: propTypes.string,
     zIndex: propTypes.number,
     onClick: propTypes.func,
 }

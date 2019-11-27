@@ -123,32 +123,32 @@ class InputField extends React.Component {
  * @prop {string} [helpText]
  */
 InputField.propTypes = {
-    onChange: propTypes.func,
-    name: propTypes.string,
-    label: propTypes.string,
-    helpText: propTypes.string,
-    validationText: propTypes.string,
-
     className: propTypes.string,
-    placeholder: propTypes.string,
-    value: propTypes.string,
-    tabIndex: propTypes.string,
-
-    required: propTypes.bool,
-    disabled: propTypes.bool,
-    readOnly: propTypes.bool,
     dense: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
+    disabled: propTypes.bool,
     error: statusPropType,
-    loading: propTypes.bool,
+    helpText: propTypes.string,
+
     initialFocus: propTypes.bool,
-
-    onBlur: propTypes.func,
-    onFocus: propTypes.func,
-
-    type: Input.propTypes.type,
     inputWidth: propTypes.string,
+    label: propTypes.string,
+    loading: propTypes.bool,
+
+    name: propTypes.string,
+    placeholder: propTypes.string,
+    readOnly: propTypes.bool,
+    required: propTypes.bool,
+    tabIndex: propTypes.string,
+    type: Input.propTypes.type,
+    valid: statusPropType,
+    validationText: propTypes.string,
+    value: propTypes.string,
+
+    warning: statusPropType,
+    onBlur: propTypes.func,
+
+    onChange: propTypes.func,
+    onFocus: propTypes.func,
 }
 
 export { InputField }

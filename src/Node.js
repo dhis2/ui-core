@@ -86,8 +86,8 @@ const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
 Arrow.propTypes = {
     hasLeaves: propTypes.bool,
     open: propTypes.bool,
-    onOpen: propTypes.func,
     onClose: propTypes.func,
+    onOpen: propTypes.func,
 }
 
 const Content = ({ open, children, label }) => (
@@ -98,9 +98,9 @@ const Content = ({ open, children, label }) => (
 )
 
 Content.propTypes = {
-    open: propTypes.bool,
     children: propTypes.node,
     label: propTypes.node,
+    open: propTypes.bool,
 }
 
 /**
@@ -162,6 +162,6 @@ Node.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     open: propTypes.bool,
-    onOpen: propTypes.func,
     onClose: propTypes.func,
+    onOpen: propTypes.func,
 }

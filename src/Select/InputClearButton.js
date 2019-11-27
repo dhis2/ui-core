@@ -15,9 +15,9 @@ const InputClearButton = ({ onClear, clearText, className }) => (
 )
 
 InputClearButton.propTypes = {
-    className: propTypes.string,
-    onClear: propTypes.func.isRequired,
     clearText: propTypes.string.isRequired,
+    onClear: propTypes.func.isRequired,
+    className: propTypes.string,
 }
 
 export { InputClearButton }

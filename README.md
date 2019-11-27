@@ -72,20 +72,21 @@ automatically determine the next version.
 
 Testing is done with cypress & cucumber.
 
-* Run `yarn cypress:run`<br />
-  This will run cypress and exit with either 0 or 1
+-   Run `yarn cypress:run`<br />
+    This will run cypress and exit with either 0 or 1
 
-* Run `yarn cypress:open`<br />
-This will open the cypress gui, which is useful for writing tests
+-   Run `yarn cypress:open`<br />
+    This will open the cypress gui, which is useful for writing tests
 
 ### Recording videos and taking screenshots
 
 When running `yarn cypress:run`, by default no video is recorded and no
 screenshot will be taken.
-* Recording videos can be enabled by supplying the
-`CYPRESS_VIDEO=true` env var.
-* Taking screenshots can be enabled by supplying the
-`CYPRESS_SCREENSHOT=true` env var.
+
+-   Recording videos can be enabled by supplying the
+    `CYPRESS_VIDEO=true` env var.
+-   Taking screenshots can be enabled by supplying the
+    `CYPRESS_SCREENSHOT=true` env var.
 
 ### Storybook stories for testing
 
@@ -113,13 +114,14 @@ There are two ways to work around the problem.
 Given the following CSS:
 
 `index.css`:
+
 ```
 div {
     padding: 20px;
 }
 
 .disabled {
-    opacity: 0.5;    
+    opacity: 0.5;
 }
 ```
 
@@ -134,19 +136,19 @@ If the rules do something `!important`, the only course of action is to
 counter it with another `!important` rule. Given the following CSS:
 
 `index.css`:
+
 ```
 div {
     padding: 20px !important;
 }
 
 .disabled {
-    opacity: 0.5 !important;    
+    opacity: 0.5 !important;
 }
 ```
 
 Now there is no way for specificity to win, and all components that use
 those classes or elements will inherit those rules.
-
 
 #### Cascading override
 
@@ -190,6 +192,7 @@ you need to define a class that counters the effects of the rule, and
 use the `className` prop to override the global rule.
 
 `index.css`:
+
 ```
 .fix {
     opacity: 1 !important;
@@ -201,4 +204,3 @@ Pass that to the component through `className='fix'`, and it should
 negate the troublesome CSS. Once the global rules in the App has been
 removed, it is possible to remove the `className='fix'` as well. This
 should be considered a temporary measure.
-

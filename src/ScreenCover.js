@@ -54,9 +54,9 @@ const ScreenCover = ({ children, onClick, className }) => {
  * @prop {Node} [children]
  */
 ScreenCover.propTypes = {
-    onClick: propTypes.func,
-    className: propTypes.string,
     children: propTypes.node,
+    className: propTypes.string,
+    onClick: propTypes.func,
 }
 
 export { ScreenCover }

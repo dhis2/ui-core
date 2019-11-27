@@ -62,8 +62,8 @@ Modal.propTypes = {
     className: propTypes.string,
 
     // Callback used when clicking on the screen cover
-    onClose: propTypes.func,
+    large: sizePropType,
 
     small: sizePropType,
-    large: sizePropType,
+    onClose: propTypes.func,
 }

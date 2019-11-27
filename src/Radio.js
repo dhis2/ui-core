@@ -190,26 +190,26 @@ class Radio extends Component {
  * @prop {function} [onBlur]
  */
 Radio.propTypes = {
-    value: propTypes.string.isRequired,
     label: propTypes.node.isRequired,
-
-    name: propTypes.string,
-    className: propTypes.string,
-    tabIndex: propTypes.string,
-
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
-    onBlur: propTypes.func,
+    value: propTypes.string.isRequired,
 
     checked: propTypes.bool,
-    disabled: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
-
+    className: propTypes.string,
     dense: propTypes.bool,
 
+    disabled: propTypes.bool,
+    error: statusPropType,
     initialFocus: propTypes.bool,
+
+    name: propTypes.string,
+    tabIndex: propTypes.string,
+    valid: statusPropType,
+    warning: statusPropType,
+    onBlur: propTypes.func,
+
+    onChange: propTypes.func,
+
+    onFocus: propTypes.func,
 }
 
 export { Radio }

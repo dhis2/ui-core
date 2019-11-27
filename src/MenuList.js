@@ -37,8 +37,8 @@ const MenuList = ({ children, className }) => (
  * @prop {string} [className]
  */
 MenuList.propTypes = {
-    className: propTypes.string,
     children: propTypes.node.isRequired,
+    className: propTypes.string,
 }
 
 export { MenuList }

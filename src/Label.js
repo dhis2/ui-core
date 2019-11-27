@@ -58,9 +58,9 @@ export const Label = ({ htmlFor, children, required, disabled, className }) => (
  * @prop {boolean} [disabled]
  */
 Label.propTypes = {
-    htmlFor: propTypes.string,
     children: propTypes.string,
     className: propTypes.string,
-    required: propTypes.bool,
     disabled: propTypes.bool,
+    htmlFor: propTypes.string,
+    required: propTypes.bool,
 }

@@ -7,13 +7,13 @@ import { Menu } from './Menu.js'
 const FilterableMenu = props => <CommonFilterableMenu {...props} Menu={Menu} />
 
 FilterableMenu.propTypes = {
+    noMatchText: propTypes.string.isRequired,
     className: propTypes.string,
     empty: propTypes.node,
     options: propTypes.node,
-    onChange: propTypes.func,
-    selected: multiSelectedPropType,
     placeholder: propTypes.string,
-    noMatchText: propTypes.string.isRequired,
+    selected: multiSelectedPropType,
+    onChange: propTypes.func,
 }
 
 export { FilterableMenu }

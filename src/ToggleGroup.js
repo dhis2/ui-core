@@ -50,21 +50,21 @@ const ToggleGroup = ({
  */
 ToggleGroup.propTypes = {
     children: propTypes.node.isRequired,
-    onChange: propTypes.func,
-    name: propTypes.string,
+    className: propTypes.string,
+    dense: propTypes.bool,
 
+    disabled: propTypes.bool,
+    error: statusPropType,
+
+    name: propTypes.string,
+    valid: statusPropType,
     value: propTypes.oneOfType([
         propTypes.string,
         propTypes.arrayOf(propTypes.string),
     ]),
-    className: propTypes.string,
-
-    disabled: propTypes.bool,
-    valid: statusPropType,
     warning: statusPropType,
-    error: statusPropType,
 
-    dense: propTypes.bool,
+    onChange: propTypes.func,
 }
 
 export { ToggleGroup }

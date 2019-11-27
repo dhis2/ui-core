@@ -41,8 +41,8 @@ const Card = ({ className, children }) => (
  * @prop {Node} [children]
  */
 Card.propTypes = {
-    className: propTypes.string,
     children: propTypes.node,
+    className: propTypes.string,
 }
 
 export { Card }

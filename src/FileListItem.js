@@ -99,12 +99,12 @@ const FileListItem = ({
  */
 FileListItem.propTypes = {
     label: propTypes.string.isRequired,
-    onRemove: propTypes.func.isRequired,
     removeText: propTypes.string.isRequired,
+    onRemove: propTypes.func.isRequired,
+    cancelText: propTypes.string,
     className: propTypes.string,
     loading: propTypes.bool,
     onCancel: propTypes.func,
-    cancelText: propTypes.string,
 }
 
 export { FileListItem }

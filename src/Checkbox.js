@@ -200,27 +200,27 @@ const uniqueOnStatePropType = propTypes.mutuallyExclusive(
 )
 
 Checkbox.propTypes = {
-    value: propTypes.string,
     label: propTypes.node.isRequired,
+    checked: uniqueOnStatePropType,
+
+    className: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+
+    error: statusPropType,
+    indeterminate: uniqueOnStatePropType,
+    initialFocus: propTypes.bool,
 
     name: propTypes.string,
-    className: propTypes.string,
     tabIndex: propTypes.string,
-
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    valid: statusPropType,
+    value: propTypes.string,
+    warning: statusPropType,
     onBlur: propTypes.func,
 
-    checked: uniqueOnStatePropType,
-    indeterminate: uniqueOnStatePropType,
-    disabled: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
+    onChange: propTypes.func,
 
-    dense: propTypes.bool,
-
-    initialFocus: propTypes.bool,
+    onFocus: propTypes.func,
 }
 
 export { Checkbox }

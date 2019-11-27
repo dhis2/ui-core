@@ -96,18 +96,18 @@ InputWrapper.defaultProps = {
 }
 
 InputWrapper.propTypes = {
-    children: propTypes.element,
-    className: propTypes.string,
+    inputRef: propTypes.object.isRequired,
+    tabIndex: propTypes.string.isRequired,
 
     onToggle: propTypes.func.isRequired,
 
-    tabIndex: propTypes.string.isRequired,
-    inputRef: propTypes.object.isRequired,
+    children: propTypes.element,
+    className: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    error: statusPropType,
     valid: statusPropType,
     warning: statusPropType,
-    error: statusPropType,
-    disabled: propTypes.bool,
-    dense: propTypes.bool,
 }
 
 export { InputWrapper }

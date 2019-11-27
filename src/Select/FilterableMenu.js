@@ -88,16 +88,16 @@ export class FilterableMenu extends Component {
 }
 
 FilterableMenu.propTypes = {
-    empty: propTypes.node,
     Menu: propTypes.elementType.isRequired,
-    options: propTypes.node,
-    onChange: propTypes.func,
+    noMatchText: propTypes.string.isRequired,
     selected: propTypes.oneOfType([
         singleSelectedPropType,
         multiSelectedPropType,
     ]).isRequired,
-    placeholder: propTypes.string,
+    empty: propTypes.node,
     handleClose: propTypes.func,
     handleFocusInput: propTypes.func,
-    noMatchText: propTypes.string.isRequired,
+    options: propTypes.node,
+    placeholder: propTypes.string,
+    onChange: propTypes.func,
 }

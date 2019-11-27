@@ -188,26 +188,26 @@ class Switch extends Component {
  * @prop {function} [onBlur]
  */
 Switch.propTypes = {
-    value: propTypes.string,
     label: propTypes.node.isRequired,
+    checked: propTypes.bool,
 
-    name: propTypes.string,
     className: propTypes.string,
-    tabIndex: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
 
-    onChange: propTypes.func,
-    onFocus: propTypes.func,
+    error: statusPropType,
+    initialFocus: propTypes.bool,
+    name: propTypes.string,
+
+    tabIndex: propTypes.string,
+    valid: statusPropType,
+    value: propTypes.string,
+    warning: statusPropType,
     onBlur: propTypes.func,
 
-    checked: propTypes.bool,
-    disabled: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
+    onChange: propTypes.func,
 
-    dense: propTypes.bool,
-
-    initialFocus: propTypes.bool,
+    onFocus: propTypes.func,
 }
 
 export { Switch }
