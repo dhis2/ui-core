@@ -13,6 +13,16 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('Empty', () => <MultiSelect className="select" />)
+    .add('Empty with empty text', () => (
+        <MultiSelect className="select" empty="Custom empty text" />
+    ))
+    .add('Empty with empty component', () => (
+        <MultiSelect
+            className="select"
+            empty={<div className="custom-empty">Custom empty component</div>}
+        />
+    ))
     .add('With options and loading', () => (
         <MultiSelect className="select" loading>
             <MultiSelectOption value="1" label="option one" />

@@ -13,6 +13,16 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('Empty', () => <SingleSelect className="select" />)
+    .add('Empty with empty text', () => (
+        <SingleSelect className="select" empty="Custom empty text" />
+    ))
+    .add('Empty with empty component', () => (
+        <SingleSelect
+            className="select"
+            empty={<div className="custom-empty">Custom empty component</div>}
+        />
+    ))
     .add('With options and loading', () => (
         <SingleSelect className="select" loading>
             <SingleSelectOption value="1" label="option one" />
