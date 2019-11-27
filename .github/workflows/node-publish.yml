@@ -7,7 +7,7 @@ on:
 
 jobs:
     process:
-        name: Semantic release
+        name: Release
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v1
@@ -15,13 +15,16 @@ jobs:
               with:
                   node-version: 12.x
 
-            - name: install and test
-              run: |
-                  yarn install
-                  yarn lint
-                  yarn build
+            - name: Install
+              run: yarn install
 
-            - name: publish to npm
+            - name: Lint
+              run: yarn lint
+
+            - name: Build
+              run: yarn build
+
+            - name: Publish
               run: npx @dhis2/cli-utils release --publish npm
               env:
                   GIT_AUTHOR_NAME: '@dhis2-bot'
