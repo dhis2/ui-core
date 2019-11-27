@@ -36,7 +36,7 @@
     "@babel/plugin-transform-react-constant-elements": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
-    "@dhis2/cli-style": "4.2.0",
+    "@dhis2/cli-style": "5.0.2",
     "@storybook/addon-notes": "^5.2.6",
     "@storybook/addons": "^5.2.4",
     "@storybook/components": "^5.2.0",
