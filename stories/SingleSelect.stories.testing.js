@@ -13,6 +13,24 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('With options, a selection and disabled', () => (
+        <SingleSelect
+            disabled
+            className="select"
+            selected={{ value: '1', label: 'option one' }}
+        >
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
+    .add('With options and disabled', () => (
+        <SingleSelect disabled className="select">
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
     .add('With prefix', () => (
         <SingleSelect className="select" prefix="Prefix text">
             <SingleSelectOption value="1" label="option one" />

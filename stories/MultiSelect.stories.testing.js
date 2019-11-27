@@ -13,6 +13,24 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('With options, a selection and disabled', () => (
+        <MultiSelect
+            disabled
+            className="select"
+            selected={[{ value: '1', label: 'option one' }]}
+        >
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
+    .add('With options and disabled', () => (
+        <MultiSelect disabled className="select">
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
     .add('With prefix', () => (
         <MultiSelect className="select" prefix="Prefix text">
             <MultiSelectOption value="1" label="option one" />
