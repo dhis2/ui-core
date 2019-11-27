@@ -13,6 +13,20 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('With options and loading', () => (
+        <MultiSelect className="select" loading>
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
+    .add('With options, loading and loading text', () => (
+        <MultiSelect className="select" loadingText="Loading options" loading>
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
     .add('With more than ten options', () => (
         <MultiSelect className="select">
             <MultiSelectOption value="1" label="option one" />

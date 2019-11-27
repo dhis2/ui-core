@@ -11,10 +11,6 @@ Given('the SingleSelect is focused', () => {
     cy.get('.select [tabIndex="0"]').focus()
 })
 
-When('the SingleSelect input is clicked', () => {
-    cy.get('.select [tabIndex="0"]').click()
-})
-
 When('the user clicks the backdrop', () => {
     cy.get('.backdrop').click()
 })

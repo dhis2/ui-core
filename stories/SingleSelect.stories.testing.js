@@ -13,6 +13,20 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('With options and loading', () => (
+        <SingleSelect className="select" loading>
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
+    .add('With options, loading and loading text', () => (
+        <SingleSelect className="select" loadingText="Loading options" loading>
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
     .add('With more than ten options', () => (
         <SingleSelect className="select">
             <SingleSelectOption value="1" label="option one" />

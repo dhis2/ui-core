@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a MultiSelect with options is rendered', () => {
     cy.visitStory('MultiSelect', 'With options')
@@ -18,6 +18,10 @@ Given('the MultiSelect is open', () => {
     cy.contains('option one').should('exist')
     cy.contains('option two').should('exist')
     cy.contains('option three').should('exist')
+})
+
+When('the MultiSelect input is clicked', () => {
+    cy.get('.select [tabIndex="0"]').click()
 })
 
 Then('the options are not displayed', () => {
