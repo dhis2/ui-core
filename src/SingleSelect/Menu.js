@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import { singleSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 
-const onIgnoredClick = e => {
+const onIgnoredClick = (_, e) => {
     e.stopPropagation()
     e.preventDefault()
 }
@@ -39,7 +39,7 @@ const Menu = ({
 
         // Active means the option is currently selected
         const isActive = value === selected.value && label === selected.label
-        const onClick = (unusedData, e) => {
+        const onClick = (_, e) => {
             const data = { selected: { value, label } }
             e.stopPropagation()
 
