@@ -13,4 +13,6 @@ jobs:
                   node-version: 12.x
 
             - name: Lint
-              run: yarn lint
+              run: |
+                  yarn install
+                  yarn lint
