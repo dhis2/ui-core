@@ -5,7 +5,7 @@ import { Chip } from '../Chip.js'
 import { removeOption, findOptionChild } from '../Select/option-helpers.js'
 
 const createRemoveHandler = ({ selected, onChange, value, label }) => (
-    unusedData,
+    _,
     e
 ) => {
     const clickedOption = { value, label }
