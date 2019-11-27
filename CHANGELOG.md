@@ -1,3 +1,10 @@
+## [4.0.3](https://github.com/dhis2/ui/compare/v4.0.2...v4.0.3) (2019-11-27)
+
+
+### Bug Fixes
+
+* **select:** update cb signature for disabled options ([e8dd73a](https://github.com/dhis2/ui/commit/e8dd73af29deb5a740c114d093a9f80ccecbdff6))
+
 ## [4.0.2](https://github.com/dhis2/ui/compare/v4.0.1...v4.0.2) (2019-11-26)
 
 
