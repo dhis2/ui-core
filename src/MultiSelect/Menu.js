@@ -4,13 +4,13 @@ import { multiSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
 import { removeOption, findOption } from '../Select/option-helpers.js'
 
-const onDisabledClick = e => {
+const onDisabledClick = (_, e) => {
     e.stopPropagation()
     e.preventDefault()
 }
 
 const createHandler = ({ isActive, onChange, selected, value, label }) => (
-    unusedData,
+    _,
     e
 ) => {
     const clickedOption = { value, label }
