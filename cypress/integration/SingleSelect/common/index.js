@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a SingleSelect with options is rendered', () => {
     cy.visitStory('SingleSelect', 'With options')
@@ -20,8 +20,12 @@ Given('the SingleSelect is open', () => {
     cy.contains('option three').should('exist')
 })
 
+When('the SingleSelect input is clicked', () => {
+    cy.get('.select [tabIndex="0"]').click()
+})
+
 Then('the options are not displayed', () => {
-    cy.contains('option one').should('not.exist')
-    cy.contains('option two').should('not.exist')
-    cy.contains('option three').should('not.exist')
+    cy.contains('option one').should('not.be.visible')
+    cy.contains('option two').should('not.be.visible')
+    cy.contains('option three').should('not.be.visible')
 })
