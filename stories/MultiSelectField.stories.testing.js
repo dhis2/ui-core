@@ -17,3 +17,10 @@ storiesOf('MultiSelectField', module)
             <MultiSelectOption value="3" label="three" />,
         </MultiSelectField>
     ))
+    .add('With label and required status', () => (
+        <MultiSelectField label="The label" required>
+            <MultiSelectOption value="1" label="one" />,
+            <MultiSelectOption value="2" label="two" />,
+            <MultiSelectOption value="3" label="three" />,
+        </MultiSelectField>
+    ))

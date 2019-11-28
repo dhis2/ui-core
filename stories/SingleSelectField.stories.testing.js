@@ -17,3 +17,10 @@ storiesOf('SingleSelectField', module)
             <SingleSelectOption value="3" label="three" />,
         </SingleSelectField>
     ))
+    .add('With label and required status', () => (
+        <SingleSelectField label="The label" required>
+            <SingleSelectOption value="1" label="one" />,
+            <SingleSelectOption value="2" label="two" />,
+            <SingleSelectOption value="3" label="three" />,
+        </SingleSelectField>
+    ))
