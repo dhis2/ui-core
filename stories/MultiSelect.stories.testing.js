@@ -13,6 +13,26 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('With invalid options', () => (
+        <MultiSelect className="select">
+            <div>invalid one</div>
+            <MultiSelectOption value="1" label="option one" />
+            <div>invalid two</div>
+            <MultiSelectOption value="2" label="option two" />
+            <div>invalid three</div>
+            <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
+    .add('With invalid filterable options', () => (
+        <MultiSelect filterable className="select">
+            <div>invalid one</div>
+            <MultiSelectOption value="1" label="option one" />
+            <div>invalid two</div>
+            <MultiSelectOption value="2" label="option two" />
+            <div>invalid three</div>
+            <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
     .add('With initialFocus', () => (
         <MultiSelect className="select" initialFocus />
     ))

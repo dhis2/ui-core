@@ -13,6 +13,26 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('With invalid options', () => (
+        <SingleSelect className="select">
+            <div>invalid one</div>
+            <SingleSelectOption value="1" label="option one" />
+            <div>invalid two</div>
+            <SingleSelectOption value="2" label="option two" />
+            <div>invalid three</div>
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
+    .add('With invalid filterable options', () => (
+        <SingleSelect filterable className="select">
+            <div>invalid one</div>
+            <SingleSelectOption value="1" label="option one" />
+            <div>invalid two</div>
+            <SingleSelectOption value="2" label="option two" />
+            <div>invalid three</div>
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
     .add('With initialFocus', () => (
         <SingleSelect className="select" initialFocus />
     ))
