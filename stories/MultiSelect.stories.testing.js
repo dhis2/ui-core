@@ -13,6 +13,9 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('With initialFocus', () => (
+        <MultiSelect className="select" initialFocus />
+    ))
     .add('Empty', () => <MultiSelect className="select" />)
     .add('Empty with empty text', () => (
         <MultiSelect className="select" empty="Custom empty text" />

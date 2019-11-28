@@ -13,6 +13,9 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('With initialFocus', () => (
+        <SingleSelect className="select" initialFocus />
+    ))
     .add('Empty', () => <SingleSelect className="select" />)
     .add('Empty with empty text', () => (
         <SingleSelect className="select" empty="Custom empty text" />
