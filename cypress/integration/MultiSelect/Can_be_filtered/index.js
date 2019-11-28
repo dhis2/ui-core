@@ -14,11 +14,11 @@ When("the user enters a filter string that doesn't match any options", () => {
 })
 
 Then('the matching options are displayed', () => {
-    cy.contains('option one').should('exist')
-    cy.contains('option two').should('not.exist')
-    cy.contains('option three').should('not.exist')
+    cy.contains('option one').should('be.visible')
+    cy.contains('option two').should('not.be.visible')
+    cy.contains('option three').should('not.be.visible')
 })
 
 Then('the no match text is displayed', () => {
-    cy.contains('No match found').should('exist')
+    cy.contains('No match found').should('be.visible')
 })

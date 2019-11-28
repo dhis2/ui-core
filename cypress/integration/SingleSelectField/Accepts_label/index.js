@@ -5,5 +5,5 @@ Given('a SingleSelectField with a label is rendered', () => {
 })
 
 Then('the label is visible', () => {
-    cy.contains('The label').should('exist')
+    cy.contains('The label').should('be.visible')
 })

@@ -5,5 +5,5 @@ Given('a SingleSelectField with validation text is rendered', () => {
 })
 
 Then('the validation text is visible', () => {
-    cy.contains('The validation text').should('exist')
+    cy.contains('The validation text').should('be.visible')
 })

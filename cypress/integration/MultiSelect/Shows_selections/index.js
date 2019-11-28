@@ -6,10 +6,10 @@ Given('a MultiSelect with options and multiple selections is rendered', () => {
 })
 
 Then('the selection is displayed', () => {
-    cy.contains('option one').should('exist')
+    cy.contains('option one').should('be.visible')
 })
 
 Then('the selections are displayed', () => {
-    cy.contains('option one').should('exist')
-    cy.contains('option two').should('exist')
+    cy.contains('option one').should('be.visible')
+    cy.contains('option two').should('be.visible')
 })

@@ -13,9 +13,9 @@ Given(
 )
 
 Then('the loading spinner is displayed', () => {
-    cy.get('div[role="progressbar"]').should('exist')
+    cy.get('div[role="progressbar"]').should('be.visible')
 })
 
 Then('the loading text is displayed', () => {
-    cy.contains('Loading options').should('exist')
+    cy.contains('Loading options').should('be.visible')
 })

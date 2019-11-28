@@ -14,13 +14,13 @@ When('the user enters a filter string', () => {
 })
 
 Then('the invalid options are displayed', () => {
-    cy.contains('invalid one').should('exist')
-    cy.contains('invalid two').should('exist')
-    cy.contains('invalid three').should('exist')
+    cy.contains('invalid one').should('be.visible')
+    cy.contains('invalid two').should('be.visible')
+    cy.contains('invalid three').should('be.visible')
 })
 
 Then('the invalid options are not displayed', () => {
-    cy.contains('invalid one').should('not.exist')
-    cy.contains('invalid two').should('not.exist')
-    cy.contains('invalid three').should('not.exist')
+    cy.contains('invalid one').should('not.be.visible')
+    cy.contains('invalid two').should('not.be.visible')
+    cy.contains('invalid three').should('not.be.visible')
 })

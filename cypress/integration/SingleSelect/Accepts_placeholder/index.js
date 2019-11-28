@@ -10,13 +10,13 @@ Given('a SingleSelect with a placeholder and a selection is rendered', () => {
 })
 
 Then('the placeholder is shown', () => {
-    cy.contains('Placeholder text').should('exist')
+    cy.contains('Placeholder text').should('be.visible')
 })
 
 Then('the placeholder is not shown', () => {
-    cy.contains('Placeholder text').should('not.exist')
+    cy.contains('Placeholder text').should('not.be.visible')
 })
 
 Then('the selection is displayed', () => {
-    cy.contains('option one').should('exist')
+    cy.contains('option one').should('be.visible')
 })

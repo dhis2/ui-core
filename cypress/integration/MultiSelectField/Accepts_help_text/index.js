@@ -5,5 +5,5 @@ Given('a MultiSelectField with help text is rendered', () => {
 })
 
 Then('the help text is visible', () => {
-    cy.contains('The help text').should('exist')
+    cy.contains('The help text').should('be.visible')
 })

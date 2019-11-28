@@ -10,9 +10,9 @@ Given('a SingleSelect with a prefix and a selection is rendered', () => {
 })
 
 Then('the prefix is shown', () => {
-    cy.contains('Prefix text').should('exist')
+    cy.contains('Prefix text').should('be.visible')
 })
 
 Then('the selection is shown', () => {
-    cy.contains('option one').should('exist')
+    cy.contains('option one').should('be.visible')
 })

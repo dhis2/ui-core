@@ -32,7 +32,7 @@ When('the escape key is pressed on the focused element', () => {
 })
 
 Then('the options are displayed', () => {
-    cy.contains('option one').should('exist')
-    cy.contains('option two').should('exist')
-    cy.contains('option three').should('exist')
+    cy.contains('option one').should('be.visible')
+    cy.contains('option two').should('be.visible')
+    cy.contains('option three').should('be.visible')
 })

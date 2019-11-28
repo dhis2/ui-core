@@ -39,5 +39,5 @@ When('the up arrowkey is pressed on the focused element', () => {
 })
 
 Then('the selection is displayed', () => {
-    cy.contains('option one').should('exist')
+    cy.contains('option one').should('be.visible')
 })
