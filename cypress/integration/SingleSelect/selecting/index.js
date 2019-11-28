@@ -5,6 +5,10 @@ Given('a SingleSelect with a disabled option is rendered', () => {
     cy.visitStory('SingleSelect', 'With disabled option')
 })
 
+Given('a SingleSelect with custom options is rendered', () => {
+    cy.visitStory('SingleSelect', 'With custom options')
+})
+
 When('an option is clicked', () => {
     cy.contains('option one').click()
 })

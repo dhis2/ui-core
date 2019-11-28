@@ -5,6 +5,10 @@ Given('a MultiSelect with a disabled option is rendered', () => {
     cy.visitStory('MultiSelect', 'With disabled option')
 })
 
+Given('a MultiSelect with custom options is rendered', () => {
+    cy.visitStory('MultiSelect', 'With custom options')
+})
+
 When('an option is clicked', () => {
     cy.contains('option one').click()
 })

@@ -1,6 +1,16 @@
 import React from 'react'
+import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
 import { SingleSelect, SingleSelectOption } from '../src'
+
+const CustomSingleSelectOption = ({ label, onClick }) => (
+    <div onClick={e => onClick({}, e)}>{label}</div>
+)
+
+CustomSingleSelectOption.propTypes = {
+    label: propTypes.string,
+    onClick: propTypes.func,
+}
 
 storiesOf('SingleSelect', module)
     .add('With options', () => (
@@ -11,6 +21,16 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="1" label="option one" />
             <SingleSelectOption value="2" label="option two" />
             <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
+    .add('With custom options', () => (
+        <SingleSelect
+            className="select"
+            onChange={(...args) => window.onChange(...args)}
+        >
+            <CustomSingleSelectOption value="1" label="option one" />
+            <CustomSingleSelectOption value="2" label="option two" />
+            <CustomSingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
     .add('With invalid options', () => (

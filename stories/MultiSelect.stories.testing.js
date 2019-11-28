@@ -1,6 +1,16 @@
 import React from 'react'
+import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
 import { MultiSelect, MultiSelectOption } from '../src'
+
+const CustomMultiSelectOption = ({ label, onClick }) => (
+    <div onClick={e => onClick({}, e)}>{label}</div>
+)
+
+CustomMultiSelectOption.propTypes = {
+    label: propTypes.string,
+    onClick: propTypes.func,
+}
 
 storiesOf('MultiSelect', module)
     .add('With options', () => (
@@ -11,6 +21,16 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
             <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
+    .add('With custom options', () => (
+        <MultiSelect
+            className="select"
+            onChange={(...args) => window.onChange(...args)}
+        >
+            <CustomMultiSelectOption value="1" label="option one" />
+            <CustomMultiSelectOption value="2" label="option two" />
+            <CustomMultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
     .add('With invalid options', () => (

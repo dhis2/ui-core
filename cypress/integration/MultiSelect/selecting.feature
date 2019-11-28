@@ -7,6 +7,13 @@ Feature: Selecting options
         When an option is clicked
         Then the clicked option is selected
 
+    Scenario: The user clicks a custom option to select it
+        Given a MultiSelect with custom options is rendered
+        And an onChange handler is attached
+        And the MultiSelect is open
+        When an option is clicked
+        Then the clicked option is selected
+
     Scenario: The user clicks another option to select it
         Given a MultiSelect with options and a selection is rendered
         And an onChange handler is attached
