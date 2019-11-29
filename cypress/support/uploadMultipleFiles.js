@@ -4,11 +4,10 @@ import { hexStringToByte } from './uploadFile/hexStringToByte'
  * @param {Array.<{ fileType: string, fixture: string }>} files
  * @param {string} selector
  */
-function uploadMultipleFiles(files, selector, trigger) {
+function uploadMultipleFiles(subject, files, trigger) {
     const dataTransfer = new DataTransfer()
 
-    cy.get(selector).as('element')
-
+    cy.wrap(subject).as('element')
     cy.get('@element').then($el => {
         const files = [...$el[0].files]
         files.forEach(file => dataTransfer.items.add(file))
@@ -32,8 +31,15 @@ function uploadMultipleFiles(files, selector, trigger) {
             cy.get('@element').then($el => ($el[0].files = dataTransfer.files))
             // for some reasons trigger causes the `.files` prop to be empty.
             // Only trigger when wanting to inspect the event
+            console.log('trigger', trigger)
             trigger && cy.get('@element').trigger('change', { force: true })
         })
+
+    return cy
 }
 
-Cypress.Commands.add('uploadMultipleFiles', uploadMultipleFiles)
+Cypress.Commands.add(
+    'uploadMultipleFiles',
+    { prevSubject: true },
+    uploadMultipleFiles
+)
