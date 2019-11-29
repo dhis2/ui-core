@@ -1,26 +1,11 @@
-/**
- * @param {string} str
- * returns {Uint8Array}
- */
-function hexStringToByte(str) {
-    if (!str) {
-        return new Uint8Array()
-    }
-
-    var a = []
-    for (var i = 0, len = str.length; i < len; i += 2) {
-        a.push(parseInt(str.substr(i, 2), 16))
-    }
-
-    return new Uint8Array(a)
-}
+import { hexStringToByte } from './uploadFile/hexStringToByte'
 
 /**
  * @param {string} fileType
  * @param {string} fixture
  * @param {string} selector
  */
-function uploadFile(fileType, fixture, selector) {
+function uploadSingleFile(fileType, fixture, selector) {
     cy.fixture(fixture, 'hex')
         .then(fileHex => {
             const fileBytes = hexStringToByte(fileHex)
@@ -44,4 +29,4 @@ function uploadFile(fileType, fixture, selector) {
     cy.get('@element').trigger('change', { force: true })
 }
 
-Cypress.Commands.add('uploadFile', uploadFile)
+Cypress.Commands.add('uploadSingleFile', uploadSingleFile)
