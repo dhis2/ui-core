@@ -6,7 +6,7 @@ Given('a FileInput that accepts one file only is rendered', () => {
 })
 
 When('a file is selected', () => {
-    cy.uploadSingleFile('.md', 'FileInput/file.md', 'input')
+    cy.get('input').uploadSingleFile('.md', 'FileInput/file.md')
 })
 
 Then("the onChange handler's payload contains the file", () => {

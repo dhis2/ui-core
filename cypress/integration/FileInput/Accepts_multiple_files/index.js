@@ -6,22 +6,18 @@ Given('a FileInput that accepts multiple files is rendered', () => {
 })
 
 Given('the FileInput has some files attached', () => {
-    cy.uploadMultipleFiles(
-        [
-            { fileType: 'foo', fixture: 'FileInput/file.foo' },
-            { fileType: 'bar', fixture: 'FileInput/file.bar' },
-        ],
-        '.file-input input'
-    )
+    cy.get('.file-input input').uploadMultipleFiles([
+        { fileType: 'foo', fixture: 'FileInput/file.foo' },
+        { fileType: 'bar', fixture: 'FileInput/file.bar' },
+    ])
 })
 
 When('the user selected multiple files', () => {
-    cy.uploadMultipleFiles(
+    cy.get('.file-input input').uploadMultipleFiles(
         [
             { fileType: 'md', fixture: 'FileInput/file.md' },
             { fileType: 'txt', fixture: 'FileInput/file.txt' },
         ],
-        '.file-input input',
         true
     )
 })

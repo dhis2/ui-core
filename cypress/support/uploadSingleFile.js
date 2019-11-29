@@ -5,7 +5,7 @@ import { hexStringToByte } from './uploadFile/hexStringToByte'
  * @param {string} fixture
  * @param {string} selector
  */
-function uploadSingleFile(fileType, fixture, selector) {
+function uploadSingleFile(subject, fileType, fixture) {
     cy.fixture(fixture, 'hex')
         .then(fileHex => {
             const fileBytes = hexStringToByte(fileHex)
@@ -18,15 +18,16 @@ function uploadSingleFile(fileType, fixture, selector) {
 
             return dataTransfer.files
         })
-        .as('file')
-
-    cy.get(selector).as('element')
-    cy.get('@element').then($el =>
-        cy.get('@file').then(files => {
-            $el[0].files = files
+        .then(files => {
+            cy.wrap(subject).as('element')
+            cy.get('@element').then($el => ($el[0].files = files))
+            cy.get('@element').trigger('change', { force: true })
+            return cy
         })
-    )
-    cy.get('@element').trigger('change', { force: true })
 }
 
-Cypress.Commands.add('uploadSingleFile', uploadSingleFile)
+Cypress.Commands.add(
+    'uploadSingleFile',
+    { prevSubject: true },
+    uploadSingleFile
+)
