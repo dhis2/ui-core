@@ -12,7 +12,7 @@ Given('the FIleInput is provided with an onChange handler', () => {
 })
 
 When('a file is selected', () => {
-    cy.uploadFile('.md', 'FileInput/file.md', 'input')
+    cy.uploadSingleFile('.md', 'FileInput/file.md', 'input')
 })
 
 Then('the onChange handler is called', () => {

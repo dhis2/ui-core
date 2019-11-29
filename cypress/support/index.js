@@ -1,3 +1,3 @@
 import './screenshots'
-import './uploadFile'
+import './uploadSingleFile'
 import './visitStory'
