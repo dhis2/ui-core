@@ -1,12 +1,29 @@
-import { Given } from 'cypress-cucumber-preprocessor/steps'
+import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a FileInput with no files is rendered', () => {
-    cy.visitStory('FileInput', 'Default')
+Given('the FileInput does not have any files', () => {
+    cy.get('input').then($input => {
+        const files = $input[0].files
+        expect(files).to.have.lengthOf(0)
+    })
 })
 
-Given('the FIleInput is provided with an onChange handler', () => {
+Given('the FileInput is provided with an onChange handler', () => {
     cy.window().then(win => {
-        win.noLog = true
         win.onChange = cy.stub()
+    })
+})
+
+Then('the onChange handler is called', () => {
+    cy.window().then(win => {
+        const calls = win.onChange.getCalls()
+        expect(calls).to.have.lengthOf(1)
+
+        const callArgs = calls[0].args
+        expect(callArgs).to.have.lengthOf(2)
+
+        const payload = callArgs[0]
+        expect(Object.keys(payload)).to.include.members(['files', 'name'])
+
+        cy.wrap(payload).as('payload')
     })
 })

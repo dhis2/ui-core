@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react'
 import { FileInput } from '../src'
 
 const onChange = (payload, event) => {
-    !window.noLog && console.log('onChange payload', payload)
-    !window.noLog && console.log('onChange event', event)
+    console.log('onChange payload', payload)
+    console.log('onChange event', event)
 
     // NOTE: if files is not transformed into an array,
     // cypress will get an empty file list!
