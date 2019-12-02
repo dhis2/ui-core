@@ -53,12 +53,13 @@ class SingleSelectField extends React.Component {
             noMatchText,
             initialFocus,
             dense,
+            dataTest,
         } = this.props
 
         return (
-            <Field className={className}>
+            <Field className={className} dataTest={dataTest}>
                 {label && (
-                    <Label required={required} disabled={disabled}>
+                    <Label required={required} disabled={disabled} dataTest={`${dataTest}-label`}>
                         {label}
                     </Label>
                 )}
@@ -93,10 +94,10 @@ class SingleSelectField extends React.Component {
                     </SingleSelect>
                 </Constrictor>
 
-                {helpText && <Help>{helpText}</Help>}
+                {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
 
                 {validationText && (
-                    <Help error={error} warning={warning} valid={valid}>
+                    <Help error={error} warning={warning} valid={valid} dataTest={`${dataTest}-validation`}>
                         {validationText}
                     </Help>
                 )}
@@ -107,6 +108,7 @@ class SingleSelectField extends React.Component {
 
 SingleSelectField.defaultProps = {
     selected: {},
+    dataTest: "dhis2-uicore-singleselectfield"
 }
 
 /**
@@ -149,6 +151,7 @@ SingleSelectField.propTypes = {
     className: propTypes.string,
     clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
     clearable: propTypes.bool,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     empty: propTypes.node,

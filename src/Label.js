@@ -37,10 +37,11 @@ const constructClassName = ({ required, disabled, className }) =>
  *
  * @example import { Label } from '@dhis2/ui-core'
  */
-export const Label = ({ htmlFor, children, required, disabled, className }) => (
+export const Label = ({ htmlFor, children, required, disabled, className, dataTest }) => (
     <label
         htmlFor={htmlFor}
         className={constructClassName({ className, required, disabled })}
+        data-test={dataTest}
     >
         <span>{children}</span>
         <style jsx>{styles}</style>

@@ -10,8 +10,8 @@ import { spacers } from './theme.js'
  * @example import { Field } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/field--default|Storybook}
  */
-const Field = ({ children, className }) => (
-    <div className={className}>
+const Field = ({ children, className, dataTest }) => (
+    <div className={className} data-test={dataTest}>
         {children}
         <style jsx>{`
             div {

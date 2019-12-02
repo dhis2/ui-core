@@ -12,13 +12,14 @@ import { spacers, theme } from './theme.js'
  * @example import { Help } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/help--default|Storybook}
  */
-const Help = ({ children, valid, error, warning, className }) => (
+const Help = ({ children, valid, error, warning, className, dataTest }) => (
     <p
         className={cx(className, {
             valid,
             error,
             warning,
         })}
+        data-test={dataTest}
     >
         {children}
 

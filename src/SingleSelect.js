@@ -45,6 +45,7 @@ const SingleSelect = ({
     noMatchText,
     initialFocus,
     dense,
+    dataTest
 }) => {
     // If the select is filterable, use a filterable menu
     const menu = filterable ? (
@@ -58,7 +59,7 @@ const SingleSelect = ({
     )
 
     return (
-        <div className="root">
+        <div className="root" dataTest={dataTest}>
             <div className="root-input">
                 <Select
                     className={className}
