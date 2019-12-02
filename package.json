@@ -44,7 +44,7 @@
         "@dhis2/cli-style": "^5.0.2",
         "@dhis2/cli-utils-docsite": "^1.1.2",
         "@storybook/addons": "^5.2.8",
-        "@storybook/components": "^5.2.0",
+        "@storybook/components": "^5.2.8",
         "@storybook/react": "^5.2.8",
         "@wertarbyte/react-props-md-table": "^1.1.1",
         "babel-loader": "^8.0.6",
