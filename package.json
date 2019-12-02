@@ -52,7 +52,7 @@
         "babel-loader": "^8.0.6",
         "concurrently": "^5.0.0",
         "cypress": "^3.7.0",
-        "cypress-cucumber-preprocessor": "^1.16.2",
+        "cypress-cucumber-preprocessor": "^1.17.0",
         "eslint-plugin-react": "^7.16.0",
         "react": "16.8",
         "react-dev-utils": "^9.1.0",
