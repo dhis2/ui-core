@@ -23,6 +23,26 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
+    .add('With onFocus', () => (
+        <MultiSelect
+            className="select"
+            onFocus={(...args) => window.onFocus(...args)}
+        >
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
+    .add('With onBlur', () => (
+        <MultiSelect
+            className="select"
+            onBlur={(...args) => window.onBlur(...args)}
+        >
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
     .add('With custom options', () => (
         <MultiSelect
             className="select"
