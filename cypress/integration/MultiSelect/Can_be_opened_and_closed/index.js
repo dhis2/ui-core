@@ -11,10 +11,6 @@ Given('the MultiSelect is focused', () => {
     cy.get('.select [tabIndex="0"]').focus()
 })
 
-When('the user clicks the backdrop', () => {
-    cy.get('.backdrop').click()
-})
-
 When('the down arrowkey is pressed on the focused element', () => {
     cy.focused().type('{downarrow}')
 })
