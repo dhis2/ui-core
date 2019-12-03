@@ -23,6 +23,26 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
+    .add('With onFocus', () => (
+        <SingleSelect
+            className="select"
+            onFocus={(...args) => window.onFocus(...args)}
+        >
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
+    .add('With onBlur', () => (
+        <SingleSelect
+            className="select"
+            onBlur={(...args) => window.onBlur(...args)}
+        >
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
     .add('With custom options', () => (
         <SingleSelect
             className="select"
