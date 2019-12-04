@@ -1746,7 +1746,7 @@
     semver "^6.0.0"
     webpack "^4.33.0"
 
-"@storybook/router@5.2.8":
+"@storybook/router@5.2.8", "@storybook/router@^5.2.8":
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/@storybook/router/-/router-5.2.8.tgz#d7de2d401701857c033e28560c30e16512f7f72f"
   integrity sha512-wnbyKESUMyv9fwo9W+n4Fev/jXylB8whpjtHrOttjguUOYX1zGSHdwNI66voPetbtVLxUeHyJteJwdyRDSirJg==

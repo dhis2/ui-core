@@ -1,12 +1,6 @@
-const urlEncodeStoryBookName = name =>
-    name
-        .replace(/\(|\)/g, '')
-        .replace(/[^a-zA-Z0-9]+/g, '-')
-        .toLowerCase()
+import { toId } from '@storybook/router'
 
 Cypress.Commands.add('visitStory', (namespace, storyName) => {
-    const formattedNamespace = urlEncodeStoryBookName(namespace)
-    const formattedStoryName = urlEncodeStoryBookName(storyName)
-    const id = `${formattedNamespace}--${formattedStoryName}`
+    const id = toId(namespace, storyName)
     cy.visit(`iframe.html?id=${id}`)
 })
