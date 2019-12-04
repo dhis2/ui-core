@@ -1,3 +1,10 @@
+## [4.1.1](https://github.com/dhis2/ui/compare/v4.1.0...v4.1.1) (2019-12-04)
+
+
+### Reverts
+
+* "feat: transfer feature files and fixes" ([765a51b](https://github.com/dhis2/ui/commit/765a51bbed84f0d07745cd52ab08dc9568e16ffc))
+
 # [4.1.0](https://github.com/dhis2/ui/compare/v4.0.3...v4.1.0) (2019-12-03)
 
 
