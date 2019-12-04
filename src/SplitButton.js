@@ -2,9 +2,6 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-
-import { buttonVariantPropType } from './common-prop-types.js'
-
 import { Button } from './Button.js'
 import { DropMenu } from './DropMenu.js'
 import { ArrowDown, ArrowUp } from './icons/Arrow.js'
@@ -51,31 +48,67 @@ class SplitButton extends Component {
 
     render() {
         const { open } = this.state
+        const {
+            component,
+            children,
+            className,
+            name,
+            value,
+            icon,
+            small,
+            large,
+            primary,
+            secondary,
+            destructive,
+            disabled,
+            type,
+            tabIndex,
+        } = this.props
 
-        const icon = open ? <ArrowUp /> : <ArrowDown />
+        const arrow = open ? <ArrowUp /> : <ArrowDown />
 
         return (
             <div ref={this.anchorRef}>
                 <Button
-                    {...this.props}
+                    name={name}
+                    value={value}
+                    icon={icon}
+                    small={small}
+                    large={large}
+                    primary={primary}
+                    secondary={secondary}
+                    destructive={destructive}
+                    disabled={disabled}
                     onClick={this.onClick}
-                    className={cx(this.props.className)}
+                    type={type}
+                    tabIndex={tabIndex}
+                    className={cx(className)}
                 >
-                    {this.props.children}
+                    {children}
                 </Button>
 
                 <Button
-                    {...this.props}
+                    name={name}
+                    value={value}
+                    icon={icon}
+                    small={small}
+                    large={large}
+                    primary={primary}
+                    secondary={secondary}
+                    destructive={destructive}
+                    disabled={disabled}
                     onClick={this.onToggle}
-                    className={cx(this.props.className, rightButton.className)}
+                    type={type}
+                    tabIndex={tabIndex}
+                    className={cx(className, rightButton.className)}
                 >
-                    {icon}
+                    {arrow}
                 </Button>
 
                 {open && (
                     <DropMenu
                         className="split-button-dropmenu"
-                        component={this.props.component}
+                        component={component}
                         onClose={() => this.setState({ open: false })}
                         anchorEl={this.anchorRef.current}
                     />
@@ -114,35 +147,24 @@ class SplitButton extends Component {
  * @prop {string} [className]
  * @prop {string} [name]
  * @prop {string} [value]
+ * @prop {string} [tabIndex]
  * @prop {function} [onClick]
  * @prop {Element} [icon]
  * @prop {boolean} [small] - `small` and `large` are mutually exclusive
  * @prop {boolean} [large]
+ * @prop {string} [type] Type of button: `submit`, `reset`, or
+ * `button`
  * @prop {boolean } [primary] - `primary`, `secondary`, and
  * `destructive` are mutually exclusive boolean props
  * @prop {boolean } [secondary]
  * @prop {boolean } [destructive]
  * @prop {boolean } [disabled]
+ * @prop {boolean} [initialFocus] Grants the button the initial focus
  */
 SplitButton.propTypes = {
+    ...Button.propTypes,
     component: propTypes.element.isRequired,
     children: propTypes.string,
-
-    className: propTypes.string,
-
-    destructive: buttonVariantPropType,
-    disabled: propTypes.bool,
-    icon: propTypes.element,
-
-    large: propTypes.bool,
-
-    name: propTypes.string,
-    primary: buttonVariantPropType,
-
-    secondary: buttonVariantPropType,
-    small: propTypes.bool,
-    value: propTypes.string,
-    onClick: propTypes.func,
 }
 
 export { SplitButton }

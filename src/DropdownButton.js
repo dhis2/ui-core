@@ -2,7 +2,6 @@ import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
 
 import { Button } from './Button.js'
-import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
 import { DropMenu } from './DropMenu.js'
 import { ArrowDown, ArrowUp } from './icons/Arrow.js'
 
@@ -36,21 +35,52 @@ class DropdownButton extends Component {
 
     render() {
         const { open } = this.state
+        const {
+            component,
+            children,
+            className,
+            destructive,
+            disabled,
+            icon,
+            large,
+            primary,
+            secondary,
+            small,
+            name,
+            value,
+            tabIndex,
+            type,
+            initialFocus,
+        } = this.props
 
         const ArrowIcon = open ? <ArrowUp /> : <ArrowDown />
 
         return (
             <div ref={this.anchorRef}>
-                <Button {...this.props} onClick={this.onToggle}>
-                    {this.props.children}
-
+                <Button
+                    className={className}
+                    destructive={destructive}
+                    disabled={disabled}
+                    icon={icon}
+                    large={large}
+                    primary={primary}
+                    secondary={secondary}
+                    small={small}
+                    onClick={this.onToggle}
+                    name={name}
+                    value={value}
+                    tabIndex={tabIndex}
+                    type={type}
+                    initialFocus={initialFocus}
+                >
+                    {children}
                     {ArrowIcon}
                 </Button>
 
                 {open && (
                     <DropMenu
                         className="dropdown-button-dropmenu"
-                        component={this.props.component}
+                        component={component}
                         onClose={() => this.setState({ open: false })}
                         anchorEl={this.anchorRef.current}
                     />
@@ -74,12 +104,17 @@ class DropdownButton extends Component {
  * @static
  * @prop {Element} component
  *
- * @prop {string} [className]
- * @prop {string} [children]
- * @prop {Element} [icon]
+ * @prop {Node} [children] The children to render in the button
+ * @prop {function} [onClick] The click handler
  *
+ * @prop {string} [className]
+ * @prop {string} [name]
+ * @prop {string} [value]
+ * @prop {string} [tabIndex]
  * @prop {boolean} [small] - `small` and `large` are mutually exclusive
  * @prop {boolean} [large]
+ * @prop {string} [type] Type of button: `submit`, `reset`, or
+ * `button`
  *
  * @prop {boolean } [primary] - `primary`, `secondary`, and
  * `destructive` are mutually exclusive boolean props
@@ -87,22 +122,13 @@ class DropdownButton extends Component {
  * @prop {boolean } [destructive]
  *
  * @prop {boolean} [disabled] Disable the button
+ * @prop {Element} [icon]
+ *
+ * @prop {boolean} [initialFocus] Grants the button the initial focus
  */
 DropdownButton.propTypes = {
+    ...Button.propTypes,
     component: propTypes.element.isRequired,
-    children: propTypes.string,
-    className: propTypes.string,
-    destructive: buttonVariantPropType,
-
-    disabled: propTypes.bool,
-
-    icon: propTypes.element,
-    large: sizePropType,
-
-    primary: buttonVariantPropType,
-    secondary: buttonVariantPropType,
-    small: sizePropType,
-    onClick: propTypes.func,
 }
 
 export { DropdownButton }
