@@ -14,7 +14,32 @@ import { ToggleGroup } from './ToggleGroup.js'
  * @see Live demo: {@link /demo/?path=/story/switchgroup--default|Storybook}
  */
 
-const SwitchGroup = props => <ToggleGroup {...props} />
+const SwitchGroup = ({
+    children,
+    onChange,
+    name,
+    value,
+    className,
+    disabled,
+    valid,
+    warning,
+    error,
+    dense,
+}) => (
+    <ToggleGroup
+        onChange={onChange}
+        name={name}
+        value={value}
+        className={className}
+        disabled={disabled}
+        valid={valid}
+        warning={warning}
+        error={error}
+        dense={dense}
+    >
+        {children}
+    </ToggleGroup>
+)
 
 /**
  * @typedef {Object} PropTypes

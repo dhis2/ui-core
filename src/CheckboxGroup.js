@@ -14,7 +14,32 @@ import { ToggleGroup } from './ToggleGroup.js'
  * @see Live demo: {@link /demo/?path=/story/checkboxgroup--default|Storybook}
  */
 
-const CheckboxGroup = props => <ToggleGroup {...props} />
+const CheckboxGroup = ({
+    children,
+    onChange,
+    name,
+    value,
+    className,
+    disabled,
+    valid,
+    warning,
+    error,
+    dense,
+}) => (
+    <ToggleGroup
+        onChange={onChange}
+        name={name}
+        value={value}
+        className={className}
+        disabled={disabled}
+        valid={valid}
+        warning={warning}
+        error={error}
+        dense={dense}
+    >
+        {children}
+    </ToggleGroup>
+)
 
 /**
  * @typedef {Object} PropTypes

@@ -14,8 +14,47 @@ import { Checkbox } from './Checkbox.js'
  * @see Live demo: {@link /demo/?path=/story/checkboxfield--default|Storybook}
  */
 
-const CheckboxField = props => (
-    <ToggleField {...props} toggleComponent={Checkbox} />
+const CheckboxField = ({
+    value,
+    label,
+    name,
+    className,
+    tabIndex,
+    onChange,
+    onFocus,
+    onBlur,
+    checked,
+    disabled,
+    valid,
+    warning,
+    error,
+    dense,
+    initialFocus,
+    required,
+    helpText,
+    validationText,
+}) => (
+    <ToggleField
+        value={value}
+        label={label}
+        name={name}
+        className={className}
+        toggleComponent={Checkbox}
+        tabIndex={tabIndex}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        checked={checked}
+        disabled={disabled}
+        valid={valid}
+        warning={warning}
+        error={error}
+        dense={dense}
+        initialFocus={initialFocus}
+        required={required}
+        helpText={helpText}
+        validationText={validationText}
+    />
 )
 
 /**

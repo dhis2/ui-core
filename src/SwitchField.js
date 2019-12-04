@@ -14,7 +14,48 @@ import { Switch } from './Switch.js'
  * @see Live demo: {@link /demo/?path=/story/switchfield--default|Storybook}
  */
 
-const SwitchField = props => <ToggleField {...props} toggleComponent={Switch} />
+const SwitchField = ({
+    value,
+    label,
+    name,
+    className,
+    tabIndex,
+    onChange,
+    onFocus,
+    onBlur,
+    checked,
+    disabled,
+    valid,
+    warning,
+    error,
+    dense,
+    initialFocus,
+    required,
+    helpText,
+    validationText,
+}) => (
+    <ToggleField
+        toggleComponent={Switch}
+        value={value}
+        label={label}
+        name={name}
+        className={className}
+        tabIndex={tabIndex}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        checked={checked}
+        disabled={disabled}
+        valid={valid}
+        warning={warning}
+        error={error}
+        dense={dense}
+        initialFocus={initialFocus}
+        required={required}
+        helpText={helpText}
+        validationText={validationText}
+    />
+)
 
 /**
  * @typedef {Object} PropTypes

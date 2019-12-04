@@ -109,7 +109,6 @@ class AlertBar extends Component {
         }
 
         const info = !critical && !success && !warning
-        const iconProps = { icon, critical, success, warning, info }
 
         return (
             <div
@@ -123,7 +122,13 @@ class AlertBar extends Component {
                 onMouseEnter={this.stopDisplayTimeOut}
                 onMouseLeave={this.startDisplayTimeout}
             >
-                <Icon {...iconProps} />
+                <Icon
+                    icon={icon}
+                    critical={critical}
+                    success={success}
+                    warning={warning}
+                    info={info}
+                />
                 <Message>{children}</Message>
                 <Actions actions={actions} hide={this.hide} />
                 <Dismiss onClick={this.hide} />

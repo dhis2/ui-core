@@ -4,11 +4,31 @@ import { singleSelectedPropType } from '../common-prop-types.js'
 import { FilterableMenu as CommonFilterableMenu } from '../Select/FilterableMenu.js'
 import { Menu } from './Menu.js'
 
-const FilterableMenu = props => <CommonFilterableMenu {...props} Menu={Menu} />
+const FilterableMenu = ({
+    options,
+    onChange,
+    selected,
+    empty,
+    handleClose,
+    handleFocusInput,
+    placeholder,
+    noMatchText,
+}) => (
+    <CommonFilterableMenu
+        options={options}
+        onChange={onChange}
+        selected={selected}
+        empty={empty}
+        handleClose={handleClose}
+        handleFocusInput={handleFocusInput}
+        placeholder={placeholder}
+        noMatchText={noMatchText}
+        Menu={Menu}
+    />
+)
 
 FilterableMenu.propTypes = {
     noMatchText: propTypes.string.isRequired,
-    className: propTypes.string,
     empty: propTypes.node,
     handleClose: propTypes.func,
     handleFocusInput: propTypes.func,

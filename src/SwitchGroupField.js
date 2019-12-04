@@ -14,7 +14,40 @@ import { ToggleGroupField } from './ToggleGroupField.js'
  * @see Live demo: {@link /demo/?path=/story/switchgroupfield--default|Storybook}
  */
 
-const SwitchGroupField = props => <ToggleGroupField {...props} />
+const SwitchGroupField = ({
+    children,
+    onChange,
+    name,
+    value,
+    className,
+    disabled,
+    valid,
+    warning,
+    error,
+    dense,
+    label,
+    helpText,
+    validationText,
+    required,
+}) => (
+    <ToggleGroupField
+        onChange={onChange}
+        name={name}
+        value={value}
+        className={className}
+        disabled={disabled}
+        valid={valid}
+        warning={warning}
+        error={error}
+        dense={dense}
+        label={label}
+        helpText={helpText}
+        validationText={validationText}
+        required={required}
+    >
+        {children}
+    </ToggleGroupField>
+)
 
 /**
  * @typedef {Object} PropTypes
