@@ -53,7 +53,7 @@
         "cypress": "^3.7.0",
         "cypress-cucumber-preprocessor": "^1.17.0",
         "react": "16.8",
-        "react-dev-utils": "^9.1.0",
+        "react-dev-utils": "^10.0.0",
         "react-docgen": "^4.1.1",
         "react-dom": "16.8",
         "storybook-addon-jsx": "^7.1.13",
