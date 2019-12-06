@@ -8,19 +8,21 @@ Feature: Popover positioning
         Then there is some space between the anchor and the popover
 
     Scenario: Default positioning
-        Given the space above the anchor is more than the limit
+        Given there is enough space between the anchor's top and the body's top to fit the Popover
         When the anchor is clicked
         Then the popover is rendered above the the anchor
         And the horizontal center of the popover is aligned with the horizontal center of the anchor
 
     Scenario: Flipped vertical
-        Given the space above the anchor is less than the limit
+        Given there is not enough space between the anchor's top and the body's top to fit the Popover
+        And there is enough space between the anchor's bottom and the body's bottom to fit the Popover
         When the anchor is clicked
         Then the popover is rendered below the anchor
         And the horizontal center of the popover is aligned with the horizontal center of the anchor
 
     Scenario: Adjusted width
-        Given there is not enough horizontal space available on either side to render the popover
+        Given there is not enough space between the anchor's top and the body's top to fit the Popover
+        And there is not enough space between the anchor's bottom and the body's bottom to fit the Popover
         When the anchor is clicked
         Then the popover is rendered above the anchor
         And the horizontal center of the popover is aligned with the horizontal center of the anchor
