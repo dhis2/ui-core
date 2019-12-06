@@ -27,3 +27,8 @@ export const insideAlignmentPropType = propTypes.oneOf([
     'middle',
     'bottom',
 ])
+
+export const elementRefPropType = propTypes.oneOfType([
+    propTypes.func,
+    propTypes.shape({ current: propTypes.instanceOf(Element) }),
+])

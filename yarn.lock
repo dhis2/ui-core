@@ -1966,6 +1966,11 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
+"@popperjs/core@^2.0.0-rc.3":
+  version "2.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.0.0-rc.3.tgz#17b92f1aabd15ae426e51300ee1c9e38062e9a06"
+  integrity sha512-GqczvJIO6yh6OmPlJdEsVGDQ48twFV3iJUnj3JugVpoBnyM5fQE99E2fVCQZs6qS9AiQ4w/lEiW25m+GwbcCkA==
+
 "@reach/router@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.2.1.tgz#34ae3541a5ac44fa7796e5506a5d7274a162be4e"
