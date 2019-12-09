@@ -43,6 +43,7 @@
         "@babel/preset-react": "^7.7.4",
         "@dhis2/cli-style": "^5.0.3",
         "@dhis2/cli-utils-docsite": "^1.1.2",
+        "@dhis2/prop-types": "^1.5.0",
         "@storybook/addons": "^5.2.8",
         "@storybook/components": "^5.2.8",
         "@storybook/react": "^5.2.8",
@@ -58,17 +59,18 @@
         "react-dom": "16.8",
         "storybook-addon-jsx": "^7.1.13",
         "storybook-addon-react-docgen": "^1.2.28",
+        "styled-jsx": "^3.2.4",
         "typeface-roboto": "^0.0.75",
         "wait-on": "^3.3.0"
     },
     "peerDependencies": {
+        "@dhis2/prop-types": "^1.5",
+        "styled-jsx": "^3.2",
         "react": "^16.8",
         "react-dom": "^16.8"
     },
     "dependencies": {
-        "@dhis2/prop-types": "^1.5.0",
-        "classnames": "^2.2.6",
-        "styled-jsx": "^3.2.4"
+        "classnames": "^2.2.6"
     },
     "files": [
         "build",
