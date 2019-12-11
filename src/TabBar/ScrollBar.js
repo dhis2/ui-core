@@ -96,10 +96,10 @@ class ScrollBar extends Component {
 
     render() {
         const { scrolledToStart, scrolledToEnd } = this.state
+        const { children, className, dataTest } = this.props
 
-        const { children, className } = this.props
         return (
-            <div className={cx('scroll-bar', className)}>
+            <div className={cx('scroll-bar', className)} data-test={dataTest}>
                 <button
                     onClick={scrolledToStart ? undefined : this.scrollLeft}
                     className={cx('scroll-button', {
@@ -216,6 +216,7 @@ class ScrollBar extends Component {
  */
 ScrollBar.propTypes = {
     children: propTypes.node.isRequired,
+    dataTest: propTypes.string.isRequired,
     className: propTypes.string,
 }
 

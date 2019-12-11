@@ -20,8 +20,15 @@ const { styles, className: checkboxClassname } = resolve`
  *
  */
 
-const MultiSelectOption = ({ label, active, disabled, onClick, className }) => (
-    <div className={cx(className, { disabled })}>
+const MultiSelectOption = ({
+    label,
+    active,
+    disabled,
+    onClick,
+    className,
+    dataTest,
+}) => (
+    <div className={cx(className, { disabled })} data-test={dataTest}>
         <Checkbox
             name={label}
             className={checkboxClassname}
@@ -46,6 +53,10 @@ const MultiSelectOption = ({ label, active, disabled, onClick, className }) => (
     </div>
 )
 
+MultiSelectOption.defaultProps = {
+    dataTest: 'dhis2-uicore-multiselectoption',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -57,6 +68,7 @@ const MultiSelectOption = ({ label, active, disabled, onClick, className }) => (
  * @prop {function} [onClick]
  * @prop {boolean} [active]
  * @prop {boolean} [disabled]
+ * @prop {string} [dataTest]
  */
 MultiSelectOption.propTypes = {
     label: propTypes.string.isRequired,
@@ -65,6 +77,7 @@ MultiSelectOption.propTypes = {
     value: propTypes.string.isRequired,
     active: propTypes.bool,
     className: propTypes.string,
+    dataTest: propTypes.string,
     disabled: propTypes.bool,
     onClick: propTypes.func,
 }

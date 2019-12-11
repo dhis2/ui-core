@@ -3,8 +3,8 @@ import propTypes from '@dhis2/prop-types'
 import { spacers } from '../theme.js'
 import { Close } from '../icons/Close.js'
 
-const Dismiss = ({ onClick }) => (
-    <div onClick={onClick}>
+const Dismiss = ({ onClick, dataTest }) => (
+    <div onClick={onClick} data-test={dataTest}>
         <Close />
         <style jsx>{`
             div {
@@ -22,6 +22,7 @@ const Dismiss = ({ onClick }) => (
 )
 
 Dismiss.propTypes = {
+    dataTest: propTypes.string.isRequired,
     onClick: propTypes.func.isRequired,
 }
 

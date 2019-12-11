@@ -34,10 +34,10 @@ const ToggleField = ({
     required,
     helpText,
     validationText,
-
+    dataTest,
     toggleComponent: ToggleComponent,
 }) => (
-    <Field className={className}>
+    <Field className={className} dataTest={dataTest}>
         <ToggleComponent
             value={value}
             label={label}
@@ -56,10 +56,15 @@ const ToggleField = ({
             initialFocus={initialFocus}
         />
 
-        {helpText && <Help>{helpText}</Help>}
+        {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
 
         {validationText && (
-            <Help error={error} warning={warning} valid={valid}>
+            <Help
+                error={error}
+                warning={warning}
+                valid={valid}
+                dataTest={`${dataTest}-validation`}
+            >
                 {validationText}
             </Help>
         )}
@@ -67,6 +72,10 @@ const ToggleField = ({
         {labelStyles.styles}
     </Field>
 )
+
+ToggleField.defaultProps = {
+    dataTest: 'dhis2-uicore-togglefield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -92,12 +101,14 @@ const ToggleField = ({
  * @prop {string} [helpText]
  * @prop {string} [validationText]
  * @prop {function} toggleComponent
+ * @prop {string} [dataTest]
  */
 ToggleField.propTypes = {
     label: propTypes.node.isRequired,
     toggleComponent: propTypes.func.isRequired,
     checked: propTypes.bool,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,

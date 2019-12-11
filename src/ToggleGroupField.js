@@ -23,8 +23,9 @@ const ToggleGroupField = ({
     helpText,
     validationText,
     required,
+    dataTest,
 }) => (
-    <Field classname={className}>
+    <Field classname={className} dataTest={dataTest}>
         <FieldSet>
             {label && <Legend required={required}>{label}</Legend>}
 
@@ -42,16 +43,25 @@ const ToggleGroupField = ({
                 {children}
             </ToggleGroup>
 
-            {helpText && <Help>{helpText}</Help>}
+            {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
 
             {validationText && (
-                <Help error={error} warning={warning} valid={valid}>
+                <Help
+                    error={error}
+                    warning={warning}
+                    valid={valid}
+                    dataTest={`${dataTest}-validation`}
+                >
                     {validationText}
                 </Help>
             )}
         </FieldSet>
     </Field>
 )
+
+ToggleGroupField.defaultProps = {
+    dataTest: 'dhis2-uicore-togglegroupfield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -73,10 +83,12 @@ const ToggleGroupField = ({
  * @prop {string} [helpText]
  * @prop {string} [validationText]
  * @prop {boolean} [required]
+ * @prop {string} [dataTest]
  */
 ToggleGroupField.propTypes = {
     children: propTypes.node.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,

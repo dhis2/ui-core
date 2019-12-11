@@ -11,8 +11,8 @@ import { spacers } from './theme.js'
  * @example import { Field } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/field--default|Storybook}
  */
-const Field = ({ children, className }) => (
-    <div className={className}>
+const Field = ({ children, className, dataTest }) => (
+    <div className={className} data-test={dataTest}>
         {children}
         <style jsx>{`
             div {
@@ -22,15 +22,21 @@ const Field = ({ children, className }) => (
     </div>
 )
 
+Field.defaultProps = {
+    dataTest: 'dhis2-uicore-field',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
  * @prop {Node} children
  * @prop {string} [className]
+ * @prop {string} [dataTest]
  */
 Field.propTypes = {
     children: propTypes.node.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
 }
 
 export { Field }

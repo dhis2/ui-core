@@ -4,7 +4,6 @@ import cx from 'classnames'
 
 import { statusPropType } from './common-prop-types.js'
 import { StatusIcon } from './icons/Status.js'
-
 import { styles } from './TextArea/styles.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
@@ -128,11 +127,12 @@ export class TextArea extends Component {
             rows,
             width,
             resize,
+            dataTest,
         } = this.props
         const { height } = this.state
 
         return (
-            <div className={cx('textarea', className)}>
+            <div className={cx('textarea', className)} data-test={dataTest}>
                 <textarea
                     id={name}
                     name={name}
@@ -182,6 +182,7 @@ TextArea.defaultProps = {
     rows: 4,
     width: '100%',
     resize: 'vertical',
+    dataTest: 'dhis2-uicore-textarea',
 }
 
 /**
@@ -213,31 +214,26 @@ TextArea.defaultProps = {
  * one of `none`, `both`, `horizontal`, `vertical`
  * @prop {number} [rows=4]
  * @prop {string} [width]
+ * @prop {string} [dataTest]
  */
 TextArea.propTypes = {
     autoGrow: propTypes.bool,
-
     className: propTypes.string,
-
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,
-
     initialFocus: propTypes.bool,
     loading: propTypes.bool,
     name: propTypes.string,
-
     placeholder: propTypes.string,
     readOnly: propTypes.bool,
     resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
-
     rows: propTypes.number,
     tabIndex: propTypes.string,
     valid: statusPropType,
     value: propTypes.string,
-
     warning: statusPropType,
-
     width: propTypes.string,
     onBlur: propTypes.func,
     onChange: propTypes.func,

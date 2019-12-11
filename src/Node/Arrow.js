@@ -5,11 +5,11 @@ import cx from 'classnames'
 import { ArrowDown } from '../icons/Arrow.js'
 import { colors } from '../theme.js'
 
-export const Arrow = ({ open, onOpen, onClose }) => {
+export const Arrow = ({ open, onOpen, onClose, dataTest }) => {
     const onClick = open ? onClose : onOpen
 
     return (
-        <div className={cx({ open })}>
+        <div className={cx({ open })} data-test={dataTest}>
             <span onClick={event => onClick && onClick({ open: !open }, event)}>
                 <ArrowDown />
             </span>
@@ -51,6 +51,7 @@ export const Arrow = ({ open, onOpen, onClose }) => {
 }
 
 Arrow.propTypes = {
+    dataTest: propTypes.string.isRequired,
     open: propTypes.bool,
     onClose: propTypes.func,
     onOpen: propTypes.func,

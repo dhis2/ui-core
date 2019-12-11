@@ -64,13 +64,14 @@ class SplitButton extends Component {
             disabled,
             type,
             tabIndex,
+            dataTest,
             initialFocus,
         } = this.props
 
         const arrow = open ? <ArrowUp /> : <ArrowDown />
 
         return (
-            <div ref={this.anchorRef}>
+            <div ref={this.anchorRef} data-test={dataTest}>
                 <Button
                     name={name}
                     value={value}
@@ -86,6 +87,7 @@ class SplitButton extends Component {
                     tabIndex={tabIndex}
                     className={cx(className)}
                     initialFocus={initialFocus}
+                    dataTest={`${dataTest}-button`}
                 >
                     {children}
                 </Button>
@@ -104,6 +106,7 @@ class SplitButton extends Component {
                     type={type}
                     tabIndex={tabIndex}
                     className={cx(className, rightButton.className)}
+                    dataTest={`${dataTest}-toggle`}
                 >
                     {arrow}
                 </Button>
@@ -142,6 +145,10 @@ class SplitButton extends Component {
     }
 }
 
+SplitButton.defaultProps = {
+    dataTest: 'dhis2-uicore-splitbutton',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -163,11 +170,13 @@ class SplitButton extends Component {
  * @prop {boolean } [destructive]
  * @prop {boolean } [disabled]
  * @prop {boolean} [initialFocus] Grants the button the initial focus
+ * @prop {string} [dataTest]
  */
 SplitButton.propTypes = {
     component: propTypes.element.isRequired,
     children: propTypes.string,
     className: propTypes.string,
+    dataTest: propTypes.string,
     destructive: buttonVariantPropType,
     disabled: propTypes.bool,
     icon: propTypes.element,

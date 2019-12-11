@@ -66,6 +66,7 @@ class Radio extends Component {
             value,
             warning,
             dense,
+            dataTest,
         } = this.props
 
         const classes = cx({
@@ -82,6 +83,7 @@ class Radio extends Component {
                     disabled,
                     dense,
                 })}
+                data-test={dataTest}
             >
                 <input
                     type="radio"
@@ -166,6 +168,10 @@ class Radio extends Component {
     }
 }
 
+Radio.defaultProps = {
+    dataTest: 'dhis2-uicore-radio',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -189,27 +195,24 @@ class Radio extends Component {
  *
  * @prop {function} [onFocus]
  * @prop {function} [onBlur]
+ * @prop {string} [dataTest]
  */
 Radio.propTypes = {
     label: propTypes.node.isRequired,
     value: propTypes.string.isRequired,
-
     checked: propTypes.bool,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
-
     disabled: propTypes.bool,
     error: statusPropType,
     initialFocus: propTypes.bool,
-
     name: propTypes.string,
     tabIndex: propTypes.string,
     valid: statusPropType,
     warning: statusPropType,
     onBlur: propTypes.func,
-
     onChange: propTypes.func,
-
     onFocus: propTypes.func,
 }
 

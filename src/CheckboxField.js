@@ -36,6 +36,7 @@ const CheckboxField = ({
     required,
     helpText,
     validationText,
+    dataTest,
 }) => (
     <ToggleField
         value={value}
@@ -57,8 +58,13 @@ const CheckboxField = ({
         required={required}
         helpText={helpText}
         validationText={validationText}
+        dataTest={dataTest}
     />
 )
+
+CheckboxField.defaultProps = {
+    dataTest: 'dhis2-uicore-checkboxfield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -87,11 +93,13 @@ const CheckboxField = ({
  * @prop {boolean} [required]
  * @prop {string} [helpText]
  * @prop {string} [validationText]
+ * @prop {string} [dataTest]
  */
 CheckboxField.propTypes = {
     label: propTypes.node.isRequired,
     checked: propTypes.bool,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,

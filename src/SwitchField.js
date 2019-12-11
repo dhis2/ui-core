@@ -36,6 +36,7 @@ const SwitchField = ({
     required,
     helpText,
     validationText,
+    dataTest,
 }) => (
     <ToggleField
         toggleComponent={Switch}
@@ -57,8 +58,13 @@ const SwitchField = ({
         required={required}
         helpText={helpText}
         validationText={validationText}
+        dataTest={dataTest}
     />
 )
+
+SwitchField.defaultProps = {
+    dataTest: 'dhis2-uicore-switchfield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -87,11 +93,13 @@ const SwitchField = ({
  * @prop {boolean} [required]
  * @prop {string} [helpText]
  * @prop {string} [validationText]
+ * @prop {string} [dataTest]
  */
 SwitchField.propTypes = {
     label: propTypes.node.isRequired,
     checked: propTypes.bool,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,

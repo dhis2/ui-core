@@ -14,13 +14,22 @@ import { colors, theme } from './theme.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tab.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/tabs--default-fluid|Storybook}
  */
-const Tab = ({ icon, onClick, selected, disabled, children, className }) => (
+const Tab = ({
+    icon,
+    onClick,
+    selected,
+    disabled,
+    children,
+    className,
+    dataTest,
+}) => (
     <button
         className={`${cx('tab', className, {
             selected,
             disabled,
         })}`}
         onClick={disabled ? undefined : event => onClick({}, event)}
+        data-test={dataTest}
     >
         {icon}
         <span>{children}</span>
@@ -120,6 +129,10 @@ const Tab = ({ icon, onClick, selected, disabled, children, className }) => (
     </button>
 )
 
+Tab.defaultProps = {
+    dataTest: 'dhis2-uicore-tab',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -129,10 +142,12 @@ const Tab = ({ icon, onClick, selected, disabled, children, className }) => (
  * @prop {boolean} [disabled]
  * @prop {Node} [children]
  * @prop {string} [className]
+ * @prop {string} [dataTest]
  */
 Tab.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
     disabled: propTypes.bool,
     icon: propTypes.element,
     selected: propTypes.bool,

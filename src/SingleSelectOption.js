@@ -20,6 +20,7 @@ const SingleSelectOption = ({
     disabled,
     onClick,
     className,
+    dataTest,
 }) => (
     <div
         className={cx(className, {
@@ -27,6 +28,7 @@ const SingleSelectOption = ({
             active,
         })}
         onClick={e => onClick({}, e)}
+        data-test={dataTest}
     >
         {label}
 
@@ -63,6 +65,10 @@ const SingleSelectOption = ({
     </div>
 )
 
+SingleSelectOption.defaultProps = {
+    dataTest: 'dhis2-uicore-singleselectoption',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -73,6 +79,7 @@ const SingleSelectOption = ({
  * @prop {function} [onClick]
  * @prop {boolean} [active]
  * @prop {boolean} [disabled]
+ * @prop {string} [dataTest]
  */
 SingleSelectOption.propTypes = {
     label: propTypes.string.isRequired,
@@ -81,6 +88,7 @@ SingleSelectOption.propTypes = {
     value: propTypes.string.isRequired,
     active: propTypes.bool,
     className: propTypes.string,
+    dataTest: propTypes.string,
     disabled: propTypes.bool,
     onClick: propTypes.func,
 }

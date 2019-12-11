@@ -27,6 +27,7 @@ const RadioGroup = ({
     warning,
     error,
     dense,
+    dataTest,
 }) => (
     <ToggleGroup
         onChange={onChange}
@@ -38,10 +39,15 @@ const RadioGroup = ({
         warning={warning}
         error={error}
         dense={dense}
+        dataTest={dataTest}
     >
         {children}
     </ToggleGroup>
 )
+
+RadioGroup.defaultProps = {
+    dataTest: 'dhis2-uicore-radiogroup',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -60,10 +66,12 @@ const RadioGroup = ({
  * @prop {boolean} [error]
  *
  * @prop {boolean} [dense]
+ * @prop {string} [dataTest]
  */
 RadioGroup.propTypes = {
     children: propTypes.arrayOf(propTypes.element).isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,

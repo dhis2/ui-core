@@ -10,8 +10,8 @@ import { colors, spacers } from './theme.js'
  * @returns {React.Component}
  * @example import { Divider } from @dhis2/ui-core
  */
-const Divider = ({ margin, className }) => (
-    <div className={className}>
+const Divider = ({ margin, className, dataTest }) => (
+    <div className={className} data-test={dataTest}>
         <style jsx>{`
             div {
                 display: inline-block;
@@ -30,6 +30,7 @@ const Divider = ({ margin, className }) => (
 
 Divider.defaultProps = {
     margin: `${spacers.dp8} 0`,
+    dataTest: 'dhis2-uicore-divider',
 }
 
 /**
@@ -37,9 +38,11 @@ Divider.defaultProps = {
  * @static
  * @prop {string} [className]
  * @prop {string} [margin="${spacers.dp8} 0"] - A CSS shorthand declaration for margin
+ * @prop {string} [dataTest]
  */
 Divider.propTypes = {
     className: propTypes.string,
+    dataTest: propTypes.string,
     margin: propTypes.string,
 }
 

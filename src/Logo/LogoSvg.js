@@ -1,12 +1,13 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-export function LogoSvg({ iconColor, textColor, className }) {
+export function LogoSvg({ iconColor, textColor, className, dataTest }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 600 182"
             className={className}
+            data-test={dataTest}
         >
             <path
                 fill={iconColor}
@@ -55,4 +56,5 @@ LogoSvg.propTypes = {
     iconColor: propTypes.string.isRequired,
     textColor: propTypes.string.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
 }

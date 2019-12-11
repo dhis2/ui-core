@@ -133,10 +133,11 @@ export class Input extends Component {
             loading,
             value,
             tabIndex,
+            dataTest,
         } = this.props
 
         return (
-            <div className={cx('input', className)}>
+            <div className={cx('input', className)} data-test={dataTest}>
                 <input
                     id={name}
                     name={name}
@@ -182,6 +183,7 @@ export class Input extends Component {
 
 Input.defaultProps = {
     type: 'text',
+    dataTest: 'dhis2-uicore-input',
 }
 
 /**
@@ -208,21 +210,19 @@ Input.defaultProps = {
  * @prop {boolean} [warning]
  * @prop {boolean} [error]
  * @prop {boolean} [loading]
+ * @prop {string} [dataTest]
  */
 Input.propTypes = {
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
-
     disabled: propTypes.bool,
-
     error: statusPropType,
     initialFocus: propTypes.bool,
     loading: propTypes.bool,
-
     name: propTypes.string,
     placeholder: propTypes.string,
     readOnly: propTypes.bool,
-
     tabIndex: propTypes.string,
     type: propTypes.oneOf([
         'text',
@@ -240,11 +240,9 @@ Input.propTypes = {
         'search',
     ]),
     valid: statusPropType,
-
     value: propTypes.string,
     warning: statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,
-
     onFocus: propTypes.func,
 }
