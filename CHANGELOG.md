@@ -190,7 +190,7 @@ element, instead they require use of SingleSelectOption, MultiSelectOption,
 or a component with a matching API.
 * **select:** The Select's `onChange` no longer returns a standard `Event.target`,
 instead returns the selected Object with properties: `label` and
-`string`, or an array of those for the MultiSelects
+`value`, or an array of those for the MultiSelects
 * **select:** The Selects all require a selected prop, instead of a value.
 Where selected is an object with a label and a value string, or an array of
 those for the MultiSelect.
