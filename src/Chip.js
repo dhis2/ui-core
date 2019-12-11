@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
@@ -15,90 +15,84 @@ import { Remove } from './Chip/Remove.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/chip.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/chip--default|Storybook}
  */
-class Chip extends Component {
-    onClick = e => {
-        if (!this.props.disabled && this.props.onClick) {
-            this.props.onClick({}, e)
-        }
-    }
-
-    render() {
-        const {
+const Chip = ({
+    selected,
+    disabled,
+    dragging,
+    overflow,
+    className,
+    children,
+    onRemove,
+    onClick,
+    icon,
+}) => (
+    <span
+        onClick={e => {
+            if (!disabled && onClick) {
+                onClick({}, e)
+            }
+        }}
+        className={cx(className, {
             selected,
             disabled,
             dragging,
-            overflow,
-            className,
-            children,
-            onRemove,
-        } = this.props
+        })}
+    >
+        <Icon icon={icon} />
+        <Content overflow={overflow}>{children}</Content>
+        <Remove onRemove={onRemove} />
 
-        return (
-            <span
-                onClick={this.onClick}
-                className={cx(className, {
-                    selected,
-                    disabled,
-                    dragging,
-                })}
-            >
-                <Icon icon={this.props.icon} />
-                <Content overflow={overflow}>{children}</Content>
-                <Remove onRemove={onRemove} />
+        <style jsx>{`
+            span {
+                display: inline-flex;
+                align-items: center;
+                height: 32px;
+                margin: ${spacers.dp4};
+                border-radius: 16px;
+                background-color: ${colors.grey200};
+                font-size: 14px;
+                line-height: 16px;
+                cursor: pointer;
+                user-select: none;
+                color: ${colors.grey900};
+            }
 
-                <style jsx>{`
-                    span {
-                        display: inline-flex;
-                        align-items: center;
-                        height: 32px;
-                        margin: ${spacers.dp4};
-                        border-radius: 16px;
-                        background-color: ${colors.grey200};
-                        font-size: 14px;
-                        line-height: 16px;
-                        cursor: pointer;
-                        user-select: none;
-                        color: ${colors.grey900};
-                    }
+            span:hover {
+                background-color: ${colors.grey300};
+            }
 
-                    span:hover {
-                        background-color: ${colors.grey300};
-                    }
+            .selected {
+                background-color: ${theme.secondary600};
+                font-weight: 500;
+            }
 
-                    .selected {
-                        background-color: ${theme.secondary600};
-                        font-weight: 500;
-                    }
+            .selected:hover {
+                background-color: #00695c;
+            }
 
-                    .selected:hover {
-                        background-color: #00695c;
-                    }
+            .selected,
+            .selected .icon,
+            .selected .remove-icon {
+                color: ${colors.white};
+            }
 
-                    .selected,
-                    .selected .icon,
-                    .selected .remove-icon {
-                        color: ${colors.white};
-                    }
+            .disabled {
+                cursor: not-allowed;
+                opacity: 0.3;
+            }
 
-                    .disabled {
-                        cursor: not-allowed;
-                        opacity: 0.3;
-                    }
+            .disabled .remove-icon {
+                pointer-events: none;
+            }
 
-                    .disabled .remove-icon {
-                        pointer-events: none;
-                    }
-
-                    .dragging {
-                        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-                            0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                            0 1px 5px 0 rgba(0, 0, 0, 0.12);
-                    }
-                `}</style>
-            </span>
-        )
-    }
-}
+            .dragging {
+                box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            }
+        `}</style>
+    </span>
+)
 
 /**
  * @typedef {Object} PropTypes
