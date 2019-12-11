@@ -2,7 +2,6 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { statusPropType, multiSelectedPropType } from './common-prop-types.js'
-
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Help } from './Help.js'
@@ -54,10 +53,11 @@ class MultiSelectField extends React.Component {
             noMatchText,
             initialFocus,
             dense,
+            dataTest,
         } = this.props
 
         return (
-            <Field className={className}>
+            <Field className={className} dataTest={dataTest}>
                 {label && (
                     <Label required={required} disabled={disabled}>
                         {label}
@@ -94,10 +94,17 @@ class MultiSelectField extends React.Component {
                     </MultiSelect>
                 </Constrictor>
 
-                {helpText && <Help>{helpText}</Help>}
+                {helpText && (
+                    <Help dataTest={`${dataTest}-help`}>{helpText}</Help>
+                )}
 
                 {validationText && (
-                    <Help error={error} warning={warning} valid={valid}>
+                    <Help
+                        error={error}
+                        warning={warning}
+                        valid={valid}
+                        dataTest={`${dataTest}-validation`}
+                    >
                         {validationText}
                     </Help>
                 )}
@@ -108,6 +115,7 @@ class MultiSelectField extends React.Component {
 
 MultiSelectField.defaultProps = {
     selected: [],
+    dataTest: 'dhis2-uicore-multiselectfield',
 }
 
 /**
@@ -144,6 +152,7 @@ MultiSelectField.defaultProps = {
  * @prop {string} [noMatchText] - Only required if filterable is true
  * @prop {string} [placeholder]
  * @prop {string} [prefix]
+ * @prop {string} [dataTest]
  */
 MultiSelectField.propTypes = {
     selected: multiSelectedPropType.isRequired,
@@ -151,6 +160,7 @@ MultiSelectField.propTypes = {
     className: propTypes.string,
     clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
     clearable: propTypes.bool,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     empty: propTypes.node,

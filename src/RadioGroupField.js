@@ -31,6 +31,7 @@ const RadioGroupField = ({
     helpText,
     validationText,
     required,
+    dataTest,
 }) => (
     <ToggleGroupField
         onChange={onChange}
@@ -46,10 +47,15 @@ const RadioGroupField = ({
         helpText={helpText}
         validationText={validationText}
         required={required}
+        dataTest={dataTest}
     >
         {children}
     </ToggleGroupField>
 )
+
+RadioGroupField.defaultProps = {
+    dataTest: 'dhis2-uicore-radiogroupfield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -72,10 +78,12 @@ const RadioGroupField = ({
  * @prop {string} [helpText]
  * @prop {string} [validationText]
  * @prop {boolean} [required]
+ * @prop {string} [dataTest]
  */
 RadioGroupField.propTypes = {
     children: propTypes.arrayOf(propTypes.element).isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,

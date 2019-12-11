@@ -169,6 +169,7 @@ export class Select extends Component {
             valid,
             disabled,
             dense,
+            dataTest,
         } = this.props
 
         // We need to update the menu's position on selection because
@@ -203,6 +204,7 @@ export class Select extends Component {
                 ref={this.selectRef}
                 onFocus={this.onFocus}
                 onKeyDown={this.onKeyDown}
+                data-test={dataTest}
             >
                 <InputWrapper
                     onToggle={this.onToggle}
@@ -225,6 +227,7 @@ export class Select extends Component {
                         menuTop={menuTop}
                         menuLeft={menuLeft}
                         menuWidth={menuWidth}
+                        dataTest={`${dataTest}-menu`}
                     >
                         {menu}
                     </MenuWrapper>
@@ -232,6 +235,10 @@ export class Select extends Component {
             </div>
         )
     }
+}
+
+Select.defaultProps = {
+    dataTest: 'dhis2-uicore-select',
 }
 
 Select.propTypes = {
@@ -243,6 +250,7 @@ Select.propTypes = {
     ]).isRequired,
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,

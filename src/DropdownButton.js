@@ -53,12 +53,13 @@ class DropdownButton extends Component {
             tabIndex,
             type,
             initialFocus,
+            dataTest,
         } = this.props
 
         const ArrowIcon = open ? <ArrowUp /> : <ArrowDown />
 
         return (
-            <div ref={this.anchorRef}>
+            <div ref={this.anchorRef} data-test={dataTest}>
                 <Button
                     className={className}
                     destructive={destructive}
@@ -101,6 +102,10 @@ class DropdownButton extends Component {
     }
 }
 
+DropdownButton.defaultProps = {
+    dataTest: 'dhis2-uicore-dropdownbutton',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -127,11 +132,13 @@ class DropdownButton extends Component {
  * @prop {Element} [icon]
  *
  * @prop {boolean} [initialFocus] Grants the button the initial focus
+ * @prop {string} [dataTest]
  */
 DropdownButton.propTypes = {
     component: propTypes.element.isRequired,
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
     destructive: buttonVariantPropType,
     disabled: propTypes.bool,
     icon: propTypes.element,

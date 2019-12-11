@@ -22,13 +22,19 @@ export const Node = ({
     children,
     onOpen,
     onClose,
+    dataTest,
 }) => {
     const hasLeaves = !!React.Children.toArray(children).filter(i => i).length
 
     return (
-        <div className={className}>
+        <div className={className} data-test={dataTest}>
             {hasLeaves ? (
-                <Arrow open={open} onOpen={onOpen} onClose={onClose} />
+                <Arrow
+                    open={open}
+                    onOpen={onOpen}
+                    onClose={onClose}
+                    dataTest={`${dataTest}-arrow`}
+                />
             ) : (
                 <Spacer />
             )}
@@ -46,6 +52,10 @@ export const Node = ({
     )
 }
 
+Node.defaultProps = {
+    dataTest: 'dhis2-uicore-node',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -55,11 +65,13 @@ export const Node = ({
  * @prop {boolean} [open]
  * @prop {function} [onOpen]
  * @prop {funtion} [onClose]
+ * @prop {string} [dataTest]
  */
 Node.propTypes = {
     component: propTypes.element.isRequired,
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
     open: propTypes.bool,
     onClose: propTypes.func,
     onOpen: propTypes.func,

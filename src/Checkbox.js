@@ -67,6 +67,7 @@ class Checkbox extends Component {
             value,
             warning,
             dense,
+            dataTest,
         } = this.props
 
         const classes = cx({
@@ -84,6 +85,7 @@ class Checkbox extends Component {
                     disabled,
                     dense,
                 })}
+                data-test={dataTest}
             >
                 <input
                     type="checkbox"
@@ -169,6 +171,10 @@ class Checkbox extends Component {
     }
 }
 
+Checkbox.defaultProps = {
+    dataTest: 'dhis2-uicore-checkbox',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -193,6 +199,7 @@ class Checkbox extends Component {
  *
  * @prop {function} [onFocus]
  * @prop {function} [onBlur]
+ * @prop {string} [dataTest]
  */
 
 const uniqueOnStatePropType = propTypes.mutuallyExclusive(
@@ -203,24 +210,20 @@ const uniqueOnStatePropType = propTypes.mutuallyExclusive(
 Checkbox.propTypes = {
     label: propTypes.node.isRequired,
     checked: uniqueOnStatePropType,
-
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-
     error: statusPropType,
     indeterminate: uniqueOnStatePropType,
     initialFocus: propTypes.bool,
-
     name: propTypes.string,
     tabIndex: propTypes.string,
     valid: statusPropType,
     value: propTypes.string,
     warning: statusPropType,
     onBlur: propTypes.func,
-
     onChange: propTypes.func,
-
     onFocus: propTypes.func,
 }
 

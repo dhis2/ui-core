@@ -26,6 +26,7 @@ const Chip = ({
     onRemove,
     onClick,
     icon,
+    dataTest,
 }) => (
     <span
         onClick={e => {
@@ -38,10 +39,11 @@ const Chip = ({
             disabled,
             dragging,
         })}
+        data-test={dataTest}
     >
         <Icon icon={icon} />
         <Content overflow={overflow}>{children}</Content>
-        <Remove onRemove={onRemove} />
+        <Remove onRemove={onRemove} dataTest={`${dataTest}-remove`} />
 
         <style jsx>{`
             span {
@@ -95,6 +97,10 @@ const Chip = ({
     </span>
 )
 
+Chip.defaultProps = {
+    dataTest: 'dhis2-uicore-chip',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -107,15 +113,15 @@ const Chip = ({
  * @prop {boolean} [disabled]
  * @prop {boolean} [dragging]
  * @prop {boolean} [overflow]
+ * @prop {string} [dataTest]
  */
 Chip.propTypes = {
     children: propTypes.string.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
     disabled: propTypes.bool,
-
     dragging: propTypes.bool,
     icon: propTypes.element,
-
     overflow: propTypes.bool,
     selected: propTypes.bool,
     onClick: propTypes.func,

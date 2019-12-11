@@ -37,15 +37,27 @@ const constructClassName = ({ required, disabled, className }) =>
  *
  * @example import { Label } from '@dhis2/ui-core'
  */
-export const Label = ({ htmlFor, children, required, disabled, className }) => (
+export const Label = ({
+    htmlFor,
+    children,
+    required,
+    disabled,
+    className,
+    dataTest,
+}) => (
     <label
         htmlFor={htmlFor}
         className={constructClassName({ className, required, disabled })}
+        data-test={dataTest}
     >
         <span>{children}</span>
         <style jsx>{styles}</style>
     </label>
 )
+
+Label.defaultProps = {
+    dataTest: 'dhis2-uicore-label',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -56,10 +68,12 @@ export const Label = ({ htmlFor, children, required, disabled, className }) => (
  * @prop {string} [className]
  * @prop {boolean} [required]
  * @prop {boolean} [disabled]
+ * @prop {string} [dataTest]
  */
 Label.propTypes = {
     children: propTypes.string,
     className: propTypes.string,
+    dataTest: propTypes.string,
     disabled: propTypes.bool,
     htmlFor: propTypes.string,
     required: propTypes.bool,

@@ -1,3 +1,4 @@
+import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { Children, cloneElement } from 'react'
@@ -15,22 +16,30 @@ const ToggleGroup = ({
     error,
     dense,
     className,
-}) =>
-    Children.map(children, child =>
-        cloneElement(child, {
-            name,
-            onChange: child.props.onChange || onChange,
-            checked: Array.isArray(value)
-                ? value.indexOf(child.props.value) !== -1
-                : child.props.value === value,
-            disabled: child.props.disabled || disabled,
-            valid: child.props.valid || valid,
-            warning: child.props.warning || warning,
-            error: child.props.error || error,
-            dense: child.props.dense || dense,
-            className: cx(child.props.className, className, 'grouped'),
-        })
-    )
+    dataTest,
+}) => (
+    <div data-test={dataTest}>
+        {Children.map(children, child =>
+            cloneElement(child, {
+                name,
+                onChange: child.props.onChange || onChange,
+                checked: Array.isArray(value)
+                    ? value.indexOf(child.props.value) !== -1
+                    : child.props.value === value,
+                disabled: child.props.disabled || disabled,
+                valid: child.props.valid || valid,
+                warning: child.props.warning || warning,
+                error: child.props.error || error,
+                dense: child.props.dense || dense,
+                className: cx(child.props.className, className, 'grouped'),
+            })
+        )}
+    </div>
+)
+
+ToggleGroup.defaultProps = {
+    dataTest: 'dhis2-uicore-togglegroup',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -47,15 +56,15 @@ const ToggleGroup = ({
  * @prop {boolean} [warning]
  * @prop {boolean} [error]
  * @prop {boolean} [dense]
+ * @prop {string} [dataTest]
  */
 ToggleGroup.propTypes = {
     children: propTypes.node.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
-
     disabled: propTypes.bool,
     error: statusPropType,
-
     name: propTypes.string,
     valid: statusPropType,
     value: propTypes.oneOfType([
@@ -63,7 +72,6 @@ ToggleGroup.propTypes = {
         propTypes.arrayOf(propTypes.string),
     ]),
     warning: statusPropType,
-
     onChange: propTypes.func,
 }
 

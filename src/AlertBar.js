@@ -102,6 +102,7 @@ class AlertBar extends Component {
             critical,
             icon,
             actions,
+            dataTest,
         } = this.props
         const { visible, hidden } = this.state
 
@@ -120,6 +121,7 @@ class AlertBar extends Component {
                     critical,
                     visible,
                 })}
+                data-test={dataTest}
                 onMouseEnter={this.stopDisplayTimeOut}
                 onMouseLeave={this.startDisplayTimeout}
             >
@@ -132,7 +134,7 @@ class AlertBar extends Component {
                 />
                 <Message>{children}</Message>
                 <Actions actions={actions} hide={this.hide} />
-                <Dismiss onClick={this.hide} />
+                <Dismiss onClick={this.hide} dataTest={`${dataTest}-dismiss`} />
 
                 <style jsx>{styles}</style>
             </div>
@@ -144,6 +146,12 @@ const alertTypePropType = propTypes.mutuallyExclusive(
     ['success', 'warning', 'critical'],
     propTypes.bool
 )
+
+AlertBar.defaultProps = {
+    duration: 8000,
+    dataTest: 'dhis2-uicore-alertbar',
+    icon: true,
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -162,23 +170,20 @@ const alertTypePropType = propTypes.mutuallyExclusive(
  * @prop {boolean} [permanent]
  * @prop {Array} [actions] An array of 0-2 action objects with the shape: `{ label: {string}, onClick: {function} }`
  * @prop {function} [onHidden]
+ * @prop {string} [dataTest]
  */
 AlertBar.propTypes = {
     children: propTypes.string.isRequired,
     actions: actionsPropType,
     className: propTypes.string,
     critical: alertTypePropType,
+    dataTest: propTypes.string,
     duration: propTypes.number,
     icon: iconPropType,
     permanent: propTypes.bool,
     success: alertTypePropType,
     warning: alertTypePropType,
     onHidden: propTypes.func,
-}
-
-AlertBar.defaultProps = {
-    icon: true,
-    duration: 8000,
 }
 
 export { AlertBar }

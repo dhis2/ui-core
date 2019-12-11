@@ -8,8 +8,8 @@ import propTypes from '@dhis2/prop-types'
  *
  * @example import { FileList } from '@dhis2/ui-core'
  */
-const FileList = ({ children, className }) => (
-    <div className={className}>
+const FileList = ({ children, className, dataTest }) => (
+    <div className={className} data-test={dataTest}>
         {children}
         <style jsx>{`
             div {
@@ -22,16 +22,22 @@ const FileList = ({ children, className }) => (
     </div>
 )
 
+FileList.defaultProps = {
+    dataTest: 'dhis2-uicore-filelist',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
  *
  * @prop {string} [className]
  * @prop {FileListPlaceholder|FileListItem|Array.<FileListItem>} [children]
+ * @prop {string} [dataTest]
  */
 FileList.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
 }
 
 export { FileList }

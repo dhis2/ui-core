@@ -30,6 +30,7 @@ const CheckboxGroupField = ({
     helpText,
     validationText,
     required,
+    dataTest,
 }) => (
     <ToggleGroupField
         onChange={onChange}
@@ -45,10 +46,15 @@ const CheckboxGroupField = ({
         helpText={helpText}
         validationText={validationText}
         required={required}
+        dataTest={dataTest}
     >
         {children}
     </ToggleGroupField>
 )
+
+CheckboxGroupField.defaultProps = {
+    dataTest: 'dhis2-uicore-checkboxgroupfield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -71,10 +77,12 @@ const CheckboxGroupField = ({
  * @prop {string} [helpText]
  * @prop {string} [validationText]
  * @prop {boolean} [required]
+ * @prop {string} [dataTest]
  */
 CheckboxGroupField.propTypes = {
     children: propTypes.arrayOf(propTypes.element).isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,

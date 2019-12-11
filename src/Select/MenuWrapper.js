@@ -16,6 +16,7 @@ const MenuWrapper = ({
     menuWidth,
     zIndex,
     onClick,
+    dataTest,
 }) => {
     const { styles, className: cardClassName } = resolve`
         height: auto;
@@ -24,7 +25,7 @@ const MenuWrapper = ({
     `
     return ReactDOM.createPortal(
         <Backdrop onClick={onClick} transparent zIndex={zIndex}>
-            <div className={className} ref={menuRef}>
+            <div className={className} ref={menuRef} dataTest={dataTest}>
                 <Card className={cardClassName}>{children}</Card>
 
                 {styles}
@@ -49,6 +50,7 @@ MenuWrapper.defaultProps = {
 }
 
 MenuWrapper.propTypes = {
+    dataTest: propTypes.string.isRequired,
     menuLeft: propTypes.string.isRequired,
     menuRef: propTypes.object.isRequired,
     menuTop: propTypes.string.isRequired,

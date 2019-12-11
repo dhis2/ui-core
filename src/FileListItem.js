@@ -25,8 +25,9 @@ const FileListItem = ({
     loading,
     onCancel,
     cancelText,
+    dataTest,
 }) => (
-    <p className={cx('selected-file', className)}>
+    <p className={cx('selected-file', className)} data-test={dataTest}>
         <span className="icon">{loading ? <Loading /> : <AttachFile />}</span>
 
         <span className="text">
@@ -86,6 +87,10 @@ const FileListItem = ({
     </p>
 )
 
+FileListItem.defaultProps = {
+    dataTest: 'dhis2-uicore-filelistitem',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -97,6 +102,7 @@ const FileListItem = ({
  * @prop {boolean} [loading]
  * @prop {function} [onCancel]
  * @prop {string} [cancelText]
+ * @prop {string} [dataTest]
  */
 FileListItem.propTypes = {
     label: propTypes.string.isRequired,
@@ -104,6 +110,7 @@ FileListItem.propTypes = {
     onRemove: propTypes.func.isRequired,
     cancelText: propTypes.string,
     className: propTypes.string,
+    dataTest: propTypes.string,
     loading: propTypes.bool,
     onCancel: propTypes.func,
 }

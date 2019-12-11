@@ -34,16 +34,21 @@ Content.propTypes = {
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking|Design system}
  * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
  */
-const ScreenCover = ({ children, onClick, className }) => {
+const ScreenCover = ({ children, onClick, className, dataTest }) => {
     return (
         <Backdrop
             onClick={onClick}
             zIndex={layers.blocking}
             className={className}
+            dataTest={dataTest}
         >
             <Content>{children}</Content>
         </Backdrop>
     )
+}
+
+ScreenCover.defaultProps = {
+    dataTest: 'dhis2-uicore-screencover',
 }
 
 /**
@@ -52,10 +57,12 @@ const ScreenCover = ({ children, onClick, className }) => {
  * @prop {function} [onClick]
  * @prop {string} [className]
  * @prop {Node} [children]
+ * @prop {string} [dataTest]
  */
 ScreenCover.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
     onClick: propTypes.func,
 }
 

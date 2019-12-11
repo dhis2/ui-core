@@ -40,8 +40,9 @@ const FileInputField = ({
     disabled,
     accept,
     multiple,
+    dataTest,
 }) => (
-    <Field className={className}>
+    <Field className={className} dataTest={dataTest}>
         {label && (
             <Label required={required} disabled={disabled} htmlFor={name}>
                 {label}
@@ -64,10 +65,15 @@ const FileInputField = ({
             name={name}
         />
 
-        {helpText && <Help>{helpText}</Help>}
+        {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
 
         {validationText && (
-            <Help error={error} warning={warning} valid={valid}>
+            <Help
+                error={error}
+                warning={warning}
+                valid={valid}
+                dataTest={`${dataTest}-validation`}
+            >
                 {validationText}
             </Help>
         )}
@@ -81,6 +87,11 @@ const FileInputField = ({
         </FileList>
     </Field>
 )
+
+FileInputField.defaultProps = {
+    accept: '*',
+    dataTest: 'dhis2-uicore-fileinputfield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -110,12 +121,14 @@ const FileInputField = ({
  * @prop {FileListItem|Array.<FileListItem>} [children]
  * @prop {string} [accept=*] - the `accept` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
  * @prop {boolean} [multiple] - the `multiple` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
+ * @prop {string} [dataTest]
  */
 FileInputField.propTypes = {
     accept: propTypes.string,
     buttonLabel: propTypes.string,
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
     disabled: propTypes.bool,
     error: statusPropType,
     helpText: propTypes.string,
@@ -131,10 +144,6 @@ FileInputField.propTypes = {
     validationText: propTypes.string,
     warning: statusPropType,
     onChange: propTypes.func,
-}
-
-FileInputField.defaultProps = {
-    accept: '*',
 }
 
 export { FileInputField }

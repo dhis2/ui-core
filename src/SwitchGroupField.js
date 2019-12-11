@@ -31,6 +31,7 @@ const SwitchGroupField = ({
     helpText,
     validationText,
     required,
+    dataTest,
 }) => (
     <ToggleGroupField
         onChange={onChange}
@@ -46,10 +47,15 @@ const SwitchGroupField = ({
         helpText={helpText}
         validationText={validationText}
         required={required}
+        dataTest={dataTest}
     >
         {children}
     </ToggleGroupField>
 )
+
+SwitchGroupField.defaultProps = {
+    dataTest: 'dhis2-uicore-switchgroupfield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -72,10 +78,12 @@ const SwitchGroupField = ({
  * @prop {string} [helpText]
  * @prop {string} [validationText]
  * @prop {boolean} [required]
+ * @prop {string} [dataTest]
  */
 SwitchGroupField.propTypes = {
     children: propTypes.arrayOf(propTypes.element).isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,

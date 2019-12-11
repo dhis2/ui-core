@@ -14,8 +14,8 @@ import { colors, spacers } from './theme.js'
  *
  * @see Live demo: {@link /demo/?path=/story/legend--default|Storybook}
  */
-const Legend = ({ className, children, required }) => (
-    <legend className={cx(className, { required })}>
+const Legend = ({ className, children, required, dataTest }) => (
+    <legend className={cx(className, { required })} data-test={dataTest}>
         {children}
         <style jsx>{`
             legend {
@@ -31,16 +31,22 @@ const Legend = ({ className, children, required }) => (
     </legend>
 )
 
+Legend.defaultProps = {
+    dataTest: 'dhis2-uicore-legend',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
  * @prop {Node} children
  * @prop {string} [className]
  * @prop {boolean} [required]
+ * @prop {string} [dataTest]
  */
 Legend.propTypes = {
     children: propTypes.node.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
     required: propTypes.bool,
 }
 

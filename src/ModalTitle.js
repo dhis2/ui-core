@@ -10,8 +10,8 @@ import { spacers } from './theme.js'
  * @param {ModalTitle.PropTypes} props
  * @returns {React.Component}
  */
-export const ModalTitle = ({ children }) => (
-    <h1 className={cx('title')}>
+export const ModalTitle = ({ children, dataTest }) => (
+    <h1 className={cx('title')} data-test={dataTest}>
         {children}
 
         <style jsx>{`
@@ -26,11 +26,17 @@ export const ModalTitle = ({ children }) => (
     </h1>
 )
 
+ModalTitle.defaultProps = {
+    dataTest: 'dhis2-uicore-modaltitle',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
  * @prop {string} children
+ * @prop {string} [dataTest]
  */
 ModalTitle.propTypes = {
     children: propTypes.string.isRequired,
+    dataTest: propTypes.string,
 }

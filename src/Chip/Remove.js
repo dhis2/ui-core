@@ -29,7 +29,7 @@ const removeIcon = resolve`
     }
 `
 
-export const Remove = ({ onRemove }) => {
+export const Remove = ({ onRemove, dataTest }) => {
     if (!onRemove) {
         return null
     }
@@ -40,6 +40,7 @@ export const Remove = ({ onRemove }) => {
                 e.stopPropagation() // stop onRemove from triggering onClick on container
                 onRemove({}, e)
             }}
+            data-test={dataTest}
         >
             <Cancel className={removeIcon.className} />
             {removeIcon.styles}
@@ -50,5 +51,6 @@ export const Remove = ({ onRemove }) => {
 }
 
 Remove.propTypes = {
+    dataTest: propTypes.string.isRequired,
     onRemove: propTypes.func,
 }
