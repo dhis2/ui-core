@@ -2,7 +2,6 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { statusPropType } from './common-prop-types.js'
-
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { TextArea } from './TextArea.js'
@@ -44,8 +43,9 @@ const TextAreaField = ({
     resize,
     rows,
     inputWidth,
+    dataTest,
 }) => (
-    <Field className={className}>
+    <Field className={className} dataTest={dataTest}>
         {label ? (
             <Label required={required} disabled={disabled} htmlFor={name}>
                 {label}
@@ -85,7 +85,12 @@ const TextAreaField = ({
     </Field>
 )
 
-TextAreaField.defaultProps = TextArea.defaultProps
+TextAreaField.defaultProps = {
+    rows: 4,
+    width: '100%',
+    resize: 'vertical',
+    dataTest: 'dhis2-uicore-textareafield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -125,29 +130,25 @@ TextAreaField.defaultProps = TextArea.defaultProps
 TextAreaField.propTypes = {
     autoGrow: propTypes.bool,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,
-
     helpText: propTypes.string,
     initialFocus: propTypes.bool,
     inputWidth: propTypes.string,
     label: propTypes.string,
-
     loading: propTypes.bool,
     name: propTypes.string,
     placeholder: propTypes.string,
-
     readOnly: propTypes.bool,
     required: propTypes.bool,
     resize: propTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
     rows: propTypes.number,
     tabIndex: propTypes.string,
     valid: statusPropType,
-
     validationText: propTypes.string,
     value: propTypes.string,
-
     warning: statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,

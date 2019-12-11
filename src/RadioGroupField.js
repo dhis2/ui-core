@@ -2,6 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { ToggleGroupField } from './ToggleGroupField.js'
+import { statusPropType } from './common-prop-types.js'
 
 /**
  * @module
@@ -29,6 +30,7 @@ const RadioGroupField = ({
     helpText,
     validationText,
     required,
+    dataTest,
 }) => (
     <ToggleGroupField
         onChange={onChange}
@@ -44,10 +46,15 @@ const RadioGroupField = ({
         helpText={helpText}
         validationText={validationText}
         required={required}
+        dataTest={dataTest}
     >
         {children}
     </ToggleGroupField>
 )
+
+RadioGroupField.defaultProps = {
+    dataTest: 'dhis2-uicore-radiogroupfield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -72,9 +79,21 @@ const RadioGroupField = ({
  * @prop {boolean} [required]
  */
 RadioGroupField.propTypes = {
-    ...ToggleGroupField.propTypes,
     children: propTypes.arrayOf(propTypes.element).isRequired,
+    className: propTypes.string,
+    dataTest: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    error: statusPropType,
+    helpText: propTypes.string,
+    label: propTypes.string,
+    name: propTypes.string,
+    required: propTypes.bool,
+    valid: statusPropType,
+    validationText: propTypes.string,
     value: propTypes.string,
+    warning: statusPropType,
+    onChange: propTypes.func,
 }
 
 export { RadioGroupField }

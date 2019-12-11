@@ -7,6 +7,7 @@ import { DropMenu } from './DropMenu.js'
 import { ArrowDown, ArrowUp } from './icons/Arrow.js'
 
 import { spacers } from './theme.js'
+import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
 
 const rightButton = css.resolve`
     button {
@@ -63,13 +64,14 @@ class SplitButton extends Component {
             disabled,
             type,
             tabIndex,
+            dataTest,
             initialFocus,
         } = this.props
 
         const arrow = open ? <ArrowUp /> : <ArrowDown />
 
         return (
-            <div ref={this.anchorRef}>
+            <div ref={this.anchorRef} data-test={dataTest}>
                 <Button
                     name={name}
                     value={value}
@@ -141,6 +143,10 @@ class SplitButton extends Component {
     }
 }
 
+SplitButton.defaultProps = {
+    dataTest: 'dhis2-uicore-splitbutton',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -164,9 +170,23 @@ class SplitButton extends Component {
  * @prop {boolean} [initialFocus] Grants the button the initial focus
  */
 SplitButton.propTypes = {
-    ...Button.propTypes,
     component: propTypes.element.isRequired,
     children: propTypes.string,
+    className: propTypes.string,
+    dataTest: propTypes.string,
+    destructive: buttonVariantPropType,
+    disabled: propTypes.bool,
+    icon: propTypes.element,
+    initialFocus: propTypes.bool,
+    large: sizePropType,
+    name: propTypes.string,
+    primary: buttonVariantPropType,
+    secondary: buttonVariantPropType,
+    small: sizePropType,
+    tabIndex: propTypes.string,
+    type: propTypes.oneOf(['submit', 'reset', 'button']),
+    value: propTypes.string,
+    onClick: propTypes.func,
 }
 
 export { SplitButton }

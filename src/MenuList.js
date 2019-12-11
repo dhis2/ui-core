@@ -11,8 +11,8 @@ import propTypes from '@dhis2/prop-types'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/menulist--default|Storybook}
  */
-const MenuList = ({ children, className }) => (
-    <ul className={className}>
+const MenuList = ({ children, className, dataTest }) => (
+    <ul className={className} data-test={dataTest}>
         {children}
 
         <style jsx>{`
@@ -29,6 +29,10 @@ const MenuList = ({ children, className }) => (
     </ul>
 )
 
+MenuList.defaultProps = {
+    dataTest: 'dhis2-uicore-menulist',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -39,6 +43,7 @@ const MenuList = ({ children, className }) => (
 MenuList.propTypes = {
     children: propTypes.node.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
 }
 
 export { MenuList }

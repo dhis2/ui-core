@@ -45,6 +45,7 @@ const MultiSelect = ({
     noMatchText,
     initialFocus,
     dense,
+    dataTest,
 }) => {
     // If the select is filterable, use a filterable menu
     const menu = filterable ? (
@@ -58,7 +59,7 @@ const MultiSelect = ({
     )
 
     return (
-        <div className="root">
+        <div className="root" data-test={dataTest}>
             <div className="root-input">
                 <Select
                     className={className}
@@ -107,6 +108,7 @@ const MultiSelect = ({
 
 MultiSelect.defaultProps = {
     selected: [],
+    dataTest: 'dhis2-uicore-multiselect',
 }
 
 /**
@@ -144,6 +146,7 @@ MultiSelect.propTypes = {
     className: propTypes.string,
     clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
     clearable: propTypes.bool,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     empty: propTypes.node,

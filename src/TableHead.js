@@ -8,9 +8,15 @@ import propTypes from '@dhis2/prop-types'
  * @example import { TableHead } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableHead = ({ children, className }) => (
-    <thead className={className}>{children}</thead>
+export const TableHead = ({ children, className, dataTest }) => (
+    <thead className={className} data-test={dataTest}>
+        {children}
+    </thead>
 )
+
+TableHead.defaultProps = {
+    dataTest: 'dhis2-uicore-tablehead',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -24,4 +30,5 @@ TableHead.propTypes = {
         propTypes.arrayOf(propTypes.element),
     ]).isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
 }

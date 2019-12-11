@@ -12,8 +12,14 @@ import React from 'react'
  * 2: a snake (such as a boa constrictor) that coils around and compresses prey
  * 3: one that constricts
  */
-export const Constrictor = ({ width, minWidth, maxWidth, children }) => (
-    <div>
+export const Constrictor = ({
+    width,
+    minWidth,
+    maxWidth,
+    children,
+    dataTest,
+}) => (
+    <div data-test={dataTest}>
         {children}
         <style jsx>{`
             div {
@@ -25,6 +31,10 @@ export const Constrictor = ({ width, minWidth, maxWidth, children }) => (
     </div>
 )
 
+Constrictor.defaultProps = {
+    dataTest: 'dhis2-uicore-constrictor',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -35,6 +45,7 @@ export const Constrictor = ({ width, minWidth, maxWidth, children }) => (
  */
 Constrictor.propTypes = {
     children: propTypes.node,
+    dataTest: propTypes.string,
     maxWidth: propTypes.string,
     minWidth: propTypes.string,
     width: propTypes.string,

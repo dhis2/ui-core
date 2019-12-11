@@ -1,6 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
+import { statusPropType, sizePropType } from './common-prop-types.js'
 import { FileInput } from './FileInput.js'
 import { FileList } from './FileList.js'
 import { FileListPlaceholder } from './FileListPlaceholder.js'
@@ -38,8 +39,9 @@ const FileInputField = ({
     disabled,
     accept,
     multiple,
+    dataTest,
 }) => (
-    <Field className={className}>
+    <Field className={className} dataTest={dataTest}>
         {label ? (
             <Label required={required} disabled={disabled} htmlFor={name}>
                 {label}
@@ -80,6 +82,11 @@ const FileInputField = ({
     </Field>
 )
 
+FileInputField.defaultProps = {
+    accept: '*',
+    dataTest: 'dhis2-uicore-fileinputfield',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -110,20 +117,29 @@ const FileInputField = ({
  * @prop {boolean} [multiple] - the `multiple` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
  */
 FileInputField.propTypes = {
-    ...FileInput.propTypes,
+    accept: propTypes.string,
+    buttonLabel: propTypes.string,
     children: propTypes.oneOfType([
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
     ]),
+    className: propTypes.string,
+    dataTest: propTypes.string,
+    disabled: propTypes.bool,
+    error: statusPropType,
     helpText: propTypes.string,
     label: propTypes.string,
+    large: sizePropType,
+    multiple: propTypes.bool,
+    name: propTypes.string,
     placeholder: propTypes.string,
     required: propTypes.bool,
+    small: sizePropType,
+    tabIndex: propTypes.string,
+    valid: statusPropType,
     validationText: propTypes.string,
-}
-
-FileInputField.defaultProps = {
-    accept: '*',
+    warning: statusPropType,
+    onChange: propTypes.func,
 }
 
 export { FileInputField }

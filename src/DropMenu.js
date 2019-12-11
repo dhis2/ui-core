@@ -68,13 +68,17 @@ class DropMenu extends Component {
     }
 
     render() {
-        const { className, component, zIndex } = this.props
+        const { className, component, zIndex, dataTest } = this.props
         const { top, left } = this.state
 
         return ReactDOM.createPortal(
             <Layer zIndex={zIndex}>
                 {zIndexComputed => (
-                    <div className={className} ref={this.elContainer}>
+                    <div
+                        className={className}
+                        ref={this.elContainer}
+                        data-test={dataTest}
+                    >
                         {component}
 
                         <style jsx>{`
@@ -95,6 +99,7 @@ class DropMenu extends Component {
 
 DropMenu.defaultProps = {
     zIndex: layers.appliationTop,
+    dataTest: 'dhis2-uicore-dropmenu',
 }
 
 /**
@@ -114,6 +119,7 @@ DropMenu.propTypes = {
     }),
     className: propTypes.string,
     component: propTypes.element,
+    dataTest: propTypes.string,
     stayOpen: propTypes.bool,
     zIndex: propTypes.number,
     onClose: propTypes.func,

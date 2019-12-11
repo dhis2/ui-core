@@ -22,6 +22,7 @@ const Contents = ({ children, open }) => (
         `}</style>
     </div>
 )
+
 Contents.propTypes = {
     children: propTypes.node,
     open: propTypes.bool,
@@ -120,12 +121,14 @@ export const Node = ({
     children,
     onOpen,
     onClose,
+    dataTest,
 }) => {
     const hasLeaves = !!React.Children.toArray(children).filter(i => i).length
 
     return (
         <div
             className={cx('tree', className, { open, 'has-leaves': hasLeaves })}
+            data-test={dataTest}
         >
             <Arrow
                 open={open}
@@ -147,6 +150,10 @@ export const Node = ({
     )
 }
 
+Node.defaultProps = {
+    dataTest: 'dhis2-uicore-node',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -161,6 +168,7 @@ Node.propTypes = {
     component: propTypes.element.isRequired,
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
     open: propTypes.bool,
     onClose: propTypes.func,
     onOpen: propTypes.func,

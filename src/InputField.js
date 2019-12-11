@@ -2,7 +2,6 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { statusPropType } from './common-prop-types.js'
-
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Input } from './Input.js'
@@ -44,10 +43,11 @@ class InputField extends React.Component {
             helpText,
             validationText,
             inputWidth,
+            dataTest,
         } = this.props
 
         return (
-            <Field className={className}>
+            <Field className={className} dataTest={dataTest}>
                 {label ? (
                     <Label
                         required={required}
@@ -91,6 +91,10 @@ class InputField extends React.Component {
     }
 }
 
+InputField.defaultProps = {
+    dataTest: 'dhis2-uicore-inputfield',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -124,16 +128,15 @@ class InputField extends React.Component {
  */
 InputField.propTypes = {
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     error: statusPropType,
     helpText: propTypes.string,
-
     initialFocus: propTypes.bool,
     inputWidth: propTypes.string,
     label: propTypes.string,
     loading: propTypes.bool,
-
     name: propTypes.string,
     placeholder: propTypes.string,
     readOnly: propTypes.bool,
@@ -143,10 +146,8 @@ InputField.propTypes = {
     valid: statusPropType,
     validationText: propTypes.string,
     value: propTypes.string,
-
     warning: statusPropType,
     onBlur: propTypes.func,
-
     onChange: propTypes.func,
     onFocus: propTypes.func,
 }

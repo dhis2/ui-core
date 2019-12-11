@@ -1,6 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
+import { statusPropType } from './common-prop-types.js'
 import { ToggleGroup } from './ToggleGroup.js'
 
 /**
@@ -25,6 +26,7 @@ const CheckboxGroup = ({
     warning,
     error,
     dense,
+    dataTest,
 }) => (
     <ToggleGroup
         onChange={onChange}
@@ -36,10 +38,15 @@ const CheckboxGroup = ({
         warning={warning}
         error={error}
         dense={dense}
+        dataTest={dataTest}
     >
         {children}
     </ToggleGroup>
 )
+
+CheckboxGroup.defaultProps = {
+    dataTest: 'dhis2-uicore-checkboxgroup',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -60,9 +67,17 @@ const CheckboxGroup = ({
  * @prop {boolean} [dense]
  */
 CheckboxGroup.propTypes = {
-    ...ToggleGroup.propTypes,
     children: propTypes.arrayOf(propTypes.element).isRequired,
+    className: propTypes.string,
+    dataTest: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    error: statusPropType,
+    name: propTypes.string,
+    valid: statusPropType,
     value: propTypes.arrayOf(propTypes.string),
+    warning: statusPropType,
+    onChange: propTypes.func,
 }
 
 export { CheckboxGroup }

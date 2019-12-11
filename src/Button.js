@@ -40,6 +40,7 @@ export class Button extends Component {
             destructive,
             small,
             large,
+            dataTest,
         } = this.props
 
         return (
@@ -60,6 +61,7 @@ export class Button extends Component {
                 value={value}
                 ref={this.buttonRef}
                 tabIndex={tabIndex}
+                data-test={dataTest}
             >
                 {icon && <span className="button-icon">{icon}</span>}
                 {children}
@@ -72,6 +74,7 @@ export class Button extends Component {
 
 Button.defaultProps = {
     type: 'button',
+    dataTest: 'dhis2-uicore-button',
 }
 
 /**
@@ -104,21 +107,18 @@ Button.defaultProps = {
 Button.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
-
+    dataTest: propTypes.string,
     destructive: buttonVariantPropType,
     disabled: propTypes.bool,
     icon: propTypes.element,
     initialFocus: propTypes.bool,
     large: sizePropType,
     name: propTypes.string,
-
     primary: buttonVariantPropType,
     secondary: buttonVariantPropType,
-
     small: sizePropType,
     tabIndex: propTypes.string,
     type: propTypes.oneOf(['submit', 'reset', 'button']),
-
     value: propTypes.string,
     onClick: propTypes.func,
 }

@@ -15,6 +15,7 @@ const ToggleGroup = ({
     error,
     dense,
     className,
+    dataTest,
 }) =>
     Children.map(children, child =>
         cloneElement(child, {
@@ -29,8 +30,13 @@ const ToggleGroup = ({
             error: child.props.error || error,
             dense: child.props.dense || dense,
             className: cx(child.props.className, className, 'grouped'),
+            dataTest,
         })
     )
+
+ToggleGroup.defaultProps = {
+    dataTest: 'dhis2-uicore-togglegroup',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -51,11 +57,10 @@ const ToggleGroup = ({
 ToggleGroup.propTypes = {
     children: propTypes.node.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
-
     disabled: propTypes.bool,
     error: statusPropType,
-
     name: propTypes.string,
     valid: statusPropType,
     value: propTypes.oneOfType([
@@ -63,7 +68,6 @@ ToggleGroup.propTypes = {
         propTypes.arrayOf(propTypes.string),
     ]),
     warning: statusPropType,
-
     onChange: propTypes.func,
 }
 

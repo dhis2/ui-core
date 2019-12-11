@@ -101,6 +101,7 @@ class AlertBar extends Component {
             critical,
             icon,
             actions,
+            dataTest,
         } = this.props
         const { visible, hidden } = this.state
 
@@ -119,6 +120,7 @@ class AlertBar extends Component {
                     critical,
                     visible,
                 })}
+                data-test={dataTest}
                 onMouseEnter={this.stopDisplayTimeOut}
                 onMouseLeave={this.startDisplayTimeout}
             >
@@ -144,6 +146,12 @@ const alertTypePropType = propTypes.mutuallyExclusive(
     propTypes.bool
 )
 
+AlertBar.defaultProps = {
+    duration: 8000,
+    dataTest: 'dhis2-uicore-alertbar',
+    icon: true,
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -167,17 +175,13 @@ AlertBar.propTypes = {
     actions: actionsPropType,
     className: propTypes.string,
     critical: alertTypePropType,
+    dataTest: propTypes.string,
     duration: propTypes.number,
     icon: iconPropType,
     permanent: propTypes.bool,
     success: alertTypePropType,
     warning: alertTypePropType,
     onHidden: propTypes.func,
-}
-
-AlertBar.defaultProps = {
-    icon: true,
-    duration: 8000,
 }
 
 export { AlertBar }

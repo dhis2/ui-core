@@ -2,6 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { ToggleGroup } from './ToggleGroup.js'
+import { statusPropType } from './common-prop-types.js'
 
 /**
  * @module
@@ -25,6 +26,7 @@ const SwitchGroup = ({
     warning,
     error,
     dense,
+    dataTest,
 }) => (
     <ToggleGroup
         onChange={onChange}
@@ -36,10 +38,15 @@ const SwitchGroup = ({
         warning={warning}
         error={error}
         dense={dense}
+        dataTest={dataTest}
     >
         {children}
     </ToggleGroup>
 )
+
+SwitchGroup.defaultProps = {
+    dataTest: 'dhis2-uicore-switchgroup',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -60,9 +67,17 @@ const SwitchGroup = ({
  * @prop {boolean} [dense]
  */
 SwitchGroup.propTypes = {
-    ...ToggleGroup.propTypes,
     children: propTypes.arrayOf(propTypes.element).isRequired,
+    className: propTypes.string,
+    dataTest: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    error: statusPropType,
+    name: propTypes.string,
+    valid: statusPropType,
     value: propTypes.arrayOf(propTypes.string),
+    warning: statusPropType,
+    onChange: propTypes.func,
 }
 
 export { SwitchGroup }

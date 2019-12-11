@@ -9,8 +9,8 @@ import { spacers } from './theme.js'
  * @param {ModalContent.PropTypes} props
  * @returns {React.Component}
  */
-export const ModalContent = ({ children, className }) => (
-    <div className={className}>
+export const ModalContent = ({ children, className, dataTest }) => (
+    <div className={className} data-test={dataTest}>
         {children}
 
         <style jsx>{`
@@ -28,6 +28,10 @@ export const ModalContent = ({ children, className }) => (
     </div>
 )
 
+ModalContent.defaultProps = {
+    dataTest: 'dhis2-uicore-modalcontent',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -37,4 +41,5 @@ export const ModalContent = ({ children, className }) => (
 ModalContent.propTypes = {
     children: propTypes.node.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
 }

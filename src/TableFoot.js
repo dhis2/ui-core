@@ -8,9 +8,15 @@ import propTypes from '@dhis2/prop-types'
  * @example import { TableFoot } from '@dhis2/ui-core'
  * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
  */
-export const TableFoot = ({ children, className }) => (
-    <tfoot className={className}>{children}</tfoot>
+export const TableFoot = ({ children, className, dataTest }) => (
+    <tfoot className={className} data-test={dataTest}>
+        {children}
+    </tfoot>
 )
+
+TableFoot.defaultProps = {
+    dataTest: 'dhis2-uicore-tablefoot',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -24,4 +30,5 @@ TableFoot.propTypes = {
         propTypes.arrayOf(propTypes.element),
     ]).isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
 }

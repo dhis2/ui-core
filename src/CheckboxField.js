@@ -1,6 +1,8 @@
 import React from 'react'
+import propTypes from '@dhis2/prop-types'
 
-import { ToggleField, toggleFieldPropTypes } from './ToggleField.js'
+import { statusPropType } from './common-prop-types.js'
+import { ToggleField } from './ToggleField.js'
 import { Checkbox } from './Checkbox.js'
 
 /**
@@ -33,6 +35,7 @@ const CheckboxField = ({
     required,
     helpText,
     validationText,
+    dataTest,
 }) => (
     <ToggleField
         value={value}
@@ -54,8 +57,13 @@ const CheckboxField = ({
         required={required}
         helpText={helpText}
         validationText={validationText}
+        dataTest={dataTest}
     />
 )
+
+CheckboxField.defaultProps = {
+    dataTest: 'dhis2-uicore-checkboxfield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -85,6 +93,26 @@ const CheckboxField = ({
  * @prop {string} [helpText]
  * @prop {string} [validationText]
  */
-CheckboxField.propTypes = toggleFieldPropTypes
+CheckboxField.propTypes = {
+    label: propTypes.node.isRequired,
+    checked: propTypes.bool,
+    className: propTypes.string,
+    dataTest: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    error: statusPropType,
+    helpText: propTypes.string,
+    initialFocus: propTypes.bool,
+    name: propTypes.string,
+    required: propTypes.bool,
+    tabIndex: propTypes.string,
+    valid: statusPropType,
+    validationText: propTypes.string,
+    value: propTypes.string,
+    warning: statusPropType,
+    onBlur: propTypes.func,
+    onChange: propTypes.func,
+    onFocus: propTypes.func,
+}
 
 export { CheckboxField }

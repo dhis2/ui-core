@@ -65,6 +65,7 @@ class Switch extends Component {
             value,
             warning,
             dense,
+            dataTest,
         } = this.props
 
         const classes = cx({
@@ -82,6 +83,7 @@ class Switch extends Component {
                     disabled,
                     dense,
                 })}
+                data-test={dataTest}
             >
                 <input
                     type="checkbox"
@@ -163,6 +165,10 @@ class Switch extends Component {
     }
 }
 
+Switch.defaultProps = {
+    dataTest: 'dhis2-uicore-switch',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -190,23 +196,19 @@ class Switch extends Component {
 Switch.propTypes = {
     label: propTypes.node.isRequired,
     checked: propTypes.bool,
-
     className: propTypes.string,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
-
     error: statusPropType,
     initialFocus: propTypes.bool,
     name: propTypes.string,
-
     tabIndex: propTypes.string,
     valid: statusPropType,
     value: propTypes.string,
     warning: statusPropType,
     onBlur: propTypes.func,
-
     onChange: propTypes.func,
-
     onFocus: propTypes.func,
 }
 

@@ -54,10 +54,11 @@ class FileInput extends Component {
             large,
             disabled,
             tabIndex,
+            dataTest,
         } = this.props
 
         return (
-            <div className={cx('file-input', className)}>
+            <div className={cx('file-input', className)} data-test={dataTest}>
                 <input
                     id={name}
                     name={name}
@@ -103,6 +104,11 @@ class FileInput extends Component {
     }
 }
 
+FileInput.defaultProps = {
+    accept: '*',
+    dataTest: 'dhis2-uicore-fileinput',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -129,23 +135,17 @@ FileInput.propTypes = {
     accept: propTypes.string,
     buttonLabel: propTypes.string,
     className: propTypes.string,
-
+    dataTest: propTypes.string,
     disabled: propTypes.bool,
     error: statusPropType,
-
     large: sizePropType,
     multiple: propTypes.bool,
     name: propTypes.string,
     small: sizePropType,
     tabIndex: propTypes.string,
     valid: statusPropType,
-
     warning: statusPropType,
     onChange: propTypes.func,
-}
-
-FileInput.defaultProps = {
-    accept: '*',
 }
 
 export { FileInput }

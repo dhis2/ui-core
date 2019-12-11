@@ -12,8 +12,8 @@ import { colors } from './theme.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/card.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/card--default|Storybook}
  */
-const Card = ({ className, children }) => (
-    <div className={cx(className)}>
+const Card = ({ className, children, dataTest }) => (
+    <div className={cx(className)} data-test={dataTest}>
         {children}
 
         <style jsx>{`
@@ -33,6 +33,10 @@ const Card = ({ className, children }) => (
     </div>
 )
 
+Card.defaultProps = {
+    dataTest: 'dhis2-uicore-card',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -43,6 +47,7 @@ const Card = ({ className, children }) => (
 Card.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
 }
 
 export { Card }

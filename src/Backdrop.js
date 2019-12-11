@@ -10,13 +10,21 @@ import { Layer } from './LayerContext.js'
  * @param {Object} PropTypes
  * @returns {React.Component}
  */
-const Backdrop = ({ onClick, transparent, children, zIndex, className }) => {
+const Backdrop = ({
+    onClick,
+    transparent,
+    children,
+    zIndex,
+    className,
+    dataTest,
+}) => {
     return (
         <Layer zIndex={zIndex}>
             {zIndexComputed => (
                 <div
                     className={cx('backdrop', className)}
                     onClick={event => onClick && onClick({}, event)}
+                    data-test={dataTest}
                 >
                     <div
                         onClick={e => {
@@ -53,6 +61,10 @@ const Backdrop = ({ onClick, transparent, children, zIndex, className }) => {
     )
 }
 
+Backdrop.defaultProps = {
+    dataTest: 'dhis2-uicore-backdrop',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -65,6 +77,7 @@ const Backdrop = ({ onClick, transparent, children, zIndex, className }) => {
 Backdrop.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
     transparent: propTypes.bool,
     zIndex: propTypes.number,
     onClick: propTypes.func,

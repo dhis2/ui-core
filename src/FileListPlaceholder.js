@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
+
 import { colors, spacers } from './theme.js'
 
 /**
@@ -9,8 +10,8 @@ import { colors, spacers } from './theme.js'
  *
  * @example import { FileListPlaceholder } from '@dhis2/ui-core'
  */
-const FileListPlaceholder = ({ children }) => (
-    <p>
+const FileListPlaceholder = ({ children, dataTest }) => (
+    <p data-test={dataTest}>
         {children}
         <style jsx>{`
             p {
@@ -23,6 +24,10 @@ const FileListPlaceholder = ({ children }) => (
     </p>
 )
 
+FileListPlaceholder.defaultProps = {
+    dataTest: 'dhis2-uicore-filelistplaceholder',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -31,6 +36,7 @@ const FileListPlaceholder = ({ children }) => (
  */
 FileListPlaceholder.propTypes = {
     children: propTypes.string,
+    dataTest: propTypes.string,
 }
 
 export { FileListPlaceholder }

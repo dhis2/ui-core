@@ -13,13 +13,14 @@ import { theme, spacers } from './theme.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/loading.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/circularloader--default|Storybook}
  */
-const CircularLoader = ({ small, large, className }) => (
+const CircularLoader = ({ small, large, className, dataTest }) => (
     <div
         role="progressbar"
         className={cx(className, {
             small,
             large,
         })}
+        data-test={dataTest}
     >
         <svg viewBox="22 22 44 44">
             <circle
@@ -83,6 +84,10 @@ const CircularLoader = ({ small, large, className }) => (
     </div>
 )
 
+CircularLoader.defaultProps = {
+    dataTest: 'dhis2-uicore-circularloader',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -92,6 +97,7 @@ const CircularLoader = ({ small, large, className }) => (
  */
 CircularLoader.propTypes = {
     className: propTypes.string,
+    dataTest: propTypes.string,
     large: sizePropType,
     small: sizePropType,
 }

@@ -2,7 +2,6 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { statusPropType, singleSelectedPropType } from './common-prop-types.js'
-
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Help } from './Help.js'
@@ -53,10 +52,11 @@ class SingleSelectField extends React.Component {
             noMatchText,
             initialFocus,
             dense,
+            dataTest,
         } = this.props
 
         return (
-            <Field className={className}>
+            <Field className={className} dataTest={dataTest}>
                 {label && (
                     <Label required={required} disabled={disabled}>
                         {label}
@@ -107,6 +107,7 @@ class SingleSelectField extends React.Component {
 
 SingleSelectField.defaultProps = {
     selected: {},
+    dataTest: 'dhis2-uicore-singleselectfield',
 }
 
 /**
@@ -149,6 +150,7 @@ SingleSelectField.propTypes = {
     className: propTypes.string,
     clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
     clearable: propTypes.bool,
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     empty: propTypes.node,

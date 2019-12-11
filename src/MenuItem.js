@@ -4,7 +4,6 @@ import cx from 'classnames'
 import css from 'styled-jsx/css'
 
 import { ChevronRight } from './icons/Chevron.js'
-
 import styles from './MenuItem/styles.js'
 
 const subChevron = css.resolve`
@@ -69,6 +68,7 @@ const MenuItem = ({
     dense,
     onClick,
     className,
+    dataTest,
 }) => {
     const hasMenu = !!children
     const isClickable = href || onClick
@@ -87,6 +87,7 @@ const MenuItem = ({
                 dense,
                 active,
             })}
+            data-test={dataTest}
         >
             <LinkElement className="link" {...linkElementProps}>
                 {icon}
@@ -106,6 +107,10 @@ const MenuItem = ({
     )
 }
 
+MenuItem.defaultProps = {
+    dataTest: 'dhis2-uicore-menuitem',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -123,15 +128,13 @@ const MenuItem = ({
  */
 MenuItem.propTypes = {
     label: propTypes.oneOfType([propTypes.string, propTypes.node]).isRequired,
-
     active: propTypes.bool,
     children: propTypes.element,
     className: propTypes.string,
-
+    dataTest: propTypes.string,
     dense: propTypes.bool,
     disabled: propTypes.bool,
     href: propTypes.string,
-
     icon: propTypes.element,
     value: propTypes.string,
     onClick: propTypes.func,

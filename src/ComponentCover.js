@@ -9,8 +9,8 @@ import { layers } from './theme.js'
  * @example import { ComponentCover } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/componentcover--circularloader|Storybook}
  */
-const ComponentCover = ({ children, className }) => (
-    <div className={className}>
+const ComponentCover = ({ children, className, dataTest }) => (
+    <div className={className} data-test={dataTest}>
         {children}
         <style jsx>{`
             div {
@@ -30,6 +30,10 @@ const ComponentCover = ({ children, className }) => (
     </div>
 )
 
+ComponentCover.defaultProps = {
+    dataTest: 'dhis2-uicore-componentcover',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -39,6 +43,7 @@ const ComponentCover = ({ children, className }) => (
 ComponentCover.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
 }
 
 export { ComponentCover }

@@ -2,6 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { ToggleGroupField } from './ToggleGroupField.js'
+import { statusPropType } from './common-prop-types.js'
 
 /**
  * @module
@@ -28,6 +29,7 @@ const CheckboxGroupField = ({
     helpText,
     validationText,
     required,
+    dataTest,
 }) => (
     <ToggleGroupField
         onChange={onChange}
@@ -43,10 +45,15 @@ const CheckboxGroupField = ({
         helpText={helpText}
         validationText={validationText}
         required={required}
+        dataTest={dataTest}
     >
         {children}
     </ToggleGroupField>
 )
+
+CheckboxGroupField.defaultProps = {
+    dataTest: 'dhis2-uicore-checkboxgroupfield',
+}
 
 /**
  * @typedef {Object} PropTypes
@@ -71,9 +78,21 @@ const CheckboxGroupField = ({
  * @prop {boolean} [required]
  */
 CheckboxGroupField.propTypes = {
-    ...ToggleGroupField.propTypes,
     children: propTypes.arrayOf(propTypes.element).isRequired,
+    className: propTypes.string,
+    dataTest: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    error: statusPropType,
+    helpText: propTypes.string,
+    label: propTypes.string,
+    name: propTypes.string,
+    required: propTypes.bool,
+    valid: statusPropType,
+    validationText: propTypes.string,
     value: propTypes.arrayOf(propTypes.string),
+    warning: statusPropType,
+    onChange: propTypes.func,
 }
 
 export { CheckboxGroupField }

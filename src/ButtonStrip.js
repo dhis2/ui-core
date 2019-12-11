@@ -11,8 +11,8 @@ import { spacers } from './theme.js'
  * @example import { ButtonStrip } from @dhis2/ui-core
  * @see Live demo: {@link /demo/?path=/story/buttonstrip--default|Storybook}
  */
-const ButtonStrip = ({ className, children, middle, end }) => (
-    <div className={cx(className, { middle, end })}>
+const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
+    <div className={cx(className, { middle, end })} data-test={dataTest}>
         {children}
 
         <style jsx>{`
@@ -37,6 +37,10 @@ const alignmentPropType = propTypes.mutuallyExclusive(
     propTypes.bool
 )
 
+ButtonStrip.defaultProps = {
+    dataTest: 'dhis2-uicore-buttonstrip',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -50,6 +54,7 @@ const alignmentPropType = propTypes.mutuallyExclusive(
 ButtonStrip.propTypes = {
     children: propTypes.arrayOf(propTypes.element),
     className: propTypes.string,
+    dataTest: propTypes.string,
     end: alignmentPropType,
     middle: alignmentPropType,
 }

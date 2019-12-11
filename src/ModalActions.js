@@ -9,8 +9,8 @@ import { spacers } from './theme.js'
  * @param {ModalActions.PropTypes} props
  * @returns {React.Component}
  */
-export const ModalActions = ({ children }) => (
-    <div>
+export const ModalActions = ({ children, dataTest }) => (
+    <div data-test={dataTest}>
         {children}
 
         <style jsx>{`
@@ -23,6 +23,10 @@ export const ModalActions = ({ children }) => (
     </div>
 )
 
+ModalActions.defaultProps = {
+    dataTest: 'dhis2-uicore-modalactions',
+}
+
 /**
  * @typedef {Object} PropTypes
  * @static
@@ -33,4 +37,5 @@ ModalActions.propTypes = {
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
     ]).isRequired,
+    dataTest: propTypes.string,
 }

@@ -20,6 +20,7 @@ const Progress = ({ amount }) => {
         </div>
     )
 }
+
 Progress.propTypes = {
     amount: propTypes.number.isRequired,
 }
@@ -34,9 +35,9 @@ Progress.propTypes = {
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/loading.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/linearloader--determinate|Storybook}
  */
-const LinearLoader = ({ amount, width, margin, className }) => {
+const LinearLoader = ({ amount, width, margin, className, dataTest }) => {
     return (
-        <div role="progressbar" className={className}>
+        <div role="progressbar" className={className} data-test={dataTest}>
             <Progress amount={amount} />
 
             <style jsx>{`
@@ -61,6 +62,7 @@ const LinearLoader = ({ amount, width, margin, className }) => {
 LinearLoader.defaultProps = {
     margin: spacers.dp12,
     width: '300px',
+    dataTest: 'dhis2-uicore-linearloader',
 }
 
 /**
@@ -75,6 +77,7 @@ LinearLoader.defaultProps = {
 LinearLoader.propTypes = {
     amount: propTypes.number.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
     margin: propTypes.string,
     width: propTypes.string,
 }
