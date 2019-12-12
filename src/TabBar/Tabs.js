@@ -11,7 +11,7 @@ import { colors } from '../theme.js'
  * @returns {React.Component}
  */
 const Tabs = ({ children, className, fixed, dataTest }) => (
-    <div className={cx('tab-bar', className, { fixed })} data-test={dataTest}>
+    <div className={cx(className, { fixed })} data-test={dataTest}>
         {children}
 
         <style jsx>{`
