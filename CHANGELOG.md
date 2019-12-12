@@ -1,3 +1,10 @@
+## [4.1.3](https://github.com/dhis2/ui/compare/v4.1.2...v4.1.3) (2019-12-12)
+
+
+### Bug Fixes
+
+* **deps:** set dependencies provided by app-platform to peerDeps ([b637df1](https://github.com/dhis2/ui/commit/b637df140d55b39b501bdd5d48058d9b29d9c99e))
+
 ## [4.1.2](https://github.com/dhis2/ui/compare/v4.1.1...v4.1.2) (2019-12-12)
 
 
