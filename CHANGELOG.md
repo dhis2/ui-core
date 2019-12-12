@@ -1,3 +1,10 @@
+## [4.1.2](https://github.com/dhis2/ui/compare/v4.1.1...v4.1.2) (2019-12-12)
+
+
+### Bug Fixes
+
+* **splitbutton:** allow initialfocus on primary button ([511c146](https://github.com/dhis2/ui/commit/511c1461a79a803604bdf059ba6b5e5d393b6a23))
+
 ## [4.1.1](https://github.com/dhis2/ui/compare/v4.1.0...v4.1.1) (2019-12-04)
 
 
