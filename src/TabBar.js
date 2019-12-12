@@ -1,9 +1,8 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
 
-import { colors } from './theme.js'
 import { ScrollBar } from './TabBar/ScrollBar.js'
+import { Tabs } from './TabBar/Tabs.js'
 
 /**
  * @module
@@ -15,28 +14,30 @@ import { ScrollBar } from './TabBar/ScrollBar.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tab.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/tabs--default-fluid|Storybook}
  */
-const TabBar = ({ fixed, children, className, scrollable }) => {
-    const Container = scrollable ? ScrollBar : React.Fragment
-    return (
-        <Container>
-            <div className={cx('tab-bar', className, { fixed })}>
-                {children}
-
-                <style jsx>{`
-                    div {
-                        display: flex;
-                        align-items: flex-start;
-                        position: relative;
-                        overflow: hidden;
-                        box-shadow: inset 0 -1px 0 0 ${colors.grey400};
-                        flex-wrap: nowrap;
-                        flex-grow: 1;
-                        background: ${colors.white};
-                    }
-                `}</style>
+const TabBar = ({ fixed, children, className, scrollable, dataTest }) => {
+    if (scrollable) {
+        return (
+            <div data-test={dataTest}>
+                <ScrollBar>
+                    <Tabs className={className} fixed={fixed}>
+                        {children}
+                    </Tabs>
+                </ScrollBar>
             </div>
-        </Container>
+        )
+    }
+
+    return (
+        <div data-test={dataTest}>
+            <Tabs className={className} fixed={fixed}>
+                {children}
+            </Tabs>
+        </div>
     )
+}
+
+TabBar.defaultProps = {
+    dataTest: 'dhis2-uicore-tabbar',
 }
 
 /**
@@ -53,6 +54,7 @@ TabBar.propTypes = {
         propTypes.arrayOf(propTypes.element),
     ]),
     className: propTypes.string,
+    dataTest: propTypes.string,
     fixed: propTypes.bool,
     scrollable: propTypes.bool,
 }
