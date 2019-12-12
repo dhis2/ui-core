@@ -63,6 +63,7 @@ class SplitButton extends Component {
             disabled,
             type,
             tabIndex,
+            initialFocus,
         } = this.props
 
         const arrow = open ? <ArrowUp /> : <ArrowDown />
@@ -83,6 +84,7 @@ class SplitButton extends Component {
                     type={type}
                     tabIndex={tabIndex}
                     className={cx(className)}
+                    initialFocus={initialFocus}
                 >
                     {children}
                 </Button>
