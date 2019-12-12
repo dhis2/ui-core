@@ -133,4 +133,10 @@ function createStory(name, props) {
                 Drop it with menu!
             </SplitButton>
         ))
+
+        .add('InitialFocus', () => (
+            <SplitButton {...props} initialFocus>
+                Has initialFocus
+            </SplitButton>
+        ))
 }
