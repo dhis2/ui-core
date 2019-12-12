@@ -10,8 +10,8 @@ import { colors } from '../theme.js'
  * @param {Object} PropTypes
  * @returns {React.Component}
  */
-const Tabs = ({ children, className, fixed, dataTest }) => (
-    <div className={cx(className, { fixed })} data-test={dataTest}>
+const Tabs = ({ children, fixed, dataTest }) => (
+    <div className={cx({ fixed })} data-test={dataTest}>
         {children}
 
         <style jsx>{`
@@ -37,16 +37,14 @@ Tabs.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  * @prop {Tab|Array.<Tab>} children
- * @prop {string} [className]
  * @prop {boolean} [fixed]
- * @prop {boolean} [scrollable]
+ * @prop {string} [dataTest]
  */
 Tabs.propTypes = {
     children: propTypes.oneOfType([
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
     ]),
-    className: propTypes.string,
     dataTest: propTypes.string,
     fixed: propTypes.bool,
 }

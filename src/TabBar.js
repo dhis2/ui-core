@@ -17,21 +17,17 @@ import { Tabs } from './TabBar/Tabs.js'
 const TabBar = ({ fixed, children, className, scrollable, dataTest }) => {
     if (scrollable) {
         return (
-            <div data-test={dataTest}>
+            <div className={className} data-test={dataTest}>
                 <ScrollBar>
-                    <Tabs className={className} fixed={fixed}>
-                        {children}
-                    </Tabs>
+                    <Tabs fixed={fixed}>{children}</Tabs>
                 </ScrollBar>
             </div>
         )
     }
 
     return (
-        <div data-test={dataTest}>
-            <Tabs className={className} fixed={fixed}>
-                {children}
-            </Tabs>
+        <div className={className} data-test={dataTest}>
+            <Tabs fixed={fixed}>{children}</Tabs>
         </div>
     )
 }
@@ -47,6 +43,7 @@ TabBar.defaultProps = {
  * @prop {string} [className]
  * @prop {boolean} [fixed]
  * @prop {boolean} [scrollable]
+ * @prop {string} [dataTest]
  */
 TabBar.propTypes = {
     children: propTypes.oneOfType([
