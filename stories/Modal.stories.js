@@ -22,8 +22,24 @@ window.onClose = (payload, event) => {
 const onClose = (...args) => window.onClose(...args)
 
 storiesOf('Modal', module)
+    .add('Default: Content', () => (
+        <Modal onClose={onClose}>
+            <ModalContent>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores
+                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+                est Lorem ipsum dolor sit amet.
+            </ModalContent>
+        </Modal>
+    ))
     .add('Small: Title, Content, Action', () => (
-        <Modal open small onClose={onClose}>
+        <Modal small onClose={onClose}>
             <ModalTitle>
                 This is a small modal with title, content and primary action
             </ModalTitle>
@@ -55,7 +71,7 @@ storiesOf('Modal', module)
         </Modal>
     ))
     .add('Medium: Title, Content, Action', () => (
-        <Modal open>
+        <Modal>
             <ModalTitle>
                 This is a medium modal with title, content and primary action
             </ModalTitle>
@@ -87,7 +103,7 @@ storiesOf('Modal', module)
         </Modal>
     ))
     .add('Large: Title, Content, Primary', () => (
-        <Modal open large>
+        <Modal large>
             <ModalTitle>
                 This is a large modal with title, content and primary action
             </ModalTitle>
@@ -119,7 +135,7 @@ storiesOf('Modal', module)
         </Modal>
     ))
     .add('Small: Content & Primary', () => (
-        <Modal open small>
+        <Modal small>
             <ModalContent>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
@@ -147,7 +163,7 @@ storiesOf('Modal', module)
         </Modal>
     ))
     .add('Small: Destructive Primary', () => (
-        <Modal open small>
+        <Modal small>
             <ModalContent>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
@@ -175,7 +191,7 @@ storiesOf('Modal', module)
         </Modal>
     ))
     .add('Small: Clickable screen cover', () => (
-        <Modal open small onClose={say('Clickable screen cover')}>
+        <Modal small onClose={say('Clickable screen cover')}>
             <ModalTitle>This is a modal with clickable screen cover</ModalTitle>
 
             <ModalContent>
@@ -198,7 +214,7 @@ storiesOf('Modal', module)
         </Modal>
     ))
     .add('Small: scrollable', () => (
-        <Modal open small onClose={say('Clickable screen cover')}>
+        <Modal small onClose={say('Clickable screen cover')}>
             <ModalTitle>This is a modal with scrollable content</ModalTitle>
 
             <ModalContent>
@@ -267,7 +283,7 @@ storiesOf('Modal', module)
         </Modal>
     ))
     .add('Small: Long title', () => (
-        <Modal open small>
+        <Modal small>
             <ModalTitle>
                 This headline should break into multiple lines because it&apos;s
                 way too long for one!
@@ -294,7 +310,7 @@ storiesOf('Modal', module)
         </Modal>
     ))
     .add('Large: with Select component', () => (
-        <Modal open large>
+        <Modal large>
             <ModalTitle>Select opens on top of the Modal</ModalTitle>
 
             <ModalContent>
@@ -326,7 +342,7 @@ storiesOf('Modal', module)
         </Modal>
     ))
     .add('Large: modal with more nested modals', () => (
-        <Modal open large>
+        <Modal large>
             <ModalTitle>Select opens on top of the Modal - Level 1</ModalTitle>
 
             <ModalContent>
@@ -342,7 +358,7 @@ storiesOf('Modal', module)
                     <SingleSelectOption key="9" value="3" label="nine" />
                     <SingleSelectOption key="10" value="3" label="ten" />
                 </SingleSelectField>
-                <Modal open large>
+                <Modal large>
                     <ModalTitle>
                         Select opens on top of the Modal - Level 2
                     </ModalTitle>
@@ -388,7 +404,7 @@ storiesOf('Modal', module)
                                 label="ten"
                             />
                         </SingleSelectField>
-                        <Modal open large>
+                        <Modal large>
                             <ModalTitle>
                                 Select opens on top of the Modal - Level 3
                             </ModalTitle>

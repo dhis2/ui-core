@@ -17,13 +17,9 @@ export const ModalContent = ({ children, className }) => (
         <style jsx>{`
             div {
                 flex-grow: 1;
-                margin-bottom: ${spacers.dp32};
-                overflow-y: auto;
+                margin: ${spacers.dp24} 0;
                 padding: 0 ${spacers.dp24};
-            }
-
-            div:first-child {
-                padding-top: ${spacers.dp24};
+                overflow-y: auto;
             }
         `}</style>
     </div>

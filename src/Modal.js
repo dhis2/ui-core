@@ -19,7 +19,10 @@ import { ModalCard } from './Modal/ModalCard.js'
  * Use Model with the following Components:
  * ModelTitle (optional)
  * ModelContent (required)
- * ModelActions (required)
+ * ModelActions (optional)
+ * @module
+ * @param {Modal.PropTypes} props
+ * @returns {React.Component}
  *
  * @example import { Modal } from @dhis2/ui-core
  * @example
@@ -55,7 +58,6 @@ export const Modal = ({ children, onClose, small, large, className }) =>
  * @prop {bool} large
  */
 Modal.propTypes = {
-    // Can contain ModalTitle; Must contain ModalContent and ModalActions
     children: propTypes.oneOfType([
         propTypes.element,
         propTypes.arrayOf(propTypes.element),
