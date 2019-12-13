@@ -16,7 +16,7 @@ export const ModalActions = ({ children }) => (
 
         <style jsx>{`
             div {
-                padding: 0 ${spacers.dp24} ${spacers.dp24};
+                padding: 0 ${spacers.dp24} ${spacers.dp24} ${spacers.dp24};
                 display: flex;
                 justify-content: flex-end;
             }
