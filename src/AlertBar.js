@@ -7,6 +7,7 @@ import { Dismiss } from './AlertBar/Dismiss.js'
 import { Icon, iconPropType } from './AlertBar/Icon.js'
 import { Message } from './AlertBar/Message.js'
 import styles, { ANIMATION_TIME } from './AlertBar/styles.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

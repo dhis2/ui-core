@@ -6,7 +6,15 @@ import { statusPropType } from './common-prop-types.js'
 import { StatusIcon } from './icons/Status.js'
 
 import { styles } from './TextArea/styles.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
+/**
+ * @module
+ * @param {TextArea.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { TextArea } from '@dhis2/ui-core'
+ */
 export class TextArea extends Component {
     textareaRef = React.createRef()
     state = {
@@ -206,7 +214,6 @@ TextArea.defaultProps = {
  * @prop {number} [rows=4]
  * @prop {string} [width]
  */
-
 TextArea.propTypes = {
     autoGrow: propTypes.bool,
 

@@ -5,6 +5,7 @@ import React, { Component, createRef } from 'react'
 import { statusPropType } from './common-prop-types.js'
 import { Regular, Dense } from './icons/Radio.js'
 import { colors, theme } from './theme.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

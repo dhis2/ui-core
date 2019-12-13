@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { Button } from './Button.js'
 import { DropMenu } from './DropMenu.js'
 import { ArrowDown, ArrowUp } from './icons/Arrow.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

@@ -5,6 +5,7 @@ import cx from 'classnames'
 import { colors, spacers } from './theme.js'
 import { AttachFile } from './icons/AttachFile.js'
 import { Loading } from './icons/Status.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

@@ -4,6 +4,7 @@ import propTypes from '@dhis2/prop-types'
 import { Card } from './Card.js'
 import { MenuList } from './MenuList.js'
 import { spacers } from './theme.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

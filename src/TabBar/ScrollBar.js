@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from '../icons/Chevron'
 import { colors } from '../theme'
 import { detectHorizontalScrollbarHeight } from './detectHorizontalScrollbarHeight'
 import { animatedSideScroll } from './animatedSideScroll'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

@@ -3,6 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 import { spacers } from './theme.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

@@ -4,6 +4,7 @@ import cx from 'classnames'
 
 import { colors } from './theme.js'
 import { ScrollBar } from './TabBar/ScrollBar.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

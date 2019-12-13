@@ -4,6 +4,7 @@ import React from 'react'
 
 import { sizePropType } from './common-prop-types.js'
 import { theme, spacers } from './theme.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module
