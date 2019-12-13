@@ -50,7 +50,7 @@
         "@wertarbyte/react-props-md-table": "^1.1.1",
         "babel-loader": "^8.0.6",
         "concurrently": "^5.0.1",
-        "cypress": "^3.7.0",
+        "cypress": "^3.8.0",
         "cypress-cucumber-preprocessor": "^1.18.0",
         "react": "16.8",
         "react-dev-utils": "^10.0.0",
