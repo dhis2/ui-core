@@ -7,6 +7,7 @@ import { FileListPlaceholder } from './FileListPlaceholder.js'
 import { Field } from './Field.js'
 import { Label } from './Label.js'
 import { Help } from './Help.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

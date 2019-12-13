@@ -2,6 +2,7 @@ import React from 'react'
 
 import { ToggleField, toggleFieldPropTypes } from './ToggleField.js'
 import { Switch } from './Switch.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

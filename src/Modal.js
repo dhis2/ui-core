@@ -6,18 +6,20 @@ import { sizePropType } from './common-prop-types.js'
 import { ScreenCover } from './ScreenCover.js'
 
 import { ModalCard } from './Modal/ModalCard.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
- * Modal provides a UI to prompt the user to respond to a question
+ * @module
+ * @param {Modal.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @desc Modal provides a UI to prompt the user to respond to a question
  * or a note to the user.
  *
  * Use Model with the following Components:
  * ModelTitle (optional)
  * ModelContent (required)
  * ModelActions (required)
- * @module
- * @param {Modal.PropTypes} props
- * @returns {React.Component}
  *
  * @example import { Modal } from @dhis2/ui-core
  * @example

@@ -8,6 +8,7 @@ import { Label } from './Label.js'
 import { Input } from './Input.js'
 import { Help } from './Help.js'
 import { Constrictor } from './Constrictor.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

@@ -4,6 +4,7 @@ import propTypes from '@dhis2/prop-types'
 
 import { layers } from './theme.js'
 import { Layer } from './LayerContext.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

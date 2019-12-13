@@ -2,6 +2,7 @@ import React from 'react'
 
 import { ToggleField, toggleFieldPropTypes } from './ToggleField.js'
 import { Checkbox } from './Checkbox.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

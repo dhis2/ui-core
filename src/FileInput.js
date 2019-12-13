@@ -7,6 +7,7 @@ import { Button } from './Button.js'
 import { spacers } from './theme.js'
 import { Upload } from './icons/Upload.js'
 import { StatusIcon } from './icons/Status.js'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
  * @module

@@ -3,6 +3,7 @@ import propTypes from '@dhis2/prop-types'
 
 import { LogoSvg } from './Logo/LogoSvg'
 import { LogoIconSvg } from './Logo/LogoIconSvg'
+;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /*
  * This should likely not live in ui-core, but in ui-widgets
