@@ -40,14 +40,14 @@ const InputWrapper = ({
             <style jsx>{`
                 .root {
                     align-items: center;
+                    background-color: white;
                     border-radius: 3px;
                     border: 1px solid ${colors.grey500};
                     box-sizing: border-box;
                     display: flex;
-                    min-height: 34px;
+                    min-height: 40px;
                     padding: 6px 12px;
-                    box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
-                        inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
+                    box-shadow: inset 0 1px 2px 0 rgba(48, 54, 60, 0.1);
                 }
 
                 .root:focus,
@@ -77,6 +77,7 @@ const InputWrapper = ({
 
                 .root.dense {
                     padding: 4px 8px;
+                    min-height: 32px;
                 }
 
                 .root-children {
