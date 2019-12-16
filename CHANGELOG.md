@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/dhis2/ui/compare/v4.2.0...v4.3.0) (2019-12-16)
+
+
+### Features
+
+* **input:** enable additional types on input ([1db8763](https://github.com/dhis2/ui/commit/1db8763af4e1d58000ae08ab0d5c5814cf40fc6c))
+
 # [4.2.0](https://github.com/dhis2/ui/compare/v4.1.3...v4.2.0) (2019-12-16)
 
 
