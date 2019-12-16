@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/dhis2/ui/compare/v4.1.3...v4.2.0) (2019-12-16)
+
+
+### Features
+
+* **modal:** allow modal without actions ([d65a076](https://github.com/dhis2/ui/commit/d65a0769fb42440c61fa5958cae4db7f9a46322b))
+
 ## [4.1.3](https://github.com/dhis2/ui/compare/v4.1.2...v4.1.3) (2019-12-12)
 
 
