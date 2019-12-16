@@ -21,16 +21,14 @@ const styles = css`
         user-select: text;
 
         color: ${colors.grey900};
-        background-color: transparent;
+        background-color: white;
 
         padding: 12px 11px 10px;
 
         outline: 0;
         border: 1px solid ${colors.grey500};
         border-radius: 3px;
-        box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.15),
-            inset 0 1px 2px 0 rgba(102, 113, 123, 0.1);
-
+        box-shadow: inset 0 1px 2px 0 rgba(48, 54, 60, 0.1);
         text-overflow: ellipsis;
     }
 
