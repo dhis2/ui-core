@@ -4,7 +4,9 @@ import propTypes from '@dhis2/prop-types'
 import { spacers } from '../theme.js'
 
 export const Icon = ({ icon }) => {
-    if (!icon) return null
+    if (!icon) {
+        return null
+    }
 
     return (
         <span>
