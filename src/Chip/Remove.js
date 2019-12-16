@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { css, resolve } from 'styled-jsx/css'
 
@@ -29,26 +29,24 @@ const removeIcon = resolve`
     }
 `
 
-export class Remove extends Component {
-    onRemove = e => {
-        e.stopPropagation() // stop onRemove from triggering onClick on container
-        this.props.onRemove({}, e)
+export const Remove = ({ onRemove }) => {
+    if (!onRemove) {
+        return null
     }
 
-    render() {
-        const onRemove = this.props.onRemove
+    return (
+        <span
+            onClick={e => {
+                e.stopPropagation() // stop onRemove from triggering onClick on container
+                onRemove({}, e)
+            }}
+        >
+            <Cancel className={removeIcon.className} />
+            {removeIcon.styles}
 
-        if (!onRemove) return null
-
-        return (
-            <span onClick={this.onRemove}>
-                <Cancel className={removeIcon.className} />
-                {removeIcon.styles}
-
-                <style jsx>{containerStyle}</style>
-            </span>
-        )
-    }
+            <style jsx>{containerStyle}</style>
+        </span>
+    )
 }
 
 Remove.propTypes = {
