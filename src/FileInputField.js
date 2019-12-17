@@ -112,10 +112,7 @@ const FileInputField = ({
  */
 FileInputField.propTypes = {
     ...FileInput.propTypes,
-    children: propTypes.oneOfType([
-        propTypes.element,
-        propTypes.arrayOf(propTypes.element),
-    ]),
+    children: propTypes.node,
     helpText: propTypes.string,
     label: propTypes.string,
     placeholder: propTypes.string,

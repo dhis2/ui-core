@@ -30,8 +30,5 @@ export const ModalActions = ({ children }) => (
  * @prop {Object} children - Accepts one or more `Element`s
  */
 ModalActions.propTypes = {
-    children: propTypes.oneOfType([
-        propTypes.element,
-        propTypes.arrayOf(propTypes.element),
-    ]).isRequired,
+    children: propTypes.node.isRequired,
 }

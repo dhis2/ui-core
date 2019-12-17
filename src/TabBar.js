@@ -49,10 +49,7 @@ const TabBar = ({ fixed, children, className, scrollable }) => {
  * @prop {boolean} [scrollable]
  */
 TabBar.propTypes = {
-    children: propTypes.oneOfType([
-        propTypes.element,
-        propTypes.arrayOf(propTypes.element),
-    ]),
+    children: propTypes.node,
     className: propTypes.string,
     fixed: propTypes.bool,
     scrollable: propTypes.bool,

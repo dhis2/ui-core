@@ -19,9 +19,6 @@ export const TableHead = ({ children, className }) => (
  * @prop {string} [className]
  */
 TableHead.propTypes = {
-    children: propTypes.oneOfType([
-        propTypes.element,
-        propTypes.arrayOf(propTypes.element),
-    ]).isRequired,
+    children: propTypes.node.isRequired,
     className: propTypes.string,
 }

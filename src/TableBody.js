@@ -19,9 +19,6 @@ export const TableBody = ({ children, className }) => (
  * @prop {string} [className]
  */
 TableBody.propTypes = {
-    children: propTypes.oneOfType([
-        propTypes.element,
-        propTypes.arrayOf(propTypes.element),
-    ]).isRequired,
+    children: propTypes.node.isRequired,
     className: propTypes.string,
 }
