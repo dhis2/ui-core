@@ -58,10 +58,7 @@ export const Modal = ({ children, onClose, small, large, className }) =>
  * @prop {bool} large
  */
 Modal.propTypes = {
-    children: propTypes.oneOfType([
-        propTypes.element,
-        propTypes.arrayOf(propTypes.element),
-    ]).isRequired,
+    children: propTypes.node.isRequired,
 
     className: propTypes.string,
 

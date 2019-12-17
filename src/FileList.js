@@ -30,10 +30,7 @@ const FileList = ({ children, className }) => (
  * @prop {FileListPlaceholder|FileListItem|Array.<FileListItem>} [children]
  */
 FileList.propTypes = {
-    children: propTypes.oneOfType([
-        propTypes.element,
-        propTypes.arrayOf(propTypes.element),
-    ]),
+    children: propTypes.node,
     className: propTypes.string,
 }
 

@@ -55,10 +55,7 @@ export const ModalCard = ({ children, small, large }) => {
  * @prop {boolean} [large]
  */
 ModalCard.propTypes = {
-    children: propTypes.oneOfType([
-        propTypes.element,
-        propTypes.arrayOf(propTypes.element),
-    ]).isRequired,
+    children: propTypes.node.isRequired,
     large: sizePropType,
     small: sizePropType,
 }
