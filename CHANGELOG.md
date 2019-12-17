@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/dhis2/ui/compare/v4.3.0...v4.3.1) (2019-12-17)
+
+
+### Bug Fixes
+
+* relax prop-validation on children to prevent false positives ([410a1ee](https://github.com/dhis2/ui/commit/410a1eef5525b35d9b51c19dcc801273368fbfeb))
+
 # [4.3.0](https://github.com/dhis2/ui/compare/v4.2.0...v4.3.0) (2019-12-16)
 
 
