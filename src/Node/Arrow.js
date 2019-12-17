@@ -5,19 +5,13 @@ import cx from 'classnames'
 import { ArrowDown } from '../icons/Arrow.js'
 import { colors } from '../theme.js'
 
-export const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
-    const arrowIcon = hasLeaves ? <ArrowDown /> : <span />
+export const Arrow = ({ open, onOpen, onClose }) => {
     const onClick = open ? onClose : onOpen
 
     return (
-        <div
-            className={cx('tree__arrow', {
-                open,
-                'has-leaves': hasLeaves,
-            })}
-        >
+        <div className={cx({ open })}>
             <span onClick={event => onClick && onClick({ open: !open }, event)}>
-                {arrowIcon}
+                <ArrowDown />
             </span>
 
             <style jsx>{`
@@ -35,7 +29,7 @@ export const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
                     width: 1px;
                     z-index: 1;
                 }
-                .has-leaves.open:after {
+                .open:after {
                     content: '';
                 }
                 span {
@@ -57,7 +51,6 @@ export const Arrow = ({ hasLeaves, open, onOpen, onClose }) => {
 }
 
 Arrow.propTypes = {
-    hasLeaves: propTypes.bool,
     open: propTypes.bool,
     onClose: propTypes.func,
     onOpen: propTypes.func,

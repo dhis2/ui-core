@@ -1,8 +1,8 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
 
 import { Arrow } from './Node/Arrow.js'
+import { Spacer } from './Node/Spacer.js'
 import { Content } from './Node/Content.js'
 
 /**
@@ -26,15 +26,12 @@ export const Node = ({
     const hasLeaves = !!React.Children.toArray(children).filter(i => i).length
 
     return (
-        <div
-            className={cx('tree', className, { open, 'has-leaves': hasLeaves })}
-        >
-            <Arrow
-                open={open}
-                hasLeaves={hasLeaves}
-                onOpen={onOpen}
-                onClose={onClose}
-            />
+        <div className={className}>
+            {hasLeaves ? (
+                <Arrow open={open} onOpen={onOpen} onClose={onClose} />
+            ) : (
+                <Spacer />
+            )}
 
             <Content open={open} label={component}>
                 {children}

@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 export const Contents = ({ children, open }) => (
-    <div className={cx('tree__contents', { open })}>
+    <div className={cx({ open })}>
         {children}
 
         <style jsx>{`
