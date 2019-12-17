@@ -47,11 +47,11 @@ const TextAreaField = ({
     inputWidth,
 }) => (
     <Field className={className}>
-        {label ? (
+        {label && (
             <Label required={required} disabled={disabled} htmlFor={name}>
                 {label}
             </Label>
-        ) : null}
+        )}
 
         <Constrictor width={inputWidth} minWidth="220px">
             <TextArea
@@ -76,13 +76,13 @@ const TextAreaField = ({
             />
         </Constrictor>
 
-        {helpText ? <Help>{helpText}</Help> : null}
+        {helpText && <Help>{helpText}</Help>}
 
-        {validationText ? (
+        {validationText && (
             <Help error={error} warning={warning} valid={valid}>
                 {validationText}
             </Help>
-        ) : null}
+        )}
     </Field>
 )
 

@@ -49,7 +49,7 @@ class InputField extends React.Component {
 
         return (
             <Field className={className}>
-                {label ? (
+                {label && (
                     <Label
                         required={required}
                         disabled={disabled}
@@ -57,7 +57,7 @@ class InputField extends React.Component {
                     >
                         {label}
                     </Label>
-                ) : null}
+                )}
 
                 <Constrictor width={inputWidth} minWidth="72px">
                     <Input
@@ -80,13 +80,13 @@ class InputField extends React.Component {
                     />
                 </Constrictor>
 
-                {helpText ? <Help>{helpText}</Help> : null}
+                {helpText && <Help>{helpText}</Help>}
 
-                {validationText ? (
+                {validationText && (
                     <Help error={error} warning={warning} valid={valid}>
                         {validationText}
                     </Help>
-                ) : null}
+                )}
             </Field>
         )
     }
