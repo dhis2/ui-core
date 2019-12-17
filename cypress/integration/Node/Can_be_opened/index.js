@@ -11,7 +11,7 @@ Given('the Node is provided with an onOpen handler', () => {
 })
 
 When('the arrow is clicked', () => {
-    cy.get('#root > div > .tree:first-child > .tree__arrow > span').click()
+    cy.get('div:nth-child(1) > div:nth-child(1) > span:nth-child(1)').click()
 })
 
 Then('the onOpen handler is called', () => {

@@ -11,7 +11,9 @@ Given('the Node is provided with an onClose handler', () => {
 })
 
 When('the arrow is clicked', () => {
-    cy.get('#root > .tree > .tree__arrow > span').click()
+    cy.get(
+        '#root > div:nth-child(1) > div:nth-child(1) > span:nth-child(1)'
+    ).click()
 })
 
 Then('the onClose handler is called', () => {
