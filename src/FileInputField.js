@@ -41,11 +41,11 @@ const FileInputField = ({
     multiple,
 }) => (
     <Field className={className}>
-        {label ? (
+        {label && (
             <Label required={required} disabled={disabled} htmlFor={name}>
                 {label}
             </Label>
-        ) : null}
+        )}
 
         <FileInput
             onChange={onChange}
@@ -63,13 +63,13 @@ const FileInputField = ({
             name={name}
         />
 
-        {helpText ? <Help>{helpText}</Help> : null}
+        {helpText && <Help>{helpText}</Help>}
 
-        {validationText ? (
+        {validationText && (
             <Help error={error} warning={warning} valid={valid}>
                 {validationText}
             </Help>
-        ) : null}
+        )}
 
         <FileList>
             {!children && placeholder ? (

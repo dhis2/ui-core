@@ -56,13 +56,13 @@ const ToggleField = ({
             initialFocus={initialFocus}
         />
 
-        {helpText ? <Help>{helpText}</Help> : null}
+        {helpText && <Help>{helpText}</Help>}
 
-        {validationText ? (
+        {validationText && (
             <Help error={error} warning={warning} valid={valid}>
                 {validationText}
             </Help>
-        ) : null}
+        )}
 
         {labelStyles.styles}
     </Field>
