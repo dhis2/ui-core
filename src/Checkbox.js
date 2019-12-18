@@ -124,15 +124,6 @@ class Checkbox extends Component {
                         line-height: 20px;
                     }
 
-                    label.grouped,
-                    label.grouped.dense:first-of-type {
-                        padding-top: 4px;
-                    }
-
-                    label.grouped.dense {
-                        padding-top: 2px;
-                    }
-
                     label.dense {
                         font-size: 14px;
                         line-height: 16px;
@@ -142,6 +133,7 @@ class Checkbox extends Component {
                         cursor: not-allowed;
                         color: ${theme.disabled};
                     }
+
                     input {
                         opacity: 0;
                         pointer-events: none;
