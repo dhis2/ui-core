@@ -4,7 +4,6 @@ import cx from 'classnames'
 import { Children, cloneElement } from 'react'
 
 import { statusPropType } from './common-prop-types.js'
-import { Spacer } from './ToggleGroup/Spacer.js'
 
 const ToggleGroup = ({
     children,
@@ -20,23 +19,32 @@ const ToggleGroup = ({
     dataTest,
 }) => (
     <div data-test={dataTest}>
-        {Children.map(children, child => (
-            <Spacer dense={child.props.dense || dense}>
-                {cloneElement(child, {
-                    name,
-                    onChange: child.props.onChange || onChange,
-                    checked: Array.isArray(value)
-                        ? value.indexOf(child.props.value) !== -1
-                        : child.props.value === value,
-                    disabled: child.props.disabled || disabled,
-                    valid: child.props.valid || valid,
-                    warning: child.props.warning || warning,
-                    error: child.props.error || error,
-                    dense: child.props.dense || dense,
-                    className: cx(child.props.className, className),
-                })}
-            </Spacer>
-        ))}
+        {Children.map(children, child =>
+            cloneElement(child, {
+                name,
+                onChange: child.props.onChange || onChange,
+                checked: Array.isArray(value)
+                    ? value.indexOf(child.props.value) !== -1
+                    : child.props.value === value,
+                disabled: child.props.disabled || disabled,
+                valid: child.props.valid || valid,
+                warning: child.props.warning || warning,
+                error: child.props.error || error,
+                dense: child.props.dense || dense,
+                className: cx(child.props.className, className),
+            })
+        )}
+
+        <style jsx>{`
+            div :global(label),
+            div :global(label.dense:first-of-type) {
+                padding-top: 4px;
+            }
+
+            div :global(label.dense) {
+                padding-top: 2px;
+            }
+        `}</style>
     </div>
 )
 
