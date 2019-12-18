@@ -20,8 +20,8 @@ const childrenPropType = propTypes.oneOfType([
     propTypes.arrayOf(childPropType),
 ])
 
-export const Table = ({ children, className }) => (
-    <table className={className}>
+export const Table = ({ children, className, dataTest }) => (
+    <table className={className} data-test={dataTest}>
         {children}
 
         <style jsx>{`
@@ -42,14 +42,17 @@ export const Table = ({ children, className }) => (
 Table.propTypes = {
     children: childrenPropType.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
 }
 
-export const StackedTable = ({ children, className }) => {
+export const StackedTable = ({ children, className, dataTest }) => {
     const headerLabels = extractHeaderLabels(children)
 
     return (
         <Provider value={{ headerLabels }}>
-            <Table className={className}>{children}</Table>
+            <Table className={className} dataTest={dataTest}>
+                {children}
+            </Table>
         </Provider>
     )
 }
@@ -57,4 +60,9 @@ export const StackedTable = ({ children, className }) => {
 StackedTable.propTypes = {
     children: childrenPropType.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
+}
+
+StackedTable.defaultProps = {
+    dataTest: 'dhis2-uicore-stackedtable',
 }
