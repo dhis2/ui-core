@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/dhis2/ui/compare/v4.3.1...v4.4.0) (2019-12-18)
+
+
+### Features
+
+* add data-test attributes ([fe77867](https://github.com/dhis2/ui/commit/fe778674044164a4c372e92d5185098405901e24))
+
 ## [4.3.1](https://github.com/dhis2/ui/compare/v4.3.0...v4.3.1) (2019-12-17)
 
 
