@@ -7,6 +7,7 @@ import { DropMenu } from './DropMenu.js'
 import { ArrowDown, ArrowUp } from './icons/Arrow.js'
 
 import { spacers } from './theme.js'
+import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
 
 const rightButton = css.resolve`
     button {
@@ -164,9 +165,22 @@ class SplitButton extends Component {
  * @prop {boolean} [initialFocus] Grants the button the initial focus
  */
 SplitButton.propTypes = {
-    ...Button.propTypes,
     component: propTypes.element.isRequired,
     children: propTypes.string,
+    className: propTypes.string,
+    destructive: buttonVariantPropType,
+    disabled: propTypes.bool,
+    icon: propTypes.element,
+    initialFocus: propTypes.bool,
+    large: sizePropType,
+    name: propTypes.string,
+    primary: buttonVariantPropType,
+    secondary: buttonVariantPropType,
+    small: sizePropType,
+    tabIndex: propTypes.string,
+    type: propTypes.oneOf(['submit', 'reset', 'button']),
+    value: propTypes.string,
+    onClick: propTypes.func,
 }
 
 export { SplitButton }

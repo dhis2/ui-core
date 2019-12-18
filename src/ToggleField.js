@@ -93,33 +93,26 @@ const ToggleField = ({
  * @prop {string} [validationText]
  * @prop {function} toggleComponent
  */
-const toggleFieldPropTypes = {
-    value: propTypes.string,
+ToggleField.propTypes = {
     label: propTypes.node.isRequired,
-
-    name: propTypes.string,
+    toggleComponent: propTypes.func.isRequired,
+    checked: propTypes.bool,
     className: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    error: statusPropType,
+    helpText: propTypes.string,
+    initialFocus: propTypes.bool,
+    name: propTypes.string,
+    required: propTypes.bool,
     tabIndex: propTypes.string,
-
+    valid: statusPropType,
+    validationText: propTypes.string,
+    value: propTypes.string,
+    warning: statusPropType,
+    onBlur: propTypes.func,
     onChange: propTypes.func,
     onFocus: propTypes.func,
-    onBlur: propTypes.func,
-
-    checked: propTypes.bool,
-    disabled: propTypes.bool,
-    valid: statusPropType,
-    warning: statusPropType,
-    error: statusPropType,
-
-    dense: propTypes.bool,
-    initialFocus: propTypes.bool,
-    required: propTypes.bool,
-    helpText: propTypes.string,
-    validationText: propTypes.string,
-}
-ToggleField.propTypes = {
-    ...toggleFieldPropTypes,
-    toggleComponent: propTypes.func.isRequired,
 }
 
-export { ToggleField, toggleFieldPropTypes }
+export { ToggleField }

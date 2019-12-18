@@ -2,6 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
 import { ToggleGroup } from './ToggleGroup.js'
+import { statusPropType } from './common-prop-types.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -61,9 +62,16 @@ const SwitchGroup = ({
  * @prop {boolean} [dense]
  */
 SwitchGroup.propTypes = {
-    ...ToggleGroup.propTypes,
     children: propTypes.arrayOf(propTypes.element).isRequired,
+    className: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    error: statusPropType,
+    name: propTypes.string,
+    valid: statusPropType,
     value: propTypes.arrayOf(propTypes.string),
+    warning: statusPropType,
+    onChange: propTypes.func,
 }
 
 export { SwitchGroup }
