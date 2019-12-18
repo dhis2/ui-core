@@ -2,6 +2,7 @@ import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
 
 import { Button } from './Button.js'
+import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
 import { DropMenu } from './DropMenu.js'
 import { ArrowDown, ArrowUp } from './icons/Arrow.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
@@ -128,8 +129,22 @@ class DropdownButton extends Component {
  * @prop {boolean} [initialFocus] Grants the button the initial focus
  */
 DropdownButton.propTypes = {
-    ...Button.propTypes,
     component: propTypes.element.isRequired,
+    children: propTypes.node,
+    className: propTypes.string,
+    destructive: buttonVariantPropType,
+    disabled: propTypes.bool,
+    icon: propTypes.element,
+    initialFocus: propTypes.bool,
+    large: sizePropType,
+    name: propTypes.string,
+    primary: buttonVariantPropType,
+    secondary: buttonVariantPropType,
+    small: sizePropType,
+    tabIndex: propTypes.string,
+    type: propTypes.oneOf(['submit', 'reset', 'button']),
+    value: propTypes.string,
+    onClick: propTypes.func,
 }
 
 export { DropdownButton }

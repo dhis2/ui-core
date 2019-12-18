@@ -6,6 +6,7 @@ import { Field } from './Field.js'
 import { FieldSet } from './FieldSet.js'
 import { Legend } from './Legend.js'
 import { Help } from './Help.js'
+import { statusPropType } from './common-prop-types.js'
 
 const ToggleGroupField = ({
     children,
@@ -74,11 +75,23 @@ const ToggleGroupField = ({
  * @prop {boolean} [required]
  */
 ToggleGroupField.propTypes = {
-    ...ToggleGroup.propTypes,
+    children: propTypes.node.isRequired,
+    className: propTypes.string,
+    dense: propTypes.bool,
+    disabled: propTypes.bool,
+    error: statusPropType,
     helpText: propTypes.string,
     label: propTypes.string,
+    name: propTypes.string,
     required: propTypes.bool,
+    valid: statusPropType,
     validationText: propTypes.string,
+    value: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.arrayOf(propTypes.string),
+    ]),
+    warning: statusPropType,
+    onChange: propTypes.func,
 }
 
 export { ToggleGroupField }
