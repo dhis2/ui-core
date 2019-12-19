@@ -1,8 +1,10 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
+import { Consumer } from './StackedTable/TableContext.js'
 import { addColNumToChildren } from './StackedTableRow/addColNumToChildren'
 import { colors } from './theme.js'
+import { supplyHeaderLabelsToChildren } from './StackedTableRow/supplyHeaderLabelsToChildren'
 
 /**
  * @module
@@ -13,7 +15,14 @@ import { colors } from './theme.js'
  */
 export const StackedTableRow = ({ children, className, dataTest }) => (
     <tr className={className} data-test={dataTest}>
-        {addColNumToChildren(children)}
+        <Consumer>
+            {({ headerLabels }) =>
+                supplyHeaderLabelsToChildren(
+                    headerLabels,
+                    addColNumToChildren(children)
+                )
+            }
+        </Consumer>
 
         <style jsx>{`
             tr {
