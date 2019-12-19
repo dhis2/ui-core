@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/dhis2/ui/compare/v4.4.0...v4.4.1) (2019-12-19)
+
+
+### Bug Fixes
+
+* align select with input styling ([0465e0e](https://github.com/dhis2/ui/commit/0465e0ec3cc4828551d0f3cf9f1d9cf426acfa87))
+
 # [4.4.0](https://github.com/dhis2/ui/compare/v4.3.1...v4.4.0) (2019-12-18)
 
 
