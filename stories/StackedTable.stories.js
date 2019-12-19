@@ -15,6 +15,15 @@ import {
     StackedTableRowHead,
 } from '../src'
 
+const CustomCell = props => (
+    <td>
+        Received props:
+        <code>
+            <pre>{JSON.stringify(props, null, 2)}</pre>
+        </code>
+    </td>
+)
+
 storiesOf('StackedTable', module)
     .add('Default', () => (
         <StackedTable>
@@ -270,6 +279,46 @@ storiesOf('StackedTable', module)
             <StackedTableBody>
                 <StackedTableRow>
                     <StackedTableCell>Onyekachukwu</StackedTableCell>
+                </StackedTableRow>
+            </StackedTableBody>
+        </StackedTable>
+    ))
+    .add('Custom cell', () => (
+        <StackedTable>
+            <StackedTableHead>
+                <StackedTableRowHead>
+                    <StackedTableCellHead colSpan="2">
+                        Name
+                    </StackedTableCellHead>
+                    <StackedTableCellHead>Incident date</StackedTableCellHead>
+                </StackedTableRowHead>
+            </StackedTableHead>
+            <StackedTableBody>
+                <StackedTableRow>
+                    <CustomCell>Onyekachukwu</CustomCell>
+                    <CustomCell>Kariuki</CustomCell>
+                    <CustomCell>02/06/2007</CustomCell>
+                </StackedTableRow>
+            </StackedTableBody>
+        </StackedTable>
+    ))
+    .add('Custom cell title', () => (
+        <StackedTable>
+            <StackedTableHead>
+                <StackedTableRowHead>
+                    <StackedTableCellHead colSpan="2">
+                        Name
+                    </StackedTableCellHead>
+                    <StackedTableCellHead>Incident date</StackedTableCellHead>
+                </StackedTableRowHead>
+            </StackedTableHead>
+            <StackedTableBody>
+                <StackedTableRow>
+                    <StackedTableCell>Onyekachukwu</StackedTableCell>
+                    <StackedTableCell title="Custom title">
+                        Kariuki
+                    </StackedTableCell>
+                    <StackedTableCell>02/06/2007</StackedTableCell>
                 </StackedTableRow>
             </StackedTableBody>
         </StackedTable>
