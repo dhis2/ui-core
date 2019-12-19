@@ -21,7 +21,7 @@ const ToggleGroup = ({
 }) => (
     <div data-test={dataTest}>
         {Children.map(children, child => (
-            <Spacer dense={child.props.dense}>
+            <Spacer dense={child.props.dense || dense}>
                 {cloneElement(child, {
                     name,
                     onChange: child.props.onChange || onChange,
