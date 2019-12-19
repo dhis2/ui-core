@@ -1,55 +1,30 @@
 import React from 'react'
-import propTypes from 'prop-types'
-import { instanceOfComponent } from '@dhis2/prop-types'
+import propTypes from '@dhis2/prop-types'
 
 import { extractHeaderLabels } from './StackedTable/extractHeaderLabels.js'
 import { Provider } from './StackedTable/TableContext.js'
-import { StackedTableBody } from './StackedTableBody.js'
-import { StackedTableFoot } from './StackedTableFoot.js'
-import { StackedTableHead } from './StackedTableHead.js'
-import { colors } from './theme.js'
+import { Table } from './StackedTable/Table.js'
 
-const childPropType = propTypes.oneOfType([
-    instanceOfComponent(StackedTableHead),
-    instanceOfComponent(StackedTableBody),
-    instanceOfComponent(StackedTableFoot),
-])
-
-const childrenPropType = propTypes.oneOfType([
-    childPropType,
-    propTypes.arrayOf(childPropType),
-])
-
-export const Table = ({ children, className, dataTest }) => (
-    <table className={className} data-test={dataTest}>
-        {children}
-
-        <style jsx>{`
-            table {
-                display: block;
-                border: 0;
-                background-color: #ffffff;
-                min-width: 100%;
-                text-align: left;
-                border-collapse: collapse;
-                vertical-align: top;
-                color: ${colors.grey900};
-            }
-        `}</style>
-    </table>
-)
-
-Table.propTypes = {
-    children: childrenPropType.isRequired,
-    className: propTypes.string,
-    dataTest: propTypes.string,
-}
-
-export const StackedTable = ({ children, className, dataTest }) => {
-    const headerLabels = extractHeaderLabels(children)
+/**
+ * @module
+ * @param {StackedTable.PropTypes}
+ * @returns {React.Component}
+ * @example import { StackedTable } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
+ */
+export const StackedTable = ({
+    children,
+    className,
+    dataTest,
+    headerLabels,
+}) => {
+    const contextHeaderLabels = extractHeaderLabels(children)
+    const context = {
+        headerLabels: headerLabels || contextHeaderLabels,
+    }
 
     return (
-        <Provider value={{ headerLabels }}>
+        <Provider value={context}>
             <Table className={className} dataTest={dataTest}>
                 {children}
             </Table>
@@ -57,10 +32,21 @@ export const StackedTable = ({ children, className, dataTest }) => {
     )
 }
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Node} children
+ * @prop {string} [className]
+ * @prop {string} [dataTest]
+ * @prop {string[]} [headerLabels]
+ * If a specific column should not have a header,
+ * an empty string must be provided
+ */
 StackedTable.propTypes = {
-    children: childrenPropType.isRequired,
+    children: propTypes.node.isRequired,
     className: propTypes.string,
     dataTest: propTypes.string,
+    headerLabels: propTypes.arrayOf(propTypes.string),
 }
 
 StackedTable.defaultProps = {

@@ -90,6 +90,53 @@ storiesOf('StackedTable', module)
             </StackedTableBody>
         </StackedTable>
     ))
+    .add('Hidden label in cell', () => (
+        <StackedTable>
+            <StackedTableHead>
+                <StackedTableRowHead>
+                    <StackedTableCellHead>First name</StackedTableCellHead>
+                    <StackedTableCellHead>Last name</StackedTableCellHead>
+                    <StackedTableCellHead>Incident date</StackedTableCellHead>
+                    <StackedTableCellHead>Last updated</StackedTableCellHead>
+                    <StackedTableCellHead>Age</StackedTableCellHead>
+                    <StackedTableCellHead>
+                        Registering unit
+                    </StackedTableCellHead>
+                    <StackedTableCellHead>Assigned user</StackedTableCellHead>
+                    <StackedTableCellHead>Status</StackedTableCellHead>
+                </StackedTableRowHead>
+            </StackedTableHead>
+            <StackedTableBody>
+                <StackedTableRow>
+                    <StackedTableCell>Onyekachukwu</StackedTableCell>
+                    <StackedTableCell>Kariuki</StackedTableCell>
+                    <StackedTableCell>02/06/2007</StackedTableCell>
+                    <StackedTableCell>05/25/1972</StackedTableCell>
+                    <StackedTableCell>66</StackedTableCell>
+                    <StackedTableCell>Jawi</StackedTableCell>
+                    <StackedTableCell>Sofie Hubert</StackedTableCell>
+                    <StackedTableCell hideTitle>
+                        <Button
+                            primary
+                            onClick={() => alert('something should happen now')}
+                        >
+                            A row action
+                        </Button>
+                    </StackedTableCell>
+                </StackedTableRow>
+                <StackedTableRow>
+                    <StackedTableCell>Onyekachukwu</StackedTableCell>
+                    <StackedTableCell>Kariuki</StackedTableCell>
+                    <StackedTableCell>02/06/2007</StackedTableCell>
+                    <StackedTableCell>05/25/1972</StackedTableCell>
+                    <StackedTableCell>66</StackedTableCell>
+                    <StackedTableCell>Jawi</StackedTableCell>
+                    <StackedTableCell>Sofie Hubert</StackedTableCell>
+                    <StackedTableCell>Incomplete</StackedTableCell>
+                </StackedTableRow>
+            </StackedTableBody>
+        </StackedTable>
+    ))
     .add('Colspan in header', () => (
         <StackedTable>
             <StackedTableHead>

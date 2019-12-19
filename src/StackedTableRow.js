@@ -1,65 +1,57 @@
 import React from 'react'
-import css from 'styled-jsx/css'
-import propTypes from 'prop-types'
-import { instanceOfComponent } from '@dhis2/prop-types'
+import propTypes from '@dhis2/prop-types'
 
-import { StackedTableCell } from './StackedTableCell.js'
-import { StackedTableCellHead } from './StackedTableCellHead.js'
+import { addColNumToChildren } from './StackedTableRow/addColNumToChildren'
 import { colors } from './theme.js'
 
-const addColNumToChildren = children => {
-    let curCol = 0
-
-    return React.Children.map(children, child => {
-        const column = curCol
-        const colSpan = child.props.colSpan
-            ? parseInt(child.props.colSpan, 10)
-            : 1
-
-        curCol += colSpan
-
-        return React.cloneElement(child, { column })
-    })
-}
-
-const tableRowStyles = css`
-    tr {
-        min-height: 45px;
-        display: block;
-        border: 1px solid #e8edf2;
-    }
-
-    tr:nth-child(even) {
-        background: ${colors.white};
-    }
-
-    :global(thead) tr,
-    :global(tbody) tr {
-        min-height: 36px;
-    }
-
-    tr + tr {
-        margin-top: 32px;
-    }
-`
-
-export const StackedTableRow = ({ children, className }) => (
-    <tr className={className}>
+/**
+ * @module
+ * @param {StackedTableRow.PropTypes}
+ * @returns {React.Component}
+ * @example import { StackedTableRow } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
+ */
+export const StackedTableRow = ({ children, className, dataTest }) => (
+    <tr className={className} data-test={dataTest}>
         {addColNumToChildren(children)}
 
-        <style jsx>{tableRowStyles}</style>
+        <style jsx>{`
+            tr {
+                min-height: 45px;
+                display: block;
+                border: 1px solid ${colors.grey300};
+            }
+
+            tr:nth-child(even) {
+                background: ${colors.white};
+            }
+
+            :global(thead) > tr,
+            :global(tbody) > tr {
+                min-height: 36px;
+            }
+
+            tr + tr {
+                margin-top: 32px;
+            }
+        `}</style>
     </tr>
 )
 
-const childPropType = propTypes.oneOfType([
-    instanceOfComponent(StackedTableCell),
-    instanceOfComponent(StackedTableCellHead),
-])
-
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Node} [children]
+ * Has to be instance of StackedTableCell or StackedTableCellHead
+ * @prop {string} [className]
+ * @prop {string} [dataTest]
+ */
 StackedTableRow.propTypes = {
-    children: propTypes.oneOfType([
-        childPropType,
-        propTypes.arrayOf(childPropType),
-    ]).isRequired,
+    children: propTypes.node.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
+}
+
+StackedTableRow.defaultProps = {
+    dataTest: 'dhis2-uicore-stackedtablerow',
 }
