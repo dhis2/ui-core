@@ -219,4 +219,4 @@ Checkbox.propTypes = {
     onFocus: propTypes.func,
 }
 
-export { Checkbox }
+export { Checkbox, uniqueOnStatePropType }

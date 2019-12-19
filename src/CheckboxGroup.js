@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 
 import { statusPropType } from './common-prop-types.js'
 import { ToggleGroup } from './ToggleGroup.js'
-import { Checkbox } from './Checkbox.js'
+import { uniqueOnStatePropType } from './Checkbox.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -77,8 +77,11 @@ const childWithPropTypes = propDefinition => (children, index) => {
     for (const key in propDefinition) {
         const prop = propDefinition[key]
         const childProp = childPropDefinition[key]
+        const isValid = Array.isArray(prop)
+            ? prop.some(p => p === childProp)
+            : prop === childProp
 
-        if (prop !== childProp) {
+        if (!isValid) {
             return new Error(
                 `Child does not implement the required props API for ${key}`
             )
@@ -91,10 +94,9 @@ const childWithPropTypes = propDefinition => (children, index) => {
 CheckboxGroup.propTypes = {
     children: propTypes.arrayOf(
         childWithPropTypes({
-            value: Checkbox.propTypes.value,
+            value: propTypes.string,
             onChange: propTypes.func,
-            // checked: Checkbox.propTypes.checked,
-            checked: propTypes.bool,
+            checked: [uniqueOnStatePropType, propTypes.bool],
         })
     ).isRequired,
 
