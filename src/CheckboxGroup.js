@@ -3,6 +3,7 @@ import propTypes from '@dhis2/prop-types'
 
 import { statusPropType } from './common-prop-types.js'
 import { ToggleGroup } from './ToggleGroup.js'
+import { Checkbox } from './Checkbox.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -68,8 +69,35 @@ CheckboxGroup.defaultProps = {
  * @prop {boolean} [dense]
  * @prop {string} [dataTest]
  */
+
+const childWithPropTypes = propDefinition => (children, index) => {
+    const child = children[index]
+    const childPropDefinition = child.type.propTypes
+
+    for (const key in propDefinition) {
+        const prop = propDefinition[key]
+        const childProp = childPropDefinition[key]
+
+        if (prop !== childProp) {
+            return new Error(
+                `Child does not implement the required props API for ${key}`
+            )
+        }
+    }
+
+    return undefined
+}
+
 CheckboxGroup.propTypes = {
-    children: propTypes.arrayOf(propTypes.element).isRequired,
+    children: propTypes.arrayOf(
+        childWithPropTypes({
+            value: Checkbox.propTypes.value,
+            onChange: propTypes.func,
+            // checked: Checkbox.propTypes.checked,
+            checked: propTypes.bool,
+        })
+    ).isRequired,
+
     className: propTypes.string,
     dataTest: propTypes.string,
     dense: propTypes.bool,
