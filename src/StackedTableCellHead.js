@@ -1,19 +1,32 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import propTypes from '@dhis2/prop-types'
+import { colors } from './theme.js'
 
+/**
+ * @module
+ * @param {StackedTableCellHead.PropTypes}
+ * @returns {React.Component}
+ * @example import { StackedTableCellHead } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
+ */
 export const StackedTableCellHead = ({
     children,
-    colSpan,
-    rowSpan,
-    label,
     className,
+    colSpan,
+    dataTest,
+    rowSpan,
 }) => (
-    <th colSpan={colSpan} rowSpan={rowSpan} className={className}>
-        {(children || label) && <div>{children || label}</div>}
+    <th
+        colSpan={colSpan}
+        rowSpan={rowSpan}
+        className={className}
+        data-test={dataTest}
+    >
+        {children && <div>{children}</div>}
 
         <style jsx>{`
             th {
-                border-bottom: 1px solid #e8edf2;
+                border-bottom: 1px solid ${colors.grey300};
                 padding: 0 12px;
             }
 
@@ -24,14 +37,25 @@ export const StackedTableCellHead = ({
     </th>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} [children]
+ * Can be left empty to hide titles for all columns
+ * @prop {string} [className]
+ * @prop {string} [colSpan]
+ * @prop {string} [dataTest]
+ * @prop {string} [rowSpan]
+ */
 StackedTableCellHead.propTypes = {
     children: propTypes.string,
     className: propTypes.string,
     colSpan: propTypes.string,
-    label: propTypes.string,
+    dataTest: propTypes.string,
     rowSpan: propTypes.string,
 }
 
 StackedTableCellHead.defaultProps = {
     children: '',
+    dataTest: 'dhis2-uicore-stackedtablecellhead',
 }

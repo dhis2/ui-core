@@ -1,30 +1,39 @@
 import React from 'react'
-import css from 'styled-jsx/css'
-import propTypes from 'prop-types'
-import { instanceOfComponent } from '@dhis2/prop-types'
+import propTypes from '@dhis2/prop-types'
 
-import { StackedTableRow } from './StackedTableRow.js'
-
-const tableFootStyles = css`
-    tfoot {
-        display: block;
-        margin-top: 32px;
-    }
-`
-
-export const StackedTableFoot = ({ children, className }) => (
-    <tfoot className={className}>
+/**
+ * @module
+ * @param {StackedTableFoot.PropTypes}
+ * @returns {React.Component}
+ * @example import { StackedTableFoot } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
+ */
+export const StackedTableFoot = ({ children, className, dataTest }) => (
+    <tfoot className={className} data-test={dataTest}>
         {children}
-        <style jsx>{tableFootStyles}</style>
+        <style jsx>{`
+            tfoot {
+                display: block;
+                margin-top: 32px;
+            }
+        `}</style>
     </tfoot>
 )
 
-const childPropType = instanceOfComponent(StackedTableRow)
-
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} [children]
+ * Has to be instance of StackedTableRow
+ * @prop {string} [className]
+ * @prop {string} [dataTest]
+ */
 StackedTableFoot.propTypes = {
-    children: propTypes.oneOfType([
-        childPropType,
-        propTypes.arrayOf(childPropType),
-    ]).isRequired,
+    children: propTypes.node.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
+}
+
+StackedTableFoot.defaultProps = {
+    dataTest: 'dhis2-uicore-stackedtablefoot',
 }

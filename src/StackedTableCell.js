@@ -1,64 +1,17 @@
-import React, { Fragment } from 'react'
-import css from 'styled-jsx/css'
+import React from 'react'
 import propTypes from 'prop-types'
 
 import { Consumer } from './StackedTable/TableContext.js'
+import { ContentWithTitle } from './StackedTableCell/ContentWithTitle.js'
 import { colors } from './theme.js'
 
-const tableCellStyles = css`
-    td {
-        border-bottom: 1px solid #e8edf2;
-        padding: 0 12px;
-        font-size: 14px;
-        width: 100%;
-        display: block;
-    }
-
-    td:last-child {
-        border-bottom: 0;
-    }
-`
-
-const ContentWithTitle = ({ title, children }) => (
-    <Fragment>
-        {title && <span className="title">{title}</span>}
-        <span className="content">{children}</span>
-
-        <style jsx>{`
-            .title {
-                display: block;
-                white-space: normal;
-                min-height: 24px;
-                font-size: 13px;
-                line-height: 16px;
-                padding: 8px 0 4px;
-                font-weight: normal;
-                color: ${colors.grey700};
-            }
-
-            .content {
-                display: block;
-                padding: 0 0 8px 0;
-                font-size: 14px;
-                line-height: 18px;
-            }
-
-            .content:first-child {
-                padding-top: 8px;
-                padding-bottom: 8px;
-            }
-        `}</style>
-    </Fragment>
-)
-
-ContentWithTitle.propTypes = {
-    children: propTypes.oneOfType([
-        propTypes.node,
-        propTypes.arrayOf(propTypes.node),
-    ]).isRequired,
-    title: propTypes.string,
-}
-
+/**
+ * @module
+ * @param {StackedTableCell.PropTypes}
+ * @returns {React.Component}
+ * @example import { StackedTableCell } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
+ */
 export const StackedTableCell = ({
     title,
     children,
@@ -67,6 +20,7 @@ export const StackedTableCell = ({
     rowSpan,
     column,
     hideTitle,
+    dataTest,
 }) => (
     <>
         <Consumer>
@@ -79,6 +33,7 @@ export const StackedTableCell = ({
                         colSpan={colSpan}
                         rowSpan={rowSpan}
                         className={className}
+                        data-test={dataTest}
                     >
                         <ContentWithTitle title={realTitle}>
                             {children}
@@ -88,19 +43,45 @@ export const StackedTableCell = ({
             }}
         </Consumer>
 
-        <style jsx>{tableCellStyles}</style>
+        <style jsx>{`
+            td {
+                border-bottom: 1px solid ${colors.grey300};
+                padding: 0 12px;
+                font-size: 14px;
+                width: 100%;
+                display: block;
+            }
+
+            td:last-child {
+                border-bottom: 0;
+            }
+        `}</style>
     </>
 )
 
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {Node} children
+ * @prop {string} [className]
+ * @prop {string} [colSpan]
+ * @prop {number} [column]
+ * @prop {string} [dataTest]
+ * @prop {boolean} [hideTitle]
+ * @prop {boolean} [rowSpan]
+ * @prop {string} [title]
+ */
 StackedTableCell.propTypes = {
-    children: propTypes.oneOfType([
-        propTypes.node,
-        propTypes.arrayOf(propTypes.node),
-    ]).isRequired,
+    children: propTypes.node.isRequired,
     className: propTypes.string,
     colSpan: propTypes.string,
     column: propTypes.number,
+    dataTest: propTypes.string,
     hideTitle: propTypes.bool,
     rowSpan: propTypes.string,
     title: propTypes.string,
+}
+
+StackedTableCell.defaultProps = {
+    dataTest: 'dhis2-uicore-stackedtablecell',
 }

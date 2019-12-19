@@ -1,29 +1,38 @@
 import React from 'react'
-import css from 'styled-jsx/css'
-import propTypes from 'prop-types'
-import { instanceOfComponent } from '@dhis2/prop-types'
+import propTypes from '@dhis2/prop-types'
 
-import { StackedTableRowHead } from './StackedTableRowHead.js'
-
-const tableHeadStyles = css`
-    thead {
-        display: none;
-    }
-`
-
-export const StackedTableHead = ({ children, className }) => (
-    <thead className={className}>
+/**
+ * @module
+ * @param {StackedTableHead.PropTypes}
+ * @returns {React.Component}
+ * @example import { StackedTableHead } from @dhis2/ui-core
+ * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
+ */
+export const StackedTableHead = ({ children, className, dataTest }) => (
+    <thead className={className} data-test={dataTest}>
         {children}
-        <style jsx>{tableHeadStyles}</style>
+        <style jsx>{`
+            thead {
+                display: none;
+            }
+        `}</style>
     </thead>
 )
 
-const childPropType = instanceOfComponent(StackedTableRowHead)
-
+/**
+ * @typedef {Object} PropTypes
+ * @static
+ * @prop {string} [children]
+ * Has to be instance of StackedTableRowHead
+ * @prop {string} [className]
+ * @prop {string} [dataTest]
+ */
 StackedTableHead.propTypes = {
-    children: propTypes.oneOfType([
-        childPropType,
-        propTypes.arrayOf(childPropType),
-    ]).isRequired,
+    children: propTypes.node.isRequired,
     className: propTypes.string,
+    dataTest: propTypes.string,
+}
+
+StackedTableHead.defaultProps = {
+    dataTest: 'dhis2-uicore-stackedtablehead',
 }
