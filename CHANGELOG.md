@@ -1,3 +1,10 @@
+# [4.5.0](https://github.com/dhis2/ui/compare/v4.4.1...v4.5.0) (2019-12-20)
+
+
+### Features
+
+* add StackedTable component ([4f358f2](https://github.com/dhis2/ui/commit/4f358f2aab1ef866c4fc57616a401e1098a3ebc7))
+
 ## [4.4.1](https://github.com/dhis2/ui/compare/v4.4.0...v4.4.1) (2019-12-19)
 
 
