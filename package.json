@@ -58,7 +58,7 @@
         "jest": "^24.9.0",
         "react": "16.8",
         "react-dev-utils": "^10.0.0",
-        "react-docgen": "^5.0.0",
+        "react-docgen": "^5.1.0",
         "react-dom": "16.8",
         "storybook-addon-jsx": "^7.1.13",
         "storybook-addon-react-docgen": "^1.2.28",
