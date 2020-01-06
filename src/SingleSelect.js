@@ -87,7 +87,8 @@ const SingleSelect = ({
                     initialFocus={initialFocus}
                     dense={dense}
                 >
-                    {loading ? <Loading message={loadingText} /> : children}
+                    {children}
+                    {loading && <Loading message={loadingText} />}
                 </Select>
             </div>
             <StatusIcon error={error} valid={valid} warning={warning} />

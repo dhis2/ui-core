@@ -6,6 +6,7 @@ import {
 } from '../common-prop-types.js'
 import { FilterInput } from '../Select/FilterInput.js'
 import { NoMatch } from '../Select/NoMatch.js'
+import { filterIgnored, checkIfValidOption } from '../Select/option-helpers.js'
 
 export class FilterableMenu extends Component {
     state = {
@@ -37,8 +38,10 @@ export class FilterableMenu extends Component {
             handleFocusInput,
         }
 
+        const renderedOptions = filterIgnored(options)
+
         // If there are no options or there's no filter, just pass everything through
-        if (React.Children.count(options) === 0 || !filter) {
+        if (React.Children.count(renderedOptions) === 0 || !filter) {
             return (
                 <React.Fragment>
                     <FilterInput
@@ -52,8 +55,7 @@ export class FilterableMenu extends Component {
         }
 
         const filtered = React.Children.map(options, child => {
-            const isValidOption =
-                child.props && 'value' in child.props && 'label' in child.props
+            const isValidOption = checkIfValidOption(child)
 
             // Filter it out if it's an invalid option
             if (!isValidOption) {

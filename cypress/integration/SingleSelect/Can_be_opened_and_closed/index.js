@@ -1,5 +1,5 @@
 import '../common'
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When } from 'cypress-cucumber-preprocessor/steps'
 
 Given('the SingleSelect is closed', () => {
     cy.contains('option one').should('not.exist')
@@ -25,10 +25,4 @@ When('the up arrowkey is pressed on the focused element', () => {
 
 When('the escape key is pressed on the focused element', () => {
     cy.focused().type('{esc}')
-})
-
-Then('the options are displayed', () => {
-    cy.contains('option one').should('be.visible')
-    cy.contains('option two').should('be.visible')
-    cy.contains('option three').should('be.visible')
 })
