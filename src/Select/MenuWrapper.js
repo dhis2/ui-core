@@ -25,7 +25,7 @@ const MenuWrapper = ({
     `
     return ReactDOM.createPortal(
         <Backdrop onClick={onClick} transparent zIndex={zIndex}>
-            <div className={className} ref={menuRef} dataTest={dataTest}>
+            <div className={className} ref={menuRef} data-test={dataTest}>
                 <Card className={cardClassName}>{children}</Card>
 
                 {styles}
