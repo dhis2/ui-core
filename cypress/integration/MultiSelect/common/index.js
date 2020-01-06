@@ -34,6 +34,12 @@ Then('the options are not displayed', () => {
     cy.contains('option three').should('not.be.visible')
 })
 
+Then('the options are displayed', () => {
+    cy.contains('option one').should('be.visible')
+    cy.contains('option two').should('be.visible')
+    cy.contains('option three').should('be.visible')
+})
+
 Then('the MultiSelect has focus', () => {
     cy.focused()
         .parents('.select')

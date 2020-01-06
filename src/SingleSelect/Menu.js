@@ -2,6 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { singleSelectedPropType } from '../common-prop-types.js'
 import { Empty } from '../Select/Empty.js'
+import { filterIgnored, checkIfValidOption } from '../Select/option-helpers.js'
 
 const onIgnoredClick = (_, e) => {
     e.stopPropagation()
@@ -16,7 +17,9 @@ const Menu = ({
     handleFocusInput,
     handleClose,
 }) => {
-    if (React.Children.count(options) === 0) {
+    const renderedOptions = filterIgnored(options)
+
+    if (React.Children.count(renderedOptions) === 0) {
         // If it's a string, supply it to our <Empty> component so it looks better
         if (typeof empty === 'string') {
             return <Empty message={empty} />
@@ -27,8 +30,7 @@ const Menu = ({
     }
 
     const children = React.Children.map(options, child => {
-        const isValidOption =
-            child.props && 'value' in child.props && 'label' in child.props
+        const isValidOption = checkIfValidOption(child)
 
         // Return early if the child isn't an option, to prevent attaching handlers etc.
         if (!isValidOption) {
