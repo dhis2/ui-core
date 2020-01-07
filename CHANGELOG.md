@@ -1,3 +1,17 @@
+# [4.6.0](https://github.com/dhis2/ui/compare/v4.5.0...v4.6.0) (2020-01-07)
+
+
+### Bug Fixes
+
+* **select:** don't ignore invalid selection silently ([02740c8](https://github.com/dhis2/ui/commit/02740c8d0de600e37bb423846634ce46b6e0f0d6))
+* **select:** fix incorrect data-test attribute ([a849de6](https://github.com/dhis2/ui/commit/a849de6202bd39b380be384c176696cd3e3655dd))
+
+
+### Features
+
+* **select:** add data attributes for options ([196bac1](https://github.com/dhis2/ui/commit/196bac16465e7aaf6251cb5f11a1b1fde3584971))
+* **select:** append loading spinner to children instead of replacing ([f7651b8](https://github.com/dhis2/ui/commit/f7651b82bd1506326425bef7beb8f0dc8c86975a))
+
 # [4.5.0](https://github.com/dhis2/ui/compare/v4.4.1...v4.5.0) (2019-12-20)
 
 
