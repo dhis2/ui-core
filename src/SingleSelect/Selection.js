@@ -6,10 +6,6 @@ import { spacers } from '../theme.js'
 import { findOptionChild } from '../Select/option-helpers.js'
 
 const Selection = ({ options, selected, className }) => {
-    if (React.Children.count(options) === 0) {
-        return null
-    }
-
     const selectedOption = findOptionChild(selected, options)
 
     if (!selectedOption) {
