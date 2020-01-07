@@ -21,6 +21,7 @@ const SingleSelectOption = ({
     onClick,
     className,
     dataTest,
+    value,
 }) => (
     <div
         className={cx(className, {
@@ -29,6 +30,8 @@ const SingleSelectOption = ({
         })}
         onClick={e => onClick({}, e)}
         data-test={dataTest}
+        data-value={value}
+        data-label={label}
     >
         {label}
 
@@ -83,8 +86,6 @@ SingleSelectOption.defaultProps = {
  */
 SingleSelectOption.propTypes = {
     label: propTypes.string.isRequired,
-    // This prop is used by the Select, so still necessary
-    // eslint-disable-next-line react/no-unused-prop-types
     value: propTypes.string.isRequired,
     active: propTypes.bool,
     className: propTypes.string,
