@@ -61,6 +61,9 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="2" label="option two" />
             <div>invalid three</div>
             <MultiSelectOption value="3" label="option three" />
+            {null}
+            {undefined}
+            {false}
         </MultiSelect>
     ))
     .add('With invalid filterable options', () => (

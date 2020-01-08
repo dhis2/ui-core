@@ -5,5 +5,5 @@ Given('a DropdownButton with closed dropdown is rendered', () => {
 })
 
 When('the DropdownButton is clicked', () => {
-    cy.get('button').click()
+    cy.get('[data-test="dhis2-uicore-dropdownbutton"]').click()
 })

@@ -23,33 +23,24 @@ storiesOf('AlertBar', module)
     .add('Default', () => <AlertBar>Default - I will autohide</AlertBar>)
     .add('States', () => (
         <React.Fragment>
-            <AlertBar className="first" permanent>
-                Default (info)
-            </AlertBar>
-            <AlertBar className="second" permanent success>
+            <AlertBar permanent>Default (info)</AlertBar>
+            <AlertBar permanent success>
                 Success
             </AlertBar>
-            <AlertBar className="thrid" permanent warning>
+            <AlertBar permanent warning>
                 Warning
             </AlertBar>
-            <AlertBar className="fourth" permanent critical>
+            <AlertBar permanent critical>
                 Critical
             </AlertBar>
         </React.Fragment>
     ))
     .add('Auto hiding', () => (
         <React.Fragment>
-            <AlertBar className="first" permanent>
-                Permanent never auto-hides
-            </AlertBar>
-            <AlertBar className="second" warning>
-                Warning never auto-hides
-            </AlertBar>
-            <AlertBar className="third" critical>
-                Critial never auto-hides
-            </AlertBar>
+            <AlertBar permanent>Permanent never auto-hides</AlertBar>
+            <AlertBar warning>Warning never auto-hides</AlertBar>
+            <AlertBar critical>Critial never auto-hides</AlertBar>
             <AlertBar
-                className="fourth"
                 duration={2000}
                 onHidden={(payload, event) => {
                     console.log('onHidden payload', payload)
@@ -59,7 +50,6 @@ storiesOf('AlertBar', module)
                 Custom duration, hides after 2s
             </AlertBar>
             <AlertBar
-                className="fifth"
                 onHidden={(payload, event) => {
                     console.log('onHidden payload', payload)
                     console.log('onHidden event', event)

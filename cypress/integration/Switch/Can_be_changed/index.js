@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an unchecked Switch is rendered', () => {
-    cy.visitStory('Switch', 'Default')
+    cy.visitStory('Switch', 'Unchecked')
 })
 
 Given('the Switch is provided with an onChange handler', () => {
@@ -10,8 +10,8 @@ Given('the Switch is provided with an onChange handler', () => {
     })
 })
 
-When('the Switch is ticked', () => {
-    cy.get('label').click()
+When('the Switch is clicked', () => {
+    cy.get('[data-test="dhis2-uicore-switch"]').click()
 })
 
 Then('the onChange handler is called', () => {

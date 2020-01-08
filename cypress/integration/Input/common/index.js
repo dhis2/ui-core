@@ -1,5 +1,5 @@
 import { Given } from 'cypress-cucumber-preprocessor/steps'
 
-Given('an empty Input is rendered', () => {
+Given('an Input is rendered', () => {
     cy.visitStory('Input', 'Default')
 })

@@ -61,6 +61,9 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="2" label="option two" />
             <div>invalid three</div>
             <SingleSelectOption value="3" label="option three" />
+            {null}
+            {undefined}
+            {false}
         </SingleSelect>
     ))
     .add('With invalid filterable options', () => (

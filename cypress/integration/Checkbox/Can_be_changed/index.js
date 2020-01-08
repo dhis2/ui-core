@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an unchecked Checkbox is rendered', () => {
-    cy.visitStory('Checkbox', 'Default')
+    cy.visitStory('Checkbox', 'Unchecked')
 })
 
 Given('the Checkbox is provided with an onChange handler', () => {
@@ -10,8 +10,8 @@ Given('the Checkbox is provided with an onChange handler', () => {
     })
 })
 
-When('the Checkbox is ticked', () => {
-    cy.get('label').click()
+When('the Checkbox is clicked', () => {
+    cy.get('[data-test="dhis2-uicore-checkbox"]').click()
 })
 
 Then('the onChange handler is called', () => {

@@ -1,7 +1,7 @@
 Feature: The TextArea has an onBlur api
 
-    Scenario: The user focuses the next the TextArea
+    Scenario: The user blurs the TextArea
         Given a focused TextArea is rendered
         And the TextArea is provided with an onBlur handler
-        When the next TextArea is focused
+        When the TextArea is blurred
         Then the onBlur handler is called

@@ -9,7 +9,7 @@ Given('the MenuItem is provided with an onClick handler', () => {
 })
 
 When('the MenuItem is clicked', () => {
-    cy.get('a').click()
+    cy.get('[data-test="dhis2-uicore-menuitem"]').click()
 })
 
 Then('the onClick handler is called', () => {

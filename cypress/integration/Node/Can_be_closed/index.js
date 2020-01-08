@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a closed Node is rendered', () => {
-    cy.visitStory('Node', '2 Levels open')
+Given('an open Node is rendered', () => {
+    cy.visitStory('Node', 'Open')
 })
 
 Given('the Node is provided with an onClose handler', () => {
@@ -11,9 +11,7 @@ Given('the Node is provided with an onClose handler', () => {
 })
 
 When('the arrow is clicked', () => {
-    cy.get(
-        '#root > div:nth-child(1) > div:nth-child(1) > span:nth-child(1)'
-    ).click()
+    cy.get('[data-test="dhis2-uicore-node-arrow"]').click()
 })
 
 Then('the onClose handler is called', () => {

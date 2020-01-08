@@ -10,7 +10,7 @@ class Action extends Component {
 
     render() {
         return (
-            <span onClick={this.onClick}>
+            <span onClick={this.onClick} data-test={this.props.dataTest}>
                 {this.props.label}
                 <style jsx>{`
                     span {
@@ -27,6 +27,7 @@ class Action extends Component {
 }
 
 Action.propTypes = {
+    dataTest: propTypes.string.isRequired,
     hide: propTypes.func.isRequired,
     label: propTypes.string.isRequired,
     onClick: propTypes.func.isRequired,

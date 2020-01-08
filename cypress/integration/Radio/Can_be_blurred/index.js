@@ -1,10 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an focused Radio is rendered', () => {
-    cy.visitStory('Radio', 'Focused unchecked')
-    cy.focused().then($el => {
-        expect($el.parents('label')).to.have.class('initially-focused')
-    })
+    cy.visitStory('Radio', 'Focused')
 })
 
 Given('the Radio is provided with an onBlur handler', () => {
@@ -13,11 +10,8 @@ Given('the Radio is provided with an onBlur handler', () => {
     })
 })
 
-When('the next Radio is focused', () => {
-    cy.get('.initially-unfocused input').focus()
-    cy.focused().then($el => {
-        expect($el.parents('label')).to.have.class('initially-unfocused')
-    })
+When('the Radio is blurred', () => {
+    cy.get('[data-test="dhis2-uicore-radio"] input').blur()
 })
 
 Then('the onBlur handler is called', () => {

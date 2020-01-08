@@ -1,13 +1,13 @@
 import { Given, When } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a SplitButton with closed DropMenu is rendered', () => {
+Given('a SplitButton with closed menu is rendered', () => {
     cy.visitStory('SplitButton: Basic', 'Default')
 })
 
 When('the SplitButton is clicked', () => {
-    cy.get('button:first-child').click()
+    cy.get('[data-test="dhis2-uicore-splitbutton-button"]').click()
 })
 
-When('the SplitButton arrow icon is clicked', () => {
-    cy.get('button:nth-child(2)').click()
+When('the SplitButton toggle is clicked', () => {
+    cy.get('[data-test="dhis2-uicore-splitbutton-toggle"]').click()
 })

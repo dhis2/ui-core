@@ -34,13 +34,21 @@ const FileListItem = ({
             <span className="label">{label}</span>
 
             {loading && onCancel && cancelText && (
-                <span className="action" onClick={event => onCancel({}, event)}>
+                <span
+                    className="action"
+                    onClick={event => onCancel({}, event)}
+                    data-test={`${dataTest}-cancel`}
+                >
                     {cancelText}
                 </span>
             )}
 
             {!loading && (
-                <span className="action" onClick={event => onRemove({}, event)}>
+                <span
+                    className="action"
+                    onClick={event => onRemove({}, event)}
+                    data-test={`${dataTest}-remove`}
+                >
                     {removeText}
                 </span>
             )}

@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a focused Input is rendered', () => {
-    cy.visitStory('Input', 'Focus')
+    cy.visitStory('Input', 'Focused')
 })
 
 Given('the Input is provided with an onBlur handler', () => {
@@ -10,11 +10,8 @@ Given('the Input is provided with an onBlur handler', () => {
     })
 })
 
-When('the next Input is focused', () => {
-    cy.get('.initially-unfocused input').focus()
-    cy.focused().then($el => {
-        expect($el.parent()).to.have.class('initially-unfocused')
-    })
+When('the Input is blurred', () => {
+    cy.get('[data-test="dhis2-uicore-input"] input').blur()
 })
 
 Then('the onBlur handler is called', () => {

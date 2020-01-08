@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an unfocused Switch is rendered', () => {
-    cy.visitStory('Switch', 'Default')
+    cy.visitStory('Switch', 'Unfocused')
 })
 
 Given('the Switch is provided with an onFocus handler', () => {
@@ -11,7 +11,7 @@ Given('the Switch is provided with an onFocus handler', () => {
 })
 
 When('the Switch is focused', () => {
-    cy.get('input').focus()
+    cy.get('[data-test="dhis2-uicore-switch"] input').focus()
 })
 
 Then('the onFocus handler is called', () => {
