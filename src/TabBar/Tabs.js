@@ -32,16 +32,13 @@ const Tabs = ({ children, fixed, dataTest }) => (
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Tab|Array.<Tab>} children
+ * @prop {Node} children
  * @prop {boolean} [fixed]
  * @prop {string} [dataTest]
  */
 Tabs.propTypes = {
     dataTest: propTypes.string.isRequired,
-    children: propTypes.oneOfType([
-        propTypes.element,
-        propTypes.arrayOf(propTypes.element),
-    ]),
+    children: propTypes.node,
     fixed: propTypes.bool,
 }
 
