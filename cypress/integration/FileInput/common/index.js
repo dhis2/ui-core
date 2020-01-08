@@ -1,7 +1,7 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('the FileInput does not have any files', () => {
-    cy.get('input').then($input => {
+    cy.get('[data-test="dhis2-uicore-fileinput"] input').then($input => {
         const files = $input[0].files
         expect(files).to.have.lengthOf(0)
     })

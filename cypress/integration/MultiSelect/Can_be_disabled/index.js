@@ -16,11 +16,11 @@ Given('the MultiSelect is closed', () => {
 })
 
 Given('the MultiSelect is focused', () => {
-    cy.get('.select [tabIndex="0"]').focus()
+    cy.get('[data-test="dhis2-uicore-select"] [tabIndex="0"]').focus()
 })
 
 When('the MultiSelect input is clicked', () => {
-    cy.get('.select [tabIndex="0"]').click()
+    cy.get('[data-test="dhis2-uicore-select"] [tabIndex="0"]').click()
 })
 
 When('the down arrowkey is pressed on the focused element', () => {

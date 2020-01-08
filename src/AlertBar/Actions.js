@@ -4,7 +4,7 @@ import propTypes from '@dhis2/prop-types'
 import { Action } from './Action.js'
 import { spacers } from '../theme.js'
 
-const Actions = ({ actions, hide }) => {
+const Actions = ({ actions, hide, dataTest }) => {
     if (!actions) {
         return null
     }
@@ -12,7 +12,12 @@ const Actions = ({ actions, hide }) => {
     return (
         <div>
             {actions.map(action => (
-                <Action key={action.label} {...action} hide={hide} />
+                <Action
+                    key={action.label}
+                    {...action}
+                    hide={hide}
+                    dataTest={`${dataTest}-action`}
+                />
             ))}
             <style jsx>{`
                 div {
@@ -34,6 +39,7 @@ const actionsPropType = propTypes.arrayWithLength(
 )
 
 Actions.propTypes = {
+    dataTest: propTypes.string.isRequired,
     hide: propTypes.func.isRequired,
     actions: actionsPropType,
 }

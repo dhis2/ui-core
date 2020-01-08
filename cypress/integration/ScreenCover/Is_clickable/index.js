@@ -10,8 +10,8 @@ Given('a custom onClick handler is provided', () => {
     })
 })
 
-When('the user clicks on the Backdrop', () => {
-    cy.get('.backdrop').click()
+When('the user clicks on the Screencover', () => {
+    cy.get('[data-test="dhis2-uicore-screencover"]').click()
 })
 
 Then('the onClick handler will be called', () => {

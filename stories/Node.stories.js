@@ -124,7 +124,7 @@ storiesOf('Node', module)
             <Node
                 open={false}
                 onOpen={onOpen}
-                onCLose={say('close tree 2.2')}
+                onClose={say('close tree 2.2')}
                 component={
                     <Checkbox
                         label="Node label"

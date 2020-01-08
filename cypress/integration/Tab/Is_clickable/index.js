@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a Tab is rendered', () => {
-    cy.visitStory('TabBar', 'Default (fluid)')
+    cy.visitStory('Tab', 'With onClick')
 })
 
 Given('the Tab is provided with an onClick handler', () => {
@@ -9,7 +9,7 @@ Given('the Tab is provided with an onClick handler', () => {
 })
 
 When('the Tab is clicked', () => {
-    cy.get('.tab:first-child').click()
+    cy.get('[data-test="dhis2-uicore-tab"]').click()
 })
 
 Then('the onClick handler is called', () => {

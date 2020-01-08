@@ -11,7 +11,7 @@ Given('an onRemove handler is provided', () => {
 })
 
 When('the user clicks on the remove text', () => {
-    cy.get('.action:contains("Remove")').click()
+    cy.get('[data-test="dhis2-uicore-filelistitem-remove"]').click()
 })
 
 Then('the onRemove handler is called', () => {

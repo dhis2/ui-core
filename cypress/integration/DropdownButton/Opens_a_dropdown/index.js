@@ -4,12 +4,12 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 // The user closes the dropdown
 Given('a DropdownButton with opened dropdown is rendered', () => {
     cy.visitStory('DropdownButton: Basic', 'Default')
-    cy.get('button').click()
-    cy.get('.dropdown-button-dropmenu').should('exist')
+    cy.get('[data-test="dhis2-uicore-dropdownbutton"]').click()
+    cy.get('[data-test="dhis2-uicore-dropmenu"]').should('exist')
 })
 
 Then('the dropdown is not rendered', () => {
-    cy.get('.dropdown-button-dropmenu').should('not.exist')
+    cy.get('[data-test="dhis2-uicore-dropmenu"]').should('not.exist')
 })
 
 /**
@@ -17,5 +17,5 @@ Then('the dropdown is not rendered', () => {
  * ===========================
  */
 Then('the dropdown is rendered', () => {
-    cy.get('.dropdown-button-dropmenu').should('exist')
+    cy.get('[data-test="dhis2-uicore-dropmenu"]').should('exist')
 })

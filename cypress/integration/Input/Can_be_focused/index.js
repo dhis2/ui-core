@@ -8,7 +8,7 @@ Given('the Input is provided with an onFocus handler', () => {
 })
 
 When('the Input is focused', () => {
-    cy.get('input').focus()
+    cy.get('[data-test="dhis2-uicore-input"] input').focus()
 })
 
 Then('the onFocus handler is called', () => {

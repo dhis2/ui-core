@@ -8,7 +8,9 @@ Given('the TextArea is provided with an onChange handler', () => {
 })
 
 When('the TextArea is filled with a character', () => {
-    cy.get('textarea').type('a')
+    cy.get('[data-test="dhis2-uicore-textarea"]')
+        .click()
+        .type('a')
 })
 
 Then('the onChange handler is called', () => {

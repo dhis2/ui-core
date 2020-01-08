@@ -133,7 +133,11 @@ class AlertBar extends Component {
                     info={info}
                 />
                 <Message>{children}</Message>
-                <Actions actions={actions} hide={this.hide} />
+                <Actions
+                    actions={actions}
+                    hide={this.hide}
+                    dataTest={dataTest}
+                />
                 <Dismiss onClick={this.hide} dataTest={`${dataTest}-dismiss`} />
 
                 <style jsx>{styles}</style>

@@ -6,7 +6,7 @@ Given('a FileInput that accepts multiple files is rendered', () => {
 })
 
 When('the user selected multiple files', () => {
-    cy.get('.file-input input').uploadMultipleFiles(
+    cy.get('[data-test="dhis2-uicore-fileinput"] input').uploadMultipleFiles(
         [
             { fileType: 'md', fixture: 'FileInput/file.md' },
             { fileType: 'txt', fixture: 'FileInput/file.txt' },

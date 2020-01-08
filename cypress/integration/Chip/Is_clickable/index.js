@@ -11,7 +11,7 @@ Given('the Chip is provided with an onClick handler', () => {
 })
 
 When('the Chip is clicked', () => {
-    cy.get('#root > span').click()
+    cy.get('[data-test="dhis2-uicore-chip"]').click()
 })
 
 Then('the onClick handler is called', () => {

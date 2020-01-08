@@ -16,7 +16,7 @@ Given(
 )
 
 Given('the SingleSelect is open', () => {
-    cy.get('.select').click()
+    cy.get('[data-test="dhis2-uicore-select"]').click()
 })
 
 Then('the top nine options are displayed', () => {

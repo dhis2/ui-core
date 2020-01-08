@@ -9,7 +9,7 @@ Given('the Button is provided with an onClick handler', () => {
 })
 
 When('the Button is clicked', () => {
-    cy.get('button').click()
+    cy.get('[data-test="dhis2-uicore-button"]').click()
 })
 
 Then('the onClick handler is called', () => {

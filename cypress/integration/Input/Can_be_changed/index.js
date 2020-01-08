@@ -8,7 +8,9 @@ Given('the Input is provided with an onChange handler', () => {
 })
 
 When('the Input is filled with a character', () => {
-    cy.get('input').type('a')
+    cy.get('[data-test="dhis2-uicore-input"]')
+        .click()
+        .type('a')
 })
 
 Then('the onChange handler is called', () => {

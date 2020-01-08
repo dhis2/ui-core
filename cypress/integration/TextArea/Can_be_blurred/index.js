@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a focused TextArea is rendered', () => {
-    cy.visitStory('TextArea', 'Focus')
+    cy.visitStory('TextArea', 'Focused')
 })
 
 Given('the TextArea is provided with an onBlur handler', () => {
@@ -10,11 +10,8 @@ Given('the TextArea is provided with an onBlur handler', () => {
     })
 })
 
-When('the next TextArea is focused', () => {
-    cy.get('.initially-unfocused textarea').focus()
-    cy.focused().then($el => {
-        expect($el.parent()).to.have.class('initially-unfocused')
-    })
+When('the TextArea is blurred', () => {
+    cy.get('[data-test="dhis2-uicore-textarea"] textarea').blur()
 })
 
 Then('the onBlur handler is called', () => {

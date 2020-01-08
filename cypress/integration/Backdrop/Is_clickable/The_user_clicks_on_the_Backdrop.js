@@ -11,7 +11,7 @@ Given('a custom onClick handler is provided', () => {
 })
 
 When('the user clicks on the Backdrop', () => {
-    cy.get('.backdrop').click()
+    cy.get('[data-test="dhis2-uicore-backdrop"]').click()
 })
 
 Then('the onClick handler will be called', () => {

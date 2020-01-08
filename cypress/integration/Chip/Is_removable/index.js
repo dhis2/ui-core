@@ -11,7 +11,7 @@ Given('the Chip is provided with an onRemove handler', () => {
 })
 
 When('the remove icon is clicked', () => {
-    cy.get('#root > span > span:nth-child(2)').click()
+    cy.get('[data-test="dhis2-uicore-chip-remove"]').click()
 })
 
 Then('the onRemove handler is called', () => {

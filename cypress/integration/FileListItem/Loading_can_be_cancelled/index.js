@@ -11,7 +11,7 @@ Given('an onCancel handler is provided', () => {
 })
 
 When('the user clicks on the cancel text', () => {
-    cy.get('.action:contains("Cancel")').click()
+    cy.get('[data-test="dhis2-uicore-filelistitem-cancel"]').click()
 })
 
 Then('the onCancel handler is called', () => {

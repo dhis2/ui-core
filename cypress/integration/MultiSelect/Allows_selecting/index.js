@@ -14,7 +14,7 @@ When('an option is clicked', () => {
 })
 
 When('the selected option is clicked', () => {
-    cy.get('.backdrop')
+    cy.get('[data-test="dhis2-uicore-backdrop"]')
         .contains('option one')
         .click()
 })
@@ -24,9 +24,7 @@ When('another option is clicked', () => {
 })
 
 When("the chip's X is clicked", () => {
-    cy.contains('option one')
-        .siblings('span')
-        .click()
+    cy.get('[data-test="dhis2-uicore-chip-remove"]').click()
 })
 
 When('the disabled option is clicked', () => {

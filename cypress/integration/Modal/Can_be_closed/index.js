@@ -10,8 +10,8 @@ Given('the Modal is provided with an onClose handler', () => {
     })
 })
 
-When('the Backdrop is clicked', () => {
-    cy.get('.backdrop').click('topLeft')
+When('the Screencover is clicked', () => {
+    cy.get('[data-test="dhis2-uicore-screencover"]').click('topLeft')
 })
 
 Then('the onClose handler is called', () => {

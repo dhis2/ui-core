@@ -13,7 +13,7 @@ Given(
 )
 
 Then('the loading spinner is displayed', () => {
-    cy.get('div[role="progressbar"]').should('be.visible')
+    cy.get('[data-test="dhis2-uicore-circularloader"]').should('be.visible')
 })
 
 Then('the loading text is displayed', () => {
