@@ -1,3 +1,10 @@
+## [4.6.1](https://github.com/dhis2/ui/compare/v4.6.0...v4.6.1) (2020-01-08)
+
+
+### Bug Fixes
+
+* **tabbar tabs:** use correct children prop type ([ce61249](https://github.com/dhis2/ui/commit/ce61249867cfb99c25749c5de689ed64eb87782c))
+
 # [4.6.0](https://github.com/dhis2/ui/compare/v4.5.0...v4.6.0) (2020-01-07)
 
 
