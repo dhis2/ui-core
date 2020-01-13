@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a removable FileListItem is rendered', () => {
-    cy.visitStory('FileListItem', 'Default')
+    cy.visitStory('FileListItem', 'Onremove')
 })
 
 Given('an onRemove handler is provided', () => {

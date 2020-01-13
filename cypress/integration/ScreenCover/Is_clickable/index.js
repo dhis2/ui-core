@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a ScreenCover is rendered', () => {
-    cy.visitStory('ScreenCover', 'Default')
+    cy.visitStory('ScreenCover', 'Onclick')
 })
 
 Given('a custom onClick handler is provided', () => {

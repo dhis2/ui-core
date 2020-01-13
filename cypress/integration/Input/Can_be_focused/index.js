@@ -1,5 +1,8 @@
-import '../common/index'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+
+Given('an Input is rendered', () => {
+    cy.visitStory('Input', 'Onfocus')
+})
 
 Given('the Input is provided with an onFocus handler', () => {
     cy.window().then(win => {

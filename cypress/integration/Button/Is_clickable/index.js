@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a Button is rendered', () => {
-    cy.visitStory('Button: Basic', 'Default')
+    cy.visitStory('Button', 'Onclick')
 })
 
 Given('the Button is provided with an onClick handler', () => {

@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a Chip is rendered', () => {
-    cy.visitStory('Chip', 'Default')
+    cy.visitStory('Chip', 'Onclick')
 })
 
 Given('the Chip is provided with an onClick handler', () => {

@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a removable Chip is rendered', () => {
-    cy.visitStory('Chip', 'Removable')
+    cy.visitStory('Chip', 'Onremove')
 })
 
 Given('the Chip is provided with an onRemove handler', () => {
