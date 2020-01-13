@@ -2,7 +2,7 @@ import '../common'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a FileInput that accepts multiple files is rendered', () => {
-    cy.visitStory('FileInput', 'Multiple')
+    cy.visitStory('FileInput', 'Multiple files')
 })
 
 When('the user selected multiple files', () => {

@@ -6,15 +6,29 @@ const onChange = (...args) => window.onChange(...args)
 const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
-const defaultProps = {
-    label: 'Default label',
-    name: 'Default',
-    value: '',
-    onChange,
-    onFocus,
-    onBlur,
-}
-
 storiesOf('Input', module)
-    .add('Default', () => <Input {...defaultProps} />)
-    .add('Focused', () => <Input {...defaultProps} initialFocus />)
+    .add('Onchange', () => (
+        <Input
+            label="Default label"
+            name="Default"
+            value=""
+            onChange={onChange}
+        />
+    ))
+    .add('Onfocus', () => (
+        <Input
+            label="Default label"
+            name="Default"
+            value=""
+            onFocus={onFocus}
+        />
+    ))
+    .add('Focused', () => (
+        <Input
+            label="Default label"
+            name="Default"
+            value=""
+            initialFocus
+            onBlur={onBlur}
+        />
+    ))

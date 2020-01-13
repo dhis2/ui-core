@@ -1,5 +1,8 @@
-import '../common/index'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+
+Given('an Input is rendered', () => {
+    cy.visitStory('Input', 'Onchange')
+})
 
 Given('the Input is provided with an onChange handler', () => {
     cy.window().then(win => {

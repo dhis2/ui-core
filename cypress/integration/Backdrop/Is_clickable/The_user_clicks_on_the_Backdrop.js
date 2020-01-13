@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a Backdrop is rendered', () => {
-    cy.visitStory('Backdrop', 'Default')
+    cy.visitStory('Backdrop', 'Onclick')
 })
 
 Given('a custom onClick handler is provided', () => {

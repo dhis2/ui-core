@@ -12,7 +12,7 @@ When('the custom time has passed', () => {
 })
 
 Given('a default AlertBar is rendered', () => {
-    cy.visitStory('AlertBar', 'Default')
+    cy.visitStory('AlertBar', 'Default timeout')
     cy.get('[data-test="dhis2-uicore-alertbar"]').should('be.visible')
 })
 

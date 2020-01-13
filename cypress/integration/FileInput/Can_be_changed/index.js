@@ -2,7 +2,7 @@ import '../common'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a FileInput that accepts one file only is rendered', () => {
-    cy.visitStory('FileInput', 'Default')
+    cy.visitStory('FileInput', 'One file')
 })
 
 When('a file is selected', () => {
