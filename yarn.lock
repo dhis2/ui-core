@@ -2144,6 +2144,13 @@
     webpack-dev-middleware "^3.7.0"
     webpack-hot-middleware "^2.25.0"
 
+"@storybook/csf@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/csf/-/csf-0.0.1.tgz#95901507dc02f0bc6f9ac8ee1983e2fc5bb98ce6"
+  integrity sha512-USTLkZze5gkel8MYCujSRBVIrUQ3YPBrLOx7GNk/0wttvVtlzWXAq9eLbQ4p/NicGxP+3T7KPEMVV//g+yubpw==
+  dependencies:
+    lodash "^4.17.15"
+
 "@storybook/node-logger@5.2.8":
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-5.2.8.tgz#4a3df21d731014d54b9ca53d5b9a72dd350bb075"
@@ -2183,7 +2190,7 @@
     semver "^6.0.0"
     webpack "^4.33.0"
 
-"@storybook/router@5.2.8", "@storybook/router@^5.2.8":
+"@storybook/router@5.2.8":
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/@storybook/router/-/router-5.2.8.tgz#d7de2d401701857c033e28560c30e16512f7f72f"
   integrity sha512-wnbyKESUMyv9fwo9W+n4Fev/jXylB8whpjtHrOttjguUOYX1zGSHdwNI66voPetbtVLxUeHyJteJwdyRDSirJg==
@@ -2195,6 +2202,21 @@
     lodash "^4.17.15"
     memoizerific "^1.11.3"
     qs "^6.6.0"
+
+"@storybook/router@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@storybook/router/-/router-5.3.1.tgz#fd675331ec3d3f1b7406ef60f81d6929fbc2eded"
+  integrity sha512-rjPH9QSIwIw2pJNADnTVTck2Y0kdGqdvowHtU98vug5Vryf6aNCZO+VOiMJC6wH4mYBjPzKU9O5mNjSttVxJSA==
+  dependencies:
+    "@reach/router" "^1.2.1"
+    "@storybook/csf" "0.0.1"
+    "@types/reach__router" "^1.2.3"
+    core-js "^3.0.1"
+    global "^4.3.2"
+    lodash "^4.17.15"
+    memoizerific "^1.11.3"
+    qs "^6.6.0"
+    util-deprecate "^1.0.2"
 
 "@storybook/theming@5.2.8":
   version "5.2.8"
