@@ -52,7 +52,7 @@
         "babel-loader": "^8.0.6",
         "concurrently": "^5.0.2",
         "cypress": "^3.8.2",
-        "cypress-cucumber-preprocessor": "^1.19.0",
+        "cypress-cucumber-preprocessor": "^2.0.1",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "jest": "^24.9.0",
