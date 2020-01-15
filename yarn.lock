@@ -1927,25 +1927,10 @@
     qs "^6.6.0"
     util-deprecate "^1.0.2"
 
-"@storybook/router@5.3.3":
+"@storybook/router@5.3.3", "@storybook/router@^5.3.3":
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/@storybook/router/-/router-5.3.3.tgz#841c988620678366bcc483ccfc19324a2534cbf7"
   integrity sha512-zmZ3TIU5wBsn3ez5f7n9XkUGpS0guszvFcFx5Q1vpSj6WJr0f6lyLG+Sj6hNPLoBXhUtXPRmIPHn5+vPQ7UDMg==
-  dependencies:
-    "@reach/router" "^1.2.1"
-    "@storybook/csf" "0.0.1"
-    "@types/reach__router" "^1.2.3"
-    core-js "^3.0.1"
-    global "^4.3.2"
-    lodash "^4.17.15"
-    memoizerific "^1.11.3"
-    qs "^6.6.0"
-    util-deprecate "^1.0.2"
-
-"@storybook/router@^5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@storybook/router/-/router-5.3.1.tgz#fd675331ec3d3f1b7406ef60f81d6929fbc2eded"
-  integrity sha512-rjPH9QSIwIw2pJNADnTVTck2Y0kdGqdvowHtU98vug5Vryf6aNCZO+VOiMJC6wH4mYBjPzKU9O5mNjSttVxJSA==
   dependencies:
     "@reach/router" "^1.2.1"
     "@storybook/csf" "0.0.1"
