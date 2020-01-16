@@ -24,7 +24,7 @@ export default css`
         line-height: 16px;
 
         /*basic*/
-        border: 1px solid #c4c9cc;
+        border: 1px solid ${colors.grey500};
         background-color: #f9fafb;
     }
 
@@ -62,14 +62,14 @@ export default css`
     }
 
     button:hover {
-        border-color: #c4c9cc;
-        background-color: #f3f4f5;
+        border-color: ${colors.grey500};
+        background-color: ${colors.grey200};
     }
 
     button:active,
     button:active:focus {
-        border-color: #c5c9cc;
-        background-color: #f3f4f5;
+        border-color: ${colors.grey500};
+        background-color: ${colors.grey200};
         box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.1) inset;
     }
 
@@ -82,7 +82,7 @@ export default css`
     }
 
     button:disabled {
-        border-color: #c4c9cc;
+        border-color: ${colors.grey400};
         background-color: #f9fafb;
         box-shadow: none;
         color: ${theme.disabled};
