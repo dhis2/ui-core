@@ -169,13 +169,13 @@ export default css`
 
     .secondary:hover {
         border-color: ${colors.grey400};
-        background-color: rgba(158, 158, 158, 0.07);
+        background-color: rgba(160, 173, 186, 0.08);
     }
 
     .secondary:active,
     .secondary:active:focus {
         border-color: ${colors.grey400};
-        background-color: rgba(158, 158, 158, 0.18);
+        background-color: rgba(160, 173, 186, 0.2);
         box-shadow: none;
     }
 
