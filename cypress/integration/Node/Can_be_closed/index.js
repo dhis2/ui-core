@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('an open Node is rendered', () => {
-    cy.visitStory('Node', 'Open')
-})
+Given('an open Node with an onClose handler is rendered', () => {
+    cy.visitStory('Node', 'Open with onClose')
 
-Given('the Node is provided with an onClose handler', () => {
     cy.window().then(win => {
-        win.onClose = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onClose = () => {}
+        cy.stub(win, 'onClose')
     })
 })
 

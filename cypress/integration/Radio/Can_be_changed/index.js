@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('an unchecked Radio is rendered', () => {
-    cy.visitStory('Radio', 'Unchecked')
-})
+Given('a Radio with onChange handler is rendered', () => {
+    cy.visitStory('Radio', 'With onChange')
 
-Given('the Radio is provided with an onChange handler', () => {
     cy.window().then(win => {
-        win.onChange = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onChange = () => {}
+        cy.stub(win, 'onChange')
     })
 })
 

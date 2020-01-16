@@ -26,5 +26,5 @@ jobs:
                   wait-on-timeout: 120
                   group: 'End-to-End'
               env:
-                  STORYBOOK_INCLUDE_TESTING: true
+                  STORYBOOK_TESTING: true
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

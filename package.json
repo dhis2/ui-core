@@ -21,7 +21,7 @@
         "start": "yarn start:demo",
         "start:docs": "d2-utils-docsite serve ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
         "start:demo": "start-storybook -s ./stories/info --port 5000",
-        "start:testing": "STORYBOOK_INCLUDE_TESTING=1 yarn start --port $PORT --ci --quiet",
+        "start:testing": "STORYBOOK_TESTING=1 yarn start --port $PORT --ci --quiet",
         "cypress:browser": "cypress open --config baseUrl=http://localhost:$PORT",
         "cypress:ci": "NO_COLOR=1 cypress run -b $BROWSER --config baseUrl=http://localhost:$PORT",
         "cypress:open": "PORT=12345 concurrently --kill-others -n storybook,cypress 'yarn start:testing' 'wait-on http-get://localhost:$PORT && yarn cypress:browser'",

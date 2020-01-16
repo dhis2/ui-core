@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a Chip is rendered', () => {
-    cy.visitStory('Chip', 'Onclick')
-})
+Given('a Chip with onClick handler is rendered', () => {
+    cy.visitStory('Chip', 'With onClick')
 
-Given('the Chip is provided with an onClick handler', () => {
     cy.window().then(win => {
-        win.onClick = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onClick = () => {}
+        cy.stub(win, 'onClick')
     })
 })
 

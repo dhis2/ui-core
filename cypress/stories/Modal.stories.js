@@ -7,12 +7,10 @@ import {
     ModalTitle,
     ModalActions,
     ModalContent,
-} from '../src'
+} from '../../src'
 
-const onClose = (...args) => window.onClose(...args)
-
-storiesOf('Modal', module).add('Onclose', () => (
-    <Modal small onClose={onClose}>
+storiesOf('Modal', module).add('With onClose', () => (
+    <Modal small onClose={(...args) => window.onClose(...args)}>
         <ModalTitle>Title</ModalTitle>
         <ModalContent>Content</ModalContent>
         <ModalActions>

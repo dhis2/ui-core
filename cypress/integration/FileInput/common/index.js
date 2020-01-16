@@ -7,12 +7,6 @@ Given('the FileInput does not have any files', () => {
     })
 })
 
-Given('the FileInput is provided with an onChange handler', () => {
-    cy.window().then(win => {
-        win.onChange = cy.stub()
-    })
-})
-
 Then('the onChange handler is called', () => {
     cy.window().then(win => {
         const calls = win.onChange.getCalls()

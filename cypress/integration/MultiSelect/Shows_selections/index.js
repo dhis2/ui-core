@@ -1,6 +1,10 @@
 import '../common'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
+Given('a MultiSelect with options and a selection is rendered', () => {
+    cy.visitStory('MultiSelect', 'With options and a selection')
+})
+
 Given('a MultiSelect with options and multiple selections is rendered', () => {
     cy.visitStory('MultiSelect', 'With options and multiple selections')
 })

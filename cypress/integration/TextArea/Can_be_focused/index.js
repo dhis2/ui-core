@@ -1,9 +1,13 @@
 import '../common/index'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('the TextArea is provided with an onFocus handler', () => {
+Given('a TextArea with onFocus handler is rendered', () => {
+    cy.visitStory('TextArea', 'With onFocus')
+
     cy.window().then(win => {
-        win.onFocus = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onFocus = () => {}
+        cy.stub(win, 'onFocus')
     })
 })
 

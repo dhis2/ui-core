@@ -1,16 +1,27 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a MultiSelect with options is rendered', () => {
-    cy.visitStory('MultiSelect', 'With options')
+Given('a MultiSelect with options and onChange handler is rendered', () => {
+    cy.visitStory('MultiSelect', 'With options and onChange')
+
+    cy.window().then(win => {
+        // The property has to be present to allow cy.stub
+        win.onChange = () => {}
+        cy.stub(win, 'onChange')
+    })
 })
 
-Given('a MultiSelect with options and a selection is rendered', () => {
-    cy.visitStory('MultiSelect', 'With options and a selection')
-})
+Given(
+    'a MultiSelect with options, a selection and onChange handler is rendered',
+    () => {
+        cy.visitStory('MultiSelect', 'With options, a selection and onChange')
 
-Given('an onChange handler is attached', () => {
-    cy.window().then(win => (win.onChange = cy.stub()))
-})
+        cy.window().then(win => {
+            // The property has to be present to allow cy.stub
+            win.onChange = () => {}
+            cy.stub(win, 'onChange')
+        })
+    }
+)
 
 Given('the MultiSelect is open', () => {
     cy.get('[data-test="dhis2-uicore-select"] [tabIndex="0"]').click()

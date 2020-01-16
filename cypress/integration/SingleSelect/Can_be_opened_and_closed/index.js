@@ -1,6 +1,10 @@
 import '../common'
 import { Given, When } from 'cypress-cucumber-preprocessor/steps'
 
+Given('a SingleSelect with options is rendered', () => {
+    cy.visitStory('SingleSelect', 'With options')
+})
+
 Given('the SingleSelect is closed', () => {
     cy.contains('option one').should('not.exist')
     cy.contains('option two').should('not.exist')

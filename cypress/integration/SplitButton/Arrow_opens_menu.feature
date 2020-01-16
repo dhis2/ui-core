@@ -1,11 +1,13 @@
 Feature: The SplitButton renders a DropMenu
 
     Scenario: The user opens the DropMenu
-        Given a SplitButton with closed menu is rendered
+        Given a SplitButton is rendered
+        And the SplitButton menu is closed
         When the SplitButton toggle is clicked
-        Then the menu is rendered
+        Then the menu is visible
 
     Scenario: The user closes the DropMenu
-        Given a SplitButton with opened menu is rendered
+        Given a SplitButton is rendered
+        And the SplitButton menu is open
         When the SplitButton toggle is clicked
-        Then the menu is not rendered
+        Then the menu is not visible

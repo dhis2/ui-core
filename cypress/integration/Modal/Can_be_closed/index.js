@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a Modal is rendered', () => {
-    cy.visitStory('Modal', 'Onclose')
-})
+Given('a Modal with onClose handler is rendered', () => {
+    cy.visitStory('Modal', 'With onClose')
 
-Given('the Modal is provided with an onClose handler', () => {
     cy.window().then(win => {
-        win.onClose = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onClose = () => {}
+        cy.stub(win, 'onClose')
     })
 })
 

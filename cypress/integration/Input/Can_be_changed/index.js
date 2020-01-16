@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('an Input is rendered', () => {
-    cy.visitStory('Input', 'Onchange')
-})
+Given('a Input with onChange handler is rendered', () => {
+    cy.visitStory('Input', 'With onChange')
 
-Given('the Input is provided with an onChange handler', () => {
     cy.window().then(win => {
-        win.onChange = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onChange = () => {}
+        cy.stub(win, 'onChange')
     })
 })
 

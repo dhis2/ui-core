@@ -1,9 +1,13 @@
 import '../common/index'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('the SplitButton is provided with an onClick handler', () => {
+Given('a SplitButton with onClick hander is rendered', () => {
+    cy.visitStory('SplitButton', 'With onClick')
+
     cy.window().then(win => {
-        cy.stub(win, 'onClick', console.log.bind(null, 'args'))
+        // The property has to be present to allow cy.stub
+        win.onClick = () => {}
+        cy.stub(win, 'onClick')
     })
 })
 
