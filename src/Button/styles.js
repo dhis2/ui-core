@@ -99,7 +99,7 @@ export default css`
 
     .small {
         height: 28px;
-        padding: 0 16px;
+        padding: 0 8px;
         font-size: 14px;
         line-height: 16px;
     }
