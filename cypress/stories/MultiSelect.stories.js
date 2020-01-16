@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
-import { MultiSelect, MultiSelectOption } from '../src'
+import { MultiSelect, MultiSelectOption } from '../../src'
 
 const CustomMultiSelectOption = ({ label, onClick }) => (
     <div onClick={e => onClick({}, e)}>{label}</div>
@@ -14,6 +14,13 @@ CustomMultiSelectOption.propTypes = {
 
 storiesOf('MultiSelect', module)
     .add('With options', () => (
+        <MultiSelect className="select">
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
+    .add('With options and onChange', () => (
         <MultiSelect
             className="select"
             onChange={(...args) => window.onChange(...args)}
@@ -43,7 +50,7 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
-    .add('With custom options', () => (
+    .add('With custom options and onChange', () => (
         <MultiSelect
             className="select"
             onChange={(...args) => window.onChange(...args)}
@@ -67,7 +74,7 @@ storiesOf('MultiSelect', module)
         </MultiSelect>
     ))
     .add('With invalid filterable options', () => (
-        <MultiSelect filterable className="select">
+        <MultiSelect filterable className="select" noMatchText="No match">
             <div>invalid one</div>
             <MultiSelectOption value="1" label="option one" />
             <div>invalid two</div>
@@ -189,7 +196,7 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
-    .add('With disabled option', () => (
+    .add('With disabled option and onChange', () => (
         <MultiSelect
             className="select"
             onChange={(...args) => window.onChange(...args)}
@@ -201,6 +208,16 @@ storiesOf('MultiSelect', module)
         </MultiSelect>
     ))
     .add('With options and a selection', () => (
+        <MultiSelect
+            className="select"
+            selected={[{ value: '1', label: 'option one' }]}
+        >
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+        </MultiSelect>
+    ))
+    .add('With options, a selection and onChange', () => (
         <MultiSelect
             className="select"
             selected={[{ value: '1', label: 'option one' }]}
@@ -224,7 +241,7 @@ storiesOf('MultiSelect', module)
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
-    .add('With clear button and selection', () => (
+    .add('With clear button, selection and onChange', () => (
         <MultiSelect
             clearable
             clearText="Clear"

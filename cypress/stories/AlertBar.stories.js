@@ -1,15 +1,13 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { AlertBar } from '../src'
+import { AlertBar } from '../../src'
 
 storiesOf('AlertBar', module)
-    .add('Default timeout', () => (
-        <AlertBar>Default - I will autohide</AlertBar>
+    .add('Default', () => <AlertBar>Default</AlertBar>)
+    .add('Custom duration', () => (
+        <AlertBar duration={2000}>Custom duration</AlertBar>
     ))
-    .add('Custom timeout', () => (
-        <AlertBar duration={2000}>Custom duration, hides after 2s</AlertBar>
-    ))
-    .add('Actions', () => (
+    .add('Permanent with actions', () => (
         <AlertBar
             permanent
             actions={[

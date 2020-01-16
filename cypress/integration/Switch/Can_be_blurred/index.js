@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('an focused Switch is rendered', () => {
-    cy.visitStory('Switch', 'Focused')
-})
+Given('a Switch with initialFocus and onBlur handler is rendered', () => {
+    cy.visitStory('Switch', 'With initialFocus and onBlur')
 
-Given('the Switch is provided with an onBlur handler', () => {
     cy.window().then(win => {
-        win.onBlur = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onBlur = () => {}
+        cy.stub(win, 'onBlur')
     })
 })
 

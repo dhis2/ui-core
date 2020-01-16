@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('an Input is rendered', () => {
-    cy.visitStory('Input', 'Onfocus')
-})
+Given('a Input with onFocus handler is rendered', () => {
+    cy.visitStory('Input', 'With onFocus')
 
-Given('the Input is provided with an onFocus handler', () => {
     cy.window().then(win => {
-        win.onFocus = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onFocus = () => {}
+        cy.stub(win, 'onFocus')
     })
 })
 

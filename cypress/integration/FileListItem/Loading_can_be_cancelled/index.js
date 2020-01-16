@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a loading FileListItem is rendered', () => {
-    cy.visitStory('FileListItem', 'Loading')
-})
+Given('a loading FileListItem with onCancel handler is rendered', () => {
+    cy.visitStory('FileListItem', 'Loading with onCancel')
 
-Given('an onCancel handler is provided', () => {
     cy.window().then(win => {
-        win.onCancel = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onCancel = () => {}
+        cy.stub(win, 'onCancel')
     })
 })
 

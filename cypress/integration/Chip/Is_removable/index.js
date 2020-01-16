@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a removable Chip is rendered', () => {
-    cy.visitStory('Chip', 'Onremove')
-})
+Given('a Chip with onRemove handler is rendered', () => {
+    cy.visitStory('Chip', 'With onRemove')
 
-Given('the Chip is provided with an onRemove handler', () => {
     cy.window().then(win => {
-        win.onRemove = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onRemove = () => {}
+        cy.stub(win, 'onRemove')
     })
 })
 

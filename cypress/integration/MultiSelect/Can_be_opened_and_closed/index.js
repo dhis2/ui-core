@@ -1,6 +1,10 @@
 import '../common'
 import { Given, When } from 'cypress-cucumber-preprocessor/steps'
 
+Given('a MultiSelect with options is rendered', () => {
+    cy.visitStory('MultiSelect', 'With options')
+})
+
 Given('the MultiSelect is closed', () => {
     cy.contains('option one').should('not.exist')
     cy.contains('option two').should('not.exist')

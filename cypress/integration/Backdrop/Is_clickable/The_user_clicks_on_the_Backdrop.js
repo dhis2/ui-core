@@ -1,11 +1,11 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a Backdrop is rendered', () => {
-    cy.visitStory('Backdrop', 'Onclick')
-})
+Given('a Backdrop with onClick handler is rendered', () => {
+    cy.visitStory('Backdrop', 'With onClick')
 
-Given('a custom onClick handler is provided', () => {
     cy.window().then(win => {
+        // The property has to be present to allow cy.stub
+        win.onClick = () => {}
         cy.stub(win, 'onClick')
     })
 })

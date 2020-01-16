@@ -1,27 +1,24 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { DropdownButton } from '../src'
-
-const onClick = (...args) => window.onClick(...args)
+import { DropdownButton } from '../../src'
 
 storiesOf('DropdownButton', module)
-    .add('Closed', () => (
+    .add('Default', () => (
         <DropdownButton
             name="Button"
             value="default"
-            onClick={onClick}
-            component="Component"
+            component={<div>Content</div>}
         >
-            Label me!
+            Content
         </DropdownButton>
     ))
-    .add('Onclick', () => (
+    .add('With onClick', () => (
         <DropdownButton
             name="Button"
             value="default"
-            onClick={onClick}
-            component="Component"
+            onClick={(...args) => window.onClick(...args)}
+            component={<div>Content</div>}
         >
-            Label me!
+            Content
         </DropdownButton>
     ))

@@ -1,12 +1,27 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a SingleSelect with options is rendered', () => {
-    cy.visitStory('SingleSelect', 'With options')
+Given('a SingleSelect with options and onChange handler is rendered', () => {
+    cy.visitStory('SingleSelect', 'With options and onChange')
+
+    cy.window().then(win => {
+        // The property has to be present to allow cy.stub
+        win.onChange = () => {}
+        cy.stub(win, 'onChange')
+    })
 })
 
-Given('a SingleSelect with options and a selection is rendered', () => {
-    cy.visitStory('SingleSelect', 'With options and a selection')
-})
+Given(
+    'a SingleSelect with options, a selection and onChange handler is rendered',
+    () => {
+        cy.visitStory('SingleSelect', 'With options, a selection and onChange')
+
+        cy.window().then(win => {
+            // The property has to be present to allow cy.stub
+            win.onChange = () => {}
+            cy.stub(win, 'onChange')
+        })
+    }
+)
 
 Given('an onChange handler is attached', () => {
     cy.window().then(win => (win.onChange = cy.stub()))

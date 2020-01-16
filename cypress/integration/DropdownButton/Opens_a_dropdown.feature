@@ -1,7 +1,7 @@
 Feature: The DropdownButton renders a dropdown
 
     Scenario: The user opens the dropdown
-        Given a DropdownButton with closed dropdown is rendered
+        Given a default DropdownButton is rendered
         When the DropdownButton is clicked
         Then the dropdown is rendered
 

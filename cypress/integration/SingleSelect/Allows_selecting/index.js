@@ -1,13 +1,31 @@
 import '../common'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a SingleSelect with a disabled option is rendered', () => {
-    cy.visitStory('SingleSelect', 'With disabled option')
-})
+Given(
+    'a SingleSelect with a disabled option and onChange handler is rendered',
+    () => {
+        cy.visitStory('SingleSelect', 'With disabled option and onChange')
 
-Given('a SingleSelect with custom options is rendered', () => {
-    cy.visitStory('SingleSelect', 'With custom options')
-})
+        cy.window().then(win => {
+            // The property has to be present to allow cy.stub
+            win.onChange = () => {}
+            cy.stub(win, 'onChange')
+        })
+    }
+)
+
+Given(
+    'a SingleSelect with custom options and onChange handler is rendered',
+    () => {
+        cy.visitStory('SingleSelect', 'With custom options and onChange')
+
+        cy.window().then(win => {
+            // The property has to be present to allow cy.stub
+            win.onChange = () => {}
+            cy.stub(win, 'onChange')
+        })
+    }
+)
 
 When('an option is clicked', () => {
     cy.contains('option one').click()

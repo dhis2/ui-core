@@ -1,12 +1,14 @@
 import '../common'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a MultiSelect with onBlur is rendered', () => {
+Given('a MultiSelect with onBlur handler is rendered', () => {
     cy.visitStory('MultiSelect', 'With onBlur')
-})
 
-Given('an onBlur handler is attached', () => {
-    cy.window().then(win => (win.onBlur = cy.stub()))
+    cy.window().then(win => {
+        // The property has to be present to allow cy.stub
+        win.onBlur = () => {}
+        cy.stub(win, 'onBlur')
+    })
 })
 
 Then('the onBlur handler is called', () => {

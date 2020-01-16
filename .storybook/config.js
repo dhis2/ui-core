@@ -9,20 +9,19 @@ addDecorator(jsxDecorator)
 addDecorator(CssResetWrapper)
 addDecorator(FrameStylesWrapper)
 
-const includeTesting = 'STORYBOOK_INCLUDE_TESTING' in process.env
+const isTesting = 'STORYBOOK_TESTING' in process.env
 
 function loadStories() {
-    const req = require.context('../stories', true, /\.stories\.js$/)
+    let req
+
+    // The arguments passed to require.context must be literals
+    if (isTesting) {
+        req = require.context('../cypress/stories', true, /\.stories\.js$/)
+    } else {
+        req = require.context('../stories', true, /\.stories\.js$/)
+    }
+
     req.keys().forEach(filename => req(filename))
 }
 
-function loadStoriesInclTesting() {
-    const req = require.context(
-        '../stories',
-        true,
-        /\.stories(\.testing)?\.js$/
-    )
-    req.keys().forEach(filename => req(filename))
-}
-
-configure(includeTesting ? loadStoriesInclTesting : loadStories, module)
+configure(loadStories, module)

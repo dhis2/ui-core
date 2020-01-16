@@ -1,8 +1,8 @@
 import '../common/index'
 import { Given, When } from 'cypress-cucumber-preprocessor/steps'
 
-Given('an AlertBar has a "Cancel" action', () => {
-    cy.visitStory('AlertBar', 'Actions')
+Given('a permanent AlertBar with actions is rendered', () => {
+    cy.visitStory('AlertBar', 'Permanent with actions')
     cy.get('[data-test="dhis2-uicore-alertbar"]').should('be.visible')
 })
 

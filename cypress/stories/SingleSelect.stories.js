@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
-import { SingleSelect, SingleSelectOption } from '../src'
+import { SingleSelect, SingleSelectOption } from '../../src'
 
 const CustomSingleSelectOption = ({ label, onClick }) => (
     <div onClick={e => onClick({}, e)}>{label}</div>
@@ -14,6 +14,13 @@ CustomSingleSelectOption.propTypes = {
 
 storiesOf('SingleSelect', module)
     .add('With options', () => (
+        <SingleSelect className="select">
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
+    .add('With options and onChange', () => (
         <SingleSelect
             className="select"
             onChange={(...args) => window.onChange(...args)}
@@ -43,7 +50,7 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
-    .add('With custom options', () => (
+    .add('With custom options and onChange', () => (
         <SingleSelect
             className="select"
             onChange={(...args) => window.onChange(...args)}
@@ -67,7 +74,7 @@ storiesOf('SingleSelect', module)
         </SingleSelect>
     ))
     .add('With invalid filterable options', () => (
-        <SingleSelect filterable className="select">
+        <SingleSelect filterable className="select" noMatchText="No match">
             <div>invalid one</div>
             <SingleSelectOption value="1" label="option one" />
             <div>invalid two</div>
@@ -189,7 +196,7 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
-    .add('With disabled option', () => (
+    .add('With disabled option and onChange', () => (
         <SingleSelect
             className="select"
             onChange={(...args) => window.onChange(...args)}
@@ -204,6 +211,16 @@ storiesOf('SingleSelect', module)
         <SingleSelect
             className="select"
             selected={{ value: '1', label: 'option one' }}
+        >
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+        </SingleSelect>
+    ))
+    .add('With options, a selection and onChange', () => (
+        <SingleSelect
+            className="select"
+            selected={{ value: '1', label: 'option one' }}
             onChange={(...args) => window.onChange(...args)}
         >
             <SingleSelectOption value="1" label="option one" />
@@ -211,7 +228,7 @@ storiesOf('SingleSelect', module)
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
-    .add('With clear button and selection', () => (
+    .add('With clear button, selection and onChange', () => (
         <SingleSelect
             clearable
             clearText="Clear"

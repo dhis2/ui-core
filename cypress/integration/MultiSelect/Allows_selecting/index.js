@@ -1,13 +1,31 @@
 import '../common'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a MultiSelect with a disabled option is rendered', () => {
-    cy.visitStory('MultiSelect', 'With disabled option')
-})
+Given(
+    'a MultiSelect with a disabled option and onChange handler is rendered',
+    () => {
+        cy.visitStory('MultiSelect', 'With disabled option and onChange')
 
-Given('a MultiSelect with custom options is rendered', () => {
-    cy.visitStory('MultiSelect', 'With custom options')
-})
+        cy.window().then(win => {
+            // The property has to be present to allow cy.stub
+            win.onChange = () => {}
+            cy.stub(win, 'onChange')
+        })
+    }
+)
+
+Given(
+    'a MultiSelect with custom options and onChange handler is rendered',
+    () => {
+        cy.visitStory('MultiSelect', 'With custom options and onChange')
+
+        cy.window().then(win => {
+            // The property has to be present to allow cy.stub
+            win.onChange = () => {}
+            cy.stub(win, 'onChange')
+        })
+    }
+)
 
 When('an option is clicked', () => {
     cy.contains('option one').click()

@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a focused TextArea is rendered', () => {
-    cy.visitStory('TextArea', 'Focused')
-})
+Given('a TextArea with initialFocus and onBlur handler is rendered', () => {
+    cy.visitStory('TextArea', 'With initialFocus and onBlur')
 
-Given('the TextArea is provided with an onBlur handler', () => {
     cy.window().then(win => {
-        win.onBlur = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onBlur = () => {}
+        cy.stub(win, 'onBlur')
     })
 })
 

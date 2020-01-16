@@ -1,8 +1,14 @@
 import '../common'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a FileInput that accepts one file only is rendered', () => {
-    cy.visitStory('FileInput', 'One file')
+Given('a FileInput with onChange handler is rendered', () => {
+    cy.visitStory('FileInput', 'With onChange')
+
+    cy.window().then(win => {
+        // The property has to be present to allow cy.stub
+        win.onChange = () => {}
+        cy.stub(win, 'onChange')
+    })
 })
 
 When('a file is selected', () => {

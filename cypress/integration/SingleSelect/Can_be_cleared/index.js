@@ -1,9 +1,21 @@
 import '../common'
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a clearable SingleSelect with a selection is rendered', () => {
-    cy.visitStory('SingleSelect', 'With clear button and selection')
-})
+Given(
+    'a clearable SingleSelect with a selection and onchange handler is rendered',
+    () => {
+        cy.visitStory(
+            'SingleSelect',
+            'With clear button, selection and onChange'
+        )
+
+        cy.window().then(win => {
+            // The property has to be present to allow cy.stub
+            win.onChange = () => {}
+            cy.stub(win, 'onChange')
+        })
+    }
+)
 
 When('the clear button is clicked', () => {
     cy.contains('Clear').click()

@@ -1,12 +1,13 @@
 import '../common/index'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a DropdownButton with closed dropdown is rendered', () => {
-    cy.visitStory('DropdownButton', 'Closed')
+Given('a default DropdownButton is rendered', () => {
+    cy.visitStory('DropdownButton', 'Default')
 })
 
 Given('a DropdownButton with opened dropdown is rendered', () => {
-    cy.visitStory('DropdownButton', 'Closed')
+    cy.visitStory('DropdownButton', 'Default')
+
     cy.get('[data-test="dhis2-uicore-dropdownbutton"]').click()
     cy.get('[data-test="dhis2-uicore-dropmenu"]').should('exist')
 })

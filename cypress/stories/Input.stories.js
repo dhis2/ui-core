@@ -1,34 +1,30 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Input } from '../src'
-
-const onChange = (...args) => window.onChange(...args)
-const onFocus = (...args) => window.onFocus(...args)
-const onBlur = (...args) => window.onBlur(...args)
+import { Input } from '../../src'
 
 storiesOf('Input', module)
-    .add('Onchange', () => (
+    .add('With onChange', () => (
         <Input
             label="Default label"
             name="Default"
             value=""
-            onChange={onChange}
+            onChange={(...args) => window.onChange(...args)}
         />
     ))
-    .add('Onfocus', () => (
-        <Input
-            label="Default label"
-            name="Default"
-            value=""
-            onFocus={onFocus}
-        />
-    ))
-    .add('Focused', () => (
+    .add('With initialFocus and onBlur', () => (
         <Input
             label="Default label"
             name="Default"
             value=""
             initialFocus
-            onBlur={onBlur}
+            onBlur={(...args) => window.onBlur(...args)}
+        />
+    ))
+    .add('With onFocus', () => (
+        <Input
+            label="Default label"
+            name="Default"
+            value=""
+            onFocus={(...args) => window.onFocus(...args)}
         />
     ))

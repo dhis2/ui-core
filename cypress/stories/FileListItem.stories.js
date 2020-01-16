@@ -1,24 +1,21 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FileListItem } from '../src'
-
-const onRemove = (...args) => window.onRemove(...args)
-const onCancel = (...args) => window.onCancel(...args)
+import { FileListItem } from '../../src'
 
 storiesOf('FileListItem', module)
-    .add('Onremove', () => (
+    .add('With onRemove', () => (
         <FileListItem
             label="File list item"
-            onRemove={onRemove}
+            onRemove={(...args) => window.onRemove(...args)}
             removeText="Remove"
         />
     ))
-    .add('Loading', () => (
+    .add('Loading with onCancel', () => (
         <FileListItem
             loading
             label="File list item"
             removeText="Remove"
-            onCancel={onCancel}
+            onCancel={(...args) => window.onCancel(...args)}
             cancelText="Cancel"
         />
     ))

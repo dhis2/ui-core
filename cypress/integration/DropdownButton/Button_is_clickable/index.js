@@ -1,13 +1,13 @@
 import '../common/index'
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a DropdownButton is rendered', () => {
-    cy.visitStory('DropdownButton', 'Onclick')
-})
+Given('a DropdownButton with onClick handler is rendered', () => {
+    cy.visitStory('DropdownButton', 'With onClick')
 
-Given('the DropdownButton is provided with an onClick handler', () => {
     cy.window().then(win => {
-        win.onClick = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onClick = () => {}
+        cy.stub(win, 'onClick')
     })
 })
 

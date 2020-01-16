@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('an unfocused Checkbox is rendered', () => {
-    cy.visitStory('Checkbox', 'Unfocused')
-})
+Given('a Checkbox with onFocus handler is rendered', () => {
+    cy.visitStory('Checkbox', 'With onFocus')
 
-Given('the Checkbox is provided with an onFocus handler', () => {
     cy.window().then(win => {
-        win.onFocus = cy.stub()
+        // The property has to be present to allow cy.stub
+        win.onFocus = () => {}
+        cy.stub(win, 'onFocus')
     })
 })
 
