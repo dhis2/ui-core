@@ -93,6 +93,10 @@ export default css`
         padding-left: ${spacers.dp12};
     }
 
+    button.icon-only.icon {
+        padding-left: 6px;
+    }
+
     .small {
         height: 28px;
         padding: 0 8px;
@@ -108,6 +112,9 @@ export default css`
         line-height: 19px;
     }
 
+    .icon-only {
+        padding: 0;
+    }
     .icon-only i {
         margin-right: 0;
         margin-left: 0;
@@ -231,7 +238,7 @@ export default css`
     }
 
     .button-icon {
-        margin-right: ${spacers.dp12};
+        margin-right: 6px;
         color: inherit;
         fill: inherit;
         font-size: 26px;
