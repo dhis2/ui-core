@@ -19,12 +19,12 @@ export default css`
 
         /*medium*/
         height: 36px;
-        padding: 0 ${spacers.dp16};
+        padding: 0 ${spacers.dp12};
         font-size: 14px;
         line-height: 16px;
 
         /*basic*/
-        border: 1px solid #c4c9cc;
+        border: 1px solid ${colors.grey500};
         background-color: #f9fafb;
     }
 
@@ -62,14 +62,14 @@ export default css`
     }
 
     button:hover {
-        border-color: #c4c9cc;
-        background-color: #f3f4f5;
+        border-color: ${colors.grey500};
+        background-color: ${colors.grey200};
     }
 
     button:active,
     button:active:focus {
-        border-color: #c5c9cc;
-        background-color: #f3f4f5;
+        border-color: ${colors.grey500};
+        background-color: ${colors.grey200};
         box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.1) inset;
     }
 
@@ -82,7 +82,7 @@ export default css`
     }
 
     button:disabled {
-        border-color: #c4c9cc;
+        border-color: ${colors.grey400};
         background-color: #f9fafb;
         box-shadow: none;
         color: ${theme.disabled};
@@ -95,7 +95,7 @@ export default css`
 
     .small {
         height: 28px;
-        padding: 0 16px;
+        padding: 0 8px;
         font-size: 14px;
         line-height: 16px;
     }
@@ -162,13 +162,13 @@ export default css`
 
     .secondary:hover {
         border-color: ${colors.grey400};
-        background-color: rgba(158, 158, 158, 0.07);
+        background-color: rgba(160, 173, 186, 0.08);
     }
 
     .secondary:active,
     .secondary:active:focus {
         border-color: ${colors.grey400};
-        background-color: rgba(158, 158, 158, 0.18);
+        background-color: rgba(160, 173, 186, 0.2);
         box-shadow: none;
     }
 
