@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { Button } from './Button.js'
 import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
 import { DropMenu } from './DropMenu.js'
-import { ArrowDown, ArrowUp } from './icons/Arrow.js'
+import { ArrowDown } from './icons/Arrow.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -56,7 +56,7 @@ class DropdownButton extends Component {
             dataTest,
         } = this.props
 
-        const ArrowIcon = open ? <ArrowUp /> : <ArrowDown />
+        const ArrowIcon = <ArrowDown className="dropdown-button-arrow" />
 
         return (
             <div ref={this.anchorRef} data-test={dataTest}>
