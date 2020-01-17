@@ -11,7 +11,7 @@ import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
 
 const rightButton = css.resolve`
     button {
-        padding: 0 ${spacers.dp8};
+        padding: 0 ${spacers.dp12};
     }
 `
 
