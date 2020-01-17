@@ -10,10 +10,8 @@ yarn add @dhis2/ui-core
 
 ## Requirements
 
-### React >= 16.3
-
-This library uses the official React Context API (introduced in 16.3) and React Fragments.
+-   React 16.8
 
 ### Polyfills
 
-> TODO
+[](_polyfills.md ':include')
