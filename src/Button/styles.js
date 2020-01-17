@@ -19,7 +19,7 @@ export default css`
 
         /*medium*/
         height: 36px;
-        padding: 0 ${spacers.dp16};
+        padding: 0 ${spacers.dp12};
         font-size: 14px;
         line-height: 16px;
 
