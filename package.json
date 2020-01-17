@@ -1,8 +1,8 @@
 {
     "name": "@dhis2/ui-core",
     "version": "4.6.1",
-    "main": "./build/cjs/index.js",
-    "module": "./build/es/index.js",
+    "main": "./build/cjs/lib.js",
+    "module": "./build/es/lib.js",
     "sideEffects": false,
     "repository": "git@github.com:dhis2/ui.git",
     "author": "Viktor Varland <viktor@dhis2.org>",
@@ -78,6 +78,11 @@
         "build",
         "docs"
     ],
+    "jest": {
+        "setupFilesAfterEnv": [
+            "<rootDir>config/enzymeTestSetup.js"
+        ]
+    },
     "cypress-cucumber-preprocessor": {
         "nonGlobalStepDefinitions": true
     }
