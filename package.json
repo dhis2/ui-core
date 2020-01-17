@@ -13,9 +13,7 @@
     },
     "scripts": {
         "prebuild": "rm -rf ./build/*",
-        "build": "NODE_ENV=production yarn build:commonjs && NODE_ENV=production yarn build:modules",
-        "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
-        "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
+        "build": "d2-app-scripts build",
         "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
         "build:demo": "build-storybook -c .storybook -o ./build/docs/demo",
         "start": "yarn start:demo",
@@ -32,7 +30,7 @@
         "format": "yarn format:js && yarn format:text",
         "format:js": "d2-style js apply",
         "format:text": "d2-style text apply",
-        "test": "jest"
+        "test": "d2-app-scripts test"
     },
     "devDependencies": {
         "@babel/cli": "^7.8.3",
@@ -42,6 +40,7 @@
         "@babel/plugin-transform-react-constant-elements": "^7.8.3",
         "@babel/preset-env": "^7.8.3",
         "@babel/preset-react": "^7.8.3",
+        "@dhis2/cli-app-scripts": "^3.2.1",
         "@dhis2/cli-style": "^5.1.0",
         "@dhis2/cli-utils-docsite": "^1.3.0",
         "@storybook/addons": "^5.3.6",
