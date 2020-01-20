@@ -1,8 +1,8 @@
 {
     "name": "@dhis2/ui-core",
     "version": "4.6.1",
-    "main": "./build/cjs/index.js",
-    "module": "./build/es/index.js",
+    "main": "./build/cjs/lib.js",
+    "module": "./build/es/lib.js",
     "sideEffects": false,
     "repository": "git@github.com:dhis2/ui.git",
     "author": "Viktor Varland <viktor@dhis2.org>",
@@ -13,14 +13,12 @@
     },
     "scripts": {
         "prebuild": "rm -rf ./build/*",
-        "build": "NODE_ENV=production yarn build:commonjs && NODE_ENV=production yarn build:modules",
-        "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir ./build/cjs --copy-files --verbose",
-        "build:modules": "BABEL_ENV=modules babel src --out-dir ./build/es --copy-files --verbose",
+        "build": "d2-app-scripts build",
         "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
         "build:demo": "build-storybook -c .storybook -o ./build/docs/demo",
-        "start": "yarn start:demo",
+        "start": "EXTEND_ESLINT=true yarn start:demo",
         "start:docs": "d2-utils-docsite serve ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
-        "start:demo": "start-storybook -s ./stories/info --port 5000",
+        "start:demo": "start-storybook --port 5000",
         "start:testing": "STORYBOOK_INCLUDE_TESTING=1 yarn start --port $PORT --ci --quiet",
         "cypress:browser": "cypress open --config baseUrl=http://localhost:$PORT",
         "cypress:ci": "NO_COLOR=1 cypress run -b $BROWSER --config baseUrl=http://localhost:$PORT",
@@ -32,7 +30,7 @@
         "format": "yarn format:js && yarn format:text",
         "format:js": "d2-style js apply",
         "format:text": "d2-style text apply",
-        "test": "jest"
+        "test": "d2-app-scripts test"
     },
     "devDependencies": {
         "@babel/cli": "^7.8.3",
@@ -42,6 +40,7 @@
         "@babel/plugin-transform-react-constant-elements": "^7.8.3",
         "@babel/preset-env": "^7.8.3",
         "@babel/preset-react": "^7.8.3",
+        "@dhis2/cli-app-scripts": "^3.2.2",
         "@dhis2/cli-style": "^5.1.0",
         "@dhis2/cli-utils-docsite": "^1.3.0",
         "@storybook/addons": "^5.3.6",
@@ -81,5 +80,10 @@
     ],
     "cypress-cucumber-preprocessor": {
         "nonGlobalStepDefinitions": true
+    },
+    "jest": {
+        "setupFilesAfterEnv": [
+            "<rootDir>config/enzymeTestSetup.js"
+        ]
     }
 }
