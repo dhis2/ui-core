@@ -1,11 +1,17 @@
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
+import { resolve } from 'styled-jsx/css'
 
-import { Button } from './Button.js'
 import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
+import { spacers } from './theme.js'
+import { Button } from './Button.js'
 import { DropMenu } from './DropMenu.js'
 import { ArrowDown, ArrowUp } from './icons/Arrow.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
+
+const arrow = resolve`
+    margin-left: ${spacers.dp12};
+`
 
 /**
  * @module
@@ -56,7 +62,7 @@ class DropdownButton extends Component {
             dataTest,
         } = this.props
 
-        const ArrowIcon = open ? <ArrowUp /> : <ArrowDown />
+        const ArrowIconComponent = open ? ArrowUp : ArrowDown
 
         return (
             <div ref={this.anchorRef} data-test={dataTest}>
@@ -77,7 +83,7 @@ class DropdownButton extends Component {
                     initialFocus={initialFocus}
                 >
                     {children}
-                    {ArrowIcon}
+                    <ArrowIconComponent className={arrow.className} />
                 </Button>
 
                 {open && (
@@ -88,7 +94,7 @@ class DropdownButton extends Component {
                         anchorEl={this.anchorRef.current}
                     />
                 )}
-
+                {arrow.styles}
                 <style jsx>{`
                     div {
                         display: inline-flex;
