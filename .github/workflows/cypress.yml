@@ -1,13 +1,13 @@
 # For more options:
 # https://github.com/cypress-io/github-action
 
-name: 'DHIS2: Cypress'
+name: 'DHIS2'
 
 on: pull_request
 
 jobs:
     cypress-run:
-        name: E2E runner
+        name: E2E Tests
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -21,10 +21,11 @@ jobs:
               with:
                   record: true
                   parallel: true
-                  start: 'yarn start --quiet --ci'
-                  wait-on: 'http://localhost:5000'
+                  start: 'yarn start:testing'
+                  wait-on: 'http://localhost:5001'
                   wait-on-timeout: 120
-                  group: 'End-to-End'
+                  group: 'e2e'
               env:
+                  CI: true
                   STORYBOOK_TESTING: true
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

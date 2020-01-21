@@ -1,4 +1,4 @@
-name: 'DHIS2: Release'
+name: 'DHIS2'
 
 on:
     push:
@@ -33,3 +33,5 @@ jobs:
                   GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
                   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
                   GH_TOKEN: ${{secrets.GH_TOKEN}}
+        env:
+            CI: true
