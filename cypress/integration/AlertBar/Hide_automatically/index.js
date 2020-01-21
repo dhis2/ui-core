@@ -1,6 +1,5 @@
 import '../common/index'
 import { Given, When } from 'cypress-cucumber-preprocessor/steps'
-import { AlertBar } from '../../../../src'
 
 Given('an AlertBar with a custom duration is rendered', () => {
     cy.visitStory('AlertBar', 'Custom duration')
@@ -17,5 +16,5 @@ Given('a default AlertBar is rendered', () => {
 })
 
 When('the default duration has passed', () => {
-    cy.wait(AlertBar.defaultProps.duration)
+    cy.wait(8000)
 })
