@@ -1,3 +1,4 @@
+import './getPositionsBySelectors'
 import './screenshots'
 import './uploadMultipleFiles'
 import './uploadSingleFile'

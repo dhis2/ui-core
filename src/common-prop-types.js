@@ -21,3 +21,8 @@ export const singleSelectedPropType = propTypes.shape({
 })
 
 export const multiSelectedPropType = propTypes.arrayOf(singleSelectedPropType)
+
+export const elementRefPropType = propTypes.oneOfType([
+    propTypes.func,
+    propTypes.shape({ current: propTypes.instanceOf(Element) }),
+])
