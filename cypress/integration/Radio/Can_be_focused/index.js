@@ -11,7 +11,7 @@ Given('a Radio with onFocus handler is rendered', () => {
 })
 
 When('the Radio is focused', () => {
-    cy.get('[data-test="dhis2-uicore-radio"] input').focus()
+    cy.get('[data-test="dhis2-uicore-radio"]').click()
 })
 
 Then('the onFocus handler is called', () => {

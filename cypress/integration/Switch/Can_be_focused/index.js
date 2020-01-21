@@ -11,7 +11,7 @@ Given('a Switch with onFocus handler is rendered', () => {
 })
 
 When('the Switch is focused', () => {
-    cy.get('[data-test="dhis2-uicore-switch"] input').focus()
+    cy.get('[data-test="dhis2-uicore-switch"]').click()
 })
 
 Then('the onFocus handler is called', () => {

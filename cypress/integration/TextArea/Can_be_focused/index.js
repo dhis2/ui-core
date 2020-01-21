@@ -12,7 +12,7 @@ Given('a TextArea with onFocus handler is rendered', () => {
 })
 
 When('the TextArea is focused', () => {
-    cy.get('[data-test="dhis2-uicore-textarea"] textarea').focus()
+    cy.get('[data-test="dhis2-uicore-textarea"]').click()
 })
 
 Then('the onFocus handler is called', () => {

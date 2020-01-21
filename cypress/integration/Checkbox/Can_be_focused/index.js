@@ -11,7 +11,7 @@ Given('a Checkbox with onFocus handler is rendered', () => {
 })
 
 When('the Checkbox is focused', () => {
-    cy.get('[data-test="dhis2-uicore-checkbox"] input').focus()
+    cy.get('[data-test="dhis2-uicore-checkbox"]').click()
 })
 
 Then('the onFocus handler is called', () => {
