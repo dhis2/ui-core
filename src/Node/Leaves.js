@@ -2,8 +2,8 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-export const Contents = ({ children, open }) => (
-    <div className={cx({ open })}>
+export const Leaves = ({ children, open, dataTest }) => (
+    <div className={cx({ open })} data-test={dataTest}>
         {children}
 
         <style jsx>{`
@@ -20,7 +20,8 @@ export const Contents = ({ children, open }) => (
     </div>
 )
 
-Contents.propTypes = {
+Leaves.propTypes = {
     children: propTypes.node,
+    dataTest: propTypes.string,
     open: propTypes.bool,
 }
