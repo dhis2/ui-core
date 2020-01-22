@@ -1,9 +1,10 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import cx from 'classnames'
 
 import { Arrow } from './Node/Arrow.js'
 import { Spacer } from './Node/Spacer.js'
-import { Content } from './Node/Content.js'
+import { Leaves } from './Node/Leaves.js'
 
 /**
  * @module
@@ -18,7 +19,7 @@ import { Content } from './Node/Content.js'
 export const Node = ({
     open,
     className,
-    component,
+    component: label,
     children,
     onOpen,
     onClose,
@@ -27,7 +28,7 @@ export const Node = ({
     const hasLeaves = !!React.Children.toArray(children).filter(i => i).length
 
     return (
-        <div className={className} data-test={dataTest}>
+        <div className={cx('node', className)} data-test={dataTest}>
             {hasLeaves ? (
                 <Arrow
                     open={open}
@@ -39,12 +40,16 @@ export const Node = ({
                 <Spacer />
             )}
 
-            <Content open={open} label={component}>
-                {children}
-            </Content>
+            <div data-test={`${dataTest}-content`}>
+                <div data-test={`${dataTest}-label`}>{label}</div>
+
+                <Leaves open={open} dataTest={`${dataTest}-leaves`}>
+                    {children}
+                </Leaves>
+            </div>
 
             <style jsx>{`
-                div {
+                .node {
                     display: flex;
                 }
             `}</style>
