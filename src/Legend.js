@@ -1,8 +1,8 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
 
-import { colors, spacers } from './theme.js'
+import { colors } from './theme.js'
+import { Required } from './Label/Required.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -15,17 +15,16 @@ import { colors, spacers } from './theme.js'
  * @see Live demo: {@link /demo/?path=/story/legend--default|Storybook}
  */
 const Legend = ({ className, children, required, dataTest }) => (
-    <legend className={cx(className, { required })} data-test={dataTest}>
+    <legend className={className} data-test={dataTest}>
         {children}
+
+        {required && <Required dataTest={`${dataTest}-required`} />}
+
         <style jsx>{`
             legend {
                 font-size: 14px;
                 line-height: 16px;
                 color: ${colors.grey900};
-            }
-            legend.required::after {
-                padding-left: ${spacers.dp4};
-                content: '*';
             }
         `}</style>
     </legend>

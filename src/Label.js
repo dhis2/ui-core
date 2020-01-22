@@ -2,8 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import css from 'styled-jsx/css'
 import propTypes from '@dhis2/prop-types'
-
-import { spacers } from './theme.js'
+import { Required } from './Label/Required.js'
 
 const styles = css`
     label {
@@ -17,16 +16,10 @@ const styles = css`
     .disabled {
         cursor: not-allowed;
     }
-
-    .required span::after {
-        padding-left: ${spacers.dp4};
-        content: '*';
-    }
 `
 
-const constructClassName = ({ required, disabled, className }) =>
+const constructClassName = ({ disabled, className }) =>
     cx(className, {
-        required: required,
         disabled: disabled,
     })
 
@@ -47,10 +40,13 @@ export const Label = ({
 }) => (
     <label
         htmlFor={htmlFor}
-        className={constructClassName({ className, required, disabled })}
+        className={constructClassName({ className, disabled })}
         data-test={dataTest}
     >
         <span>{children}</span>
+
+        {required && <Required dataTest={`${dataTest}-required`} />}
+
         <style jsx>{styles}</style>
     </label>
 )
