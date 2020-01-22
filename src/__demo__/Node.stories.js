@@ -1,7 +1,8 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
+import { resolve } from 'styled-jsx/css'
 
-import { Checkbox, Node } from '../index.js'
+import { Checkbox, CircularLoader, Node } from '../index.js'
 
 const say = something => () => alert(something)
 
@@ -18,7 +19,40 @@ window.onClose = (payload, event) => {
 const onOpen = (...args) => window.onOpen(...args)
 const onClose = (...args) => window.onClose(...args)
 
+const loadingSpinnerStyles = resolve`
+    .small {
+        margin: 3px 0;
+        width: 24px;
+        height: 18px;
+    }
+`
+
+const LoadingSpinner = () => (
+    <React.Fragment>
+        <CircularLoader small className={loadingSpinnerStyles.className} />
+        <style>{loadingSpinnerStyles.styles}</style>
+    </React.Fragment>
+)
+
 storiesOf('Node', module)
+    .add('Custom icon', () => (
+        <Node
+            icon={<LoadingSpinner />}
+            open={false}
+            onOpen={onOpen}
+            onClose={onClose}
+            component={
+                <Checkbox
+                    label="Node label 1.1"
+                    value="foobar"
+                    name="l1.1"
+                    onChange={say('checkbox 1.1 clicked')}
+                    checked={false}
+                />
+            }
+        />
+    ))
+
     .add('Multiple roots', () => (
         <div>
             <Node
