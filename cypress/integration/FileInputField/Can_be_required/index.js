@@ -1,7 +1,7 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a SingleSelectField with label and a required flag is rendered', () => {
-    cy.visitStory('SingleSelectField', 'With label and required status')
+Given('a FileInputField with label and a required flag is rendered', () => {
+    cy.visitStory('FileInputField', 'With label and required')
 })
 
 Then('the required indicator is visible', () => {

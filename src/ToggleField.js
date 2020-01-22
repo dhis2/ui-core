@@ -1,19 +1,10 @@
-import cx from 'classnames'
-import { resolve } from 'styled-jsx/css'
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { statusPropType } from './common-prop-types.js'
-import { spacers } from './theme.js'
 import { Field } from './Field.js'
 import { Help } from './Help.js'
-
-const labelStyles = resolve`
-    label.required::after {
-        padding-left: ${spacers.dp4};
-        content: '*';
-    }
-`
+import { AddRequired } from './ToggleField/AddRequired.js'
 
 const ToggleField = ({
     value,
@@ -40,9 +31,14 @@ const ToggleField = ({
     <Field className={className} dataTest={dataTest}>
         <ToggleComponent
             value={value}
-            label={label}
+            label={
+                <AddRequired
+                    label={label}
+                    required={required}
+                    dataTest={dataTest}
+                />
+            }
             name={name}
-            className={cx(labelStyles.className, { required })}
             tabIndex={tabIndex}
             onChange={onChange}
             onFocus={onFocus}
@@ -68,8 +64,6 @@ const ToggleField = ({
                 {validationText}
             </Help>
         )}
-
-        {labelStyles.styles}
     </Field>
 )
 
