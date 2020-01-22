@@ -21,24 +21,29 @@ export const Node = ({
     className,
     component: label,
     children,
+    icon,
     onOpen,
     onClose,
     dataTest,
 }) => {
     const hasLeaves = !!React.Children.toArray(children).filter(i => i).length
+    const showArrow = !icon && hasLeaves
+    const showSpacer = !icon && !hasLeaves
 
     return (
         <div className={cx('node', className)} data-test={dataTest}>
-            {hasLeaves ? (
+            {icon && <div data-test={`${dataTest}-icon`}>{icon}</div>}
+
+            {showArrow && (
                 <Arrow
                     open={open}
                     onOpen={onOpen}
                     onClose={onClose}
                     dataTest={`${dataTest}-arrow`}
                 />
-            ) : (
-                <Spacer />
             )}
+
+            {showSpacer && <Spacer />}
 
             <div data-test={`${dataTest}-content`}>
                 <div data-test={`${dataTest}-label`}>{label}</div>
@@ -67,6 +72,7 @@ Node.defaultProps = {
  * @prop {Element} component
  * @prop {className} [string]
  * @prop {Node} [children]
+ * @prop {Node} [icon]
  * @prop {boolean} [open]
  * @prop {function} [onOpen]
  * @prop {funtion} [onClose]
@@ -77,6 +83,7 @@ Node.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    icon: propTypes.node,
     open: propTypes.bool,
     onClose: propTypes.func,
     onOpen: propTypes.func,
