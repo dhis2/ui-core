@@ -54,6 +54,11 @@ const CircularLoader = ({ small, large, className, dataTest }) => (
                 height: 80px;
             }
 
+            svg {
+                max-height: 100%;
+                max-width: 100%;
+            }
+
             .circle {
                 stroke: currentColor;
                 stroke-dasharray: 80px, 200px;
