@@ -1837,10 +1837,25 @@
     ts-dedent "^1.1.0"
     webpack "^4.33.0"
 
-"@storybook/router@5.3.7", "@storybook/router@^5.3.7":
+"@storybook/router@5.3.7":
   version "5.3.7"
   resolved "https://registry.yarnpkg.com/@storybook/router/-/router-5.3.7.tgz#64e06a319ada9e783029a2d3e3c6a6ddf9b5a1ad"
   integrity sha512-o9DZLe+TvFR1hLvRflUODw+XUvIgU87gh5xMBhuzglx3akywc/sPqM+ORBaOtAb169wpV2hvpjolteVPi5+W8Q==
+  dependencies:
+    "@reach/router" "^1.2.1"
+    "@storybook/csf" "0.0.1"
+    "@types/reach__router" "^1.2.3"
+    core-js "^3.0.1"
+    global "^4.3.2"
+    lodash "^4.17.15"
+    memoizerific "^1.11.3"
+    qs "^6.6.0"
+    util-deprecate "^1.0.2"
+
+"@storybook/router@^5.3.8":
+  version "5.3.8"
+  resolved "https://registry.yarnpkg.com/@storybook/router/-/router-5.3.8.tgz#91eb8822e0aa6c5b59d2db1b52b88010d9800cc3"
+  integrity sha512-QYVYq1tbFwABEU3pxiEO4bSO+NJJX37LazN/j59QQkz8Tf9r5V9eMNxqVu5IeY3Gi0dQazLM1ghveNU4zb5MCg==
   dependencies:
     "@reach/router" "^1.2.1"
     "@storybook/csf" "0.0.1"
