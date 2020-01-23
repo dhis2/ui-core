@@ -177,17 +177,6 @@ storiesOf('TextArea', module)
         />
     ))
 
-    .add('Required', () => (
-        <TextArea
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            name="textarea"
-            label="I am required and have an asterisk"
-            required
-        />
-    ))
-
     .add('Rows', () => (
         <TextArea
             onChange={onChange}
