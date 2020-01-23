@@ -41,8 +41,9 @@ Feature: Keyboard shortcuts inside an input when rich text is enabled
       | ctrl+i   | italic |
       | cmd+i    | italic |
 
-  Scenario: The user presses enter
+  Scenario: The user presses enter when the text cursor is at the end of a list item
     Given the content of the current line is a valid list item
+    And the text cursor is at the end of the line
     When the user presses enter
     Then the cursor moves to a new line
     And a new list item marker of the same type plus one space is added to the new line
