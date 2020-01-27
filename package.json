@@ -51,7 +51,7 @@
         "@wertarbyte/react-props-md-table": "^1.1.1",
         "babel-loader": "^8.0.6",
         "concurrently": "^5.0.2",
-        "cypress": "^3.8.2",
+        "cypress": "^3.8.3",
         "cypress-cucumber-preprocessor": "^2.0.1",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
