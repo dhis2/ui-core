@@ -47,7 +47,7 @@
         "@storybook/components": "^5.3.7",
         "@storybook/csf": "^0.0.1",
         "@storybook/preset-create-react-app": "^1.5.2",
-        "@storybook/react": "^5.3.7",
+        "@storybook/react": "^5.3.9",
         "@wertarbyte/react-props-md-table": "^1.1.1",
         "babel-loader": "^8.0.6",
         "concurrently": "^5.0.2",
