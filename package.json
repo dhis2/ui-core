@@ -50,7 +50,7 @@
         "@storybook/react": "^5.3.9",
         "@wertarbyte/react-props-md-table": "^1.1.1",
         "babel-loader": "^8.0.6",
-        "concurrently": "^5.0.2",
+        "concurrently": "^5.1.0",
         "cypress": "^3.8.3",
         "cypress-cucumber-preprocessor": "^2.0.1",
         "enzyme": "^3.11.0",
