@@ -24,29 +24,51 @@ export class Button extends Component {
         }
     }
 
+    handleClick = e => {
+        if (this.props.onClick) {
+            this.props.onClick(this.createHandlerPayload(), e)
+        }
+    }
+
+    handleBlur = e => {
+        if (this.props.onBlur) {
+            this.props.onBlur(this.createHandlerPayload(), e)
+        }
+    }
+
+    handleFocus = e => {
+        if (this.props.onFocus) {
+            this.props.onFocus(this.createHandlerPayload(), e)
+        }
+    }
+
+    createHandlerPayload() {
+        return {
+            value: this.props.value,
+            name: this.props.name,
+        }
+    }
+
     render() {
         const {
-            type,
             children,
-            icon,
-            name,
-            value,
-            tabIndex,
-            disabled,
-            onClick,
             className,
+            dataTest,
+            destructive,
+            disabled,
+            icon,
+            large,
+            name,
             primary,
             secondary,
-            destructive,
             small,
-            large,
-            dataTest,
+            tabIndex,
+            type,
+            value,
         } = this.props
 
         return (
             <button
-                disabled={disabled}
-                onClick={event => onClick && onClick({ name, value }, event)}
                 className={cx(className, {
                     primary,
                     secondary,
@@ -56,12 +78,16 @@ export class Button extends Component {
                     'icon-only': icon && !children,
                     icon,
                 })}
-                type={type}
+                data-test={dataTest}
+                disabled={disabled}
                 name={name}
-                value={value}
+                onBlur={this.handleBlur}
+                onClick={this.handleClick}
+                onFocus={this.handleFocus}
                 ref={this.buttonRef}
                 tabIndex={tabIndex}
-                data-test={dataTest}
+                type={type}
+                value={value}
             >
                 {icon && <span className="button-icon">{icon}</span>}
                 {children}
@@ -83,6 +109,8 @@ Button.defaultProps = {
  *
  * @prop {Node} [children] The children to render in the button
  * @prop {function} [onClick] The click handler
+ * @prop {function} [onBlur]
+ * @prop {function} [onFocus]
  *
  * @prop {string} [className]
  * @prop {string} [name]
@@ -121,5 +149,7 @@ Button.propTypes = {
     tabIndex: propTypes.string,
     type: propTypes.oneOf(['submit', 'reset', 'button']),
     value: propTypes.string,
+    onBlur: propTypes.func,
     onClick: propTypes.func,
+    onFocus: propTypes.func,
 }

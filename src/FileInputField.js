@@ -21,26 +21,29 @@ import { Help } from './Help.js'
  * @see Live demo: {@link /demo/?path=/story/fileinputfield--default|Storybook}
  */
 const FileInputField = ({
-    onChange,
-    name,
-    label,
-    buttonLabel,
-    helpText,
-    validationText,
-    className,
-    placeholder,
-    tabIndex,
-    children,
-    error,
-    valid,
-    warning,
-    small,
-    large,
-    required,
-    disabled,
     accept,
-    multiple,
+    buttonLabel,
+    children,
+    className,
     dataTest,
+    disabled,
+    error,
+    helpText,
+    initialFocus,
+    label,
+    large,
+    multiple,
+    name,
+    onBlur,
+    onChange,
+    onFocus,
+    placeholder,
+    required,
+    small,
+    tabIndex,
+    valid,
+    validationText,
+    warning,
 }) => (
     <Field className={className} dataTest={dataTest}>
         {label && (
@@ -50,19 +53,22 @@ const FileInputField = ({
         )}
 
         <FileInput
-            onChange={onChange}
-            className={className}
+            accept={accept}
             buttonLabel={buttonLabel}
+            className={className}
+            disabled={disabled}
             error={error}
+            initialFocus={initialFocus}
+            large={large}
+            multiple={multiple}
+            name={name}
+            onBlur={onBlur}
+            onChange={onChange}
+            onFocus={onFocus}
+            small={small}
+            tabIndex={tabIndex}
             valid={valid}
             warning={warning}
-            accept={accept}
-            multiple={multiple}
-            small={small}
-            large={large}
-            disabled={disabled}
-            tabIndex={tabIndex}
-            name={name}
         />
 
         {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
@@ -97,8 +103,10 @@ FileInputField.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {string} name
+ * @prop {string} [name]
  * @prop {function} [onChange]
+ * @prop {function} [onBlur]
+ * @prop {function} [onFocus]
  * @prop {string} [label]
  * @prop {string} [buttonLabel]
  * @prop {string} [className]
@@ -107,6 +115,7 @@ FileInputField.defaultProps = {
  *
  * @prop {boolean} [required]
  * @prop {boolean} [disabled]
+ * @prop {boolean} [initialFocus]
  *
  * @prop {boolean} [valid] - `valid`, `warning` and `error` are mutually exclusive
  * @prop {boolean} [warning]
@@ -119,8 +128,8 @@ FileInputField.defaultProps = {
  * @prop {string} [helpText]
  *
  * @prop {FileListItem|Array.<FileListItem>} [children]
- * @prop {string} [accept=*] - the `accept` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
- * @prop {boolean} [multiple] - the `multiple` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
+ * @prop {string} [accept=*] - the `accept` attribute of the [native file input]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept}
+ * @prop {boolean} [multiple] - the `multiple` attribute of the [native file input]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple}
  * @prop {string} [dataTest]
  */
 FileInputField.propTypes = {
@@ -132,6 +141,7 @@ FileInputField.propTypes = {
     disabled: propTypes.bool,
     error: statusPropType,
     helpText: propTypes.string,
+    initialFocus: propTypes.bool,
     label: propTypes.string,
     large: sizePropType,
     multiple: propTypes.bool,
@@ -143,7 +153,9 @@ FileInputField.propTypes = {
     valid: statusPropType,
     validationText: propTypes.string,
     warning: statusPropType,
+    onBlur: propTypes.func,
     onChange: propTypes.func,
+    onFocus: propTypes.func,
 }
 
 export { FileInputField }
