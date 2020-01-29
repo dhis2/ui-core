@@ -24,16 +24,8 @@ class FileInput extends Component {
     }
 
     handleChange = e => {
-        const { onChange } = this.props
-
-        if (onChange) {
-            onChange(
-                {
-                    files: e.target.files,
-                    name: this.props.name,
-                },
-                e
-            )
+        if (this.props.onChange) {
+            this.props.onChange(this.createHandlerPayload(), e)
         }
 
         // reset the file input so it won't prevent on-change
@@ -41,21 +33,41 @@ class FileInput extends Component {
         this.ref.current.value = ''
     }
 
+    handleBlur = e => {
+        if (this.props.onBlur) {
+            this.props.onBlur(this.createHandlerPayload(), e)
+        }
+    }
+
+    handleFocus = e => {
+        if (this.props.onFocus) {
+            this.props.onFocus(this.createHandlerPayload(), e)
+        }
+    }
+
+    createHandlerPayload() {
+        return {
+            files: this.ref.current.files,
+            name: this.props.name,
+        }
+    }
+
     render() {
         const {
-            className,
-            name,
+            accept,
             buttonLabel,
+            className,
+            dataTest,
+            disabled,
             error,
+            initialFocus,
+            large,
+            multiple,
+            name,
+            small,
+            tabIndex,
             valid,
             warning,
-            accept,
-            multiple,
-            small,
-            large,
-            disabled,
-            tabIndex,
-            dataTest,
         } = this.props
 
         return (
@@ -71,13 +83,16 @@ class FileInput extends Component {
                     disabled={disabled}
                 />
                 <Button
-                    onClick={this.handleClick}
-                    type="button"
-                    icon={<Upload />}
-                    small={small}
-                    large={large}
                     disabled={disabled}
+                    icon={<Upload />}
+                    initialFocus={initialFocus}
+                    large={large}
+                    onBlur={this.handleBlur}
+                    onClick={this.handleClick}
+                    onFocus={this.handleFocus}
+                    small={small}
                     tabIndex={tabIndex}
+                    type="button"
                 >
                     {buttonLabel}
                 </Button>
@@ -114,13 +129,16 @@ FileInput.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {string} name
+ * @prop {string} [name]
  * @prop {function} [onChange] - called with the signature `object, event`
+ * @prop {function} [onFocus] - called with the signature `object, event`
+ * @prop {function} [onBlur] - called with the signature `object, event`
  * @prop {string} [buttonLabel]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
  *
  * @prop {boolean} [disabled]
+ * @prop {boolean} [initialFocus]
  *
  * @prop {boolean} [valid] - `valid`, `warning` and `error` are mutually exclusive
  * @prop {boolean} [warning]
@@ -129,8 +147,8 @@ FileInput.defaultProps = {
  * @prop {boolean} [small] - `small` and `large` are mutually exclusive
  * @prop {boolean} [large]
  *
- * @prop {string} [accept=*] - the `accept` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
- * @prop {boolean} [multiple] - the `multiple` attribute of the native file input https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
+ * @prop {string} [accept=*] - the `accept` attribute of the [native file input]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept}
+ * @prop {boolean} [multiple] - the `multiple` attribute of the [native file input]{@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple}
  * @prop {string} [dataTest]
  */
 FileInput.propTypes = {
@@ -140,6 +158,7 @@ FileInput.propTypes = {
     dataTest: propTypes.string,
     disabled: propTypes.bool,
     error: statusPropType,
+    initialFocus: propTypes.bool,
     large: sizePropType,
     multiple: propTypes.bool,
     name: propTypes.string,
@@ -147,7 +166,9 @@ FileInput.propTypes = {
     tabIndex: propTypes.string,
     valid: statusPropType,
     warning: statusPropType,
+    onBlur: propTypes.func,
     onChange: propTypes.func,
+    onFocus: propTypes.func,
 }
 
 export { FileInput }
