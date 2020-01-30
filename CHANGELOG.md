@@ -1,3 +1,14 @@
+## [4.7.1](https://github.com/dhis2/ui-core/compare/v4.7.0...v4.7.1) (2020-01-30)
+
+
+### Bug Fixes
+
+* **button:** adjust arrow icon used in buttons ([02cb546](https://github.com/dhis2/ui-core/commit/02cb54662b6d397decccf483190ca59775522634))
+* **button:** adjust styles and padding ([7b9fb0e](https://github.com/dhis2/ui-core/commit/7b9fb0e9213410cdafa63e288cbb89bfacbe89be))
+* **button:** reduce padding for icon only buttons ([459c610](https://github.com/dhis2/ui-core/commit/459c610ce348f146898b3520d5dc90bbb4eddadb))
+* **dropdown-button:** add dp12 whitespace left of the arrow icon ([78192e4](https://github.com/dhis2/ui-core/commit/78192e4b8bcf93cda1f12d247ce84ae4d763cdea))
+* **splitbutton:** increase padding on right side of split buttons ([87b4e7b](https://github.com/dhis2/ui-core/commit/87b4e7b42350b895b18cd83dfdbba86b58209843))
+
 # [4.7.0](https://github.com/dhis2/ui/compare/v4.6.1...v4.7.0) (2020-01-23)
 
 
