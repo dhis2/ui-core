@@ -14,7 +14,7 @@
 
 ### Features
 
-* **curcular loader:** make svg shrink if container size changes ([04fb621](https://github.com/dhis2/ui/commit/04fb6210794e9937c02963cb8a1493b0caabc005))
+* **circular loader:** make svg shrink if container size changes ([04fb621](https://github.com/dhis2/ui/commit/04fb6210794e9937c02963cb8a1493b0caabc005))
 * **node:** add content, label & leaves data-test props ([b4807ca](https://github.com/dhis2/ui/commit/b4807ca075583ddcef37d22bd82af4f564694df3))
 * **node:** add custom icon prop ([7a897da](https://github.com/dhis2/ui/commit/7a897da032fcdf9a83dde0e58cdbec019f9aa2fa))
 
