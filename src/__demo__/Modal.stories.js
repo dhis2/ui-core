@@ -245,7 +245,7 @@ storiesOf('Modal', module)
             </ModalActions>
         </Modal>
     ))
-    .add('Small: scrollable', () => (
+    .add('Top: scrollable', () => (
         <Modal small onClose={say('Clickable screen cover')}>
             <ModalTitle>This is a modal with scrollable content</ModalTitle>
 
