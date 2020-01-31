@@ -1,25 +1,37 @@
+import { resolve } from 'styled-jsx/css'
+import React from 'react'
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
-import React from 'react'
-import { resolve } from 'styled-jsx/css'
 
-import { Card } from '../Card'
+import { Card } from '../Card.js'
+import { insideAlignmentPropType } from '../common-prop-types.js'
 import { sizePropType } from '../common-prop-types.js'
-import { spacers } from '../theme.js'
+import { spacersNum } from '../theme.js'
 
 const cardBoxStyle = resolve`
     .modal-card {
         display: flex;
-        height: auto;
-        max-height: 95vh;
         flex-direction: column;
+        height: auto;
         left: 50%;
-        max-width: calc(100vw - ${2 * spacers.dp24}px);
-        max-height: calc(100vh - ${2 * spacers.dp24}px);
+        max-height: calc(100vh - ${2 * spacersNum.dp64}px);
+        max-width: calc(100vw - ${2 * spacersNum.dp64}px);
         position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
         width: 600px;
+    }
+
+    .top {
+        top: 0;
+        transform: translate(-50%, 0);
+    }
+
+    .middle {
+        transform: translate(-50%, -50%);
+    }
+
+    .bottom {
+        bottom: 0;
+        transform: translate(-50%, 0);
     }
 
     .small { width: 400px; }
@@ -33,19 +45,17 @@ const cardBoxStyle = resolve`
  * @param {ModalCard.PropTypes} props
  * @returns {React.Component}
  */
-export const ModalCard = ({ children, small, large }) => {
-    return (
-        <Card
-            className={cx(cardBoxStyle.className, 'modal-card', {
-                small,
-                large,
-            })}
-        >
-            {children}
-            {cardBoxStyle.styles}
-        </Card>
-    )
-}
+export const ModalCard = ({ children, small, large, position }) => (
+    <Card
+        className={cx(cardBoxStyle.className, 'modal-card', position, {
+            small,
+            large,
+        })}
+    >
+        {children}
+        {cardBoxStyle.styles}
+    </Card>
+)
 
 /**
  * @typedef {Object} PropTypes
@@ -56,6 +66,7 @@ export const ModalCard = ({ children, small, large }) => {
  */
 ModalCard.propTypes = {
     children: propTypes.node.isRequired,
+    position: insideAlignmentPropType.isRequired,
     large: sizePropType,
     small: sizePropType,
 }

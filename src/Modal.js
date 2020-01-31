@@ -1,10 +1,10 @@
-import propTypes from '@dhis2/prop-types'
-import React from 'react'
 import { createPortal } from 'react-dom'
+import React from 'react'
+import propTypes from '@dhis2/prop-types'
 
-import { sizePropType } from './common-prop-types.js'
-import { ScreenCover } from './ScreenCover.js'
 import { ModalCard } from './Modal/ModalCard.js'
+import { ScreenCover } from './ScreenCover.js'
+import { insideAlignmentPropType, sizePropType } from './common-prop-types.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -42,12 +42,17 @@ export const Modal = ({
     small,
     large,
     className,
+    position,
     dataTest,
 }) =>
     createPortal(
-        <ScreenCover onClick={onClose} className={className}>
+        <ScreenCover
+            onClick={onClose}
+            className={className}
+            position={position}
+        >
             <aside data-test={dataTest}>
-                <ModalCard small={small} large={large}>
+                <ModalCard small={small} large={large} position={position}>
                     {children}
                 </ModalCard>
             </aside>
@@ -57,6 +62,7 @@ export const Modal = ({
 
 Modal.defaultProps = {
     dataTest: 'dhis2-uicore-modal',
+    position: 'top',
 }
 
 /**
@@ -75,6 +81,7 @@ Modal.propTypes = {
     className: propTypes.string,
     dataTest: propTypes.string,
     large: sizePropType,
+    position: insideAlignmentPropType,
     small: sizePropType,
     // Callback used when clicking on the screen cover
     onClose: propTypes.func,
