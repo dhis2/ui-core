@@ -1,17 +1,12 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import cx from 'classnames'
 
 import { Backdrop } from './Backdrop.js'
+import { insideAlignmentPropType } from './common-prop-types.js'
 import { layers, spacers } from './theme.js'
 
-const positioningPropType = propTypes.mutuallyExclusive(
-    ['alignMiddle', 'alignBottom'],
-    propTypes.bool
-)
-
-const Content = ({ children, alignMiddle, alignBottom }) => (
-    <div className={cx({ alignMiddle, alignBottom })}>
+const Content = ({ children, position }) => (
+    <div className={position}>
         {children}
         <style jsx>{`
             div {
@@ -21,26 +16,26 @@ const Content = ({ children, alignMiddle, alignBottom }) => (
                 height: auto;
             }
 
-            {/* default alignment; alignTop */''}
-            div {
+            .top {
                 top: ${spacers.dp64};
             }
 
-            .alignMiddle {
+            .middle {
                 top: 50%;
+                transform: translate(-50%, -50%);
             }
 
-            .alignBottom {
+            .bottom {
                 top: auto;
                 bottom: ${spacers.dp64};
             }
         `}</style>
     </div>
 )
+
 Content.propTypes = {
-    alignBottom: positioningPropType,
-    alignMiddle: positioningPropType,
     children: propTypes.node,
+    position: insideAlignmentPropType,
 }
 
 /**
@@ -54,14 +49,7 @@ Content.propTypes = {
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking|Design system}
  * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
  */
-const ScreenCover = ({
-    children,
-    onClick,
-    className,
-    dataTest,
-    alignMiddle,
-    alignBottom,
-}) => {
+const ScreenCover = ({ children, onClick, className, dataTest, position }) => {
     return (
         <Backdrop
             onClick={onClick}
@@ -69,15 +57,14 @@ const ScreenCover = ({
             className={className}
             dataTest={dataTest}
         >
-            <Content alignMiddle={alignMiddle} alignBottom={alignBottom}>
-                {children}
-            </Content>
+            <Content position={position}>{children}</Content>
         </Backdrop>
     )
 }
 
 ScreenCover.defaultProps = {
     dataTest: 'dhis2-uicore-screencover',
+    position: 'middle',
 }
 
 /**
@@ -89,11 +76,10 @@ ScreenCover.defaultProps = {
  * @prop {string} [dataTest]
  */
 ScreenCover.propTypes = {
-    alignBottom: positioningPropType,
-    alignMiddle: positioningPropType,
     children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
+    position: insideAlignmentPropType,
     onClick: propTypes.func,
 }
 

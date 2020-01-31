@@ -21,3 +21,9 @@ export const singleSelectedPropType = propTypes.shape({
 })
 
 export const multiSelectedPropType = propTypes.arrayOf(singleSelectedPropType)
+
+export const insideAlignmentPropType = propTypes.oneOf([
+    'top',
+    'middle',
+    'bottom',
+])
