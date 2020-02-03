@@ -3,7 +3,7 @@
 
 name: 'DHIS2'
 
-on: pull_request
+on: push
 
 jobs:
     cypress-run:
