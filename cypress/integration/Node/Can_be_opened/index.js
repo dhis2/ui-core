@@ -11,7 +11,7 @@ Given('a closed Node with an onOpen handler is rendered', () => {
 })
 
 When('the arrow is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-node-arrow"]').click()
+    cy.get('[data-test="dhis2-uicore-node-toggle"]').click()
 })
 
 Then('the onOpen handler is called', () => {
