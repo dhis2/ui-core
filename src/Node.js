@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { Arrow } from './Node/Arrow.js'
+import { Toggle } from './Node/Toggle.js'
 import { Spacer } from './Node/Spacer.js'
 import { Leaves } from './Node/Leaves.js'
 
@@ -35,11 +35,11 @@ export const Node = ({
             {icon && <div data-test={`${dataTest}-icon`}>{icon}</div>}
 
             {showArrow && (
-                <Arrow
+                <Toggle
                     open={open}
                     onOpen={onOpen}
                     onClose={onClose}
-                    dataTest={`${dataTest}-arrow`}
+                    dataTest={`${dataTest}-toggle`}
                 />
             )}
 
