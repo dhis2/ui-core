@@ -19,12 +19,16 @@ const ArrowDown = () => (
     </svg>
 )
 
-export const Arrow = ({ open, onOpen, onClose, dataTest }) => {
+export const Toggle = ({ open, onOpen, onClose, dataTest }) => {
     const onClick = open ? onClose : onOpen
 
     return (
-        <div className={cx({ open })} data-test={dataTest}>
-            <span onClick={event => onClick && onClick({ open: !open }, event)}>
+        <div
+            className={cx({ open })}
+            data-test={dataTest}
+            onClick={event => onClick && onClick({ open: !open }, event)}
+        >
+            <span>
                 <ArrowDown />
             </span>
 
@@ -64,7 +68,7 @@ export const Arrow = ({ open, onOpen, onClose, dataTest }) => {
     )
 }
 
-Arrow.propTypes = {
+Toggle.propTypes = {
     dataTest: propTypes.string.isRequired,
     open: propTypes.bool,
     onClose: propTypes.func,
