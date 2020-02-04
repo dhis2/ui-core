@@ -43,7 +43,7 @@
         "@storybook/components": "^5.3.9",
         "@storybook/csf": "^0.0.1",
         "@storybook/preset-create-react-app": "^1.5.2",
-        "@storybook/react": "^5.3.9",
+        "@storybook/react": "^5.3.10",
         "@wertarbyte/react-props-md-table": "^1.1.1",
         "concurrently": "^5.1.0",
         "cypress": "^3.8.3",
