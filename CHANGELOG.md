@@ -1,3 +1,10 @@
+## [4.7.2](https://github.com/dhis2/ui-core/compare/v4.7.1...v4.7.2) (2020-02-04)
+
+
+### Bug Fixes
+
+* **node:** use previously replace arrow icon ([1eb0ac1](https://github.com/dhis2/ui-core/commit/1eb0ac1af1a8497fe23f0b936237ce4f0d862872))
+
 ## [4.7.1](https://github.com/dhis2/ui-core/compare/v4.7.0...v4.7.1) (2020-01-30)
 
 
