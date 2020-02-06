@@ -12,7 +12,8 @@ Given('the MultiSelect is closed', () => {
 })
 
 Given('the MultiSelect is focused', () => {
-    cy.get('[data-test="dhis2-uicore-select"] [tabIndex="0"]').focus()
+    cy.get('[data-test="dhis2-uicore-select-input"]').focus()
+    cy.focused().should('have.attr', 'data-test', 'dhis2-uicore-select-input')
 })
 
 When('the down arrowkey is pressed on the focused element', () => {

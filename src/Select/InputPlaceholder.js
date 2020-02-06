@@ -2,13 +2,13 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import { colors } from '../theme.js'
 
-const InputPlaceholder = ({ placeholder, className }) => {
+const InputPlaceholder = ({ placeholder, className, dataTest }) => {
     if (!placeholder) {
         return null
     }
 
     return (
-        <div className={className}>
+        <div className={className} data-test={dataTest}>
             {placeholder}
 
             <style jsx>{`
@@ -22,6 +22,7 @@ const InputPlaceholder = ({ placeholder, className }) => {
 }
 
 InputPlaceholder.propTypes = {
+    dataTest: propTypes.string.isRequired,
     className: propTypes.string,
     placeholder: propTypes.string,
 }

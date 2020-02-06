@@ -3,8 +3,8 @@ import propTypes from '@dhis2/prop-types'
 import { colors, spacers, theme } from '../theme.js'
 import { CircularLoader } from '../CircularLoader.js'
 
-const Loading = ({ message, className }) => (
-    <div className={className}>
+const Loading = ({ message, className, dataTest }) => (
+    <div className={className} data-test={dataTest}>
         <CircularLoader small />
         {message}
         <style jsx>{`
@@ -22,6 +22,7 @@ const Loading = ({ message, className }) => (
 )
 
 Loading.propTypes = {
+    dataTest: propTypes.string.isRequired,
     className: propTypes.string,
     message: propTypes.string,
 }

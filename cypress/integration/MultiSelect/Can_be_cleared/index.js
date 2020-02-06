@@ -18,7 +18,7 @@ Given(
 )
 
 When('the clear button is clicked', () => {
-    cy.contains('Clear').click()
+    cy.get('[data-test="dhis2-uicore-multiselect-clear"]').click()
 })
 
 Then('the MultiSelect is cleared', () => {

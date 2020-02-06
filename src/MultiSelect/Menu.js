@@ -37,13 +37,13 @@ const createHandler = ({ isActive, onChange, selected, value, label }) => (
     return onChange(data, e)
 }
 
-const Menu = ({ options, onChange, selected, empty }) => {
+const Menu = ({ options, onChange, selected, empty, dataTest }) => {
     const renderedOptions = filterIgnored(options)
 
     if (React.Children.count(renderedOptions) === 0) {
         // If it's a string, supply it to our <Empty> component so it looks better
         if (typeof empty === 'string') {
-            return <Empty message={empty} />
+            return <Empty message={empty} dataTest={`${dataTest}-empty`} />
         }
 
         // Otherwise just render the supplied markup
@@ -89,6 +89,7 @@ Menu.defaultProps = {
 }
 
 Menu.propTypes = {
+    dataTest: propTypes.string.isRequired,
     empty: propTypes.node,
     options: propTypes.node,
     selected: multiSelectedPropType,

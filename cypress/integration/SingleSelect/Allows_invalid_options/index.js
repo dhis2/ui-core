@@ -10,7 +10,10 @@ Given('a SingleSelect with invalid filterable options is rendered', () => {
 })
 
 When('the user enters a filter string', () => {
-    cy.focused().type('invalid')
+    cy.get('[data-test="dhis2-uicore-singleselect-filterinput"]')
+        .click()
+        .focused()
+        .type('invalid')
 })
 
 Then('the invalid options are displayed', () => {

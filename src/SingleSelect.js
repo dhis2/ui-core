@@ -51,12 +51,13 @@ const SingleSelect = ({
     // If the select is filterable, use a filterable menu
     const menu = filterable ? (
         <FilterableMenu
+            dataTest={dataTest}
             empty={empty}
             noMatchText={noMatchText}
             placeholder={filterPlaceholder}
         />
     ) : (
-        <Menu empty={empty} />
+        <Menu empty={empty} dataTest={dataTest} />
     )
 
     return (
@@ -69,6 +70,7 @@ const SingleSelect = ({
                         <Input
                             clearable={clearable}
                             clearText={clearText}
+                            dataTest={dataTest}
                             placeholder={placeholder}
                             prefix={prefix}
                             inputMaxHeight={inputMaxHeight}
@@ -88,7 +90,12 @@ const SingleSelect = ({
                     dense={dense}
                 >
                     {children}
-                    {loading && <Loading message={loadingText} />}
+                    {loading && (
+                        <Loading
+                            message={loadingText}
+                            dataTest={`${dataTest}-loading`}
+                        />
+                    )}
                 </Select>
             </div>
             <StatusIcon error={error} valid={valid} warning={warning} />

@@ -19,6 +19,7 @@ export class FilterableMenu extends Component {
 
     render() {
         const {
+            dataTest,
             options,
             onChange,
             selected,
@@ -36,6 +37,7 @@ export class FilterableMenu extends Component {
             empty,
             handleClose,
             handleFocusInput,
+            dataTest,
         }
 
         const renderedOptions = filterIgnored(options)
@@ -45,6 +47,7 @@ export class FilterableMenu extends Component {
             return (
                 <React.Fragment>
                     <FilterInput
+                        dataTest={`${dataTest}-filterinput`}
                         placeholder={placeholder}
                         value={filter}
                         onChange={this.onFilterChange}
@@ -75,6 +78,7 @@ export class FilterableMenu extends Component {
         return (
             <React.Fragment>
                 <FilterInput
+                    dataTest={`${dataTest}-filterinput`}
                     placeholder={placeholder}
                     value={filter}
                     onChange={this.onFilterChange}
@@ -91,6 +95,7 @@ export class FilterableMenu extends Component {
 
 FilterableMenu.propTypes = {
     Menu: propTypes.elementType.isRequired,
+    dataTest: propTypes.string.isRequired,
     noMatchText: propTypes.string.isRequired,
     selected: propTypes.oneOfType([
         singleSelectedPropType,

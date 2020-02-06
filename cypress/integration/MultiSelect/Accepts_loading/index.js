@@ -17,5 +17,7 @@ Then('the loading spinner is displayed', () => {
 })
 
 Then('the loading text is displayed', () => {
-    cy.contains('Loading options').should('be.visible')
+    cy.get('[data-test="dhis2-uicore-multiselect-loading"]')
+        .contains('Loading options')
+        .should('be.visible')
 })
