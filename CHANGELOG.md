@@ -1,3 +1,11 @@
+# [4.8.0](https://github.com/dhis2/ui-core/compare/v4.7.2...v4.8.0) (2020-02-06)
+
+
+### Features
+
+* **modal:** add alignment functionality and props ([5dcacf8](https://github.com/dhis2/ui-core/commit/5dcacf8c95e05c228c42147a8c1c9ec7cd7f7a89))
+* **screen cover:** add alignment functionality and props ([6754d56](https://github.com/dhis2/ui-core/commit/6754d56446b42fe1f10688b2b91bd091f67377d4))
+
 ## [4.7.2](https://github.com/dhis2/ui-core/compare/v4.7.1...v4.7.2) (2020-02-04)
 
 
