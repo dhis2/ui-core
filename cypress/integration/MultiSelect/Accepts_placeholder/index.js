@@ -10,11 +10,15 @@ Given('a MultiSelect with a placeholder and a selection is rendered', () => {
 })
 
 Then('the placeholder is shown', () => {
-    cy.contains('Placeholder text').should('be.visible')
+    cy.get('[data-test="dhis2-uicore-multiselect-placeholder"]')
+        .contains('Placeholder text')
+        .should('be.visible')
 })
 
 Then('the placeholder is not shown', () => {
-    cy.contains('Placeholder text').should('not.be.visible')
+    cy.get('[data-test="dhis2-uicore-multiselect-placeholder"]').should(
+        'not.be.visible'
+    )
 })
 
 Then('the selection is displayed', () => {

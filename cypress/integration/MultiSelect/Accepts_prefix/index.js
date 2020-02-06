@@ -10,7 +10,9 @@ Given('a MultiSelect with a prefix and a selection is rendered', () => {
 })
 
 Then('the prefix is shown', () => {
-    cy.contains('Prefix text').should('be.visible')
+    cy.get('[data-test="dhis2-uicore-multiselect-prefix"]')
+        .contains('Prefix text')
+        .should('be.visible')
 })
 
 Then('the selection is shown', () => {

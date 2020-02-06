@@ -18,7 +18,9 @@ Then('an empty menu is displayed', () => {
 })
 
 Then('the custom empty text is displayed', () => {
-    cy.contains('Custom empty text').should('be.visible')
+    cy.get('[data-test="dhis2-uicore-singleselect-empty"]')
+        .contains('Custom empty text')
+        .should('be.visible')
 })
 
 Then('the custom empty component is displayed', () => {

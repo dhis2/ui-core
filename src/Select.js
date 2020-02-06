@@ -215,6 +215,7 @@ export class Select extends Component {
                     valid={valid}
                     disabled={disabled}
                     dense={dense}
+                    dataTest={`${dataTest}-input`}
                 >
                     {input}
                 </InputWrapper>

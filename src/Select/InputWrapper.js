@@ -6,6 +6,7 @@ import { ArrowDown } from './ArrowDown.js'
 import { colors, theme } from '../theme.js'
 
 const InputWrapper = ({
+    dataTest,
     onToggle,
     children,
     tabIndex,
@@ -31,6 +32,7 @@ const InputWrapper = ({
             onClick={onToggle}
             tabIndex={tabIndex}
             ref={inputRef}
+            data-test={dataTest}
         >
             <div className="root-children">{children}</div>
             <div className="root-right">
@@ -97,11 +99,10 @@ InputWrapper.defaultProps = {
 }
 
 InputWrapper.propTypes = {
+    dataTest: propTypes.string.isRequired,
     inputRef: propTypes.object.isRequired,
     tabIndex: propTypes.string.isRequired,
-
     onToggle: propTypes.func.isRequired,
-
     children: propTypes.element,
     className: propTypes.string,
     dense: propTypes.bool,

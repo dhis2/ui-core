@@ -14,6 +14,7 @@ const Input = ({
     clearable,
     clearText,
     placeholder,
+    dataTest,
     prefix,
     options,
     className,
@@ -30,9 +31,12 @@ const Input = ({
 
     return (
         <div className={cx('root', className)}>
-            <InputPrefix prefix={prefix} />
+            <InputPrefix prefix={prefix} dataTest={`${dataTest}-prefix`} />
             {!hasSelection && !prefix && (
-                <InputPlaceholder placeholder={placeholder} />
+                <InputPlaceholder
+                    placeholder={placeholder}
+                    dataTest={`${dataTest}-placeholder`}
+                />
             )}
             {hasSelection && (
                 <div className="root-input">
@@ -42,7 +46,11 @@ const Input = ({
             )}
             {hasSelection && clearable && !disabled && (
                 <div className="root-right">
-                    <InputClearButton onClear={onClear} clearText={clearText} />
+                    <InputClearButton
+                        onClear={onClear}
+                        clearText={clearText}
+                        dataTest={`${dataTest}-clear`}
+                    />
                 </div>
             )}
 
@@ -80,6 +88,7 @@ Input.defaultProps = {
 }
 
 Input.propTypes = {
+    dataTest: propTypes.string.isRequired,
     className: propTypes.string,
     clearText: propTypes.requiredIf(props => props.clearable, propTypes.string),
     clearable: propTypes.bool,

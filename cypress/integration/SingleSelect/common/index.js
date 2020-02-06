@@ -28,7 +28,7 @@ Given('an onChange handler is attached', () => {
 })
 
 Given('the SingleSelect is open', () => {
-    cy.get('[data-test="dhis2-uicore-select"] [tabIndex="0"]').click()
+    cy.get('[data-test="dhis2-uicore-select-input"]').click()
 
     cy.contains('option one').should('exist')
     cy.contains('option two').should('exist')
@@ -36,7 +36,7 @@ Given('the SingleSelect is open', () => {
 })
 
 When('the SingleSelect input is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-select"] [tabIndex="0"]').click()
+    cy.get('[data-test="dhis2-uicore-select-input"]').click()
 })
 
 When('the user clicks the backdrop', () => {
@@ -56,7 +56,5 @@ Then('the options are displayed', () => {
 })
 
 Then('the SingleSelect has focus', () => {
-    cy.focused()
-        .parents('[data-test="dhis2-uicore-select"]')
-        .should('exist')
+    cy.focused().should('have.attr', 'data-test', 'dhis2-uicore-select-input')
 })

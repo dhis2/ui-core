@@ -5,6 +5,7 @@ import { FilterableMenu as CommonFilterableMenu } from '../Select/FilterableMenu
 import { Menu } from './Menu.js'
 
 const FilterableMenu = ({
+    dataTest,
     options,
     onChange,
     selected,
@@ -15,6 +16,7 @@ const FilterableMenu = ({
     noMatchText,
 }) => (
     <CommonFilterableMenu
+        dataTest={dataTest}
         options={options}
         onChange={onChange}
         selected={selected}
@@ -28,6 +30,7 @@ const FilterableMenu = ({
 )
 
 FilterableMenu.propTypes = {
+    dataTest: propTypes.string.isRequired,
     noMatchText: propTypes.string.isRequired,
     empty: propTypes.node,
     handleClose: propTypes.func,

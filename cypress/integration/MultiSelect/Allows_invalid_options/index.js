@@ -10,7 +10,10 @@ Given('a MultiSelect with invalid filterable options is rendered', () => {
 })
 
 When('the user enters a filter string', () => {
-    cy.focused().type('invalid')
+    cy.get('[data-test="dhis2-uicore-multiselect-filterinput"]')
+        .click()
+        .focused()
+        .type('invalid')
 })
 
 Then('the invalid options are displayed', () => {

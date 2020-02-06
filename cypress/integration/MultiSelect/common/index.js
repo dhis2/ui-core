@@ -24,7 +24,7 @@ Given(
 )
 
 Given('the MultiSelect is open', () => {
-    cy.get('[data-test="dhis2-uicore-select"] [tabIndex="0"]').click()
+    cy.get('[data-test="dhis2-uicore-select-input"]').click()
 
     cy.contains('option one').should('be.visible')
     cy.contains('option two').should('be.visible')
@@ -32,7 +32,7 @@ Given('the MultiSelect is open', () => {
 })
 
 When('the MultiSelect input is clicked', () => {
-    cy.get('[data-test="dhis2-uicore-select"] [tabIndex="0"]').click()
+    cy.get('[data-test="dhis2-uicore-select-input"]').click()
 })
 
 When('the user clicks the backdrop', () => {
@@ -52,7 +52,5 @@ Then('the options are displayed', () => {
 })
 
 Then('the MultiSelect has focus', () => {
-    cy.focused()
-        .parents('[data-test="dhis2-uicore-select"]')
-        .should('exist')
+    cy.focused().should('have.attr', 'data-test', 'dhis2-uicore-select-input')
 })
