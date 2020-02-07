@@ -2,6 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { ScreenCover } from '../index.js'
 
-storiesOf('ScreenCover', module).add('With onClick', () => (
-    <ScreenCover onClick={(...args) => window.onClick(...args)} />
-))
+storiesOf('ScreenCover', module)
+    .add('With onClick', () => (
+        <ScreenCover onClick={(...args) => window.onClick(...args)} />
+    ))
+    .add('With children', () => <ScreenCover>I am a child</ScreenCover>)

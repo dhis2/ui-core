@@ -28,3 +28,9 @@ storiesOf('Input', module)
             onFocus={(...args) => window.onFocus(...args)}
         />
     ))
+    .add('With initialFocus', () => (
+        <Input label="Default label" name="Default" value="" initialFocus />
+    ))
+    .add('With disabled', () => (
+        <Input label="Default label" name="Default" value="" disabled />
+    ))

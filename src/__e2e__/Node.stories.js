@@ -20,3 +20,19 @@ storiesOf('Node', module)
             Children
         </Node>
     ))
+    .add('Closed with children', () => (
+        <Node component={<div>Component</div>}>I am a child</Node>
+    ))
+    .add('Open with children', () => (
+        <Node open component={<div>Component</div>}>
+            I am a child
+        </Node>
+    ))
+    .add('With component', () => (
+        <Node component={<div>I am a component</div>}>Children</Node>
+    ))
+    .add('With icon', () => (
+        <Node component={<div>Component</div>} icon={<div>Icon</div>}>
+            Children
+        </Node>
+    ))

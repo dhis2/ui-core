@@ -28,3 +28,18 @@ storiesOf('Checkbox', module)
             onFocus={(...args) => window.onFocus(...args)}
         />
     ))
+    .add('Disabled with onClick', () => (
+        <Checkbox
+            name="Ex"
+            label="Checkbox"
+            value="default"
+            disabled
+            onClick={(...args) => window.onClick(...args)}
+        />
+    ))
+    .add('With label', () => (
+        <Checkbox name="Ex" label="The label" value="default" />
+    ))
+    .add('With initialFocus', () => (
+        <Checkbox name="Ex" label="The label" value="default" initialFocus />
+    ))

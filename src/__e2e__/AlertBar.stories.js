@@ -18,3 +18,14 @@ storiesOf('AlertBar', module)
             With Actions
         </AlertBar>
     ))
+    .add('Disabled icon', () => <AlertBar icon={false}>Message</AlertBar>)
+    .add('Custom icon', () => (
+        <AlertBar icon={<span>Custom icon</span>}>Message</AlertBar>
+    ))
+    .add('With message', () => <AlertBar>With a message</AlertBar>)
+    .add('With onHidden', () => (
+        <AlertBar onHidden={(...args) => window.onHidden(...args)}>
+            Message
+        </AlertBar>
+    ))
+    .add('Permanent', () => <AlertBar permanent>Message</AlertBar>)

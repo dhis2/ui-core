@@ -19,3 +19,19 @@ storiesOf('FileListItem', module)
             cancelText="Cancel"
         />
     ))
+    .add('Loading with onCancel and cancelText', () => (
+        <FileListItem
+            loading
+            label="File list item"
+            removeText="Remove"
+            onCancel={() => {}}
+            onRemove={() => {}}
+            cancelText="Cancel"
+        />
+    ))
+    .add('With label', () => (
+        <FileListItem label="Label" removeText="Remove" onRemove={() => {}} />
+    ))
+    .add('With removeText', () => (
+        <FileListItem label="Label" removeText="Remove" onRemove={() => {}} />
+    ))

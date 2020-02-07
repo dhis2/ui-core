@@ -22,6 +22,14 @@ Then('the menu is not visible', () => {
     )
 })
 
+Then('the component is not visible', () => {
+    cy.contains('Component').should('not.be.visible')
+})
+
 Then('the menu is visible', () => {
     cy.get('[data-test="dhis2-uicore-splitbutton-menu"]').should('be.visible')
+})
+
+Then('the component is visible', () => {
+    cy.contains('Component').should('be.visible')
 })

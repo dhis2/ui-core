@@ -3,13 +3,13 @@ import propTypes from '@dhis2/prop-types'
 
 import { spacers } from '../theme.js'
 
-export const Icon = ({ icon }) => {
+export const Icon = ({ icon, dataTest }) => {
     if (!icon) {
         return null
     }
 
     return (
-        <span>
+        <span data-test={dataTest}>
             {icon}
 
             <style jsx>{`
@@ -32,6 +32,7 @@ export const Icon = ({ icon }) => {
 }
 
 Icon.propTypes = {
+    dataTest: propTypes.string.isRequired,
     /** the slot for an icon is 24x24px, bigger elements will be clipped */
     icon: propTypes.element,
 }

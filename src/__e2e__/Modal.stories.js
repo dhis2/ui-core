@@ -9,15 +9,17 @@ import {
     ModalContent,
 } from '../index.js'
 
-storiesOf('Modal', module).add('With onClose', () => (
-    <Modal small onClose={(...args) => window.onClose(...args)}>
-        <ModalTitle>Title</ModalTitle>
-        <ModalContent>Content</ModalContent>
-        <ModalActions>
-            <ButtonStrip end>
-                <Button secondary>Secondary action</Button>
-                <Button primary>Primary action</Button>
-            </ButtonStrip>
-        </ModalActions>
-    </Modal>
-))
+storiesOf('Modal', module)
+    .add('With onClose', () => (
+        <Modal small onClose={(...args) => window.onClose(...args)}>
+            <ModalTitle>Title</ModalTitle>
+            <ModalContent>Content</ModalContent>
+            <ModalActions>
+                <ButtonStrip end>
+                    <Button secondary>Secondary action</Button>
+                    <Button primary>Primary action</Button>
+                </ButtonStrip>
+            </ModalActions>
+        </Modal>
+    ))
+    .add('With children', () => <Modal>I am a child</Modal>)

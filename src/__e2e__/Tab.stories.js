@@ -1,9 +1,15 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { TabBar, Tab } from '../index.js'
+import { Tab } from '../index.js'
 
-storiesOf('Tab', module).add('With onClick', () => (
-    <TabBar>
+storiesOf('Tab', module)
+    .add('With onClick', () => (
         <Tab onClick={(...args) => window.onClick(...args)}>Tab A</Tab>
-    </TabBar>
-))
+    ))
+    .add('With children', () => <Tab>I am a child</Tab>)
+    .add('With icon', () => <Tab icon={<div>Icon</div>}>Children</Tab>)
+    .add('With onClick and disabled', () => (
+        <Tab onClick={(...args) => window.onClick(...args)} disabled>
+            Tab A
+        </Tab>
+    ))

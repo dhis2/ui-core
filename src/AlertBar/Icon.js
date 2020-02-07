@@ -4,13 +4,13 @@ import React from 'react'
 import { StatusIcon } from '../icons/Status.js'
 import { spacers } from '../theme.js'
 
-const Icon = ({ icon, success, warning, critical, info }) => {
+const Icon = ({ icon, success, warning, critical, info, dataTest }) => {
     if (icon === false) {
         return null
     }
 
     return (
-        <div>
+        <div data-test={dataTest}>
             {React.isValidElement(icon) ? (
                 icon
             ) : (
@@ -41,6 +41,7 @@ const alertStatePropType = propTypes.mutuallyExclusive(
 )
 
 Icon.propTypes = {
+    dataTest: propTypes.string.isRequired,
     critical: alertStatePropType,
     icon: iconPropType,
     info: alertStatePropType,
