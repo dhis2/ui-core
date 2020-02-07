@@ -28,3 +28,12 @@ storiesOf('Switch', module)
             onFocus={(...args) => window.onFocus(...args)}
         />
     ))
+    .add('With disabled', () => (
+        <Switch name="Ex" label="Switch" value="default" disabled />
+    ))
+    .add('With label', () => (
+        <Switch name="Ex" label="The label" value="default" />
+    ))
+    .add('With initialFocus', () => (
+        <Switch name="Ex" label="The label" value="default" initialFocus />
+    ))

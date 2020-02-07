@@ -29,3 +29,12 @@ storiesOf('Radio', module)
             onFocus={(...args) => window.onFocus(...args)}
         />
     ))
+    .add('With disabled', () => (
+        <Radio name="Ex" label="Radio" value="default" disabled />
+    ))
+    .add('With label', () => (
+        <Radio name="Ex" label="The label" value="default" />
+    ))
+    .add('With initialFocus', () => (
+        <Radio name="Ex" label="The label" value="default" initialFocus />
+    ))

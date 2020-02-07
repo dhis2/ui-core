@@ -22,3 +22,5 @@ storiesOf('TextArea', module)
             onFocus={(...args) => window.onFocus(...args)}
         />
     ))
+    .add('With initialFocus', () => <TextArea name="textarea" initialFocus />)
+    .add('With disabled', () => <TextArea name="textarea" disabled />)

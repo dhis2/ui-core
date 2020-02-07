@@ -41,7 +41,7 @@ const Chip = ({
         })}
         data-test={dataTest}
     >
-        <Icon icon={icon} />
+        <Icon icon={icon} dataTest={`${dataTest}-icon`} />
         <Content overflow={overflow}>{children}</Content>
         <Remove onRemove={onRemove} dataTest={`${dataTest}-remove`} />
 

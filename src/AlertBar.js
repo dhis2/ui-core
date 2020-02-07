@@ -126,6 +126,7 @@ class AlertBar extends Component {
                 onMouseLeave={this.startDisplayTimeout}
             >
                 <Icon
+                    dataTest={`${dataTest}-icon`}
                     icon={icon}
                     critical={critical}
                     success={success}

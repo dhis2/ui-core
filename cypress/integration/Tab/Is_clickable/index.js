@@ -10,6 +10,16 @@ Given('a Tab with onClick handler is rendered', () => {
     })
 })
 
+Given('a disabled Tab with onClick handler is rendered', () => {
+    cy.visitStory('Tab', 'With onClick and disabled')
+
+    cy.window().then(win => {
+        // The property has to be present to allow cy.stub
+        win.onClick = () => {}
+        cy.stub(win, 'onClick')
+    })
+})
+
 When('the Tab is clicked', () => {
     cy.get('[data-test="dhis2-uicore-tab"]').click()
 })
@@ -17,5 +27,11 @@ When('the Tab is clicked', () => {
 Then('the onClick handler is called', () => {
     cy.window().then(win => {
         expect(win.onClick).to.be.calledWith({})
+    })
+})
+
+Then('the onClick handler is not called', () => {
+    cy.window().then(win => {
+        expect(win.onClick).not.to.be.called
     })
 })

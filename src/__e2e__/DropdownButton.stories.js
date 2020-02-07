@@ -9,7 +9,7 @@ storiesOf('DropdownButton', module)
             value="default"
             component={<div>Content</div>}
         >
-            Content
+            Button
         </DropdownButton>
     ))
     .add('With onClick', () => (
@@ -19,6 +19,47 @@ storiesOf('DropdownButton', module)
             onClick={(...args) => window.onClick(...args)}
             component={<div>Content</div>}
         >
-            Content
+            Button
         </DropdownButton>
+    ))
+    .add('With children', () => (
+        <DropdownButton
+            name="Button"
+            value="default"
+            component={<div>Component</div>}
+        >
+            I am a child
+        </DropdownButton>
+    ))
+    .add('With component', () => (
+        <DropdownButton
+            name="Button"
+            value="default"
+            component={<div>I am a component</div>}
+        />
+    ))
+    .add('With icon', () => (
+        <DropdownButton
+            name="Button"
+            value="default"
+            component={<div>I am a component</div>}
+            icon={'Icon'}
+        />
+    ))
+    .add('With initialFocus', () => (
+        <DropdownButton
+            name="Button"
+            value="default"
+            component={<div>Content</div>}
+            initialFocus
+        />
+    ))
+    .add('Disabled with onClick', () => (
+        <DropdownButton
+            name="Button"
+            value="default"
+            component={<div>Content</div>}
+            onClick={(...args) => window.onClick(...args)}
+            disabled
+        />
     ))
