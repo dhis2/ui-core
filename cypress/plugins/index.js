@@ -1,6 +1,3 @@
-const cucumber = require('cypress-cucumber-preprocessor').default
+const plugins = require('@dhis2/cli-utils-cypress/plugins')
 
-// eslint-disable-next-line no-unused-vars
-module.exports = (on, config) => {
-    on('file:preprocessor', cucumber())
-}
+module.exports = plugins
