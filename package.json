@@ -19,7 +19,7 @@
         "prebuild": "rm -rf ./build/*",
         "build": "d2-app-scripts build",
         "build:docs": "d2-utils-docsite build ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
-        "build:demo": "build-storybook -c .storybook -o ./build/docs/demo",
+        "build:demo": "EXTEND_ESLINT=true build-storybook -c .storybook -o ./build/docs/demo",
         "start": "yarn start:demo",
         "start:docs": "d2-utils-docsite serve ./docs -o ./build/docs --jsdoc ./src --jsdoc-output-file api.md",
         "start:demo": "EXTEND_ESLINT=true start-storybook --port 5000",
