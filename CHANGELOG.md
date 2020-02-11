@@ -1,3 +1,10 @@
+# [4.9.0](https://github.com/dhis2/ui-core/compare/v4.8.0...v4.9.0) (2020-02-11)
+
+
+### Features
+
+* introduce file-input-field-with-list and onfocus onblur to button ([1552eae](https://github.com/dhis2/ui-core/commit/1552eae937778077ff4b23d9f56c4cf1a7823ecb))
+
 # [4.8.0](https://github.com/dhis2/ui-core/compare/v4.7.2...v4.8.0) (2020-02-06)
 
 
