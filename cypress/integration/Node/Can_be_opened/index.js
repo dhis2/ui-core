@@ -2,12 +2,6 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a closed Node with an onOpen handler is rendered', () => {
     cy.visitStory('Node', 'Closed with onOpen')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onOpen = () => {}
-        cy.stub(win, 'onOpen')
-    })
 })
 
 When('the arrow is clicked', () => {

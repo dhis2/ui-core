@@ -2,12 +2,6 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a FileListItem with Onremove handler is rendered', () => {
     cy.visitStory('FileListItem', 'With onRemove')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onRemove = () => {}
-        cy.stub(win, 'onRemove')
-    })
 })
 
 When('the user clicks on the remove text', () => {

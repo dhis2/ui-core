@@ -8,12 +8,6 @@ Given(
             'MultiSelect',
             'With clear button, selection and onChange'
         )
-
-        cy.window().then(win => {
-            // The property has to be present to allow cy.stub
-            win.onChange = () => {}
-            cy.stub(win, 'onChange')
-        })
     }
 )
 

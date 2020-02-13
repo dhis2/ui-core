@@ -2,12 +2,6 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an Input with initialFocus and onBlur handler is rendered', () => {
     cy.visitStory('Input', 'With initialFocus and onBlur')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onBlur = () => {}
-        cy.stub(win, 'onBlur')
-    })
 })
 
 When('the Input is blurred', () => {

@@ -2,12 +2,6 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a MenuItem with onClick handler and value is rendered', () => {
     cy.visitStory('MenuItem', 'With onClick and value')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onClick = () => {}
-        cy.stub(win, 'onClick')
-    })
 })
 
 When('the MenuItem is clicked', () => {

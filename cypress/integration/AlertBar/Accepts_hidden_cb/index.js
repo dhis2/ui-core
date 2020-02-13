@@ -3,12 +3,6 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('an Alertbar with onHidden handler is rendered', () => {
     cy.visitStory('Alertbar', 'With onHidden')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onHidden = () => {}
-        cy.stub(win, 'onHidden')
-    })
 })
 
 When('the Alertbar is hidden', () => {

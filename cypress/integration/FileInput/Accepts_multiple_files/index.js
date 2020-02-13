@@ -3,12 +3,6 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a FileInput with multiple and onChange handler is rendered', () => {
     cy.visitStory('FileInput', 'With onChange and multiple')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onChange = () => {}
-        cy.stub(win, 'onChange')
-    })
 })
 
 When('the user selected multiple files', () => {

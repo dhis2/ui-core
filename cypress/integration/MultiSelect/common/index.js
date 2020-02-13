@@ -2,24 +2,12 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a MultiSelect with options and onChange handler is rendered', () => {
     cy.visitStory('MultiSelect', 'With options and onChange')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onChange = () => {}
-        cy.stub(win, 'onChange')
-    })
 })
 
 Given(
     'a MultiSelect with options, a selection and onChange handler is rendered',
     () => {
         cy.visitStory('MultiSelect', 'With options, a selection and onChange')
-
-        cy.window().then(win => {
-            // The property has to be present to allow cy.stub
-            win.onChange = () => {}
-            cy.stub(win, 'onChange')
-        })
     }
 )
 
