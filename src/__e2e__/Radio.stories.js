@@ -2,6 +2,10 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Radio } from '../index.js'
 
+window.onChange = window.Cypress.cy.stub()
+window.onBlur = window.Cypress.cy.stub()
+window.onFocus = window.Cypress.cy.stub()
+
 storiesOf('Radio', module)
     .add('With onChange', () => (
         <Radio

@@ -2,6 +2,9 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { FileListItem } from '../index.js'
 
+window.onRemove = window.Cypress.cy.stub()
+window.onCancel = window.Cypress.cy.stub()
+
 storiesOf('FileListItem', module)
     .add('With onRemove', () => (
         <FileListItem

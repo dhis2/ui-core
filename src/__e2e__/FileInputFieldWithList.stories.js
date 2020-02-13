@@ -1,7 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-
 import { FileInputFieldWithList } from '../index.js'
+
+window.onChange = window.Cypress.cy.stub()
 
 const singleFileArray = [new File([], 'dummy.txt')]
 

@@ -2,6 +2,10 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { TextArea } from '../index.js'
 
+window.onChange = window.Cypress.cy.stub()
+window.onBlur = window.Cypress.cy.stub()
+window.onFocus = window.Cypress.cy.stub()
+
 storiesOf('TextArea', module)
     .add('With onChange', () => (
         <TextArea
