@@ -2,12 +2,6 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a disabled Checkbox with onClick handler is rendered', () => {
     cy.visitStory('Checkbox', 'Disabled with onClick')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onClick = () => {}
-        cy.stub(win, 'onClick')
-    })
 })
 
 When('the Checkbox is clicked', () => {

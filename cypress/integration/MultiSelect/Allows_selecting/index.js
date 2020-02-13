@@ -5,12 +5,6 @@ Given(
     'a MultiSelect with a disabled option and onChange handler is rendered',
     () => {
         cy.visitStory('MultiSelect', 'With disabled option and onChange')
-
-        cy.window().then(win => {
-            // The property has to be present to allow cy.stub
-            win.onChange = () => {}
-            cy.stub(win, 'onChange')
-        })
     }
 )
 
@@ -18,12 +12,6 @@ Given(
     'a MultiSelect with custom options and onChange handler is rendered',
     () => {
         cy.visitStory('MultiSelect', 'With custom options and onChange')
-
-        cy.window().then(win => {
-            // The property has to be present to allow cy.stub
-            win.onChange = () => {}
-            cy.stub(win, 'onChange')
-        })
     }
 )
 

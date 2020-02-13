@@ -2,12 +2,6 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a Radio with onFocus handler is rendered', () => {
     cy.visitStory('Radio', 'With onFocus')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onFocus = () => {}
-        cy.stub(win, 'onFocus')
-    })
 })
 
 When('the Radio is focused', () => {

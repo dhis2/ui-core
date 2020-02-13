@@ -3,12 +3,6 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a SingleSelect with onFocus handler is rendered', () => {
     cy.visitStory('SingleSelect', 'With onFocus')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onFocus = () => {}
-        cy.stub(win, 'onFocus')
-    })
 })
 
 Then('the onFocus handler is called', () => {

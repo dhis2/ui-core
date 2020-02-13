@@ -2,12 +2,6 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a FileInputFieldWithList with multiple files is rendered', () => {
     cy.visitStory('FileInputFieldWithList', 'Multiple files - with files')
-
-    cy.window().then(win => {
-        // The property has to be present to allow cy.stub
-        win.onChange = () => {}
-        cy.stub(win, 'onChange')
-    })
 })
 
 Then('the onChange handler is called', () => {
