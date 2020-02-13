@@ -25,40 +25,28 @@ storiesOf('SingleSelect', module)
         </SingleSelect>
     ))
     .add('With options and onChange', () => (
-        <SingleSelect
-            className="select"
-            onChange={(...args) => window.onChange(...args)}
-        >
+        <SingleSelect className="select" onChange={window.onChange}>
             <SingleSelectOption value="1" label="option one" />
             <SingleSelectOption value="2" label="option two" />
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
     .add('With onFocus', () => (
-        <SingleSelect
-            className="select"
-            onFocus={(...args) => window.onFocus(...args)}
-        >
+        <SingleSelect className="select" onFocus={window.onFocus}>
             <SingleSelectOption value="1" label="option one" />
             <SingleSelectOption value="2" label="option two" />
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
     .add('With onBlur', () => (
-        <SingleSelect
-            className="select"
-            onBlur={(...args) => window.onBlur(...args)}
-        >
+        <SingleSelect className="select" onBlur={window.onBlur}>
             <SingleSelectOption value="1" label="option one" />
             <SingleSelectOption value="2" label="option two" />
             <SingleSelectOption value="3" label="option three" />
         </SingleSelect>
     ))
     .add('With custom options and onChange', () => (
-        <SingleSelect
-            className="select"
-            onChange={(...args) => window.onChange(...args)}
-        >
+        <SingleSelect className="select" onChange={window.onChange}>
             <CustomSingleSelectOption value="1" label="option one" />
             <CustomSingleSelectOption value="2" label="option two" />
             <CustomSingleSelectOption value="3" label="option three" />
@@ -201,10 +189,7 @@ storiesOf('SingleSelect', module)
         </SingleSelect>
     ))
     .add('With disabled option and onChange', () => (
-        <SingleSelect
-            className="select"
-            onChange={(...args) => window.onChange(...args)}
-        >
+        <SingleSelect className="select" onChange={window.onChange}>
             <SingleSelectOption value="1" label="option one" />
             <SingleSelectOption value="2" label="option two" />
             <SingleSelectOption value="3" label="option three" />
@@ -225,7 +210,7 @@ storiesOf('SingleSelect', module)
         <SingleSelect
             className="select"
             selected={{ value: '1', label: 'option one' }}
-            onChange={(...args) => window.onChange(...args)}
+            onChange={window.onChange}
         >
             <SingleSelectOption value="1" label="option one" />
             <SingleSelectOption value="2" label="option two" />
@@ -238,7 +223,7 @@ storiesOf('SingleSelect', module)
             clearText="Clear"
             className="select"
             selected={{ value: '1', label: 'option one' }}
-            onChange={(...args) => window.onChange(...args)}
+            onChange={window.onChange}
         >
             <SingleSelectOption value="1" label="option one" />
             <SingleSelectOption value="2" label="option two" />

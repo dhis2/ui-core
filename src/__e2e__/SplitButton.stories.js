@@ -19,7 +19,7 @@ storiesOf('SplitButton', module)
             name="Button"
             value="default"
             component={<div>Component</div>}
-            onClick={(...args) => window.onClick(...args)}
+            onClick={window.onClick}
         >
             Label me!
         </SplitButton>

@@ -13,7 +13,7 @@ storiesOf('Checkbox', module)
             name="Ex"
             label="Checkbox"
             value="default"
-            onChange={(...args) => window.onChange(...args)}
+            onChange={window.onChange}
         />
     ))
     .add('With initialFocus and onBlur', () => (
@@ -22,7 +22,7 @@ storiesOf('Checkbox', module)
             name="Ex"
             label="Checkbox"
             value="default"
-            onBlur={(...args) => window.onBlur(...args)}
+            onBlur={window.onBlur}
         />
     ))
     .add('With onFocus', () => (
@@ -30,7 +30,7 @@ storiesOf('Checkbox', module)
             name="Ex"
             label="Checkbox"
             value="default"
-            onFocus={(...args) => window.onFocus(...args)}
+            onFocus={window.onFocus}
         />
     ))
     .add('Disabled with onClick', () => (
@@ -39,7 +39,7 @@ storiesOf('Checkbox', module)
             label="Checkbox"
             value="default"
             disabled
-            onClick={(...args) => window.onClick(...args)}
+            onClick={window.onClick}
         />
     ))
     .add('With label', () => (

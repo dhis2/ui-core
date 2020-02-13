@@ -9,7 +9,7 @@ storiesOf('FileListItem', module)
     .add('With onRemove', () => (
         <FileListItem
             label="File list item"
-            onRemove={(...args) => window.onRemove(...args)}
+            onRemove={window.onRemove}
             removeText="Remove"
         />
     ))
@@ -18,7 +18,7 @@ storiesOf('FileListItem', module)
             loading
             label="File list item"
             removeText="Remove"
-            onCancel={(...args) => window.onCancel(...args)}
+            onCancel={window.onCancel}
             cancelText="Cancel"
         />
     ))

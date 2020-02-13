@@ -26,8 +26,6 @@ storiesOf('AlertBar', module)
     ))
     .add('With message', () => <AlertBar>With a message</AlertBar>)
     .add('With onHidden', () => (
-        <AlertBar onHidden={(...args) => window.onHidden(...args)}>
-            Message
-        </AlertBar>
+        <AlertBar onHidden={window.onHidden}>Message</AlertBar>
     ))
     .add('Permanent', () => <AlertBar permanent>Message</AlertBar>)

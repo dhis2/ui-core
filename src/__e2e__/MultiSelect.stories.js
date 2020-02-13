@@ -25,40 +25,28 @@ storiesOf('MultiSelect', module)
         </MultiSelect>
     ))
     .add('With options and onChange', () => (
-        <MultiSelect
-            className="select"
-            onChange={(...args) => window.onChange(...args)}
-        >
+        <MultiSelect className="select" onChange={window.onChange}>
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
     .add('With onFocus', () => (
-        <MultiSelect
-            className="select"
-            onFocus={(...args) => window.onFocus(...args)}
-        >
+        <MultiSelect className="select" onFocus={window.onFocus}>
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
     .add('With onBlur', () => (
-        <MultiSelect
-            className="select"
-            onBlur={(...args) => window.onBlur(...args)}
-        >
+        <MultiSelect className="select" onBlur={window.onBlur}>
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
             <MultiSelectOption value="3" label="option three" />
         </MultiSelect>
     ))
     .add('With custom options and onChange', () => (
-        <MultiSelect
-            className="select"
-            onChange={(...args) => window.onChange(...args)}
-        >
+        <MultiSelect className="select" onChange={window.onChange}>
             <CustomMultiSelectOption value="1" label="option one" />
             <CustomMultiSelectOption value="2" label="option two" />
             <CustomMultiSelectOption value="3" label="option three" />
@@ -201,10 +189,7 @@ storiesOf('MultiSelect', module)
         </MultiSelect>
     ))
     .add('With disabled option and onChange', () => (
-        <MultiSelect
-            className="select"
-            onChange={(...args) => window.onChange(...args)}
-        >
+        <MultiSelect className="select" onChange={window.onChange}>
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
             <MultiSelectOption value="3" label="option three" />
@@ -225,7 +210,7 @@ storiesOf('MultiSelect', module)
         <MultiSelect
             className="select"
             selected={[{ value: '1', label: 'option one' }]}
-            onChange={(...args) => window.onChange(...args)}
+            onChange={window.onChange}
         >
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />
@@ -251,7 +236,7 @@ storiesOf('MultiSelect', module)
             clearText="Clear"
             className="select"
             selected={[{ value: '1', label: 'option one' }]}
-            onChange={(...args) => window.onChange(...args)}
+            onChange={window.onChange}
         >
             <MultiSelectOption value="1" label="option one" />
             <MultiSelectOption value="2" label="option two" />

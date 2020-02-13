@@ -6,11 +6,7 @@ window.onClick = window.Cypress.cy.stub()
 
 storiesOf('MenuItem', module)
     .add('With onClick and value', () => (
-        <MenuItem
-            label="Menu item"
-            value="Value"
-            onClick={(...args) => window.onClick(...args)}
-        />
+        <MenuItem label="Menu item" value="Value" onClick={window.onClick} />
     ))
     .add('With href', () => <MenuItem label="Menu item" href="url.test" />)
     .add('With icon', () => (

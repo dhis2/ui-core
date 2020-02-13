@@ -18,7 +18,7 @@ storiesOf('DropdownButton', module)
         <DropdownButton
             name="Button"
             value="default"
-            onClick={(...args) => window.onClick(...args)}
+            onClick={window.onClick}
             component={<div>Content</div>}
         >
             Button
@@ -61,7 +61,7 @@ storiesOf('DropdownButton', module)
             name="Button"
             value="default"
             component={<div>Content</div>}
-            onClick={(...args) => window.onClick(...args)}
+            onClick={window.onClick}
             disabled
         />
     ))

@@ -12,7 +12,7 @@ storiesOf('Switch', module)
             name="Ex"
             label="Switch"
             value="default"
-            onChange={(...args) => window.onChange(...args)}
+            onChange={window.onChange}
         />
     ))
     .add('With initialFocus and onBlur', () => (
@@ -21,7 +21,7 @@ storiesOf('Switch', module)
             name="Ex"
             label="Switch"
             value="default"
-            onBlur={(...args) => window.onBlur(...args)}
+            onBlur={window.onBlur}
         />
     ))
     .add('With onFocus', () => (
@@ -29,7 +29,7 @@ storiesOf('Switch', module)
             name="Ex"
             label="Switch"
             value="default"
-            onFocus={(...args) => window.onFocus(...args)}
+            onFocus={window.onFocus}
         />
     ))
     .add('With disabled', () => (
