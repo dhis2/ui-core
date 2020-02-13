@@ -2,6 +2,9 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Node } from '../index.js'
 
+window.onClose = window.Cypress.cy.stub()
+window.onOpen = window.Cypress.cy.stub()
+
 storiesOf('Node', module)
     .add('Open with onClose', () => (
         <Node

@@ -2,6 +2,10 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Button } from '../index.js'
 
+window.onClick = window.Cypress.cy.stub()
+window.onBlur = window.Cypress.cy.stub()
+window.onFocus = window.Cypress.cy.stub()
+
 storiesOf('Button', module)
     .add('With onClick', () => (
         <Button

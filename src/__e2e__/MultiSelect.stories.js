@@ -3,6 +3,10 @@ import propTypes from '@dhis2/prop-types'
 import { storiesOf } from '@storybook/react'
 import { MultiSelect, MultiSelectOption } from '../index.js'
 
+window.onChange = window.Cypress.cy.stub()
+window.onFocus = window.Cypress.cy.stub()
+window.onBlur = window.Cypress.cy.stub()
+
 const CustomMultiSelectOption = ({ label, onClick }) => (
     <div onClick={e => onClick({}, e)}>{label}</div>
 )

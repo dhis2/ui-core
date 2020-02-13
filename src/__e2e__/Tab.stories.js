@@ -2,6 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Tab } from '../index.js'
 
+window.onClick = window.Cypress.cy.stub()
+
 storiesOf('Tab', module)
     .add('With onClick', () => (
         <Tab onClick={(...args) => window.onClick(...args)}>Tab A</Tab>

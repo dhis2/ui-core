@@ -2,6 +2,8 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { MenuItem } from '../index.js'
 
+window.onClick = window.Cypress.cy.stub()
+
 storiesOf('MenuItem', module)
     .add('With onClick and value', () => (
         <MenuItem

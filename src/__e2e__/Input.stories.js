@@ -2,6 +2,10 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Input } from '../index.js'
 
+window.onChange = window.Cypress.cy.stub()
+window.onBlur = window.Cypress.cy.stub()
+window.onFocus = window.Cypress.cy.stub()
+
 storiesOf('Input', module)
     .add('With onChange', () => (
         <Input
