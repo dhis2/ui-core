@@ -7,24 +7,25 @@ on: push
 
 jobs:
     cypress-run:
-        name: E2E Tests
+        name: E2E Tests on Firefox
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                containers: [1, 2, 3]
         steps:
             - name: Checkout
               uses: actions/checkout@v1
 
+            - name: Install Firefox
+              run: sudo apt-get install firefox
+
             - name: Tests
               uses: cypress-io/github-action@v1
               with:
+                  browser: firefox
                   record: true
                   parallel: true
                   start: 'yarn start:testing'
                   wait-on: 'http://localhost:5001'
                   wait-on-timeout: 120
-                  group: 'e2e'
+                  group: 'e2e-firefox'
               env:
                   CI: true
                   STORYBOOK_TESTING: true
