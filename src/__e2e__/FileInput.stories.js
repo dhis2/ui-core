@@ -38,13 +38,13 @@ storiesOf('FileInput', module)
             buttonLabel="Upload file"
             name="upload"
             initialFocus
-            onBlur={(...args) => window.onBlur(...args)}
+            onBlur={window.onBlur}
         />
     ))
     .add('With onFocus', () => (
         <FileInput
             buttonLabel="Upload file"
             name="upload"
-            onFocus={(...args) => window.onFocus(...args)}
+            onFocus={window.onFocus}
         />
     ))

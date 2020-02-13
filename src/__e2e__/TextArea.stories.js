@@ -8,23 +8,13 @@ window.onFocus = window.Cypress.cy.stub()
 
 storiesOf('TextArea', module)
     .add('With onChange', () => (
-        <TextArea
-            onChange={(...args) => window.onChange(...args)}
-            name="textarea"
-        />
+        <TextArea onChange={window.onChange} name="textarea" />
     ))
     .add('With initialFocus and onBlur', () => (
-        <TextArea
-            initialFocus
-            name="textarea"
-            onBlur={(...args) => window.onBlur(...args)}
-        />
+        <TextArea initialFocus name="textarea" onBlur={window.onBlur} />
     ))
     .add('With onFocus', () => (
-        <TextArea
-            name="textarea"
-            onFocus={(...args) => window.onFocus(...args)}
-        />
+        <TextArea name="textarea" onFocus={window.onFocus} />
     ))
     .add('With initialFocus', () => <TextArea name="textarea" initialFocus />)
     .add('With disabled', () => <TextArea name="textarea" disabled />)

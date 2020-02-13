@@ -7,19 +7,12 @@ window.onOpen = window.Cypress.cy.stub()
 
 storiesOf('Node', module)
     .add('Open with onClose', () => (
-        <Node
-            open
-            onClose={(...args) => window.onClose(...args)}
-            component={<div>Component</div>}
-        >
+        <Node open onClose={window.onClose} component={<div>Component</div>}>
             Children
         </Node>
     ))
     .add('Closed with onOpen', () => (
-        <Node
-            onOpen={(...args) => window.onOpen(...args)}
-            component={<div>Component</div>}
-        >
+        <Node onOpen={window.onOpen} component={<div>Component</div>}>
             Children
         </Node>
     ))

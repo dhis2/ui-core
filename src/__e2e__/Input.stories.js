@@ -12,7 +12,7 @@ storiesOf('Input', module)
             label="Default label"
             name="Default"
             value=""
-            onChange={(...args) => window.onChange(...args)}
+            onChange={window.onChange}
         />
     ))
     .add('With initialFocus and onBlur', () => (
@@ -21,7 +21,7 @@ storiesOf('Input', module)
             name="Default"
             value=""
             initialFocus
-            onBlur={(...args) => window.onBlur(...args)}
+            onBlur={window.onBlur}
         />
     ))
     .add('With onFocus', () => (
@@ -29,7 +29,7 @@ storiesOf('Input', module)
             label="Default label"
             name="Default"
             value=""
-            onFocus={(...args) => window.onFocus(...args)}
+            onFocus={window.onFocus}
         />
     ))
     .add('With initialFocus', () => (

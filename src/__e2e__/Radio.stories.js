@@ -12,7 +12,7 @@ storiesOf('Radio', module)
             name="Ex"
             label="Radio"
             value="default"
-            onChange={(...args) => window.onChange(...args)}
+            onChange={window.onChange}
         />
     ))
     .add('With initialFocus and onBlur', () => (
@@ -21,7 +21,7 @@ storiesOf('Radio', module)
             label="Radio"
             value="default"
             initialFocus
-            onBlur={(...args) => window.onBlur(...args)}
+            onBlur={window.onBlur}
         />
     ))
     .add('With onFocus', () => (
@@ -30,7 +30,7 @@ storiesOf('Radio', module)
             name="Ex"
             label="Radio"
             value="default"
-            onFocus={(...args) => window.onFocus(...args)}
+            onFocus={window.onFocus}
         />
     ))
     .add('With disabled', () => (
