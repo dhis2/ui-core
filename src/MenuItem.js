@@ -25,7 +25,7 @@ const subMenu = css.resolve`
         white-space: nowrap;
     }
 
-    li:hover > div {
+    li:hover > :global(span) > :global(div) {
         display: block;
     }
 `
