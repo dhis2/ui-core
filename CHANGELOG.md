@@ -1,3 +1,10 @@
+## [4.9.1](https://github.com/dhis2/ui-core/compare/v4.9.0...v4.9.1) (2020-02-17)
+
+
+### Bug Fixes
+
+* **menu:** adjust selector for opening submenu ([e03896a](https://github.com/dhis2/ui-core/commit/e03896a9f8dddc82b69dfec181f8a0b3e6165d62))
+
 # [4.9.0](https://github.com/dhis2/ui-core/compare/v4.8.0...v4.9.0) (2020-02-11)
 
 
