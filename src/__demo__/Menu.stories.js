@@ -91,7 +91,7 @@ storiesOf('Menu', module)
                     />
                 }
             />
-            <Divider />
+            <Divider dense />
             <MenuItem
                 dense
                 label="Three"
@@ -125,7 +125,7 @@ storiesOf('Menu', module)
                 </Menu>
             </MenuItem>
 
-            <Divider />
+            <Divider dense />
             <MenuItem
                 dense
                 label="Two"
