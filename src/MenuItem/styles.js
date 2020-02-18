@@ -4,7 +4,6 @@ import { colors, spacers } from '../theme.js'
 export default css`
     li {
         position: relative;
-        height: 48px;
         padding: 0;
         cursor: pointer;
         list-style: none;
@@ -23,13 +22,13 @@ export default css`
         background-color: ${colors.grey400};
     }
 
-    .dense {
-        height: 32px;
-        padding: 0 ${spacers.dp24} 0 ${spacers.dp12};
+    .dense .link {
+        padding: ${spacers.dp8} ${spacers.dp12};
     }
 
     .dense .label {
         font-size: 14px;
+        line-height: 16px;
     }
 
     .dense .icon {
@@ -44,13 +43,29 @@ export default css`
 
     .disabled .icon,
     .disabled .label {
-        color: rgba(0, 0, 0, 0.3);
+        color: ${colors.grey500};
+    }
+
+    .destructive .label {
+        color: ${colors.red700};
+    }
+
+    .destructive .icon {
+        color: ${colors.red600};
+    }
+
+    li.destructive:hover {
+        background-color: ${colors.red050};
+    }
+
+    li.destructive:active {
+        background-color: ${colors.red100};
     }
 
     .link {
         display: block;
         height: 100%;
-        padding: 0 ${spacers.dp24};
+        padding: 15px ${spacers.dp24};
         text-decoration: none;
         display: flex;
         flex-direction: row;
@@ -60,13 +75,8 @@ export default css`
     .label {
         color: ${colors.grey900};
         font-size: 15px;
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
+        line-height: 18px;
         user-select: none;
-        padding-right: ${spacers.dp12};
     }
 
     .icon {

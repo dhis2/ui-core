@@ -16,7 +16,7 @@ import { spacers } from './theme.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/menu--default|Storybook}
  */
-const Menu = ({ children, className, dataTest }) => (
+const Menu = ({ children, className, dataTest, maxWidth }) => (
     <div className={className} data-test={dataTest}>
         <Card>
             <div className="menu-list-wrapper">
@@ -28,12 +28,22 @@ const Menu = ({ children, className, dataTest }) => (
             .menu-list-wrapper {
                 padding: ${spacers.dp4} 0;
             }
+            div {
+                display: inline-block;
+                min-width: 128px;
+            }
+        `}</style>
+        <style jsx>{`
+            div {
+                max-width: ${maxWidth};
+            }
         `}</style>
     </div>
 )
 
 Menu.defaultProps = {
     dataTest: 'dhis2-uicore-menu',
+    maxWidth: '380px',
 }
 
 /**
@@ -43,11 +53,13 @@ Menu.defaultProps = {
  * @prop {*} [children]
  * @prop {string} [className]
  * @prop {string} [dataTest]
+ * @prop {string} [maxWidth]
  */
 Menu.propTypes = {
     children: MenuList.propTypes.children,
     className: propTypes.string,
     dataTest: propTypes.string,
+    maxWidth: propTypes.string,
 }
 
 export { Menu }

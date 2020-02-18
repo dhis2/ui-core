@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 
 import { Menu, MenuItem, Divider, Switch } from '../index.js'
 
-const Wrapper = fn => <div style={{ width: '358px' }}>{fn()}</div>
+const Wrapper = fn => <div style={{}}>{fn()}</div>
 
 storiesOf('Menu', module)
     .addDecorator(Wrapper)
@@ -51,7 +51,7 @@ storiesOf('Menu', module)
 
             <Divider />
             <MenuItem
-                label="Two"
+                label="This is a long menu item name, that should span onto multiple lines"
                 value="two"
                 onClick={val => {
                     alert(`this is ${val}`)
@@ -64,6 +64,15 @@ storiesOf('Menu', module)
                     alert(`this is ${val}`)
                 }}
             />
+        </Menu>
+    ))
+
+    .add('Short item labels', () => (
+        <Menu>
+            <MenuItem label="dog" />
+            <Divider />
+            <MenuItem label="cat" />
+            <MenuItem label="tree" />
         </Menu>
     ))
 
