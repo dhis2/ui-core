@@ -10,7 +10,7 @@ import { colors, spacers } from './theme.js'
  * @returns {React.Component}
  * @example import { Divider } from @dhis2/ui-core
  */
-const Divider = ({ margin, className, dataTest }) => (
+const Divider = ({ className, dataTest, dense, margin }) => (
     <div className={className} data-test={dataTest}>
         <style jsx>{`
             div {
@@ -22,27 +22,29 @@ const Divider = ({ margin, className, dataTest }) => (
         `}</style>
         <style jsx>{`
             div {
-                margin: ${margin};
+                margin: ${dense ? `${spacers.dp4} 0` : margin};
             }
         `}</style>
     </div>
 )
 
 Divider.defaultProps = {
-    margin: `${spacers.dp8} 0`,
     dataTest: 'dhis2-uicore-divider',
+    margin: `${spacers.dp8} 0`,
 }
 
 /**
  * @typedef {Object} PropTypes
  * @static
  * @prop {string} [className]
- * @prop {string} [margin="${spacers.dp8} 0"] - A CSS shorthand declaration for margin
  * @prop {string} [dataTest]
+ * @prop {bool} [dense]
+ * @prop {string} [margin="${spacers.dp8} 0"] - DEPRECATED: A CSS shorthand declaration for margin. If margin and dense are used at the same time, dense has precedence.
  */
 Divider.propTypes = {
     className: propTypes.string,
     dataTest: propTypes.string,
+    dense: propTypes.bool,
     margin: propTypes.string,
 }
 
