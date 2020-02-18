@@ -64,6 +64,22 @@ storiesOf('Menu', module)
                     alert(`this is ${val}`)
                 }}
             />
+            <MenuItem
+                disabled
+                label="Disabled menu item"
+                value="four"
+                onClick={val => {
+                    alert(`this is ${val}`)
+                }}
+            />
+            <MenuItem
+                destructive
+                label="Destructive menu item"
+                value="five"
+                onClick={val => {
+                    alert(`this is ${val}`)
+                }}
+            />
         </Menu>
     ))
 
@@ -138,6 +154,24 @@ storiesOf('Menu', module)
                 dense
                 label="Three"
                 value="three"
+                onClick={val => {
+                    alert(`this is ${val}`)
+                }}
+            />
+            <MenuItem
+                dense
+                disabled
+                label="Disabled menu item"
+                value="four"
+                onClick={val => {
+                    alert(`this is ${val}`)
+                }}
+            />
+            <MenuItem
+                dense
+                destructive
+                label="Destructive menu item"
+                value="five"
                 onClick={val => {
                     alert(`this is ${val}`)
                 }}

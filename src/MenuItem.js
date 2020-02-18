@@ -64,6 +64,7 @@ const MenuItem = ({
     icon,
     children,
     active,
+    destructive,
     disabled,
     dense,
     onClick,
@@ -84,6 +85,7 @@ const MenuItem = ({
     return (
         <li
             className={cx(className, subMenu.className, {
+                destructive,
                 disabled,
                 dense,
                 active,
@@ -125,6 +127,7 @@ MenuItem.defaultProps = {
  * @prop {Element} [icon]
  * @prop {boolean} [dense]
  * @prop {boolean} [active]
+ * @prop {boolean} [destructive]
  * @prop {boolean} [disabled]
  * @prop {string} [dataTest]
  */
@@ -134,6 +137,7 @@ MenuItem.propTypes = {
     className: propTypes.string,
     dataTest: propTypes.string,
     dense: propTypes.bool,
+    destructive: propTypes.bool,
     disabled: propTypes.bool,
     href: propTypes.string,
     icon: propTypes.element,
