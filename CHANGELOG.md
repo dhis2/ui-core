@@ -1,3 +1,10 @@
+# [4.11.0](https://github.com/dhis2/ui-core/compare/v4.10.0...v4.11.0) (2020-02-19)
+
+
+### Features
+
+* **menu item:** add optional target prop ([c9afe3f](https://github.com/dhis2/ui-core/commit/c9afe3fbe854019c861666e9dae8825afc60af4b))
+
 # [4.10.0](https://github.com/dhis2/ui-core/compare/v4.9.1...v4.10.0) (2020-02-19)
 
 
