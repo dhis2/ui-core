@@ -68,6 +68,7 @@ const MenuItem = ({
     dense,
     onClick,
     className,
+    target,
     dataTest,
 }) => {
     const hasMenu = !!children
@@ -89,7 +90,7 @@ const MenuItem = ({
             })}
             data-test={dataTest}
         >
-            <LinkElement className="link" {...linkElementProps}>
+            <LinkElement className="link" {...linkElementProps} target={target}>
                 {icon}
                 <div className="label">{label}</div>
 
@@ -137,6 +138,7 @@ MenuItem.propTypes = {
     disabled: propTypes.bool,
     href: propTypes.string,
     icon: propTypes.element,
+    target: propTypes.string,
     value: propTypes.string,
     onClick: propTypes.func,
 }
