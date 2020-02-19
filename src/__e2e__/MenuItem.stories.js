@@ -9,6 +9,9 @@ storiesOf('MenuItem', module)
         <MenuItem label="Menu item" value="Value" onClick={window.onClick} />
     ))
     .add('With href', () => <MenuItem label="Menu item" href="url.test" />)
+    .add('With target', () => (
+        <MenuItem label="Menu item" href="url.test" target="_blank" />
+    ))
     .add('With icon', () => (
         <MenuItem label="Menu item" icon={<div>Icon</div>} />
     ))
