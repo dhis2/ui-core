@@ -60,7 +60,7 @@ RadioGroupField.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Array.<Radio>} children
+ * @prop {Array.<Radio>} [children]
  * @prop {function} [onChange]
  * @prop {string} name
  *
@@ -81,7 +81,7 @@ RadioGroupField.defaultProps = {
  * @prop {string} [dataTest]
  */
 RadioGroupField.propTypes = {
-    children: propTypes.arrayOf(propTypes.element).isRequired,
+    children: propTypes.arrayOf(propTypes.element),
     className: propTypes.string,
     dataTest: propTypes.string,
     dense: propTypes.bool,

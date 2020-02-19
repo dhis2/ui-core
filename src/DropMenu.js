@@ -110,7 +110,7 @@ DropMenu.defaultProps = {
  * @prop {Element} [component] - The element to show as the dropdown
  * @prop {function} [onClose] - Function to trigger when click happens outside of the DOM element
  * @prop {boolean} [stayOpen] - Decides if the menu should call the onClose function or not
- * @prop {Object} [anchorEl] - DOM node to position itself against,
+ * @prop {Object} anchorEl - DOM node to position itself against,
  * needs to have the `getBoundingClientRect` function on its
  * `prototype`.
  * @prop {string} [dataTest]
@@ -118,7 +118,7 @@ DropMenu.defaultProps = {
 DropMenu.propTypes = {
     anchorEl: propTypes.shape({
         getBoundingClientRect: propTypes.func.isRequired,
-    }),
+    }).isRequired,
     className: propTypes.string,
     component: propTypes.element,
     dataTest: propTypes.string,

@@ -49,9 +49,9 @@ ToggleGroup.defaultProps = {
  * @static
  * @private
  *
- * @prop {Node} children
+ * @prop {Node} [children]
  * @prop {function} [onChange]
- * @prop {string} name
+ * @prop {string} [name]
  * @prop {string|Array.<String>} [value]
  * @prop {string} [className]
  * @prop {boolean} [disabled]
@@ -62,7 +62,7 @@ ToggleGroup.defaultProps = {
  * @prop {string} [dataTest]
  */
 ToggleGroup.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
     dense: propTypes.bool,

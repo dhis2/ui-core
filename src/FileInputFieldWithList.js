@@ -137,7 +137,7 @@ FileInputFieldWithList.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {string} removeText
+ * @prop {string} [removeText]
  * @prop {function} onChange
  * @prop {Array<File>} [files=[]] - an array of File instances (NOTE: not a FileList instance)
  * @prop {string} [name]
@@ -169,7 +169,6 @@ FileInputFieldWithList.defaultProps = {
  * @prop {string} [dataTest=dhis2-uicore-fileinputfieldwithlist]
  */
 FileInputFieldWithList.propTypes = {
-    removeText: propTypes.string.isRequired,
     onChange: propTypes.func.isRequired,
     accept: propTypes.string,
     buttonLabel: propTypes.string,
@@ -185,6 +184,7 @@ FileInputFieldWithList.propTypes = {
     multiple: propTypes.bool,
     name: propTypes.string,
     placeholder: propTypes.string,
+    removeText: propTypes.string,
     required: propTypes.bool,
     small: sizePropType,
     tabIndex: propTypes.string,

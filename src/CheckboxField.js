@@ -69,8 +69,8 @@ CheckboxField.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {string} value
- * @prop {string} label
+ * @prop {string} [value]
+ * @prop {string} [label]
  *
  * @prop {string} [name]
  * @prop {string} [className]
@@ -96,7 +96,6 @@ CheckboxField.defaultProps = {
  * @prop {string} [dataTest]
  */
 CheckboxField.propTypes = {
-    label: propTypes.node.isRequired,
     checked: propTypes.bool,
     className: propTypes.string,
     dataTest: propTypes.string,
@@ -105,6 +104,7 @@ CheckboxField.propTypes = {
     error: statusPropType,
     helpText: propTypes.string,
     initialFocus: propTypes.bool,
+    label: propTypes.node,
     name: propTypes.string,
     required: propTypes.bool,
     tabIndex: propTypes.string,

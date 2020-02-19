@@ -69,7 +69,7 @@ Modal.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {Node} children
+ * @prop {Node} [children]
  * @prop {string} className
  * @prop {Function} onClose
  * @prop {bool} small
@@ -77,7 +77,7 @@ Modal.defaultProps = {
  * @prop {string} [dataTest]
  */
 Modal.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
     large: sizePropType,

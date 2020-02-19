@@ -21,12 +21,12 @@ TableHead.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {TableRowHead|Array.<TableRowHead>} children
+ * @prop {TableRowHead|Array.<TableRowHead>} [children]
  * @prop {string} [className]
  * @prop {string} [dataTest]
  */
 TableHead.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
 }

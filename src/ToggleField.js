@@ -76,8 +76,8 @@ ToggleField.defaultProps = {
  * @static
  * @private
  *
- * @prop {string} value
- * @prop {Node} label
+ * @prop {string} [value]
+ * @prop {Node} [label]
  * @prop {string} [name]
  * @prop {string} [className]
  * @prop {string} [tabIndex]
@@ -98,7 +98,6 @@ ToggleField.defaultProps = {
  * @prop {string} [dataTest]
  */
 ToggleField.propTypes = {
-    label: propTypes.node.isRequired,
     toggleComponent: propTypes.func.isRequired,
     checked: propTypes.bool,
     className: propTypes.string,
@@ -108,6 +107,7 @@ ToggleField.propTypes = {
     error: statusPropType,
     helpText: propTypes.string,
     initialFocus: propTypes.bool,
+    label: propTypes.node,
     name: propTypes.string,
     required: propTypes.bool,
     tabIndex: propTypes.string,

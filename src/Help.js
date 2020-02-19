@@ -58,7 +58,7 @@ Help.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {string} children
+ * @prop {string} [children]
  * @prop {string} [className]
  * @prop {boolean} [valid] - `valid`, `warning`, and `error`, are mutually exclusive
  * @prop {boolean} [warning]
@@ -66,7 +66,7 @@ Help.defaultProps = {
  * @prop {string} [dataTest]
  */
 Help.propTypes = {
-    children: propTypes.string.isRequired,
+    children: propTypes.string,
     className: propTypes.string,
     dataTest: propTypes.string,
     error: statusPropType,

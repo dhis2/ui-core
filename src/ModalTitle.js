@@ -33,10 +33,10 @@ ModalTitle.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {string} children
+ * @prop {string} [children]
  * @prop {string} [dataTest]
  */
 ModalTitle.propTypes = {
-    children: propTypes.string.isRequired,
+    children: propTypes.string,
     dataTest: propTypes.string,
 }

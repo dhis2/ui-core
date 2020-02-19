@@ -28,7 +28,7 @@ export const StackedTableHead = ({ children, className, dataTest }) => (
  * @prop {string} [dataTest]
  */
 StackedTableHead.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
 }

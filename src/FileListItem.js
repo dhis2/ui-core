@@ -103,9 +103,9 @@ FileListItem.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {string} label
+ * @prop {string} [label]
  * @prop {function} onRemove
- * @prop {string} removeText
+ * @prop {string} [removeText]
  * @prop {string} [className]
  * @prop {boolean} [loading]
  * @prop {function} [onCancel]
@@ -113,13 +113,13 @@ FileListItem.defaultProps = {
  * @prop {string} [dataTest]
  */
 FileListItem.propTypes = {
-    label: propTypes.string.isRequired,
-    removeText: propTypes.string.isRequired,
     onRemove: propTypes.func.isRequired,
     cancelText: propTypes.string,
     className: propTypes.string,
     dataTest: propTypes.string,
+    label: propTypes.string,
     loading: propTypes.bool,
+    removeText: propTypes.string,
     onCancel: propTypes.func,
 }
 

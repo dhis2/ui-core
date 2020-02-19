@@ -183,7 +183,7 @@ Checkbox.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  * @prop {string} value
- * @prop {Node} label
+ * @prop {Node} [label]
  * @prop {function} [onChange] - called with the signature `object, event`
  * @prop {string} [name]
  * @prop {string} [className]
@@ -212,7 +212,6 @@ const uniqueOnStatePropType = propTypes.mutuallyExclusive(
 )
 
 Checkbox.propTypes = {
-    label: propTypes.node.isRequired,
     checked: uniqueOnStatePropType,
     className: propTypes.string,
     dataTest: propTypes.string,
@@ -221,6 +220,7 @@ Checkbox.propTypes = {
     error: statusPropType,
     indeterminate: uniqueOnStatePropType,
     initialFocus: propTypes.bool,
+    label: propTypes.node,
     name: propTypes.string,
     tabIndex: propTypes.string,
     valid: statusPropType,

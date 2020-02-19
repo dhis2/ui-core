@@ -35,7 +35,7 @@ export const StackedTable = ({
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Node} children
+ * @prop {Node} [children]
  * @prop {string} [className]
  * @prop {string} [dataTest]
  * @prop {string[]} [headerLabels]
@@ -43,7 +43,7 @@ export const StackedTable = ({
  * an empty string must be provided
  */
 StackedTable.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
     headerLabels: propTypes.arrayOf(propTypes.string),

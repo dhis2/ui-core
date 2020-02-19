@@ -116,7 +116,7 @@ MenuItem.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {string|Node} label
+ * @prop {string|Node} [label]
  * @prop {string} [value]
  * @prop {string} [href]
  * @prop {function} [onClick] - Click handler called with `value` as the sole argument
@@ -129,7 +129,6 @@ MenuItem.defaultProps = {
  * @prop {string} [dataTest]
  */
 MenuItem.propTypes = {
-    label: propTypes.oneOfType([propTypes.string, propTypes.node]).isRequired,
     active: propTypes.bool,
     children: propTypes.element,
     className: propTypes.string,
@@ -138,6 +137,7 @@ MenuItem.propTypes = {
     disabled: propTypes.bool,
     href: propTypes.string,
     icon: propTypes.element,
+    label: propTypes.oneOfType([propTypes.string, propTypes.node]),
     target: propTypes.string,
     value: propTypes.string,
     onClick: propTypes.func,

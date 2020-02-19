@@ -165,8 +165,8 @@ Switch.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {string} value
- * @prop {Node} label
+ * @prop {string} [value]
+ * @prop {Node} [label]
  * @prop {function} [onChange] - called with the signature `object, event`
  * @prop {string} [name]
  * @prop {string} [className]
@@ -188,7 +188,6 @@ Switch.defaultProps = {
  * @prop {string} [dataTest]
  */
 Switch.propTypes = {
-    label: propTypes.node.isRequired,
     checked: propTypes.bool,
     className: propTypes.string,
     dataTest: propTypes.string,
@@ -196,6 +195,7 @@ Switch.propTypes = {
     disabled: propTypes.bool,
     error: statusPropType,
     initialFocus: propTypes.bool,
+    label: propTypes.node,
     name: propTypes.string,
     tabIndex: propTypes.string,
     valid: statusPropType,

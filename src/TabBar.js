@@ -44,7 +44,7 @@ TabBar.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Tab|Array.<Tab>} children
+ * @prop {Tab|Array.<Tab>} [children]
  * @prop {string} [className]
  * @prop {boolean} [fixed]
  * @prop {boolean} [scrollable]

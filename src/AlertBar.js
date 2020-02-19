@@ -162,7 +162,7 @@ AlertBar.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {string} children - The message string for the alert
+ * @prop {string} [children] - The message string for the alert
  * @prop {string} [className]
  * @prop {boolean} [success] - `success`, `warning`, and `critical` are
  * mutually exclusive props.
@@ -178,8 +178,8 @@ AlertBar.defaultProps = {
  * @prop {string} [dataTest]
  */
 AlertBar.propTypes = {
-    children: propTypes.string.isRequired,
     actions: actionsPropType,
+    children: propTypes.string,
     className: propTypes.string,
     critical: alertTypePropType,
     dataTest: propTypes.string,

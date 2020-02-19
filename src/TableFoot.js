@@ -21,12 +21,12 @@ TableFoot.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {TableRow|Array.<TableRow>} children
+ * @prop {TableRow|Array.<TableRow>} [children]
  * @prop {string} [className]
  * @prop {string} [dataTest]
  */
 TableFoot.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
 }
