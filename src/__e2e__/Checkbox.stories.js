@@ -48,3 +48,9 @@ storiesOf('Checkbox', module)
     .add('With initialFocus', () => (
         <Checkbox name="Ex" label="The label" value="default" initialFocus />
     ))
+    .add('Indeterminate prop', () => (
+        <Checkbox name="Ex" label="The label" value="default" indeterminate />
+    ))
+    .add('No indeterminate prop', () => (
+        <Checkbox name="Ex" label="The label" value="default" />
+    ))
