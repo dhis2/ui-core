@@ -25,6 +25,18 @@ class Checkbox extends Component {
         if (this.props.initialFocus) {
             this.ref.current.focus()
         }
+
+        this.setIndeterminate(this.props.indeterminate)
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.indeterminate !== this.props.indeterminate) {
+            this.setIndeterminate(this.props.indeterminate)
+        }
+    }
+
+    setIndeterminate(indeterminate) {
+        this.ref.current.indeterminate = indeterminate
     }
 
     handleChange = e => {
