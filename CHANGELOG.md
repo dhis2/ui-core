@@ -1,3 +1,10 @@
+# [4.10.0](https://github.com/dhis2/ui-core/compare/v4.9.1...v4.10.0) (2020-02-19)
+
+
+### Features
+
+* **checkbox:** add indeterminate prop on dom input element ([745a14a](https://github.com/dhis2/ui-core/commit/745a14a3bb8789c3d6fa6dc05c5c7c234e8e0fbc))
+
 ## [4.9.1](https://github.com/dhis2/ui-core/compare/v4.9.0...v4.9.1) (2020-02-17)
 
 
