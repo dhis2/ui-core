@@ -68,7 +68,7 @@ ToggleGroupField.defaultProps = {
  * @static
  * @private
  *
- * @prop {Node} children
+ * @prop {Node} [children]
  * @prop {function} [onChange]
  * @prop {string} name
  * @prop {string|Array.<String>} [value]
@@ -86,7 +86,7 @@ ToggleGroupField.defaultProps = {
  * @prop {string} [dataTest]
  */
 ToggleGroupField.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
     dense: propTypes.bool,

@@ -69,7 +69,7 @@ Node.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Element} component
+ * @prop {Element} [component]
  * @prop {className} [string]
  * @prop {Node} [children]
  * @prop {Node} [icon]
@@ -79,9 +79,9 @@ Node.defaultProps = {
  * @prop {string} [dataTest]
  */
 Node.propTypes = {
-    component: propTypes.element.isRequired,
     children: propTypes.node,
     className: propTypes.string,
+    component: propTypes.element,
     dataTest: propTypes.string,
     icon: propTypes.node,
     open: propTypes.bool,

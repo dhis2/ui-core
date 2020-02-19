@@ -31,10 +31,10 @@ ModalActions.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Object} children - Accepts one or more `Element`s
+ * @prop {Object} [children] - Accepts one or more `Element`s
  * @prop {string} [dataTest]
  */
 ModalActions.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     dataTest: propTypes.string,
 }

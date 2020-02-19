@@ -52,7 +52,7 @@ SwitchGroup.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Array.<Switch>} children
+ * @prop {Array.<Switch>} [children]
  * @prop {function} [onChange]
  * @prop {string} name
  *
@@ -69,7 +69,7 @@ SwitchGroup.defaultProps = {
  * @prop {string} [dataTest]
  */
 SwitchGroup.propTypes = {
-    children: propTypes.arrayOf(propTypes.element).isRequired,
+    children: propTypes.arrayOf(propTypes.element),
     className: propTypes.string,
     dataTest: propTypes.string,
     dense: propTypes.bool,

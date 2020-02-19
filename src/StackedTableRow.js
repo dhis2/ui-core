@@ -56,7 +56,7 @@ export const StackedTableRow = ({ children, className, dataTest }) => (
  * @prop {string} [dataTest]
  */
 StackedTableRow.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
 }

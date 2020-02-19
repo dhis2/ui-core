@@ -32,12 +32,12 @@ ModalContent.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Node} children
+ * @prop {Node} [children]
  * @prop {string} [className]
  * @prop {string} [dataTest]
  */
 ModalContent.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
 }

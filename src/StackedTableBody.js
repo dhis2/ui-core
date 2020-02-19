@@ -22,13 +22,13 @@ export const StackedTableBody = ({ children, className, dataTest }) => (
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Node} children
+ * @prop {Node} [children]
  * Should only be StackedTableCell or StackedTableCellHead
  * @prop {string} [className]
  * @prop {string} [dataTest]
  */
 StackedTableBody.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
 }

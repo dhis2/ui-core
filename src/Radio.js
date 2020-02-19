@@ -167,8 +167,8 @@ Radio.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {string} value
- * @prop {Node} label
+ * @prop {string} [value]
+ * @prop {Node} [label]
  * @prop {function} [onChange] - called with the signature `object, event`
  * @prop {string} [name]
  * @prop {string} [className]
@@ -190,8 +190,6 @@ Radio.defaultProps = {
  * @prop {string} [dataTest]
  */
 Radio.propTypes = {
-    label: propTypes.node.isRequired,
-    value: propTypes.string.isRequired,
     checked: propTypes.bool,
     className: propTypes.string,
     dataTest: propTypes.string,
@@ -199,9 +197,11 @@ Radio.propTypes = {
     disabled: propTypes.bool,
     error: statusPropType,
     initialFocus: propTypes.bool,
+    label: propTypes.node,
     name: propTypes.string,
     tabIndex: propTypes.string,
     valid: statusPropType,
+    value: propTypes.string,
     warning: statusPropType,
     onBlur: propTypes.func,
     onChange: propTypes.func,

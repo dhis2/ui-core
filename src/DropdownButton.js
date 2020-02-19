@@ -115,7 +115,7 @@ DropdownButton.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Element} component
+ * @prop {Element} [component]
  *
  * @prop {Node} [children] The children to render in the button
  * @prop {function} [onClick] The click handler
@@ -141,9 +141,9 @@ DropdownButton.defaultProps = {
  * @prop {string} [dataTest]
  */
 DropdownButton.propTypes = {
-    component: propTypes.element.isRequired,
     children: propTypes.node,
     className: propTypes.string,
+    component: propTypes.element,
     dataTest: propTypes.string,
     destructive: buttonVariantPropType,
     disabled: propTypes.bool,

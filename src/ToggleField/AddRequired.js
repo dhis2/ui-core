@@ -10,7 +10,7 @@ export const AddRequired = ({ label, required, dataTest }) => (
 )
 
 AddRequired.propTypes = {
-    label: propTypes.node.isRequired,
     dataTest: propTypes.string,
+    label: propTypes.node,
     required: propTypes.bool,
 }

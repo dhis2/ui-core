@@ -54,7 +54,7 @@ export const StackedTableCell = ({
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Node} children
+ * @prop {Node} [children]
  * @prop {string} [className]
  * @prop {string} [colSpan]
  * @prop {number} [column]
@@ -64,7 +64,7 @@ export const StackedTableCell = ({
  * @prop {string} [title]
  */
 StackedTableCell.propTypes = {
-    children: propTypes.node.isRequired,
+    children: propTypes.node,
     className: propTypes.string,
     colSpan: propTypes.string,
     column: propTypes.number,

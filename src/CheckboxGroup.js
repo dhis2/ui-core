@@ -52,9 +52,9 @@ CheckboxGroup.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Array.<Checkbox>} children
+ * @prop {Array.<Checkbox>} [children]
  * @prop {function} [onChange]
- * @prop {string} name
+ * @prop {string} [name]
  *
  * @prop {Array.<String>} [value]
  * @prop {string} [className]
@@ -69,7 +69,7 @@ CheckboxGroup.defaultProps = {
  * @prop {string} [dataTest]
  */
 CheckboxGroup.propTypes = {
-    children: propTypes.arrayOf(propTypes.element).isRequired,
+    children: propTypes.arrayOf(propTypes.element),
     className: propTypes.string,
     dataTest: propTypes.string,
     dense: propTypes.bool,

@@ -152,7 +152,7 @@ SplitButton.defaultProps = {
 /**
  * @typedef {Object} PropTypes
  * @static
- * @prop {Element} component
+ * @prop {Element} [component]
  * @prop {string} [children]
  * @prop {string} [className]
  * @prop {string} [name]
@@ -173,9 +173,9 @@ SplitButton.defaultProps = {
  * @prop {string} [dataTest]
  */
 SplitButton.propTypes = {
-    component: propTypes.element.isRequired,
     children: propTypes.string,
     className: propTypes.string,
+    component: propTypes.element,
     dataTest: propTypes.string,
     destructive: buttonVariantPropType,
     disabled: propTypes.bool,
