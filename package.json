@@ -36,7 +36,7 @@
         "test": "d2-app-scripts test"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^3.2.3",
+        "@dhis2/cli-app-scripts": "^3.2.4",
         "@dhis2/cli-style": "^6.0.0",
         "@dhis2/cli-utils-cypress": "^1.0.2",
         "@dhis2/cli-utils-docsite": "^1.3.0",
