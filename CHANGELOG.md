@@ -1,3 +1,10 @@
+## [4.11.1](https://github.com/dhis2/ui-core/compare/v4.11.0...v4.11.1) (2020-02-20)
+
+
+### Bug Fixes
+
+* remove isrequired, unless omitting the prop will cause an error ([9223a26](https://github.com/dhis2/ui-core/commit/9223a262d1e6ea675dad7103c4658b38d6da8f6c))
+
 # [4.11.0](https://github.com/dhis2/ui-core/compare/v4.10.0...v4.11.0) (2020-02-19)
 
 
