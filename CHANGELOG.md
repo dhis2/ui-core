@@ -1,3 +1,12 @@
+# [4.12.0](https://github.com/dhis2/ui-core/compare/v4.11.1...v4.12.0) (2020-02-21)
+
+
+### Features
+
+* **divider:** add dense prop ([3012097](https://github.com/dhis2/ui-core/commit/30120975ab9757a7d3d77fde3ae961c371c2dc6f))
+* **menu:** add maxWidth prop and multiline menu items ([bc88be4](https://github.com/dhis2/ui-core/commit/bc88be4dc7e47e3762c107a6801374fdc838c151))
+* **menu-item:** add destructive prop ([2457b0d](https://github.com/dhis2/ui-core/commit/2457b0dbc55a5942df69ae6cbf2541ab65882ecd))
+
 ## [4.11.1](https://github.com/dhis2/ui-core/compare/v4.11.0...v4.11.1) (2020-02-20)
 
 
