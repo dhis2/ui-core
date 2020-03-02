@@ -1,3 +1,10 @@
+# [4.13.0](https://github.com/dhis2/ui-core/compare/v4.12.0...v4.13.0) (2020-03-02)
+
+
+### Features
+
+* add tag component ([4e068dc](https://github.com/dhis2/ui-core/commit/4e068dcd619cf0a370fd14e7a4a7058122ba96b5))
+
 # [4.12.0](https://github.com/dhis2/ui-core/compare/v4.11.1...v4.12.0) (2020-02-21)
 
 
