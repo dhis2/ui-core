@@ -1,0 +1,38 @@
+{
+    "name": "@dhis2/ui-core",
+    "description": "Component primitives for DHIS2 user interfaces",
+    "version": "5.0.0",
+    "main": "build/cjs/lib.js",
+    "module": "build/es/lib.js",
+    "sideEffects": false,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dhis2/ui-core.git"
+    },
+    "author": "Viktor Varland <viktor@dhis2.org>",
+    "license": "BSD-3-Clause",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "cy:open": "d2-utils-cypress open",
+        "cy:run": "d2-utils-cypress run",
+        "build": "d2-app-scripts build",
+        "test": "d2-app-scripts test"
+    },
+    "peerDependencies": {
+        "react": "^16.8",
+        "react-dom": "^16.8",
+        "styled-jsx": "^3.2"
+    },
+    "dependencies": {
+        "@dhis2/prop-types": "^1.5.0",
+        "@popperjs/core": "^2.0.6",
+        "classnames": "^2.2.6"
+    },
+    "files": [
+        "build",
+        "docs"
+    ]
+}

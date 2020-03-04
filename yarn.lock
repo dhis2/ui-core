@@ -1599,14 +1599,6 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-core@^4.6.1":
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.6.1.tgz#62677590b3b32322dfa014b006e6226b637f0162"
-  integrity sha512-85ubddhmSRjDFPZqtSoTOZiPnfzHU1CyFyTXYmar/3lr8zl4mzY7aKScsEsTtJRWpN8ie86LWRqdGpbrV98VcQ==
-  dependencies:
-    "@dhis2/prop-types" "^1.5.0"
-    classnames "^2.2.6"
-
 "@dhis2/ui-widgets@^2.0.4":
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-2.0.7.tgz#4272265e0c347b0c213a15a2e0284a4b1ebb5643"
@@ -2100,7 +2092,7 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/components@5.3.14", "@storybook/components@^5.2.5", "@storybook/components@^5.3.14":
+"@storybook/components@5.3.14", "@storybook/components@^5.2.5", "@storybook/components@^5.3.13", "@storybook/components@^5.3.14":
   version "5.3.14"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-5.3.14.tgz#0f2f90113674e14ee74d5d16d6b3b1220cb0fa16"
   integrity sha512-AsjkIFBrrqcBDLxGdmUHiauZo5gOL65eXx8WA7/yJDF8s45VVZX5Z0buOnjFyEhGVus02gwTov8da2irjL862A==
@@ -2242,7 +2234,7 @@
     react-docgen-typescript-loader "^3.6.0"
     semver "^7.1.1"
 
-"@storybook/react@^5.3.14":
+"@storybook/react@^5.3.13", "@storybook/react@^5.3.14":
   version "5.3.14"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-5.3.14.tgz#6715d9ee64e1c7b5c1e45cdbbf6df809bad60b8c"
   integrity sha512-8n0oCkaxFMrimngxnISEQFkHGSF5z65Lh1XPypjIndIJ0b/IVWRJcUEh3M3xOaydFatEG+lfQbF/5OznyYEefA==
@@ -10126,7 +10118,7 @@ jest-worker@^24.6.0, jest-worker@^24.9.0:
     merge-stream "^2.0.0"
     supports-color "^6.1.0"
 
-jest@24.9.0, jest@^24.9.0:
+jest@24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-24.9.0.tgz#987d290c05a08b52c56188c1002e368edb007171"
   integrity sha512-YvkBL1Zm7d2B1+h5fHEOdyjCG+sGMz4f8D86/0HiqJ6MB4MnDc8FgP5vdWsGnemOQro7lnYo8UakZ3+5A0jxGw==

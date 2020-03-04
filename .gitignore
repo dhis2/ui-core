@@ -4,14 +4,14 @@
 /.vscode
 
 # dependencies
-/node_modules
+node_modules/
 
 # testing
 /coverage
 
 # production
-/build
-/dist
+build/
+dist/
 
 # misc
 .DS_Store
@@ -30,3 +30,6 @@ bundle.stats.json
 cypress/screenshots
 cypress/videos
 cypress.env.json
+
+# d2
+.d2/
