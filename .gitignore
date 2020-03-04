@@ -33,3 +33,4 @@ cypress.env.json
 
 # d2
 .d2/
+locales/

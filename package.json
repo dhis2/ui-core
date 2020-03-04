@@ -19,9 +19,11 @@
         "build": "concurrently -n w: \"yarn build:*\" --kill-others",
         "build:core": "yarn workspace @dhis2/ui-core build",
         "build:ui": "yarn workspace @dhis2/ui build",
+        "build:widgets": "yarn workspace @dhis2/ui-widgets build",
         "cy:server": "STORYBOOK_TESTING=1 yarn start",
-        "cy:run": "d2-utils-cypress run",
+        "cy:run": "concurrently --kill-others --success --first -n cy:server,cy:run 'yarn cy:server' 'wait-on http-get://localhost:5000 && d2-utils-cypress run'",
         "cy:run:core": "yarn workspace @dhis2/ui-core cy:run",
+        "cy:run:widgets": "yarn workspace @dhis2/ui-widgets cy:run",
         "format": "yarn format:js && yarn format:text",
         "format:staged": "yarn format:js --staged && yarn format:text --staged",
         "format:js": "d2-style js apply",
@@ -32,7 +34,8 @@
         "start": "concurrently -n w: \"yarn:watch:*\" --kill-others",
         "test": "d2-app-scripts test",
         "watch:storybook": "yarn workspace storybook start --quiet --ci",
-        "watch:core": "yarn build:core --watch --dev"
+        "watch:core": "yarn build:core --watch --dev",
+        "watch:widgets": "yarn build:widgets --watch --dev"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^3.2.5",
@@ -52,8 +55,6 @@
         "react-dev-utils": "^10.2.0",
         "react-docgen": "^5.3.0",
         "react-dom": "16.8",
-        "storybook-addon-jsx": "^7.1.14",
-        "storybook-addon-react-docgen": "^1.2.28",
         "styled-jsx": "^3.2.4",
         "typeface-roboto": "^0.0.75",
         "wait-on": "^4.0.1"
