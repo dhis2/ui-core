@@ -66,6 +66,8 @@ export { SingleSelectOption } from './SingleSelectOption.js'
 export { MultiSelect } from './MultiSelect.js'
 export { MultiSelectField } from './MultiSelectField.js'
 export { MultiSelectOption } from './MultiSelectOption.js'
+export { Transfer } from './Transfer.js'
+export { TransferOption } from './TransferOption.js'
 
 /* table */
 export { TableBody } from './TableBody.js'
