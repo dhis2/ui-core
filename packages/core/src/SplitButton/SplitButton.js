@@ -2,12 +2,12 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-import { Button } from './Button/Button.js'
-import { DropMenu } from './DropMenu.js'
-import { ArrowDown, ArrowUp } from './icons/Arrow.js'
+import { Button } from '../Button/Button.js'
+import { DropMenu } from '../DropMenu.js'
+import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
 
-import { spacers } from './theme.js'
-import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
+import { spacers } from '../theme.js'
+import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
 
 const rightButton = css.resolve`
     button {

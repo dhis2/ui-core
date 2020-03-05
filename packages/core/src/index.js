@@ -15,7 +15,6 @@ export { CssReset } from './CssReset.js'
 export { CssVariables } from './CssVariables.js'
 
 /* refactored */
-
 /* core */
 export { Box } from './Box/Box.js'
 export { Button } from './Button/Button.js'
@@ -33,6 +32,7 @@ export { TextArea } from './TextArea/TextArea.js'
 
 /* widgets */
 export { DropdownButton } from './DropdownButton/DropdownButton.js'
+export { SplitButton } from './SplitButton/SplitButton.js'
 
 /* todo */
 export { AlertBar } from './AlertBar.js'
@@ -98,7 +98,6 @@ export { Modal } from './Modal.js'
 export { ModalActions } from './ModalActions.js'
 export { ModalContent } from './ModalContent.js'
 export { ModalTitle } from './ModalTitle.js'
-export { SplitButton } from './SplitButton.js'
 export { Tab } from './Tab.js'
 export { TabBar } from './TabBar.js'
 

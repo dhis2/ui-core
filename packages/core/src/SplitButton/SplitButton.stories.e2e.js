@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { SplitButton } from '../index.js'
+import { SplitButton } from './SplitButton.js'
 
 window.onClick = window.Cypress.cy.stub()
 

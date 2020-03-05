@@ -55,7 +55,7 @@ export const Large = () => (
     </Button>
 )
 
-export const Focus = () => (
+export const InitialFocus = () => (
     <Button initialFocus name="Focused button" value="default" onClick={logger}>
         Label me!
     </Button>

@@ -68,3 +68,9 @@ export const WithMenu = () => (
         Label me!
     </DropdownButton>
 )
+
+export const InitialFocus = () => (
+    <DropdownButton name="default" value="nothing" initialFocus>
+        Label me!
+    </DropdownButton>
+)
