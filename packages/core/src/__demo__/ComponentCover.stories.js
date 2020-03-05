@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { CircularLoader, ComponentCover, Card } from '../index.js'
 
-storiesOf('ComponentCover', module)
+storiesOf('Utility/ComponentCover', module)
     .add('CircularLoader', () => (
         <div style={{ width: '400px', height: '400px' }}>
             <ComponentCover>
