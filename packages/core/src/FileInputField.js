@@ -5,8 +5,8 @@ import { statusPropType, sizePropType } from './common-prop-types.js'
 import { FileInput } from './FileInput.js'
 import { FileList } from './FileList.js'
 import { FileListPlaceholder } from './FileListPlaceholder.js'
-import { Field } from './Field.js'
-import { Label } from './Label.js'
+import { Field } from './Field/Field.js'
+import { Label } from './Label/Label.js'
 import { Help } from './Help.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 

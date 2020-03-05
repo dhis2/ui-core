@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import propTypes from '@dhis2/prop-types'
 import { resolve } from 'styled-jsx/css'
-import { Card } from '../Card.js'
+import { Card } from '../Card/Card.js'
 import { layers } from '../theme.js'
 import { Backdrop } from '../Backdrop.js'
 

@@ -3,7 +3,7 @@ import React from 'react'
 import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 
-import { Card } from '../Card.js'
+import { Card } from '../Card/Card.js'
 import { insideAlignmentPropType } from '../common-prop-types.js'
 import { sizePropType } from '../common-prop-types.js'
 import { spacersNum } from '../theme.js'
