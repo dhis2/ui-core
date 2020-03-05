@@ -19,6 +19,7 @@ export { Constrictor } from './Constrictor.js'
 
 /* core */
 export { Button } from './Button/Button.js'
+export { Card } from './Card/Card.js'
 export { Chip } from './Chip/Chip.js'
 export { Field } from './Field/Field.js'
 export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from './Logo/Logo.js'
@@ -30,7 +31,6 @@ export { DropdownButton } from './DropdownButton/DropdownButton.js'
 /* todo */
 export { AlertBar } from './AlertBar.js'
 export { AlertStack } from './AlertStack.js'
-export { Card } from './Card.js'
 export { Checkbox } from './Checkbox.js'
 export { CheckboxField } from './CheckboxField.js'
 export { CheckboxGroup } from './CheckboxGroup.js'
