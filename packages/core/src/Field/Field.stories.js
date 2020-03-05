@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Field, InputField, Help } from '../index.js'
+import { InputField, Help } from '../index.js'
+import { Field } from './Field.js'
 
 storiesOf('Field', module).add('Default', () => (
     <>
