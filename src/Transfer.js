@@ -219,9 +219,9 @@ Transfer.defaultProps = {
 }
 
 Transfer.propTypes = {
-    children: propTypes.node.isRequired,
     onChange: propTypes.func.isRequired,
 
+    children: propTypes.node,
     className: propTypes.string,
     dataTest: propTypes.string,
     disabled: propTypes.bool,
