@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 
-import { Radio } from '../index.js'
+import { Radio } from './Radio.js'
 
 window.onChange = (payload, event) => {
     console.log('onChange payload', payload)
@@ -22,7 +22,7 @@ const onChange = (...args) => window.onChange(...args)
 const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
-storiesOf('Radio', module)
+storiesOf('Atom/Radio', module)
     // Regular
     .add('Default', () => (
         <Radio

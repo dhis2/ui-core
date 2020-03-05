@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Radio } from '../index.js'
+import { Radio } from './Radio.js'
 
 window.onChange = window.Cypress.cy.stub()
 window.onBlur = window.Cypress.cy.stub()
