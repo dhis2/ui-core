@@ -13,11 +13,11 @@
 /* global */
 export { CssReset } from './CssReset.js'
 export { CssVariables } from './CssVariables.js'
-export { Constrictor } from './Constrictor.js'
 
 /* refactored */
 
 /* core */
+export { Box } from './Box/Box.js'
 export { Button } from './Button/Button.js'
 export { Card } from './Card/Card.js'
 export { Checkbox } from './Checkbox/Checkbox.js'

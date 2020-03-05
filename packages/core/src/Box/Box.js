@@ -4,15 +4,14 @@ import React from 'react'
 /**
  * @module
  *
- * @param {Constrictor.PropTypes} props
+ * @param {Box.PropTypes} props
  * @returns {React.Component}
- *
- * @desc con·stric·tor | \kən-ˈstrik-tər\
- * 1: a muscle that contracts a cavity or orifice or compresses an organ
- * 2: a snake (such as a boa constrictor) that coils around and compresses prey
- * 3: one that constricts
  */
-export const Constrictor = ({
+export const Box = ({
+    overflow,
+    height,
+    minHeight,
+    maxHeight,
     width,
     minWidth,
     maxWidth,
@@ -23,31 +22,42 @@ export const Constrictor = ({
         {children}
         <style jsx>{`
             div {
+                ${height ? `height: ${height};` : ''}
+                ${minHeight ? `min-height: ${minHeight};` : ''}
+                ${maxHeight ? `max-height: ${maxHeight};` : ''}
                 ${width ? `width: ${width};` : ''}
                 ${minWidth ? `min-width: ${minWidth};` : ''}
                 ${maxWidth ? `max-width: ${maxWidth};` : ''}
+                ${overflow ? `overflow: ${overflow};` : ''}
             }
         `}</style>
     </div>
 )
 
-Constrictor.defaultProps = {
-    dataTest: 'dhis2-uicore-constrictor',
+Box.defaultProps = {
+    dataTest: 'dhis2-uicore-box',
 }
 
 /**
  * @typedef {Object} PropTypes
  * @static
  *
+ * @prop {string} [height]
+ * @prop {string} [minHeight]
+ * @prop {string} [maxHeight]
  * @prop {string} [width]
  * @prop {string} [minWidth]
  * @prop {string} [maxWidth]
  * @prop {string} [dataTest]
  */
-Constrictor.propTypes = {
+Box.propTypes = {
     children: propTypes.node,
     dataTest: propTypes.string,
+    height: propTypes.string,
+    maxHeight: propTypes.string,
     maxWidth: propTypes.string,
+    minHeight: propTypes.string,
     minWidth: propTypes.string,
+    overflow: propTypes.string,
     width: propTypes.string,
 }

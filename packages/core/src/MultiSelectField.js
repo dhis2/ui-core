@@ -6,7 +6,7 @@ import { Field } from './Field/Field.js'
 import { Label } from './Label/Label.js'
 import { Help } from './Help/Help.js'
 import { MultiSelect } from './MultiSelect.js'
-import { Constrictor } from './Constrictor.js'
+import { Box } from './Box/Box.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -64,7 +64,7 @@ class MultiSelectField extends React.Component {
                     </Label>
                 )}
 
-                <Constrictor width={inputWidth} minWidth="100px">
+                <Box width={inputWidth} minWidth="100px">
                     <MultiSelect
                         selected={selected}
                         tabIndex={tabIndex}
@@ -92,7 +92,7 @@ class MultiSelectField extends React.Component {
                     >
                         {children}
                     </MultiSelect>
-                </Constrictor>
+                </Box>
 
                 {helpText && (
                     <Help dataTest={`${dataTest}-help`}>{helpText}</Help>
