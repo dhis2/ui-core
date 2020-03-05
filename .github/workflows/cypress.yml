@@ -21,8 +21,8 @@ jobs:
               with:
                   record: true
                   parallel: true
-                  start: 'yarn start:testing'
-                  wait-on: 'http://localhost:5001'
+                  start: 'yarn cy:server'
+                  wait-on: 'http://localhost:5000'
                   wait-on-timeout: 120
                   group: 'e2e'
               env:
