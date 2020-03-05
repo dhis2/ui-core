@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Label } from '../index.js'
+import { Label } from './Label.js'
 
 storiesOf('Label', module)
     .add('With children', () => <Label>I am a child</Label>)
