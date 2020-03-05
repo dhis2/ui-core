@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
 import { statusPropType, sizePropType } from './common-prop-types.js'
-import { Button } from './Button.js'
+import { Button } from './Button/Button.js'
 import { spacers } from './theme.js'
 import { Upload } from './icons/Upload.js'
 import { StatusIcon } from './icons/Status.js'

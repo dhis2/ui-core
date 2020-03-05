@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Button } from '../index.js'
+import Button from './Button.js'
 
 window.onClick = window.Cypress.cy.stub()
 window.onBlur = window.Cypress.cy.stub()

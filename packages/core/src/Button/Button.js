@@ -2,8 +2,8 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component, createRef } from 'react'
 
-import { buttonVariantPropType, sizePropType } from './common-prop-types.js'
-import styles from './Button/styles.js'
+import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
+import styles from './Button.styles.js'
 
 /**
  * @module
@@ -153,3 +153,5 @@ Button.propTypes = {
     onClick: propTypes.func,
     onFocus: propTypes.func,
 }
+
+export default Button

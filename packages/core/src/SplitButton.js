@@ -2,7 +2,7 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-import { Button } from './Button.js'
+import { Button } from './Button/Button.js'
 import { DropMenu } from './DropMenu.js'
 import { ArrowDown, ArrowUp } from './icons/Arrow.js'
 
