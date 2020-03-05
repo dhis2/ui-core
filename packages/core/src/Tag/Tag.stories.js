@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Tag } from '../Tag.js'
+import { Tag } from './Tag.js'
 
-export default { title: 'Tag', component: Tag }
+export default { title: 'Atoms/Tag', component: Tag }
 
 export const Default = () => <Tag>Dog</Tag>
 

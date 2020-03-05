@@ -61,7 +61,6 @@ export { Switch } from './Switch.js'
 export { SwitchField } from './SwitchField.js'
 export { SwitchGroup } from './SwitchGroup.js'
 export { SwitchGroupField } from './SwitchGroupField.js'
-export { Tag } from './Tag.js'
 export { TextArea } from './TextArea.js'
 export { TextAreaField } from './TextAreaField.js'
 

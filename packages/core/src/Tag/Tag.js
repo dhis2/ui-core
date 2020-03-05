@@ -2,9 +2,9 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { TagIcon } from './Tag/TagIcon.js'
-import { TagText } from './Tag/TagText.js'
-import { colors } from './theme.js'
+import { TagIcon } from './TagIcon.js'
+import { TagText } from './TagText.js'
+import { colors } from '../theme.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -15,7 +15,6 @@ import { colors } from './theme.js'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/tag.md|Design system}
  * @see Live demo: {@link /demo/?path=/story/tag--default|Storybook}
  */
-
 export const Tag = ({
     neutral,
     negative,
