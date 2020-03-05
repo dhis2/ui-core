@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { DropdownButton, Menu, MenuItem, Divider, Switch } from '../index.js'
+import { DropdownButton } from './DropdownButton.js'
+import { Menu, MenuItem, Divider, Switch } from '../index.js'
 
 window.onClick = (payload, event) => {
     console.log('onClick payload', payload)
@@ -106,7 +107,7 @@ createStory('DropdownButton: Destructive', {
 })
 
 function createStory(name, props) {
-    storiesOf(name, module)
+    storiesOf('Molecules/' + name, module)
         .add('Default', () => (
             <DropdownButton {...props}>Label me!</DropdownButton>
         ))

@@ -92,9 +92,7 @@ export { StackedTableHead } from './StackedTableHead.js'
 export { StackedTableRow } from './StackedTableRow.js'
 export { StackedTableRowHead } from './StackedTableRowHead.js'
 
-/* molecules */
 export { ButtonStrip } from './ButtonStrip.js'
-export { DropdownButton } from './DropdownButton.js'
 export { Menu } from './Menu.js'
 export { Node } from './Node.js'
 export { Modal } from './Modal.js'
