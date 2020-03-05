@@ -9,7 +9,7 @@ const Background = ({ children }) => (
     <div style={{ backgroundColor: '#276696' }}>{children}</div>
 )
 
-storiesOf('Logo', module)
+storiesOf('Atom/Logo', module)
     .addDecorator(Wrapper)
 
     .add('Logo', () => <Logo />)
