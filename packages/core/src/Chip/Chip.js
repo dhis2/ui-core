@@ -2,10 +2,10 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { colors, theme, spacers } from './theme.js'
-import { Content } from './Chip/Content.js'
-import { Icon } from './Chip/Icon.js'
-import { Remove } from './Chip/Remove.js'
+import { colors, theme, spacers } from '../theme.js'
+import { Content } from './Content.js'
+import { Icon } from './Icon.js'
+import { Remove } from './Remove.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
@@ -129,3 +129,4 @@ Chip.propTypes = {
 }
 
 export { Chip }
+export default Chip

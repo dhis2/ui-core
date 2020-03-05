@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Chip } from '../index.js'
+import Chip from './Chip.js'
 
 window.onClick = (payload, event) => {
     console.log('onClick payload', payload)
@@ -15,7 +15,7 @@ window.onRemove = (payload, event) => {
 const onClick = (...args) => window.onClick(...args)
 const onRemove = (...args) => window.onRemove(...args)
 
-storiesOf('Chip', module)
+storiesOf('Atoms/Chip', module)
     .add('Default', () => <Chip onClick={onClick}>Chippy</Chip>)
 
     .add('Selected', () => (
