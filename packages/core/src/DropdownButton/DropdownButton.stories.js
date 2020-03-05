@@ -1,7 +1,10 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { DropdownButton } from './DropdownButton.js'
-import { Menu, MenuItem, Divider, Switch } from '../index.js'
+
+export default {
+    title: 'Molecule/DropdownButton',
+    component: DropdownButton,
+}
 
 window.onClick = (payload, event) => {
     console.log('onClick payload', payload)
@@ -10,133 +13,58 @@ window.onClick = (payload, event) => {
 
 const onClick = (...args) => window.onClick(...args)
 
-const componentMenu = (
-    <Menu>
-        <MenuItem
-            label={
-                <Switch
-                    label="Yahoo"
-                    name="radio"
-                    value="something"
-                    onChange={() => {}}
-                />
-            }
-        />
-        <Divider />
-        <MenuItem
-            label="Three"
-            value="three"
-            onClick={val => {
-                alert(`this is ${val}`)
-            }}
-        />
-    </Menu>
-)
-
-const menu = (
-    <Menu>
-        <MenuItem label="One" value="one">
-            <Menu>
-                <MenuItem label="Sub One" value="subone">
-                    <Menu>
-                        <MenuItem label="Sub One-One" value="suboneone">
-                            <Menu>
-                                <MenuItem
-                                    label="Sub One-One-One"
-                                    value="suboneoneone"
-                                    onClick={val => {
-                                        alert(`this is ${val}`)
-                                    }}
-                                />
-                            </Menu>
-                        </MenuItem>
-                    </Menu>
-                </MenuItem>
-            </Menu>
-        </MenuItem>
-
-        <Divider />
-        <MenuItem
-            label="Two"
-            value="two"
-            onClick={val => {
-                alert(`this is ${val}`)
-            }}
-        />
-        <MenuItem
-            label="Three"
-            value="three"
-            onClick={val => {
-                alert(`this is ${val}`)
-            }}
-        />
-    </Menu>
-)
-
 const Simple = <span>Simplest thing</span>
 
-createStory('DropdownButton: Basic', {
-    name: 'Button',
-    value: 'default',
-    component: Simple,
-    onClick,
-})
+export const Default = () => (
+    <DropdownButton name="default" value="nothing">
+        Label me!
+    </DropdownButton>
+)
 
-createStory('DropdownButton: Primary', {
-    name: 'Button',
-    value: 'default',
-    primary: true,
-    component: Simple,
-    onClick,
-})
+export const WithClick = () => (
+    <DropdownButton name="default" value="nothing" onClick={onClick}>
+        Label me!
+    </DropdownButton>
+)
 
-createStory('DropdownButton: Secondary', {
-    name: 'Button',
-    value: 'default',
-    secondary: true,
-    component: Simple,
-    onClick,
-})
+export const Primary = () => (
+    <DropdownButton name="default" value="nothing" primary>
+        Label me!
+    </DropdownButton>
+)
 
-createStory('DropdownButton: Destructive', {
-    name: 'Button',
-    value: 'default',
-    destructive: true,
-    component: Simple,
-    onClick,
-})
+export const Secondary = () => (
+    <DropdownButton name="default" value="nothing" secondary>
+        Label me!
+    </DropdownButton>
+)
 
-function createStory(name, props) {
-    storiesOf('Molecule/' + name, module)
-        .add('Default', () => (
-            <DropdownButton {...props}>Label me!</DropdownButton>
-        ))
+export const Destructive = () => (
+    <DropdownButton name="default" value="nothing" destructive>
+        Label me!
+    </DropdownButton>
+)
 
-        .add('Disabled', () => (
-            <DropdownButton {...props} disabled>
-                Label me!
-            </DropdownButton>
-        ))
+export const Disabled = () => (
+    <DropdownButton name="default" value="nothing" disabled>
+        Label me!
+    </DropdownButton>
+)
 
-        .add('Small', () => (
-            <DropdownButton {...props} small>
-                Label me!
-            </DropdownButton>
-        ))
+export const Small = () => (
+    <DropdownButton name="default" value="nothing" small>
+        Label me!
+    </DropdownButton>
+)
 
-        .add('Large', () => (
-            <DropdownButton {...props} large>
-                Label me!
-            </DropdownButton>
-        ))
+export const Large = () => (
+    <DropdownButton name="default" value="nothing" large>
+        Label me!
+    </DropdownButton>
+)
 
-        .add('With Menu', () => (
-            <DropdownButton component={menu}>Drop it with menu!</DropdownButton>
-        ))
-
-        .add('With Radio component in menu', () => (
-            <DropdownButton component={componentMenu}>
-                Drop it with menu!
-            </DropdownButton>
-        ))
-}
+export const WithMenu = () => (
+    <DropdownButton name="default" value="nothing" component={Simple}>
+        Label me!
+    </DropdownButton>
+)
