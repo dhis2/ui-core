@@ -19,7 +19,7 @@
         "build": "concurrently -n w: \"yarn:build:*\"",
         "build:core": "yarn workspace @dhis2/ui-core build",
         "build:docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./packages/**/src --jsdoc-output-file api.md",
-        "build:demo": "yarn workspace storybook build -o ../dist/demo",
+        "build:demo": "yarn workspace storybook build -o ../dist/demo --quiet",
         "build:ui": "yarn workspace @dhis2/ui build",
         "build:widgets": "yarn workspace @dhis2/ui-widgets build",
         "cy:server": "STORYBOOK_TESTING=1 yarn start",
