@@ -11,7 +11,6 @@ import { LogoIconSvg } from './LogoIconSvg'
 
 /**
  * @module
- * @deprecated
  * @param {Logo.PropTypes} props
  * @returns {React.Component}
  */
