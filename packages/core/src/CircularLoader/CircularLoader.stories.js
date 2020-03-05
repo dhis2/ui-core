@@ -2,7 +2,7 @@ import React from 'react'
 import { CircularLoader } from './CircularLoader.js'
 
 export default {
-    title: 'Atom/CircularLoader',
+    title: 'Component/Core/CircularLoader',
     component: CircularLoader,
 }
 

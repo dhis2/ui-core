@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Help } from './Help.js'
 
-storiesOf('Atom/Help', module)
+storiesOf('Component/Core/Help', module)
     .add('Default', () => <Help>Allow me to be of assistance</Help>)
 
     .add('Status: Warning', () => (

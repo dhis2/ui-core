@@ -120,7 +120,7 @@ const customLogo = {
     },
 }
 
-storiesOf('Organism/HeaderBar', module)
+storiesOf('Component/Connected/HeaderBar', module)
     .add('Default', () => (
         <CustomDataProvider data={customData}>
             <HeaderBar appName="Example!" />

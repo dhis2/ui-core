@@ -31,17 +31,17 @@ export { Radio } from './Radio/Radio.js'
 export { Switch } from './Switch/Switch.js'
 export { Tag } from './Tag/Tag.js'
 export { TextArea } from './TextArea/TextArea.js'
+export { ToggleGroup } from './ToggleGroup/ToggleGroup.js'
 
 /* widgets */
 export { DropdownButton } from './DropdownButton/DropdownButton.js'
 export { SplitButton } from './SplitButton/SplitButton.js'
+export { ToggleGroupField } from './ToggleGroupField/ToggleGroupField.js'
 
 /* todo */
 export { AlertBar } from './AlertBar.js'
 export { AlertStack } from './AlertStack.js'
 export { CheckboxField } from './CheckboxField.js'
-export { CheckboxGroup } from './CheckboxGroup.js'
-export { CheckboxGroupField } from './CheckboxGroupField.js'
 export { ComponentCover } from './ComponentCover.js'
 export { Divider } from './Divider.js'
 export { FieldSet } from './FieldSet.js'
@@ -56,12 +56,8 @@ export { InputField } from './InputField.js'
 export { Legend } from './Legend.js'
 export { MenuItem } from './MenuItem.js'
 export { MenuList } from './MenuList.js'
-export { RadioGroup } from './RadioGroup.js'
-export { RadioGroupField } from './RadioGroupField.js'
 export { ScreenCover } from './ScreenCover.js'
 export { SwitchField } from './SwitchField.js'
-export { SwitchGroup } from './SwitchGroup.js'
-export { SwitchGroupField } from './SwitchGroupField.js'
 export { TextAreaField } from './TextAreaField.js'
 
 /* Select */

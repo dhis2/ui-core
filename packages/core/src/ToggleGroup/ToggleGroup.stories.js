@@ -1,27 +1,42 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 
-import { Checkbox, CheckboxGroup } from '../index.js'
+import { ToggleGroup } from './ToggleGroup.js'
+import { Checkbox, Radio, Switch } from '../index.js'
 
 const logger = ({ name, value, checked }) =>
     console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
 
-storiesOf('CheckboxGroup', module)
+storiesOf('Component/Core/ToggleGroup', module)
     .add('Default', () => (
-        <CheckboxGroup
-            onChange={logger}
-            name="test"
-            value={['second', 'fourth']}
-        >
+        <ToggleGroup onChange={logger} name="test" value={['second', 'fourth']}>
             <Checkbox value="first" label="First" />
             <Checkbox value="second" label="Second" />
             <Checkbox value="third" label="Third" />
             <Checkbox value="fourth" label="Fourth" />
-        </CheckboxGroup>
+        </ToggleGroup>
+    ))
+
+    .add('With Radio', () => (
+        <ToggleGroup onChange={logger} name="test" value="second">
+            <Radio value="first" label="First" />
+            <Radio value="second" label="Second" />
+            <Radio value="third" label="Third" />
+            <Radio value="fourth" label="Fourth" />
+        </ToggleGroup>
+    ))
+
+    .add('With Switch', () => (
+        <ToggleGroup onChange={logger} name="test" value={['second', 'fourth']}>
+            <Switch value="first" label="First" />
+            <Switch value="second" label="Second" />
+            <Switch value="third" label="Third" />
+            <Switch value="fourth" label="Fourth" />
+        </ToggleGroup>
     ))
 
     .add('Disabled', () => (
-        <CheckboxGroup
+        <ToggleGroup
             onChange={logger}
             name="test"
             value={['second', 'fourth']}
@@ -31,11 +46,11 @@ storiesOf('CheckboxGroup', module)
             <Checkbox value="second" label="Second" />
             <Checkbox value="third" label="Third" />
             <Checkbox value="fourth" label="Fourth" />
-        </CheckboxGroup>
+        </ToggleGroup>
     ))
 
     .add('Valid', () => (
-        <CheckboxGroup
+        <ToggleGroup
             onChange={logger}
             name="test"
             value={['second', 'fourth']}
@@ -45,11 +60,11 @@ storiesOf('CheckboxGroup', module)
             <Checkbox value="second" label="Second" />
             <Checkbox value="third" label="Third" />
             <Checkbox value="fourth" label="Fourth" />
-        </CheckboxGroup>
+        </ToggleGroup>
     ))
 
     .add('Warning', () => (
-        <CheckboxGroup
+        <ToggleGroup
             onChange={logger}
             name="test"
             value={['second', 'fourth']}
@@ -59,11 +74,11 @@ storiesOf('CheckboxGroup', module)
             <Checkbox value="second" label="Second" />
             <Checkbox value="third" label="Third" />
             <Checkbox value="fourth" label="Fourth" />
-        </CheckboxGroup>
+        </ToggleGroup>
     ))
 
     .add('Error', () => (
-        <CheckboxGroup
+        <ToggleGroup
             onChange={logger}
             name="test"
             value={['second', 'fourth']}
@@ -73,5 +88,5 @@ storiesOf('CheckboxGroup', module)
             <Checkbox value="second" label="Second" />
             <Checkbox value="third" label="Third" />
             <Checkbox value="fourth" label="Fourth" />
-        </CheckboxGroup>
+        </ToggleGroup>
     ))

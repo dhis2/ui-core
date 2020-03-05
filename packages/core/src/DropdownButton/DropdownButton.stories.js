@@ -2,7 +2,7 @@ import React from 'react'
 import { DropdownButton } from './DropdownButton.js'
 
 export default {
-    title: 'Molecule/DropdownButton',
+    title: 'Component/Core/DropdownButton',
     component: DropdownButton,
 }
 

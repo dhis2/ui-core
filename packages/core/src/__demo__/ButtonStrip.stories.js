@@ -14,7 +14,7 @@ const Wrapper = fn => (
     </div>
 )
 
-storiesOf('ButtonStrip', module)
+storiesOf('Component/Core/ButtonStrip', module)
     .addDecorator(Wrapper)
     .add('Default', () => (
         <ButtonStrip>

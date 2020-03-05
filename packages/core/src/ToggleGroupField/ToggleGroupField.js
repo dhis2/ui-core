@@ -1,13 +1,22 @@
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { ToggleGroup } from './ToggleGroup.js'
-import { Field } from './Field/Field.js'
-import { FieldSet } from './FieldSet.js'
-import { Legend } from './Legend.js'
-import { Help } from './Help/Help.js'
-import { statusPropType } from './common-prop-types.js'
+import { ToggleGroup } from '../ToggleGroup/ToggleGroup.js'
+import { Field } from '../Field/Field.js'
+import { FieldSet } from '../FieldSet.js'
+import { Legend } from '../Legend.js'
+import { Help } from '../Help/Help.js'
+import { statusPropType } from '../common-prop-types.js'
 
+/**
+ * @module
+ * @param {ToggleGroupField.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { ToggleGroupField } from '@dhis2/ui-core'
+ *
+ * @see Live demo: {@link /demo/?path=/story/togglegroupfield--default|Storybook}
+ */
 const ToggleGroupField = ({
     children,
     value,

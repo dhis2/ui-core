@@ -22,7 +22,7 @@ const onChange = (...args) => window.onChange(...args)
 const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
-storiesOf('Atom/Switch', module)
+storiesOf('Component/Core/Switch', module)
     // Regular
     .add('Default', () => (
         <Switch

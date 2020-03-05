@@ -22,7 +22,7 @@ const onChange = (...args) => window.onChange(...args)
 const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
-storiesOf('Atom/Checkbox', module)
+storiesOf('Component/Core/Checkbox', module)
     // Regular
     .add('Default', () => (
         <Checkbox

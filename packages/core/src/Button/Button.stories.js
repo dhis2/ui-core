@@ -4,7 +4,7 @@ import Button from './Button.js'
 const logger = ({ name, value }) => console.info(`${name}: ${value}`)
 
 export default {
-    title: 'Atom/Button',
+    title: 'Component/Core/Button',
     component: Button,
 }
 

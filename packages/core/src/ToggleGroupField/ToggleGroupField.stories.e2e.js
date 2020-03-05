@@ -1,9 +1,10 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import { Checkbox, CheckboxGroupField } from '../index.js'
+import { ToggleGroupField } from './ToggleGroupField.js'
+import { Checkbox } from '../index.js'
 
-storiesOf('CheckboxGroupField', module).add('With label and required', () => (
-    <CheckboxGroupField
+storiesOf('ToggleGroupField', module).add('With label and required', () => (
+    <ToggleGroupField
         label="I am a required label"
         name="required"
         value={['second', 'third']}
@@ -12,5 +13,5 @@ storiesOf('CheckboxGroupField', module).add('With label and required', () => (
         <Checkbox value="first" label="First" />
         <Checkbox value="second" label="Second" />
         <Checkbox value="third" label="Third" />
-    </CheckboxGroupField>
+    </ToggleGroupField>
 ))

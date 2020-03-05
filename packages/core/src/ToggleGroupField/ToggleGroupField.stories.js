@@ -1,14 +1,15 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 
-import { Checkbox, CheckboxGroupField } from '../index.js'
+import { ToggleGroupField } from './ToggleGroupField.js'
+import { Checkbox, Radio, Switch } from '../index.js'
 
 const logger = ({ name, value, checked }) =>
     console.info(`name: ${name}, value: ${value}, checked: ${checked}`)
 
-storiesOf('CheckboxGroupField', module)
+storiesOf('Component/Widget/ToggleGroupField', module)
     .add('Default', () => (
-        <CheckboxGroupField
+        <ToggleGroupField
             onChange={logger}
             name="default"
             value={['second', 'third']}
@@ -16,12 +17,34 @@ storiesOf('CheckboxGroupField', module)
             <Checkbox value="first" label="First" />
             <Checkbox value="second" label="Second" />
             <Checkbox value="third" label="Third" />
-        </CheckboxGroupField>
+        </ToggleGroupField>
+    ))
+
+    .add('With Radio', () => (
+        <ToggleGroupField onChange={logger} name="test" value="second">
+            <Radio value="first" label="First" />
+            <Radio value="second" label="Second" />
+            <Radio value="third" label="Third" />
+            <Radio value="fourth" label="Fourth" />
+        </ToggleGroupField>
+    ))
+
+    .add('With Switch', () => (
+        <ToggleGroupField
+            onChange={logger}
+            name="test"
+            value={['second', 'fourth']}
+        >
+            <Switch value="first" label="First" />
+            <Switch value="second" label="Second" />
+            <Switch value="third" label="Third" />
+            <Switch value="fourth" label="Fourth" />
+        </ToggleGroupField>
     ))
 
     .add('With label', () => (
         <>
-            <CheckboxGroupField
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="default"
@@ -30,8 +53,8 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
-            <CheckboxGroupField
+            </ToggleGroupField>
+            <ToggleGroupField
                 label="I am a required label"
                 onChange={logger}
                 name="required"
@@ -41,12 +64,12 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
+            </ToggleGroupField>
         </>
     ))
 
     .add('Dense', () => (
-        <CheckboxGroupField
+        <ToggleGroupField
             label="I am a label"
             onChange={logger}
             name="default"
@@ -56,12 +79,12 @@ storiesOf('CheckboxGroupField', module)
             <Checkbox value="first" label="First" />
             <Checkbox value="second" label="Second" />
             <Checkbox value="third" label="Third" />
-        </CheckboxGroupField>
+        </ToggleGroupField>
     ))
 
     .add('States', () => (
         <>
-            <CheckboxGroupField
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="default"
@@ -70,8 +93,8 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
-            <CheckboxGroupField
+            </ToggleGroupField>
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="disabled"
@@ -81,8 +104,8 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
-            <CheckboxGroupField
+            </ToggleGroupField>
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="valid"
@@ -92,8 +115,8 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
-            <CheckboxGroupField
+            </ToggleGroupField>
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="warning"
@@ -103,8 +126,8 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
-            <CheckboxGroupField
+            </ToggleGroupField>
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="error"
@@ -114,13 +137,13 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
+            </ToggleGroupField>
         </>
     ))
 
     .add('Help and validation texts', () => (
         <>
-            <CheckboxGroupField
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="default"
@@ -130,8 +153,8 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
-            <CheckboxGroupField
+            </ToggleGroupField>
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="disabled"
@@ -142,8 +165,8 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
-            <CheckboxGroupField
+            </ToggleGroupField>
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="valid"
@@ -154,8 +177,8 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
-            <CheckboxGroupField
+            </ToggleGroupField>
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="warning"
@@ -166,8 +189,8 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
-            <CheckboxGroupField
+            </ToggleGroupField>
+            <ToggleGroupField
                 label="I am a label"
                 onChange={logger}
                 name="error"
@@ -178,6 +201,6 @@ storiesOf('CheckboxGroupField', module)
                 <Checkbox value="first" label="First" />
                 <Checkbox value="second" label="Second" />
                 <Checkbox value="third" label="Third" />
-            </CheckboxGroupField>
+            </ToggleGroupField>
         </>
     ))

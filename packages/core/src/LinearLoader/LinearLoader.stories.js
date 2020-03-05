@@ -3,7 +3,7 @@ import { LinearLoader } from './LinearLoader.js'
 import { ScreenCover, ComponentCover } from '../index.js'
 
 export default {
-    title: 'Atom/LinearLoader',
+    title: 'Component/Core/LinearLoader',
     component: LinearLoader,
 }
 

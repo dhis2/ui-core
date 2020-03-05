@@ -21,7 +21,7 @@ const onChange = (...args) => window.onChange(...args)
 const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
-storiesOf('Atom/TextArea', module)
+storiesOf('Component/Core/TextArea', module)
     .add('Default', () => (
         <TextArea
             onChange={onChange}

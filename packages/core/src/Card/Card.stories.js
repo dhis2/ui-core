@@ -6,6 +6,6 @@ const Wrapper = fn => (
     <div style={{ width: '358px', height: '358px' }}>{fn()}</div>
 )
 
-storiesOf('Atom/Card', module)
+storiesOf('Component/Core/Card', module)
     .addDecorator(Wrapper)
     .add('Default', () => <Card />)

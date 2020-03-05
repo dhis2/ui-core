@@ -5,7 +5,7 @@ import { CssVariables } from '../index.js'
 // eslint-disable-next-line react/prop-types
 const App = ({ children }) => <div>{children}</div>
 
-storiesOf('CssVariables', module).add('Default', () => (
+storiesOf('Utility/CssVariables', module).add('Default', () => (
     <App>
         <CssVariables />
 

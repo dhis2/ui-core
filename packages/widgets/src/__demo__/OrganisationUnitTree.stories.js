@@ -177,7 +177,7 @@ const ReplaceRoots = ({ delay }) => {
     //)
 }
 
-storiesOf('Organism/OrganisationUnitTree', module)
+storiesOf('Component/Connected/OrganisationUnitTree', module)
     .addDecorator(fn => (
         <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>
     ))
@@ -276,70 +276,79 @@ storiesOf('Organism/OrganisationUnitTree', module)
     .add('Force reload one unit', () => <ForceReloadIds delay={2000} />)
     .add('Replace roots', () => <ReplaceRoots delay={1000} />)
 
-storiesOf('Organism/OrganisationUnitTree', module).add('Loading', () => (
-    <CustomDataProvider
-        data={{
-            ...customData,
-            'organisationUnits/A0000000001': () => new Promise(() => null),
-        }}
-    >
-        <OrganisationUnitTree
-            onChange={onChange}
-            name="Root org unit"
-            roots={['A0000000000']}
-            initiallyExpanded={['/A0000000000/A0000000001']}
-        />
-    </CustomDataProvider>
-))
-
-storiesOf('Organism/OrganisationUnitTree', module).add('Root loading', () => (
-    <CustomDataProvider
-        data={{
-            ...customData,
-            'organisationUnits/A0000000000': () => new Promise(() => null),
-        }}
-    >
-        <fieldset style={{ maxWidth: 600 }}>
-            <legend style={{ padding: '0 10px' }}>
-                Custom container (max-width: 600px)
-            </legend>
+storiesOf('Component/Connected/OrganisationUnitTree', module).add(
+    'Loading',
+    () => (
+        <CustomDataProvider
+            data={{
+                ...customData,
+                'organisationUnits/A0000000001': () => new Promise(() => null),
+            }}
+        >
             <OrganisationUnitTree
                 onChange={onChange}
                 name="Root org unit"
                 roots={['A0000000000']}
                 initiallyExpanded={['/A0000000000/A0000000001']}
             />
-        </fieldset>
-    </CustomDataProvider>
-))
+        </CustomDataProvider>
+    )
+)
 
-storiesOf('Organism/OrganisationUnitTree', module).add('Root error', () => (
-    <CustomDataProvider
-        data={{
-            ...customData,
-            'organisationUnits/A0000000000': () =>
-                new Promise((_, reject) =>
-                    reject(
-                        'This is a custom error message, it could be anything'
-                    )
-                ),
-        }}
-    >
-        <fieldset style={{ maxWidth: 600 }}>
-            <legend style={{ padding: '0 10px' }}>
-                Custom container (max-width: 600px)
-            </legend>
-            <OrganisationUnitTree
-                onChange={onChange}
-                name="Root org unit"
-                roots={['A0000000000']}
-                initiallyExpanded={['/A0000000000/A0000000001']}
-            />
-        </fieldset>
-    </CustomDataProvider>
-))
+storiesOf('Component/Connected/OrganisationUnitTree', module).add(
+    'Root loading',
+    () => (
+        <CustomDataProvider
+            data={{
+                ...customData,
+                'organisationUnits/A0000000000': () => new Promise(() => null),
+            }}
+        >
+            <fieldset style={{ maxWidth: 600 }}>
+                <legend style={{ padding: '0 10px' }}>
+                    Custom container (max-width: 600px)
+                </legend>
+                <OrganisationUnitTree
+                    onChange={onChange}
+                    name="Root org unit"
+                    roots={['A0000000000']}
+                    initiallyExpanded={['/A0000000000/A0000000001']}
+                />
+            </fieldset>
+        </CustomDataProvider>
+    )
+)
 
-storiesOf('Organism/OrganisationUnitTree', module).add(
+storiesOf('Component/Connected/OrganisationUnitTree', module).add(
+    'Root error',
+    () => (
+        <CustomDataProvider
+            data={{
+                ...customData,
+                'organisationUnits/A0000000000': () =>
+                    new Promise((_, reject) =>
+                        reject(
+                            'This is a custom error message, it could be anything'
+                        )
+                    ),
+            }}
+        >
+            <fieldset style={{ maxWidth: 600 }}>
+                <legend style={{ padding: '0 10px' }}>
+                    Custom container (max-width: 600px)
+                </legend>
+                <OrganisationUnitTree
+                    onChange={onChange}
+                    name="Root org unit"
+                    roots={['A0000000000']}
+                    initiallyExpanded={['/A0000000000/A0000000001']}
+                />
+            </fieldset>
+        </CustomDataProvider>
+    )
+)
+
+storiesOf('Component/Connected/OrganisationUnitTree', module).add(
     'Loading error grandchild',
     () => (
         <CustomDataProvider
@@ -402,7 +411,7 @@ const Wrapper = props => {
     )
 }
 
-storiesOf('Organism/OrganisationUnitTree', module)
+storiesOf('Component/Connected/OrganisationUnitTree', module)
     .addDecorator(fn => (
         <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>
     ))
@@ -410,7 +419,7 @@ storiesOf('Organism/OrganisationUnitTree', module)
     .add('DX: Single selection', () => <Wrapper singleSelection />)
     .add('DX: No selection', () => <Wrapper disableSelection />)
 
-storiesOf('Organism/OrganisationUnitTree', module)
+storiesOf('Component/Connected/OrganisationUnitTree', module)
     .addDecorator(fn => (
         <DataProvider baseUrl="https://debug.dhis2.org/dev" apiVersion="">
             {fn()}

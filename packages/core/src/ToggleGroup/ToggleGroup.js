@@ -3,9 +3,18 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { Children, cloneElement } from 'react'
 
-import { statusPropType } from './common-prop-types.js'
-import { Spacer } from './ToggleGroup/Spacer.js'
+import { statusPropType } from '../common-prop-types.js'
+import { Spacer } from '../ToggleGroup/Spacer.js'
 
+/**
+ * @module
+ * @param {ToggleGroup.PropTypes} props
+ * @returns {React.Component}
+ *
+ * @example import { ToggleGroup } from '@dhis2/ui-core'
+ *
+ * @see Live demo: {@link /demo/?path=/story/togglegroup--default|Storybook}
+ */
 const ToggleGroup = ({
     children,
     value,
