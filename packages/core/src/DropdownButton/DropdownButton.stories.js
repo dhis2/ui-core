@@ -107,7 +107,7 @@ createStory('DropdownButton: Destructive', {
 })
 
 function createStory(name, props) {
-    storiesOf('Molecules/' + name, module)
+    storiesOf('Molecule/' + name, module)
         .add('Default', () => (
             <DropdownButton {...props}>Label me!</DropdownButton>
         ))

@@ -177,7 +177,7 @@ const ReplaceRoots = ({ delay }) => {
     //)
 }
 
-storiesOf('OrganisationUnitTree', module)
+storiesOf('Organism/OrganisationUnitTree', module)
     .addDecorator(fn => (
         <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>
     ))
@@ -276,7 +276,7 @@ storiesOf('OrganisationUnitTree', module)
     .add('Force reload one unit', () => <ForceReloadIds delay={2000} />)
     .add('Replace roots', () => <ReplaceRoots delay={1000} />)
 
-storiesOf('OrganisationUnitTree', module).add('Loading', () => (
+storiesOf('Organism/OrganisationUnitTree', module).add('Loading', () => (
     <CustomDataProvider
         data={{
             ...customData,
@@ -292,7 +292,7 @@ storiesOf('OrganisationUnitTree', module).add('Loading', () => (
     </CustomDataProvider>
 ))
 
-storiesOf('OrganisationUnitTree', module).add('Root loading', () => (
+storiesOf('Organism/OrganisationUnitTree', module).add('Root loading', () => (
     <CustomDataProvider
         data={{
             ...customData,
@@ -313,7 +313,7 @@ storiesOf('OrganisationUnitTree', module).add('Root loading', () => (
     </CustomDataProvider>
 ))
 
-storiesOf('OrganisationUnitTree', module).add('Root error', () => (
+storiesOf('Organism/OrganisationUnitTree', module).add('Root error', () => (
     <CustomDataProvider
         data={{
             ...customData,
@@ -339,7 +339,7 @@ storiesOf('OrganisationUnitTree', module).add('Root error', () => (
     </CustomDataProvider>
 ))
 
-storiesOf('OrganisationUnitTree', module).add(
+storiesOf('Organism/OrganisationUnitTree', module).add(
     'Loading error grandchild',
     () => (
         <CustomDataProvider
@@ -402,7 +402,7 @@ const Wrapper = props => {
     )
 }
 
-storiesOf('OrganisationUnitTree', module)
+storiesOf('Organism/OrganisationUnitTree', module)
     .addDecorator(fn => (
         <CustomDataProvider data={customData}>{fn()}</CustomDataProvider>
     ))
@@ -410,7 +410,7 @@ storiesOf('OrganisationUnitTree', module)
     .add('DX: Single selection', () => <Wrapper singleSelection />)
     .add('DX: No selection', () => <Wrapper disableSelection />)
 
-storiesOf('OrganisationUnitTree', module)
+storiesOf('Organism/OrganisationUnitTree', module)
     .addDecorator(fn => (
         <DataProvider baseUrl="https://debug.dhis2.org/dev" apiVersion="">
             {fn()}
