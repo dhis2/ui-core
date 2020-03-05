@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 
 import { statusPropType } from './common-prop-types.js'
 import { ToggleField } from './ToggleField.js'
-import { Checkbox } from './Checkbox.js'
+import { Checkbox } from './Checkbox/Checkbox.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

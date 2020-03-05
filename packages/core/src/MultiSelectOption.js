@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 import { resolve } from 'styled-jsx/css'
 import { colors, spacers } from './theme.js'
-import { Checkbox } from './Checkbox.js'
+import { Checkbox } from './Checkbox/Checkbox.js'
 
 // Padding has to be set on the label, so that the entire area is clickable
 const { styles, className: checkboxClassname } = resolve`

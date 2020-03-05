@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 
-import { Checkbox } from '../index.js'
+import { Checkbox } from './Checkbox.js'
 
 window.onChange = (payload, event) => {
     console.log('onClick payload', payload)
@@ -22,7 +22,7 @@ const onChange = (...args) => window.onChange(...args)
 const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
-storiesOf('Checkbox', module)
+storiesOf('Atoms/Checkbox', module)
     // Regular
     .add('Default', () => (
         <Checkbox
