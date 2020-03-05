@@ -1,20 +1,43 @@
 Feature: Highlight item in lists
 
-  Scenario Outline: Highlight a single item on mouse click
+  Scenario Outline: The user clicks an item that is not already highlighted
     Given the <type> list has one or more items
-    When an item is clicked
+    When the user clicks an item in the list
     Then it is highlighted
+    And any other highlighted items are no longer highlighted
 
     Examples:
         | type      |
         | option    |
         | selected |
 
-  Scenario Outline: Highlight an item with keyboard
+  Scenario Outline: The user presses enter on a focussed item that is not already highlighted
     Given the <type> list has one or more items
     And an item that has keyboard focus
-    When the Enter key or Space is pressed
+    When the user presses the enter or space key
     Then the focussed item is highlighted
+    And any other highlighted items are no longer highlighted
+
+    Examples:
+        | type      |
+        | option    |
+        | selected |
+
+  Scenario Outline: The user clicks a highlighted item
+    Given the <type> list has one or more items
+    When the user clicks an item in the list that is highlighted
+    Then it is not highlighted
+
+    Examples:
+        | type      |
+        | option    |
+        | selected |
+
+  Scenario Outline: The user presses enter on a focussed highlighted item
+    Given the <type> list has one or more items
+    And an item that has keyboard focus
+    When the user presses the enter or space key on  an item in the list that is highlighted
+    Then the item is not highlighted
 
     Examples:
         | type      |
