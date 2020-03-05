@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 
-import { Switch } from '../index.js'
+import { Switch } from './Switch.js'
 
 window.onChange = (payload, event) => {
     console.log('onClick payload', payload)
@@ -22,7 +22,7 @@ const onChange = (...args) => window.onChange(...args)
 const onFocus = (...args) => window.onFocus(...args)
 const onBlur = (...args) => window.onBlur(...args)
 
-storiesOf('Switch', module)
+storiesOf('Atoms/Switch', module)
     // Regular
     .add('Default', () => (
         <Switch
