@@ -27,6 +27,7 @@ export { Label } from './Label/Label.js'
 export { Logo, LogoIcon, LogoIconWhite, LogoWhite } from './Logo/Logo.js'
 export { Switch } from './Switch/Switch.js'
 export { Tag } from './Tag/Tag.js'
+export { TextArea } from './TextArea/TextArea.js'
 
 /* widgets */
 export { DropdownButton } from './DropdownButton/DropdownButton.js'
@@ -61,7 +62,6 @@ export { ScreenCover } from './ScreenCover.js'
 export { SwitchField } from './SwitchField.js'
 export { SwitchGroup } from './SwitchGroup.js'
 export { SwitchGroupField } from './SwitchGroupField.js'
-export { TextArea } from './TextArea.js'
 export { TextAreaField } from './TextAreaField.js'
 
 /* Select */

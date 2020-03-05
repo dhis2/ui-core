@@ -2,9 +2,10 @@ import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
 import cx from 'classnames'
 
-import { statusPropType } from './common-prop-types.js'
-import { StatusIcon } from './icons/Status.js'
-import { styles } from './TextArea/styles.js'
+import { statusPropType } from '../common-prop-types.js'
+import { StatusIcon } from '../icons/Status.js'
+
+import { styles } from './TextArea.styles.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

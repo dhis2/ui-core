@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { TextArea } from '../index.js'
+import { TextArea } from './TextArea.js'
 
 window.onChange = window.Cypress.cy.stub()
 window.onBlur = window.Cypress.cy.stub()
