@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Logo, LogoWhite, LogoIcon, LogoIconWhite } from '../index.js'
+import { Logo, LogoWhite, LogoIcon, LogoIconWhite } from './Logo.js'
 
 const Wrapper = fn => <div style={{ width: '358px' }}>{fn()}</div>
 
