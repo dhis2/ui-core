@@ -3,7 +3,7 @@ import React from 'react'
 
 import { statusPropType } from './common-prop-types.js'
 import { Field } from './Field/Field.js'
-import { Help } from './Help.js'
+import { Help } from './Help/Help.js'
 import { AddRequired } from './ToggleField/AddRequired.js'
 
 const ToggleField = ({

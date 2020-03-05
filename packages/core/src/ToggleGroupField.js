@@ -5,7 +5,7 @@ import { ToggleGroup } from './ToggleGroup.js'
 import { Field } from './Field/Field.js'
 import { FieldSet } from './FieldSet.js'
 import { Legend } from './Legend.js'
-import { Help } from './Help.js'
+import { Help } from './Help/Help.js'
 import { statusPropType } from './common-prop-types.js'
 
 const ToggleGroupField = ({

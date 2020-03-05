@@ -4,7 +4,7 @@ import React from 'react'
 import { statusPropType, singleSelectedPropType } from './common-prop-types.js'
 import { Field } from './Field/Field.js'
 import { Label } from './Label/Label.js'
-import { Help } from './Help.js'
+import { Help } from './Help/Help.js'
 import { SingleSelect } from './SingleSelect.js'
 import { Constrictor } from './Constrictor.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718

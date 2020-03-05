@@ -1,8 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Help } from '../index.js'
+import { Help } from './Help.js'
 
-storiesOf('Help', module)
+storiesOf('Atom/Help', module)
     .add('Default', () => <Help>Allow me to be of assistance</Help>)
 
     .add('Status: Warning', () => (

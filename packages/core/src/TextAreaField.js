@@ -5,7 +5,7 @@ import { statusPropType } from './common-prop-types.js'
 import { Field } from './Field/Field.js'
 import { Label } from './Label/Label.js'
 import { TextArea } from './TextArea/TextArea.js'
-import { Help } from './Help.js'
+import { Help } from './Help/Help.js'
 import { Constrictor } from './Constrictor.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 

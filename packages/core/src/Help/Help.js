@@ -2,8 +2,8 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
-import { statusPropType } from './common-prop-types.js'
-import { spacers, theme } from './theme.js'
+import { statusPropType } from '../common-prop-types.js'
+import { spacers, theme } from '../theme.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
