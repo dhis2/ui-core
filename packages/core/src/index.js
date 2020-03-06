@@ -39,10 +39,10 @@ export { TextArea } from './TextArea/TextArea.js'
 export { ToggleGroup } from './ToggleGroup/ToggleGroup.js'
 
 /* widgets */
+export { CheckboxField } from './CheckboxField/CheckboxField.js'
 export { ToggleGroupField } from './ToggleGroupField/ToggleGroupField.js'
 
 /* todo */
-export { CheckboxField } from './CheckboxField.js'
 export { ComponentCover } from './ComponentCover.js'
 export { Divider } from './Divider.js'
 export { FieldSet } from './FieldSet.js'
