@@ -1604,7 +1604,7 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-core@^4.13.0", "@dhis2/ui-core@^4.6.1":
+"@dhis2/ui-core@^4.6.1":
   version "4.13.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.13.0.tgz#98792bf7616574043868986a856f6180885d82f4"
   integrity sha512-p0FrkKBc2aUWBtZ+TKG6R0wyIWN/QfChbJen5BbzXpPT2y1uUtbCdIZmJYTlFLjW4eueCOyLjHXWLPMibpVuIg==

@@ -17,6 +17,7 @@
     },
     "scripts": {
         "build": "concurrently -n w: \"yarn:build:*\"",
+        "build:constants": "yarn workspace @dhis2/ui-constants build",
         "build:core": "yarn workspace @dhis2/ui-core build",
         "build:docs": "d2-utils-docsite build ./docs -o ./dist --jsdoc ./packages/**/src --jsdoc-output-file api.md",
         "build:demo": "yarn workspace storybook build -o ../dist/demo --quiet",
@@ -37,6 +38,7 @@
         "start": "concurrently -n w: \"yarn:watch:*\" --kill-others",
         "test": "d2-app-scripts test",
         "watch:storybook": "yarn workspace storybook start --quiet --ci",
+        "watch:constants": "yarn build:constants --watch --dev",
         "watch:core": "yarn build:core --watch --dev",
         "watch:widgets": "yarn build:widgets --watch --dev"
     },

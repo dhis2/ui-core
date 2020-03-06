@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { resolve } from 'styled-jsx/css'
 
 import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
-import { spacers } from '../theme.js'
+import { spacers } from '@dhis2/ui-constants'
 import { Button } from '../Button/Button.js'
 import { DropMenu } from '../DropMenu.js'
 import { ArrowDown, ArrowUp } from '../icons/Arrow.js'

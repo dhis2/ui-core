@@ -25,7 +25,7 @@ import { LogoIconSvg } from './LogoIconSvg'
 /*
  * These are official colors for dhis2 logos.
  *
- * They are isolated here and not in `theme.js` as they should not be
+ * They are isolated here and not in @dhis2/ui-constants as they should not be
  * shared with any other components.
  *
  * https://github.com/dhis2/dhis2-identity

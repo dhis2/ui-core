@@ -4,7 +4,7 @@ import cx from 'classnames'
 
 import { TagIcon } from './TagIcon.js'
 import { TagText } from './TagText.js'
-import { colors } from '../theme.js'
+import { colors } from '@dhis2/ui-constants'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

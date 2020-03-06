@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { statusPropType } from '../common-prop-types.js'
-import { spacers, theme } from '../theme.js'
+import { spacers, theme } from '@dhis2/ui-constants'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

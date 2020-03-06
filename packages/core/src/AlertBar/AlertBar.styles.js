@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { colors, spacers, elevations } from '../theme.js'
+import { colors, spacers, elevations } from '@dhis2/ui-constants'
 
 export const ANIMATION_TIME = 350
 

@@ -3,7 +3,7 @@ import propTypes from '@dhis2/prop-types'
 import React from 'react'
 
 import { sizePropType } from '../common-prop-types.js'
-import { theme, spacers } from '../theme.js'
+import { theme, spacers } from '@dhis2/ui-constants'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**

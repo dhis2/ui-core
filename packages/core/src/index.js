@@ -17,7 +17,7 @@ export { CssVariables } from './CssVariables.js'
 /* refactored */
 /* core */
 export { AlertBar } from './AlertBar/AlertBar.js'
-export { AlertStack } from './AlertStackAlertStack.js'
+export { AlertStack } from './AlertStack/AlertStack.js'
 export { Box } from './Box/Box.js'
 export { Button } from './Button/Button.js'
 export { ButtonStrip } from './ButtonStrip/ButtonStrip.js'
@@ -96,6 +96,3 @@ export { ModalContent } from './ModalContent.js'
 export { ModalTitle } from './ModalTitle.js'
 export { Tab } from './Tab.js'
 export { TabBar } from './TabBar.js'
-
-/* constants */
-export { theme, colors, spacers, elevations, layers } from './theme.js'

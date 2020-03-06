@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { colors, theme, spacers } from '../theme.js'
+import { colors, theme, spacers } from '@dhis2/ui-constants'
 
 export const styles = css`
     .textarea {

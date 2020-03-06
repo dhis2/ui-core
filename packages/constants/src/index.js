@@ -154,8 +154,6 @@ export const spacers = {
     dp640: `${spacersNum.dp640}px`,
 }
 
-// based on this CodePen: https://codepen.io/j_cpr/pen/oOBLMp
-// which was produced by Joe Cooper
 export const elevations = {
     e100: '0 0 1px 0 rgba(64,75,90,0.20), 0 2px 1px 0 rgba(64,75,90,0.28)',
     e200: '0 0 1px 0 rgba(64,75,90,0.29), 0 3px 8px -2px rgba(64,75,90,0.30)',

@@ -6,7 +6,7 @@ import { Button } from '../Button/Button.js'
 import { DropMenu } from '../DropMenu.js'
 import { ArrowDown, ArrowUp } from '../icons/Arrow.js'
 
-import { spacers } from '../theme.js'
+import { spacers } from '@dhis2/ui-constants'
 import { buttonVariantPropType, sizePropType } from '../common-prop-types.js'
 
 const rightButton = css.resolve`

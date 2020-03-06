@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from '@dhis2/prop-types'
 import cx from 'classnames'
 
-import { colors, theme, spacers } from '../theme.js'
+import { colors, theme, spacers } from '@dhis2/ui-constants'
 import { Content } from './Content.js'
 import { Icon } from './Icon.js'
 import { Remove } from './Remove.js'

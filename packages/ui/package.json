@@ -10,6 +10,8 @@
         "build": "d2-app-scripts build"
     },
     "dependencies": {
-        "@dhis2/ui-core": "^4.13.0"
+        "@dhis2/ui-constants": "^5.0.0",
+        "@dhis2/ui-core": "^5.0.0",
+        "@dhis2/ui-widgets": "^5.0.0"
     }
 }
