@@ -12,22 +12,9 @@ export const findOptionIndex = (options, option) =>
 export const findOption = (options, option) =>
     options.find(current => isOption(current, option))
 
-export const toggleOption = (options, option) => {
-    if (findOption(options, option)) {
-        const index = findOptionIndex(options, option)
-
-        if (index === 0) return options.slice(1)
-        return [...options.slice(0, index), ...options.slice(index + 1)]
-    }
-
-    return [...options, option]
-}
-
 export const addOption = (options, option) => {
     const found = findOption(options, option)
-
     if (found) return options
-
     return [...options, option]
 }
 
@@ -39,6 +26,11 @@ export const removeOption = (options, option) => {
 
     return [...options.slice(0, index), ...options.slice(index + 1)]
 }
+
+export const toggleOption = (options, option) =>
+    findOption(options, option)
+        ? removeOption(options, option)
+        : addOption(options, option)
 
 export const toggleOptions = (
     collection,

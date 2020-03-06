@@ -17,7 +17,10 @@ import { ReorderingActions } from './Transfer/ReorderingActions.js'
 import { RightSide } from './Transfer/RightSide.js'
 import { Selected } from './Transfer/Selected.js'
 import { RightFooter } from './Transfer/RightFooter.js'
-import { multiSelectedPropType } from './common-prop-types.js'
+import {
+    singleSelectedPropType,
+    multiSelectedPropType,
+} from './common-prop-types.js'
 import {
     addOption,
     findOption,
@@ -25,6 +28,12 @@ import {
     toggleOption,
     toggleOptions,
 } from './Transfer/common.js'
+
+const getOptionsFromChildren = children =>
+    Children.toArray(children).map(child => ({
+        label: child.props.label,
+        value: child.props.value,
+    }))
 
 export const Transfer = ({
     children,
@@ -46,6 +55,7 @@ export const Transfer = ({
     labelRemoveIndivitual,
     leftFooter,
     leftHeader,
+    multiple,
     optionsComponent,
     optionsWidth,
     rightFooter,
@@ -53,32 +63,41 @@ export const Transfer = ({
     selected,
     onOrderChange,
 }) => {
+    const selectedOptions = Array.isArray(selected)
+        ? selected
+        : [selected].filter(value => !!value)
+
     const [filter, setFilter] = useState(initialFilter)
     const availableOptions = Children.map(children, child =>
-        findOption(selected, child.props) ? null : child
+        findOption(selectedOptions, child.props) ? null : child
     )
+
+    const [markedOptions, setMarkedOptions] = useState([])
+    const toggleMarkedOption = option => {
+        if (disabled) return
+
+        const newSelected = toggleOption(markedOptions, option).slice(
+            multiple ? 0 : -1
+        )
+
+        setMarkedOptions(newSelected)
+        setMarkedSelected([])
+    }
+
+    const [markedSelected, setMarkedSelected] = useState([])
+    const toggleMarkedSelected = option => {
+        if (disabled) return
+
+        setMarkedSelected(toggleOption(markedSelected, option))
+        setMarkedOptions([])
+    }
+
     const filteredOptions = Children.map(availableOptions, child => {
         if (!enableFilter || filter === '') return child
         if (child.props.label.indexOf(filter) === -1) return null
 
         return child
     })
-
-    // eslint-ignore-next-line no-unused-vars
-    const [markedOptions, setMarkedOptions] = useState([])
-    const toggleMarkedOption = option => {
-        if (disabled) return
-        setMarkedOptions(toggleOption(markedOptions, option))
-        setMarkedSelected([])
-    }
-
-    // eslint-ignore-next-line no-unused-vars
-    const [markedSelected, setMarkedSelected] = useState([])
-    const toggleMarkedSelected = option => {
-        if (disabled) return
-        setMarkedSelected(toggleOption(markedSelected, option))
-        setMarkedOptions([])
-    }
 
     return (
         <Container dataTest={dataTest} className={className} height={height}>
@@ -112,27 +131,24 @@ export const Transfer = ({
             </LeftSide>
 
             <Actions dataTest={dataTest}>
-                <AddAll
-                    label={labelAddAll}
-                    dataTest={dataTest}
-                    disabled={disabled || !Children.count(filteredOptions)}
-                    onClick={() => {
-                        const all = Children.toArray(filteredOptions).map(
-                            child => ({
-                                label: child.props.label,
-                                value: child.props.value,
-                            })
-                        )
-                        const newSelected = toggleOptions(
-                            selected,
-                            all,
-                            addOption
-                        )
+                {multiple && (
+                    <AddAll
+                        label={labelAddAll}
+                        dataTest={dataTest}
+                        disabled={disabled || !Children.count(filteredOptions)}
+                        onClick={() => {
+                            const all = getOptionsFromChildren(filteredOptions)
+                            const newSelected = toggleOptions(
+                                selectedOptions,
+                                all,
+                                addOption
+                            )
 
-                        setMarkedOptions([])
-                        onChange({ selected: newSelected })
-                    }}
-                />
+                            setMarkedOptions([])
+                            onChange({ selected: newSelected })
+                        }}
+                    />
+                )}
 
                 <AddIndividual
                     label={labelAddIndividual}
@@ -140,25 +156,31 @@ export const Transfer = ({
                     disabled={disabled || !markedOptions.length}
                     onClick={() => {
                         const newSelected = toggleOptions(
-                            selected,
+                            selectedOptions,
                             markedOptions,
                             addOption
                         )
 
                         setMarkedOptions([])
-                        onChange({ selected: newSelected })
+                        onChange({
+                            selected: multiple
+                                ? newSelected
+                                : newSelected.slice(-1),
+                        })
                     }}
                 />
 
-                <RemoveAll
-                    label={labelRemoveAll}
-                    dataTest={dataTest}
-                    disabled={disabled || !selected.length}
-                    onClick={() => {
-                        setMarkedSelected([])
-                        onChange({ selected: [] })
-                    }}
-                />
+                {multiple && (
+                    <RemoveAll
+                        label={labelRemoveAll}
+                        dataTest={dataTest}
+                        disabled={disabled || !selected.length}
+                        onClick={() => {
+                            setMarkedSelected([])
+                            onChange({ selected: [] })
+                        }}
+                    />
+                )}
 
                 <RemoveIndividual
                     label={labelRemoveIndivitual}
@@ -166,20 +188,22 @@ export const Transfer = ({
                     disabled={disabled || !markedSelected.length}
                     onClick={() => {
                         const newSelected = toggleOptions(
-                            selected,
+                            selectedOptions,
                             markedSelected,
                             removeOption
                         )
 
                         setMarkedSelected([])
-                        onChange({ selected: newSelected })
+                        onChange({
+                            selected: multiple ? newSelected : null,
+                        })
                     }}
                 />
             </Actions>
 
             <RightSide dataTest={dataTest} width={selectedWidth}>
                 <Selected
-                    selected={selected}
+                    selected={selectedOptions}
                     dataTest={dataTest}
                     enableOrderChange={enableOrderChange}
                     emptySelectionPlaceholder={emptySelectionPlaceholder}
@@ -238,10 +262,14 @@ Transfer.propTypes = {
     labelRemoveIndivitual: propTypes.string,
     leftFooter: propTypes.node,
     leftHeader: propTypes.node,
-    optionsComponent: propTypes.node,
+    multiple: propTypes.bool,
+    optionsComponent: propTypes.any,
     optionsWidth: propTypes.string,
     rightFooter: propTypes.node,
-    selected: multiSelectedPropType,
+    selected: propTypes.oneOfType([
+        singleSelectedPropType,
+        multiSelectedPropType,
+    ]),
     selectedWidth: propTypes.string,
     onOrderChange: propTypes.func,
 }
