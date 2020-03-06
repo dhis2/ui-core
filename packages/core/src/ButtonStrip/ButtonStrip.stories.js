@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { ButtonStrip, Button } from '../index.js'
+import { ButtonStrip } from './ButtonStrip.js'
+import { Button } from '../index.js'
 
 const Wrapper = fn => (
     <div
