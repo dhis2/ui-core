@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
-import { layers } from './theme.js'
+import { layers } from '../theme.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
