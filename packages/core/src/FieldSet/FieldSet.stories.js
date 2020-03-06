@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FieldSet, Field, Radio, Help, Legend } from '../index.js'
+import { FieldSet } from './FieldSet.js'
+import { Field, Radio, Help, Legend } from '../index.js'
 
 const onChange = () => {
     console.log('Radio was clicked, nothing else will happen')
