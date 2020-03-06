@@ -16,6 +16,7 @@ export { CssVariables } from './CssVariables.js'
 
 /* refactored */
 /* core */
+export { AlertBar } from './AlertBar/AlertBar.js'
 export { Box } from './Box/Box.js'
 export { Button } from './Button/Button.js'
 export { Card } from './Card/Card.js'
@@ -39,7 +40,6 @@ export { SplitButton } from './SplitButton/SplitButton.js'
 export { ToggleGroupField } from './ToggleGroupField/ToggleGroupField.js'
 
 /* todo */
-export { AlertBar } from './AlertBar.js'
 export { AlertStack } from './AlertStack.js'
 export { CheckboxField } from './CheckboxField.js'
 export { ComponentCover } from './ComponentCover.js'

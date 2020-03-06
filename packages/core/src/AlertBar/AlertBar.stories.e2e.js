@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { AlertBar } from '../index.js'
+import { AlertBar } from './AlertBar.js'
 
 window.onHidden = window.Cypress.cy.stub()
 

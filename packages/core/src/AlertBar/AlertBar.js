@@ -2,11 +2,11 @@ import cx from 'classnames'
 import propTypes from '@dhis2/prop-types'
 import React, { Component } from 'react'
 
-import { Actions, actionsPropType } from './AlertBar/Actions.js'
-import { Dismiss } from './AlertBar/Dismiss.js'
-import { Icon, iconPropType } from './AlertBar/Icon.js'
-import { Message } from './AlertBar/Message.js'
-import styles, { ANIMATION_TIME } from './AlertBar/styles.js'
+import { Actions, actionsPropType } from './Actions.js'
+import { Dismiss } from './Dismiss.js'
+import { Icon, iconPropType } from './Icon.js'
+import { Message } from './Message.js'
+import styles, { ANIMATION_TIME } from './AlertBar.styles.js'
 ;('') // TODO: https://github.com/jsdoc/jsdoc/issues/1718
 
 /**
