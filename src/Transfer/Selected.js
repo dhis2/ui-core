@@ -52,7 +52,7 @@ export const Selected = ({
 Selected.propTypes = {
     dataTest: propTypes.string.isRequired,
     errorOptions: multiSelectedPropType.isRequired,
-    optionsComponent: propTypes.node.isRequired,
+    optionsComponent: propTypes.any.isRequired,
     selected: multiSelectedPropType.isRequired,
     toggleMarkedSelected: propTypes.func.isRequired,
     emptySelectionPlaceholder: propTypes.node,

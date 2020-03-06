@@ -92,11 +92,24 @@ export const Transfer = ({
         setMarkedOptions([])
     }
 
+    /**
+     * Filtered options, always same as "availableOptions" when
+     * "enableFilter" is false
+     */
     const filteredOptions = Children.map(availableOptions, child => {
         if (!enableFilter || filter === '') return child
         if (child.props.label.indexOf(filter) === -1) return null
 
         return child
+    })
+
+    /**
+     * Filtered marked options, always same as "availableOptions" when
+     * "enableFilter" is false
+     */
+    const filteredMarkedOptions = markedOptions.filter(markedOption => {
+        if (!enableFilter || filter === '') return true
+        return markedOption.label.indexOf(filter) !== -1
     })
 
     return (
@@ -157,7 +170,7 @@ export const Transfer = ({
                     onClick={() => {
                         const newSelected = toggleOptions(
                             selectedOptions,
-                            markedOptions,
+                            filteredMarkedOptions,
                             addOption
                         )
 

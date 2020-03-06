@@ -38,9 +38,9 @@ export const Options = ({
 )
 
 Options.propTypes = {
-    children: propTypes.node.isRequired,
     dataTest: propTypes.string.isRequired,
     toggleMarkedOption: propTypes.func.isRequired,
+    children: propTypes.node,
     emptyOptionsPlaceholder: propTypes.node,
     markedOptions: multiSelectedPropType,
 }
