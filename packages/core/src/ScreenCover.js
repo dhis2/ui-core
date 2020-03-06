@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { Backdrop } from './Backdrop.js'
+import { Backdrop } from './Backdrop/Backdrop.js'
 import { insideAlignmentPropType } from './common-prop-types.js'
 import { layers, spacers } from './theme.js'
 

@@ -4,7 +4,7 @@ import propTypes from '@dhis2/prop-types'
 import { resolve } from 'styled-jsx/css'
 import { Card } from '../Card/Card.js'
 import { layers } from '../theme.js'
-import { Backdrop } from '../Backdrop.js'
+import { Backdrop } from '../Backdrop/Backdrop.js'
 
 const MenuWrapper = ({
     children,

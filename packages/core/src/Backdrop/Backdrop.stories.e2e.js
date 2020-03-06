@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Backdrop } from '../Backdrop.js'
+import { Backdrop } from './Backdrop.js'
 
 window.onClick = window.Cypress.cy.stub()
 
