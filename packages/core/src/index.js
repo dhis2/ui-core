@@ -45,7 +45,7 @@ export { CheckboxField } from './CheckboxField/CheckboxField.js'
 export { ToggleGroupField } from './ToggleGroupField/ToggleGroupField.js'
 
 /* todo */
-export { Divider } from './Divider.js'
+export { Divider } from './Divider/Divider.js'
 export { FileInput } from './FileInput.js'
 export { FileInputField } from './FileInputField.js'
 export { FileInputFieldWithList } from './FileInputFieldWithList.js'
