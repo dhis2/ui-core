@@ -141,7 +141,10 @@ export const Basic = () => (
 
 export const Multiple = () => (
     <StatefulWrapper>
-        <Transfer multiple onChange={() => console.log('Will be overriden')}>
+        <Transfer
+            maxSelections={Infinity}
+            onChange={() => console.log('Will be overriden')}
+        >
             {options}
         </Transfer>
     </StatefulWrapper>
@@ -222,7 +225,7 @@ export const CustomListOptions = () => (
 export const CustomButtonText = () => (
     <StatefulWrapper>
         <Transfer
-            multiple
+            maxSelections={Infinity}
             onChange={() => console.log('Will be overriden')}
             labelAddAll="Add all"
             labelAddIndividual="Add individual"
@@ -275,7 +278,7 @@ export const Error = () => (
 
 export const Reordering = () => (
     <Transfer
-        multiple
+        maxSelections={Infinity}
         enableOrderChange
         onChange={() => null}
         selected={options.slice(0, 4)}
@@ -288,7 +291,7 @@ export const IncreasedOptionsHeight = () => (
     <div style={{ maxHeight: 400 }}>
         <StatefulWrapper>
             <Transfer
-                multiple
+                maxSelections={Infinity}
                 enableFilter
                 onChange={() =>
                     console.log('Will be overriden by StatefulWrapper')
@@ -305,7 +308,7 @@ export const IncreasedOptionsHeight = () => (
 export const DifferentWidths = () => (
     <StatefulWrapper>
         <Transfer
-            multiple
+            maxSelections={Infinity}
             enableFilter
             onChange={() => console.log('Will be overriden by StatefulWrapper')}
             initialFilter="Ba"
