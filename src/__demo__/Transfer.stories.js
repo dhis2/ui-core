@@ -195,7 +195,10 @@ export const Filtered = () => (
 
 // eslint-disable-next-line react/prop-types
 const CustomOption = ({ label, value, onClick, marked }) => (
-    <p onClick={onClick} style={{ background: marked ? 'green' : 'blue' }}>
+    <p
+        onClick={() => onClick({ label, value })}
+        style={{ background: marked ? 'green' : 'blue' }}
+    >
         Custom: {label} (label), {value} (value)
     </p>
 )

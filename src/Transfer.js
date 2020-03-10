@@ -1,7 +1,6 @@
 import React, { Children, useState } from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { TransferOption } from './TransferOption.js'
 import { Container } from './Transfer/Container.js'
 import { LeftSide } from './Transfer/LeftSide.js'
 import { LeftHeader } from './Transfer/LeftHeader.js'
@@ -56,7 +55,6 @@ export const Transfer = ({
     leftFooter,
     leftHeader,
     multiple,
-    optionsComponent,
     optionsWidth,
     rightFooter,
     selectedWidth,
@@ -91,6 +89,20 @@ export const Transfer = ({
         setMarkedSelected(toggleOption(markedSelected, option))
         setMarkedOptions([])
     }
+
+    const selectedElements = Children.map(children, child => {
+        const isSelected = !!findOption(selectedOptions, child.props)
+        const hasError = isSelected && !!findOption(errorOptions, child.props)
+        const isMarked = !!findOption(markedSelected, child.props)
+
+        if (!isSelected) return null
+
+        return React.cloneElement(child, {
+            error: hasError,
+            marked: isMarked,
+            onClick: toggleMarkedSelected,
+        })
+    })
 
     /**
      * Filtered options, always same as "availableOptions" when
@@ -131,8 +143,8 @@ export const Transfer = ({
 
                 <Options
                     dataTest={dataTest}
-                    toggleMarkedOption={toggleMarkedOption}
                     emptyOptionsPlaceholder={emptyOptionsPlaceholder}
+                    toggleMarkedOption={toggleMarkedOption}
                     markedOptions={markedOptions}
                 >
                     {filteredOptions}
@@ -216,15 +228,11 @@ export const Transfer = ({
 
             <RightSide dataTest={dataTest} width={selectedWidth}>
                 <Selected
-                    selected={selectedOptions}
+                    selectedElements={selectedElements}
                     dataTest={dataTest}
                     enableOrderChange={enableOrderChange}
                     emptySelectionPlaceholder={emptySelectionPlaceholder}
-                    markedSelected={markedSelected}
-                    optionsComponent={optionsComponent}
                     onOrderChange={onOrderChange}
-                    toggleMarkedSelected={toggleMarkedSelected}
-                    errorOptions={errorOptions}
                 />
 
                 {(rightFooter || enableOrderChange) && (
@@ -252,7 +260,6 @@ Transfer.defaultProps = {
     height: '240px',
     optionsWidth: '320px',
     selectedWidth: '320px',
-    optionsComponent: TransferOption,
 }
 
 Transfer.propTypes = {
@@ -276,7 +283,6 @@ Transfer.propTypes = {
     leftFooter: propTypes.node,
     leftHeader: propTypes.node,
     multiple: propTypes.bool,
-    optionsComponent: propTypes.any,
     optionsWidth: propTypes.string,
     rightFooter: propTypes.node,
     selected: propTypes.oneOfType([

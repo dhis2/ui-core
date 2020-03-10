@@ -15,7 +15,7 @@ export const TransferOption = ({
 }) => (
     <div
         data-test={dataTest}
-        onClick={onClick}
+        onClick={event => onClick({ label, value }, event)}
         data-value={value}
         className={cx(className, { marked, error })}
     >
