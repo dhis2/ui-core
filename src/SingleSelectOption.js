@@ -39,6 +39,7 @@ const SingleSelectOption = ({
             div {
                 cursor: pointer;
                 font-size: 14px;
+                letter-spacing: 0.2px;
                 text-decoration: none;
                 color: ${colors.grey900};
                 padding: ${spacers.dp8} ${spacers.dp12};
