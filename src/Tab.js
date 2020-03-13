@@ -53,6 +53,7 @@ const Tab = ({
 
                 color: ${colors.grey600};
                 font-size: 14px;
+                letter-spacing: 0.2px;
                 line-height: 20px;
 
                 transition: all 150ms ease-in-out;
