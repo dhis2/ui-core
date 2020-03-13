@@ -18,6 +18,7 @@ export const ModalTitle = ({ children, dataTest }) => (
             h1 {
                 font-size: 20px;
                 font-weight: 500;
+                letter-spacing: 0.15px;
                 line-height: 24px;
                 margin: 0;
                 padding: ${spacers.dp24} ${spacers.dp24} 0 ${spacers.dp24};
