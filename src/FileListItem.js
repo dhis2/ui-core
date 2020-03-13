@@ -75,6 +75,7 @@ const FileListItem = ({
             }
             .label {
                 font-size: 14px;
+                letter-spacing: 0.3px;
                 color: ${colors.grey900};
                 word-break: break-all;
             }
@@ -85,6 +86,7 @@ const FileListItem = ({
             }
             .action {
                 font-size: 12px;
+                letter-spacing: 0.2px;
                 line-height: 12px;
                 margin-top: 0;
                 text-decoration: underline;
