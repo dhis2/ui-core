@@ -11,7 +11,7 @@ export const AddIndividual = ({ label, dataTest, disabled, onClick }) => (
         disabled={disabled}
         onClick={onClick}
     >
-        <IconAddIndividual dataTest={dataTest} />
+        <IconAddIndividual disabled={disabled} dataTest={dataTest} />
     </Button>
 )
 

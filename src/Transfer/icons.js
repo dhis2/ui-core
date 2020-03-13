@@ -1,23 +1,23 @@
 import React from 'react'
 import propTypes from '@dhis2/prop-types'
+import { theme } from '../theme.js'
 
-export const IconAddAll = ({ dataTest }) => (
+export const IconAddAll = ({ dataTest, disabled }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
         viewBox="0 0 16 16"
         data-test={`${dataTest}-iconaddall`}
+        fill={disabled ? theme.disabled : '#404B5A'}
     >
-        <g fill="none" fillRule="evenodd">
+        <g fillRule="evenodd">
             <polygon
-                fill="#404B5A"
                 fillRule="nonzero"
                 points="6 2 4.94 3.06 9.13 7.25 0 7.25 0 8.75 9.13 8.75 4.94 12.94 6 14 12 8"
             />
 
             <polygon
-                fill="#404B5A"
                 fillRule="nonzero"
                 points="10 2 8.94 3.06 13.13 7.25 13.9 8 13.13 8.75 8.94 12.94 10 14 16 8"
             />
@@ -27,45 +27,44 @@ export const IconAddAll = ({ dataTest }) => (
 
 IconAddAll.propTypes = {
     dataTest: propTypes.string.isRequired,
+    disabled: propTypes.bool,
 }
 
-export const IconAddIndividual = ({ dataTest }) => (
+export const IconAddIndividual = ({ dataTest, disabled }) => (
     <svg
+        fill={disabled ? theme.disabled : '#404B5A'}
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
         viewBox="0 0 16 16"
         data-test={`${dataTest}-iconaddindividual`}
     >
-        <polygon
-            fill="#404B5A"
-            points="8 2 6.94 3.06 11.13 7.25 2 7.25 2 8.75 11.13 8.75 6.94 12.94 8 14 14 8"
-        />
+        <polygon points="8 2 6.94 3.06 11.13 7.25 2 7.25 2 8.75 11.13 8.75 6.94 12.94 8 14 14 8" />
     </svg>
 )
 
 IconAddIndividual.propTypes = {
     dataTest: propTypes.string.isRequired,
+    disabled: propTypes.bool,
 }
 
-export const IconRemoveAll = ({ dataTest }) => (
+export const IconRemoveAll = ({ dataTest, disabled }) => (
     <svg
+        fill={disabled ? theme.disabled : '#404B5A'}
         width="16px"
         height="16px"
         viewBox="0 0 16 16"
         data-test={`${dataTest}-iconremoveall`}
         xmlns="http://www.w3.org/2000/svg"
     >
-        <g fill="none" fillRule="evenodd">
+        <g fillRule="evenodd">
             <polygon
-                fill="#404B5A"
                 fillRule="nonzero"
                 points="10 2 8.94 3.06 13.13 7.25 4 7.25 4 8.75 13.13 8.75 8.94 12.94 10 14 16 8"
                 transform="matrix(-1 0 0 1 20 0)"
             />
 
             <polygon
-                fill="#404B5A"
                 fillRule="nonzero"
                 points="1.06 2 0 3.06 4.19 7.25 4.96 8 4.19 8.75 0 12.94 1.06 14 7.06 8"
                 transform="matrix(-1 0 0 1 7.06 0)"
@@ -76,10 +75,12 @@ export const IconRemoveAll = ({ dataTest }) => (
 
 IconRemoveAll.propTypes = {
     dataTest: propTypes.string.isRequired,
+    disabled: propTypes.bool,
 }
 
-export const IconRemoveIndividual = ({ dataTest }) => (
+export const IconRemoveIndividual = ({ dataTest, disabled }) => (
     <svg
+        fill={disabled ? theme.disabled : '#404B5A'}
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
@@ -87,7 +88,6 @@ export const IconRemoveIndividual = ({ dataTest }) => (
         data-test={`${dataTest}-iconremoveindividual`}
     >
         <polygon
-            fill="#404B5A"
             points="8 2 6.94 3.06 11.13 7.25 2 7.25 2 8.75 11.13 8.75 6.94 12.94 8 14 14 8"
             transform="matrix(-1 0 0 1 16 0)"
         />
@@ -96,10 +96,12 @@ export const IconRemoveIndividual = ({ dataTest }) => (
 
 IconRemoveIndividual.propTypes = {
     dataTest: propTypes.string.isRequired,
+    disabled: propTypes.bool,
 }
 
-export const IconMoveDown = ({ dataTest }) => (
+export const IconMoveDown = ({ dataTest, disabled }) => (
     <svg
+        fill={disabled ? theme.disabled : '#404B5A'}
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
@@ -107,7 +109,6 @@ export const IconMoveDown = ({ dataTest }) => (
         data-test={`${dataTest}-iconmoveup`}
     >
         <polygon
-            fill="#404B5A"
             points="8 2 6.94 3.06 11.13 7.25 2 7.25 2 8.75 11.13 8.75 6.94 12.94 8 14 14 8"
             transform="matrix(0 1 1 0 0 0)"
         />
@@ -116,10 +117,12 @@ export const IconMoveDown = ({ dataTest }) => (
 
 IconMoveDown.propTypes = {
     dataTest: propTypes.string.isRequired,
+    disabled: propTypes.bool,
 }
 
-export const IconMoveUp = ({ dataTest }) => (
+export const IconMoveUp = ({ dataTest, disabled }) => (
     <svg
+        fill={disabled ? theme.disabled : '#404B5A'}
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
@@ -127,7 +130,6 @@ export const IconMoveUp = ({ dataTest }) => (
         data-test={`${dataTest}-iconmoveup`}
     >
         <polygon
-            fill="#404B5A"
             points="8 2 6.94 3.06 11.13 7.25 2 7.25 2 8.75 11.13 8.75 6.94 12.94 8 14 14 8"
             transform="rotate(-90 8 8)"
         />
@@ -136,4 +138,5 @@ export const IconMoveUp = ({ dataTest }) => (
 
 IconMoveUp.propTypes = {
     dataTest: propTypes.string.isRequired,
+    disabled: propTypes.bool,
 }

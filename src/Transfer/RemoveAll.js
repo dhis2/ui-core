@@ -11,7 +11,7 @@ export const RemoveAll = ({ label, dataTest, disabled, onClick }) => (
         disabled={disabled}
         onClick={onClick}
     >
-        <IconRemoveAll dataTest={dataTest} />
+        <IconRemoveAll disabled={disabled} dataTest={dataTest} />
     </Button>
 )
 
