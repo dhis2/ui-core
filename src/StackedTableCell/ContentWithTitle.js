@@ -13,6 +13,7 @@ export const ContentWithTitle = ({ title, children }) => (
                 white-space: normal;
                 min-height: 24px;
                 font-size: 13px;
+                letter-spacing: 0.2px;
                 line-height: 16px;
                 padding: 8px 0 4px;
                 font-weight: normal;
@@ -23,6 +24,7 @@ export const ContentWithTitle = ({ title, children }) => (
                 display: block;
                 padding: 0 0 8px 0;
                 font-size: 14px;
+                letter-spacing: 0.2px;
                 line-height: 18px;
             }
 
