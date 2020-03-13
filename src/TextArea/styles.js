@@ -19,6 +19,7 @@ export const styles = css`
         outline: 0;
 
         font-size: 14px;
+        letter-spacing: 0.25px;
         line-height: 16px;
         user-select: text;
     }
