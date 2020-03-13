@@ -7,31 +7,32 @@ import { borderColor, borderRadius } from './common.js'
 
 export const ReorderingActions = ({
     dataTest,
-    disabled,
+    disabledDown,
+    disabledUp,
     onChangeUp,
     onChangeDown,
 }) => (
     <div data-test={`${dataTest}-reorderingactions`}>
         <a
-            disabled={disabled}
-            onClick={event => {
-                event.preventDefault()
-                onChangeUp(event)
-            }}
-            data-test={`${dataTest}-buttonmoveup`}
-        >
-            <IconMoveUp dataTest={dataTest} />
-        </a>
-
-        <a
-            disabled={disabled}
+            disabled={disabledDown}
             onClick={event => {
                 event.preventDefault()
                 onChangeDown(event)
             }}
             data-test={`${dataTest}-buttonmovedown`}
         >
-            <IconMoveDown dataTest={dataTest} />
+            <IconMoveDown dataTest={dataTest} disabled={disabledDown} />
+        </a>
+
+        <a
+            disabled={disabledUp}
+            onClick={event => {
+                event.preventDefault()
+                onChangeUp(event)
+            }}
+            data-test={`${dataTest}-buttonmoveup`}
+        >
+            <IconMoveUp dataTest={dataTest} disabled={disabledUp} />
         </a>
 
         <style jsx>{`
@@ -59,8 +60,8 @@ export const ReorderingActions = ({
                 margin-left: ${spacers.dp8};
             }
 
-            [disabled] {
-                cursor: normal;
+            a[disabled] {
+                cursor: not-allowed;
             }
 
             a:last-child {
@@ -74,5 +75,6 @@ ReorderingActions.propTypes = {
     dataTest: propTypes.string.isRequired,
     onChangeDown: propTypes.func.isRequired,
     onChangeUp: propTypes.func.isRequired,
-    disabled: propTypes.bool,
+    disabledDown: propTypes.bool,
+    disabledUp: propTypes.bool,
 }

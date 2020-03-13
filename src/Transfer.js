@@ -1,25 +1,21 @@
 import React, { Children, useState } from 'react'
 import propTypes from '@dhis2/prop-types'
 
-import { Container } from './Transfer/Container.js'
-import { LeftSide } from './Transfer/LeftSide.js'
-import { LeftHeader } from './Transfer/LeftHeader.js'
-import { Filter } from './Transfer/Filter.js'
-import { Options } from './Transfer/Options.js'
-import { LeftFooter } from './Transfer/LeftFooter.js'
 import { Actions } from './Transfer/Actions.js'
 import { AddAll } from './Transfer/AddAll.js'
 import { AddIndividual } from './Transfer/AddIndividual.js'
+import { Container } from './Transfer/Container.js'
+import { Filter } from './Transfer/Filter.js'
+import { LeftFooter } from './Transfer/LeftFooter.js'
+import { LeftHeader } from './Transfer/LeftHeader.js'
+import { LeftSide } from './Transfer/LeftSide.js'
+import { Options } from './Transfer/Options.js'
 import { RemoveAll } from './Transfer/RemoveAll.js'
 import { RemoveIndividual } from './Transfer/RemoveIndividual.js'
 import { ReorderingActions } from './Transfer/ReorderingActions.js'
+import { RightFooter } from './Transfer/RightFooter.js'
 import { RightSide } from './Transfer/RightSide.js'
 import { Selected } from './Transfer/Selected.js'
-import { RightFooter } from './Transfer/RightFooter.js'
-import {
-    singleSelectedPropType,
-    multiSelectedPropType,
-} from './common-prop-types.js'
 import {
     addOption,
     findOption,
@@ -28,6 +24,10 @@ import {
     toggleOption,
     toggleOptions,
 } from './Transfer/common.js'
+import {
+    singleSelectedPropType,
+    multiSelectedPropType,
+} from './common-prop-types.js'
 
 const getOptionsFromChildren = children =>
     Children.toArray(children).map(child => ({
@@ -79,7 +79,7 @@ export const Transfer = ({
      */
     const [filter, setFilter] = useState(initialFilter)
     const availableOptions = Children.map(allOptions, child =>
-        findOption(selected, child.props) ? null : child
+        findOption(getOptionsFromChildren(selected), child.props) ? null : child
     )
 
     /**
@@ -118,7 +118,8 @@ export const Transfer = ({
      */
     const selectedElements = Children.toArray(allOptions)
         .map(child => {
-            const isSelected = !!findOption(selected, child.props)
+            const selectedOptions = getOptionsFromChildren(selected)
+            const isSelected = !!findOption(selectedOptions, child.props)
             const hasError =
                 isSelected && !!findOption(errorOptions, child.props)
             const isMarked = !!findOption(markedSelected, child.props)
@@ -296,10 +297,60 @@ export const Transfer = ({
 
                 {(rightFooter || enableOrderChange) && (
                     <RightFooter dataTest={dataTest}>
-                        {enableOrderChange && (
+                        {enableOrderChange && onOrderChange && (
                             <ReorderingActions
-                                onChangeUp={console.log}
-                                onChangeDown={console.log}
+                                dataTest={dataTest}
+                                disabledDown={
+                                    // only one item can be moved with the buttons
+                                    markedSelected.length !== 1 ||
+                                    // can't move an item down if it's the last one
+                                    findOptionIndex(
+                                        selected,
+                                        markedSelected[0]
+                                    ) ===
+                                        selected.length - 1
+                                }
+                                disabledUp={
+                                    // only one item can be moved with the buttons
+                                    markedSelected.length !== 1 ||
+                                    // can't move an item up if it's the first one
+                                    findOptionIndex(
+                                        selected,
+                                        markedSelected[0]
+                                    ) === 0
+                                }
+                                onChangeUp={() => {
+                                    const optionIndex = findOptionIndex(
+                                        getOptionsFromChildren(selected),
+                                        markedSelected[0]
+                                    )
+
+                                    // swap with previous item
+                                    const reordered = [
+                                        ...selected.slice(0, optionIndex - 1),
+                                        selected[optionIndex],
+                                        selected[optionIndex - 1],
+                                        ...selected.slice(optionIndex + 1),
+                                    ]
+
+                                    onOrderChange(reordered)
+                                }}
+                                onChangeDown={() => {
+                                    const optionIndex = findOptionIndex(
+                                        getOptionsFromChildren(selected),
+                                        markedSelected[0]
+                                    )
+
+                                    // swap with next item
+                                    const reordered = [
+                                        ...selected.slice(0, optionIndex),
+                                        selected[optionIndex + 1],
+                                        selected[optionIndex],
+                                        ...selected.slice(optionIndex + 2),
+                                    ]
+
+                                    onOrderChange(reordered)
+                                }}
                             />
                         )}
 
