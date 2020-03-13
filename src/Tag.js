@@ -48,6 +48,7 @@ export const Tag = ({
                     max-width: 240px;
                     display: inline-flex;
                     font-size: 13px;
+                    letter-spacing: 0.2px;
                     line-height: 12px;
                     height: 23px;
                 }
