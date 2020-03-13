@@ -54,6 +54,7 @@ const Chip = ({
                 border-radius: 16px;
                 background-color: ${colors.grey200};
                 font-size: 14px;
+                letter-spacing: 0.25px;
                 line-height: 16px;
                 cursor: pointer;
                 user-select: none;
