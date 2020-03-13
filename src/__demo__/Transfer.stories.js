@@ -277,14 +277,16 @@ export const Error = () => (
 )
 
 export const Reordering = () => (
-    <Transfer
-        maxSelections={Infinity}
-        enableOrderChange
-        onChange={() => null}
-        selected={options.slice(0, 4)}
-    >
-        {options}
-    </Transfer>
+    <StatefulWrapper initialState={options.slice(0, 4)}>
+        <Transfer
+            maxSelections={Infinity}
+            enableOrderChange
+            onChange={() => null}
+            onOrderChange={console.log.bind(null, 'onOrderChange')}
+        >
+            {options.slice(0, 4)}
+        </Transfer>
+    </StatefulWrapper>
 )
 
 export const IncreasedOptionsHeight = () => (
