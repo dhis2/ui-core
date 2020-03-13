@@ -28,6 +28,7 @@ export default css`
 
     .dense .label {
         font-size: 14px;
+        letter-spacing: 0.2px;
         line-height: 16px;
     }
 
@@ -75,6 +76,7 @@ export default css`
     .label {
         color: ${colors.grey900};
         font-size: 15px;
+        letter-spacing: 0.2px;
         line-height: 18px;
         user-select: none;
     }
