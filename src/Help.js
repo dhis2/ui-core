@@ -34,6 +34,7 @@ const Help = ({ children, valid, error, warning, className, dataTest }) => (
                 line-height: 14px;
                 color: ${theme.default};
                 cursor: help;
+                letter-spacing: 0.3px;
             }
 
             .valid {
