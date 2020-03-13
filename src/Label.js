@@ -9,6 +9,7 @@ const styles = css`
         display: block;
         box-sizing: border-box;
         font-size: 14px;
+        letter-spacing: 0.3px;
         line-height: 24px;
         padding: 0;
     }
