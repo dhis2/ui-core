@@ -65,6 +65,7 @@ const Input = ({
                     align-items: center;
                     color: ${colors.grey900};
                     font-size: 14px;
+                    letter-spacing: 0.25px;
                     line-height: 16px;
                 }
 
