@@ -7,6 +7,7 @@ const tableCellHeadStyles = css`
     th {
         border-bottom: 1px solid #e8edf2;
         font-size: 14px;
+        letter-spacing: 0.4px;
         line-height: 18px;
         padding: 13px 12px;
         height: 45px;
