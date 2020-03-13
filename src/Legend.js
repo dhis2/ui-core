@@ -23,6 +23,7 @@ const Legend = ({ className, children, required, dataTest }) => (
         <style jsx>{`
             legend {
                 font-size: 14px;
+                letter-spacing: 0.2px;
                 line-height: 16px;
                 color: ${colors.grey900};
             }
