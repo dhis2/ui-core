@@ -17,6 +17,7 @@ const styles = css`
         box-sizing: border-box;
 
         font-size: 14px;
+        letter-spacing: 0.25px;
         line-height: 16px;
         user-select: text;
 
