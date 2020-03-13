@@ -22,6 +22,8 @@ export default css`
         max-width: 600px;
 
         font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.2px;
 
         transform: translateY(1000px);
         transition: transform ${ANIMATION_TIME}ms cubic-bezier(0.4, 0, 0.6, 1);
