@@ -133,11 +133,13 @@ class Checkbox extends Component {
                         user-select: none;
                         color: ${colors.grey900};
                         font-size: 16px;
+                        letter-spacing: 0.3px;
                         line-height: 20px;
                     }
 
                     label.dense {
                         font-size: 14px;
+                        letter-spacing: 0.2px;
                         line-height: 16px;
                     }
 
