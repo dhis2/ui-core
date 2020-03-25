@@ -9,7 +9,7 @@ const LayerContext = createContext({
     level: 0,
 })
 
-const Layer = ({ children, className, level, position }) => {
+const Layer = ({ children, className, dataTest, level, position }) => {
     const parentLayer = useContext(LayerContext)
     const [layerEl, setLayerEl] = useState(null)
     const nextLayer = {
@@ -23,6 +23,7 @@ const Layer = ({ children, className, level, position }) => {
         <div
             ref={setLayerEl}
             className={cx(className, position, `level-${level}`)}
+            data-test={dataTest}
         >
             {layerEl && (
                 <LayerContext.Provider value={nextLayer}>
@@ -34,6 +35,8 @@ const Layer = ({ children, className, level, position }) => {
                     z-index: ${level};
                     height: 100%;
                     width: 100%;
+                    top: 0;
+                    left: 0;
                 }
                 div.fixed {
                     position: fixed;
@@ -54,11 +57,13 @@ const Layer = ({ children, className, level, position }) => {
 
 Layer.defaultProps = {
     position: 'fixed',
+    dataTest: 'dhis2-uicore-layer',
 }
 
 Layer.propTypes = {
     children: propTypes.node,
     className: propTypes.string,
+    dataTest: propTypes.string,
     level: propTypes.number,
     position: oneOf(['absolute', 'relative', 'fixed']),
 }
