@@ -65,7 +65,6 @@ class Tooltip extends Component {
         const {
             children,
             className,
-            tag: Element,
             content,
             dataTest,
             maxWidth,
@@ -82,14 +81,14 @@ class Tooltip extends Component {
                         ref: this.ref,
                     })
                 ) : (
-                    <Element
+                    <span
                         onMouseOver={this.onMouseOver}
                         onMouseOut={this.onMouseOut}
                         ref={this.ref}
                         data-test={`${dataTest}-reference`}
                     >
                         {children}
-                    </Element>
+                    </span>
                 )}
 
                 {open &&
@@ -144,7 +143,6 @@ Tooltip.defaultProps = {
  * @prop {string} [dataTest=dhis2-uicore-tooltip]
  * @prop {number} [maxWidth=300]
  * @prop {('top'|'bottom'|'right'|'left')} [placement=top]
- * @prop {string} [tag=span] The HTML tag to render
  */
 Tooltip.propTypes = {
     children: propTypes.node,
@@ -153,7 +151,6 @@ Tooltip.propTypes = {
     dataTest: propTypes.string,
     maxWidth: propTypes.number,
     placement: propTypes.oneOf(['top', 'right', 'bottom', 'left']),
-    tag: propTypes.string,
 }
 
 export { Tooltip, TOOLTIP_OFFSET }
