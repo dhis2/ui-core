@@ -1592,10 +1592,10 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/prop-types@^1.5", "@dhis2/prop-types@^1.5.0", "@dhis2/prop-types@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.6.0.tgz#34a16096836bc20187e3bdd326f492ded08300bb"
-  integrity sha512-Qda7t+TTnNQEmwI1vlyW0397Oqi37qSVKyB9yetT4X8Ie6INHZfrNd45+GnPuDF/aM7S0ZQlJMVf5eveU1YaVg==
+"@dhis2/prop-types@^1.5", "@dhis2/prop-types@^1.5.0", "@dhis2/prop-types@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.6.2.tgz#cbb71cafbfd0a4a84578f7190788bf1c1b627bf3"
+  integrity sha512-A8utw5nxh30hHwHqhRk1MoVHfHaCiAfWi+4Wa1lT76ir1GznIYm/JDIFrxeqeSJrSHg6O8TOiQuFb5PsaqBVEA==
   dependencies:
     prop-types "^15"
 
