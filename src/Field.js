@@ -9,7 +9,7 @@ import { spacers } from './theme.js'
  * @param {Field.PropTypes} props
  * @returns {React.Component}
  * @example import { Field } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/field--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/field--default|Storybook}
  */
 const Field = ({ children, className, dataTest }) => (
     <div className={className} data-test={dataTest}>

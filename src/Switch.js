@@ -16,7 +16,7 @@ import { colors, theme } from './theme.js'
  * @example import { Switch } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/switch.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/switch--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/switch--default|Storybook}
  */
 class Switch extends Component {
     ref = createRef()

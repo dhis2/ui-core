@@ -11,7 +11,7 @@ import { supplyHeaderLabelsToChildren } from './StackedTableRow/supplyHeaderLabe
  * @param {StackedTableRow.PropTypes}
  * @returns {React.Component}
  * @example import { StackedTableRow } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/stackedtable--default|Storybook}
  */
 export const StackedTableRow = ({ children, className, dataTest }) => (
     <tr className={className} data-test={dataTest}>

@@ -13,7 +13,7 @@ import { statusPropType } from './common-prop-types.js'
  * @example import { CheckboxGroupField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/checkbox.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/checkboxgroupfield--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/checkboxgroupfield--default|Storybook}
  */
 const CheckboxGroupField = ({
     children,

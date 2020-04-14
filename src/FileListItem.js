@@ -15,7 +15,7 @@ import { Loading } from './icons/Status.js'
  * @example import { FileListItem } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/fileinput.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/fileinputfield--file-list|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/fileinputfield--file-list|Storybook}
  */
 const FileListItem = ({
     className,

@@ -12,7 +12,7 @@ import { SubMenu } from './MenuItem/SubMenu'
  * @example import { MenuItem } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/menu--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/menu--default|Storybook}
  */
 const MenuItem = ({
     href,

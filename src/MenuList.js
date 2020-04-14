@@ -9,7 +9,7 @@ import propTypes from '@dhis2/prop-types'
  * @example import { MenuList } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/menu.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/menulist--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/menulist--default|Storybook}
  */
 const MenuList = ({ children, className, dataTest }) => (
     <ul className={className} data-test={dataTest}>

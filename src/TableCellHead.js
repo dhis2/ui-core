@@ -23,7 +23,7 @@ const tableCellHeadStyles = css`
  * @param {TableCellHead.PropTypes} props
  * @returns {React.Component}
  * @example import { TableCellHead } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/table--static-layout|Storybook}
  */
 export const TableCellHead = ({
     colSpan,

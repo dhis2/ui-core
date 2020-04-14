@@ -16,7 +16,7 @@ import { colors, theme } from './theme.js'
  * @example import { Radio } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/radio.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/radio--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/radio--default|Storybook}
  */
 class Radio extends Component {
     ref = createRef()

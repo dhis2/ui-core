@@ -23,7 +23,7 @@ const tableCellStyles = css`
  * @param {TableCell.PropTypes} props
  * @returns {React.Component}
  * @example import { TableCell } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/table--static-layout|Storybook}
  */
 export const TableCell = ({
     className,

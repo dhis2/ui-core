@@ -16,7 +16,7 @@ import * as baseModifiers from './Popper/modifiers.js'
  *
  * @example import { Popper } from '@dhis2/ui-core'
  *
- * @see Live demo: {@link /demo/?path=/story/popper--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/popper--default|Storybook}
  * @see Popper js: {@link https://popper.js.org/docs/v2/|Documentation}
  */
 

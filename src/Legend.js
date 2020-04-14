@@ -12,7 +12,7 @@ import { Required } from './Label/Required.js'
  *
  * @example import { Legend } from '@dhis2/ui-core'
  *
- * @see Live demo: {@link /demo/?path=/story/legend--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/legend--default|Storybook}
  */
 const Legend = ({ className, children, required, dataTest }) => (
     <legend className={className} data-test={dataTest}>

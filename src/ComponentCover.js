@@ -8,7 +8,7 @@ import { layers } from './theme.js'
  * @param {ComponentCover.PropTypes} props
  * @returns {React.Component}
  * @example import { ComponentCover } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/componentcover--circularloader|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/componentcover--circularloader|Storybook}
  */
 const ComponentCover = ({ children, className, dataTest }) => (
     <div className={className} data-test={dataTest}>

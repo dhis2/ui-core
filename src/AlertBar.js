@@ -18,7 +18,7 @@ import styles, { ANIMATION_TIME } from './AlertBar/styles.js'
  * @example import { AlertBar } from @dhis2/ui-core
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/alertbar.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/alertbar--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/alertbar--default|Storybook}
  */
 class AlertBar extends Component {
     // visible is used to control the show/hide animation

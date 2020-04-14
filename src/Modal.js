@@ -34,7 +34,7 @@ import { insideAlignmentPropType, sizePropType } from './common-prop-types.js'
  *  </Modal>
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/modal.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/modal--small-title-content-action|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/modal--small-title-content-action|Storybook}
  */
 export const Modal = ({
     children,

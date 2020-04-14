@@ -13,7 +13,7 @@ import { statusPropType } from './common-prop-types.js'
  * @example import { SwitchGroup } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/switch.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/switchgroup--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/switchgroup--default|Storybook}
  */
 
 const SwitchGroup = ({

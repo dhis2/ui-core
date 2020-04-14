@@ -13,7 +13,7 @@ import { Tabs } from './TabBar/Tabs.js'
  * @example import { TabBar } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tab.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/tabs--default-fluid|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/tabs--default-fluid|Storybook}
  */
 const TabBar = ({ fixed, children, className, scrollable, dataTest }) => {
     if (scrollable) {

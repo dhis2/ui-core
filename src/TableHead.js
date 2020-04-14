@@ -6,7 +6,7 @@ import propTypes from '@dhis2/prop-types'
  * @param {TableHead.PropTypes} props
  * @returns {React.Component}
  * @example import { TableHead } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/table--static-layout|Storybook}
  */
 export const TableHead = ({ children, className, dataTest }) => (
     <thead className={className} data-test={dataTest}>

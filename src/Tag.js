@@ -13,7 +13,7 @@ import { colors } from './theme.js'
  * @returns {React.Component}
  * @example import { Tag } from @dhis2/ui-core
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/tag.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/tag--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/tag--default|Storybook}
  */
 
 export const Tag = ({

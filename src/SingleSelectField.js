@@ -18,7 +18,7 @@ import { Constrictor } from './Constrictor.js'
  * @example import { SingleSelectField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/select.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/singleselectfield--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/singleselectfield--default|Storybook}
  */
 class SingleSelectField extends React.Component {
     render() {

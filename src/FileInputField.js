@@ -18,7 +18,7 @@ import { Help } from './Help.js'
  * @example import { FileInputField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/fileinput.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/fileinputfield--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/fileinputfield--default|Storybook}
  */
 const FileInputField = ({
     accept,

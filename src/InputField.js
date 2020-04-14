@@ -17,7 +17,7 @@ import { Constrictor } from './Constrictor.js'
  * @example import { InputField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/inputfield.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/inputfield--no-placeholder-no-value|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/inputfield--no-placeholder-no-value|Storybook}
  */
 class InputField extends React.Component {
     render() {

@@ -18,7 +18,7 @@ const tableStyles = css`
  * @param {Table.PropTypes} props
  * @returns {React.Component}
  * @example import { Table } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/table--static-layout|Storybook}
  */
 export const Table = ({ children, className, dataTest }) => (
     <table className={className} data-test={dataTest}>

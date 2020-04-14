@@ -13,7 +13,7 @@ import { ToggleGroup } from './ToggleGroup.js'
  * @example import { CheckboxGroup } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/checkbox.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/checkboxgroup--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/checkboxgroup--default|Storybook}
  */
 
 const CheckboxGroup = ({

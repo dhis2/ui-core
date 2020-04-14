@@ -14,7 +14,7 @@ import { Leaves } from './Node/Leaves.js'
  *
  * @example import { Node } from '@dhis2/ui-core'
  *
- * @see Live demo: {@link /demo/?path=/story/node--multiple-roots|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/node--multiple-roots|Storybook}
  */
 export const Node = ({
     open,

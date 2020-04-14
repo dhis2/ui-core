@@ -47,7 +47,7 @@ Content.propTypes = {
  * @example import { ScreenCover } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/principles/spacing-alignment.md#stacking|Design system}
- * @see Live demo: {@link /demo/?path=/story/screencover--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/screencover--default|Storybook}
  */
 const ScreenCover = ({ children, onClick, className, dataTest, position }) => {
     return (

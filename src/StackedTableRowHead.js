@@ -8,7 +8,7 @@ import { StackedTableRow } from './StackedTableRow.js'
  * @param {StackedTableRowHead.PropTypes}
  * @returns {React.Component}
  * @example import { StackedTableRowHead } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/stackedtable--default|Storybook}
  */
 export const StackedTableRowHead = ({ children, className, dataTest }) => (
     <StackedTableRow className={className} dataTest={dataTest}>

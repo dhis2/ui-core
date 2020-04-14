@@ -14,7 +14,7 @@ import { Remove } from './Chip/Remove.js'
  * @returns {React.Component}
  * @example import { Chip } from @dhis2/ui-core
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/chip.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/chip--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/chip--default|Storybook}
  */
 const Chip = ({
     selected,

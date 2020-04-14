@@ -6,7 +6,7 @@ import propTypes from '@dhis2/prop-types'
  * @param {StackedTableBody.PropTypes}
  * @returns {React.Component}
  * @example import { StackedTableBody } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/stackedtable--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/stackedtable--default|Storybook}
  */
 export const StackedTableBody = ({ children, className, dataTest }) => (
     <tbody className={className} data-tset={dataTest}>

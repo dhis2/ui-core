@@ -10,7 +10,7 @@ import { spacers } from './theme.js'
  * @param {ButtonStrip.PropTypes} props
  * @returns {React.Component}
  * @example import { ButtonStrip } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/buttonstrip--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/buttonstrip--default|Storybook}
  */
 const ButtonStrip = ({ className, children, middle, end, dataTest }) => (
     <div className={cx(className, { middle, end })} data-test={dataTest}>

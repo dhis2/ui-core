@@ -32,7 +32,7 @@ const CLOSE_DELAY = 400
  * @example import { Tooltip } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/molecules/tooltip.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/tooltips--default-fluid|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/tooltips--default-fluid|Storybook}
  */
 class Tooltip extends Component {
     state = { open: false }

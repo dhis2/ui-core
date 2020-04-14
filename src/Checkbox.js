@@ -16,7 +16,7 @@ import { colors, theme } from './theme.js'
  * @example import { Checkbox } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/checkbox.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/checkbox--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/checkbox--default|Storybook}
  */
 class Checkbox extends Component {
     ref = createRef()

@@ -10,7 +10,7 @@ import { theme } from './theme.js'
  * - https://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * @returns {React.Component}
  * @example import { CssReset } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/cssreset--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/cssreset--default|Storybook}
  */
 const CssReset = () => (
     <style jsx global>{`

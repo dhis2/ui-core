@@ -11,7 +11,7 @@ import { colors } from './theme.js'
  * @returns {React.Component}
  * @example import { Card } from '@dhis2/ui-core'
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/card.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/card--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/card--default|Storybook}
  */
 const Card = ({ className, children, dataTest }) => (
     <div className={cx(className)} data-test={dataTest}>

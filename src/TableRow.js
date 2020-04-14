@@ -13,7 +13,7 @@ const tableRowStyles = css`
  * @param {TableRow.PropTypes} props
  * @returns {React.Component}
  * @example import { TableRow } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/table--static-layout|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/table--static-layout|Storybook}
  */
 export const TableRow = ({ children, className, dataTest }) => (
     <tr className={className} data-test={dataTest}>

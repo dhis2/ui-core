@@ -13,7 +13,7 @@ import { statusPropType } from './common-prop-types.js'
  * @example import { RadioGroupField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/radio.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/radiogroupfield--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/radiogroupfield--default|Storybook}
  */
 
 const RadioGroupField = ({

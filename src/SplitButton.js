@@ -26,7 +26,7 @@ const rightButton = css.resolve`
  * @example import { SplitButton } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/splitbutton-basic--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/splitbutton-basic--default|Storybook}
  */
 class SplitButton extends Component {
     state = {

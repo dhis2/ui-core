@@ -13,7 +13,7 @@ import styles from './Button/styles.js'
  *
  * @example import { Button } from @dhis2/ui-core
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/button.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/button-basic--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/button-basic--default|Storybook}
  */
 export class Button extends Component {
     buttonRef = createRef()

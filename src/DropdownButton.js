@@ -20,7 +20,7 @@ const arrow = resolve`
  * @param {DropdownButton.PropTypes} props
  * @returns {React.Component}
  * @example import { DropdownButton } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/dropdownbutton-basic--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/dropdownbutton-basic--default|Storybook}
  */
 class DropdownButton extends Component {
     state = {

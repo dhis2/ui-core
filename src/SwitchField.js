@@ -14,7 +14,7 @@ import { Switch } from './Switch.js'
  * @example import { SwitchField } from '@dhis2/ui-core'
  *
  * @see Specification: {@link https://github.com/dhis2/design-system/blob/master/atoms/switch.md|Design system}
- * @see Live demo: {@link /demo/?path=/story/switchfield--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/switchfield--default|Storybook}
  */
 
 const SwitchField = ({

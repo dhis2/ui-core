@@ -11,7 +11,7 @@ import { layers } from './theme.js'
  * @param {AlertStack.PropTypes} props
  * @returns {React.Component}
  * @example import { AlertStack } from '@dhis2/ui-core'
- * @see Live demo: {@link /demo/?path=/story/alertstack--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/alertstack--default|Storybook}
  */
 const AlertStack = ({ className, children, dataTest }) =>
     createPortal(

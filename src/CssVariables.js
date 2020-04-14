@@ -20,7 +20,7 @@ const toCustomPropertyString = themeSection =>
  * @param {CssVariables.PropTypes} props
  * @returns {React.Component}
  * @example import { CssVariables } from @dhis2/ui-core
- * @see Live demo: {@link /demo/?path=/story/cssvariables--default|Storybook}
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/cssvariables--default|Storybook}
  */
 const CssVariables = ({ colors, theme, layers, spacers, elevations }) => {
     const allowedProps = { colors, theme, layers, spacers, elevations }
