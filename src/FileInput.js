@@ -15,6 +15,8 @@ import { StatusIcon } from './icons/Status.js'
  * @returns {React.Component}
  *
  * @example import { FileInput } from '@dhis2/ui-core'
+ *
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/fileinput--default|Storybook}
  */
 class FileInput extends Component {
     ref = createRef()

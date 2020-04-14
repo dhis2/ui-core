@@ -13,6 +13,8 @@ import { styles } from './TextArea/styles.js'
  * @returns {React.Component}
  *
  * @example import { TextArea } from '@dhis2/ui-core'
+ *
+ * @see Live demo: {@link https://ui-core.dhis2.nu/demo/?path=/story/textarea--default|Storybook}
  */
 export class TextArea extends Component {
     textareaRef = React.createRef()
