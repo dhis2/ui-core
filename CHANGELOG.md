@@ -1,3 +1,15 @@
+# [4.17.0](https://github.com/dhis2/ui-core/compare/v4.16.0...v4.17.0) (2020-04-14)
+
+
+### Bug Fixes
+
+* **chip:** adjust remove icon ([942265f](https://github.com/dhis2/ui-core/commit/942265f9917246b1a4a11420c8c367b2bb7517ba))
+
+
+### Features
+
+* **chip:** dense style ([9d7cb52](https://github.com/dhis2/ui-core/commit/9d7cb52bee32110c0bba2cba9d3671ec2b1f3da7))
+
 # [4.16.0](https://github.com/dhis2/ui-core/compare/v4.15.0...v4.16.0) (2020-03-25)
 
 
