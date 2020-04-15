@@ -1,3 +1,10 @@
+## [4.17.1](https://github.com/dhis2/ui-core/compare/v4.17.0...v4.17.1) (2020-04-15)
+
+
+### Bug Fixes
+
+* **MultiSelect:** use dense chips for selections in input ([a3b9e20](https://github.com/dhis2/ui-core/commit/a3b9e20bb4317aa2fbd1f7c5c78692fc11844160))
+
 # [4.17.0](https://github.com/dhis2/ui-core/compare/v4.16.0...v4.17.0) (2020-04-14)
 
 
