@@ -58,6 +58,7 @@ export { SwitchGroupField } from './SwitchGroupField.js'
 export { Tag } from './Tag.js'
 export { TextArea } from './TextArea.js'
 export { TextAreaField } from './TextAreaField.js'
+export { Tooltip } from './Tooltip.js'
 
 /* Select */
 export { SingleSelect } from './SingleSelect.js'
