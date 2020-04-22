@@ -1,3 +1,10 @@
+# [4.18.0](https://github.com/dhis2/ui-core/compare/v4.17.1...v4.18.0) (2020-04-22)
+
+
+### Features
+
+* **tooltip:** introduce tooltip as a public component ([158a322](https://github.com/dhis2/ui-core/commit/158a322719e6e4515212bdbb5c0bb05b91e94656))
+
 ## [4.17.1](https://github.com/dhis2/ui-core/compare/v4.17.0...v4.17.1) (2020-04-15)
 
 
