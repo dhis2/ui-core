@@ -1,3 +1,10 @@
+# [4.20.0](https://github.com/dhis2/ui-core/compare/v4.19.1...v4.20.0) (2020-05-18)
+
+
+### Features
+
+* let popper and popover accept react-refs or dom nodes directly ([df11f3c](https://github.com/dhis2/ui-core/commit/df11f3ca20d31094d36d3b7965d61364947f62ee))
+
 ## [4.19.1](https://github.com/dhis2/ui-core/compare/v4.19.0...v4.19.1) (2020-04-30)
 
 
