@@ -100,7 +100,7 @@ Popover.defaultProps = {
  * @typedef {Object} PropTypes
  * @static
  *
- * @prop {React.Ref|Element} reference A React ref or DOM element to the Popover should position against
+ * @prop {React.Ref|Element|VirtualElement} reference A React ref, DOM node, or {@link https://popper.js.org/docs/v2/virtual-elements/|popper.js virtual element} for the Popover to position itself against.
  * @prop {Node} children
  * @prop {boolean} [arrow=true] Show or hide the arrow
  * @prop {string} [className]
