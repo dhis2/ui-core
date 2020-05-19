@@ -3,10 +3,11 @@ import propTypes from '@dhis2/prop-types'
 import { usePopper } from 'react-popper'
 
 import {
-    elementRefPropType,
-    referencePlacementPropType,
+    popperPlacementPropType,
+    popperReferencePropType,
 } from './common-prop-types.js'
 import { deduplicateModifiers } from './Popper/modifiers.js'
+import { getReferenceElement } from './Popper/getReferenceElement.js'
 
 /**
  * @module
@@ -32,10 +33,7 @@ const Popper = ({
     reference,
     strategy,
 }) => {
-    const referenceElement =
-        reference instanceof Element
-            ? reference
-            : reference && reference.current
+    const referenceElement = getReferenceElement(reference)
     const [popperElement, setPopperElement] = useState(null)
 
     const deduplicatedModifiers = useMemo(
@@ -97,10 +95,6 @@ Popper.defaultProps = {
 // Prop names follow the names here: https://popper.js.org/docs/v2/constructors/
 Popper.propTypes = {
     children: propTypes.node.isRequired,
-    reference: propTypes.oneOfType([
-        elementRefPropType,
-        propTypes.instanceOf(Element),
-    ]).isRequired,
     className: propTypes.string,
     dataTest: propTypes.string,
     modifiers: propTypes.arrayOf(
@@ -111,7 +105,8 @@ Popper.propTypes = {
     ),
     observePopperResize: propTypes.bool,
     observeReferenceResize: propTypes.bool,
-    placement: referencePlacementPropType,
+    placement: popperPlacementPropType,
+    reference: popperReferencePropType,
     strategy: propTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
     onFirstUpdate: propTypes.func,
 }

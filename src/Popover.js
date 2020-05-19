@@ -7,9 +7,10 @@ import { Layer } from './Layer.js'
 import { combineModifiers } from './Popover/modifiers.js'
 import { Arrow } from './Popover/Arrow.js'
 import {
-    elementRefPropType,
-    referencePlacementPropType,
+    popperReferencePropType,
+    popperPlacementPropType,
 } from './common-prop-types.js'
+import { getReferenceElement } from './Popper/getReferenceElement.js'
 
 /**
  * @module
@@ -35,10 +36,7 @@ const Popover = ({
     placement,
     onBackdropClick,
 }) => {
-    const referenceElement =
-        reference instanceof Element
-            ? reference
-            : reference && reference.current
+    const referenceElement = getReferenceElement(reference)
     const [popperElement, setPopperElement] = useState(null)
     const [arrowElement, setArrowElement] = useState(null)
     const modifiers = useMemo(
@@ -115,10 +113,6 @@ Popover.defaultProps = {
  */
 Popover.propTypes = {
     children: propTypes.node.isRequired,
-    reference: propTypes.oneOfType([
-        elementRefPropType,
-        propTypes.instanceOf(Element),
-    ]).isRequired,
     arrow: propTypes.bool,
     className: propTypes.string,
     dataTest: propTypes.string,
@@ -126,7 +120,8 @@ Popover.propTypes = {
     maxWidth: propTypes.number,
     observePopperResize: propTypes.bool,
     observeReferenceResize: propTypes.bool,
-    placement: referencePlacementPropType,
+    placement: popperPlacementPropType,
+    reference: popperReferencePropType,
     onBackdropClick: propTypes.func,
 }
 
