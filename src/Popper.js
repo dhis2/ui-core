@@ -82,7 +82,7 @@ Popper.defaultProps = {
  * @static
  *
  * @prop {Node} children
- * @prop {React.Ref|Element} reference A React ref or DOM element to the Popover should position against
+ * @prop {React.Ref|Element|VirtualElement} reference A React ref, DOM node, or {@link https://popper.js.org/docs/v2/virtual-elements/|popper.js virtual element} for the Popper to position itself against.
  * @prop {string} [className]
  * @prop {string} [dataTest=dhis2-uicore-popper]
  * @prop {Array.<Modifier>} [modifiers=[]] A property of the `createPopper` options, {@link https://popper.js.org/docs/v2/constructors/|see constructor section of popper.js docs}
