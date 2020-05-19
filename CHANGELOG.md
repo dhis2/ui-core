@@ -1,3 +1,10 @@
+# [4.21.0](https://github.com/dhis2/ui-core/compare/v4.20.0...v4.21.0) (2020-05-19)
+
+
+### Features
+
+* add support for virtual elements in popper and popover ([3a06526](https://github.com/dhis2/ui-core/commit/3a065266f390501eb8cb606fe84f7ba81621c0dc))
+
 # [4.20.0](https://github.com/dhis2/ui-core/compare/v4.19.1...v4.20.0) (2020-05-18)
 
 
