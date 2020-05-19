@@ -1,3 +1,10 @@
+## [4.21.1](https://github.com/dhis2/ui-core/compare/v4.21.0...v4.21.1) (2020-05-19)
+
+
+### Bug Fixes
+
+* prevent icon from shrinking when label text overflows ([ccd86bc](https://github.com/dhis2/ui-core/commit/ccd86bc269a1dc2a6121388c465f59a3b0705cbb))
+
 # [4.21.0](https://github.com/dhis2/ui-core/compare/v4.20.0...v4.21.0) (2020-05-19)
 
 
