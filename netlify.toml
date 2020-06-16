@@ -3,6 +3,12 @@
   publish = "build/docs/"
 
 [[redirects]]
+  from = "/demo/*"
+  to = "https://ui.dhis2.nu/demo"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "https://ui.dhis2.nu"
   status = 301
